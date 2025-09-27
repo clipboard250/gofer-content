@@ -1,1 +1,260 @@
-index.html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Gofer Content — Messaging that makes people see themselves</title>
+  <meta name="description" content="If they don’t see themselves, they tune out. Gofer Content helps you get to the point so people recognize themselves and stick around." />
+
+  <!-- Open Graph / Social -->
+  <meta property="og:title" content="Gofer Content — Messaging that makes people see themselves">
+  <meta property="og:description" content="If they don’t see themselves, they tune out. Gofer Content helps you get to the point so people recognize themselves and stick around.">
+  <meta property="og:image" content="og-image.png">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://gofercontent.com/">
+
+  <!-- Basic, readable system fonts for speed -->
+  <style>
+    :root{
+      --bg:#0f0f0f;
+      --ink:#f7f3e8;
+      --muted:#cfc8b8;
+      --brand:#ff6a00; /* warm orange */
+      --brand-2:#8a2c00; /* deep burnt orange */
+      --card:#1a1a1a;
+      --max:1000px;
+      --radius:18px;
+      --shadow:0 10px 30px rgba(0,0,0,.35);
+    }
+    /* reset */
+    *,*::before,*::after{box-sizing:border-box}
+    html,body{margin:0;padding:0;background:radial-gradient(1200px 600px at 10% -10%, rgba(255,106,0,.25), transparent), var(--bg); color:var(--ink); font:16px/1.55 system-ui,-apple-system,Segoe UI,Roboto,Inter,Arial,sans-serif;}
+    img{max-width:100%;height:auto}
+    a{color:var(--ink);text-decoration:none}
+    a:focus,button:focus{outline:2px solid var(--brand);outline-offset:3px}
+    .wrap{max-width:var(--max);margin-inline:auto;padding:24px}
+    .pill{display:inline-block;border:1px solid #333;padding:.4rem .7rem;border-radius:999px;color:var(--muted);font-size:.9rem}
+    .btn{display:inline-block;padding:.9rem 1.1rem;border-radius:12px;background:linear-gradient(180deg,var(--brand),var(--brand-2));color:#111;font-weight:700;box-shadow:var(--shadow)}
+    .btn:hover{filter:brightness(1.05)}
+    .btn.alt{background:#2a2a2a;color:var(--ink);border:1px solid #3b3b3b}
+    header{position:sticky;top:0;background:rgba(15,15,15,.8);backdrop-filter:blur(6px);border-bottom:1px solid #262626;z-index:10}
+    nav{display:flex;align-items:center;gap:14px;justify-content:space-between}
+    nav .logo{display:flex;align-items:center;gap:12px}
+    nav .logo img{width:44px;height:44px;border-radius:50%;border:3px solid var(--brand)}
+    nav a.small{font-size:.95rem;color:var(--muted)}
+    .hero{display:grid;grid-template-columns:1.1fr .9fr;gap:28px;align-items:center;padding-block:48px}
+    .hero h1{font-size:clamp(28px,4.5vw,48px);line-height:1.05;margin:.2rem 0}
+    .hero p{color:var(--muted);font-size:1.1rem}
+    .hero .card{background:linear-gradient(180deg,#1b1b1b,#131313);border:1px solid #2a2a2a;border-radius:var(--radius);padding:22px}
+    .list{display:grid;gap:14px;margin:0;padding-left:1.2rem}
+    .list li{margin-left:.2rem}
+    section{padding-block:42px;border-top:1px solid #1f1f1f}
+    h2{font-size:clamp(22px,2.8vw,32px);margin:0 0 12px}
+    .grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+    .card{background:var(--card);border:1px solid #262626;border-radius:var(--radius);padding:20px}
+    .quote{font-style:italic;color:#e8e2d6}
+    .by{color:var(--muted);font-size:.95rem;margin-top:10px}
+    .cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:18px}
+    .footer{color:var(--muted);font-size:.95rem;padding-bottom:60px}
+    .tick{display:flex;gap:10px;align-items:center}
+    .tick::before{content:"✔";color:var(--brand)}
+    .timeline{display:grid;gap:12px}
+    .timeline .row{display:grid;grid-template-columns:140px 1fr;gap:14px;align-items:start}
+    /* small screens */
+    @media (max-width:860px){
+      .hero{grid-template-columns:1fr}
+      .grid-3{grid-template-columns:1fr}
+      nav .hide-sm{display:none}
+      .timeline .row{grid-template-columns:1fr}
+    }
+    /* accessibility helpers */
+    .skip{position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden}
+    .skip:focus{position:static;width:auto;height:auto;padding:.6rem;background:#000;border:2px dashed var(--brand)}
+  </style>
+
+  <link rel="icon" href="pfpdayna.jpeg">
+  <meta name="theme-color" content="#ff6a00" />
+  <meta name="color-scheme" content="dark light" />
+</head>
+<body>
+  <a href="#main" class="skip">Skip to content</a>
+
+  <header role="banner">
+    <div class="wrap">
+      <nav aria-label="Primary">
+        <div class="logo">
+          <img src="pfpdayna.jpeg" alt="Dayna Himot headshot wearing a cap and radio mic" width="88" height="88">
+          <strong>Gofer Content</strong>
+          <span class="pill hide-sm">St. Pete, FL • Messaging Strategy</span>
+        </div>
+        <div class="cta">
+          <a class="btn alt small" href="#how">How it works</a>
+          <a class="btn small" href="mailto:info@gofercontent.com?subject=Go%20for%20copy&body=Hi%20Dayna%2C%0A%0AHere%E2%80%99s%20what%20I%E2%80%99m%20trying%20to%20do%3A%20%5Bone%20sentence%5D.%0A%0AMy%20website%20or%20main%20link%3A%20%5Bpaste%20here%5D.%0A%0AGoal%20for%20this%20month%3A%20%5Bgoal%5D.%0A%0AThanks!">Email “Go for copy”</a>
+          <a class="btn alt small" href="tel:+17273539673" aria-label="Call 727-353-WORD">Call 727-353-WORD</a>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <!-- HERO -->
+    <div class="wrap hero" aria-labelledby="tagline">
+      <div>
+        <p class="pill">If they don’t see themselves, they tune out.</p>
+        <h1 id="tagline">Messaging that makes people see themselves — and stay.</h1>
+        <p>Gofer Content helps you get to the point, so people recognize themselves in what you offer and stick around.</p>
+        <div class="cta" style="margin-top:14px">
+          <a class="btn" href="mailto:info@gofercontent.com?subject=Go%20for%20copy&body=Hi%20Dayna%2C%20can%20you%20take%20a%20quick%20look%20and%20tell%20me%20what%E2%80%99s%20off%3F%0A%0ALink%3A%20%5Bpaste%20here%5D">Start with a quick look</a>
+          <a class="btn alt" href="#proof">Word on the street</a>
+        </div>
+      </div>
+      <div class="card" role="img" aria-label="Orange-to-black banner artwork with Gofer Content avatar">
+        <img src="og-image.png" alt="Gofer Content banner" loading="eager">
+      </div>
+    </div>
+
+    <!-- HOW -->
+    <section id="how" aria-labelledby="how-title">
+      <div class="wrap">
+        <h2 id="how-title">How we do it</h2>
+        <div class="grid-3">
+          <article class="card">
+            <h3>Identify</h3>
+            <p>We audit your message anywhere it shows up: homepages, onboarding emails, event blurbs, booking flows, press releases, even signs in your window.</p>
+            <ul class="list">
+              <li class="tick">Find what’s overlooked</li>
+              <li class="tick">Spot trust leaks</li>
+              <li class="tick">Name what your audience needs to hear</li>
+            </ul>
+          </article>
+          <article class="card">
+            <h3>Develop</h3>
+            <p>We rewrite and deliver messaging people recognize and respond to—no cringe. Websites, Google service pages, follow-ups, social post plans, internal docs.</p>
+            <ul class="list">
+              <li class="tick">Plain language</li>
+              <li class="tick">Clear structure</li>
+              <li class="tick">Consistent voice</li>
+            </ul>
+          </article>
+          <article class="card">
+            <h3>Equip</h3>
+            <p>We train your team and hand off tools so the message stays tight: AI prompt libraries, internal guides, and simple systems.</p>
+            <ul class="list">
+              <li class="tick">Act as your AI manager</li>
+              <li class="tick">Keep things on track</li>
+              <li class="tick">Available for quick tweaks</li>
+            </ul>
+          </article>
+        </div>
+        <p style="margin-top:16px;color:var(--muted)">“Money, money, money. It’s a rich man’s world.” — <strong>We price by project.</strong> Let’s talk goals.</p>
+      </div>
+    </section>
+
+    <!-- PROOF -->
+    <section id="proof" aria-labelledby="proof-title">
+      <div class="wrap">
+        <h2 id="proof-title">Word on the street?</h2>
+        <p class="muted">People talk. Here’s what they’ve actually said.</p>
+        <div class="grid-3">
+          <div class="card">
+            <p class="quote">“Gofer Content overhauled my initial cold sales email and the new copy is generating more responses.”</p>
+            <p class="by">— Michael Noffsinger</p>
+          </div>
+          <div class="card">
+            <p class="quote">“Dayna helped create the perfect message for my audience. Professional, proficient, and a pleasure to work with.”</p>
+            <p class="by">— Joseph Interante</p>
+          </div>
+          <div class="card">
+            <p class="quote">“A zealous journalist and storyteller who designs her own path—and she’s fun to be around.”</p>
+            <p class="by">— Steve Krizman</p>
+          </div>
+          <div class="card">
+            <p class="quote">“Company gem! She works extremely hard to make the whole process easy. Forever grateful.”</p>
+            <p class="by">— Louisiana Links</p>
+          </div>
+          <div class="card">
+            <p class="quote">“Amazing ideas I hadn’t thought of before. 10/10.”</p>
+            <p class="by">— Natasha Carter</p>
+          </div>
+          <div class="card">
+            <p class="quote">“She genuinely cares. Highly recommend.”</p>
+            <p class="by">— Ryan Mills</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section id="about" aria-labelledby="about-title">
+      <div class="wrap">
+        <h2 id="about-title">Gofer Content</h2>
+        <div class="grid-3" style="grid-template-columns:220px 1fr">
+          <div class="card">
+            <img src="pfpdayna.jpeg" alt="Dayna Himot smiling in cap and glasses" width="440" height="440" style="border-radius:50%;border:6px solid var(--brand)">
+          </div>
+          <div class="card" style="grid-column:span 1 / -1">
+            <p><strong>Dayna Himot</strong> is a messaging strategist and founder of Gofer Content, a St. Pete-based copy shop that helps people make their message clear everywhere it shows up.</p>
+            <p>30 years shaping stories across newsrooms, radio studios, creative teams, and large-scale productions: FOX31, Boulder Fringe, top-100 podcast producers on Spotify/Apple, and Fortune 500 campaigns.</p>
+            <p>She helps solopreneurs and small teams drop what feels off and sound human again—tightening the message before layering in AI so you save money, cut the cringe, and stay in control.</p>
+            <p>At the core: <strong>help the small guy save money and sound better.</strong></p>
+          </div>
+        </div>
+
+        <h3 style="margin-top:22px">Been around, done the work</h3>
+        <div class="card timeline">
+          <div class="row"><div>FOX31 Denver</div><div>Web Producer</div></div>
+          <div class="row"><div>Fortune 500</div><div>Copywriter</div></div>
+          <div class="row"><div>24-Year Web Agency</div><div>Content Director</div></div>
+          <div class="row"><div>Event Producer</div><div>Multimedia Strategist & Production Coordinator</div></div>
+        </div>
+
+        <h3 style="margin-top:22px">Magic is for magicians. We just know who to call.</h3>
+        <div class="card">
+          <p>Yes, Gofer Content is a one-woman shop. Here’s why I say “we.” I manage clients and handle writing + strategy, then pull in trusted collaborators—designers, developers, editors, even meme strategists—when it helps you win on a budget that makes sense.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section id="contact" aria-labelledby="contact-title">
+      <div class="wrap">
+        <h2 id="contact-title">Ready to fix what’s not working?</h2>
+        <div class="card">
+          <p>Email <strong>“Go for copy”</strong> to <a href="mailto:info@gofercontent.com">info@gofercontent.com</a><br>
+          or call <a href="tel:+17273539673">727-353-WORD</a>.</p>
+          <div class="cta">
+            <a class="btn" href="mailto:info@gofercontent.com?subject=Go%20for%20copy&body=Hi%20Dayna%2C%0A%0AHere%E2%80%99s%20what%E2%80%99s%20not%20working%3A%20%5Bbrief%5D%0AGoal%20for%20this%20month%3A%20%5Bgoal%5D%0ALink%3A%20%5Bpaste%5D%0A">Send the email</a>
+            <a class="btn alt" href="#how">See the process</a>
+          </div>
+          <p class="footer" aria-label="disclaimer">This website message was written by a human, and edited with AI.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer role="contentinfo">
+    <div class="wrap footer">
+      <p>© <span id="y"></span> Gofer Content • St. Petersburg, Florida</p>
+    </div>
+  </footer>
+
+  <script>
+    // year stamp
+    document.getElementById('y').textContent = new Date().getFullYear();
+  </script>
+
+  <!-- Simple structured data -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"Organization",
+    "name":"Gofer Content",
+    "url":"https://gofercontent.com/",
+    "logo":"pfpdayna.jpeg",
+    "image":"og-image.png",
+    "founder":{"@type":"Person","name":"Dayna Himot"},
+    "sameAs":[]
+  }
+  </script>
+</body>
+</html>
