@@ -22,48 +22,47 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=Lexend:wght@600;800&display=swap" rel="stylesheet">
   <style>
     :root{
-      --bg:#0e1117; /* charcoal */
-      --card:#141821;
-      --text:#eef2f7;
-      --muted:#a8b3c6;
-      --accent:#22c55e; /* neon green */
-      --accent-2:#3b82f6; /* electric blue */
-      --radius:18px;
+      --bg:#0e1117; --card:#141821; --text:#eef2f7; --muted:#a8b3c6;
+      --accent:#22c55e; --accent-2:#3b82f6; --radius:18px;
     }
     *{box-sizing:border-box}
-    html,body{margin:0;background:linear-gradient(180deg,#0f1115 0%,#0c1118 50%,#0a0d12 100%);color:var(--text);font-family:Inter,system-ui,Segoe UI,Roboto,Arial,sans-serif}
+    html,body{margin:0;background:linear-gradient(180deg,#0f1115,#0c1118 50%,#0a0d12);color:var(--text);font-family:Inter,system-ui,Segoe UI,Roboto,Arial,sans-serif}
     a{color:inherit;text-decoration:none}
     img{max-width:100%;display:block;border-radius:12px}
     .wrap{max-width:1100px;margin:0 auto;padding:20px 16px}
     header{display:grid;gap:12px;align-items:center;padding:18px 0}
     .brand{display:flex;gap:12px;align-items:center}
-    .logo{width:44px;height:44px;border-radius:10px;background:radial-gradient(circle at 30% 30%, #4ade80, #16a34a);display:flex;align-items:center;justify-content:center;font-weight:800}
+    .logo{width:44px;height:44px;border-radius:10px;background:radial-gradient(circle at 30% 30%, #4ade80,#16a34a);display:flex;align-items:center;justify-content:center;font-weight:800}
     .tag{font-size:12px;color:var(--muted)}
     .lang{margin-left:auto;display:flex;gap:8px}
     .lang button{background:var(--card);color:var(--text);border:1px solid #232a36;border-radius:10px;padding:8px 10px;cursor:pointer}
-    .hero{display:grid;gap:18px;padding:22px;background:linear-gradient(160deg,#101827, #0f172a);border-radius:var(--radius);border:1px solid #1f2937}
+    .hero{display:grid;gap:18px;padding:22px;background:linear-gradient(160deg,#101827,#0f172a);border-radius:var(--radius);border:1px solid #1f2937}
     .hero h1{font:800 clamp(28px,5vw,44px)/1.05 Lexend,Inter,system-ui,sans-serif;margin:0}
     .hero p{color:var(--muted);margin:0}
     .cta{display:grid;gap:10px;grid-template-columns:repeat(auto-fit,minmax(180px,1fr))}
     .btn{background:var(--accent);color:#06130a;font-weight:800;border:0;border-radius:14px;padding:14px 16px;text-align:center}
     .btn.alt{background:var(--accent-2);color:#062031}
     .btn.dark{background:#1f2937;color:var(--text);border:1px solid #2b3546}
-    .badges{display:flex;flex-wrap:wrap;gap:10px}
-    .pill{background:#121823;border:1px solid #243041;color:var(--muted);padding:8px 12px;border-radius:999px;font-size:13px}
+    .notice{font-size:12px;color:#99a8be}
     .grid{display:grid;gap:16px;grid-template-columns:repeat(auto-fit,minmax(240px,1fr))}
     .card{background:var(--card);border:1px solid #202735;border-radius:var(--radius);padding:16px}
     h2{font-family:Lexend,Inter,system-ui,sans-serif;font-weight:800;letter-spacing:.2px;font-size:24px;margin:0 0 8px}
-    ul{margin:0;padding-left:18px}
+    /* emoji list, no bullet dots */
+    ul{margin:0;padding-left:0;list-style:none}
     .how{counter-reset:step}
     .how li{list-style:none;margin:14px 0;padding-left:44px;position:relative}
     .how li:before{counter-increment:step;content:counter(step);position:absolute;left:0;top:0;width:32px;height:32px;border-radius:10px;background:#0c1320;border:1px solid #233044;color:#9fb0c6;display:grid;place-items:center;font-weight:700}
     .gallery img{aspect-ratio:16/10;object-fit:cover}
     .prices .price{font-size:26px;color:var(--accent);font-weight:800}
     .footer{color:#92a0b6;font-size:14px;display:flex;flex-wrap:wrap;gap:12px;justify-content:space-between;margin:24px 0}
-    .notice{font-size:12px;color:#99a8be}
-    form{display:grid;gap:10px}
+    /* ticker */
+    .ticker{display:flex;overflow:hidden;gap:12px;mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent)}
+    .pill{background:#121823;border:1px solid #243041;color:var(--muted);padding:8px 12px;border-radius:999px;font-size:13px;white-space:nowrap}
+    .ticker .pill{animation:ticker 16s linear infinite}
+    @keyframes ticker{0%{transform:translateX(0)}100%{transform:translateX(-100%)}}
     input, textarea{background:#0e1421;border:1px solid #253043;color:var(--text);border-radius:10px;padding:12px;font:inherit}
     label{font-size:14px;color:#b7c3d7}
+    form{display:grid;gap:10px}
     .two{display:grid;gap:10px;grid-template-columns:1fr 1fr}
     @media (max-width:560px){.two{grid-template-columns:1fr}}
   </style>
@@ -105,40 +104,37 @@
           <span class="tag">We come to you • <span id="brandCity">City</span></span>
         </div>
       </div>
-     <nav class="lang" aria-label="Language">
-  <button id="btnEN" aria-pressed="true">English</button>
-  <button id="btnES" aria-pressed="false">Español</button>
-</nav>
+      <nav class="lang" aria-label="Language">
+        <button id="btnEN" aria-pressed="true">English</button>
+        <button id="btnES" aria-pressed="false">Español</button>
+      </nav>
     </header>
 
     <section class="hero" aria-labelledby="h1">
       <h1 id="h1">Shiny, fresh car — without leaving home.</h1>
       <p id="sub">Full interior shampoo, foam wash, clay bar, wax, windows & wheels. Friendly family team. Affordable. We speak Spanish.</p>
+
       <p id="aboutTop" class="notice">We’re a family team serving St. Petersburg and nearby areas. We treat every car like it’s ours — careful, honest, and on time.</p>
-      <div class="badges" aria-label="Highlights">
-        <span class="pill">✅ Trusted local • 3+ years</span>
-        <span class="pill">🧼 Kids & pet mess experts</span>
-        <span class="pill">🕒 Most jobs 2–3 hrs</span>
-        <span class="pill">💳 Cash/Zelle/Venmo</span>
-      </div>
+
+      <div class="ticker" id="ticker" aria-label="Highlights"></div>
+
       <div class="cta">
         <a class="btn" id="btnText" href="#">📱 Text us</a>
         <a class="btn alt" id="btnCall" href="#">📞 Call</a>
         <a class="btn dark" id="btnFB" href="#">💬 Message on Facebook</a>
         <a class="btn dark" id="btnEmail" href="#">✉️ Email</a>
       </div>
-      <div class="notice">From <span class="price" id="fromPrice">$99</span> • Supplies & water on board • We travel to driveways, apartments & workplaces</div>
+
+      <div class="notice" id="fromLine">
+        From <span class="price" id="fromPrice">$99</span> • Supplies & water on board • We travel to driveways, apartments & workplaces
+      </div>
     </section>
 
     <section class="grid" aria-labelledby="svc">
       <article class="card">
         <h2 id="svc">What we do</h2>
         <ul id="svcList">
-          <li>Seats, carpets & floor shampoo</li>
-          <li>Deep clean cupholders, console & dashboard</li>
-          <li>Windows inside & out</li>
-          <li>Wheel polish & door sills</li>
-          <li>Foam wash • clay bar • hand wax finish</li>
+          <!-- filled by JS with emoji items -->
         </ul>
       </article>
       <article class="card prices">
@@ -206,7 +202,7 @@
           <input id="model" name="model" placeholder="e.g., 2015 Nissan Rogue" required>
           <label for="msg">Message</label>
           <textarea id="msg" name="message" rows="4" placeholder="Tell us what you need (pets, kids, stains, etc.)" required></textarea>
-          <label><input type="checkbox" id="smscopy"> Also open a text with a copy to 727-353-9673</label>
+          <label for="smscopy"><input type="checkbox" id="smscopy"> <span id="smsLabel">Also open a text with a copy to 727-353-9673</span></label>
           <button class="btn" type="submit" id="sendBtn">Send by email</button>
           <p class="notice" id="formNote">This opens your email app with all details filled in.</p>
         </form>
@@ -234,6 +230,7 @@
       en:{
         h1:"Shiny, fresh car — without leaving home.",
         sub:"Full interior shampoo, foam wash, clay bar, wax, windows & wheels. Friendly family team. Affordable. We speak Spanish.",
+        fromLine:(price)=>`From ${price} • Supplies & water on board • We travel to driveways, apartments & workplaces`,
         whatTitle:"What we do",
         pricingTitle:"Simple pricing",
         howTitle:"How booking works",
@@ -243,18 +240,28 @@
         formSend:"Send by email",
         formNote:"This opens your email app with all details filled in.",
         aboutTop:"We’re a family team serving St. Petersburg and nearby areas. We treat every car like it’s ours — careful, honest, and on time.",
+        about:"We’re a family team serving St. Petersburg and nearby areas. We treat every car like it’s ours — careful, honest, and on time. Most of our work comes from neighbors and friends who recommend us after seeing the results.",
+        btnText:"Text us", btnCall:"Call", btnFB:"Message on Facebook", btnEmail:"Email",
+        footCall:"Call", footText:"Text", footEmail:"Email",
         what:[
-          "Seats, carpets & floor shampoo",
-          "Deep clean cupholders, console & dashboard",
-          "Windows inside & out",
-          "Wheel polish & door sills",
-          "Foam wash • clay bar • hand wax finish"
+          "🪣 Seats, carpets & floor shampoo",
+          "🧽 Deep clean cupholders, console & dashboard",
+          "🪟 Windows inside & out",
+          "✨ Wheel polish & door sills",
+          "🫧 Foam wash • clay bar • hand wax finish"
         ],
-        about:"We’re a family team serving St. Petersburg and nearby areas. We treat every car like it’s ours — careful, honest, and on time. Most of our work comes from neighbors and friends who recommend us after seeing the results."
+        highlights:[
+          "✅ Trusted local • 3+ years",
+          "🧼 Kids & pet mess experts",
+          "⏱️ Most jobs 2–3 hrs",
+          "💳 Cash / Zelle / Venmo"
+        ],
+        smsCopy:`Also open a text with a copy to 727-353-9673`
       },
       es:{
         h1:"Auto limpio y brillante — sin salir de casa.",
         sub:"Shampoo interior completo, foam wash, clay bar, cera, vidrios y ruedas. Equipo familiar, precios accesibles. Hablamos español.",
+        fromLine:(price)=>`Desde ${price} • Llevamos suministros y agua • Vamos a casas, apartamentos y trabajos`,
         whatTitle:"Qué hacemos",
         pricingTitle:"Precios simples",
         howTitle:"Cómo funciona la reserva",
@@ -264,14 +271,23 @@
         formSend:"Enviar por correo",
         formNote:"Se abrirá tu app de correo con todo completado.",
         aboutTop:"Somos un equipo familiar en St. Petersburg y alrededores. Cuidamos cada auto como si fuera nuestro.",
+        about:"Somos un equipo familiar en St. Petersburg y alrededores. Cuidamos cada auto como si fuera nuestro: con atención, honestidad y puntualidad. La mayoría de nuestros trabajos llegan por recomendación de vecinos y amigos.",
+        btnText:"Enviar texto", btnCall:"Llamar", btnFB:"Mensaje en Facebook", btnEmail:"Correo",
+        footCall:"Llamar", footText:"Texto", footEmail:"Correo",
         what:[
-          "Shampoo de asientos, alfombras y pisos",
-          "Limpieza profunda de portavasos, consola y tablero",
-          "Vidrios por dentro y por fuera",
-          "Pulido de ruedas y marcos de puertas",
-          "Lavado con espuma • clay bar • cera a mano"
+          "🪣 Shampoo de asientos, alfombras y pisos",
+          "🧽 Limpieza profunda de portavasos, consola y tablero",
+          "🪟 Vidrios por dentro y por fuera",
+          "✨ Pulido de ruedas y marcos de puertas",
+          "🫧 Lavado con espuma • clay bar • cera a mano"
         ],
-        about:"Somos un equipo familiar en St. Petersburg y alrededores. Cuidamos cada auto como si fuera nuestro: con atención, honestidad y puntualidad. La mayoría de nuestros trabajos llegan por recomendación de vecinos y amigos."
+        highlights:[
+          "✅ Local de confianza • 3+ años",
+          "🧼 Expertos en desorden de niños y mascotas",
+          "⏱️ La mayoría 2–3 h",
+          "💳 Efectivo / Zelle / Venmo"
+        ],
+        smsCopy:`También abrir un texto con copia a 727-353-9673`
       }
     };
 
@@ -289,7 +305,7 @@
     const cleanPhone = d.phone.replace(/[^+\d]/g,'');
     const smsQuick = `sms:${cleanPhone}?&body=${encodeURIComponent('Hi ' + d.name + ', can I book a detailing?')}`;
     const telHref  = `tel:${cleanPhone}`;
-    const mailHref = `mailto:${d.email}?subject=Detailing%20quote&body=${encodeURIComponent(
+    const mailHrefTemplate = () => `mailto:${d.email}?subject=Detailing%20quote&body=${encodeURIComponent(
 `Hi Mobile Detailing, [enter template email here] date, time, car, level of destruction lol]
 
 Name: 
@@ -298,32 +314,50 @@ Car:
 Message: `
     )}`;
 
-    el('btnText').href = smsQuick;
-    el('btnCall').href = telHref;
-    el('btnEmail').href = mailHref;
-    el('btnFB').href   = d.facebook;
-    el('footCall').href = telHref;
-    el('footText').href = smsQuick;
-    el('footEmail').href = mailHref;
+    // build ticker pills
+    function buildTicker(items){
+      const t = el('ticker'); t.innerHTML = '';
+      const all = items.concat(items); // duplicate for infinite loop
+      all.forEach(txt=>{
+        const span = document.createElement('span');
+        span.className = 'pill';
+        span.textContent = txt;
+        t.appendChild(span);
+      });
+    }
 
     // language toggle
     function setLang(lang){
       const c = copy[lang];
       el('h1').textContent = c.h1;
       el('sub').textContent = c.sub;
+      el('aboutTop').textContent = c.aboutTop;
+      el('fromLine').innerHTML = c.fromLine(el('fromPrice').textContent);
+
       el('svc').textContent = c.whatTitle;
       el('pricingTitle').textContent = c.pricingTitle;
       el('howTitle').textContent = c.howTitle;
       el('home-detail').textContent = c.homeDetailTitle;
       el('gal').textContent = c.galTitle;
       el('formTitle').textContent = c.formTitle;
+
+      el('btnText').textContent = `📱 ${c.btnText}`;
+      el('btnCall').textContent = `📞 ${c.btnCall}`;
+      el('btnFB').textContent   = `💬 ${c.btnFB}`;
+      el('btnEmail').textContent= `✉️ ${c.btnEmail}`;
       el('sendBtn').textContent = c.formSend;
-      el('formNote').textContent = c.formNote;
-      el('aboutTop').textContent = c.aboutTop;
+      el('formNote').textContent= c.formNote;
+
+      document.getElementById('smsLabel').textContent = c.smsCopy;
+
+      el('footCall').textContent = c.footCall;
+      el('footText').textContent = c.footText;
+      el('footEmail').textContent= c.footEmail;
 
       const list = el('svcList'); list.innerHTML = '';
-      c.what.forEach(t=>{const li=document.createElement('li');li.textContent=t;list.appendChild(li)});
-      el('aboutText').textContent = c.about;
+      c.what.forEach(t=>{const li=document.createElement('li'); li.textContent=t; list.appendChild(li)});
+
+      buildTicker(c.highlights);
 
       document.getElementById('btnEN').setAttribute('aria-pressed', lang==='en');
       document.getElementById('btnES').setAttribute('aria-pressed', lang==='es');
@@ -331,6 +365,13 @@ Message: `
     document.getElementById('btnEN').onclick = ()=>setLang('en');
     document.getElementById('btnES').onclick = ()=>setLang('es');
     setLang('en');
+
+    // wire links
+    const mailHref = mailHrefTemplate();
+    el('btnText').href = smsQuick; el('footText').href = smsQuick;
+    el('btnCall').href = telHref;  el('footCall').href = telHref;
+    el('btnEmail').href = mailHref; el('footEmail').href = mailHref;
+    el('btnFB').href = d.facebook;
 
     // form submit -> email (and optional SMS copy to you)
     document.getElementById('qform').addEventListener('submit', (e)=>{
