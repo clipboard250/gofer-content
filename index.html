@@ -4,7 +4,7 @@
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
 <title>Gofer Content — Simple messaging that works</title>
-<meta name="description" content="Gofer Content rewrites the words on your site, pages, and emails so people get it fast and say yes. Project-based, practical, no fluff.">
+<meta name="description" content="I rewrite the words on your site, pages, and emails so people get it fast and say yes. Project-based, practical, no fluff.">
 <meta property="og:title" content="Gofer Content — Simple messaging that works">
 <meta property="og:description" content="Rewrite your message so people get it fast and say yes.">
 <meta property="og:image" content="og-image.png">
@@ -33,14 +33,15 @@ nav{display:flex;align-items:center;justify-content:space-between;gap:14px;flex-
 .pill{display:inline-flex;align-items:center;border:1px solid #333;padding:.4rem .7rem;border-radius:999px;color:var(--muted);font-size:.92rem}
 .btn{display:inline-block;padding:.8rem 1.05rem;border-radius:12px;background:#2a2a2a;color:var(--ink);border:1px solid #3b3b3b;font-weight:700;white-space:nowrap}
 .btn.brand{background:linear-gradient(180deg,var(--brand),var(--brand2));color:#111;box-shadow:var(--shadow)}
+
 /* prevent sticky header overlap */
 main{padding-top:calc(var(--headerH) + 12px)}
+section{padding-block:40px;border-top:1px solid #1f1f1f;scroll-margin-top:calc(var(--headerH) + 16px)}
 
 .hero{display:grid;grid-template-columns:1.1fr .9fr;gap:28px;align-items:center;padding-block:44px}
 .hero h1{font-size:clamp(28px,4.2vw,44px);line-height:1.05;margin:.3rem 0}
 .hero p{color:var(--muted);font-size:1.08rem}
 .card{background:var(--card);border:1px solid #262626;border-radius:var(--radius);padding:20px}
-section{padding-block:40px;border-top:1px solid #1f1f1f}
 h2{font-size:clamp(22px,2.8vw,32px);margin:0 0 12px}
 .grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
 .list{display:grid;gap:10px;padding-left:1.15rem}
@@ -56,7 +57,9 @@ h2{font-size:clamp(22px,2.8vw,32px);margin:0 0 12px}
   .grid-3{grid-template-columns:1fr}
 }
 @media (max-width:520px){
+  :root{ --headerH:58px; }        /* shorter sticky header on phones */
   .pill{display:none}
+  .btn{padding:.68rem .9rem}
 }
 .skip{position:absolute;left:-9999px}
 .skip:focus{position:static;background:#000;padding:.6rem;border:2px dashed var(--brand)}
@@ -74,7 +77,7 @@ h2{font-size:clamp(22px,2.8vw,32px);margin:0 0 12px}
         <span class="pill">St. Pete, FL • Messaging Strategy</span>
       </div>
       <!-- ONE button only -->
-      <a class="btn" href="#how">How we help</a>
+      <a class="btn" href="#how">How I help</a>
     </nav>
   </div>
 </header>
@@ -87,7 +90,7 @@ h2{font-size:clamp(22px,2.8vw,32px);margin:0 0 12px}
       <p>I rewrite the words on your site, service pages, and emails so people get it fast and say yes.</p>
       <div class="cta-row" style="margin-top:12px">
         <a class="btn brand" href="#proof">Word on the street</a>
-        <a class="btn" href="#how">How we help</a>
+        <a class="btn" href="#how">How I help</a>
       </div>
     </div>
     <div class="card" role="img" aria-label="Gofer Content banner">
@@ -98,11 +101,11 @@ h2{font-size:clamp(22px,2.8vw,32px);margin:0 0 12px}
   <!-- HOW -->
   <section id="how" aria-labelledby="how-title">
     <div class="wrap">
-      <h2 id="how-title">How we help</h2>
+      <h2 id="how-title">How I help</h2>
       <div class="grid-3">
         <article class="card">
           <h3>Identify</h3>
-          <p>Audit everywhere your message shows up: homepages, onboarding emails, booking flows, press, even window signs.</p>
+          <p>I audit everywhere your message shows up: homepages, onboarding emails, booking flows, press, even window signs.</p>
           <ul class="list">
             <li>Find what’s overlooked</li>
             <li>Spot trust leaks</li>
@@ -111,7 +114,7 @@ h2{font-size:clamp(22px,2.8vw,32px);margin:0 0 12px}
         </article>
         <article class="card">
           <h3>Develop</h3>
-          <p>Rewrite for response, not cringe: website copy, Google service pages, follow-ups, socials, internal docs.</p>
+          <p>I rewrite for response, not cringe: website copy, Google service pages, follow-ups, socials, internal docs — and I spin up quick landing pages and prototypes (my “vibe coding”) so you can see changes in real time.</p>
           <ul class="list">
             <li>Plain language</li>
             <li>Clear structure</li>
@@ -120,7 +123,7 @@ h2{font-size:clamp(22px,2.8vw,32px);margin:0 0 12px}
         </article>
         <article class="card">
           <h3>Equip</h3>
-          <p>Train your team and hand off tools: prompt libraries, internal guides, simple systems. Project-based pricing.</p>
+          <p>I train you or your team and hand off tools: prompt libraries, internal guides, simple systems. Project-based pricing.</p>
         </article>
       </div>
     </div>
