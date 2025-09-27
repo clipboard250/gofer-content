@@ -3,24 +3,20 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
-<title>Gofer Content — Messaging people see themselves in</title>
-<meta name="description" content="If they don’t see themselves, they tune out. Gofer Content helps you get to the point so people recognize themselves and stick around.">
-
-<!-- Open Graph -->
-<meta property="og:title" content="Gofer Content">
-<meta property="og:description" content="Messaging that makes people see themselves — and stay.">
+<title>Gofer Content — Simple messaging that works</title>
+<meta name="description" content="Gofer Content rewrites the words on your site, pages, and emails so people get it fast and say yes. Project-based, practical, no fluff.">
+<meta property="og:title" content="Gofer Content — Simple messaging that works">
+<meta property="og:description" content="Rewrite your message so people get it fast and say yes.">
 <meta property="og:image" content="og-image.png">
 <meta property="og:type" content="website">
-
 <link rel="icon" href="pfpdayna.jpeg">
 <meta name="theme-color" content="#ff6a00" />
-
 <style>
 :root{
   --bg:#0f0f0f; --ink:#f7f3e8; --muted:#cfc8b8;
   --brand:#ff6a00; --brand2:#8a2c00; --card:#1a1a1a;
   --radius:18px; --shadow:0 10px 30px rgba(0,0,0,.35);
-  --max:1000px;
+  --max:1000px; --headerH:68px;
 }
 *,*:before,*:after{box-sizing:border-box}
 html,body{margin:0;background:radial-gradient(1200px 600px at 12% -8%, rgba(255,106,0,.24), transparent),var(--bg);color:var(--ink);font:16px/1.55 system-ui,-apple-system,Segoe UI,Inter,Roboto,Arial,sans-serif}
@@ -29,19 +25,19 @@ a{color:var(--ink);text-decoration:none}
 a:focus,button:focus{outline:2px solid var(--brand);outline-offset:3px}
 .wrap{max-width:var(--max);margin-inline:auto;padding:22px}
 
-header{position:sticky;top:0;background:rgba(15,15,15,.8);backdrop-filter:blur(6px);border-bottom:1px solid #262626;z-index:10}
+/* header */
+header{position:sticky;top:0;height:var(--headerH);display:flex;align-items:center;background:rgba(15,15,15,.8);backdrop-filter:blur(6px);border-bottom:1px solid #262626;z-index:10}
 nav{display:flex;align-items:center;justify-content:space-between;gap:14px;flex-wrap:wrap}
 .logo{display:flex;align-items:center;gap:12px;min-width:200px}
 .logo img{width:44px;height:44px;border-radius:50%;border:3px solid var(--brand)}
 .pill{display:inline-flex;align-items:center;border:1px solid #333;padding:.4rem .7rem;border-radius:999px;color:var(--muted);font-size:.92rem}
-
-.cta{display:flex;gap:10px;align-items:center;flex-wrap:wrap}
-.btn{display:inline-block;padding:.85rem 1.05rem;border-radius:12px;background:linear-gradient(180deg,var(--brand),var(--brand2));color:#111;font-weight:700;box-shadow:var(--shadow);white-space:nowrap}
-.btn:hover{filter:brightness(1.05)}
-.btn.alt{background:#2a2a2a;color:var(--ink);border:1px solid #3b3b3b}
+.btn{display:inline-block;padding:.8rem 1.05rem;border-radius:12px;background:#2a2a2a;color:var(--ink);border:1px solid #3b3b3b;font-weight:700;white-space:nowrap}
+.btn.brand{background:linear-gradient(180deg,var(--brand),var(--brand2));color:#111;box-shadow:var(--shadow)}
+/* prevent sticky header overlap */
+main{padding-top:calc(var(--headerH) + 12px)}
 
 .hero{display:grid;grid-template-columns:1.1fr .9fr;gap:28px;align-items:center;padding-block:44px}
-.hero h1{font-size:clamp(28px,4.5vw,48px);line-height:1.05;margin:.3rem 0}
+.hero h1{font-size:clamp(28px,4.2vw,44px);line-height:1.05;margin:.3rem 0}
 .hero p{color:var(--muted);font-size:1.08rem}
 .card{background:var(--card);border:1px solid #262626;border-radius:var(--radius);padding:20px}
 section{padding-block:40px;border-top:1px solid #1f1f1f}
@@ -52,25 +48,15 @@ h2{font-size:clamp(22px,2.8vw,32px);margin:0 0 12px}
 .quote{font-style:italic;color:#e8e2d6}
 .by{color:var(--muted);font-size:.95rem;margin-top:8px}
 .footer{color:var(--muted);font-size:.95rem;padding-bottom:60px}
+.cta-row{display:flex;gap:12px;flex-wrap:wrap}
 
-/* MSCHF-ish talk picker */
-.talk{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
-.talk a{display:flex;align-items:center;justify-content:center;text-align:center;border-radius:14px;padding:16px;font-weight:800;border:1px solid #2b2b2b;background:#171717;box-shadow:var(--shadow)}
-.talk a:hover{transform:translateY(-1px)}
-.talk a[data-variant="hot"]{background:linear-gradient(180deg,var(--brand),var(--brand2));color:#111}
-.talk small{display:block;font-weight:600;opacity:.85}
-
-/* responsive fixes */
+/* responsive */
 @media (max-width:900px){
   .hero{grid-template-columns:1fr}
   .grid-3{grid-template-columns:1fr}
-  .talk{grid-template-columns:1fr 1fr}
 }
 @media (max-width:520px){
-  nav{gap:10px}
-  .cta .btn{width:100%}     /* header buttons stack cleanly on phones */
   .pill{display:none}
-  .talk{grid-template-columns:1fr}
 }
 .skip{position:absolute;left:-9999px}
 .skip:focus{position:static;background:#000;padding:.6rem;border:2px dashed var(--brand)}
@@ -87,11 +73,8 @@ h2{font-size:clamp(22px,2.8vw,32px);margin:0 0 12px}
         <strong>Gofer Content</strong>
         <span class="pill">St. Pete, FL • Messaging Strategy</span>
       </div>
-      <div class="cta">
-        <a class="btn alt" href="#how">How it works</a>
-        <a class="btn" href="mailto:info@gofercontent.com?subject=Go%20for%20copy&body=Tell%20me%20what%E2%80%99s%20off%20about%20this%3A%20%5Bpaste%20link%5D.">Email “Go for copy”</a>
-        <a class="btn alt" href="tel:+17273539673" aria-label="Call 727-353-WORD">Call 727-353-WORD</a>
-      </div>
+      <!-- ONE button only -->
+      <a class="btn" href="#how">How we help</a>
     </nav>
   </div>
 </header>
@@ -100,12 +83,11 @@ h2{font-size:clamp(22px,2.8vw,32px);margin:0 0 12px}
   <!-- HERO -->
   <div class="wrap hero">
     <div>
-      <p class="pill">If they don’t see themselves, they tune out.</p>
-      <h1>Messaging that makes people see themselves — and stay.</h1>
-      <p>Gofer Content helps you get to the point, so people recognize themselves in what you offer and stick around.</p>
-      <div class="cta" style="margin-top:12px">
-        <a class="btn" href="#talk">Start with a quick look</a>
-        <a class="btn alt" href="#proof">Word on the street</a>
+      <h1>Simple messaging that works.</h1>
+      <p>I rewrite the words on your site, service pages, and emails so people get it fast and say yes.</p>
+      <div class="cta-row" style="margin-top:12px">
+        <a class="btn brand" href="#proof">Word on the street</a>
+        <a class="btn" href="#how">How we help</a>
       </div>
     </div>
     <div class="card" role="img" aria-label="Gofer Content banner">
@@ -113,43 +95,32 @@ h2{font-size:clamp(22px,2.8vw,32px);margin:0 0 12px}
     </div>
   </div>
 
-  <!-- TALK PICKER -->
-  <section id="talk" aria-labelledby="talk-title">
-    <div class="wrap">
-      <h2 id="talk-title">How do you want to talk?</h2>
-      <p class="footer" style="margin-top:-4px">Pick your style. No forms. No fuss.</p>
-      <div class="talk">
-        <a data-variant="hot" href="sms:+17273539673?&body=Hey%20Dayna%2C%20can%20you%20take%20a%20quick%20look%20at%20%5Bpaste%20link%5D%3F">Text me<br><small>+1 (727) 353-WORD</small></a>
-        <a href="mailto:info@gofercontent.com?subject=Go%20for%20copy&body=Goal%20this%20month%3A%20%5Bgoal%5D%0ALink%3A%20%5Bpaste%5D%0ABiggest%20problem%3A%20%5Bone%20line%5D">Email</a>
-        <a href="tel:+17273539673">Call</a>
-        <a href="https://gofercontent.zohobookings.com/#/4734166000000046014" target="_blank" rel="noopener">Schedule</a>
-      </div>
-    </div>
-  </section>
-
   <!-- HOW -->
   <section id="how" aria-labelledby="how-title">
     <div class="wrap">
-      <h2 id="how-title">How we do it</h2>
+      <h2 id="how-title">How we help</h2>
       <div class="grid-3">
         <article class="card">
           <h3>Identify</h3>
-          <p>Audit every place your message shows up: homepages, onboarding emails, event blurbs, booking flows, press, even window signs.</p>
+          <p>Audit everywhere your message shows up: homepages, onboarding emails, booking flows, press, even window signs.</p>
           <ul class="list">
-            <li>Find what’s overlooked</li><li>Spot trust leaks</li><li>Name what people need to hear</li>
+            <li>Find what’s overlooked</li>
+            <li>Spot trust leaks</li>
+            <li>Say what people need to hear</li>
           </ul>
         </article>
         <article class="card">
           <h3>Develop</h3>
           <p>Rewrite for response, not cringe: website copy, Google service pages, follow-ups, socials, internal docs.</p>
           <ul class="list">
-            <li>Plain language</li><li>Clear structure</li><li>Consistent voice</li>
+            <li>Plain language</li>
+            <li>Clear structure</li>
+            <li>Consistent voice</li>
           </ul>
         </article>
         <article class="card">
           <h3>Equip</h3>
-          <p>Train your team; hand off tools: prompt libraries, internal guides, simple systems. I act as your AI manager.</p>
-          <p style="color:var(--muted)">Project-based pricing. Let’s talk goals.</p>
+          <p>Train your team and hand off tools: prompt libraries, internal guides, simple systems. Project-based pricing.</p>
         </article>
       </div>
     </div>
@@ -170,26 +141,12 @@ h2{font-size:clamp(22px,2.8vw,32px);margin:0 0 12px}
     </div>
   </section>
 
-  <!-- QUICK LINKS (projects / work types) -->
-  <section id="links" aria-labelledby="links-title">
-    <div class="wrap">
-      <h2 id="links-title">Stuff I work on</h2>
-      <div class="grid-3">
-        <a class="card" href="https://clipboard250.github.io/christian-church-near-me./" target="_blank" rel="noopener">ChristianChurchNearMe.com →</a>
-        <a class="card" href="https://clipboard250.github.io/gofer-content/" target="_blank" rel="noopener">This live placeholder →</a>
-        <a class="card" href="https://gofercontent.com/" target="_blank" rel="noopener">Legacy Gamma site →</a>
-        <!-- add more links anytime; they auto-wrap -->
-      </div>
-      <p class="footer">Want a link added here? Text or email it above.</p>
-    </div>
-  </section>
-
   <!-- CONTACT -->
   <section id="contact" aria-labelledby="contact-title">
     <div class="wrap">
-      <h2 id="contact-title">Ready to fix what’s not working?</h2>
+      <h2 id="contact-title">Let’s talk</h2>
       <div class="card">
-        <p>Email <strong>“Go for copy”</strong> to <a href="mailto:info@gofercontent.com">info@gofercontent.com</a> or call <a href="tel:+17273539673">727-353-WORD</a>.</p>
+        <p>Email <a href="mailto:info@gofercontent.com?subject=Go%20for%20copy&body=Goal%3A%20%5Bone%20line%5D%0ALink%3A%20%5Bpaste%5D">info@gofercontent.com</a> • Call <a href="tel:+17273539673">727-353-WORD</a> • Or <a href="https://gofercontent.zohobookings.com/#/4734166000000046014" target="_blank" rel="noopener">schedule</a>.</p>
         <p class="footer">This website message was written by a human, edited with AI.</p>
       </div>
     </div>
