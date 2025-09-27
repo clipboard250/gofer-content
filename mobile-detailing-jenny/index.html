@@ -19,7 +19,7 @@
   <meta name="twitter:image" content="images/og.jpg" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=Lexend:wght@600;800&display=swap" rel="stylesheet">
   <style>
     :root{
       --bg:#0e1117; /* charcoal */
@@ -28,8 +28,6 @@
       --muted:#a8b3c6;
       --accent:#22c55e; /* neon green */
       --accent-2:#3b82f6; /* electric blue */
-      --orange:#f59e0b;   /* amber for highlights */
-      --red:#ef4444;
       --radius:18px;
     }
     *{box-sizing:border-box}
@@ -44,7 +42,7 @@
     .lang{margin-left:auto;display:flex;gap:8px}
     .lang button{background:var(--card);color:var(--text);border:1px solid #232a36;border-radius:10px;padding:8px 10px;cursor:pointer}
     .hero{display:grid;gap:18px;padding:22px;background:linear-gradient(160deg,#101827, #0f172a);border-radius:var(--radius);border:1px solid #1f2937}
-    .hero h1{font-size:clamp(28px,5vw,44px);line-height:1.05;margin:0}
+    .hero h1{font:800 clamp(28px,5vw,44px)/1.05 Lexend,Inter,system-ui,sans-serif;margin:0}
     .hero p{color:var(--muted);margin:0}
     .cta{display:grid;gap:10px;grid-template-columns:repeat(auto-fit,minmax(180px,1fr))}
     .btn{background:var(--accent);color:#06130a;font-weight:800;border:0;border-radius:14px;padding:14px 16px;text-align:center}
@@ -54,7 +52,7 @@
     .pill{background:#121823;border:1px solid #243041;color:var(--muted);padding:8px 12px;border-radius:999px;font-size:13px}
     .grid{display:grid;gap:16px;grid-template-columns:repeat(auto-fit,minmax(240px,1fr))}
     .card{background:var(--card);border:1px solid #202735;border-radius:var(--radius);padding:16px}
-    h2{font-size:24px;margin:0 0 8px}
+    h2{font-family:Lexend,Inter,system-ui,sans-serif;font-weight:800;letter-spacing:.2px;font-size:24px;margin:0 0 8px}
     ul{margin:0;padding-left:18px}
     .how{counter-reset:step}
     .how li{list-style:none;margin:14px 0;padding-left:44px;position:relative}
@@ -63,7 +61,6 @@
     .prices .price{font-size:26px;color:var(--accent);font-weight:800}
     .footer{color:#92a0b6;font-size:14px;display:flex;flex-wrap:wrap;gap:12px;justify-content:space-between;margin:24px 0}
     .notice{font-size:12px;color:#99a8be}
-    .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
     form{display:grid;gap:10px}
     input, textarea{background:#0e1421;border:1px solid #253043;color:var(--text);border-radius:10px;padding:12px;font:inherit}
     label{font-size:14px;color:#b7c3d7}
@@ -86,12 +83,12 @@
   </script>
 </head>
 <body>
-  <!-- 🔧 EDIT THESE THREE in one place and you're done. -->
   <script>
+    // business settings
     window.DETAILER = {
       name: "Jenny Flatoue Mobile Detailing",
-      phone: "+1-727-353-9673",                         // Using Gofer Content number for leads
-      email: "info@gofercontent.com",                   // Using Gofer Content inbox for leads
+      phone: "+1-727-353-9673",
+      email: "info@gofercontent.com",
       facebook: "https://www.facebook.com/share/p/19iwWE7GDn/?mibextid=wwXIfr",
       city: "St. Petersburg, FL",
       languages: ["English","Español"],
@@ -116,7 +113,8 @@
 
     <section class="hero" aria-labelledby="h1">
       <h1 id="h1">Shiny, fresh car — without leaving home.</h1>
-      <p id="sub">Full interior shampoo, foam wash, clay bar, wax, wheels & windows. Friendly family team. Affordable. We speak Spanish.</p>
+      <p id="sub">Full interior shampoo, foam wash, clay bar, wax, windows & wheels. Friendly family team. Affordable. We speak Spanish.</p>
+      <p id="aboutTop" class="notice">We’re a family team serving St. Petersburg and nearby areas. We treat every car like it’s ours — careful, honest, and on time.</p>
       <div class="badges" aria-label="Highlights">
         <span class="pill">✅ Trusted local • 3+ years</span>
         <span class="pill">🧼 Kids & pet mess experts</span>
@@ -144,13 +142,13 @@
         </ul>
       </article>
       <article class="card prices">
-        <h2>Simple pricing</h2>
+        <h2 id="pricingTitle">Simple pricing</h2>
         <p><strong>Sedans</strong><br><span class="price">$99–$139</span></p>
         <p><strong>SUV/Truck</strong><br><span class="price">$139–$189</span></p>
         <p class="notice">Final quote depends on size/condition. We confirm price up front.</p>
       </article>
       <article class="card">
-        <h2>How booking works</h2>
+        <h2 id="howTitle">How booking works</h2>
         <ol class="how">
           <li>Text us your car model + a few photos.</li>
           <li>We send a firm quote & time window.</li>
@@ -192,7 +190,7 @@
         </div>
       </div>
       <div class="card">
-        <h2>Quick quote form</h2>
+        <h2 id="formTitle">Quick quote form</h2>
         <form id="qform">
           <div class="two">
             <div>
@@ -208,8 +206,9 @@
           <input id="model" name="model" placeholder="e.g., 2015 Nissan Rogue" required>
           <label for="msg">Message</label>
           <textarea id="msg" name="message" rows="4" placeholder="Tell us what you need (pets, kids, stains, etc.)" required></textarea>
-          <button class="btn" type="submit">Send by email</button>
-          <p class="notice">This opens your email app with all details filled in.</p>
+          <label><input type="checkbox" id="smscopy"> Also open a text with a copy to 727-353-9673</label>
+          <button class="btn" type="submit" id="sendBtn">Send by email</button>
+          <p class="notice" id="formNote">This opens your email app with all details filled in.</p>
         </form>
       </div>
     </section>
@@ -230,11 +229,20 @@
   </div>
 
   <script>
-    // --- Tiny i18n (EN/ES) ---
+    // i18n copy
     const copy = {
       en:{
         h1:"Shiny, fresh car — without leaving home.",
         sub:"Full interior shampoo, foam wash, clay bar, wax, windows & wheels. Friendly family team. Affordable. We speak Spanish.",
+        whatTitle:"What we do",
+        pricingTitle:"Simple pricing",
+        howTitle:"How booking works",
+        homeDetailTitle:"Home detailing (optional)",
+        galTitle:"Before → After",
+        formTitle:"Quick quote form",
+        formSend:"Send by email",
+        formNote:"This opens your email app with all details filled in.",
+        aboutTop:"We’re a family team serving St. Petersburg and nearby areas. We treat every car like it’s ours — careful, honest, and on time.",
         what:[
           "Seats, carpets & floor shampoo",
           "Deep clean cupholders, console & dashboard",
@@ -242,12 +250,20 @@
           "Wheel polish & door sills",
           "Foam wash • clay bar • hand wax finish"
         ],
-        about:"We’re a family team serving St. Petersburg and nearby areas. We treat every car like it’s ours — careful, honest, and on time. Most of our work comes from neighbors and friends who recommend us after seeing the results.",
-        send:"Send by email"
+        about:"We’re a family team serving St. Petersburg and nearby areas. We treat every car like it’s ours — careful, honest, and on time. Most of our work comes from neighbors and friends who recommend us after seeing the results."
       },
       es:{
         h1:"Auto limpio y brillante — sin salir de casa.",
         sub:"Shampoo interior completo, foam wash, clay bar, cera, vidrios y ruedas. Equipo familiar, precios accesibles. Hablamos español.",
+        whatTitle:"Qué hacemos",
+        pricingTitle:"Precios simples",
+        howTitle:"Cómo funciona la reserva",
+        homeDetailTitle:"Detalle para el hogar (opcional)",
+        galTitle:"Antes → Después",
+        formTitle:"Formulario de cotización",
+        formSend:"Enviar por correo",
+        formNote:"Se abrirá tu app de correo con todo completado.",
+        aboutTop:"Somos un equipo familiar en St. Petersburg y alrededores. Cuidamos cada auto como si fuera nuestro.",
         what:[
           "Shampoo de asientos, alfombras y pisos",
           "Limpieza profunda de portavasos, consola y tablero",
@@ -255,62 +271,91 @@
           "Pulido de ruedas y marcos de puertas",
           "Lavado con espuma • clay bar • cera a mano"
         ],
-        about:"Somos un equipo familiar en St. Petersburg y alrededores. Cuidamos cada auto como si fuera nuestro: con atención, honestidad y puntualidad. La mayoría de nuestros trabajos llegan por recomendación de vecinos y amigos.",
-        send:"Enviar por correo"
+        about:"Somos un equipo familiar en St. Petersburg y alrededores. Cuidamos cada auto como si fuera nuestro: con atención, honestidad y puntualidad. La mayoría de nuestros trabajos llegan por recomendación de vecinos y amigos."
       }
     };
 
     const d = window.DETAILER;
-    // Fill dynamic bits
-    document.getElementById('brandName').textContent = d.name;
-    document.getElementById('brandCity').textContent = d.city;
-    document.getElementById('fromPrice').textContent = `$${d.startPrice}`;
-    document.getElementById('footName').textContent = d.name;
-    document.getElementById('footCity').textContent = d.city;
-
-    // Contact links
-    const cleanPhone = d.phone.replace(/[^+\d]/g,'');
-    const smsHref = `sms:${cleanPhone}?&body=Hi%20${encodeURIComponent(d.name)}%2C%20can%20I%20book%20a%20detailing%3F`;
-    const telHref = `tel:${cleanPhone}`;
-    const mailHref = `mailto:${d.email}?subject=Detailing%20quote&body=Hi%20${encodeURIComponent(d.name)}%2C%0A%0ACar%3A%20_____%0ACity%3A%20_____%0APreferred%20day%2Ftime%3A%20_____%0A%0A(Please%20reply%20with%20a%20quote.)`;
-
     const el = id=>document.getElementById(id);
-    el('btnText').href = smsHref;
+
+    // dynamic bits
+    el('brandName').textContent = d.name;
+    el('brandCity').textContent = d.city;
+    el('fromPrice').textContent = `$${d.startPrice}`;
+    el('footName').textContent = d.name;
+    el('footCity').textContent = d.city;
+
+    // contact links
+    const cleanPhone = d.phone.replace(/[^+\d]/g,'');
+    const smsQuick = `sms:${cleanPhone}?&body=${encodeURIComponent('Hi ' + d.name + ', can I book a detailing?')}`;
+    const telHref  = `tel:${cleanPhone}`;
+    const mailHref = `mailto:${d.email}?subject=Detailing%20quote&body=${encodeURIComponent(
+`Hi Mobile Detailing, [enter template email here] date, time, car, level of destruction lol]
+
+Name: 
+Phone: 
+Car: 
+Message: `
+    )}`;
+
+    el('btnText').href = smsQuick;
     el('btnCall').href = telHref;
     el('btnEmail').href = mailHref;
-    el('btnFB').href = d.facebook;
+    el('btnFB').href   = d.facebook;
     el('footCall').href = telHref;
-    el('footText').href = smsHref;
+    el('footText').href = smsQuick;
     el('footEmail').href = mailHref;
 
-    // Language toggle
+    // language toggle
     function setLang(lang){
       const c = copy[lang];
       el('h1').textContent = c.h1;
       el('sub').textContent = c.sub;
-      const list = el('svcList');
-      list.innerHTML = '';
+      el('svc').textContent = c.whatTitle;
+      el('pricingTitle').textContent = c.pricingTitle;
+      el('howTitle').textContent = c.howTitle;
+      el('home-detail').textContent = c.homeDetailTitle;
+      el('gal').textContent = c.galTitle;
+      el('formTitle').textContent = c.formTitle;
+      el('sendBtn').textContent = c.formSend;
+      el('formNote').textContent = c.formNote;
+      el('aboutTop').textContent = c.aboutTop;
+
+      const list = el('svcList'); list.innerHTML = '';
       c.what.forEach(t=>{const li=document.createElement('li');li.textContent=t;list.appendChild(li)});
       el('aboutText').textContent = c.about;
-      el('qform').querySelector('button').textContent = c.send;
-      el('btnEN').setAttribute('aria-pressed', lang==='en');
-      el('btnES').setAttribute('aria-pressed', lang==='es');
+
+      document.getElementById('btnEN').setAttribute('aria-pressed', lang==='en');
+      document.getElementById('btnES').setAttribute('aria-pressed', lang==='es');
     }
-    el('btnEN').onclick = ()=>setLang('en');
-    el('btnES').onclick = ()=>setLang('es');
+    document.getElementById('btnEN').onclick = ()=>setLang('en');
+    document.getElementById('btnES').onclick = ()=>setLang('es');
     setLang('en');
 
-    // Quote form -> open mail client with filled body
-    el('qform').addEventListener('submit', (e)=>{
+    // form submit -> email (and optional SMS copy to you)
+    document.getElementById('qform').addEventListener('submit', (e)=>{
       e.preventDefault();
-      const name = el('name').value.trim();
+      const name  = el('name').value.trim();
       const phone = el('phone').value.trim();
       const model = el('model').value.trim();
-      const msg = el('msg').value.trim();
-      const body = encodeURIComponent(
-        `Hi ${d.name},\n\nName: ${name}\nPhone: ${phone}\nCar: ${model}\nMessage: ${msg}`
-      );
-      window.location.href = `mailto:${d.email}?subject=Detailing%20quote&body=${body}`;
+      const msg   = el('msg').value.trim();
+      const wantSms = document.getElementById('smscopy').checked;
+
+      const body = `Hi Mobile Detailing, [enter template email here] date, time, car, level of destruction lol]
+
+Name: ${name}
+Phone: ${phone}
+Car: ${model}
+Message: ${msg}`;
+
+      // open email
+      window.location.href = `mailto:${d.email}?subject=Detailing%20quote&body=${encodeURIComponent(body)}`;
+
+      // optional text copy to your number
+      if (wantSms) {
+        const smsHref = `sms:+17273539673?&body=${encodeURIComponent(body)}`;
+        setTimeout(()=>{ window.location.href = smsHref; }, 600);
+      }
     });
   </script>
 </body>
