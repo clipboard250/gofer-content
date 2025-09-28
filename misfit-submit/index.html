@@ -30,7 +30,7 @@
       --muted:#cfcfcf;
       --card:#0a0a0a;
       --ring:#222;
-      --red:#e10600; /* Misfit red */
+      --red:#e10600;
     }
     *{box-sizing:border-box}
     html,body{margin:0;background:var(--bg);color:var(--ink);font-family:Helvetica, Arial, system-ui, -apple-system, Segoe UI, Roboto, Inter, sans-serif;line-height:1.45}
@@ -47,20 +47,35 @@
     .tag{color:var(--muted);font-size:16px;max-width:640px}
 
     /* Buttons */
-    .cta-row{display:flex;gap:12px;flex-wrap:wrap;margin-top:12px}
     .btn{
       display:inline-block;background:transparent;color:#fff;
       padding:14px 18px;border-radius:12px;font-weight:800;letter-spacing:-0.01em;
       border:2px solid var(--red);transition:background .15s ease,color .15s ease;
-      text-align:center;min-width:260px;
+      text-align:center;
     }
     .btn:hover{background:var(--red);color:#000}
+
+    /* Header actions: 1 row on desktop; swipe ticker on mobile */
+    .header-actions{
+      display:flex;gap:12px;margin-top:12px;flex-wrap:wrap;
+    }
+    .header-actions .btn{flex:1;min-width:220px}
+    @media(min-width:980px){
+      .header-actions{flex-wrap:nowrap}
+      .header-actions .btn{min-width:0}
+    }
     @media(max-width:720px){
-      .cta-row{flex-direction:column;align-items:stretch;width:100%}
-      .btn{width:100%;min-width:0}
+      .header-actions{
+        flex-wrap:nowrap;overflow-x:auto;-webkit-overflow-scrolling:touch;
+        scroll-snap-type:x mandatory;padding-bottom:6px;
+      }
+      .header-actions::-webkit-scrollbar{display:none}
+      .header-actions .btn{
+        flex:0 0 85%;scroll-snap-align:start;
+      }
     }
 
-    /* Cards & layout */
+    /* Layout cards */
     .grid{display:grid;gap:18px;margin-top:22px}
     @media(min-width:900px){.grid{grid-template-columns:1.1fr .9fr}}
     section{background:var(--card);border:1px solid var(--ring);border-radius:20px;padding:20px}
@@ -74,12 +89,8 @@
     .row{display:grid;gap:12px}
     @media(min-width:720px){.row{grid-template-columns:1fr 1fr}}
 
-    /* NEW: checkbox layout fixes */
     .checks{display:grid;gap:10px;margin-top:4px}
-    .check{
-      display:grid;grid-template-columns:28px 1fr;column-gap:10px;
-      align-items:start;font-size:14px;line-height:1.35;word-break:normal
-    }
+    .check{display:grid;grid-template-columns:28px 1fr;column-gap:10px;align-items:start;font-size:14px;line-height:1.35}
     .check input{width:20px;height:20px;margin:0;align-self:start}
 
     /* Media */
@@ -104,15 +115,13 @@
         <div>
           <h1>Misfit Toys — One Tin Soldier</h1>
           <div class="tag">A public archive of memory, play, and community. Share your photos, videos, links, or news articles from <strong>One Tin Soldier</strong> (any location, 2022–2025). Together, we keep the story alive.</div>
-          <div class="cta-row">
+          <div class="header-actions">
             <a class="btn" href="#submit">Submit your media</a>
             <a class="btn" href="#gallery">See the gallery</a>
+            <a class="btn" target="_blank" rel="noopener" href="https://www.gofundme.com/f/help-bring-one-tin-soldier-to-playa-2025-and-beyond">Fuel the 2025 Build</a>
+            <a class="btn" href="#volunteer">Get Involved</a>
           </div>
         </div>
-      </div>
-      <div class="cta-row">
-        <a class="btn" target="_blank" rel="noopener" href="https://www.gofundme.com/f/help-bring-one-tin-soldier-to-playa-2025-and-beyond">Fuel the 2025 Build</a>
-        <a class="btn" href="#volunteer">Get Involved</a>
       </div>
     </header>
 
@@ -174,7 +183,6 @@
             </div>
           </div>
 
-          <!-- FIXED: checkbox layout -->
           <div class="checks">
             <label class="check">
               <input type="checkbox">
@@ -201,7 +209,7 @@
 
     <!-- GALLERY PREVIEW -->
     <section id="gallery">
-      <h2>Community Gallery (Preview)</h2>
+      <h2>Community-Sourced Gallery (Preview)</h2>
       <p class="note">Approved submissions will appear here — stories from BRC, San Francisco, Bolinas, and beyond.</p>
       <div class="gallery">
         <article class="card">
@@ -235,10 +243,9 @@
       <p class="note"><strong>Meet the Misfits.</strong> We’re a crew from many eras of Burning Man — Man Krew, the Pavilion, the Pier Group, the Temple, and makers from around Black Rock City. Professionals and first-timers. Artists and builders. Architects, electricians, welders, woodworkers. We’re here because this project speaks to us.</p>
       <p class="note">If that sounds like you, jump in. Tell us your skills (or what you want to learn), your availability, and how to reach you.</p>
 
-      <!-- Google Form embed -->
       <iframe class="video" src="https://docs.google.com/forms/d/e/1FAIpQLSeUuVHh4eKJ4yhImkjf0ps7_zU0x-58ZPk2qoQeTe6LHvuhsQ/viewform?embedded=true" title="Volunteer with Misfit Toys"></iframe>
 
-      <div class="cta-row">
+      <div class="header-actions" style="margin-top:14px">
         <a class="btn" target="_blank" rel="noopener" href="https://docs.google.com/forms/d/e/1FAIpQLSeUuVHh4eKJ4yhImkjf0ps7_zU0x-58ZPk2qoQeTe6LHvuhsQ/viewform">Open form in a new tab</a>
         <a class="btn" target="_blank" rel="noopener" href="https://www.instagram.com/misfittoyscrew/">Don’t like forms? DM @misfittoyscrew</a>
       </div>
