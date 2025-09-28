@@ -3,78 +3,114 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Misfit Toys — One Tin Soldier Submissions</title>
-  <meta name="description" content="Share your photos, videos, and stories of One Tin Soldier — a Misfit Toys project about memory, play, and community.">
+
+  <!-- HTML Meta Tags -->
+  <title>Misfit Toys — One Tin Soldier Media Submissions</title>
+  <meta name="description" content="Share photos, videos, and memories of One Tin Soldier, a Misfit Toys production.">
+
+  <!-- Facebook Meta Tags -->
+  <meta property="og:url" content="https://gofercontent.com/misfit-submit/">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Misfit Toys — One Tin Soldier Media Submissions">
+  <meta property="og:description" content="Share photos, videos, and memories of One Tin Soldier, a Misfit Toys production.">
+  <meta property="og:image" content="https://opengraph.b-cdn.net/production/images/6021c1e9-4cdd-41f6-9f97-d76024c20e50.png?token=4Qu5b14aijA3eW9-J47BMarBzurgy6IlAS2WmR98i3c&height=630&width=1200&expires=33295081589">
+
+  <!-- Twitter Meta Tags -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta property="twitter:domain" content="gofercontent.com">
+  <meta property="twitter:url" content="https://gofercontent.com/misfit-submit/">
+  <meta name="twitter:title" content="Misfit Toys — One Tin Soldier Media Submissions">
+  <meta name="twitter:description" content="Share photos, videos, and memories of One Tin Soldier, a Misfit Toys production.">
+  <meta name="twitter:image" content="https://opengraph.b-cdn.net/production/images/6021c1e9-4cdd-41f6-9f97-d76024c20e50.png?token=4Qu5b14aijA3eW9-J47BMarBzurgy6IlAS2WmR98i3c&height=630&width=1200&expires=33295081589">
+
+  <!-- Styles -->
   <style>
     :root{
       --bg:#000; 
       --ink:#fff; 
       --muted:#cfcfcf;
-      --accent:#fff; 
       --card:#0a0a0a;
-      --ring:#2a2a2a;
+      --ring:#222;
+      --red:#e10600; /* Misfit red */
     }
     *{box-sizing:border-box}
     html,body{margin:0;background:var(--bg);color:var(--ink);font-family:Helvetica, Arial, system-ui, -apple-system, Segoe UI, Roboto, Inter, sans-serif;line-height:1.45}
-    a{color:var(--ink);text-decoration:none;border-bottom:1px solid rgba(255,255,255,.35);}
-    a:hover{opacity:.8;border-bottom-color:rgba(255,255,255,.6);}
+    a{color:var(--ink);text-decoration:none;border-bottom:1px solid rgba(255,255,255,.35)}
+    a:hover{opacity:.85;border-bottom-color:rgba(255,255,255,.6)}
     .wrap{max-width:1100px;margin:auto;padding:24px}
+
+    /* Header */
     header{display:flex;gap:16px;align-items:center;justify-content:space-between;flex-wrap:wrap}
+    @media(max-width:720px){header{gap:8px}}
     .brand{display:flex;gap:12px;align-items:center}
-    .brand .logo{width:64px;height:64px;border-radius:12px;background:#fff;display:grid;place-items:center;color:#000;font-weight:900;font-size:20px}
+    .brand img.logo{width:64px;height:64px;border-radius:12px;background:#fff;display:block;object-fit:contain;padding:6px}
     h1{margin:0;font-size:clamp(28px,6vw,48px);font-weight:900;letter-spacing:-0.02em}
-    .tag{color:var(--muted);font-size:16px;max-width:600px}
+    .tag{color:var(--muted);font-size:16px;max-width:640px}
     .cta-row{display:flex;gap:12px;flex-wrap:wrap;margin-top:12px}
-    .btn{display:inline-block;background:#fff;color:#000;padding:14px 18px;border-radius:12px;font-weight:800;letter-spacing:-0.01em;border:2px solid #fff}
-    .btn.secondary{background:transparent;color:#fff;border:2px solid #fff}
+    @media(max-width:720px){.cta-row{flex-direction:column;align-items:flex-start;width:100%}}
+
+    /* Buttons */
+    .btn{display:inline-block;background:transparent;color:#fff;padding:14px 18px;border-radius:12px;font-weight:800;letter-spacing:-0.01em;border:2px solid var(--red);transition:background .15s ease,color .15s ease}
+    .btn:hover{background:var(--red);color:#000}
+
+    /* Cards & layout */
     .grid{display:grid;gap:18px;margin-top:22px}
     @media(min-width:900px){.grid{grid-template-columns:1.1fr .9fr}}
     section{background:var(--card);border:1px solid var(--ring);border-radius:20px;padding:20px}
-    section h2{margin:0 0 8px 0;font-size:22px;font-weight:800}
+    section h2{margin:0 0 10px 0;font-size:22px;font-weight:800}
     .note{color:var(--muted);font-size:14px}
-    .chips{display:flex;gap:8px;flex-wrap:wrap;margin:10px 0 0}
-    .chip{background:#121212;border:1px solid var(--ring);padding:8px 10px;border-radius:999px;font-size:13px;color:var(--muted)}
-    footer{color:var(--muted);text-align:center;padding:30px 0}
-    .video{aspect-ratio:16/9;width:100%;border:none;border-radius:12px;background:#000}
+
+    /* Form */
     form{display:grid;gap:12px}
     label{font-size:14px;font-weight:600}
     input, select, textarea{width:100%;padding:14px;border-radius:12px;border:2px solid #1e1e1e;background:#000;color:#fff;font-weight:600}
     .row{display:grid;gap:12px}
     @media(min-width:720px){.row{grid-template-columns:1fr 1fr}}
-    .check{display:flex;gap:8px;align-items:center;font-size:14px}
-    .submit-msg{font-size:14px;color:var(--muted)}
+    .check{display:flex;gap:10px;align-items:flex-start;font-size:14px}
+    .check input{margin-top:4px}
+    .check span{flex:1}
+
+    /* Media */
+    .video{aspect-ratio:16/9;width:100%;border:none;border-radius:12px;background:#000}
+
+    /* Gallery */
     .gallery{display:grid;gap:16px;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));margin-top:12px}
     .card{background:#121216;border:1px solid var(--ring);border-radius:14px;overflow:hidden}
-    .thumb{aspect-ratio:16/10;background:#0a0a0b;display:grid;place-items:center;color:#666}
+    .thumb{aspect-ratio:16/10;background:#0a0a0b;display:grid;place-items:center;color:#666;text-align:center;padding:8px}
     .card-body{padding:10px}
     .badge{font-size:12px;color:#000;background:#fff;padding:4px 8px;border-radius:999px;font-weight:900}
     .meta{display:flex;justify-content:space-between;align-items:center}
+
+    footer{color:var(--muted);text-align:center;padding:30px 0}
   </style>
 </head>
 <body>
   <div class="wrap">
     <header>
       <div class="brand">
-        <div class="logo">MT</div>
+        <img class="logo" src="misfit-logo.png" alt="Misfit Toys logo">
         <div>
           <h1>Misfit Toys — One Tin Soldier</h1>
-          <div class="tag">A public archive of memory, play, and community. Share your photos, videos, or links from <strong>One Tin Soldier</strong> (any location, 2022–2025). Together, we keep the story alive.</div>
+          <div class="tag">A public archive of memory, play, and community. Share your photos, videos, links, or news articles from <strong>One Tin Soldier</strong> (any location, 2022–2025). Together, we keep the story alive.</div>
           <div class="cta-row">
             <a class="btn" href="#submit">Submit your media</a>
-            <a class="btn secondary" href="#gallery">See the gallery</a>
+            <a class="btn" href="#gallery">See the gallery</a>
           </div>
         </div>
       </div>
       <div class="cta-row">
-        <a class="btn" target="_blank" rel="noopener" href="https://www.gofundme.com/f/help-bring-one-tin-soldier-to-playa-2025-and-beyond">Donate to 2025</a>
-        <a class="btn secondary" target="_blank" rel="noopener" href="https://www.onetinsoldier.art/get-involved">Get Involved</a>
+        <a class="btn" target="_blank" rel="noopener" href="https://www.gofundme.com/f/help-bring-one-tin-soldier-to-playa-2025-and-beyond">Fuel the 2025 Build</a>
+        <a class="btn" href="#volunteer">Get Involved</a>
       </div>
     </header>
 
     <div class="grid">
+      <!-- LEFT: submission form -->
       <section id="submit">
-        <h2>Submit a Photo, Video, or Link</h2>
+        <h2>Submit a Photo, Video, Link, or Article</h2>
         <p class="note">One Tin Soldier has traveled from Black Rock City to Golden Gate Park and beyond. Use this form to share how you experienced it: where, when, and through your lens.</p>
+
+        <!-- PREVIEW form. Next step: connect to Airtable -->
         <form onsubmit="event.preventDefault(); alert('Preview only. Next step: connect to Airtable.');">
           <div class="row">
             <div>
@@ -84,6 +120,7 @@
                 <option>Photo</option>
                 <option>Video</option>
                 <option>Link</option>
+                <option>News Article</option>
               </select>
             </div>
             <div>
@@ -125,23 +162,23 @@
             </div>
           </div>
 
-          <label class="check"><input type="checkbox"> I took this photo/video.</label>
-          <label class="check"><input type="checkbox"> I give permission for use in community storytelling and fundraising.</label>
+          <label class="check"><input type="checkbox"><span>I took this photo/video.</span></label>
+          <label class="check"><input type="checkbox"><span>I give permission for use in community storytelling and fundraising.</span></label>
 
           <button class="btn" type="submit">Submit</button>
-          <span class="submit-msg">Preview only — not saving yet.</span>
+          <span class="note">Preview only — not saving yet.</span>
         </form>
       </section>
 
+      <!-- RIGHT: about -->
       <section>
         <h2>About One Tin Soldier</h2>
         <p class="note">Monumental children’s toys, weathered as if uncovered from another time — inviting us back into wonder, memory, and play. Built by a crew of misfits who believe art is community.</p>
-        <iframe class="video" src="https://player.vimeo.com/video/1122032833?h=f4b6f21fec" allow="autoplay; fullscreen; picture-in-picture" title="Burning Man 2025 Highlight"></iframe>
-        <iframe class="video" src="https://www.youtube.com/embed/OswG8eew2Pc" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" title="One Tin Soldier — Desert Arts Preview"></iframe>
-        <p class="note">More: <a target="_blank" rel="noopener" href="https://www.onetinsoldier.art/gallery">Official Gallery</a> · <a target="_blank" rel="noopener" href="https://www.misfittoys.art/about">Meet the Misfits</a></p>
+        <p class="note">This video is an example submission and appears in the gallery below with credits.</p>
       </section>
     </div>
 
+    <!-- GALLERY PREVIEW -->
     <section id="gallery">
       <h2>Community Gallery (Preview)</h2>
       <p class="note">Approved submissions will appear here — stories from BRC, San Francisco, Bolinas, and beyond.</p>
@@ -154,17 +191,62 @@
           </div>
         </article>
         <article class="card">
+          <div class="thumb">Official Preview Video</div>
+          <div class="card-body">
+            <div class="meta"><strong>Burning Man 2025: Tomorrow Today Art Highlight Reel</strong><span class="badge">2025</span></div>
+            <a target="_blank" rel="noopener" href="https://vimeo.com/1122032833/f4b6f21fec">Watch on Vimeo</a>
+            <p class="note" style="margin-top:6px">Drone video: Keenan Hock, Duncan Rawlinson, Shafik Elkadi • Video footage: Martin Rodriguez, Jon Bo.</p>
+          </div>
+        </article>
+        <article class="card">
           <div class="thumb">Photo — Duncan Rawlinson</div>
           <div class="card-body">
             <div class="meta"><strong>Duncan Photo</strong><span class="badge">2022</span></div>
             <a target="_blank" rel="noopener" href="https://photo.duncan.co/image/I0000RWnVjxik9d8">View image</a>
           </div>
         </article>
+      </div>
+    </section>
+
+    <!-- VOLUNTEER -->
+    <section id="volunteer">
+      <h2>Get Involved — Volunteer</h2>
+      <p class="note"><strong>Meet the Misfits.</strong> We’re a crew from many eras of Burning Man — Man Krew, the Pavilion, the Pier Group, the Temple, and makers from around Black Rock City. Professionals and first-timers. Artists and builders. Architects, electricians, welders, woodworkers. We’re here because this project speaks to us.</p>
+      <p class="note">If that sounds like you, jump in. Tell us your skills (or what you want to learn), your availability, and how to reach you.</p>
+
+      <!-- Google Form embed -->
+      <iframe class="video" src="https://docs.google.com/forms/d/e/1FAIpQLSeUuVHh4eKJ4yhImkjf0ps7_zU0x-58ZPk2qoQeTe6LHvuhsQ/viewform?embedded=true" title="Volunteer with Misfit Toys"></iframe>
+
+      <div class="cta-row">
+        <a class="btn" target="_blank" rel="noopener" href="https://docs.google.com/forms/d/e/1FAIpQLSeUuVHh4eKJ4yhImkjf0ps7_zU0x-58ZPk2qoQeTe6LHvuhsQ/viewform">Open form in a new tab</a>
+        <a class="btn" target="_blank" rel="noopener" href="https://www.instagram.com/misfittoyscrew/">Don’t like forms? DM @misfittoyscrew</a>
+      </div>
+    </section>
+
+    <!-- MERCH PREVIEW -->
+    <section id="merch">
+      <h2>Merch — Stickers, Patches, T-Shirts</h2>
+      <p class="note">Coming soon. Sign up to be notified when the first drop is ready.</p>
+      <div class="gallery">
         <article class="card">
-          <div class="thumb">YouTube</div>
+          <div class="thumb">Sticker Pack (preview)</div>
           <div class="card-body">
-            <div class="meta"><strong>Desert Arts Preview</strong><span class="badge">2025</span></div>
-            <a target="_blank" rel="noopener" href="https://youtu.be/OswG8eew2Pc?feature=shared">Watch</a>
+            <div class="meta"><strong>Sticker Pack</strong><span class="badge">Soon</span></div>
+            <a class="btn" href="#" onclick="alert('Coming soon!')">Get notified</a>
+          </div>
+        </article>
+        <article class="card">
+          <div class="thumb">Embroidered Patch</div>
+          <div class="card-body">
+            <div class="meta"><strong>Patch</strong><span class="badge">Soon</span></div>
+            <a class="btn" href="#" onclick="alert('Coming soon!')">Get notified</a>
+          </div>
+        </article>
+        <article class="card">
+          <div class="thumb">T-Shirt Mock</div>
+          <div class="card-body">
+            <div class="meta"><strong>T-Shirt</strong><span class="badge">Soon</span></div>
+            <a class="btn" href="#" onclick="alert('Coming soon!')">Get notified</a>
           </div>
         </article>
       </div>
