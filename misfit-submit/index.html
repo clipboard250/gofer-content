@@ -4,6 +4,9 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
 
+  <!-- Favicon (tab icon) -->
+  <link rel="icon" href="misfit-logo.png" type="image/png" />
+
   <!-- HTML Meta Tags -->
   <title>Misfit Toys — One Tin Soldier Media Submissions</title>
   <meta name="description" content="Share photos, videos, and memories of One Tin Soldier, a Misfit Toys production.">
@@ -41,8 +44,11 @@
     /* Header */
     header{display:flex;gap:16px;align-items:center;justify-content:space-between;flex-wrap:wrap}
     @media(max-width:720px){header{gap:8px}}
-    .brand{display:flex;gap:12px;align-items:center}
-    .brand img.logo{width:64px;height:64px;border-radius:12px;background:#fff;display:block;object-fit:contain;padding:6px}
+    .brand{display:flex;gap:12px;align-items:flex-start}               /* align headline top */
+    .brand img.logo{
+      width:64px;height:64px;border-radius:12px;background:#fff;display:block;
+      object-fit:contain;padding:6px;margin-top:2px;                   /* nudge upward */
+    }
     h1{margin:0;font-size:clamp(28px,6vw,48px);font-weight:900;letter-spacing:-0.02em}
     .tag{color:var(--muted);font-size:16px;max-width:640px}
 
@@ -55,7 +61,7 @@
     }
     .btn:hover{background:var(--red);color:#000}
 
-    /* Header actions: 1 row on desktop, stacked on mobile */
+    /* Header actions: one row desktop, centered stack on mobile */
     .header-actions{
       display:flex;gap:12px;margin-top:12px;flex-wrap:wrap;justify-content:space-between;
     }
@@ -65,8 +71,12 @@
       .header-actions .btn{flex:1 1 48%;min-width:0}
     }
     @media(max-width:720px){
-      .header-actions{flex-direction:column}
-      .header-actions .btn{width:100%}
+      .header-actions{
+        flex-direction:column;align-items:center;                       /* center on mobile */
+      }
+      .header-actions .btn{
+        width:100%;max-width:360px;                                     /* nice width on mobile */
+      }
     }
 
     /* Layout cards */
@@ -120,12 +130,10 @@
     </header>
 
     <div class="grid">
-      <!-- LEFT: submission form -->
       <section id="submit">
         <h2>Submit a Photo, Video, Link, or Article</h2>
         <p class="note">One Tin Soldier has traveled from Black Rock City to Golden Gate Park and beyond. Use this form to share how you experienced it: where, when, and through your lens.</p>
 
-        <!-- PREVIEW form. Next step: connect to Airtable -->
         <form onsubmit="event.preventDefault(); alert('Preview only. Next step: connect to Airtable.');">
           <div class="row">
             <div>
@@ -193,7 +201,6 @@
         </form>
       </section>
 
-      <!-- RIGHT: about -->
       <section>
         <h2>About One Tin Soldier</h2>
         <p class="note">Monumental children’s toys, weathered as if uncovered from another time — inviting us back into wonder, memory, and play. Built by a crew of misfits who believe art is community.</p>
@@ -201,7 +208,6 @@
       </section>
     </div>
 
-    <!-- GALLERY PREVIEW -->
     <section id="gallery">
       <h2>Community-Sourced Gallery (Preview)</h2>
       <p class="note">Approved submissions will appear here — stories from BRC, San Francisco, Bolinas, and beyond.</p>
@@ -231,7 +237,6 @@
       </div>
     </section>
 
-    <!-- VOLUNTEER -->
     <section id="volunteer">
       <h2>Get Involved — Volunteer</h2>
       <p class="note"><strong>Meet the Misfits.</strong> We’re a crew from many eras of Burning Man — Man Krew, the Pavilion, the Pier Group, the Temple, and makers from around Black Rock City. Professionals and first-timers. Artists and builders. Architects, electricians, welders, woodworkers. We’re here because this project speaks to us.</p>
@@ -245,7 +250,6 @@
       </div>
     </section>
 
-    <!-- MERCH PREVIEW -->
     <section id="merch">
       <h2>Merch — Stickers, Patches, T-Shirts</h2>
       <p class="note">Coming soon. Sign up to be notified when the first drop is ready.</p>
