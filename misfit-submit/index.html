@@ -55,24 +55,18 @@
     }
     .btn:hover{background:var(--red);color:#000}
 
-    /* Header actions: 1 row on desktop; swipe ticker on mobile */
+    /* Header actions: 1 row on desktop, stacked on mobile */
     .header-actions{
-      display:flex;gap:12px;margin-top:12px;flex-wrap:wrap;
+      display:flex;gap:12px;margin-top:12px;flex-wrap:wrap;justify-content:space-between;
     }
-    .header-actions .btn{flex:1;min-width:220px}
-    @media(min-width:980px){
-      .header-actions{flex-wrap:nowrap}
-      .header-actions .btn{min-width:0}
+    .header-actions .btn{flex:1 1 calc(25% - 12px);min-width:220px}
+    @media(max-width:980px){
+      .header-actions{justify-content:stretch}
+      .header-actions .btn{flex:1 1 48%;min-width:0}
     }
     @media(max-width:720px){
-      .header-actions{
-        flex-wrap:nowrap;overflow-x:auto;-webkit-overflow-scrolling:touch;
-        scroll-snap-type:x mandatory;padding-bottom:6px;
-      }
-      .header-actions::-webkit-scrollbar{display:none}
-      .header-actions .btn{
-        flex:0 0 85%;scroll-snap-align:start;
-      }
+      .header-actions{flex-direction:column}
+      .header-actions .btn{width:100%}
     }
 
     /* Layout cards */
