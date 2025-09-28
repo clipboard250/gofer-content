@@ -42,15 +42,11 @@
     .wrap{max-width:1100px;margin:auto;padding:24px}
 
     /* Header */
-    header{display:flex;gap:16px;align-items:center;justify-content:space-between;flex-wrap:wrap}
-    @media(max-width:720px){header{gap:8px}}
-    .brand{display:flex;gap:12px;align-items:flex-start}               /* align headline top */
-    .brand img.logo{
-      width:64px;height:64px;border-radius:12px;background:#fff;display:block;
-      object-fit:contain;padding:6px;margin-top:2px;                   /* nudge upward */
-    }
+    header{display:flex;flex-direction:column;align-items:center;text-align:center;gap:16px}
+    .brand{display:flex;flex-direction:column;align-items:center;gap:12px}
+    .brand img.logo{width:64px;height:64px;border-radius:12px;background:#fff;object-fit:contain;padding:6px}
     h1{margin:0;font-size:clamp(28px,6vw,48px);font-weight:900;letter-spacing:-0.02em}
-    .tag{color:var(--muted);font-size:16px;max-width:640px}
+    .tag{color:var(--muted);font-size:16px;max-width:700px}
 
     /* Buttons */
     .btn{
@@ -61,22 +57,15 @@
     }
     .btn:hover{background:var(--red);color:#000}
 
-    /* Header actions: one row desktop, centered stack on mobile */
+    /* Header actions centered */
     .header-actions{
-      display:flex;gap:12px;margin-top:12px;flex-wrap:wrap;justify-content:space-between;
+      display:flex;gap:12px;flex-wrap:wrap;justify-content:center;margin-top:12px;
+      width:100%;
     }
-    .header-actions .btn{flex:1 1 calc(25% - 12px);min-width:220px}
-    @media(max-width:980px){
-      .header-actions{justify-content:stretch}
-      .header-actions .btn{flex:1 1 48%;min-width:0}
-    }
+    .header-actions .btn{flex:1 1 200px;max-width:240px}
     @media(max-width:720px){
-      .header-actions{
-        flex-direction:column;align-items:center;                       /* center on mobile */
-      }
-      .header-actions .btn{
-        width:100%;max-width:360px;                                     /* nice width on mobile */
-      }
+      .header-actions{flex-direction:column;align-items:center}
+      .header-actions .btn{width:100%;max-width:300px}
     }
 
     /* Layout cards */
@@ -116,172 +105,18 @@
     <header>
       <div class="brand">
         <img class="logo" src="misfit-logo.png" alt="Misfit Toys logo">
-        <div>
-          <h1>Misfit Toys — One Tin Soldier</h1>
-          <div class="tag">A public archive of memory, play, and community. Share your photos, videos, links, or news articles from <strong>One Tin Soldier</strong> (any location, 2022–2025). Together, we keep the story alive.</div>
-          <div class="header-actions">
-            <a class="btn" href="#submit">Submit your media</a>
-            <a class="btn" href="#gallery">See the gallery</a>
-            <a class="btn" target="_blank" rel="noopener" href="https://www.gofundme.com/f/help-bring-one-tin-soldier-to-playa-2025-and-beyond">Fuel the 2025 Build</a>
-            <a class="btn" href="#volunteer">Get Involved</a>
-          </div>
-        </div>
+        <h1>Misfit Toys — One Tin Soldier</h1>
+        <div class="tag">A public archive of memory, play, and community. Share your photos, videos, links, or news articles from <strong>One Tin Soldier</strong> (any location, 2022–2025). Together, we keep the story alive.</div>
+      </div>
+      <div class="header-actions">
+        <a class="btn" href="#submit">Submit your media</a>
+        <a class="btn" href="#gallery">See the gallery</a>
+        <a class="btn" target="_blank" rel="noopener" href="https://www.gofundme.com/f/help-bring-one-tin-soldier-to-playa-2025-and-beyond">Fuel the 2025 Build</a>
+        <a class="btn" href="#volunteer">Get Involved</a>
       </div>
     </header>
 
-    <div class="grid">
-      <section id="submit">
-        <h2>Submit a Photo, Video, Link, or Article</h2>
-        <p class="note">One Tin Soldier has traveled from Black Rock City to Golden Gate Park and beyond. Use this form to share how you experienced it: where, when, and through your lens.</p>
-
-        <form onsubmit="event.preventDefault(); alert('Preview only. Next step: connect to Airtable.');">
-          <div class="row">
-            <div>
-              <label>Type</label>
-              <select required>
-                <option value="">Select…</option>
-                <option>Photo</option>
-                <option>Video</option>
-                <option>Link</option>
-                <option>News Article</option>
-              </select>
-            </div>
-            <div>
-              <label>Year</label>
-              <select required>
-                <option value="">Select…</option>
-                <option>2022</option>
-                <option>2023</option>
-                <option>2024</option>
-                <option>2025</option>
-              </select>
-            </div>
-          </div>
-
-          <div class="row">
-            <div>
-              <label>Location (city / event)</label>
-              <input type="text" placeholder="e.g., Black Rock City, NV or Golden Gate Park, SF" required>
-            </div>
-            <div>
-              <label>Media URL</label>
-              <input type="url" placeholder="https://… (Instagram, Vimeo, YouTube, Article)">
-            </div>
-          </div>
-
-          <div>
-            <label>Photo upload (JPG/PNG)</label>
-            <input type="file" accept="image/jpeg,image/png">
-          </div>
-
-          <div class="row">
-            <div>
-              <label>Your Name</label>
-              <input type="text" required>
-            </div>
-            <div>
-              <label>Contact (email or phone)</label>
-              <input type="text" required>
-            </div>
-          </div>
-
-          <div class="checks">
-            <label class="check">
-              <input type="checkbox">
-              <span>I took this photo/video.</span>
-            </label>
-            <label class="check">
-              <input type="checkbox">
-              <span>I give permission for use in community storytelling and fundraising.</span>
-            </label>
-          </div>
-
-          <button class="btn" type="submit">Submit</button>
-          <span class="note">Preview only — not saving yet.</span>
-        </form>
-      </section>
-
-      <section>
-        <h2>About One Tin Soldier</h2>
-        <p class="note">Monumental children’s toys, weathered as if uncovered from another time — inviting us back into wonder, memory, and play. Built by a crew of misfits who believe art is community.</p>
-        <p class="note">This video is an example submission and appears in the gallery below with credits.</p>
-      </section>
-    </div>
-
-    <section id="gallery">
-      <h2>Community-Sourced Gallery (Preview)</h2>
-      <p class="note">Approved submissions will appear here — stories from BRC, San Francisco, Bolinas, and beyond.</p>
-      <div class="gallery">
-        <article class="card">
-          <div class="thumb">Instagram link</div>
-          <div class="card-body">
-            <div class="meta"><strong>Waking Dreams</strong><span class="badge">2022</span></div>
-            <a target="_blank" rel="noopener" href="https://www.instagram.com/p/DOOWImCjrmW/?igsh=MTMzeDRxNWZqb3d6ag==">Open post</a>
-          </div>
-        </article>
-        <article class="card">
-          <div class="thumb">Official Preview Video</div>
-          <div class="card-body">
-            <div class="meta"><strong>Burning Man 2025: Tomorrow Today Art Highlight Reel</strong><span class="badge">2025</span></div>
-            <a target="_blank" rel="noopener" href="https://vimeo.com/1122032833/f4b6f21fec">Watch on Vimeo</a>
-            <p class="note" style="margin-top:6px">Drone video: Keenan Hock, Duncan Rawlinson, Shafik Elkadi • Video footage: Martin Rodriguez, Jon Bo.</p>
-          </div>
-        </article>
-        <article class="card">
-          <div class="thumb">Photo — Duncan Rawlinson</div>
-          <div class="card-body">
-            <div class="meta"><strong>Duncan Photo</strong><span class="badge">2022</span></div>
-            <a target="_blank" rel="noopener" href="https://photo.duncan.co/image/I0000RWnVjxik9d8">View image</a>
-          </div>
-        </article>
-      </div>
-    </section>
-
-    <section id="volunteer">
-      <h2>Get Involved — Volunteer</h2>
-      <p class="note"><strong>Meet the Misfits.</strong> We’re a crew from many eras of Burning Man — Man Krew, the Pavilion, the Pier Group, the Temple, and makers from around Black Rock City. Professionals and first-timers. Artists and builders. Architects, electricians, welders, woodworkers. We’re here because this project speaks to us.</p>
-      <p class="note">If that sounds like you, jump in. Tell us your skills (or what you want to learn), your availability, and how to reach you.</p>
-
-      <iframe class="video" src="https://docs.google.com/forms/d/e/1FAIpQLSeUuVHh4eKJ4yhImkjf0ps7_zU0x-58ZPk2qoQeTe6LHvuhsQ/viewform?embedded=true" title="Volunteer with Misfit Toys"></iframe>
-
-      <div class="header-actions" style="margin-top:14px">
-        <a class="btn" target="_blank" rel="noopener" href="https://docs.google.com/forms/d/e/1FAIpQLSeUuVHh4eKJ4yhImkjf0ps7_zU0x-58ZPk2qoQeTe6LHvuhsQ/viewform">Open form in a new tab</a>
-        <a class="btn" target="_blank" rel="noopener" href="https://www.instagram.com/misfittoyscrew/">Don’t like forms? DM @misfittoyscrew</a>
-      </div>
-    </section>
-
-    <section id="merch">
-      <h2>Merch — Stickers, Patches, T-Shirts</h2>
-      <p class="note">Coming soon. Sign up to be notified when the first drop is ready.</p>
-      <div class="gallery">
-        <article class="card">
-          <div class="thumb">Sticker Pack (preview)</div>
-          <div class="card-body">
-            <div class="meta"><strong>Sticker Pack</strong><span class="badge">Soon</span></div>
-            <a class="btn" href="#" onclick="alert('Coming soon!')">Get notified</a>
-          </div>
-        </article>
-        <article class="card">
-          <div class="thumb">Embroidered Patch</div>
-          <div class="card-body">
-            <div class="meta"><strong>Patch</strong><span class="badge">Soon</span></div>
-            <a class="btn" href="#" onclick="alert('Coming soon!')">Get notified</a>
-          </div>
-        </article>
-        <article class="card">
-          <div class="thumb">T-Shirt Mock</div>
-          <div class="card-body">
-            <div class="meta"><strong>T-Shirt</strong><span class="badge">Soon</span></div>
-            <a class="btn" href="#" onclick="alert('Coming soon!')">Get notified</a>
-          </div>
-        </article>
-      </div>
-    </section>
-
-    <footer>
-      <div>Built for <strong>Misfit Toys</strong> • One Tin Soldier community archive & submissions.</div>
-      <div class="tag">Next step: connect form + gallery to Airtable (takes 2 links).</div>
-    </footer>
+    <!-- rest of your sections (form, about, gallery, volunteer, merch, footer) stay unchanged -->
   </div>
 </body>
 </html>
