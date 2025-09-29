@@ -99,6 +99,12 @@
     .meta{display:flex;justify-content:space-between;align-items:center}
 
     footer{color:var(--muted);text-align:center;padding:30px 0}
+    /* Volunteer form layout + centering */
+#volunteer form{max-width:900px;margin:0 auto}
+#volunteer .row{gap:12px}
+@media (min-width:900px){ #volunteer .row{grid-template-columns:1fr 1fr} }
+#volunteer .checks{max-width:900px;margin:4px auto}
+#volunteer .btn[type="submit"]{width:200px;margin-top:6px}
   </style>
 </head>
 <body>
@@ -272,7 +278,16 @@
   <h2>Join the Crew — Build Big Art with Misfits</h2>
   <p class="note">Short & sweet. Tell us how you want to help (local builds, on-site, or remote) — or if you want Misfits art in your city.</p>
 
-  <form action="https://formspree.io/f/xyzneljd" method="POST">
+  <!-- Shown after successful submit -->
+  <div id="vol-thanks" style="display:none">
+    <h3 style="margin:0 0 8px 0">Thanks! You’re on our list. 🎉</h3>
+    <p class="note">We’ll reach out soon. Meanwhile you can
+      <a target="_blank" rel="noopener" href="https://hcb.hackclub.com/donations/start/the-misfit-toys">support Misfit Toys</a>
+      or share this page with a friend.
+    </p>
+  </div>
+
+  <form id="vol-form" action="https://formspree.io/f/xyzneljd" method="POST">
     <div class="row">
       <div><label>Name (IRL)</label><input name="name" required></div>
       <div><label>Email</label><input type="email" name="email" required></div>
@@ -378,5 +393,31 @@
       <div class="tag">Next step: connect form + gallery to Airtable (takes 2 links).</div>
     </footer>
   </div>
+    <script>
+(() => {
+  const form = document.getElementById('vol-form');
+  if (!form) return;
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const btn = form.querySelector('button[type="submit"]');
+    if (btn){ btn.disabled = true; btn.textContent = 'Sending…'; }
+    try {
+      const data = new FormData(form);
+      const res = await fetch(form.action, { method: 'POST', body: data, headers: { 'Accept': 'application/json' } });
+      if (res.ok) {
+        form.style.display = 'none';
+        const thanks = document.getElementById('vol-thanks');
+        if (thanks) thanks.style.display = 'block';
+      } else {
+        alert('Something went wrong. Please try again.');
+      }
+    } catch (err) {
+      alert('Network error. Please try again.');
+    } finally {
+      if (btn){ btn.disabled = false; btn.textContent = 'Send'; }
+    }
+  });
+})();
+</script>
 </body>
 </html>
