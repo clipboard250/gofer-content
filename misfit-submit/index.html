@@ -27,14 +27,7 @@
   <meta name="twitter:image" content="https://opengraph.b-cdn.net/production/images/6021c1e9-4cdd-41f6-9f97-d76024c20e50.png?token=4Qu5b14aijA3eW9-J47BMarBzurgy6IlAS2WmR98i3c&height=630&width=1200&expires=33295081589">
 
   <style>
-    :root{
-      --bg:#000; 
-      --ink:#fff; 
-      --muted:#cfcfcf;
-      --card:#0a0a0a;
-      --ring:#222;
-      --red:#e10600;
-    }
+    :root{ --bg:#000; --ink:#fff; --muted:#cfcfcf; --card:#0a0a0a; --ring:#222; --red:#e10600; }
     *{box-sizing:border-box}
     html,body{margin:0;background:var(--bg);color:var(--ink);font-family:Helvetica, Arial, system-ui, -apple-system, Segoe UI, Roboto, Inter, sans-serif;line-height:1.45}
     a{color:var(--ink);text-decoration:none;border-bottom:1px solid rgba(255,255,255,.35)}
@@ -49,25 +42,16 @@
     .tag{color:var(--muted);font-size:16px;max-width:700px}
 
     /* Buttons (slim, no stretch) */
-    .btn{
-      display:inline-flex; align-items:center; justify-content:center;
-      background:transparent; color:#fff;
-      padding:12px 16px; border-radius:12px; font-weight:800; letter-spacing:-0.01em;
-      border:2px solid var(--red); transition:background .15s ease,color .15s ease;
-      text-align:center; line-height:1.1;
-    }
+    .btn{display:inline-flex;align-items:center;justify-content:center;background:transparent;color:#fff;
+      padding:12px 16px;border-radius:12px;font-weight:800;letter-spacing:-0.01em;border:2px solid var(--red);
+      transition:background .15s ease,color .15s ease;text-align:center;line-height:1.1}
     .btn:hover{background:var(--red);color:#000}
 
     /* Header actions centered */
-    .header-actions{
-      display:flex; gap:12px; flex-wrap:wrap; justify-content:center; margin-top:12px; width:100%;
-    }
-    .header-actions .btn{flex:0 0 auto; max-width:260px; width:100%}
-    @media(min-width:901px){ .header-actions .btn{width:auto} }
-    @media(max-width:720px){
-      .header-actions{flex-direction:column; align-items:center}
-      .header-actions .btn{max-width:320px; width:100%}
-    }
+    .header-actions{display:flex;gap:12px;flex-wrap:wrap;justify-content:center;margin-top:12px;width:100%}
+    .header-actions .btn{flex:0 0 auto;max-width:260px;width:100%}
+    @media(min-width:901px){.header-actions .btn{width:auto}}
+    @media(max-width:720px){.header-actions{flex-direction:column;align-items:center}.header-actions .btn{max-width:320px;width:100%}}
 
     /* Layout cards */
     .grid{display:grid;gap:18px;margin-top:22px}
@@ -76,14 +60,13 @@
     section h2{margin:0 0 10px 0;font-size:22px;font-weight:800}
     .note{color:var(--muted);font-size:14px}
 
-    /* Form (generic) */
+    /* Generic form */
     form{display:grid;gap:12px}
     label{font-size:14px;font-weight:600}
     input, select, textarea{width:100%;padding:14px;border-radius:12px;border:2px solid #1e1e1e;background:#000;color:#fff;font-weight:600}
     textarea{min-height:110px;resize:vertical}
     .row{display:grid;gap:12px}
     @media(min-width:720px){.row{grid-template-columns:1fr 1fr}}
-
     .checks{display:grid;gap:10px;margin-top:4px}
     .check{display:grid;grid-template-columns:28px 1fr;column-gap:10px;align-items:start;font-size:14px;line-height:1.35}
     .check input{width:20px;height:20px;margin:0;align-self:start}
@@ -101,26 +84,20 @@
 
     footer{color:var(--muted);text-align:center;padding:30px 0}
 
-    /* Volunteer form: match media card + clean desktop/mobile */
+    /* Volunteer UX */
+    #volunteer .vol-grid{display:grid;gap:18px}
+    @media(min-width:980px){#volunteer .vol-grid{grid-template-columns:1.1fr .9fr}}
     #volunteer form{max-width:900px;margin:0 auto}
     #volunteer .row{gap:12px}
-    @media (min-width:900px){ #volunteer .row{grid-template-columns:1fr 1fr} }
+    @media(min-width:900px){#volunteer .row{grid-template-columns:1fr 1fr}}
     #volunteer .checks{max-width:900px;margin:4px auto}
     #volunteer .btn[type="submit"]{width:200px;margin-top:6px}
-
-    /* Red thank-you banner */
-    .vol-thanks-banner{
-      display:none;
-      background:var(--red);
-      color:#fff;
-      border-radius:14px;
-      padding:14px 16px;
-      margin:12px auto 0;
-      max-width:900px;
-      border:2px solid var(--red);
-    }
-    .vol-thanks-banner a{ color:#fff; border-bottom-color:rgba(255,255,255,.7) }
-    .vol-thanks-banner a:hover{ border-bottom-color:#fff }
+    .vol-thanks-banner{display:none;background:var(--red);color:#fff;border-radius:14px;padding:14px 16px;margin:12px auto 0;max-width:900px;border:2px solid var(--red)}
+    .vol-thanks-banner a{color:#fff;border-bottom-color:rgba(255,255,255,.7)}
+    .vol-thanks-banner a:hover{border-bottom-color:#fff}
+    #volunteer .vol-side{background:#0d0d0f;border:1px solid var(--ring);border-radius:16px;padding:14px}
+    #volunteer .vol-side h3{margin:0 0 8px 0;font-size:18px}
+    #volunteer .vol-side ul{margin:8px 0 0 18px;padding:0;line-height:1.5}
   </style>
 </head>
 <body>
@@ -175,14 +152,8 @@
           </div>
 
           <div class="row">
-            <div>
-              <label>Location (city / event)</label>
-              <input type="text" placeholder="Optional if you don't know">
-            </div>
-            <div>
-              <label>Media URL</label>
-              <input type="url" placeholder="https://… (Instagram, Vimeo, YouTube, Article)">
-            </div>
+            <div><label>Location (city / event)</label><input type="text" placeholder="Optional if you don't know"></div>
+            <div><label>Media URL</label><input type="url" placeholder="https://… (Instagram, Vimeo, YouTube, Article)"></div>
           </div>
 
           <div>
@@ -191,29 +162,14 @@
           </div>
 
           <div class="row">
-            <div>
-              <label>Your Name</label>
-              <input type="text" required>
-            </div>
-            <div>
-              <label>Contact (email or phone)</label>
-              <input type="text" required>
-            </div>
+            <div><label>Your Name</label><input type="text" required></div>
+            <div><label>Contact (email or phone)</label><input type="text" required></div>
           </div>
 
           <div class="checks">
-            <label class="check">
-              <input type="checkbox">
-              <span>This is my photo/video.</span>
-            </label>
-            <label class="check">
-              <input type="checkbox">
-              <span>Not mine — just passing it along to archive.</span>
-            </label>
-            <label class="check">
-              <input type="checkbox">
-              <span>I give permission for use in community storytelling and fundraising.</span>
-            </label>
+            <label class="check"><input type="checkbox"><span>This is my photo/video.</span></label>
+            <label class="check"><input type="checkbox"><span>Not mine — just passing it along to archive.</span></label>
+            <label class="check"><input type="checkbox"><span>I give permission for use in community storytelling and fundraising.</span></label>
           </div>
 
           <button class="btn" type="submit">Submit</button>
@@ -279,12 +235,8 @@
           <p class="note">
             It was the first Man build, wandering around sweeping sawdust and watching Monkey Boy sanding tick marks and lumber stamps off the Man that Mark learned his most important Big Art lesson. When asked “are you sanding off every mark?” Monkey Boy simply answered “they don’t belong there”.
           </p>
-          <p class="note">
-            You might not notice every detail we put in, every mark we sand off. But we do.
-          </p>
-          <p class="note">
-            And that’s why we do it. That’s how we do it.
-          </p>
+          <p class="note">You might not notice every detail we put in, every mark we sand off. But we do.</p>
+          <p class="note">And that’s why we do it. That’s how we do it.</p>
         </section>
       </div>
     </section>
@@ -294,86 +246,103 @@
       <h2>Join the Crew — Build Big Art with Misfits</h2>
       <p class="note vol-intro">Short & sweet. Tell us how you want to help (local builds, on-site, or remote) — or if you want Misfits art in your city.</p>
 
-      <!-- Red thank-you banner (shown after submit) -->
-      <div id="vol-thanks" class="vol-thanks-banner">
-        <strong>Thanks! You’re on our list. 🎉</strong>
-        <div class="note" style="color:#fff;margin-top:6px">
-          We’ll reach out soon. Meanwhile you can
-          <a target="_blank" rel="noopener" href="https://hcb.hackclub.com/donations/start/the-misfit-toys">support Misfit Toys</a>
-          or share this page with a friend.
+      <div class="vol-grid">
+        <!-- LEFT: form + thanks -->
+        <div>
+          <!-- Red thank-you banner (shown after submit) -->
+          <div id="vol-thanks" class="vol-thanks-banner">
+            <strong>Thanks! You’re on our list. 🎉</strong>
+            <div class="note" style="color:#fff;margin-top:6px">
+              We’ll reach out soon. Meanwhile you can
+              <a target="_blank" rel="noopener" href="https://hcb.hackclub.com/donations/start/the-misfit-toys">support Misfit Toys</a>
+              or share this page with a friend.
+            </div>
+          </div>
+
+          <!-- On-page volunteer form (Formspree) -->
+          <form id="vol-form" action="https://formspree.io/f/xyzneljd" method="POST">
+            <div class="row">
+              <div><label>Name (IRL)</label><input name="name" required></div>
+              <div><label>Email</label><input type="email" name="email" required></div>
+            </div>
+            <div class="row">
+              <div><label>Phone</label><input name="phone"></div>
+              <div><label>City / Region</label><input name="city" placeholder="Where you’re based"></div>
+            </div>
+
+            <label>How do you want to help?</label>
+            <div class="checks">
+              <label class="check"><input type="checkbox" name="help[]" value="Carpentry/Wood"> <span>Carpentry / Wood</span></label>
+              <label class="check"><input type="checkbox" name="help[]" value="Welding"> <span>Welding</span></label>
+              <label class="check"><input type="checkbox" name="help[]" value="Electrical/Lighting/Solar"> <span>Electrical / Lighting / Solar</span></label>
+              <label class="check"><input type="checkbox" name="help[]" value="Crew Care/On-site support"> <span>Crew Care / On-site Support</span></label>
+              <label class="check"><input type="checkbox" name="help[]" value="Logistics"> <span>Logistics</span></label>
+              <label class="check"><input type="checkbox" name="help[]" value="Media/Social"> <span>Media / Social</span></label>
+              <label class="check"><input type="checkbox" name="help[]" value="Fundraising/Events"> <span>Fundraising / Events</span></label>
+              <label class="check"><input type="checkbox" name="help[]" value="I'm new—point me!"> <span>I’m new — point me!</span></label>
+            </div>
+
+            <div class="row">
+              <div>
+                <label>Skills you’re excited to share</label>
+                <textarea name="skills"></textarea>
+              </div>
+              <div>
+                <label>Want Misfits art in your city?</label>
+                <select name="bring_art">
+                  <option value="">Select…</option>
+                  <option>Yes — let’s talk</option>
+                  <option>Maybe</option>
+                  <option>Not now</option>
+                </select>
+                <label style="margin-top:8px">If yes, tell us where / the idea</label>
+                <textarea name="city_idea" placeholder="Location, venue or event, timing, partners…"></textarea>
+              </div>
+            </div>
+
+            <label>Availability</label>
+            <div class="checks">
+              <label class="check"><input type="checkbox" name="availability[]" value="Local ongoing"> <span>Local ongoing</span></label>
+              <label class="check"><input type="checkbox" name="availability[]" value="Pre-build"> <span>Pre-build</span></label>
+              <label class="check"><input type="checkbox" name="availability[]" value="On-site"> <span>On-site</span></label>
+              <label class="check"><input type="checkbox" name="availability[]" value="Post-event"> <span>Post-event</span></label>
+              <label class="check"><input type="checkbox" name="availability[]" value="Remote"> <span>Remote</span></label>
+            </div>
+
+            <div class="row">
+              <div><label>Instagram (optional)</label><input name="instagram" placeholder="https://instagram.com/…"></div>
+              <div><label>Facebook (optional)</label><input name="facebook" placeholder="https://facebook.com/…"></div>
+            </div>
+
+            <label>Anything else?</label>
+            <textarea name="message" placeholder="Past projects, pronouns, special interests, etc."></textarea>
+
+            <div class="checks">
+              <label class="check">
+                <input type="checkbox" name="agreements" required>
+                <span>I understand Misfit Toys welcomes all skill levels and supports an inclusive, respectful crew.</span>
+              </label>
+            </div>
+
+            <input type="hidden" name="_subject" value="New Misfit Toys Volunteer Submission">
+            <input type="hidden" name="page" value="misfit-submit">
+            <button class="btn" type="submit">Send</button>
+            <span class="note">You’ll get a quick confirmation after sending.</span>
+          </form>
         </div>
+
+        <!-- RIGHT: crew snapshot -->
+        <aside class="vol-side">
+          <h3>Crew snapshot</h3>
+          <ul>
+            <li>Bay Area & Reno work days</li>
+            <li>On-site build & crew care</li>
+            <li>Lighting, solar, welding, wood</li>
+            <li>Media + community events</li>
+          </ul>
+          <p class="note" style="margin-top:10px">New to big art? Perfect — lots of roles for first-timers.</p>
+        </aside>
       </div>
-
-      <!-- On-page volunteer form (Formspree) -->
-      <form id="vol-form" action="https://formspree.io/f/xyzneljd" method="POST">
-        <div class="row">
-          <div><label>Name (IRL)</label><input name="name" required></div>
-          <div><label>Email</label><input type="email" name="email" required></div>
-        </div>
-        <div class="row">
-          <div><label>Phone</label><input name="phone"></div>
-          <div><label>City / Region</label><input name="city" placeholder="Where you’re based"></div>
-        </div>
-
-        <label>How do you want to help?</label>
-        <div class="checks">
-          <label class="check"><input type="checkbox" name="help[]" value="Carpentry/Wood"> <span>Carpentry / Wood</span></label>
-          <label class="check"><input type="checkbox" name="help[]" value="Welding"> <span>Welding</span></label>
-          <label class="check"><input type="checkbox" name="help[]" value="Electrical/Lighting/Solar"> <span>Electrical / Lighting / Solar</span></label>
-          <label class="check"><input type="checkbox" name="help[]" value="Crew Care/On-site support"> <span>Crew Care / On-site Support</span></label>
-          <label class="check"><input type="checkbox" name="help[]" value="Logistics"> <span>Logistics</span></label>
-          <label class="check"><input type="checkbox" name="help[]" value="Media/Social"> <span>Media / Social</span></label>
-          <label class="check"><input type="checkbox" name="help[]" value="Fundraising/Events"> <span>Fundraising / Events</span></label>
-          <label class="check"><input type="checkbox" name="help[]" value="I'm new—point me!"> <span>I’m new — point me!</span></label>
-        </div>
-
-        <div class="row">
-          <div>
-            <label>Skills you’re excited to share</label>
-            <textarea name="skills"></textarea>
-          </div>
-          <div>
-            <label>Want Misfits art in your city?</label>
-            <select name="bring_art">
-              <option value="">Select…</option>
-              <option>Yes — let’s talk</option>
-              <option>Maybe</option>
-              <option>Not now</option>
-            </select>
-            <label style="margin-top:8px">If yes, tell us where / the idea</label>
-            <textarea name="city_idea" placeholder="Location, venue or event, timing, partners…"></textarea>
-          </div>
-        </div>
-
-        <label>Availability</label>
-        <div class="checks">
-          <label class="check"><input type="checkbox" name="availability[]" value="Local ongoing"> <span>Local ongoing</span></label>
-          <label class="check"><input type="checkbox" name="availability[]" value="Pre-build"> <span>Pre-build</span></label>
-          <label class="check"><input type="checkbox" name="availability[]" value="On-site"> <span>On-site</span></label>
-          <label class="check"><input type="checkbox" name="availability[]" value="Post-event"> <span>Post-event</span></label>
-          <label class="check"><input type="checkbox" name="availability[]" value="Remote"> <span>Remote</span></label>
-        </div>
-
-        <div class="row">
-          <div><label>Instagram (optional)</label><input name="instagram" placeholder="https://instagram.com/…"></div>
-          <div><label>Facebook (optional)</label><input name="facebook" placeholder="https://facebook.com/…"></div>
-        </div>
-
-        <label>Anything else?</label>
-        <textarea name="message" placeholder="Past projects, pronouns, special interests, etc."></textarea>
-
-        <div class="checks">
-          <label class="check">
-            <input type="checkbox" name="agreements" required>
-            <span>I understand Misfit Toys welcomes all skill levels and supports an inclusive, respectful crew.</span>
-          </label>
-        </div>
-
-        <input type="hidden" name="_subject" value="New Misfit Toys Volunteer Submission">
-        <input type="hidden" name="page" value="misfit-submit">
-        <button class="btn" type="submit">Send</button>
-        <span class="note">You’ll get a quick confirmation after sending.</span>
-      </form>
     </section>
 
     <!-- MERCH PREVIEW -->
@@ -411,13 +380,19 @@
     </footer>
   </div>
 
-  <!-- Volunteer thank-you logic -->
+  <!-- Volunteer thank-you logic (auto-scroll) -->
   <script>
   (() => {
     const form = document.getElementById('vol-form');
     if (!form) return;
     const intro = document.querySelector('#volunteer .vol-intro');
     const thanks = document.getElementById('vol-thanks');
+
+    function scrollToThanks(){
+      if (!thanks) return;
+      const y = thanks.getBoundingClientRect().top + window.pageYOffset - 90;
+      window.scrollTo({ top: y, behavior: 'smooth' });
+    }
 
     form.addEventListener('submit', async (e) => {
       e.preventDefault();
@@ -427,9 +402,9 @@
         const data = new FormData(form);
         const res = await fetch(form.action, { method: 'POST', body: data, headers: { 'Accept': 'application/json' } });
         if (res.ok) {
-          form.style.display = 'none';             // hide the form
-          if (intro) intro.style.display = 'none'; // hide intro copy
-          if (thanks) thanks.style.display = 'block'; // show red banner
+          form.style.display = 'none';
+          if (intro) intro.style.display = 'none';
+          if (thanks){ thanks.style.display = 'block'; scrollToThanks(); }
         } else {
           alert('Something went wrong. Please try again.');
         }
