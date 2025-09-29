@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Gofer — Free Landing Page Builder</title>
-  <meta name="description" content="Answer a few quick questions. See your landing page live. Copy or download the HTML and publish.">
+  <meta name="description" content="Answer a few friendly questions. See your landing page live. Copy or download the HTML and publish.">
   <meta name="robots" content="noindex,nofollow">
   <style>
     :root{--primary:#F57D31;--accent:#7FFF00;--bg:#0B0F19;--text:#E5E7EB;--muted:#BFC3CB;--radius:16px;--shadow:0 10px 25px rgba(0,0,0,.25);--h:ui-sans-serif,system-ui,-apple-system,Segoe UI,Inter,Roboto,Arial;--b:ui-sans-serif,system-ui,-apple-system,Segoe UI,Inter,Roboto,Arial}
@@ -28,6 +28,7 @@
     .hero-inner{position:relative;max-width:1100px;margin:0 auto;display:grid;gap:18px;justify-items:center;text-align:center}
     .kicker{color:var(--accent);font-weight:800;letter-spacing:.08em;text-transform:uppercase;font-size:12px}
     .title{font-family:var(--h);font-size:42px;line-height:1.1;margin:0}.subtitle{max-width:820px;opacity:.95}
+    .helper{max-width:880px;color:#cbd5e1}
     .cta-row{display:flex;gap:12px;flex-wrap:wrap;justify-content:center}
     .cta{padding:12px 18px;border-radius:999px;border:1px solid rgba(255,255,255,.12);background:var(--primary);color:#111;font-weight:800;text-decoration:none}
     .cta.secondary{background:transparent;color:var(--text)}
@@ -44,8 +45,10 @@
     <aside class="panel">
       <h1>⚡ Free Landing Page Builder</h1>
       <div class="grid">
+
+        <!-- Templates -->
         <div class="row">
-          <label>Template</label>
+          <label>Pick a template</label>
           <select id="tpl">
             <option value="generic">Generic (clean)</option>
             <option value="detailing">Auto Detailing</option>
@@ -55,22 +58,22 @@
           </select>
         </div>
 
-        <!-- ROI prompts -->
-        <div class="row"><label>Who is this for? (audience)</label><input id="aud" type="text" placeholder="busy homeowners in St. Pete"></div>
-        <div class="row"><label>What problem are we fixing? (pain)</label><input id="pain" type="text" placeholder="no time to clean their car"></div>
-        <div class="row"><label>What happens after we help? (outcome)</label><input id="outcome" type="text" placeholder="a clean car without leaving the driveway"></div>
-        <div class="row"><label>Proof (one line)</label><input id="proof" type="text" placeholder="120+ 5★ reviews across Tampa Bay"></div>
+        <!-- Friendly prompts (no jargon) -->
+        <div class="row"><label>Who is this for?</label><input id="aud" type="text" placeholder="busy homeowners in St. Pete"></div>
+        <div class="row"><label>What’s the main headache you remove?</label><input id="pain" type="text" placeholder="no time to clean their car"></div>
+        <div class="row"><label>What’s the nice result they get?</label><input id="outcome" type="text" placeholder="a clean car without leaving the driveway"></div>
+        <div class="row"><label>One line of proof (reviews, guarantee, number)</label><input id="proof" type="text" placeholder="120+ 5★ reviews across Tampa Bay"></div>
 
         <div class="inline">
-          <input id="showRoi" type="checkbox"> <label for="showRoi">Show ROI line on page</label>
-          <input id="hideKicker" type="checkbox" style="margin-left:12px"> <label for="hideKicker">Hide kicker</label>
+          <input id="showHelper" type="checkbox"> <label for="showHelper">Show helper line under headline (no labels)</label>
+          <input id="hideKicker" type="checkbox" style="margin-left:12px"> <label for="hideKicker">Hide small kicker text</label>
         </div>
 
         <hr style="border-color:rgba(255,255,255,.08)">
 
-        <div class="row"><label>Brand / Project Name</label><input id="title" type="text" value="Your Modern Thing"></div>
-        <div class="row"><label>One-line value prop</label><input id="subtitle" type="text" value="Simple systems. Clear messaging. Less chaos."></div>
-        <div class="row"><label>Hero kicker (optional)</label><input id="kicker" type="text" value="NEW • JUST LAUNCHED"></div>
+        <div class="row"><label>Brand / Project name</label><input id="title" type="text" value="Your Modern Thing"></div>
+        <div class="row"><label>One-line value</label><input id="subtitle" type="text" value="Simple systems. Clear messaging. Less chaos."></div>
+        <div class="row"><label>Small kicker (optional)</label><input id="kicker" type="text" value="NEW • JUST LAUNCHED"></div>
 
         <div class="inline">
           <div class="row" style="flex:1"><label>Primary color</label><input id="primary" type="color" value="#F57D31"></div>
@@ -85,18 +88,18 @@
         <div class="row"><label>Hero background image (URL, optional)</label><input id="heroImg" type="url" placeholder="https://images…"></div>
 
         <div class="inline">
-          <div class="row" style="flex:1"><label>CTA Primary</label><input id="cta1" type="text" value="Text us"></div>
-          <div class="row" style="flex:1"><label>CTA Secondary</label><input id="cta2" type="text" value="See pricing"></div>
+          <div class="row" style="flex:1"><label>Button 1</label><input id="cta1" type="text" value="Text us"></div>
+          <div class="row" style="flex:1"><label>Button 2</label><input id="cta2" type="text" value="See pricing"></div>
         </div>
 
         <div class="row">
-          <label>Feature bullets (one per line) • Tip: “Feature: short benefit”</label>
+          <label>Feature cards (one per line) • Tip “Headline: short help text”</label>
           <textarea id="features">Same-day service: book in minutes
 Clear pricing: no surprise fees
 Mobile-ready: looks great on phones</textarea>
         </div>
 
-        <div class="row"><label>Contact URL (button target)</label><input id="contactUrl" type="url" value="mailto:info@gofercontent.com?subject=Landing%20help"></div>
+        <div class="row"><label>Button link (where both buttons go)</label><input id="contactUrl" type="url" value="mailto:info@gofercontent.com?subject=Landing%20help"></div>
         <div class="row"><label>Footer note</label><input id="footer" type="text" value="© 2025 Your Brand. Built with the Gofer Landing Builder."></div>
 
         <div class="inline">
@@ -105,7 +108,7 @@ Mobile-ready: looks great on phones</textarea>
           <button class="btn ghost" id="btnDownload">Download HTML</button>
           <button class="btn ghost" id="btnShare">Copy share link</button>
         </div>
-        <div class="tip">Change anything—preview updates live. “Copy share link” saves your settings in the URL.</div>
+        <div class="tip">Change anything — the preview updates live. “Copy share link” saves your settings in the URL.</div>
       </div>
     </aside>
 
@@ -115,9 +118,20 @@ Mobile-ready: looks great on phones</textarea>
   </div>
 
   <script>
-    const $=s=>document.querySelector(s); const esc=s=>String(s||'').replace(/[&<>"']/g,m=>({"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;","'":"&#39;"}[m]));
+    const $=s=>document.querySelector(s);
+    const esc=s=>String(s||'').replace(/[&<>"']/g,m=>({"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;","'":"&#39;"}[m]));
     const slug=s=>(s||'').toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/(^-|-$)/g,'');
-    const S={aud:'',pain:'',outcome:'',proof:'',title:'Your Modern Thing',subtitle:'Simple systems. Clear messaging. Less chaos.',kicker:'NEW • JUST LAUNCHED',showRoi:false,hideKicker:false,primary:'#F57D31',accent:'#7FFF00',bg:'#0B0F19',text:'#E5E7EB',heroImg:'',cta1:'Text us',cta2:'See pricing',features:['Same-day service: book in minutes','Clear pricing: no surprise fees','Mobile-ready: looks great on phones'],contactUrl:'mailto:info@gofercontent.com?subject=Landing%20help',footer:'© 2025 Your Brand. Built with the Gofer Landing Builder.'};
+
+    const S={
+      aud:'', pain:'', outcome:'', proof:'',
+      showHelper:false, hideKicker:false,
+      title:'Your Modern Thing', subtitle:'Simple systems. Clear messaging. Less chaos.', kicker:'NEW • JUST LAUNCHED',
+      primary:'#F57D31', accent:'#7FFF00', bg:'#0B0F19', text:'#E5E7EB', heroImg:'',
+      cta1:'Text us', cta2:'See pricing', contactUrl:'mailto:info@gofercontent.com?subject=Landing%20help',
+      features:['Same-day service: book in minutes','Clear pricing: no surprise fees','Mobile-ready: looks great on phones'],
+      footer:'© 2025 Your Brand. Built with the Gofer Landing Builder.'
+    };
+
     const T={
       generic:s=>Object.assign(s,{title:'Your Modern Thing',subtitle:'Simple systems. Clear messaging. Less chaos.',features:['Fast setup','Modern look','Mobile-ready']}),
       detailing:s=>Object.assign(s,{title:'Mobile Detailing, On-Site',subtitle:'We come to you. Inside + out, same-day slots available.',features:['On-site service: we drive to you','Packages: basic to deep clean','Text-first booking: quick reply'],cta1:'Book a detail',contactUrl:'sms:+17273539673'}),
@@ -130,14 +144,21 @@ Mobile-ready: looks great on phones</textarea>
       ['title','subtitle','kicker','primary','accent','bg','text','heroImg','cta1','cta2','contactUrl','footer'].forEach(k=>{const el=$('#'+k); if(el) el.value=S[k];});
       $('#features').value=S.features.join('\n');
       $('#aud').value=S.aud; $('#pain').value=S.pain; $('#outcome').value=S.outcome; $('#proof').value=S.proof;
-      $('#showRoi').checked=!!S.showRoi; $('#hideKicker').checked=!!S.hideKicker;
+      $('#showHelper').checked=!!S.showHelper; $('#hideKicker').checked=!!S.hideKicker;
     }
+
     function setTheme(){document.documentElement.style.setProperty('--primary',S.primary);document.documentElement.style.setProperty('--accent',S.accent);document.documentElement.style.setProperty('--bg',S.bg);document.documentElement.style.setProperty('--text',S.text);}
-    function roiLine(inline=false){
-      if(!S.showRoi) return '';
-      const base = `For ${esc(S.aud||'your people')} • Problem: ${esc(S.pain||'')} • Outcome: ${esc(S.outcome||'')}${S.proof?` • <em>${esc(S.proof)}</em>`:''}`;
-      return inline ? `<div style="color:#cbd5e1;margin-top:6px">${base}</div>` : `<div class="tip" style="max-width:880px;margin-top:6px"><strong>${base}</strong></div>`;
+
+    // Build the friendly helper sentence (no labels)
+    function helperLine(){
+      if(!S.showHelper) return '';
+      const bits=[];
+      if(S.outcome) bits.push(esc(S.outcome));
+      if(S.aud) bits.push('for '+esc(S.aud));
+      if(S.proof) bits.push('• '+esc(S.proof));
+      return bits.length? `<div class="helper">${bits.join(' ')}</div>` : '';
     }
+
     function render(){
       setTheme();
       const heroStyle=S.heroImg?`background-image:url('${S.heroImg}')`:''; const hasBg=S.heroImg?'has-bg':'';
@@ -149,7 +170,7 @@ Mobile-ready: looks great on phones</textarea>
             ${S.hideKicker?'':(S.kicker?`<div class="kicker">${esc(S.kicker)}</div>`:'')}
             <h1 class="title">${esc(S.title)}</h1>
             <p class="subtitle">${esc(S.subtitle)}</p>
-            ${roiLine(false)}
+            ${helperLine()}
             <div class="cta-row">
               ${S.cta1?`<a class="cta" href="${esc(S.contactUrl)}">${esc(S.cta1)}</a>`:''}
               ${S.cta2?`<a class="cta secondary" href="${esc(S.contactUrl)}">${esc(S.cta2)}</a>`:''}
@@ -159,8 +180,14 @@ Mobile-ready: looks great on phones</textarea>
         <section class="features"><div class="features-grid">${feat}</div></section>
         <footer class="footer"><span>${esc(S.footer)}</span><span style="opacity:.8">Made fast • Looks modern</span></footer>`;
     }
+
     function buildExportHtml(){
       const feat=S.features.map(f=>{const[h,...r]=f.split(':');const b=r.join(':');return `<div class="card"><h3>${esc(h)}</h3>${b?`<p>${esc(b)}</p>`:''}</div>`}).join('');
+      const helper=(()=>{
+        if(!S.showHelper) return '';
+        const bits=[]; if(S.outcome) bits.push(esc(S.outcome)); if(S.aud) bits.push('for '+esc(S.aud)); if(S.proof) bits.push('• '+esc(S.proof));
+        return bits.length?`<div style="max-width:880px;color:#cbd5e1">${bits.join(' ')}</div>`:'';
+      })();
       return `<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>${esc(S.title)}</title>
 <style>
 :root{--primary:${S.primary};--accent:${S.accent};--bg:${S.bg};--text:${S.text};--radius:16px;--shadow:0 10px 25px rgba(0,0,0,.25);font-family:ui-sans-serif,system-ui}
@@ -184,7 +211,7 @@ Mobile-ready: looks great on phones</textarea>
 ${S.hideKicker?'':(S.kicker?`<div class="kicker">${esc(S.kicker)}</div>`:'')}
 <h1 class="title">${esc(S.title)}</h1>
 <p class="subtitle">${esc(S.subtitle)}</p>
-${S.showRoi?`${roiLine(true)}`:''}
+${helper}
 <div class="cta-row">
 ${S.cta1?`<a class="cta" href="${esc(S.contactUrl)}">${esc(S.cta1)}</a>`:''}
 ${S.cta2?`<a class="cta secondary" href="${esc(S.contactUrl)}">${esc(S.cta2)}</a>`:''}
@@ -193,20 +220,27 @@ ${S.cta2?`<a class="cta secondary" href="${esc(S.contactUrl)}">${esc(S.cta2)}</a
 <footer class="footer"><span>${esc(S.footer)}</span><span style="opacity:.8">Made fast • Looks modern</span></footer>
 </body></html>`;
     }
+
     function share(){ const link=location.origin+location.pathname+'?d='+encodeURIComponent(btoa(JSON.stringify(S))); navigator.clipboard.writeText(link); $('#btnShare').textContent='Link copied!'; setTimeout(()=>$('#btnShare').textContent='Copy share link',1200); }
     function shuffle(){ const p=[['#F57D31','#7FFF00','#0B0F19','#E5E7EB'],['#22C55E','#14B8A6','#0A0A0A','#FAFAFA'],['#F59E0B','#F43F5E','#111827','#F3F4F6'],['#06B6D4','#818CF8','#020617','#E2E8F0'],['#EF4444','#10B981','#0B1220','#F8FAFC']]; const c=p[Math.random()*p.length|0]; [S.primary,S.accent,S.bg,S.text]=c; reflect(); render(); }
+
     function bind(){
       $('#tpl').addEventListener('change',e=>{ (T[e.target.value]||T.generic)(S); reflect(); render(); });
-      ['aud','pain','outcome','proof','title','subtitle','kicker','primary','accent','bg','text','heroImg','cta1','cta2','contactUrl','footer'].forEach(id=>$('#'+id).addEventListener('input',e=>{S[id]=e.target.value; render();}));
+      ['aud','pain','outcome','proof','title','subtitle','kicker','primary','accent','bg','text','heroImg','cta1','cta2','contactUrl','footer']
+        .forEach(id=>$('#'+id).addEventListener('input',e=>{S[id]=e.target.value; render();}));
       $('#features').addEventListener('input',e=>{S.features=e.target.value.split('\n').filter(Boolean); render();});
-      $('#showRoi').addEventListener('change',e=>{S.showRoi=e.target.checked; render();});
+      $('#showHelper').addEventListener('change',e=>{S.showHelper=e.target.checked; render();});
       $('#hideKicker').addEventListener('change',e=>{S.hideKicker=e.target.checked; render();});
       $('#btnRandom').addEventListener('click',shuffle);
       $('#btnCopy').addEventListener('click',()=>{navigator.clipboard.writeText(buildExportHtml());$('#btnCopy').textContent='Copied!';setTimeout(()=>$('#btnCopy').textContent='Copy HTML',1200)});
       $('#btnDownload').addEventListener('click',()=>{const blob=new Blob([buildExportHtml()],{type:'text/html'}); const a=document.createElement('a'); a.href=URL.createObjectURL(blob); a.download=slug(S.title||'landing')+'.html'; document.body.appendChild(a); a.click(); setTimeout(()=>{URL.revokeObjectURL(a.href); a.remove();},0);});
       $('#btnShare').addEventListener('click',share);
     }
-    (function init(){ const d=new URL(location.href).searchParams.get('d'); if(d){ try{Object.assign(S,JSON.parse(atob(decodeURIComponent(d))))}catch{} } reflect(); bind(); render();})();
+
+    (function init(){
+      const d=new URL(location.href).searchParams.get('d'); if(d){ try{Object.assign(S,JSON.parse(atob(decodeURIComponent(d))))}catch{} }
+      reflect(); bind(); render();
+    })();
   </script>
 </body>
 </html>
