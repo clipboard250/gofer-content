@@ -14,14 +14,12 @@
   <title>Misfit Toys — One Tin Soldier Media Submissions</title>
   <meta name="description" content="Share photos, videos, and memories of One Tin Soldier, a Misfit Toys production.">
 
-  <!-- Facebook Meta Tags -->
+  <!-- Social -->
   <meta property="og:url" content="https://gofercontent.com/misfit-submit/">
   <meta property="og:type" content="website">
   <meta property="og:title" content="Misfit Toys — One Tin Soldier Media Submissions">
   <meta property="og:description" content="Share photos, videos, and memories of One Tin Soldier, a Misfit Toys production.">
   <meta property="og:image" content="https://opengraph.b-cdn.net/production/images/6021c1e9-4cdd-41f6-9f97-d76024c20e50.png?token=4Qu5b14aijA3eW9-J47BMarBzurgy6IlAS2WmR98i3c&height=630&width=1200&expires=33295081589">
-
-  <!-- Twitter Meta Tags -->
   <meta name="twitter:card" content="summary_large_image">
   <meta property="twitter:domain" content="gofercontent.com">
   <meta property="twitter:url" content="https://gofercontent.com/misfit-submit/">
@@ -30,14 +28,16 @@
   <meta name="twitter:image" content="https://opengraph.b-cdn.net/production/images/6021c1e9-4cdd-41f6-9f97-d76024c20e50.png?token=4Qu5b14aijA3eW9-J47BMarBzurgy6IlAS2WmR98i3c&height=630&width=1200&expires=33295081589">
 
   <style>
-    /* Keep images responsive without stretching */
-.img-auto { width:100%; height:auto; display:block; }
     :root{ --bg:#000; --ink:#fff; --muted:#cfcfcf; --card:#0a0a0a; --ring:#222; --red:#e10600; }
     *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
     html,body{margin:0;background:var(--bg);color:var(--ink);font-family:Helvetica, Arial, system-ui, -apple-system, Segoe UI, Roboto, Inter, sans-serif;line-height:1.45}
     a{color:var(--ink);text-decoration:none;border-bottom:1px solid rgba(255,255,255,.35)}
     a:hover{opacity:.85;border-bottom-color:rgba(255,255,255,.6)}
     .wrap{max-width:1100px;margin:auto;padding:24px}
+
+    /* Keep images responsive without stretching */
+    .img-auto { width:100%; height:auto; display:block; }
 
     /* Header (centered) */
     header{display:flex;flex-direction:column;align-items:center;text-align:center;gap:16px}
@@ -73,7 +73,7 @@
     .row{display:grid;gap:12px}
     @media(min-width:720px){.row{grid-template-columns:1fr 1fr}}
 
-    /* Pro checkbox UI (consistent, accessible) */
+    /* Pro checkbox UI */
     .checks{display:grid;gap:10px;margin-top:4px}
     .checks.split2{grid-template-columns:1fr}
     @media(min-width:980px){ .checks.split2{grid-template-columns:repeat(2,minmax(0,1fr))} }
@@ -124,7 +124,8 @@
       <div class="header-actions">
         <a class="btn" href="#submit">Submit your media</a>
         <a class="btn" href="#gallery">See the gallery</a>
-        <a class="btn" target="_blank" rel="noopener" href="https://hcb.hackclub.com/donations/start/the-misfit-toys">Donate to Misfit Toys</a>
+        <!-- Donate now scrolls to #donate -->
+        <a class="btn" href="#donate">Donate to Misfit Toys</a>
         <a class="btn" href="#volunteer">Get Involved</a>
       </div>
     </header>
@@ -197,7 +198,8 @@
         <iframe class="video" src="https://www.youtube.com/embed/OswG8eew2Pc" title="Meet the Misfits — Desert Arts Preview" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" loading="lazy"></iframe>
         <div class="header-actions" style="margin-top:12px">
           <a class="btn" href="#founder">Meet the founder</a>
-          <a class="btn" target="_blank" rel="noopener" href="https://hcb.hackclub.com/donations/start/the-misfit-toys">Donate to Misfit Toys</a>
+          <!-- scroll to donate -->
+          <a class="btn" href="#donate">Donate to Misfit Toys</a>
         </div>
       </section>
     </div>
@@ -237,14 +239,14 @@
       <h2>Mark Deem, Founder</h2>
       <div class="grid" style="align-items:center">
         <section>
-         <img
-  src="mark-deem-founder-misfits.jpg"
-  alt="Mark Deem on playa, standing between giant toy blocks"
-  title="Mark Deem on playa"
-  loading="lazy"
-  width="1690" height="1402"
-  class="img-auto"
-  style="border-radius:12px;border:1px solid var(--ring)">
+          <img
+            src="mark-deem-founder-misfits.jpg"
+            alt="Mark Deem on playa, standing between giant toy blocks"
+            title="Mark Deem on playa"
+            loading="lazy"
+            width="1690" height="1402"
+            class="img-auto"
+            style="border-radius:12px;border:1px solid var(--ring)">
         </section>
         <section>
           <p class="note" style="font-size:16px;color:#e5e5e5">
@@ -350,16 +352,33 @@
         <!-- RIGHT: crew snapshot -->
         <aside class="vol-side">
           <h3>Crew snapshot</h3>
-       <img
-  src="misfit-crew-snapshot.jpg"
-  alt="Misfit Toys crew working on large art"
-  title="Misfit Crew on playa"
-  loading="lazy"
-  width="3000" height="2250"
-  class="img-auto"
-  style="border-radius:12px;border:1px solid var(--ring);margin:6px 0 8px 0">
+          <img
+            src="misfit-crew-snapshot.jpg"
+            alt="Misfit Toys crew working on large art"
+            title="Misfit Crew on playa"
+            loading="lazy"
+            width="3000" height="2250"
+            class="img-auto"
+            style="border-radius:12px;border:1px solid var(--ring);margin:6px 0 8px 0">
           <div class="vol-cap"><strong>Caption:</strong> Misfits Crew 2024 coming to the rescue at Man Pavilion in Black Rock City.</div>
         </aside>
+      </div>
+    </section>
+
+    <!-- DONATE (on-page) -->
+    <section id="donate">
+      <h2>Support Misfit Toys</h2>
+      <p class="note">Your support keeps us building big, beautiful art.</p>
+      <div style="background:#0d0d0f;border:1px solid var(--ring);border-radius:16px;padding:14px">
+        <iframe class="video"
+          src="https://hcb.hackclub.com/donations/start/the-misfit-toys"
+          title="Donate to Misfit Toys"
+          loading="lazy"
+          style="aspect-ratio:auto;height:680px;border-radius:12px;border:1px solid var(--ring)"></iframe>
+        <p class="note" style="margin-top:10px">
+          If the form doesn’t load, <a target="_blank" rel="noopener"
+          href="https://hcb.hackclub.com/donations/start/the-misfit-toys">open the donation page</a>.
+        </p>
       </div>
     </section>
 
