@@ -30,6 +30,8 @@
   <meta name="twitter:image" content="https://opengraph.b-cdn.net/production/images/6021c1e9-4cdd-41f6-9f97-d76024c20e50.png?token=4Qu5b14aijA3eW9-J47BMarBzurgy6IlAS2WmR98i3c&height=630&width=1200&expires=33295081589">
 
   <style>
+    /* Keep images responsive without stretching */
+.img-auto { width:100%; height:auto; display:block; }
     :root{ --bg:#000; --ink:#fff; --muted:#cfcfcf; --card:#0a0a0a; --ring:#222; --red:#e10600; }
     *{box-sizing:border-box}
     html,body{margin:0;background:var(--bg);color:var(--ink);font-family:Helvetica, Arial, system-ui, -apple-system, Segoe UI, Roboto, Inter, sans-serif;line-height:1.45}
@@ -235,12 +237,14 @@
       <h2>Mark Deem, Founder</h2>
       <div class="grid" style="align-items:center">
         <section>
-          <img src="mark-deem-founder-misfits.jpg"
-               alt="Mark Deem on playa, standing between giant toy blocks"
-               title="Mark Deem on playa"
-               loading="lazy"
-               width="1690" height="1402"
-               style="width:100%;border-radius:12px;border:1px solid var(--ring)">
+         <img
+  src="mark-deem-founder-misfits.jpg"
+  alt="Mark Deem on playa, standing between giant toy blocks"
+  title="Mark Deem on playa"
+  loading="lazy"
+  width="1690" height="1402"
+  class="img-auto"
+  style="border-radius:12px;border:1px solid var(--ring)">
         </section>
         <section>
           <p class="note" style="font-size:16px;color:#e5e5e5">
@@ -346,12 +350,14 @@
         <!-- RIGHT: crew snapshot -->
         <aside class="vol-side">
           <h3>Crew snapshot</h3>
-          <img src="misfit-crew-snapshot.jpg"
-               alt="Misfit Toys crew working on large art"
-               title="Misfit Crew on playa"
-               loading="lazy"
-               width="3000" height="2250"
-               style="width:100%;border-radius:12px;border:1px solid var(--ring);margin:6px 0 8px 0">
+       <img
+  src="misfit-crew-snapshot.jpg"
+  alt="Misfit Toys crew working on large art"
+  title="Misfit Crew on playa"
+  loading="lazy"
+  width="3000" height="2250"
+  class="img-auto"
+  style="border-radius:12px;border:1px solid var(--ring);margin:6px 0 8px 0">
           <div class="vol-cap"><strong>Caption:</strong> Misfits Crew 2024 coming to the rescue at Man Pavilion in Black Rock City.</div>
         </aside>
       </div>
