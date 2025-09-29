@@ -107,7 +107,11 @@
       <div class="brand">
         <img class="logo" src="misfit-logo.png" alt="Misfit Toys logo">
         <h1>Misfit Toys — One Tin Soldier</h1>
-        <div class="tag">A public archive of memory, play, and community. Share your photos, videos, links, or news articles from <strong>One Tin Soldier</strong> (any location, 2022–2025). Together, we keep the story alive.</div>
+        <div class="tag">
+          Share photos, videos, links, or news articles from <strong>One Tin Soldier</strong> (any location).
+          <br><br>
+          <strong>Didn't take the photo?</strong> Perfect — drop the link anyway and our crew will track down the original owner for proper attribution.
+        </div>
       </div>
       <div class="header-actions">
         <a class="btn" href="#submit">Submit your media</a>
@@ -121,7 +125,9 @@
       <!-- LEFT: submission form -->
       <section id="submit">
         <h2>Submit a Photo, Video, Link, or Article</h2>
-        <p class="note">One Tin Soldier has traveled from Black Rock City to Golden Gate Park and beyond. Use this form to share how you experienced it: where, when, and through your lens.</p>
+        <p class="note">
+          <strong>Heads up:</strong> Didn’t take the photo? Even better. Drop the link — we’ll track down the original owner and make sure credit sticks.
+        </p>
 
         <!-- PREVIEW form. Next step: connect to Airtable -->
         <form onsubmit="event.preventDefault(); alert('Preview only. Next step: connect to Airtable.');">
@@ -178,7 +184,11 @@
           <div class="checks">
             <label class="check">
               <input type="checkbox">
-              <span>I took this photo/video.</span>
+              <span>This is my photo/video.</span>
+            </label>
+            <label class="check">
+              <input type="checkbox">
+              <span>Not mine — just passing it along for credit + archive.</span>
             </label>
             <label class="check">
               <input type="checkbox">
