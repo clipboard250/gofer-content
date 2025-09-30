@@ -139,11 +139,11 @@
         </p>
 
         <!-- PREVIEW form. Next step: connect to Airtable -->
-        <form onsubmit="event.preventDefault(); alert('Preview only. Next step: connect to Airtable.');">
+       <form action="https://formspree.io/f/movkdpje" method="POST">
           <div class="row">
             <div>
               <label>Type</label>
-              <select required>
+             <select name="type" required>
                 <option value="">Select…</option>
                 <option>Photo</option>
                 <option>Video</option>
@@ -151,43 +151,36 @@
                 <option>News Article</option>
               </select>
             </div>
-            <div>
-              <label>Year</label>
-              <select required>
-                <option value="">Select…</option>
-                <option>2022</option>
-                <option>2023</option>
-                <option>2024</option>
-                <option>2025</option>
-              </select>
-            </div>
+        <div>
+  <label>Year</label>
+  <input type="number" name="year" min="2020" max="2030" placeholder="e.g., 2024" required>
+</div>
           </div>
 
           <div class="row">
-            <div><label>Location (city / event)</label><input type="text" placeholder="Optional if you don't know"></div>
-            <div><label>Media URL</label><input type="url" placeholder="https://… (Instagram, Vimeo, YouTube, Article)"></div>
+            <div><label>Location (city / event)</label><input name="location" type="text" placeholder="Optional if you don't know"></div>
+            <div><label>Media URL</label><input name="media_url" type="url" placeholder="https://… (Instagram, Vimeo, YouTube, Article)"></div>
           </div>
 
           <div>
             <label>Photo upload (JPG/PNG)</label>
-            <input type="file" accept="image/jpeg,image/png">
+           <input name="photo" type="file" accept="image/jpeg,image/png">
           </div>
 
           <div class="row">
-            <div><label>Your Name</label><input type="text" required></div>
-            <div><label>Contact (email or phone)</label><input type="text" required></div>
+            <div><label>Your Name</label><input name="name" type="text" required></div>
+            <div><label>Contact (email or phone)</label><input name="contact" type="text" required></div>
           </div>
 
-          <div class="checks split2">
-            <label class="check"><input type="checkbox"><span>This is my photo/video.</span></label>
-            <label class="check"><input type="checkbox"><span>Not mine — just passing it along to archive.</span></label>
-            <label class="check"><input type="checkbox"><span>I give permission for use in community storytelling and fundraising.</span></label>
-          </div>
-
-          <button class="btn" type="submit">Submit</button>
-          <span class="note">Preview only — not saving yet.</span>
-        </form>
-      </section>
+       <div class="checks split2">
+  <label class="check"><input type="checkbox" name="is_mine" value="yes"><span>This is my photo/video.</span></label>
+  <label class="check"><input type="checkbox" name="not_mine" value="yes"><span>Not mine — just passing it along to archive.</span></label>
+  <label class="check"><input type="checkbox" name="permission" value="yes"><span>I give permission for use in community storytelling and fundraising.</span></label>
+</div>
+         <button class="btn" type="submit">Submit</button>
+<input type="hidden" name="_subject" value="New Misfit Toys Media Submission">
+<span class="note">Submissions will go to your email via Formspree.</span>
+</form>
 
       <!-- RIGHT: Meet the Misfits -->
       <section id="misfits">
