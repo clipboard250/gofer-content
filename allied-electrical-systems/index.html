@@ -78,26 +78,73 @@
       overflow:hidden;
     }
     .brand{
+      display:flex;
+      align-items:center;
+      gap:10px;
       color:#fff;
       font-weight:800;
       letter-spacing:-0.02em;
       font-size:16px;
       white-space:nowrap;
     }
-    .nav-links{
-      display:flex;
-      gap:20px;
-      align-items:center;
-      flex-wrap:wrap;
+    .brand .dot{
+      width:8px;
+      height:8px;
+      border-radius:50%;
+      background:var(--orange);
+      flex-shrink:0;
     }
+    .nav-links{
+      display:none;
+      flex-direction:column;
+      gap:16px;
+      width:100%;
+      padding:20px 0;
+      background:rgba(30,58,95,0.98);
+      position:absolute;
+      top:70px;
+      left:0;
+      border-top:1px solid rgba(255,255,255,0.1);
+    }
+    .nav-links.open{display:flex}
     .nav-links a{
       color:rgba(255,255,255,0.9);
       font-weight:600;
-      font-size:15px;
-      white-space:nowrap;
+      font-size:16px;
+      padding:8px 24px;
     }
     .nav-links a:hover{color:#fff}
     .nav-links a:focus-visible{outline:2px solid var(--orange);outline-offset:4px}
+    .hamburger{
+      display:flex;
+      flex-direction:column;
+      gap:4px;
+      background:transparent;
+      border:none;
+      cursor:pointer;
+      padding:8px;
+    }
+    .hamburger span{
+      width:24px;
+      height:3px;
+      background:#fff;
+      border-radius:2px;
+      transition:all 0.3s ease;
+    }
+    .hamburger:focus-visible{outline:2px solid var(--orange);outline-offset:4px}
+    @media(min-width:768px){
+      .hamburger{display:none}
+      .nav-links{
+        display:flex;
+        flex-direction:row;
+        position:relative;
+        top:0;
+        width:auto;
+        padding:0;
+        border:none;
+      }
+      .nav-links a{padding:0}
+    }
 
     /* Scrolling Trust Ticker */
     .trust-ticker{
@@ -374,8 +421,13 @@
 <body>
   <nav class="nav" role="navigation" aria-label="Main navigation">
     <div class="wrap nav-inner">
-      <div class="brand">Allied Electrical Systems</div>
-      <div class="nav-links">
+      <div class="brand"><span class="dot"></span>Allied Electrical Systems</div>
+      <button class="hamburger" aria-label="Toggle menu" aria-expanded="false" id="menuToggle">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <div class="nav-links" id="navMenu">
         <a href="#services">Services</a>
         <a href="#why">Why Allied</a>
         <a href="#hours">Hours</a>
@@ -521,13 +573,13 @@
     <section id="hours" class="card" aria-labelledby="hours-heading">
       <h2 id="hours-heading" class="section-title">Hours & Contact</h2>
       <div class="hours" role="table" aria-label="Business hours">
-        <div role="row"><span role="cell">Mon</span><span role="cell">8:00 AM – 5:00 PM</span></div>
-        <div role="row"><span role="cell">Tue</span><span role="cell">8:00 AM – 5:00 PM</span></div>
-        <div role="row"><span role="cell">Wed</span><span role="cell">8:00 AM – 5:00 PM</span></div>
-        <div role="row"><span role="cell">Thu</span><span role="cell">8:00 AM – 5:00 PM</span></div>
-        <div role="row"><span role="cell">Fri</span><span role="cell">8:00 AM – 5:00 PM</span></div>
-        <div role="row"><span role="cell">Sat</span><span role="cell">Closed</span></div>
-        <div role="row"><span role="cell">Sun</span><span role="cell">Closed</span></div>
+        <div>Mon</div><div>8:00 AM – 5:00 PM</div>
+        <div>Tue</div><div>8:00 AM – 5:00 PM</div>
+        <div>Wed</div><div>8:00 AM – 5:00 PM</div>
+        <div>Thu</div><div>8:00 AM – 5:00 PM</div>
+        <div>Fri</div><div>8:00 AM – 5:00 PM</div>
+        <div>Sat</div><div>Closed</div>
+        <div>Sun</div><div>Closed</div>
       </div>
       <div class="band" style="margin-top:20px">
         <strong>📍 Address:</strong> 745 40th St S, Saint Petersburg, FL 33711<br>
@@ -570,6 +622,23 @@
     };
     setNavH();
     window.addEventListener('resize', setNavH);
+
+    // Hamburger menu toggle
+    const menuToggle = document.getElementById('menuToggle');
+    const navMenu = document.getElementById('navMenu');
+    
+    menuToggle.addEventListener('click', () => {
+      const isOpen = navMenu.classList.toggle('open');
+      menuToggle.setAttribute('aria-expanded', isOpen);
+    });
+
+    // Close menu when clicking a link
+    document.querySelectorAll('.nav-links a').forEach(link => {
+      link.addEventListener('click', () => {
+        navMenu.classList.remove('open');
+        menuToggle.setAttribute('aria-expanded', 'false');
+      });
+    });
 
     // Smooth scroll for anchor links
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
