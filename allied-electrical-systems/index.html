@@ -3,21 +3,26 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Allied Electrical Systems, Inc. — Trusted Gulf Coast Electricians</title>
-  <meta name="description" content="Licensed & insured electricians serving Pinellas County since 1993. Call or talk to us online for fast, reliable service." />
+  <title>Allied Electrical Systems: Trusted Electricians in Florida</title>
+  <meta name="description" content="Licensed electricians serving Pinellas County since 1993. Contact us for reliable residential and commercial electrical services today." />
   <meta name="theme-color" content="#0b1a33" />
-  <!-- SEO: Open Graph / Twitter (replace og-image when you add it) -->
-  <meta property="og:title" content="Allied Electrical Systems — Trusted Gulf Coast Electricians" />
-  <meta property="og:description" content="A+ BBB‑rated. Residential & commercial service. Call or talk to us online." />
+
+  <!-- Open Graph / Twitter -->
+  <meta property="og:title" content="Allied Electrical Systems: Trusted Electricians in Florida" />
+  <meta property="og:description" content="Licensed electricians serving Pinellas County since 1993. Contact us for reliable residential and commercial electrical services today." />
   <meta property="og:image" content="/allied-electrical-systems/og-allied.jpg" />
   <meta property="og:type" content="website" />
   <meta property="twitter:card" content="summary_large_image" />
-  <meta property="twitter:title" content="Allied Electrical Systems — Trusted Gulf Coast Electricians" />
-  <meta property="twitter:description" content="Licensed & insured electricians serving Pinellas County since 1993. Call or talk to us online." />
+  <meta property="twitter:title" content="Allied Electrical Systems: Trusted Electricians in Florida" />
+  <meta property="twitter:description" content="Licensed electricians serving Pinellas County since 1993. Contact us for reliable residential and commercial electrical services today." />
   <meta property="twitter:image" content="/allied-electrical-systems/og-allied.jpg" />
+
+  <!-- Leaflet CSS for service-area map -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin=""/>
+
   <style>
     :root{
-      /* Gulf Coast—masculine/working‑class */
+      /* Gulf Coast—masculine/working-class */
       --navy:#0b1a33;       /* deep trust */
       --gulf:#0e7490;       /* gulf teal */
       --sea:#bfe7ef;        /* seafoam wash */
@@ -26,13 +31,14 @@
       --muted:#6b7280;
       --paper:#ffffff;
       --card:#f7f9fb;
+      --nav-h:90px;         /* gets updated by JS below */
     }
     *{box-sizing:border-box}
     html,body{margin:0;height:100%;font-family:ui-sans-serif,system-ui,Segoe UI,Roboto,Helvetica,Arial,Apple Color Emoji,Noto Color Emoji;color:var(--ink);background:var(--paper)}
     a{color:var(--gulf);text-decoration:none}
     .wrap{max-width:1120px;margin:0 auto;padding:0 20px}
 
-    /* Sticky, roll‑down nav */
+    /* Sticky, roll-down nav */
     .nav{position:sticky;top:0;z-index:30;background:rgba(11,26,51,.95);backdrop-filter:saturate(120%) blur(6px);border-bottom:1px solid rgba(255,255,255,.08)}
     .nav-inner{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:10px 0}
     .brand{display:flex;align-items:center;gap:10px;color:#fff;font-weight:800;letter-spacing:.2px}
@@ -47,14 +53,12 @@
     .btn.primary{background:var(--navy);color:#fff;border-color:var(--navy)}
     .btn.alt{background:var(--gulf);color:#05121f;border-color:var(--gulf)}
     .btn.ghost{background:#fff;color:#0b1a33}
-
-    /* Button micro‑reward */
     .btn:active{transform:translateY(1px)}
     @keyframes pop{0%{transform:scale(1)}50%{transform:scale(1.03)}100%{transform:scale(1)}}
     .btn.pop{animation:pop .22s ease}
 
     /* Hero */
-    .hero{background:linear-gradient(180deg,var(--sea),#fff)}
+    .hero{background:linear-gradient(180deg,var(--sea),#fff); padding-top:12px;}
     .hero-inner{display:grid;gap:22px;padding:28px 0}
     .hero h1{font-size:clamp(28px,6vw,48px);line-height:1.05;margin:0;color:var(--navy)}
     .sub{color:#334155;font-size:clamp(14px,2.6vw,18px)}
@@ -63,7 +67,7 @@
     .cta-row{display:grid;grid-template-columns:1fr;gap:10px}
 
     /* Sections */
-    section{scroll-margin-top:76px}
+    section{scroll-margin-top:var(--nav-h)}
     .grid{display:grid;gap:18px}
     .cards{display:grid;gap:14px;grid-template-columns:1fr}
     .card{background:var(--card);border:1px solid #e5e7eb;border-radius:16px;padding:16px}
@@ -85,6 +89,25 @@
 
     .footer{margin-top:28px;padding:20px 0;color:#6b7280;font-size:12px;border-top:1px solid #e5e7eb}
 
+    /* Map */
+    #service-map{
+      width:100%;
+      height:clamp(240px,55vh,420px);
+      border-radius:12px;border:1px solid #e5e7eb;overflow:hidden
+    }
+
+    /* Gallery */
+    .gallery{
+      display:flex; gap:10px; overflow:auto;
+      scroll-snap-type:x mandatory; padding-bottom:6px;
+      -webkit-overflow-scrolling:touch;
+    }
+    .gallery img{
+      height:clamp(120px, 26vw, 220px);
+      aspect-ratio:4/3; object-fit:cover;
+      border-radius:12px; flex:0 0 auto; scroll-snap-align:start;
+    }
+
     /* Desktop tweaks */
     @media(min-width:900px){
       .hero-inner{grid-template-columns:1.15fr .85fr;align-items:center}
@@ -93,19 +116,14 @@
       .grid-3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
     }
 
-    /* Reduced motion respect */
     @media (prefers-reduced-motion: reduce){
       .btn{transition:none}
       .btn.pop{animation:none}
     }
-    /* Map */
-    #service-map{width:100%;height:clamp(240px,55vh,420px);border-radius:12px;border:1px solid #e5e7eb;overflow:hidden}
   </style>
-  <!-- Leaflet for Service Area map -->
-  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin=""/>
 </head>
 <body>
-  <!-- Sticky nav that rolls down to sections -->
+  <!-- Sticky nav -->
   <nav class="nav">
     <div class="wrap nav-inner">
       <div class="brand"><span class="dot"></span>Allied Electrical Systems, Inc.</div>
@@ -128,7 +146,7 @@
           <span class="pill">Serving Pinellas County</span>
         </div>
         <h1>Trusted Gulf Coast Electricians — Since 1993</h1>
-        <p class="sub">Straightforward service, fair pricing, and clean workmanship. Panels, lighting, troubleshooting, and commercial maintenance — done safely and on schedule by a local A+‑rated team.</p>
+        <p class="sub">Straightforward service, fair pricing, and clean workmanship. Panels, lighting, troubleshooting, and commercial maintenance — done safely and on schedule by a local A+-rated team.</p>
         <div class="cta-row" style="margin-top:6px">
           <a class="btn primary tap-reward" href="tel:+17273233596">Call Now</a>
           <a class="btn alt tap-reward" href="#quote">Talk to Us</a>
@@ -140,6 +158,7 @@
           <span class="pill">License ER0012322 (Active)</span>
         </div>
       </div>
+
       <div class="card">
         <h3>Talk to Us</h3>
         <p class="lead">Tell us what you need and the best time to reach you. We’ll call you back ASAP.</p>
@@ -158,21 +177,24 @@
           </select>
           <textarea name="message" placeholder="Briefly describe the issue or project"></textarea>
           <button class="btn alt tap-reward" type="submit">Send</button>
+
+          <!-- hidden metadata -->
           <input type="hidden" name="source" value="Allied Electrical Systems Landing" />
-            <input type="hidden" name="source" value="Allied Electrical Systems Landing" />
-  <input type="hidden" name="_subject" value="Allied Website Lead">
-  <input type="hidden" name="page" value="gofercontent.com/allied-electrical-systems">
+          <input type="hidden" name="_subject" value="Allied Website Lead">
+          <input type="hidden" name="page" value="gofercontent.com/allied-electrical-systems">
         </form>
       </div>
     </div>
   </header>
 
   <main class="wrap grid">
-    <!-- About copy from Google Business Profile -->
+    <!-- About -->
     <section class="card" id="about">
       <h2 class="section-title">About</h2>
-      <p class="lead">Allied Electrical Systems is an electrical contractor fully committed to giving our St. Petersburg clientele prompt, consistently top‑quality electrical work designed to meet and exceed industry standards for safety and efficiency — regardless of project size or scale. Our personable, fully licensed and insured in‑house electricians are experts in residential and commercial applications. Drawing on decades of experience, we provide a complete electrical service for Pinellas County.</p>
+      <p class="lead">Allied Electrical Systems is an electrical contractor fully committed to giving our St. Petersburg clientele prompt, consistently top-quality electrical work designed to meet and exceed industry standards for safety and efficiency — regardless of project size or scale. Our personable, fully licensed and insured in-house electricians are experts in residential and commercial applications. Drawing on decades of experience, we provide a complete electrical service for Pinellas County.</p>
     </section>
+
+    <!-- Services -->
     <section id="services" class="cards" aria-label="Services">
       <article class="card">
         <h3>Residential Service</h3>
@@ -186,7 +208,7 @@
       <article class="card">
         <h3>Commercial</h3>
         <ul class="list">
-          <li>Build‑outs and tenant improvements</li>
+          <li>Build-outs and tenant improvements</li>
           <li>Lighting retrofits & maintenance</li>
           <li>Dedicated equipment circuits</li>
           <li>Code compliance & inspections</li>
@@ -203,18 +225,19 @@
       </article>
     </section>
 
-    <!-- Photo strip gallery (scroll-snap) -->
+    <!-- Gallery -->
     <section class="card" aria-label="Gallery">
       <h2 class="section-title">In the field</h2>
-      <div class="gallery" style="display:flex;gap:10px;overflow:auto;scroll-snap-type:x mandatory;padding-bottom:6px">
-        <img src="./aes-truck.jpg" alt="Allied Electrical Systems service truck" style="height:140px;border-radius:10px;scroll-snap-align:start"/>
-        <img src="./aes-family.jpg" alt="Allied Electrical Systems team" style="height:140px;border-radius:10px;scroll-snap-align:start"/>
-        <img src="./aes-steve-2018.jpg" alt="Crew by the truck" style="height:140px;border-radius:10px;scroll-snap-align:start"/>
-        <img src="./aes-jesse-2018.jpg" alt="Jesse, Allied electrician" style="height:140px;border-radius:10px;scroll-snap-align:start"/>
-        <img src="./aes-palm-truck.jpg" alt="Service truck in St. Pete" style="height:140px;border-radius:10px;scroll-snap-align:start"/>
+      <div class="gallery">
+        <img src="./aes-truck.jpg" alt="Allied Electrical Systems service truck">
+        <img src="./aes-family.jpg" alt="Allied Electrical Systems team">
+        <img src="./aes-steve-2018.jpg" alt="Crew by the truck">
+        <img src="./aes-jesse-2018.jpg" alt="Jesse, Allied electrician">
+        <img src="./aes-palm-tree-truck.jpg" alt="Service truck in St. Pete">
       </div>
     </section>
 
+    <!-- Why Allied -->
     <section id="why">
       <h2 class="section-title">Why locals choose Allied</h2>
       <div class="grid-3">
@@ -228,11 +251,12 @@
         </div>
         <div class="card">
           <strong>Licensed & Insured</strong>
-          <p class="lead">Professional, code‑compliant installations.</p>
+          <p class="lead">Professional, code-compliant installations.</p>
         </div>
       </div>
     </section>
 
+    <!-- Hours -->
     <section id="hours" class="card">
       <h2 class="section-title">Hours & Contact</h2>
       <div class="hours">
@@ -245,11 +269,13 @@
         <div>Sun</div><div>8:00 AM – 1:00 PM</div>
       </div>
       <div class="band" style="margin-top:12px">
-        <strong>Address:</strong> 745 40th St S, Saint Petersburg, FL 33711 • <strong>Phone:</strong> <a href="tel:+17273233596">(727) 323‑3596</a> • <strong>Email:</strong> <a href="mailto:wattman53@gmail.com">wattman53@gmail.com</a>
+        <strong>Address:</strong> 745 40th St S, Saint Petersburg, FL 33711 •
+        <strong>Phone:</strong> <a href="tel:+17273233596">(727) 323-3596</a> •
+        Prefer email? Tap “Talk to Us.”
       </div>
     </section>
 
-    <!-- Google Map embed (no key needed) -->
+    <!-- Service Area Map -->
     <section id="map" class="card">
       <h2 class="section-title">Service area</h2>
       <p class="lead">We come to you anywhere in <strong>Pinellas County</strong> — St. Petersburg, Gulfport, Pinellas Park, Largo, Clearwater, and nearby beach towns.</p>
@@ -266,7 +292,7 @@
       </div>
     </section>
 
-    <!-- Reviews (link-first, optional carousel) -->
+    <!-- Reviews (link-first, optional rotator) -->
     <section id="reviews" class="card">
       <h2 class="section-title">Reviews</h2>
       <p class="lead">See what Pinellas County homeowners say about Allied.</p>
@@ -274,13 +300,13 @@
         <span class="pill">★★★★★ on Google</span>
         <a class="pill" href="https://maps.app.goo.gl/YsjKy7GDJ8CHe7Yu7?g_st=ipc" target="_blank" rel="noopener">Read reviews on Google</a>
       </div>
-      <!-- Optional: paste short quotes below to rotate -->
       <div id="review-rotator" style="display:none"></div>
     </section>
 
+    <!-- Secondary CTA -->
     <section id="quote" class="band">
       <h3 style="margin:0 0 6px 0">Talk to Us</h3>
-      <p style="margin:0">For non‑urgent work, use the form above — we usually reply the same business day. Service area: Pinellas County, FL.</p>
+      <p style="margin:0">For non-urgent work, use the form above — we usually reply the same business day. Service area: Pinellas County, FL.</p>
     </section>
   </main>
 
@@ -288,10 +314,9 @@
     <div>© 2025 Gofer Content — St. Petersburg, Florida. Built to help Allied customers reach a real local electrician faster.</div>
   </footer>
 
+  <!-- Smooth scroll + tap reward + dynamic nav height -->
   <script>
-    // current year
-    document.getElementById('y').textContent = new Date().getFullYear();
-    // smooth scroll for all same‑page links
+    // smooth scroll for same-page links
     document.querySelectorAll('a[href^="#"]').forEach(a=>{
       a.addEventListener('click', e=>{
         const id = a.getAttribute('href');
@@ -301,7 +326,8 @@
         }
       });
     });
-    // micro‑reward on taps
+
+    // subtle tap reward
     const reward = () => {
       const toast = document.createElement('div');
       toast.textContent = 'Got it!';
@@ -312,10 +338,20 @@
     document.querySelectorAll('.tap-reward').forEach(btn=>{
       btn.addEventListener('click',()=>{btn.classList.add('pop'); setTimeout(()=>btn.classList.remove('pop'),240); reward();});
     });
+
+    // set --nav-h to real sticky height (prevents headings hiding under nav)
+    const navEl = document.querySelector('.nav');
+    const setNavH = () => {
+      if (!navEl) return;
+      document.documentElement.style.setProperty('--nav-h', (navEl.offsetHeight + 10) + 'px');
+    };
+    setNavH();
+    window.addEventListener('resize', setNavH);
   </script>
+
+  <!-- OPTIONAL: simple rotating quotes (no API) -->
   <script>
-    // OPTIONAL client-side review rotator (use when you have quotes)
-    const quotes = [];// e.g., [{t:"Quick, clean panel upgrade.", n:"A. Smith"}]
+    const quotes = []; // e.g., [{t:"Clean panel upgrade, fair price.", n:"T. Alvarez"}]
     if(quotes.length){
       const box = document.getElementById('review-rotator');
       box.style.display='block';
@@ -327,13 +363,12 @@
     }
   </script>
 
-  <!-- LocalBusiness schema with no private street address -->
+  <!-- LocalBusiness schema -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "Electrician",
     "name": "Allied Electrical Systems, Inc.",
-    "areaServed": "Pinellas County, FL",
     "address": {
       "@type": "PostalAddress",
       "streetAddress": "745 40th St S",
@@ -343,26 +378,14 @@
       "addressCountry": "US"
     },
     "telephone": "+1-727-323-3596",
-    "email": "wattman53@gmail.com",
-    "url": "https://gofercontent.com/allied-electrical-systems",
-    "foundingDate": "1993",
-    "identifier": {
-      "@type": "PropertyValue",
-      "name": "Florida Registered Electrical Contractor",
-      "value": "ER0012322",
-      "validThrough": "2026-08-31"
-    },
     "openingHours": [
       "Mo-Fr 08:00-17:00",
       "Sa 08:00-13:00",
       "Su 08:00-13:00"
     ],
-    "telephone": "+1-727-323-3596",
-    "email": "wattman53@gmail.com",
     "url": "https://gofercontent.com/allied-electrical-systems",
-    "areaServed": "Pinellas County, FL",
     "foundingDate": "1993",
-    "knowsAbout": ["Electrical panels","Lighting","Troubleshooting","Commercial electrical","EV charger installs"],
+    "areaServed": "Pinellas County, FL",
     "identifier": {
       "@type": "PropertyValue",
       "name": "Florida Registered Electrical Contractor",
@@ -371,7 +394,8 @@
     }
   }
   </script>
-  <!-- Leaflet JS -->
+
+  <!-- Leaflet JS for service-area map -->
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
   <script>
     // Service area map (client-first: we come to YOU)
@@ -382,12 +406,11 @@
     }).addTo(map);
     // Address marker
     const addr = [27.761992,-82.687872];
-    L.marker(addr).addTo(map).bindPopup('Allied Electrical Systems');
-    // Rough county coverage as a simple circle (keeps it fast + privacy‑safe)
-    const serviceCircle = L.circle([27.90,-82.73],{radius:26000,color:'#0e7490',fillColor:'#0e7490',fillOpacity:0.12,weight:2});
-    serviceCircle.addTo(map);
-    // Ensure both are visible
-    const group = new L.featureGroup([serviceCircle, L.marker(addr)]);
+    const marker = L.marker(addr).addTo(map).bindPopup('Allied Electrical Systems');
+    // Coverage halo (approx Pinellas)
+    const serviceCircle = L.circle([27.90,-82.73],{radius:26000,color:'#0e7490',fillColor:'#0e7490',fillOpacity:0.12,weight:2}).addTo(map);
+    // Fit both
+    const group = new L.featureGroup([serviceCircle, marker]);
     map.fitBounds(group.getBounds(),{padding:[20,20]});
   </script>
 </body>
