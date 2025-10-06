@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Allied Electrical Systems, Inc. — Trusted Gulf Coast Electricians</title>
+  <meta name="description" content="Licensed & insured electricians serving Pinellas County since 1993. Call or talk to us online for fast, reliable service." />
+  <meta name="theme-color" content="#0b1a33" />
+  <!-- SEO: Open Graph / Twitter (replace og-image when you add it) -->
+  <meta property="og:title" content="Allied Electrical Systems — Trusted Gulf Coast Electricians" />
+  <meta property="og:description" content="A+ BBB‑rated. Residential & commercial service. Call or talk to us online." />
+  <meta property="og:image" content="/allied-electrical-systems/og-allied.jpg" />
+  <meta property="og:type" content="website" />
+  <meta property="twitter:card" content="summary_large_image" />
+  <meta property="twitter:title" content="Allied Electrical Systems — Trusted Gulf Coast Electricians" />
+  <meta property="twitter:description" content="Licensed & insured electricians serving Pinellas County since 1993. Call or talk to us online." />
+  <meta property="twitter:image" content="/allied-electrical-systems/og-allied.jpg" />
+  <style>
+    :root{
+      /* Gulf Coast—masculine/working‑class */
+      --navy:#0b1a33;       /* deep trust */
+      --gulf:#0e7490;       /* gulf teal */
+      --sea:#bfe7ef;        /* seafoam wash */
+      --sand:#f2f1eb;       /* sand */
+      --ink:#0f1115;
+      --muted:#6b7280;
+      --paper:#ffffff;
+      --card:#f7f9fb;
+    }
+    *{box-sizing:border-box}
+    html,body{margin:0;height:100%;font-family:ui-sans-serif,system-ui,Segoe UI,Roboto,Helvetica,Arial,Apple Color Emoji,Noto Color Emoji;color:var(--ink);background:var(--paper)}
+    a{color:var(--gulf);text-decoration:none}
+    .wrap{max-width:1120px;margin:0 auto;padding:0 20px}
+
+    /* Sticky, roll‑down nav */
+    .nav{position:sticky;top:0;z-index:30;background:rgba(11,26,51,.95);backdrop-filter:saturate(120%) blur(6px);border-bottom:1px solid rgba(255,255,255,.08)}
+    .nav-inner{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:10px 0}
+    .brand{display:flex;align-items:center;gap:10px;color:#fff;font-weight:800;letter-spacing:.2px}
+    .brand .dot{width:10px;height:10px;border-radius:50%;background:var(--gulf);box-shadow:0 0 0 3px rgba(14,116,144,.25)}
+    .nav a{color:#e5e7eb}
+    .nav a:hover{color:#fff}
+    .nav-links{display:flex;gap:14px}
+    .nav .call{display:inline-flex;align-items:center;gap:10px;background:var(--gulf);color:#05121f;padding:12px 16px;border-radius:12px;font-weight:800}
+
+    /* Buttons (consistent sizes) */
+    .btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;border-radius:14px;padding:14px 18px;font-weight:800;border:1px solid #d1d5db;background:#fff;color:#111;min-height:48px}
+    .btn.primary{background:var(--navy);color:#fff;border-color:var(--navy)}
+    .btn.alt{background:var(--gulf);color:#05121f;border-color:var(--gulf)}
+    .btn.ghost{background:#fff;color:#0b1a33}
+
+    /* Button micro‑reward */
+    .btn:active{transform:translateY(1px)}
+    @keyframes pop{0%{transform:scale(1)}50%{transform:scale(1.03)}100%{transform:scale(1)}}
+    .btn.pop{animation:pop .22s ease}
+
+    /* Hero */
+    .hero{background:linear-gradient(180deg,var(--sea),#fff)}
+    .hero-inner{display:grid;gap:22px;padding:28px 0}
+    .hero h1{font-size:clamp(28px,6vw,48px);line-height:1.05;margin:0;color:var(--navy)}
+    .sub{color:#334155;font-size:clamp(14px,2.6vw,18px)}
+    .pills{display:flex;flex-wrap:wrap;gap:8px}
+    .pill{display:inline-flex;align-items:center;gap:8px;border:1px solid #e5e7eb;border-radius:999px;padding:6px 12px;background:#fff;font-size:12px;color:#111}
+    .cta-row{display:grid;grid-template-columns:1fr;gap:10px}
+
+    /* Sections */
+    section{scroll-margin-top:76px}
+    .grid{display:grid;gap:18px}
+    .cards{display:grid;gap:14px;grid-template-columns:1fr}
+    .card{background:var(--card);border:1px solid #e5e7eb;border-radius:16px;padding:16px}
+    .card h3{margin:0 0 8px 0;font-size:18px}
+    .list{margin:0;padding:0 0 0 20px}
+    .section-title{font-size:22px;font-weight:800;color:var(--navy);margin:6px 0}
+    .lead{font-size:15px;color:#374151}
+
+    /* Hours */
+    .hours{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:6px;font-variant-numeric:tabular-nums}
+
+    /* Form */
+    .form{display:grid;gap:10px}
+    input,textarea,select{width:100%;padding:12px 12px;border:1px solid #d1d5db;border-radius:12px;background:#fff;font-size:15px}
+    textarea{min-height:110px}
+
+    .band{background:var(--navy);color:#e5e7eb;border-radius:16px;padding:16px}
+    .band a{color:#90e0ef;text-decoration:underline}
+
+    .footer{margin-top:28px;padding:20px 0;color:#6b7280;font-size:12px;border-top:1px solid #e5e7eb}
+
+    /* Desktop tweaks */
+    @media(min-width:900px){
+      .hero-inner{grid-template-columns:1.15fr .85fr;align-items:center}
+      .cta-row{grid-template-columns:repeat(3,minmax(0,1fr))}
+      .cards{grid-template-columns:repeat(3,minmax(0,1fr))}
+      .grid-3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+    }
+
+    /* Reduced motion respect */
+    @media (prefers-reduced-motion: reduce){
+      .btn{transition:none}
+      .btn.pop{animation:none}
+    }
+    /* Map */
+    #service-map{width:100%;height:min(60vh,420px);border-radius:12px;border:1px solid #e5e7eb;overflow:hidden}
+  </style>
+  <!-- Leaflet for Service Area map -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin=""/>
+</head>
+<body>
+  <!-- Sticky nav that rolls down to sections -->
+  <nav class="nav">
+    <div class="wrap nav-inner">
+      <div class="brand"><span class="dot"></span>Allied Electrical Systems, Inc.</div>
+      <div class="nav-links">
+        <a href="#services">Services</a>
+        <a href="#why">Why Allied</a>
+        <a href="#hours">Hours</a>
+        <a href="#quote" class="call">Talk to Us</a>
+      </div>
+    </div>
+  </nav>
+
+  <header class="hero">
+    <div class="wrap hero-inner">
+      <div>
+        <div class="pills">
+          <span class="pill">Since 1993</span>
+          <span class="pill">Licensed &amp; Insured</span>
+          <span class="pill">BBB <strong>A+</strong> Accredited</span>
+          <span class="pill">Serving Pinellas County</span>
+        </div>
+        <h1>Trusted Gulf Coast Electricians — Since 1993</h1>
+        <p class="sub">Straightforward service, fair pricing, and clean workmanship. Panels, lighting, troubleshooting, and commercial maintenance — done safely and on schedule by a local A+‑rated team.</p>
+        <div class="cta-row" style="margin-top:6px">
+          <a class="btn primary tap-reward" href="tel:+17273233596">Call Now</a>
+          <a class="btn alt tap-reward" href="#quote">Talk to Us</a>
+          <a class="btn ghost tap-reward" href="#map">View Map</a>
+        </div>
+        <div class="pills" style="margin-top:10px">
+          <span class="pill">St. Petersburg, FL</span>
+          <span class="pill">Serving Pinellas County</span>
+          <span class="pill">License ER0012322 (Active)</span>
+        </div>
+      </div>
+      <div class="card">
+        <h3>Talk to Us</h3>
+        <p class="lead">Tell us what you need and the best time to reach you. We’ll call you back ASAP.</p>
+        <form class="form" action="https://formspree.io/f/your-id" method="POST">
+          <input name="name" placeholder="Your name" required>
+          <input name="phone" placeholder="Best number" required>
+          <input type="email" name="email" placeholder="Email (optional)">
+          <select name="service">
+            <option selected>General Service</option>
+            <option>Panel / Service Upgrade</option>
+            <option>Lighting & Fans</option>
+            <option>Outlets & Circuits</option>
+            <option>EV Charger (Level 2)</option>
+            <option>Commercial</option>
+            <option>Troubleshooting</option>
+          </select>
+          <textarea name="message" placeholder="Briefly describe the issue or project"></textarea>
+          <button class="btn alt tap-reward" type="submit">Send</button>
+          <input type="hidden" name="source" value="Allied Electrical Systems Landing" />
+        </form>
+      </div>
+    </div>
+  </header>
+
+  <main class="wrap grid">
+    <!-- About copy from Google Business Profile -->
+    <section class="card" id="about">
+      <h2 class="section-title">About</h2>
+      <p class="lead">Allied Electrical Systems is an electrical contractor fully committed to giving our St. Petersburg clientele prompt, consistently top‑quality electrical work designed to meet and exceed industry standards for safety and efficiency — regardless of project size or scale. Our personable, fully licensed and insured in‑house electricians are experts in residential and commercial applications. Drawing on decades of experience, we provide a complete electrical service for Pinellas County.</p>
+    </section>
+    <section id="services" class="cards" aria-label="Services">
+      <article class="card">
+        <h3>Residential Service</h3>
+        <ul class="list">
+          <li>Panel upgrades, breakers, surge protection</li>
+          <li>New circuits, outlets, GFCI/AFCI protection</li>
+          <li>Lighting, fans, dimmers, smart controls</li>
+          <li>EV charger installs (Level 2)</li>
+        </ul>
+      </article>
+      <article class="card">
+        <h3>Commercial</h3>
+        <ul class="list">
+          <li>Build‑outs and tenant improvements</li>
+          <li>Lighting retrofits & maintenance</li>
+          <li>Dedicated equipment circuits</li>
+          <li>Code compliance & inspections</li>
+        </ul>
+      </article>
+      <article class="card">
+        <h3>Troubleshooting</h3>
+        <ul class="list">
+          <li>No power, tripping breakers, faults</li>
+          <li>Outlet/switch replacements</li>
+          <li>Storm & surge issues</li>
+          <li>Safety inspections</li>
+        </ul>
+      </article>
+    </section>
+
+    <!-- Photo strip gallery (scroll-snap) -->
+    <section class="card" aria-label="Gallery">
+      <h2 class="section-title">In the field</h2>
+      <div class="gallery" style="display:flex;gap:10px;overflow:auto;scroll-snap-type:x mandatory;padding-bottom:6px">
+        <img src="./images/aes-truck.jpg" alt="Allied Electrical Systems service truck" style="height:140px;border-radius:10px;scroll-snap-align:start"/>
+        <img src="./images/aes-family.jpg" alt="Allied Electrical Systems team" style="height:140px;border-radius:10px;scroll-snap-align:start"/>
+        <img src="./images/aes-steve-2018.jpg" alt="Crew by the truck" style="height:140px;border-radius:10px;scroll-snap-align:start"/>
+        <img src="./images/aes-jesse-2018.jpg" alt="Jesse, Allied electrician" style="height:140px;border-radius:10px;scroll-snap-align:start"/>
+        <img src="./images/aes-palm-truck.jpg" alt="Service truck in St. Pete" style="height:140px;border-radius:10px;scroll-snap-align:start"/>
+      </div>
+    </section>
+
+    <section id="why">
+      <h2 class="section-title">Why locals choose Allied</h2>
+      <div class="grid-3">
+        <div class="card">
+          <strong>Local since 1993</strong>
+          <p class="lead">Three decades serving Pinellas County.</p>
+        </div>
+        <div class="card">
+          <strong>BBB A+ Accredited</strong>
+          <p class="lead">Trusted, straightforward service.</p>
+        </div>
+        <div class="card">
+          <strong>Licensed & Insured</strong>
+          <p class="lead">Professional, code‑compliant installations.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="hours" class="card">
+      <h2 class="section-title">Hours & Contact</h2>
+      <div class="hours">
+        <div>Mon</div><div>8:00 AM – 5:00 PM</div>
+        <div>Tue</div><div>8:00 AM – 5:00 PM</div>
+        <div>Wed</div><div>8:00 AM – 5:00 PM</div>
+        <div>Thu</div><div>8:00 AM – 5:00 PM</div>
+        <div>Fri</div><div>8:00 AM – 5:00 PM</div>
+        <div>Sat</div><div>8:00 AM – 1:00 PM</div>
+        <div>Sun</div><div>8:00 AM – 1:00 PM</div>
+      </div>
+      <div class="band" style="margin-top:12px">
+        <strong>Address:</strong> 745 40th St S, Saint Petersburg, FL 33711 • <strong>Phone:</strong> <a href="tel:+17273233596">(727) 323‑3596</a> • <strong>Email:</strong> <a href="mailto:wattman53@gmail.com">wattman53@gmail.com</a>
+      </div>
+    </section>
+
+    <!-- Google Map embed (no key needed) -->
+    <section id="map" class="card">
+      <h2 class="section-title">Service area</h2>
+      <p class="lead">We come to you anywhere in <strong>Pinellas County</strong> — St. Petersburg, Gulfport, Pinellas Park, Largo, Clearwater, and nearby beach towns.</p>
+      <div id="service-map" aria-label="Map of the service area"></div>
+      <div style="margin-top:8px;display:flex;gap:8px;flex-wrap:wrap">
+        <span class="pill">St. Petersburg</span>
+        <span class="pill">Gulfport</span>
+        <span class="pill">Pinellas Park</span>
+        <span class="pill">Largo</span>
+        <span class="pill">Clearwater</span>
+        <span class="pill">Seminole</span>
+        <span class="pill">St. Pete Beach</span>
+        <a class="pill" href="https://maps.google.com/?q=745+40th+St+S,+Saint+Petersburg,+FL+33711" target="_blank" rel="noopener">Open in Google Maps</a>
+      </div>
+    </section>
+
+    <section id="quote" class="band">
+      <h3 style="margin:0 0 6px 0">Talk to Us</h3>
+      <p style="margin:0">For non‑urgent work, use the form above — we usually reply the same business day. Service area: Pinellas County, FL.</p>
+    </section>
+  </main>
+
+  <footer class="wrap footer">
+    <div>© 2025 Gofer Content — St. Petersburg, Florida. Built to help Allied customers reach a real local electrician faster.</div>
+  </footer>
+
+  <script>
+    // current year
+    document.getElementById('y').textContent = new Date().getFullYear();
+    // smooth scroll for all same‑page links
+    document.querySelectorAll('a[href^="#"]').forEach(a=>{
+      a.addEventListener('click', e=>{
+        const id = a.getAttribute('href');
+        if(id.length>1){
+          e.preventDefault();
+          document.querySelector(id).scrollIntoView({behavior:'smooth'});
+        }
+      });
+    });
+    // micro‑reward on taps
+    const reward = () => {
+      const toast = document.createElement('div');
+      toast.textContent = 'Got it!';
+      toast.style.cssText = 'position:fixed;bottom:22px;left:50%;transform:translateX(-50%);background:var(--gulf);color:#05121f;padding:10px 14px;border-radius:12px;font-weight:800;box-shadow:0 8px 30px rgba(0,0,0,.15);z-index:50';
+      document.body.appendChild(toast);
+      setTimeout(()=>toast.remove(),800);
+    }
+    document.querySelectorAll('.tap-reward').forEach(btn=>{
+      btn.addEventListener('click',()=>{btn.classList.add('pop'); setTimeout(()=>btn.classList.remove('pop'),240); reward();});
+    });
+  </script>
+
+  <!-- LocalBusiness schema with no private street address -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Electrician",
+    "name": "Allied Electrical Systems, Inc.",
+    "areaServed": "Pinellas County, FL",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "745 40th St S",
+      "addressLocality": "Saint Petersburg",
+      "addressRegion": "FL",
+      "postalCode": "33711",
+      "addressCountry": "US"
+    },
+    "telephone": "+1-727-323-3596",
+    "openingHours": [
+      "Mo-Fr 08:00-17:00",
+      "Sa 08:00-13:00",
+      "Su 08:00-13:00"
+    ],
+    "telephone": "+1-727-323-3596",
+    "email": "wattman53@gmail.com",
+    "url": "https://gofercontent.com/allied-electrical-systems",
+    "areaServed": "Pinellas County, FL",
+    "foundingDate": "1993",
+    "knowsAbout": ["Electrical panels","Lighting","Troubleshooting","Commercial electrical","EV charger installs"],
+    "identifier": {
+      "@type": "PropertyValue",
+      "name": "Florida Registered Electrical Contractor",
+      "value": "ER0012322",
+      "validThrough": "2026-08-31"
+    }
+  }
+  </script>
+  <!-- Leaflet JS -->
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+  <script>
+    // Service area map (client-first: we come to YOU)
+    const map = L.map('service-map',{scrollWheelZoom:false}).setView([27.84,-82.73], 11);
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{
+      maxZoom: 19,
+      attribution:'© OpenStreetMap'
+    }).addTo(map);
+    // Address marker
+    const addr = [27.761992,-82.687872];
+    L.marker(addr).addTo(map).bindPopup('Allied Electrical Systems');
+    // Rough county coverage as a simple circle (keeps it fast + privacy‑safe)
+    const serviceCircle = L.circle([27.90,-82.73],{radius:26000,color:'#0e7490',fillColor:'#0e7490',fillOpacity:0.12,weight:2});
+    serviceCircle.addTo(map);
+    // Ensure both are visible
+    const group = new L.featureGroup([serviceCircle, L.marker(addr)]);
+    map.fitBounds(group.getBounds(),{padding:[20,20]});
+  </script>
+</body>
+</html>
