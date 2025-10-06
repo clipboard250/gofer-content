@@ -99,7 +99,7 @@
       .btn.pop{animation:none}
     }
     /* Map */
-    #service-map{width:100%;height:min(60vh,420px);border-radius:12px;border:1px solid #e5e7eb;overflow:hidden}
+    #service-map{width:100%;height:clamp(240px,55vh,420px);border-radius:12px;border:1px solid #e5e7eb;overflow:hidden}
   </style>
   <!-- Leaflet for Service Area map -->
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin=""/>
@@ -204,11 +204,11 @@
     <section class="card" aria-label="Gallery">
       <h2 class="section-title">In the field</h2>
       <div class="gallery" style="display:flex;gap:10px;overflow:auto;scroll-snap-type:x mandatory;padding-bottom:6px">
-        <img src="./images/aes-truck.jpg" alt="Allied Electrical Systems service truck" style="height:140px;border-radius:10px;scroll-snap-align:start"/>
-        <img src="./images/aes-family.jpg" alt="Allied Electrical Systems team" style="height:140px;border-radius:10px;scroll-snap-align:start"/>
-        <img src="./images/aes-steve-2018.jpg" alt="Crew by the truck" style="height:140px;border-radius:10px;scroll-snap-align:start"/>
-        <img src="./images/aes-jesse-2018.jpg" alt="Jesse, Allied electrician" style="height:140px;border-radius:10px;scroll-snap-align:start"/>
-        <img src="./images/aes-palm-truck.jpg" alt="Service truck in St. Pete" style="height:140px;border-radius:10px;scroll-snap-align:start"/>
+        <img src="./aes-truck.jpg" alt="Allied Electrical Systems service truck" style="height:140px;border-radius:10px;scroll-snap-align:start"/>
+        <img src="./aes-family.jpg" alt="Allied Electrical Systems team" style="height:140px;border-radius:10px;scroll-snap-align:start"/>
+        <img src="./aes-steve-2018.jpg" alt="Crew by the truck" style="height:140px;border-radius:10px;scroll-snap-align:start"/>
+        <img src="./aes-jesse-2018.jpg" alt="Jesse, Allied electrician" style="height:140px;border-radius:10px;scroll-snap-align:start"/>
+        <img src="./aes-palm-truck.jpg" alt="Service truck in St. Pete" style="height:140px;border-radius:10px;scroll-snap-align:start"/>
       </div>
     </section>
 
@@ -259,8 +259,20 @@
         <span class="pill">Clearwater</span>
         <span class="pill">Seminole</span>
         <span class="pill">St. Pete Beach</span>
-        <a class="pill" href="https://maps.google.com/?q=745+40th+St+S,+Saint+Petersburg,+FL+33711" target="_blank" rel="noopener">Open in Google Maps</a>
+        <a class="pill" href="https://share.google/gWeqCTbOuZ7yn1U2l" target="_blank" rel="noopener">Open in Google Maps</a>
       </div>
+    </section>
+
+    <!-- Reviews (link-first, optional carousel) -->
+    <section id="reviews" class="card">
+      <h2 class="section-title">Reviews</h2>
+      <p class="lead">See what Pinellas County homeowners say about Allied.</p>
+      <div style="display:flex;gap:10px;flex-wrap:wrap;margin-bottom:8px">
+        <span class="pill">★★★★★ on Google</span>
+        <a class="pill" href="https://maps.app.goo.gl/YsjKy7GDJ8CHe7Yu7?g_st=ipc" target="_blank" rel="noopener">Read reviews on Google</a>
+      </div>
+      <!-- Optional: paste short quotes below to rotate -->
+      <div id="review-rotator" style="display:none"></div>
     </section>
 
     <section id="quote" class="band">
@@ -298,6 +310,19 @@
       btn.addEventListener('click',()=>{btn.classList.add('pop'); setTimeout(()=>btn.classList.remove('pop'),240); reward();});
     });
   </script>
+  <script>
+    // OPTIONAL client-side review rotator (use when you have quotes)
+    const quotes = [];// e.g., [{t:"Quick, clean panel upgrade.", n:"A. Smith"}]
+    if(quotes.length){
+      const box = document.getElementById('review-rotator');
+      box.style.display='block';
+      box.style.padding='10px';
+      box.style.border='1px solid #e5e7eb';
+      box.style.borderRadius='12px';
+      let i=0; const render=()=>{ box.innerHTML = `<em>“${quotes[i].t}”</em> — <strong>${quotes[i].n}</strong>`; i=(i+1)%quotes.length; };
+      render(); setInterval(render, 5000);
+    }
+  </script>
 
   <!-- LocalBusiness schema with no private street address -->
   <script type="application/ld+json">
@@ -315,6 +340,15 @@
       "addressCountry": "US"
     },
     "telephone": "+1-727-323-3596",
+    "email": "wattman53@gmail.com",
+    "url": "https://gofercontent.com/allied-electrical-systems",
+    "foundingDate": "1993",
+    "identifier": {
+      "@type": "PropertyValue",
+      "name": "Florida Registered Electrical Contractor",
+      "value": "ER0012322",
+      "validThrough": "2026-08-31"
+    },
     "openingHours": [
       "Mo-Fr 08:00-17:00",
       "Sa 08:00-13:00",
