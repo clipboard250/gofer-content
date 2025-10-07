@@ -4,9 +4,9 @@
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
 <title>Gofer Content — Helping real businesses earn lifetime customers</title>
-<meta name="description" content="Gofer Content helps makers, trades, artists, wellness pros, and local organizations earn lifetime customers with message systems and simple tools that keep the momentum steady.">
+<meta name="description" content="I help makers, musicians, tradespeople, artists, wellness pros, and local organizations reach the right people and put simple systems in place that keep them coming back." />
 <meta property="og:title" content="Gofer Content — Helping real businesses earn lifetime customers">
-<meta property="og:description" content="Work done right serves people and strengthens communities. We help you reach the right people — and keep them coming back.">
+<meta property="og:description" content="Work done right serves people and strengthens communities. I help you reach the right people — and keep them coming back.">
 <meta property="og:image" content="og-image.png">
 <meta property="og:type" content="website">
 <link rel="icon" href="pfpdayna.jpeg">
@@ -32,15 +32,19 @@ nav{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-
 .logo img{width:44px;height:44px;border-radius:50%;border:3px solid var(--brand)}
 .pill{display:inline-flex;align-items:center;border:1px solid #333;padding:.4rem .7rem;border-radius:999px;color:var(--muted);font-size:.92rem}
 
+/* desktop link row */
+.top-links{display:flex;gap:10px;align-items:center;flex-wrap:nowrap}
 .btn{display:inline-block;padding:.8rem 1.05rem;border-radius:12px;background:#2a2a2a;color:var(--ink);border:1px solid #3b3b3b;font-weight:700;white-space:nowrap;cursor:pointer}
 .btn.brand{background:linear-gradient(180deg,var(--brand),var(--brand2));color:#111;box-shadow:var(--shadow)}
 .btn.ghost{background:transparent;border:1px solid #3b3b3b}
 
 /* hamburger */
-.hamb{display:none;gap:8px;flex-direction:column;cursor:pointer}
-.hamb span{width:26px;height:2px;background:#e9e3d5;border-radius:2px}
-@media (max-width:820px){ .hamb{display:flex} .top-links{display:none} }
-.menu{position:fixed;inset:0 0 auto 0;top:var(--headerH);background:#0f0f0f;display:none;border-top:1px solid #262626;z-index:15}
+.hamb{display:none;gap:6px;flex-direction:column;cursor:pointer;background:transparent;border:0;padding:8px}
+.hamb span{width:24px;height:2px;background:#fff;border-radius:2px}
+@media (max-width:900px){ .top-links{display:none} .hamb{display:flex} }
+
+/* mobile drawer */
+.menu{position:fixed;left:0;right:0;top:var(--headerH);background:#0f0f0f;border-top:1px solid #262626;display:none;z-index:15}
 .menu.open{display:block}
 .menu .wrap{display:grid;gap:10px}
 .menu a{display:block;padding:14px 0;border-bottom:1px solid #1f1f1f}
@@ -102,7 +106,7 @@ small.help{color:var(--muted)}
         <a class="btn brand" href="#contact">Keep them coming back</a>
       </div>
 
-      <!-- hamburger for mobile -->
+      <!-- hamburger on mobile -->
       <button class="hamb" aria-label="Open menu" aria-controls="mobileMenu" aria-expanded="false">
         <span></span><span></span><span></span>
       </button>
@@ -126,8 +130,7 @@ small.help{color:var(--muted)}
   <div class="wrap hero">
     <div>
       <h1>Helping real businesses earn lifetime customers and loyal communities.</h1>
-      <p>Work done right serves people and strengthens communities.<br>
-      Gofer Content helps makers, trades, artists, wellness pros, and local organizations share what they do in ways that reach the right people — and build simple systems that keep the momentum steady.</p>
+      <p>I help makers, musicians, tradespeople, artists, wellness pros, and local organizations reach the right people and put simple systems in place that keep them coming back.</p>
       <div class="cta-row" style="margin-top:12px">
         <a class="btn brand js-cta" href="#contact" aria-label="Contact Gofer Content">Keep them coming back</a>
         <a class="btn" href="#how">How I help</a>
@@ -162,7 +165,7 @@ small.help{color:var(--muted)}
         </article>
         <article class="card">
           <h3>Develop</h3>
-          <p>We shape the story for the right response — website copy, Google service pages, follow-ups, socials, and quick landing pages you can see live.</p>
+          <p>I shape the story for the right response — website copy, Google service pages, follow-ups, socials, and quick landing pages you can see live.</p>
           <ul class="list">
             <li>Plain language</li>
             <li>Honest structure</li>
@@ -179,19 +182,19 @@ small.help{color:var(--muted)}
       <div class="card" style="margin-top:16px">
         <strong>Not ready to hire?</strong> Do it yourself first.
         <div class="cta-row" style="margin-top:8px">
-          <a class="btn" href="#builder">Use the Landing Page Generator</a>
-          <a class="btn ghost" href="#bulletin">List your thing on the Bulletin Board</a>
+          <a class="btn" href="builder.html">Use the Landing Page Generator</a>
+          <a class="btn ghost" href="/community-bulletin-board/">List your thing on the Bulletin Board</a>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- BUILDER JUMP -->
+  <!-- BUILDER -->
   <section id="builder" aria-labelledby="builder-title">
     <div class="wrap">
       <h2 id="builder-title">Landing Page Generator</h2>
       <div class="card">
-        <p>Answer a few friendly prompts, see your page live, copy/download the HTML, or book a setup call if you want me to ship it.</p>
+        <p>Answer a few friendly prompts, see your page live, copy or download the HTML — or book a setup call if you want me to ship it.</p>
         <div class="cta-row">
           <a class="btn brand js-cta" href="builder.html">Open the Generator</a>
           <a class="btn" href="https://gofercontent.zohobookings.com/#/4734166000000046014" target="_blank" rel="noopener">Book a setup call</a>
@@ -204,10 +207,12 @@ small.help{color:var(--muted)}
   <section id="bulletin" aria-labelledby="bulletin-title">
     <div class="wrap">
       <h2 id="bulletin-title">Community Bulletin Board (List your thing)</h2>
+    </div>
+    <div class="wrap">
       <div class="card">
         <p>Events, fundraisers, services, house shows — simple listings that help locals find what’s happening.</p>
         <div class="cta-row">
-          <a class="btn brand" href="https://clipboard250.github.io/gofer-friends/" target="_blank" rel="noopener">Open the board</a>
+          <a class="btn brand" href="/community-bulletin-board/" target="_blank" rel="noopener">Open the board</a>
         </div>
       </div>
     </div>
@@ -246,7 +251,6 @@ small.help{color:var(--muted)}
       <h2 id="contact-title">Let’s talk</h2>
       <div class="card">
         <div class="row" role="group" aria-label="Quick contact options">
-          <!-- Correct SMS body for Gofer Content -->
           <a class="btn brand js-cta" href="sms:+17273539673?&body=Hi%20Gofer%20Content%2C%20can%20we%20talk%20about%20my%20website%2Fmessage%3F">Text 727-353-WORD</a>
           <a class="btn js-cta" href="tel:+17273539673">Call</a>
           <a class="btn js-cta" href="mailto:info@gofercontent.com?subject=Gofer%20Content&body=Goal%3A%20%5Bone%20line%5D%0ALink%3A%20%5Bpaste%5D">Email</a>
