@@ -3,9 +3,9 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Gofer — Free Landing Page Builder</title>
-  <meta name="description" content="Answer a few friendly questions. See your landing page live. Copy or download the HTML and publish.">
-  <meta name="robots" content="noindex,nofollow">
+  <title>Gofer — Landing Page Generator</title>
+  <meta name="description" content="Answer a few friendly questions. See your landing page live. Copy or download the HTML and publish, or book a setup call.">
+  <meta name="robots" content="index,follow">
   <style>
     :root{--primary:#F57D31;--accent:#7FFF00;--bg:#0B0F19;--text:#E5E7EB;--muted:#BFC3CB;--radius:16px;--shadow:0 10px 25px rgba(0,0,0,.25);--h:ui-sans-serif,system-ui,-apple-system,Segoe UI,Inter,Roboto,Arial;--b:ui-sans-serif,system-ui,-apple-system,Segoe UI,Inter,Roboto,Arial}
     *{box-sizing:border-box}html,body{height:100%}
@@ -43,13 +43,12 @@
 <body>
   <div class="wrap">
     <aside class="panel">
-      <h1>⚡ Free Landing Page Builder</h1>
+      <h1>⚡ Landing Page Generator</h1>
       <div class="grid">
 
-        <!-- Templates -->
         <div class="row">
           <label>Pick a template</label>
-          <select id="tpl">
+          <select id="tpl" aria-label="Pick a template">
             <option value="generic">Generic (clean)</option>
             <option value="detailing">Auto Detailing</option>
             <option value="electrician">Electrician / Home Service</option>
@@ -58,21 +57,20 @@
           </select>
         </div>
 
-        <!-- Friendly prompts (no jargon) -->
         <div class="row"><label>Who is this for?</label><input id="aud" type="text" placeholder="busy homeowners in St. Pete"></div>
         <div class="row"><label>What’s the main headache you remove?</label><input id="pain" type="text" placeholder="no time to clean their car"></div>
         <div class="row"><label>What’s the nice result they get?</label><input id="outcome" type="text" placeholder="a clean car without leaving the driveway"></div>
         <div class="row"><label>One line of proof (reviews, guarantee, number)</label><input id="proof" type="text" placeholder="120+ 5★ reviews across Tampa Bay"></div>
 
-        <div class="inline">
-          <input id="showHelper" type="checkbox"> <label for="showHelper">Show helper line under headline (no labels)</label>
+        <div class="inline" role="group" aria-label="Display options">
+          <input id="showHelper" type="checkbox"> <label for="showHelper">Show helper line under headline</label>
           <input id="hideKicker" type="checkbox" style="margin-left:12px"> <label for="hideKicker">Hide small kicker text</label>
         </div>
 
         <hr style="border-color:rgba(255,255,255,.08)">
 
-        <div class="row"><label>Brand / Project name</label><input id="title" type="text" value="Your Modern Thing"></div>
-        <div class="row"><label>One-line value</label><input id="subtitle" type="text" value="Simple systems. Clear messaging. Less chaos."></div>
+        <div class="row"><label>Brand / Project name</label><input id="title" type="text" value="Start building"></div>
+        <div class="row"><label>One-line value</label><input id="subtitle" type="text" value="Simple systems. Straightforward words. Results you can see."></div>
         <div class="row"><label>Small kicker (optional)</label><input id="kicker" type="text" value="NEW • JUST LAUNCHED"></div>
 
         <div class="inline">
@@ -95,28 +93,30 @@
         <div class="row">
           <label>Feature cards (one per line) • Tip “Headline: short help text”</label>
           <textarea id="features">Same-day service: book in minutes
-Clear pricing: no surprise fees
+Up-front pricing: no surprise fees
 Mobile-ready: looks great on phones</textarea>
         </div>
 
         <div class="row"><label>Button link (where both buttons go)</label><input id="contactUrl" type="url" value="mailto:info@gofercontent.com?subject=Landing%20help"></div>
-        <div class="row"><label>Footer note</label><input id="footer" type="text" value="© 2025 Your Brand. Built with the Gofer Landing Builder."></div>
+        <div class="row"><label>Footer note</label><input id="footer" type="text" value="© 2025 Your Brand. Built with the Gofer Landing Page Generator."></div>
 
         <div class="inline">
           <button class="btn" id="btnRandom">Shuffle theme</button>
           <button class="btn secondary" id="btnCopy">Copy HTML</button>
           <button class="btn ghost" id="btnDownload">Download HTML</button>
           <button class="btn ghost" id="btnShare">Copy share link</button>
+          <a class="btn" id="btnBook" href="https://gofercontent.zohobookings.com/#/4734166000000046014" target="_blank" rel="noopener">Book a setup call</a>
         </div>
-        <div class="tip">Change anything — the preview updates live. “Copy share link” saves your settings in the URL.</div>
+        <div class="tip">Change anything — the preview updates live. “Copy share link” saves your settings in the URL. Event listings will live on the Community Bulletin Board (coming soon).</div>
       </div>
     </aside>
 
     <main class="preview-shell">
-      <div id="preview" class="preview"></div>
+      <div id="preview" class="preview" role="region" aria-label="Live page preview"></div>
     </main>
   </div>
 
+  <!-- Same JS engine as your original, with a few copy updates -->
   <script>
     const $=s=>document.querySelector(s);
     const esc=s=>String(s||'').replace(/[&<>"']/g,m=>({"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;","'":"&#39;"}[m]));
@@ -125,15 +125,15 @@ Mobile-ready: looks great on phones</textarea>
     const S={
       aud:'', pain:'', outcome:'', proof:'',
       showHelper:false, hideKicker:false,
-      title:'Your Modern Thing', subtitle:'Simple systems. Clear messaging. Less chaos.', kicker:'NEW • JUST LAUNCHED',
+      title:'Start building', subtitle:'Simple systems. Straightforward words. Results you can see.', kicker:'NEW • JUST LAUNCHED',
       primary:'#F57D31', accent:'#7FFF00', bg:'#0B0F19', text:'#E5E7EB', heroImg:'',
       cta1:'Text us', cta2:'See pricing', contactUrl:'mailto:info@gofercontent.com?subject=Landing%20help',
-      features:['Same-day service: book in minutes','Clear pricing: no surprise fees','Mobile-ready: looks great on phones'],
-      footer:'© 2025 Your Brand. Built with the Gofer Landing Builder.'
+      features:['Same-day service: book in minutes','Up-front pricing: no surprise fees','Mobile-ready: looks great on phones'],
+      footer:'© 2025 Your Brand. Built with the Gofer Landing Page Generator.'
     };
 
     const T={
-      generic:s=>Object.assign(s,{title:'Your Modern Thing',subtitle:'Simple systems. Clear messaging. Less chaos.',features:['Fast setup','Modern look','Mobile-ready']}),
+      generic:s=>Object.assign(s,{title:'Start building',subtitle:'Simple systems. Straightforward words. Results you can see.',features:['Fast setup','Modern look','Mobile-ready']}),
       detailing:s=>Object.assign(s,{title:'Mobile Detailing, On-Site',subtitle:'We come to you. Inside + out, same-day slots available.',features:['On-site service: we drive to you','Packages: basic to deep clean','Text-first booking: quick reply'],cta1:'Book a detail',contactUrl:'sms:+17273539673'}),
       electrician:s=>Object.assign(s,{title:'Licensed Electrician • Tampa Bay',subtitle:'Small jobs to service upgrades. Up-front pricing.',features:['Licensed + insured','Same-week scheduling','Clean, safe, done right'],cta1:'Request estimate'}),
       event:s=>Object.assign(s,{title:'Backyard House Show',subtitle:'Live music • Sat 6–9pm • Gulfport',features:['All ages','BYO blanket','Free, donations welcome'],cta1:'RSVP'}),
@@ -149,7 +149,6 @@ Mobile-ready: looks great on phones</textarea>
 
     function setTheme(){document.documentElement.style.setProperty('--primary',S.primary);document.documentElement.style.setProperty('--accent',S.accent);document.documentElement.style.setProperty('--bg',S.bg);document.documentElement.style.setProperty('--text',S.text);}
 
-    // Build the friendly helper sentence (no labels)
     function helperLine(){
       if(!S.showHelper) return '';
       const bits=[];
