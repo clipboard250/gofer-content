@@ -3,10 +3,10 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
-<title>Gofer Content — Simple messaging that works</title>
-<meta name="description" content="I rewrite the words on your site, pages, and emails so people get it fast and say yes. Project-based, practical, no fluff.">
-<meta property="og:title" content="Gofer Content — Simple messaging that works">
-<meta property="og:description" content="Rewrite your message so people get it fast and say yes.">
+<title>Gofer Content — Helping real businesses earn lifetime customers</title>
+<meta name="description" content="Gofer Content helps makers, trades, artists, wellness pros, and local organizations earn lifetime customers with message systems and simple tools that keep the momentum steady.">
+<meta property="og:title" content="Gofer Content — Helping real businesses earn lifetime customers">
+<meta property="og:description" content="Work done right serves people and strengthens communities. We help you reach the right people — and keep them coming back.">
 <meta property="og:image" content="og-image.png">
 <meta property="og:type" content="website">
 <link rel="icon" href="pfpdayna.jpeg">
@@ -31,8 +31,9 @@ nav{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-
 .logo{display:flex;align-items:center;gap:12px;min-width:200px}
 .logo img{width:44px;height:44px;border-radius:50%;border:3px solid var(--brand)}
 .pill{display:inline-flex;align-items:center;border:1px solid #333;padding:.4rem .7rem;border-radius:999px;color:var(--muted);font-size:.92rem}
-.btn{display:inline-block;padding:.8rem 1.05rem;border-radius:12px;background:#2a2a2a;color:var(--ink);border:1px solid #3b3b3b;font-weight:700;white-space:nowrap}
+.btn{display:inline-block;padding:.8rem 1.05rem;border-radius:12px;background:#2a2a2a;color:var(--ink);border:1px solid #3b3b3b;font-weight:700;white-space:nowrap;cursor:pointer}
 .btn.brand{background:linear-gradient(180deg,var(--brand),var(--brand2));color:#111;box-shadow:var(--shadow)}
+.btn.ghost{background:transparent;border:1px solid #3b3b3b}
 
 /* prevent sticky header overlap */
 main{padding-top:calc(var(--headerH) + 12px)}
@@ -50,6 +51,19 @@ h2{font-size:clamp(22px,2.8vw,32px);margin:0 0 12px}
 .by{color:var(--muted);font-size:.95rem;margin-top:8px}
 .footer{color:var(--muted);font-size:.95rem;padding-bottom:60px}
 .cta-row{display:flex;gap:12px;flex-wrap:wrap}
+.row{display:flex;gap:12px;flex-wrap:wrap;align-items:center}
+
+/* contact form */
+form{display:grid;gap:10px}
+input,textarea{background:#121212;border:1px solid #2b2b2b;border-radius:12px;padding:.7rem 1rem;color:var(--ink)}
+label{font-size:.95rem;color:var(--muted)}
+small.help{color:var(--muted)}
+.success{margin-top:8px;color:#9ae6b4}
+
+/* sensory confetti */
+.confetti{position:fixed;inset:0;pointer-events:none;overflow:hidden}
+.confetti i{position:absolute;width:8px;height:8px;background:var(--brand);opacity:.9;border-radius:2px;animation:fall 900ms linear forwards}
+@keyframes fall{to{transform:translateY(110vh) rotate(220deg);opacity:.2}}
 
 /* responsive */
 @media (max-width:900px){
@@ -78,8 +92,10 @@ h2{font-size:clamp(22px,2.8vw,32px);margin:0 0 12px}
       </div>
       <div class="cta-row">
         <a class="btn" href="#how">How I help</a>
+        <!-- Hide for now:
         <a class="btn" href="#friends">Friends</a>
-        <a class="btn brand" href="builder.html">Free landing page builder</a>
+        <a class="btn brand" href="builder.html">Landing Page Generator</a>
+        -->
       </div>
     </nav>
   </div>
@@ -89,10 +105,11 @@ h2{font-size:clamp(22px,2.8vw,32px);margin:0 0 12px}
   <!-- HERO -->
   <div class="wrap hero">
     <div>
-      <h1>Simple messaging that works.</h1>
-      <p>I rewrite the words on your site, service pages, and emails so people get it fast and say yes.</p>
+      <h1>Helping real businesses earn lifetime customers and loyal communities.</h1>
+      <p>Work done right serves people and strengthens communities.<br>
+      Gofer Content helps makers, trades, artists, wellness pros, and local organizations share what they do in ways that reach the right people — and build simple systems that keep the momentum steady.</p>
       <div class="cta-row" style="margin-top:12px">
-        <a class="btn brand" href="#proof">Word on the street</a>
+        <a class="btn brand js-cta" href="#contact" aria-label="Contact Gofer Content">Keep them coming back</a>
         <a class="btn" href="#how">How I help</a>
         <a class="btn" href="#projects">Projects</a>
       </div>
@@ -110,51 +127,50 @@ h2{font-size:clamp(22px,2.8vw,32px);margin:0 0 12px}
       <div class="card" style="margin-bottom:16px">
         <strong>go·fer</strong> (noun) — the one who gets it done.
         <p style="margin:.5rem 0 0; color: var(--muted);">
-          I’m your right-hand (and sometimes left). I bridge words + execution:
-          clear copy, quick prototypes, and on-the-fly landing pages that show ideas working in the real world.
+          I’m your right hand (and sometimes left). I bridge words and execution: message that fits your people, quick prototypes, and on-the-fly landing pages that show ideas working in the real world.
         </p>
       </div>
       <div class="grid-3">
         <article class="card">
           <h3>Identify</h3>
-          <p>I audit everywhere your message shows up: homepages, onboarding emails, booking flows, press, even window signs.</p>
+          <p>I audit everywhere your message shows up: homepages, booking flows, emails, press, even window signs.</p>
           <ul class="list">
             <li>Find what’s overlooked</li>
             <li>Spot trust leaks</li>
-            <li>Say what people need to hear</li>
+            <li>Say what people actually need to hear</li>
           </ul>
         </article>
         <article class="card">
           <h3>Develop</h3>
-          <p>I rewrite for response, not cringe: website copy, Google service pages, follow-ups, socials, internal docs — and I spin up quick landing pages and prototypes (my “vibe coding”) so you can see changes in real time.</p>
+          <p>We shape the story for the right response — website copy, Google service pages, follow-ups, socials, and quick landing pages you can see live.</p>
           <ul class="list">
             <li>Plain language</li>
-            <li>Clear structure</li>
-            <li>Consistent voice</li>
+            <li>Honest structure</li>
+            <li>One voice across everything</li>
           </ul>
         </article>
         <article class="card">
           <h3>Equip</h3>
-          <p>I train you or your team and hand off tools: prompt libraries, internal guides, simple systems. Project-based pricing.</p>
+          <p>Practical handoff: simple guides, email/web tools, small automations, and training. Project-based pricing.</p>
         </article>
       </div>
     </div>
   </section>
 
-  <!-- FRIENDS (directory link) -->
- <section id="friends" aria-labelledby="friends-title">
-  <div class="wrap">
-    <h2 id="friends-title">Gofer Friends</h2>
-    <div class="card">
-      <p>A small community board for events and local businesses. Keep it simple, keep it useful.</p>
-      <div class="cta-row">
-        <a class="btn brand" href="https://clipboard250.github.io/gofer-friends/" target="_blank" rel="noopener">Open the board</a>
-        <a class="btn" href="builder.html">Make a free landing page</a>
+  <!-- FRIENDS (hidden for now)
+  <section id="friends" aria-labelledby="friends-title">
+    <div class="wrap">
+      <h2 id="friends-title">Community Bulletin Board</h2>
+      <div class="card">
+        <p>Local listings for events, fundraisers, services, and shows. Keep it simple. Keep it useful.</p>
+        <div class="cta-row">
+          <a class="btn brand" href="https://clipboard250.github.io/gofer-friends/" target="_blank" rel="noopener">Open the board</a>
+          <a class="btn" href="builder.html">Landing Page Generator</a>
+        </div>
       </div>
-      <p class="footer">Not sure what to write? Use the builder — it guides you with easy prompts.</p>
     </div>
-  </div>
-</section>
+  </section>
+  -->
 
   <!-- PROOF -->
   <section id="proof" aria-labelledby="proof-title">
@@ -171,7 +187,7 @@ h2{font-size:clamp(22px,2.8vw,32px);margin:0 0 12px}
     </div>
   </section>
 
-  <!-- PROJECTS (curated) -->
+  <!-- PROJECTS -->
   <section id="projects" aria-labelledby="projects-title">
     <div class="wrap">
       <h2 id="projects-title">Projects</h2>
@@ -188,8 +204,38 @@ h2{font-size:clamp(22px,2.8vw,32px);margin:0 0 12px}
     <div class="wrap">
       <h2 id="contact-title">Let’s talk</h2>
       <div class="card">
-        <p>Email <a href="mailto:info@gofercontent.com?subject=Go%20for%20copy&body=Goal%3A%20%5Bone%20line%5D%0ALink%3A%20%5Bpaste%5D">info@gofercontent.com</a> • Call <a href="tel:+17273539673">727-353-WORD</a> • Or <a href="https://gofercontent.zohobookings.com/#/4734166000000046014" target="_blank" rel="noopener">schedule</a>.</p>
-        <p class="footer">This website was built by coded by a copywriter who taught herself to code.</p>
+        <div class="row" role="group" aria-label="Quick contact options">
+          <a class="btn brand js-cta" href="sms:+17273539673">Text 727-353-WORD</a>
+          <a class="btn js-cta" href="tel:+17273539673">Call</a>
+          <a class="btn js-cta" href="mailto:info@gofercontent.com?subject=Gofer%20Content&body=Goal%3A%20%5Bone%20line%5D%0ALink%3A%20%5Bpaste%5D">Email</a>
+          <a class="btn ghost js-cta" href="https://gofercontent.zohobookings.com/#/4734166000000046014" target="_blank" rel="noopener">Schedule</a>
+        </div>
+
+        <hr style="border-color:#2b2b2b;margin:16px 0">
+
+        <form id="contactForm" action="https://formspree.io/f/xovkloyz" method="POST" aria-describedby="formHelp">
+          <label for="name">Name</label>
+          <input id="name" name="name" type="text" required autocomplete="name" />
+
+          <label for="email">Email</label>
+          <input id="email" name="_replyto" type="email" required autocomplete="email" />
+
+          <label for="msg">What do you need?</label>
+          <textarea id="msg" name="message" rows="4" required></textarea>
+
+          <!-- helpful context -->
+          <input type="hidden" name="_subject" value="Gofer Content — Website Contact">
+          <input type="hidden" name="page" value="gofercontent.com">
+
+          <div class="row">
+            <button class="btn brand js-cta" type="submit">Send</button>
+            <small id="formHelp" class="help">You’ll get a quick reply. No lists.</small>
+          </div>
+
+          <div id="formSuccess" class="success" role="status" aria-live="polite"></div>
+        </form>
+
+        <p class="footer">This website was coded by a copywriter who taught herself to code.</p>
       </div>
     </div>
   </section>
@@ -199,6 +245,79 @@ h2{font-size:clamp(22px,2.8vw,32px);margin:0 0 12px}
   <div class="wrap footer">© <span id="y"></span> Gofer Content • St. Petersburg, Florida</div>
 </footer>
 
-<script>document.getElementById('y').textContent=new Date().getFullYear();</script>
+<div class="confetti" aria-hidden="true"></div>
+
+<script>
+  // Year
+  document.getElementById('y').textContent = new Date().getFullYear();
+
+  // Sensory-positive feedback (guarded for accessibility)
+  const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  function softChime(){
+    if(prefersReduced) return;
+    try{
+      const ctx = new (window.AudioContext||window.webkitAudioContext)();
+      const o = ctx.createOscillator();
+      const g = ctx.createGain();
+      o.type = 'sine';
+      o.frequency.value = 880;
+      g.gain.setValueAtTime(0.0001, ctx.currentTime);
+      g.gain.exponentialRampToValueAtTime(0.08, ctx.currentTime + 0.02);
+      g.gain.exponentialRampToValueAtTime(0.0001, ctx.currentTime + 0.25);
+      o.connect(g).connect(ctx.destination);
+      o.start();
+      o.stop(ctx.currentTime + 0.26);
+    }catch(e){}
+  }
+
+  function haptic(){
+    if(prefersReduced) return;
+    if('vibrate' in navigator){ navigator.vibrate(20); }
+  }
+
+  function confettiBurst(){
+    if(prefersReduced) return;
+    const wrap = document.querySelector('.confetti');
+    for(let i=0;i<24;i++){
+      const p = document.createElement('i');
+      p.style.left = (Math.random()*100)+'%';
+      p.style.top = '-12px';
+      p.style.background = ['#ff6a00','#7FFF00','#ffd166','#06b6d4'][Math.random()*4|0];
+      p.style.transform = `translateY(0) rotate(${Math.random()*90|0}deg)`;
+      wrap.appendChild(p);
+      setTimeout(()=>p.remove(), 1200);
+    }
+  }
+
+  function celebrate(){
+    softChime(); haptic(); confettiBurst();
+  }
+
+  document.querySelectorAll('.js-cta').forEach(el=>{
+    el.addEventListener('click', celebrate);
+  });
+
+  // Formspree AJAX submit to show success inline
+  const form = document.getElementById('contactForm');
+  const ok = document.getElementById('formSuccess');
+
+  form.addEventListener('submit', async (e)=>{
+    e.preventDefault();
+    const data = new FormData(form);
+    try{
+      const r = await fetch(form.action, { method:'POST', body:data, headers: { 'Accept':'application/json' } });
+      if(r.ok){
+        form.reset();
+        ok.textContent = 'Nice — message sent.';
+        celebrate();
+      }else{
+        ok.textContent = 'Hmm, try again or email info@gofercontent.com.';
+      }
+    }catch(err){
+      ok.textContent = 'Network hiccup — email info@gofercontent.com.';
+    }
+  });
+</script>
 </body>
 </html>
