@@ -149,21 +149,21 @@
     /* Scrolling Trust Ticker */
     .trust-ticker{
       background:var(--sea);
-      border-bottom:1px solid #E2E8F0;
+      border-bottom:1px solid rgba(43,76,126,0.15);
       overflow:hidden;
       position:relative;
       height:42px;
     }
     .ticker-content{
       display:flex;
-      animation:scroll 25s linear infinite;
+      animation:scroll 15s linear infinite;
       white-space:nowrap;
     }
     .ticker-item{
       display:inline-flex;
       align-items:center;
       gap:8px;
-      padding:0 32px;
+      padding:0 20px;
       font-size:14px;
       font-weight:600;
       color:var(--navy);
@@ -231,6 +231,7 @@
     .hero{
       background:linear-gradient(135deg,var(--sea) 0%,#fff 100%);
       padding:40px 0 48px;
+      margin:0 20px;
     }
     .hero-inner{display:grid;gap:32px;padding:0}
     .hero h1{
@@ -251,7 +252,7 @@
     .cta-row{display:grid;grid-template-columns:1fr;gap:12px;margin-top:24px}
 
     /* Sections */
-    section{scroll-margin-top:var(--nav-h);margin:32px 0}
+    section{scroll-margin-top:var(--nav-h);margin:32px 20px}
     .grid{display:grid;gap:24px}
     .cards{display:grid;gap:20px;grid-template-columns:1fr}
     .card{
@@ -454,8 +455,8 @@
   <header class="hero">
     <div class="wrap hero-inner">
       <div>
-        <h1>Power Problems? <span class="highlight">We Fix It Fast.</span></h1>
-        <p class="sub"><strong>No power? Panel issues? Need an upgrade?</strong> Our licensed electricians solve your electrical problems the same day—safely, affordably, and with zero surprises on your bill.</p>
+        <h1>Power Problems? <span class="highlight">Same-Day Solutions.</span></h1>
+        <p class="sub"><strong>Breakers tripping? Lights flickering? Outlets dead?</strong> Our licensed electricians diagnose and fix your electrical problems fast—safely, affordably, with honest upfront pricing.</p>
         <div class="cta-row">
           <a class="btn primary" href="tel:+17273233596" aria-label="Call Allied Electrical Systems at 7 2 7 3 2 3 3 5 9 6">📞 Call (727) 323-3596</a>
           <a class="btn alt" href="#quote" aria-label="Request a callback">📋 Request Callback</a>
@@ -502,10 +503,10 @@
 
   <main class="wrap grid">
     <section class="card" id="about">
-      <h2 class="section-title">You Need It Fixed Right. We Make That Happen.</h2>
-      <p class="lead"><strong>Here's the truth:</strong> Bad electrical work is dangerous. Flickering lights, tripping breakers, outdated panels—these aren't just annoying. They're fire hazards that put your family and business at risk.</p>
-      <p class="lead" style="margin-top:16px">Since 1993, Allied Electrical Systems has been the team Pinellas County calls when they need electrical work done <strong>safely, correctly, and without the runaround.</strong> Our licensed electricians show up on time, diagnose the problem fast, give you an honest price upfront, and get it fixed—no hidden fees, no cutting corners.</p>
-      <p class="lead" style="margin-top:16px"><strong>Whether it's an emergency repair or a planned upgrade, you get the same thing:</strong> expert work, fair pricing, and a team that treats your home or business like it's our own.</p>
+      <h2 class="section-title">Get Safe, Reliable Electrical Work—Fast</h2>
+      <p class="lead"><strong>Here's the deal:</strong> Bad electrical work puts your family and property at risk. Flickering lights, tripping breakers, and outdated panels aren't just annoying—they're fire hazards.</p>
+      <p class="lead" style="margin-top:16px">Since 1993, Allied Electrical Systems has been Pinellas County's go-to team for electrical work done <strong>right, on time, and on budget.</strong> Our licensed electricians show up when we say we will, diagnose problems fast, give you honest upfront pricing, and complete the job safely—no surprises, no shortcuts.</p>
+      <p class="lead" style="margin-top:16px"><strong>Emergency repair or planned upgrade?</strong> You get the same expert service, fair pricing, and respect for your home or business every single time.</p>
     </section>
 
     <section id="services" aria-labelledby="services-heading">
@@ -582,9 +583,8 @@
         <div>Sun</div><div>Closed</div>
       </div>
       <div class="band" style="margin-top:20px">
-        <strong>📍 Address:</strong> 745 40th St S, Saint Petersburg, FL 33711<br>
-        <strong>📞 Phone:</strong> <a href="tel:+17273233596">(727) 323-3596</a><br>
-        <strong>✉️ Email:</strong> <a href="mailto:wattman53@gmail.com">wattman53@gmail.com</a>
+        <strong>📞 Call Now:</strong> <a href="tel:+17273233596">(727) 323-3596</a><br>
+        <strong>📍 Our Location:</strong> 745 40th St S, Saint Petersburg, FL 33711
       </div>
     </section>
 
@@ -593,21 +593,10 @@
       <p class="lead">Serving all of <strong>Pinellas County</strong> — St. Petersburg, Clearwater, Largo, Gulfport, and the beaches.</p>
       <div id="service-map" aria-label="Map of Pinellas County service area"></div>
       <div class="location-tags">
-        <span class="location-tag">St. Petersburg</span>
-        <span class="location-tag">Clearwater</span>
-        <span class="location-tag">Largo</span>
-        <span class="location-tag">Gulfport</span>
-        <span class="location-tag">Pinellas Park</span>
-        <span class="location-tag">Seminole</span>
-        <span class="location-tag">St. Pete Beach</span>
-        <a class="location-tag" href="https://share.google/gWeqCTbOuZ7yn1U2l" target="_blank" rel="noopener" aria-label="Open service area in Google Maps">📍 Open in Maps</a>
+        <a class="location-tag" href="https://www.google.com/search?sca_esv=35b4b4eaf34d9443&rlz=1C5CHFA_enUS1149US1149&sxsrf=AE3TifNAkDGKpxXT3iRgrc9FqQ7tyaKGUg:1759793946529&si=AMgyJEuzsz2NflaaWzrzdpjxXXRaJ2hfdMsbe_mSWso6src8sw_grS17LcHdhL-SqKwrM4BXwFUeCDPJ2whZXNpjZotnNp2NIEPQmBAPdfORwc94nfVlg60CKhAL6FeXLuALZM1ZadDP4KQZle6JJrMu5fTKKqSaSQ%3D%3D&q=Allied+Electrical+Systems+Inc.+Reviews&sa=X&ved=2ahUKEwjd-L2o35CQAxX7RTABHTUEHqAQ0bkNegQILBAC&biw=1280&bih=678&dpr=2" target="_blank" rel="noopener" aria-label="See our Google reviews">⭐ See Reviews on Google</a>
       </div>
     </section>
 
-    <section id="quote" class="band">
-      <h3 style="font-size:24px;margin-bottom:12px;color:#fff">Need Help Now?</h3>
-      <p style="margin:0 0 16px 0">Call <a href="tel:+17273233596">(727) 323-3596</a> or use the form above. We usually respond within 2 hours.</p>
-    </section>
   </main>
 
   <footer class="wrap footer">
