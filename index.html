@@ -3,9 +3,9 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
-<title>Gofer Content — Helping real businesses earn lifetime customers</title>
-<meta name="description" content="I help makers, musicians, tradespeople, artists, wellness pros, and local organizations reach the right people and put simple systems in place that keep them coming back." />
-<meta property="og:title" content="Gofer Content — Helping real businesses earn lifetime customers">
+<title>Gofer Content — Helping good businesses earn lifetime customers</title>
+<meta name="description" content="I help makers, musicians, tradespeople, artists, wellness pros, and local groups reach the right people and set up simple systems that keep them coming back." />
+<meta property="og:title" content="Gofer Content — Helping good businesses earn lifetime customers">
 <meta property="og:description" content="Work done right serves people and strengthens communities. I help you reach the right people — and keep them coming back.">
 <meta property="og:image" content="og-image.png">
 <meta property="og:type" content="website">
@@ -27,13 +27,15 @@ a:focus,button:focus{outline:2px solid var(--brand);outline-offset:3px}
 
 /* header */
 header{position:sticky;top:0;height:var(--headerH);display:flex;align-items:center;background:rgba(15,15,15,.8);backdrop-filter:blur(6px);border-bottom:1px solid #262626;z-index:20}
-nav{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap}
-.logo{display:flex;align-items:center;gap:12px;min-width:200px}
+nav{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:nowrap}
+.logo{display:flex;align-items:center;gap:12px;min-width:0;flex:1 1 auto}
 .logo img{width:44px;height:44px;border-radius:50%;border:3px solid var(--brand)}
-.pill{display:inline-flex;align-items:center;border:1px solid #333;padding:.4rem .7rem;border-radius:999px;color:var(--muted);font-size:.92rem}
+.logo strong{white-space:nowrap}
+.pill{display:inline-flex;align-items:center;border:1px solid #333;padding:.4rem .7rem;border-radius:999px;color:var(--muted);font-size:.92rem;white-space:nowrap}
+@media (max-width:1120px){ .pill{display:none} }
 
 /* desktop link row */
-.top-links{display:flex;gap:10px;align-items:center;flex-wrap:nowrap}
+.top-links{display:flex;gap:10px;align-items:center;flex:0 0 auto}
 .btn{display:inline-block;padding:.8rem 1.05rem;border-radius:12px;background:#2a2a2a;color:var(--ink);border:1px solid #3b3b3b;font-weight:700;white-space:nowrap;cursor:pointer}
 .btn.brand{background:linear-gradient(180deg,var(--brand),var(--brand2));color:#111;box-shadow:var(--shadow)}
 .btn.ghost{background:transparent;border:1px solid #3b3b3b}
@@ -81,7 +83,7 @@ small.help{color:var(--muted)}
 
 /* responsive */
 @media (max-width:900px){ .hero{grid-template-columns:1fr} .grid-3{grid-template-columns:1fr} }
-@media (max-width:520px){ :root{ --headerH:58px; } .pill{display:none} .btn{padding:.68rem .9rem} }
+@media (max-width:520px){ :root{ --headerH:58px; } .btn{padding:.68rem .9rem} }
 .skip{position:absolute;left:-9999px}
 .skip:focus{position:static;background:#000;padding:.6rem;border:2px dashed var(--brand)}
 </style>
@@ -101,8 +103,8 @@ small.help{color:var(--muted)}
       <!-- desktop links -->
       <div class="top-links">
         <a class="btn" href="#how">How I help</a>
-      <a class="btn" href="#builder">Website Generator</a>
-        <a class="btn" href="#bulletin">Community Bulletin Board</a>
+        <a class="btn" href="#builder">Website generator</a>
+        <a class="btn" href="#bulletin">Community bulletin board</a>
         <a class="btn brand" href="#contact">Keep them coming back</a>
       </div>
 
@@ -115,12 +117,12 @@ small.help{color:var(--muted)}
 
   <div id="mobileMenu" class="menu" role="dialog" aria-label="Mobile menu">
     <div class="wrap">
-      <a href="#how">How I help</a>
-      <a href="#builder">Landing Page Generator</a>
-      <a href="#bulletin">Community Bulletin Board</a>
-      <a href="#proof">Word on the street</a>
-      <a href="#projects">Projects</a>
-      <a href="#contact">Contact</a>
+      <a class="m-link" href="#how">How I help</a>
+      <a class="m-link" href="#builder">Website generator</a>
+      <a class="m-link" href="#bulletin">Community bulletin board</a>
+      <a class="m-link" href="#proof">Word on the street</a>
+      <a class="m-link" href="#projects">Projects</a>
+      <a class="m-link" href="#contact">Contact</a>
     </div>
   </div>
 </header>
@@ -129,8 +131,8 @@ small.help{color:var(--muted)}
   <!-- HERO -->
   <div class="wrap hero">
     <div>
-      <h1>Helping real businesses earn lifetime customers and loyal communities.</h1>
-      <p>I help makers, musicians, tradespeople, artists, wellness pros, and local organizations reach the right people and put simple systems in place that keep them coming back.</p>
+      <h1>Helping good businesses earn lifetime customers.</h1>
+      <p>I help makers, musicians, tradespeople, artists, wellness pros, and local groups reach the right people — and set up simple systems that keep them coming back.</p>
       <div class="cta-row" style="margin-top:12px">
         <a class="btn brand js-cta" href="#contact" aria-label="Contact Gofer Content">Keep them coming back</a>
         <a class="btn" href="#how">How I help</a>
@@ -182,31 +184,31 @@ small.help{color:var(--muted)}
       <div class="card" style="margin-top:16px">
         <strong>Not ready to hire?</strong> Do it yourself first.
         <div class="cta-row" style="margin-top:8px">
-         <a class="btn" href="builder.html">Use the Website Generator</a>
-          <a class="btn ghost" href="/community-bulletin-board/">List your thing on the Bulletin Board</a>
+          <a class="btn" href="builder.html">Use the website generator</a>
+          <a class="btn ghost" href="/community-bulletin-board/">List your thing on the bulletin board</a>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- BUILDER -->
+  <!-- GENERATOR -->
   <section id="builder" aria-labelledby="builder-title">
     <div class="wrap">
-      <h2 id="builder-title">Website Generator</h2>
+      <h2 id="builder-title">Website generator</h2>
       <div class="card">
-     <p>Answer a few friendly prompts, see your site preview live, copy or download the HTML — or book a setup call if you want me to ship it.</p>
+        <p>Answer a few friendly prompts, see your site preview live, copy or download the HTML — or book a setup call if you want me to ship it.</p>
         <div class="cta-row">
-          <a class="btn brand js-cta" href="builder.html">Open the Website Generator</a>
+          <a class="btn brand js-cta" href="builder.html">Open the website generator</a>
           <a class="btn" href="https://gofercontent.zohobookings.com/#/4734166000000046014" target="_blank" rel="noopener">Book a setup call</a>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- COMMUNITY BULLETIN -->
+  <!-- BULLETIN -->
   <section id="bulletin" aria-labelledby="bulletin-title">
     <div class="wrap">
-      <h2 id="bulletin-title">Community Bulletin Board (List your thing)</h2>
+      <h2 id="bulletin-title">Community bulletin board (List your thing)</h2>
     </div>
     <div class="wrap">
       <div class="card">
@@ -296,13 +298,19 @@ small.help{color:var(--muted)}
   // Year
   document.getElementById('y').textContent = new Date().getFullYear();
 
-  // Hamburger
+  // Hamburger open/close + auto-close on link tap
   const hamb = document.querySelector('.hamb');
   const menu = document.getElementById('mobileMenu');
-  if(hamb){
+  if (hamb){
     hamb.addEventListener('click', ()=>{
       const open = menu.classList.toggle('open');
       hamb.setAttribute('aria-expanded', open ? 'true' : 'false');
+    });
+    document.querySelectorAll('#mobileMenu .m-link').forEach(a=>{
+      a.addEventListener('click', ()=>{
+        menu.classList.remove('open');
+        hamb.setAttribute('aria-expanded','false');
+      });
     });
   }
 
