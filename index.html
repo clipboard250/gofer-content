@@ -34,18 +34,14 @@ nav{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-
 .pill{display:inline-flex;align-items:center;border:1px solid #333;padding:.4rem .7rem;border-radius:999px;color:var(--muted);font-size:.92rem;white-space:nowrap}
 @media (max-width:1120px){ .pill{display:none} }
 
-/* desktop link row */
-.top-links{display:flex;gap:10px;align-items:center;flex:0 0 auto}
-.btn{display:inline-block;padding:.8rem 1.05rem;border-radius:12px;background:#2a2a2a;color:var(--ink);border:1px solid #3b3b3b;font-weight:700;white-space:nowrap;cursor:pointer}
-.btn.brand{background:linear-gradient(180deg,var(--brand),var(--brand2));color:#111;box-shadow:var(--shadow)}
-.btn.ghost{background:transparent;border:1px solid #3b3b3b}
+/* remove desktop button row entirely */
+.top-links{display:none}
 
-/* hamburger */
-.hamb{display:none;gap:6px;flex-direction:column;cursor:pointer;background:transparent;border:0;padding:8px}
+/* hamburger (always shown) */
+.hamb{display:flex;gap:6px;flex-direction:column;cursor:pointer;background:transparent;border:0;padding:8px}
 .hamb span{width:24px;height:2px;background:#fff;border-radius:2px}
-@media (max-width:900px){ .top-links{display:none} .hamb{display:flex} }
 
-/* mobile drawer */
+/* mobile/desktop drawer (used on all breakpoints) */
 .menu{position:fixed;left:0;right:0;top:var(--headerH);background:#0f0f0f;border-top:1px solid #262626;display:none;z-index:15}
 .menu.open{display:block}
 .menu .wrap{display:grid;gap:10px}
@@ -100,22 +96,14 @@ small.help{color:var(--muted)}
         <span class="pill">St. Pete, FL • Messaging Strategy</span>
       </div>
 
-      <!-- desktop links -->
-      <div class="top-links">
-        <a class="btn" href="#how">How I help</a>
-        <a class="btn" href="#builder">Website generator</a>
-        <a class="btn" href="#bulletin">Community bulletin board</a>
-        <a class="btn brand" href="#contact">Keep them coming back</a>
-      </div>
-
-      <!-- hamburger on mobile -->
+      <!-- hamburger (always) -->
       <button class="hamb" aria-label="Open menu" aria-controls="mobileMenu" aria-expanded="false">
         <span></span><span></span><span></span>
       </button>
     </nav>
   </div>
 
-  <div id="mobileMenu" class="menu" role="dialog" aria-label="Mobile menu">
+  <div id="mobileMenu" class="menu" role="dialog" aria-label="Menu">
     <div class="wrap">
       <a class="m-link" href="#how">How I help</a>
       <a class="m-link" href="#builder">Website generator</a>
@@ -264,21 +252,16 @@ small.help{color:var(--muted)}
         <form id="contactForm" action="https://formspree.io/f/xovkloyz" method="POST" aria-describedby="formHelp">
           <label for="name">Name</label>
           <input id="name" name="name" type="text" required autocomplete="name" />
-
           <label for="email">Email</label>
           <input id="email" name="_replyto" type="email" required autocomplete="email" />
-
           <label for="msg">What do you need?</label>
           <textarea id="msg" name="message" rows="4" required></textarea>
-
           <input type="hidden" name="_subject" value="Gofer Content — Website Contact">
           <input type="hidden" name="page" value="gofercontent.com">
-
           <div class="row">
             <button class="btn brand js-cta" type="submit">Send</button>
             <small id="formHelp" class="help">You’ll get a quick reply. No lists.</small>
           </div>
-
           <div id="formSuccess" class="success" role="status" aria-live="polite"></div>
         </form>
 
@@ -316,37 +299,23 @@ small.help{color:var(--muted)}
 
   // Sensory-positive feedback (prefers-reduced-motion aware)
   const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-
-  function softChime(){
-    if(prefersReduced) return;
-    try{
-      const ctx = new (window.AudioContext||window.webkitAudioContext)();
-      const o = ctx.createOscillator();
-      const g = ctx.createGain();
-      o.type = 'sine';
-      o.frequency.value = 880;
-      g.gain.setValueAtTime(0.0001, ctx.currentTime);
-      g.gain.exponentialRampToValueAtTime(0.08, ctx.currentTime + 0.02);
-      g.gain.exponentialRampToValueAtTime(0.0001, ctx.currentTime + 0.25);
-      o.connect(g).connect(ctx.destination);
-      o.start();
-      o.stop(ctx.currentTime + 0.26);
-    }catch(e){}
-  }
+  function softChime(){ if(prefersReduced) return;
+    try{ const ctx=new (window.AudioContext||window.webkitAudioContext)();
+      const o=ctx.createOscillator(), g=ctx.createGain();
+      o.type='sine'; o.frequency.value=880;
+      g.gain.setValueAtTime(0.0001,ctx.currentTime);
+      g.gain.exponentialRampToValueAtTime(0.08,ctx.currentTime+0.02);
+      g.gain.exponentialRampToValueAtTime(0.0001,ctx.currentTime+0.25);
+      o.connect(g).connect(ctx.destination); o.start(); o.stop(ctx.currentTime+0.26);
+    }catch(e){} }
   function haptic(){ if(!prefersReduced && 'vibrate' in navigator){ navigator.vibrate(20); } }
-  function confettiBurst(){
-    if(prefersReduced) return;
-    const wrap = document.querySelector('.confetti');
-    for(let i=0;i<22;i++){
-      const p = document.createElement('i');
-      p.style.left = (Math.random()*100)+'%';
-      p.style.top = '-12px';
-      p.style.background = ['#ff6a00','#7FFF00','#ffd166','#06b6d4'][Math.random()*4|0];
-      p.style.transform = `translateY(0) rotate(${Math.random()*90|0}deg)`;
-      wrap.appendChild(p);
-      setTimeout(()=>p.remove(), 1200);
-    }
-  }
+  function confettiBurst(){ if(prefersReduced) return;
+    const wrap=document.querySelector('.confetti');
+    for(let i=0;i<22;i++){ const p=document.createElement('i');
+      p.style.left=(Math.random()*100)+'%'; p.style.top='-12px';
+      p.style.background=['#ff6a00','#7FFF00','#ffd166','#06b6d4'][Math.random()*4|0];
+      p.style.transform=`translateY(0) rotate(${Math.random()*90|0}deg)`;
+      wrap.appendChild(p); setTimeout(()=>p.remove(),1200); } }
   function celebrate(){ softChime(); haptic(); confettiBurst(); }
   document.querySelectorAll('.js-cta').forEach(el=> el.addEventListener('click', celebrate));
 
