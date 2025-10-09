@@ -1,0 +1,38 @@
+name: Auto-bump version
+
+on:
+  push:
+    branches: [ main ]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  bump:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out
+        uses: actions/checkout@v4
+
+      - name: Detect real changes
+        id: changed
+        run: |
+          BEFORE="${{ github.event.before }}"
+          AFTER="${{ github.sha }}"
+          FILES="$(git diff --name-only "$BEFORE" "$AFTER" || true)"
+          echo "Changed files:"
+          echo "$FILES"
+          COUNT=$(echo "$FILES" | grep -v '^version.txt$' | sed '/^$/d' | wc -l | tr -d ' ')
+          echo "COUNT=$COUNT" >> $GITHUB_ENV
+
+      - name: Bump version.txt
+        if: env.COUNT != '0'
+        run: |
+          V="$(date -u +'%Y-%m-%d')-${{ github.run_number }}"
+          echo "$V" > version.txt
+          git config user.name "github-actions"
+          git config user.email "actions@github.com"
+          git add version.txt
+          git commit -m "bump version $V"
+          git push
