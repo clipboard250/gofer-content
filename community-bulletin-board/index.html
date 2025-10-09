@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Gofer — Community bulletin board</title>
+  <meta name="description" content="Services, events, causes, and more from the Gofer community." />
+  <meta name="color-scheme" content="light dark" />
+  <style>
+    :root{ --bg:#0b0b0c; --panel:#121216; --text:#f3f4f6; --muted:#a1a1aa; --brand:#ff6a00; --brand2:#7FFF00; --card:#0f1013; --border:#252632; --chip:#1b1c22; --round:18px; --gap:18px; --shadow:0 20px 40px rgba(0,0,0,.25);}
+    @media (prefers-color-scheme: light){ :root{ --bg:#fafafa; --panel:#fff; --text:#0b0b0c; --muted:#6b7280; --card:#fff; --border:#e7e7ee; --chip:#f3f4f8; }}
+    html,body{height:100%}
+    body{margin:0;font:16px/1.5 system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Helvetica,Arial,sans-serif;background:var(--bg);color:var(--text)}
+    .wrap{max-width:1200px;margin:0 auto;padding:22px}
+    header{display:flex;align-items:center;justify-content:space-between;margin-bottom:10px}
+    .logo{display:flex;align-items:center;gap:10px;font-weight:900}
+    .logo b{background:var(--brand);color:#0b0b0c;padding:6px 10px;border-radius:12px}
+    .bar{display:grid;grid-template-columns:1.1fr .6fr .6fr .6fr .5fr;gap:10px;align-items:center;margin:10px 0 16px}
+    @media(max-width:950px){.bar{grid-template-columns:1fr 1fr;gap:8px}}
+    @media(max-width:700px){.bar{grid-template-columns:1fr;gap:8px}}
+    input, select{width:100%;padding:12px;border-radius:12px;border:1px solid var(--border);background:var(--panel);color:var(--text);box-sizing:border-box}
+    .btn{display:inline-flex;align-items:center;gap:8px;background:var(--brand);color:#0b0b0c;font-weight:800;border:0;border-radius:14px;padding:12px 14px;cursor:pointer;text-decoration:none}
+    .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--gap)}
+    @media(max-width:1000px){.grid{grid-template-columns:1fr 1fr}}
+    @media(max-width:640px){.grid{grid-template-columns:1fr}}
+    .card{background:var(--card);border:1px solid var(--border);border-radius:var(--round);overflow:hidden;display:flex;flex-direction:column}
+    .hero{padding:16px;background:linear-gradient(135deg,var(--brand) 0%, var(--brand2) 100%);color:#0b0b0c}
+    .title{font-weight:900;font-size:20px}
+    .sub{margin-top:6px;color:#0b0b0c;opacity:.92;font-weight:600}
+    .pad{padding:14px}
+    .chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:6px}
+    .chip{background:var(--chip);border:1px solid var(--border);padding:6px 10px;border-radius:999px;font-size:12px;text-decoration:none;color:var(--text);display:inline-block}
+    .chip:hover{color:var(--text);text-decoration:none}
+    .row{display:flex;gap:10px;flex-wrap:wrap}
+    .cta{display:inline-flex;align-items:center;gap:8px;background:#0b0b0c;color:#fff;font-weight:800;padding:10px 12px;border-radius:12px;border:0;text-decoration:none}
+    @media(prefers-color-scheme: light){.cta{background:#111827}}
+    .footer{margin-top:10px;color:var(--muted);font-size:13px}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <div class="logo"><b>GOFER</b><span>Community bulletin board</span></div>
+      <a class="btn" href="/#builder">Add a listing</a>
+    </header>
+
+    <div class="bar">
+      <input id="q" placeholder="Search names and blurbs…"/>
+      <select id="type">
+        <option value="">All types</option>
+        <option>Business/Service</option><option>Event</option><option>Hiring</option>
+        <option>Art/Project</option><option>Cause/Fundraiser</option><option>DJ/Podcast/Music</option>
+      </select>
+      <select id="industry">
+        <option value="">All industries</option>
+        <option>Home Services</option><option>Music</option><option>Art</option><option>Tech</option><option>Wellness</option>
+        <option>Legal</option><option>Education</option><option>Nonprofit</option><option>Events</option><option>Food</option>
+        <option>Trades</option><option>Real Estate</option><option>Media</option><option>Retail</option><option>Hospitality</option>
+        <option>Sports</option><option>Logistics</option><option>Construction</option><option>Finance</option><option>Beauty</option>
+      </select>
+      <input id="city" placeholder="City (optional)"/>
+      <select id="sort"><option>New</option><option>A—Z</option><option>Upcoming</option></select>
+    </div>
+
+    <div id="count" class="footer" style="margin:6px 0 14px"></div>
+    <div id="grid" class="grid" aria-live="polite"></div>
+    <div class="footer">Made with Gofer • Pooling reach so the whole crew wins</div>
+  </div>
+
+  <script>
+    const $ = id=>document.getElementById(id);
+    const grid = $('grid'); let items = [];
+
+    async function load(){
+      try{ const r = await fetch('spots.json',{cache:'no-store'}); if(!r.ok) throw 0; items = await r.json(); }
+      catch(e){ items = [{ title:"Tampa Mobile Bike Repair", tagline:"We fix bikes anywhere in Tampa Bay 24/7", type:"Business/Service", industry:"Home Services", perks:["Same-day service","Text-first booking"], where:"St. Petersburg, FL", links:[{type:"website",href:"#"}], slug:"tampa-mobile-bike-repair", created_at:new Date().toISOString() }]; }
+      render();
+    }
+    load();
+
+    ["q","type","industry","city","sort"].forEach(id=> $(id).addEventListener("input", render));
+
+    function render(){
+      const query = $('q').value.toLowerCase(), t = $('type').value, ind = $('industry').value, city = $('city').value.toLowerCase(), sort = $('sort').value;
+      let rows = items.filter(x => (!t || x.type===t) && (!ind || x.industry===ind) && (!city || (x.where||"").toLowerCase().includes(city)) && (x.title.toLowerCase().includes(query) || (x.tagline||"").toLowerCase().includes(query)));
+      rows.sort((a,b)=> sort==="A—Z" ? a.title.localeCompare(b.title) : sort==="Upcoming" ? dateNum(a.when)-dateNum(b.when) : (new Date(b.created_at||0))-(new Date(a.created_at||0)));
+      $('count').textContent = rows.length + ' result' + (rows.length===1? '':'s');
+      grid.innerHTML = rows.map(card).join('');
+    }
+
+    function card(x){
+      const perks = (x.perks||[]).slice(0,3).map(p=>`<span class="chip">${esc(p)}</span>`).join('');
+      const when = x.when ? `<span class="chip">${esc(x.when)}</span>` : '';
+      const where = x.where ? `<span class="chip">${esc(x.where)}</span>` : '';
+      const icons = (x.links||[]).slice(0,7).map(l=> icon(l.type,l.href)).join('');
+      const cta = x.type==='Event' ? 'RSVP' : x.type==='Hiring' ? 'Apply' : x.type==='Cause/Fundraiser' ? 'Donate' : 'Contact';
+      const primary = (x.links||[]).find(l => l.type==='email'||l.type==='phone'||l.type==='website')?.href || '#';
+      return `
+        <article class="card">
+          <div class="hero">
+            <div class="title">${esc(x.title)}</div>
+            <div class="sub">${esc(x.tagline||'')}</div>
+          </div>
+          <div class="pad">
+            <div class="chips">${perks} ${when} ${where}</div>
+            <div class="row" style="margin:10px 0">${favicon(primary)} ${icons}</div>
+            <div class="row">
+              <a class="cta" href="${primary}" target="_blank" rel="noopener">${cta}</a>
+              <a class="cta" href="${primary}" style="background:transparent;color:var(--text);border:1px solid var(--border)">View profile</a>
+            </div>
+          </div>
+        </article>`;
+    }
+
+    function favicon(href){
+      try{
+        const url = new URL(href);
+        const src = 'https://www.google.com/s2/favicons?domain='+url.hostname+'&sz=64';
+        return `<img alt="" src="${src}" style="width:20px;height:20px;border-radius:4px;margin-right:6px;vertical-align:middle">`;
+      }catch(e){ return ''; }
+    }
+    function icon(type,href){
+      const map = { website:'🌐', instagram:'📸', facebook:'📘', twitter:'𝕏', tiktok:'🎵', linkedin:'💼', youtube:'▶️', soundcloud:'☁️', bandcamp:'🏕️', eventbrite:'🎫', venmo:'💸', paypal:'💳', email:'✉️', phone:'📞' };
+      if(!href) return '';
+      const label = (type||'Link').replace(/\b\w/g,c=>c.toUpperCase());
+      return `<a class="chip" href="${href}" target="_blank" rel="noopener" title="${esc(label)}">${map[type]||'🔗'} ${esc(label)}</a>`;
+    }
+    function esc(s=''){ return s.replace(/[&<>"']/g, c=>({"&":"&amp;","<":"&lt;",">":">","\"":"&quot;","'":"&#039;"}[c])); }
+    function dateNum(s=''){ const d = new Date(s); return isFinite(d) ? +d : Number.MAX_SAFE_INTEGER; }
+  </script>
+</body>
+</html>
