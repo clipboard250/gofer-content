@@ -15,14 +15,22 @@
     header{display:flex;align-items:center;justify-content:space-between;margin-bottom:10px}
     .logo{display:flex;align-items:center;gap:10px;font-weight:900}
     .logo b{background:var(--brand);color:#0b0b0c;padding:6px 10px;border-radius:12px}
-    .bar{display:grid;grid-template-columns:1.1fr .6fr .6fr .6fr .5fr;gap:10px;align-items:center;margin:10px 0 16px}
+
+    .bar{display:grid;grid-template-columns:1.1fr .6fr .6fr .6fr .5fr;gap:10px;align-items:center;margin:10px 0 10px}
     @media(max-width:950px){.bar{grid-template-columns:1fr 1fr;gap:8px}}
     @media(max-width:700px){.bar{grid-template-columns:1fr;gap:8px}}
+
     input, select{width:100%;padding:12px;border-radius:12px;border:1px solid var(--border);background:var(--panel);color:var(--text);box-sizing:border-box}
     .btn{display:inline-flex;align-items:center;gap:8px;background:var(--brand);color:#0b0b0c;font-weight:800;border:0;border-radius:14px;padding:12px 14px;cursor:pointer;text-decoration:none}
+
+    .quick{display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin:6px 0 14px}
+    .pill{display:inline-flex;align-items:center;gap:8px;padding:8px 12px;border-radius:999px;border:1px solid var(--border);background:var(--panel);cursor:pointer}
+    .pill.active{border-color:var(--brand2); box-shadow:0 0 0 2px rgba(127,255,0,.15) inset}
+
     .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--gap)}
     @media(max-width:1000px){.grid{grid-template-columns:1fr 1fr}}
     @media(max-width:640px){.grid{grid-template-columns:1fr}}
+
     .card{background:var(--card);border:1px solid var(--border);border-radius:var(--round);overflow:hidden;display:flex;flex-direction:column}
     .hero{padding:16px;background:linear-gradient(135deg,var(--brand) 0%, var(--brand2) 100%);color:#0b0b0c}
     .title{font-weight:900;font-size:20px}
@@ -41,7 +49,7 @@
   <div class="wrap">
     <header>
       <div class="logo"><b>GOFER</b><span>Community bulletin board</span></div>
-      <a class="btn" href="/#builder">Add a listing</a>
+      <a class="btn" href="/community-bulletin-board/submit.html">Add a listing</a>
     </header>
 
     <div class="bar">
@@ -62,7 +70,13 @@
       <select id="sort"><option>New</option><option>A—Z</option><option>Upcoming</option></select>
     </div>
 
-    <div id="count" class="footer" style="margin:6px 0 14px"></div>
+    <!-- Quick filters -->
+    <div class="quick" role="group" aria-label="Quick filters">
+      <button class="pill" id="pillBiz" type="button">Businesses</button>
+      <button class="pill" id="pillEvt" type="button">Events</button>
+      <span class="footer" id="count"></span>
+    </div>
+
     <div id="grid" class="grid" aria-live="polite"></div>
     <div class="footer">Made with Gofer • Pooling reach so the whole crew wins</div>
   </div>
@@ -73,12 +87,18 @@
 
     async function load(){
       try{ const r = await fetch('spots.json',{cache:'no-store'}); if(!r.ok) throw 0; items = await r.json(); }
-      catch(e){ items = [{ title:"Tampa Mobile Bike Repair", tagline:"We fix bikes anywhere in Tampa Bay 24/7", type:"Business/Service", industry:"Home Services", perks:["Same-day service","Text-first booking"], where:"St. Petersburg, FL", links:[{type:"website",href:"#"}], slug:"tampa-mobile-bike-repair", created_at:new Date().toISOString() }]; }
+      catch(e){ items = []; }
       render();
     }
     load();
 
     ["q","type","industry","city","sort"].forEach(id=> $(id).addEventListener("input", render));
+
+    // Quick chips
+    const pillBiz = $('pillBiz'), pillEvt = $('pillEvt');
+    pillBiz.addEventListener('click', ()=>{ togglePill(pillBiz); if(pillBiz.classList.contains('active')){$('type').value='Business/Service';} else {$('type').value='';} render(); });
+    pillEvt.addEventListener('click', ()=>{ togglePill(pillEvt); if(pillEvt.classList.contains('active')){$('type').value='Event';} else {$('type').value='';} render(); });
+    function togglePill(el){ el.classList.toggle('active'); if(el===pillBiz && pillEvt.classList.contains('active')) pillEvt.classList.remove('active'); if(el===pillEvt && pillBiz.classList.contains('active')) pillBiz.classList.remove('active'); }
 
     function render(){
       const query = $('q').value.toLowerCase(), t = $('type').value, ind = $('industry').value, city = $('city').value.toLowerCase(), sort = $('sort').value;
@@ -106,16 +126,15 @@
             <div class="row" style="margin:10px 0">${favicon(primary)} ${icons}</div>
             <div class="row">
               <a class="cta" href="${primary}" target="_blank" rel="noopener">${cta}</a>
-              <a class="cta" href="${primary}" style="background:transparent;color:var(--text);border:1px solid var(--border)">View profile</a>
+              <a class="cta" href="/community-bulletin-board/claim.html?slug=${encodeURIComponent(x.slug||'')}&title=${encodeURIComponent(x.title)}">Claim</a>
+              <a class="cta" href="/community-bulletin-board/suggest.html?slug=${encodeURIComponent(x.slug||'')}&title=${encodeURIComponent(x.title)}" style="background:transparent;color:var(--text);border:1px solid var(--border)">Suggest edit</a>
             </div>
           </div>
         </article>`;
     }
 
     function favicon(href){
-      try{
-        const url = new URL(href);
-        const src = 'https://www.google.com/s2/favicons?domain='+url.hostname+'&sz=64';
+      try{ const url = new URL(href); const src = 'https://www.google.com/s2/favicons?domain='+url.hostname+'&sz=64';
         return `<img alt="" src="${src}" style="width:20px;height:20px;border-radius:4px;margin-right:6px;vertical-align:middle">`;
       }catch(e){ return ''; }
     }
@@ -125,7 +144,7 @@
       const label = (type||'Link').replace(/\b\w/g,c=>c.toUpperCase());
       return `<a class="chip" href="${href}" target="_blank" rel="noopener" title="${esc(label)}">${map[type]||'🔗'} ${esc(label)}</a>`;
     }
-    function esc(s=''){ return s.replace(/[&<>"']/g, c=>({"&":"&amp;","<":"&lt;",">":">","\"":"&quot;","'":"&#039;"}[c])); }
+    function esc(s=''){ return s.replace(/[&<>"']/g, c=>({"&":"&amp;","<":"&lt;","&gt;":">","\"":"&quot;","'":"&#039;"}[c])); }
     function dateNum(s=''){ const d = new Date(s); return isFinite(d) ? +d : Number.MAX_SAFE_INTEGER; }
   </script>
 </body>
