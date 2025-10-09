@@ -30,6 +30,13 @@
   small{color:var(--muted)}
   .help{font-size:12px;margin-top:4px}
   .divider{height:1px;background:var(--border);margin:10px 0}
+
+  /* modal */
+  .modal{position:fixed;inset:0;background:rgba(0,0,0,.55);display:none;align-items:center;justify-content:center;padding:18px;z-index:50}
+  .modal.open{display:flex}
+  .modal .box{background:var(--panel);border:1px solid var(--border);border-radius:16px;max-width:560px;width:100%;padding:18px}
+  .modal h2{margin:0 0 6px}
+  .modal p{color:var(--muted);margin:0 0 12px}
 </style>
 </head>
 <body>
@@ -46,13 +53,10 @@
       <h1>List your business or event</h1>
       <p class="lead">Fill this out in 1–2 minutes. I’ll review and post it to the board. You’ll get a reply if I need anything.</p>
 
-      <!-- NOTE: You can keep using your contact Formspree (xovkloyz) for now.
-           Later, make a separate Formspree form and replace the action URL. -->
+      <!-- Formspree endpoint (change if you make a separate form later) -->
       <form action="https://formspree.io/f/xovkloyz" method="POST" id="listForm">
-        <!-- Formspree subject + redirect -->
         <input type="hidden" name="_subject" value="New Community Listing — Gofer" />
         <input type="hidden" name="_redirect" value="https://gofercontent.com/community-bulletin-board/thanks.html" />
-        <!-- a little context so you can filter in inbox -->
         <input type="hidden" name="form_source" value="community-listing" />
         <input type="hidden" name="created_at" id="created_at" />
 
@@ -85,7 +89,6 @@
           </div>
         </div>
 
-        <!-- When + Where (show 'when' only for events) -->
         <div class="grid two">
           <div id="whenWrap" style="display:none">
             <label for="when">When (events only)</label>
@@ -143,14 +146,85 @@
     </div>
   </div>
 
+  <!-- duplicate modal -->
+  <div id="dupModal" class="modal" role="dialog" aria-modal="true" aria-labelledby="dupTitle" aria-hidden="true">
+    <div class="box">
+      <h2 id="dupTitle">This might already be listed</h2>
+      <p id="dupReason">We found a similar name or website.</p>
+      <div class="row">
+        <a id="btnClaim" class="btn brand" href="#">This is my business — claim it</a>
+        <a id="btnSuggest" class="btn ghost" href="#">Suggest an edit</a>
+        <button id="btnContinue" class="btn ghost" type="button">Continue anyway</button>
+      </div>
+    </div>
+  </div>
+
 <script>
-  // Add created_at
+  // created_at
   document.getElementById('created_at').value = new Date().toISOString();
-  // Show "When" only for events
+  // show when for events
   const kind = document.getElementById('kind');
   const whenWrap = document.getElementById('whenWrap');
   function toggleWhen(){ whenWrap.style.display = (kind.value === 'Event') ? 'block' : 'none'; }
   kind.addEventListener('change', toggleWhen); toggleWhen();
+
+  // Load existing spots to prevent duplicates
+  let SPOTS = [];
+  fetch('/community-bulletin-board/spots.json',{cache:'no-store'})
+    .then(r=>r.json()).then(d=>SPOTS=d).catch(()=>{});
+
+  // Helpers
+  const norm = s => (s||'').toLowerCase().replace(/[^a-z0-9]+/g,' ').trim();
+  function domain(u){
+    try{ return new URL(u).hostname.replace(/^www\./,''); }catch(e){ return ''; }
+  }
+  function findMatch(title, website){
+    const t = norm(title);
+    const d = domain(website);
+    for(const s of SPOTS){
+      const st = norm(s.title);
+      const sw = (s.links||[]).find(l=>l.type==='website')?.href || '';
+      const sd = domain(sw);
+      const nameClose = st && (st===t || st.startsWith(t) || t.startsWith(st));
+      const siteSame = d && sd && d===sd;
+      if(nameClose || siteSame){
+        return {slug:s.slug||'', title:s.title, reason: siteSame ? 'Same website domain.' : 'Very similar name.'};
+      }
+    }
+    return null;
+  }
+
+  // Intercept submit for dupe check
+  const form = document.getElementById('listForm');
+  const modal = document.getElementById('dupModal');
+  const btnClaim = document.getElementById('btnClaim');
+  const btnSuggest = document.getElementById('btnSuggest');
+  const btnContinue = document.getElementById('btnContinue');
+  const reasonEl = document.getElementById('dupReason');
+
+  form.addEventListener('submit', (e)=>{
+    const title = document.getElementById('title').value;
+    const website = document.getElementById('website').value;
+    const hit = findMatch(title, website);
+    if(hit){
+      e.preventDefault();
+      reasonEl.textContent = `We found: “${hit.title}”. ${hit.reason}`;
+      btnClaim.href = `/community-bulletin-board/claim.html?slug=${encodeURIComponent(hit.slug)}&title=${encodeURIComponent(hit.title)}`;
+      btnSuggest.href = `/community-bulletin-board/suggest.html?slug=${encodeURIComponent(hit.slug)}&title=${encodeURIComponent(hit.title)}`;
+      modal.classList.add('open');
+      modal.setAttribute('aria-hidden','false');
+      btnContinue.focus();
+    }
+  });
+
+  btnContinue.addEventListener('click', ()=>{
+    modal.classList.remove('open');
+    modal.setAttribute('aria-hidden','true');
+    form.submit(); // let it go
+  });
+
+  // close modal by Esc
+  window.addEventListener('keydown', (e)=>{ if(e.key==='Escape'){ modal.classList.remove('open'); modal.setAttribute('aria-hidden','true'); }});
 </script>
 </body>
 </html>
