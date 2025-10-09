@@ -4,7 +4,7 @@
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
 <title>Gofer Content — Helping good businesses earn lifetime customers</title>
-<meta name="description" content="I help makers, musicians, tradespeople, artists, wellness pros, and local groups reach the right people and set up simple systems that keep them coming back." />
+<meta name="description" content="I help makers, musicians, tradespeople, artists, wellness pros, and local groups reach the right people and keep them coming back." />
 <meta property="og:title" content="Gofer Content — Helping good businesses earn lifetime customers">
 <meta property="og:description" content="Work done right serves people and strengthens communities. I help you reach the right people — and keep them coming back.">
 <meta property="og:image" content="og-image.png">
@@ -14,74 +14,76 @@
 <style>
 :root{
   --bg:#0f0f0f; --ink:#f7f3e8; --muted:#cfc8b8;
-  --brand:#ff6a00; --brand2:#8a2c00; --card:#1a1a1a;
-  --radius:18px; --shadow:0 10px 30px rgba(0,0,0,.35);
-  --max:1000px; --headerH:68px;
+  --brand:#ff6a00; --brand2:#8a2c00; --accent:#7FFF00;
+  --card:#1a1a1a; --radius:18px; --shadow:0 10px 30px rgba(0,0,0,.35);
+  --max:1000px; --headerH:64px;
 }
 *,*:before,*:after{box-sizing:border-box}
 html,body{margin:0;background:radial-gradient(1200px 600px at 12% -8%, rgba(255,106,0,.24), transparent),var(--bg);color:var(--ink);font:16px/1.55 system-ui,-apple-system,Segoe UI,Inter,Roboto,Arial,sans-serif}
 img{max-width:100%;height:auto}
 a{color:var(--ink);text-decoration:none}
 a:focus,button:focus{outline:2px solid var(--brand);outline-offset:3px}
-.wrap{max-width:var(--max);margin-inline:auto;padding:22px}
+.wrap{max-width:var(--max);margin-inline:auto;padding:18px}
 
 /* header */
-header{position:sticky;top:0;height:var(--headerH);display:flex;align-items:center;background:rgba(15,15,15,.8);backdrop-filter:blur(6px);border-bottom:1px solid #262626;z-index:20}
-nav{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:nowrap}
-.logo{display:flex;align-items:center;gap:12px;min-width:0;flex:1 1 auto}
-.logo img{width:44px;height:44px;border-radius:50%;border:3px solid var(--brand)}
+header{position:sticky;top:0;height:var(--headerH);display:flex;align-items:center;background:rgba(15,15,15,.85);backdrop-filter:blur(6px);border-bottom:1px solid #262626;z-index:20}
+nav{display:flex;align-items:center;justify-content:space-between;gap:10px}
+.logo{display:flex;align-items:center;gap:12px;min-width:0;flex:1}
+.logo img{width:42px;height:42px;border-radius:50%;border:3px solid var(--brand)}
 .logo strong{white-space:nowrap}
-.pill{display:inline-flex;align-items:center;border:1px solid #333;padding:.4rem .7rem;border-radius:999px;color:var(--muted);font-size:.92rem;white-space:nowrap}
-@media (max-width:1120px){ .pill{display:none} }
+.pill{display:inline-flex;align-items:center;border:1px solid #333;padding:.35rem .6rem;border-radius:999px;color:var(--muted);font-size:.9rem;white-space:nowrap}
+@media (max-width:1100px){ .pill{display:none} }
 
-/* remove desktop button row entirely */
-.top-links{display:none}
-
-/* hamburger (always shown) */
+/* hamburger (always) */
 .hamb{display:flex;gap:6px;flex-direction:column;cursor:pointer;background:transparent;border:0;padding:8px}
 .hamb span{width:24px;height:2px;background:#fff;border-radius:2px}
 
-/* mobile/desktop drawer (used on all breakpoints) */
+/* drawer */
 .menu{position:fixed;left:0;right:0;top:var(--headerH);background:#0f0f0f;border-top:1px solid #262626;display:none;z-index:15}
 .menu.open{display:block}
 .menu .wrap{display:grid;gap:10px}
-.menu a{display:block;padding:14px 0;border-bottom:1px solid #1f1f1f}
+.menu a{display:block;padding:14px 0;border-bottom:1px solid #1f1f1f;}
 
 /* layout */
-main{padding-top:calc(var(--headerH) + 12px)}
-section{padding-block:40px;border-top:1px solid #1f1f1f;scroll-margin-top:calc(var(--headerH) + 16px)}
+main{padding-top:12px} /* tighter gap below header */
+section{padding-block:34px;border-top:1px solid #1f1f1f;scroll-margin-top:calc(var(--headerH) + 8px)}
 
-.hero{display:grid;grid-template-columns:1.1fr .9fr;gap:28px;align-items:center;padding-block:44px}
-.hero h1{font-size:clamp(28px,4.2vw,44px);line-height:1.05;margin:.3rem 0}
-.hero p{color:var(--muted);font-size:1.08rem}
-.card{background:var(--card);border:1px solid #262626;border-radius:var(--radius);padding:20px}
-h2{font-size:clamp(22px,2.8vw,32px);margin:0 0 12px}
-.grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
-.list{display:grid;gap:10px;padding-left:1.15rem}
-.list li{margin-left:.15rem}
-.quote{font-style:italic;color:#e8e2d6}
-.by{color:var(--muted);font-size:.95rem;margin-top:8px}
-.footer{color:var(--muted);font-size:.95rem;padding-bottom:60px}
+/* hero */
+.hero{display:grid;grid-template-columns:1.1fr .9fr;gap:24px;align-items:center;padding-block:28px} /* tighter */
+.hero h1{font-size:clamp(26px,4.2vw,44px);line-height:1.06;margin:.2rem 0}
+.hero p{color:var(--muted);font-size:1.05rem}
+.card{background:var(--card);border:1px solid #262626;border-radius:var(--radius);padding:18px}
 .cta-row{display:flex;gap:12px;flex-wrap:wrap}
-.row{display:flex;gap:12px;flex-wrap:wrap;align-items:center}
 
-/* contact form */
-form{display:grid;gap:10px}
-input,textarea{background:#121212;border:1px solid #2b2b2b;border-radius:12px;padding:.7rem 1rem;color:var(--ink)}
-label{font-size:.95rem;color:var(--muted)}
-small.help{color:var(--muted)}
-.success{margin-top:8px;color:#9ae6b4}
+/* buttons */
+.btn{display:inline-block;padding:.78rem 1rem;border-radius:12px;background:#2a2a2a;color:var(--ink);border:1px solid #3b3b3b;font-weight:700;white-space:nowrap;cursor:pointer}
+.btn.brand{background:linear-gradient(180deg,var(--brand),var(--brand2));color:#111;box-shadow:var(--shadow)}
+.btn.neutral{background:#222;border-color:#3b3b3b}
+.btn.accent{background:transparent;border:2px solid var(--accent);color:var(--accent);font-weight:800}
 
-/* confetti */
-.confetti{position:fixed;inset:0;pointer-events:none;overflow:hidden}
-.confetti i{position:absolute;width:8px;height:8px;background:var(--brand);opacity:.9;border-radius:2px;animation:fall 900ms linear forwards}
-@keyframes fall{to{transform:translateY(110vh) rotate(220deg);opacity:.2}}
+/* identify/develop/equip with icons */
+.grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.icon{width:28px;height:28px;display:inline-block;margin-right:8px;vertical-align:middle}
+.icon path{fill:#ffd166}
+h3{font-size:clamp(20px,2.6vw,26px);margin:0 0 6px}
+
+/* two-up section for generator + bulletin */
+.duo{display:grid;grid-template-columns:1fr;gap:18px}
+@media (min-width:900px){ .duo{grid-template-columns:1fr 1fr} }
+
+/* footer etc */
+.by{color:var(--muted);font-size:.95rem;margin-top:8px}
 
 /* responsive */
 @media (max-width:900px){ .hero{grid-template-columns:1fr} .grid-3{grid-template-columns:1fr} }
 @media (max-width:520px){ :root{ --headerH:58px; } .btn{padding:.68rem .9rem} }
 .skip{position:absolute;left:-9999px}
 .skip:focus{position:static;background:#000;padding:.6rem;border:2px dashed var(--brand)}
+
+/* confetti */
+.confetti{position:fixed;inset:0;pointer-events:none;overflow:hidden}
+.confetti i{position:absolute;width:8px;height:8px;background:var(--brand);opacity:.9;border-radius:2px;animation:fall 900ms linear forwards}
+@keyframes fall{to{transform:translateY(110vh) rotate(220deg);opacity:.2}}
 </style>
 </head>
 <body>
@@ -95,14 +97,11 @@ small.help{color:var(--muted)}
         <strong>Gofer Content</strong>
         <span class="pill">St. Pete, FL • Messaging Strategy</span>
       </div>
-
-      <!-- hamburger (always) -->
       <button class="hamb" aria-label="Open menu" aria-controls="mobileMenu" aria-expanded="false">
         <span></span><span></span><span></span>
       </button>
     </nav>
   </div>
-
   <div id="mobileMenu" class="menu" role="dialog" aria-label="Menu">
     <div class="wrap">
       <a class="m-link" href="#how">How I help</a>
@@ -120,13 +119,13 @@ small.help{color:var(--muted)}
   <div class="wrap hero">
     <div>
       <h1>Helping good businesses earn lifetime customers.</h1>
-      <p>I help makers, musicians, tradespeople, artists, wellness pros, and local groups reach the right people — and set up simple systems that keep them coming back.</p>
-      <div class="cta-row" style="margin-top:12px">
-        <a class="btn brand js-cta" href="#contact" aria-label="Contact Gofer Content">Keep them coming back</a>
-        <a class="btn" href="#how">How I help</a>
-        <a class="btn" href="#projects">Projects</a>
+      <p>Helping makers, musicians, tradespeople, artists, wellness pros, and local groups reach the right people and keep them coming back.</p>
+      <div class="cta-row" style="margin-top:10px">
+        <a class="btn brand js-cta" href="#contact" aria-label="Contact Gofer Content">Get lifetime customers</a>
+        <a class="btn neutral" href="#how">How I help</a>
+        <a class="btn neutral" href="#projects">Projects</a>
       </div>
-      <p style="color:#cfc8b8;margin-top:8px">Built the Gofer way: quick proofs, useful drafts, and shipping what works.</p>
+      <p class="by">Built the Gofer way: quick proofs, useful drafts, and shipping what works.</p>
     </div>
     <div class="card" role="img" aria-label="Gofer Content banner">
       <img src="og-image.png" alt="Gofer Content banner art">
@@ -137,72 +136,48 @@ small.help{color:var(--muted)}
   <section id="how" aria-labelledby="how-title">
     <div class="wrap">
       <h2 id="how-title">How I help</h2>
-      <div class="card" style="margin-bottom:16px">
-        <strong>go·fer</strong> (noun) — the one who gets it done.
-        <p style="margin:.5rem 0 0; color: var(--muted);">
-          I’m your right hand (and sometimes left). I bridge words and execution: message that fits your people, quick prototypes, and on-the-fly landing pages that show ideas working in the real world.
-        </p>
-      </div>
+
       <div class="grid-3">
         <article class="card">
-          <h3>Identify</h3>
-          <p>I audit everywhere your message shows up: homepages, booking flows, emails, press, even window signs.</p>
-          <ul class="list">
-            <li>Find what’s overlooked</li>
-            <li>Spot trust leaks</li>
-            <li>Say what people actually need to hear</li>
-          </ul>
+          <h3>
+            <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2l3 6 6 .9-4.4 4.3 1 6L12 16l-5.6 3.2 1-6L3 8.9 9 8z"/></svg>
+            Identify
+          </h3>
+          <p>I look at every place your message shows up — homepages, booking flows, emails, press, even window signs — and find what’s missing or leaking trust.</p>
         </article>
+
         <article class="card">
-          <h3>Develop</h3>
-          <p>I shape the story for the right response — website copy, Google service pages, follow-ups, socials, and quick landing pages you can see live.</p>
-          <ul class="list">
-            <li>Plain language</li>
-            <li>Honest structure</li>
-            <li>One voice across everything</li>
-          </ul>
+          <h3>
+            <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16v2H4V7zm0 5h10v2H4v-2zm0 5h7v2H4v-2z"/></svg>
+            Develop
+          </h3>
+          <p>I shape the story for response — website copy, Google service pages, follow-ups, socials — and spin up quick live pages so you can see it working.</p>
         </article>
+
         <article class="card">
-          <h3>Equip</h3>
-          <p>Practical handoff: simple guides, email/web tools, small automations, and training. Project-based pricing.</p>
+          <h3>
+            <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a5 5 0 015 5v3h3l-4 5-4-5h3V7a3 3 0 10-6 0v10H7V7a5 5 0 015-5z"/></svg>
+            Equip
+          </h3>
+          <p>Practical handoff — simple guides, small automations, and everyday tools your team can use. No retainers. Just systems that last.</p>
         </article>
       </div>
 
-      <!-- DIY block -->
-      <div class="card" style="margin-top:16px">
-        <strong>Not ready to hire?</strong> Do it yourself first.
-        <div class="cta-row" style="margin-top:8px">
-          <a class="btn" href="builder.html">Use the website generator</a>
-          <a class="btn ghost" href="/community-bulletin-board/">List your thing on the bulletin board</a>
+      <!-- DIY two-up -->
+      <div class="duo" style="margin-top:18px">
+        <div class="card">
+          <h3>Website generator</h3>
+          <p>Answer a few friendly prompts, see your site preview live, copy/download the HTML — or book a setup call if you want me to ship it.</p>
+          <div class="cta-row">
+            <a class="btn brand js-cta" href="builder.html">Open the website generator</a>
+          </div>
         </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- GENERATOR -->
-  <section id="builder" aria-labelledby="builder-title">
-    <div class="wrap">
-      <h2 id="builder-title">Website generator</h2>
-      <div class="card">
-        <p>Answer a few friendly prompts, see your site preview live, copy or download the HTML — or book a setup call if you want me to ship it.</p>
-        <div class="cta-row">
-          <a class="btn brand js-cta" href="builder.html">Open the website generator</a>
-          <a class="btn" href="https://gofercontent.zohobookings.com/#/4734166000000046014" target="_blank" rel="noopener">Book a setup call</a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- BULLETIN -->
-  <section id="bulletin" aria-labelledby="bulletin-title">
-    <div class="wrap">
-      <h2 id="bulletin-title">Community bulletin board (List your thing)</h2>
-    </div>
-    <div class="wrap">
-      <div class="card">
-        <p>Events, fundraisers, services, house shows — simple listings that help locals find what’s happening.</p>
-        <div class="cta-row">
-          <a class="btn brand" href="/community-bulletin-board/" target="_blank" rel="noopener">Open the board</a>
+        <div class="card">
+          <h3>Community bulletin board</h3>
+          <p>Events, fundraisers, services, house shows — simple listings that help locals find what’s happening.</p>
+          <div class="cta-row">
+            <a class="btn accent js-cta" href="/community-bulletin-board/" target="_blank" rel="noopener">Open the board</a>
+          </div>
         </div>
       </div>
     </div>
@@ -228,10 +203,10 @@ small.help{color:var(--muted)}
     <div class="wrap">
       <h2 id="projects-title">Projects</h2>
       <div class="grid-3">
-        <a class="card" href="/mobile-detailing-jenny/" target="_blank" rel="noopener">Mobile Detailing — Jenny →</a>
-        <a class="card" href="https://clipboard250.github.io/hire-Isaac-now/" target="_blank" rel="noopener">Hire Isaac — Quick Pitch →</a>
+        <a class="card" href="/mobile-detailing-jenny/" target="_blank" rel="noopener"><strong>Mobile Detailing — Jenny →</strong><p class="by">Quick pitch + booking</p></a>
+        <a class="card" href="https://clipboard250.github.io/hire-Isaac-now/" target="_blank" rel="noopener"><strong>Hire Isaac — Quick Pitch →</strong><p class="by">Fast one-pager</p></a>
       </div>
-      <p class="footer">Want something like this? <a href="#contact">Let’s talk</a>.</p>
+      <p class="by" style="margin-top:8px">Want something like this? <a href="#contact">Let’s talk</a>.</p>
     </div>
   </section>
 
@@ -240,11 +215,11 @@ small.help{color:var(--muted)}
     <div class="wrap">
       <h2 id="contact-title">Let’s talk</h2>
       <div class="card">
-        <div class="row" role="group" aria-label="Quick contact options">
+        <div class="cta-row" role="group" aria-label="Quick contact options">
           <a class="btn brand js-cta" href="sms:+17273539673?&body=Hi%20Gofer%20Content%2C%20can%20we%20talk%20about%20my%20website%2Fmessage%3F">Text 727-353-WORD</a>
-          <a class="btn js-cta" href="tel:+17273539673">Call</a>
-          <a class="btn js-cta" href="mailto:info@gofercontent.com?subject=Gofer%20Content&body=Goal%3A%20%5Bone%20line%5D%0ALink%3A%20%5Bpaste%5D">Email</a>
-          <a class="btn ghost js-cta" href="https://gofercontent.zohobookings.com/#/4734166000000046014" target="_blank" rel="noopener">Schedule</a>
+          <a class="btn neutral js-cta" href="tel:+17273539673">Call</a>
+          <a class="btn neutral js-cta" href="mailto:info@gofercontent.com?subject=Gofer%20Content&body=Goal%3A%20%5Bone%20line%5D%0ALink%3A%20%5Bpaste%5D">Email</a>
+          <a class="btn accent js-cta" href="https://gofercontent.zohobookings.com/#/4734166000000046014" target="_blank" rel="noopener">Schedule</a>
         </div>
 
         <hr style="border-color:#2b2b2b;margin:16px 0">
@@ -258,21 +233,21 @@ small.help{color:var(--muted)}
           <textarea id="msg" name="message" rows="4" required></textarea>
           <input type="hidden" name="_subject" value="Gofer Content — Website Contact">
           <input type="hidden" name="page" value="gofercontent.com">
-          <div class="row">
+          <div class="cta-row">
             <button class="btn brand js-cta" type="submit">Send</button>
             <small id="formHelp" class="help">You’ll get a quick reply. No lists.</small>
           </div>
           <div id="formSuccess" class="success" role="status" aria-live="polite"></div>
         </form>
 
-        <p class="footer">This website was coded by a copywriter who taught herself to code.</p>
+        <p class="by">This website was coded by a copywriter who taught herself to code.</p>
       </div>
     </div>
   </section>
 </main>
 
 <footer role="contentinfo">
-  <div class="wrap footer">© <span id="y"></span> Gofer Content • St. Petersburg, Florida</div>
+  <div class="wrap by">© <span id="y"></span> Gofer Content • St. Petersburg, Florida</div>
 </footer>
 
 <div class="confetti" aria-hidden="true"></div>
