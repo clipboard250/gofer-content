@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Add a listing — Gofer Community</title>
+<meta name="color-scheme" content="light dark">
+<style>
+  :root{ --bg:#0b0b0c; --panel:#121216; --text:#f3f4f6; --muted:#a1a1aa; --brand:#ff6a00; --brand2:#7FFF00; --border:#252632; --radius:16px; }
+  @media (prefers-color-scheme: light){ :root{ --bg:#fafafa; --panel:#fff; --text:#0b0b0c; --muted:#6b7280; --border:#e7e7ee; }}
+  body{margin:0;background:var(--bg);color:var(--text);font:16px/1.55 system-ui,-apple-system,Segoe UI,Inter,Roboto,Arial,sans-serif}
+  .wrap{max-width:860px;margin:0 auto;padding:22px}
+  header{display:flex;justify-content:space-between;align-items:center;margin-bottom:10px}
+  .logo{font-weight:900;display:flex;gap:10px;align-items:center}
+  .logo b{background:var(--brand);color:#0b0b0c;padding:6px 10px;border-radius:12px}
+  .card{background:var(--panel);border:1px solid var(--border);border-radius:var(--radius);padding:18px}
+  h1{margin:0 0 8px}
+  p.lead{color:var(--muted);margin:0 0 18px}
+  form{display:grid;gap:14px}
+  .grid{display:grid;gap:12px}
+  .two{grid-template-columns:1fr 1fr}
+  @media(max-width:760px){ .two{grid-template-columns:1fr} }
+  label{font-size:14px;color:var(--muted)}
+  input,select,textarea{width:100%;background:#111; color:var(--text); border:1px solid var(--border); border-radius:12px; padding:10px 12px}
+  textarea{min-height:90px}
+  .row{display:flex;gap:10px;flex-wrap:wrap}
+  .btn{display:inline-flex;align-items:center;gap:8px;padding:12px 16px;border-radius:12px;border:0;cursor:pointer;font-weight:800}
+  .brand{background:linear-gradient(180deg,#ff6a00,#8a2c00);color:#111}
+  .ghost{background:transparent;border:1px solid var(--border);color:var(--text)}
+  small{color:var(--muted)}
+  .help{font-size:12px;margin-top:4px}
+  .divider{height:1px;background:var(--border);margin:10px 0}
+</style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <div class="logo"><b>GOFER</b><span>Add a listing</span></div>
+      <div class="row">
+        <a class="btn ghost" href="/community-bulletin-board/">Back to board</a>
+        <a class="btn ghost" href="/">Home</a>
+      </div>
+    </header>
+
+    <div class="card">
+      <h1>List your business or event</h1>
+      <p class="lead">Fill this out in 1–2 minutes. I’ll review and post it to the board. You’ll get a reply if I need anything.</p>
+
+      <!-- NOTE: You can keep using your contact Formspree (xovkloyz) for now.
+           Later, make a separate Formspree form and replace the action URL. -->
+      <form action="https://formspree.io/f/xovkloyz" method="POST" id="listForm">
+        <!-- Formspree subject + redirect -->
+        <input type="hidden" name="_subject" value="New Community Listing — Gofer" />
+        <input type="hidden" name="_redirect" value="https://gofercontent.com/community-bulletin-board/thanks.html" />
+        <!-- a little context so you can filter in inbox -->
+        <input type="hidden" name="form_source" value="community-listing" />
+        <input type="hidden" name="created_at" id="created_at" />
+
+        <div class="grid two">
+          <div>
+            <label for="kind">Listing type</label>
+            <select id="kind" name="kind" required>
+              <option value="Business/Service">Business/Service</option>
+              <option value="Event">Event</option>
+            </select>
+          </div>
+          <div>
+            <label for="industry">Industry</label>
+            <select id="industry" name="industry">
+              <option>Home Services</option><option>Trades</option><option>Automotive</option><option>Wellness</option>
+              <option>Food</option><option>Retail</option><option>Events</option><option>Creative</option>
+              <option>Nonprofit</option><option>Professional Services</option><option>Other</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="grid two">
+          <div>
+            <label for="title">Name</label>
+            <input id="title" name="title" required placeholder="Star Trolley" />
+          </div>
+          <div>
+            <label for="tagline">Tag line</label>
+            <input id="tagline" name="tagline" placeholder="Arrive in style" />
+          </div>
+        </div>
+
+        <!-- When + Where (show 'when' only for events) -->
+        <div class="grid two">
+          <div id="whenWrap" style="display:none">
+            <label for="when">When (events only)</label>
+            <input id="when" name="when" placeholder="Sat, Oct 12 · 6–9pm" />
+          </div>
+          <div>
+            <label for="where">Where</label>
+            <input id="where" name="where" placeholder="St. Petersburg, FL" />
+          </div>
+        </div>
+
+        <div class="divider"></div>
+
+        <div class="grid two">
+          <div>
+            <label for="website">Website</label>
+            <input id="website" name="website" type="url" placeholder="https://example.com" />
+            <div class="help">If you only have a linktree, paste it here.</div>
+          </div>
+          <div>
+            <label for="instagram">Instagram</label>
+            <input id="instagram" name="instagram" type="url" placeholder="https://instagram.com/yourhandle" />
+          </div>
+        </div>
+
+        <div class="grid two">
+          <div>
+            <label for="email">Email</label>
+            <input id="email" name="email" type="email" placeholder="name@brand.com" />
+          </div>
+          <div>
+            <label for="phone">Phone</label>
+            <input id="phone" name="phone" type="tel" placeholder="(727) 555-1234" />
+          </div>
+        </div>
+
+        <div>
+          <label for="perks">Perks or features (one per line)</label>
+          <textarea id="perks" name="perks" placeholder="Same-day service&#10;Up-front pricing&#10;Mobile — we come to you"></textarea>
+        </div>
+
+        <div>
+          <label for="notes">Anything else?</label>
+          <textarea id="notes" name="notes" placeholder="Optional notes or links."></textarea>
+        </div>
+
+        <div class="divider"></div>
+
+        <div class="row">
+          <button type="submit" class="btn brand">Submit listing</button>
+          <a class="btn ghost" href="/community-bulletin-board/">Cancel</a>
+          <small>Private: your info goes to Gofer for review.</small>
+        </div>
+      </form>
+    </div>
+  </div>
+
+<script>
+  // Add created_at
+  document.getElementById('created_at').value = new Date().toISOString();
+  // Show "When" only for events
+  const kind = document.getElementById('kind');
+  const whenWrap = document.getElementById('whenWrap');
+  function toggleWhen(){ whenWrap.style.display = (kind.value === 'Event') ? 'block' : 'none'; }
+  kind.addEventListener('change', toggleWhen); toggleWhen();
+</script>
+</body>
+</html>
