@@ -345,5 +345,43 @@ small.help{color:var(--muted)}
     }catch{ ok.textContent='Network hiccup — email info@gofercontent.com.'; }
   });
 </script>
+<script>
+/* gofer cache-buster:
+   - reads /version.txt (no-store)
+   - reloads once if version changed
+   - adds ?v=version to any [data-bust] assets (favicon, images, etc.) */
+(function(){
+  const key = 'gofer_version';
+
+  function bust(v){
+    document.querySelectorAll('[data-bust]').forEach(el=>{
+      const attr = el.tagName==='LINK' ? 'href' : 'src';
+      const url0 = el.getAttribute(attr);
+      if(!url0) return;
+      const url = url0 + (url0.includes('?') ? '&' : '?') + 'v=' + encodeURIComponent(v);
+      el.setAttribute(attr, url);
+    });
+  }
+
+  fetch('/version.txt', {cache:'no-store'})
+    .then(r=>r.text())
+    .then(txt=>{
+      const remote = (txt||'').trim();
+      const current = sessionStorage.getItem(key);
+      if (current && remote && current !== remote) {
+        sessionStorage.setItem(key, remote);
+        const sep = location.search ? '&' : '?';
+        if (!location.search.includes('v=')) {
+          location.replace(location.href + sep + 'v=' + encodeURIComponent(remote));
+          return;
+        }
+      } else if (remote) {
+        sessionStorage.setItem(key, remote);
+      }
+      bust(remote || 'dev');
+    })
+    .catch(()=> bust('dev'));
+})();
+</script>
 </body>
 </html>
