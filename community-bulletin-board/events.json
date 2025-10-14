@@ -1,0 +1,18 @@
+[
+  {
+    "title": "St. Pete Art Walk",
+    "tagline": "Local galleries open late",
+    "type": "Event",
+    "industry": "Art",
+    "where": "St. Petersburg, FL",
+    "audience": "Locals",
+    "links": [
+      { "type": "website", "href": "https://example.com/art-walk" }
+    ],
+    "slug": "stpete-art-walk-2025-10-25",
+    "start_at": "2025-10-25T18:00:00-04:00",
+    "end_at": "2025-10-25T21:00:00-04:00",
+    "created_at": "2025-10-14T10:00:00Z",
+    "source": "manual"
+  }
+]
