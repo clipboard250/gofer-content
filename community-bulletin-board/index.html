@@ -82,70 +82,134 @@
   </div>
 
   <script>
-    const $ = id=>document.getElementById(id);
-    const grid = $('grid'); let items = [];
+  const $ = id => document.getElementById(id);
+  const grid = $('grid');
+  let items = [];
 
-    async function load(){
-      try{ const r = await fetch('spots.json',{cache:'no-store'}); if(!r.ok) throw 0; items = await r.json(); }
-      catch(e){ items = []; }
-      render();
+  // 1) Load both files (spots + events) and merge
+  async function load(){
+    const [spots, extraEvents] = await Promise.all([
+      fetch('spots.json', {cache:'no-store'}).then(r => r.ok ? r.json() : []).catch(()=>[]),
+      fetch('events.json', {cache:'no-store'}).then(r => r.ok ? r.json() : []).catch(()=>[])
+    ]);
+    // Normalize: add machine dates so we can sort/filter correctly
+    items = normalize([...(Array.isArray(spots)?spots:[]), ...(Array.isArray(extraEvents)?extraEvents:[])]);
+    render();
+  }
+  load();
+
+  // 2) Hook up filters
+  ["q","type","industry","city","sort"].forEach(id => $(id).addEventListener("input", render));
+  const pillBiz = $('pillBiz'), pillEvt = $('pillEvt');
+  pillBiz.addEventListener('click', () => { togglePill(pillBiz); $('type').value = pillBiz.classList.contains('active') ? 'Business/Service' : ''; render(); });
+  pillEvt.addEventListener('click', () => { togglePill(pillEvt); $('type').value = pillEvt.classList.contains('active') ? 'Event' : ''; $('sort').value = pillEvt.classList.contains('active') ? 'Upcoming' : $('sort').value; render(); });
+  function togglePill(el){ el.classList.toggle('active'); if(el===pillBiz && pillEvt.classList.contains('active')) pillEvt.classList.remove('active'); if(el===pillEvt && pillBiz.classList.contains('active')) pillBiz.classList.remove('active'); }
+
+  // 3) Normalize helper: create _start/_end Date objects if possible
+  function normalize(arr){
+    return arr.map(x => {
+      const start = x.start_at ? new Date(x.start_at) : guessFromWhen(x.when);
+      const end   = x.end_at   ? new Date(x.end_at)   : null;
+      return {...x, _start: isFinite(start) ? start : null, _end: isFinite(end) ? end : null};
+    });
+  }
+
+  // Try to guess from a loose "when" string. If it's not a real date, return null.
+  function guessFromWhen(s=''){
+    const d = new Date(s);
+    return isFinite(d) ? d : null;
+  }
+
+  // 4) Render with filters + “upcoming only” for Event
+  function render(){
+    const q = $('q').value.toLowerCase();
+    const t = $('type').value;
+    const ind = $('industry').value;
+    const city = $('city').value.toLowerCase();
+    const sort = $('sort').value;
+
+    let rows = items.filter(x =>
+      (!t || x.type === t) &&
+      (!ind || x.industry === ind) &&
+      (!city || (x.where||"").toLowerCase().includes(city)) &&
+      (x.title.toLowerCase().includes(q) || (x.tagline||"").toLowerCase().includes(q))
+    );
+
+    // If we're looking at Events, keep upcoming only
+    if (t === 'Event' || sort === 'Upcoming') {
+      const today = new Date(); today.setHours(0,0,0,0);
+      rows = rows.filter(x => x.type === 'Event' ? (x._start && x._start >= today) : true);
     }
-    load();
 
-    ["q","type","industry","city","sort"].forEach(id=> $(id).addEventListener("input", render));
+    // Sorting
+    rows.sort((a,b) => {
+      if (sort === "A—Z") return a.title.localeCompare(b.title);
+      if (sort === "Upcoming") {
+        const aa = a._start ? a._start.getTime() : Number.POSITIVE_INFINITY;
+        const bb = b._start ? b._start.getTime() : Number.POSITIVE_INFINITY;
+        return aa - bb;
+      }
+      // Default: newest created_at first
+      return (new Date(b.created_at||0)) - (new Date(a.created_at||0));
+    });
 
-    // Quick chips
-    const pillBiz = $('pillBiz'), pillEvt = $('pillEvt');
-    pillBiz.addEventListener('click', ()=>{ togglePill(pillBiz); if(pillBiz.classList.contains('active')){$('type').value='Business/Service';} else {$('type').value='';} render(); });
-    pillEvt.addEventListener('click', ()=>{ togglePill(pillEvt); if(pillEvt.classList.contains('active')){$('type').value='Event';} else {$('type').value='';} render(); });
-    function togglePill(el){ el.classList.toggle('active'); if(el===pillBiz && pillEvt.classList.contains('active')) pillEvt.classList.remove('active'); if(el===pillEvt && pillBiz.classList.contains('active')) pillBiz.classList.remove('active'); }
+    $('count').textContent = rows.length + ' result' + (rows.length===1? '':'s');
+    grid.innerHTML = rows.map(card).join('');
+  }
 
-    function render(){
-      const query = $('q').value.toLowerCase(), t = $('type').value, ind = $('industry').value, city = $('city').value.toLowerCase(), sort = $('sort').value;
-      let rows = items.filter(x => (!t || x.type===t) && (!ind || x.industry===ind) && (!city || (x.where||"").toLowerCase().includes(city)) && (x.title.toLowerCase().includes(query) || (x.tagline||"").toLowerCase().includes(query)));
-      rows.sort((a,b)=> sort==="A—Z" ? a.title.localeCompare(b.title) : sort==="Upcoming" ? dateNum(a.when)-dateNum(b.when) : (new Date(b.created_at||0))-(new Date(a.created_at||0)));
-      $('count').textContent = rows.length + ' result' + (rows.length===1? '':'s');
-      grid.innerHTML = rows.map(card).join('');
-    }
-
-    function card(x){
-      const perks = (x.perks||[]).slice(0,3).map(p=>`<span class="chip">${esc(p)}</span>`).join('');
-      const when = x.when ? `<span class="chip">${esc(x.when)}</span>` : '';
-      const where = x.where ? `<span class="chip">${esc(x.where)}</span>` : '';
-      const icons = (x.links||[]).slice(0,7).map(l=> icon(l.type,l.href)).join('');
-      const cta = x.type==='Event' ? 'RSVP' : x.type==='Hiring' ? 'Apply' : x.type==='Cause/Fundraiser' ? 'Donate' : 'Contact';
-      const primary = (x.links||[]).find(l => l.type==='email'||l.type==='phone'||l.type==='website')?.href || '#';
-      return `
-        <article class="card">
-          <div class="hero">
-            <div class="title">${esc(x.title)}</div>
-            <div class="sub">${esc(x.tagline||'')}</div>
+  // 5) Card HTML (unchanged except the date chip now prefers start_at)
+  function card(x){
+    const perks = (x.perks||[]).slice(0,3).map(p=>`<span class="chip">${esc(p)}</span>`).join('');
+    const when = x.type === 'Event'
+      ? `<span class="chip">${prettyDateRange(x)}</span>`
+      : (x.when ? `<span class="chip">${esc(x.when)}</span>` : '');
+    const where = x.where ? `<span class="chip">${esc(x.where)}</span>` : '';
+    const icons = (x.links||[]).slice(0,7).map(l=> icon(l.type,l.href)).join('');
+    const cta = x.type==='Event' ? 'RSVP' : x.type==='Hiring' ? 'Apply' : x.type==='Cause/Fundraiser' ? 'Donate' : 'Contact';
+    const primary = (x.links||[]).find(l => l.type==='email'||l.type==='phone'||l.type==='website')?.href || '#';
+    return `
+      <article class="card">
+        <div class="hero">
+          <div class="title">${esc(x.title)}</div>
+          <div class="sub">${esc(x.tagline||'')}</div>
+        </div>
+        <div class="pad">
+          <div class="chips">${perks} ${when} ${where}</div>
+          <div class="row" style="margin:10px 0">${favicon(primary)} ${icons}</div>
+          <div class="row">
+            <a class="cta" href="${primary}" target="_blank" rel="noopener">${cta}</a>
+            <a class="cta" href="/community-bulletin-board/claim.html?slug=${encodeURIComponent(x.slug||'')}&title=${encodeURIComponent(x.title)}">Claim</a>
+            <a class="cta" href="/community-bulletin-board/suggest.html?slug=${encodeURIComponent(x.slug||'')}&title=${encodeURIComponent(x.title)}" style="background:transparent;color:var(--text);border:1px solid var(--border)">Suggest edit</a>
           </div>
-          <div class="pad">
-            <div class="chips">${perks} ${when} ${where}</div>
-            <div class="row" style="margin:10px 0">${favicon(primary)} ${icons}</div>
-            <div class="row">
-              <a class="cta" href="${primary}" target="_blank" rel="noopener">${cta}</a>
-              <a class="cta" href="/community-bulletin-board/claim.html?slug=${encodeURIComponent(x.slug||'')}&title=${encodeURIComponent(x.title)}">Claim</a>
-              <a class="cta" href="/community-bulletin-board/suggest.html?slug=${encodeURIComponent(x.slug||'')}&title=${encodeURIComponent(x.title)}" style="background:transparent;color:var(--text);border:1px solid var(--border)">Suggest edit</a>
-            </div>
-          </div>
-        </article>`;
-    }
+        </div>
+      </article>`;
+  }
 
-    function favicon(href){
-      try{ const url = new URL(href); const src = 'https://www.google.com/s2/favicons?domain='+url.hostname+'&sz=64';
-        return `<img alt="" src="${src}" style="width:20px;height:20px;border-radius:4px;margin-right:6px;vertical-align:middle">`;
-      }catch(e){ return ''; }
-    }
-    function icon(type,href){
-      const map = { website:'🌐', instagram:'📸', facebook:'📘', twitter:'𝕏', tiktok:'🎵', linkedin:'💼', youtube:'▶️', soundcloud:'☁️', bandcamp:'🏕️', eventbrite:'🎫', venmo:'💸', paypal:'💳', email:'✉️', phone:'📞' };
-      if(!href) return '';
-      const label = (type||'Link').replace(/\b\w/g,c=>c.toUpperCase());
-      return `<a class="chip" href="${href}" target="_blank" rel="noopener" title="${esc(label)}">${map[type]||'🔗'} ${esc(label)}</a>`;
-    }
-    function esc(s=''){ return s.replace(/[&<>"']/g, c=>({"&":"&amp;","<":"&lt;","&gt;":">","\"":"&quot;","'":"&#039;"}[c])); }
-    function dateNum(s=''){ const d = new Date(s); return isFinite(d) ? +d : Number.MAX_SAFE_INTEGER; }
+  function prettyDateRange(x){
+    if (!x._start) return esc(x.when||'Date TBA');
+    const opts = {month:'short', day:'numeric'};
+    const tOpts = {hour:'numeric', minute:'2-digit'};
+    const d1 = x._start.toLocaleDateString(undefined, opts);
+    const t1 = x._start.toLocaleTimeString(undefined, tOpts).replace(':00','');
+    if (!x._end) return `${d1} · ${t1}`;
+    const sameDay = x._start.toDateString() === x._end.toDateString();
+    const d2 = x._end.toLocaleDateString(undefined, opts);
+    const t2 = x._end.toLocaleTimeString(undefined, tOpts).replace(':00','');
+    return sameDay ? `${d1} · ${t1}–${t2}` : `${d1}–${d2}`;
+  }
+
+  function favicon(href){
+    try{ const url = new URL(href); const src = 'https://www.google.com/s2/favicons?domain='+url.hostname+'&sz=64';
+      return `<img alt="" src="${src}" style="width:20px;height:20px;border-radius:4px;margin-right:6px;vertical-align:middle">`;
+    }catch(e){ return ''; }
+  }
+  function icon(type,href){
+    const map = { website:'🌐', instagram:'📸', facebook:'📘', twitter:'𝕏', tiktok:'🎵', linkedin:'💼', youtube:'▶️', soundcloud:'☁️', bandcamp:'🏕️', eventbrite:'🎫', venmo:'💸', paypal:'💳', email:'✉️', phone:'📞' };
+    if(!href) return '';
+    const label = (type||'Link').replace(/\b\w/g,c=>c.toUpperCase());
+    return `<a class="chip" href="${href}" target="_blank" rel="noopener" title="${esc(label)}">${map[type]||'🔗'} ${esc(label)}</a>`;
+  }
+  function esc(s=''){ return s.replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;","'":"&#039;"}[c])); }
   </script>
 </body>
 </html>
