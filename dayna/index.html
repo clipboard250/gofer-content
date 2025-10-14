@@ -1,192 +1,177 @@
-<!-- =========================
-FILE 1: /dayna/index.html  (Landing card)
-Paste this file at gofer-content/dayna/index.html
-========================= -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="utf-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <title>Hire Dayna — Strategy, Copy, Content that works.</title>
-  <meta name="description" content="Dayna Himot (Gofer Content) — sharp messaging, clean strategy, and content that actually converts. St. Pete / Tampa Bay. Email to start."/>
-  <meta name="theme-color" content="#6D28D9"/>
-  <!-- OG/Twitter (swap image when ready) -->
-  <meta property="og:type" content="website"/>
-  <meta property="og:url" content="https://gofercontent.com/dayna/"/>
-  <meta property="og:title" content="Hire Dayna — Strategy, Copy, Content that works."/>
-  <meta property="og:description" content="Smart messaging, sharp strategy, and words that land. St. Pete / Tampa Bay."/>
-  <meta property="og:image" content="https://gofercontent.com/og-image.png"/>
-  <meta name="twitter:card" content="summary_large_image"/>
-  <meta name="twitter:title" content="Hire Dayna — Strategy, Copy, Content that works."/>
-  <meta name="twitter:description" content="Smart messaging, sharp strategy, and words that land. St. Pete / Tampa Bay."/>
-  <meta name="twitter:image" content="https://gofercontent.com/og-image.png"/>
+  <meta name="description" content="Dayna Himot (Gofer Content) — sharp messaging, clean strategy, and content that actually converts. St. Pete / Tampa Bay.">
+
+  <!-- Open Graph / Twitter -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://gofercontent.com/dayna/">
+  <meta property="og:title" content="Hire Dayna — Strategy, Copy, Content that works.">
+  <meta property="og:description" content="Smart messaging, sharp strategy, and words that land.">
+  <meta property="og:image" content="https://gofercontent.com/og-image.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Hire Dayna — Strategy, Copy, Content that works.">
+  <meta name="twitter:description" content="Smart messaging, sharp strategy, and words that land.">
+  <meta name="twitter:image" content="https://gofercontent.com/og-image.png">
+
   <style>
-    :root{--accent:#6D28D9;--accent-soft:rgba(109,40,217,.14);--gold:#F59E0B;--ink:#0F172A;--text:#0B1020;--muted:#475569;--ring:#E5E7EB;--card:#FFFFFF;--bg:#F8FAFC}
-    *{box-sizing:border-box}html,body{height:100%}
-    body{margin:0;font-family:ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Arial;color:var(--text);background:var(--bg)}
-    .wrap{min-height:100dvh;display:grid;place-items:center;padding:24px}
-    .card{width:min(920px,94vw);background:var(--card);border:1px solid var(--ring);border-radius:24px;box-shadow:0 12px 30px rgba(2,6,23,.08);padding:clamp(20px,5vw,40px);position:relative;overflow:hidden}
-    .pill{display:inline-flex;gap:.5ch;align-items:center;padding:6px 12px;border-radius:999px;font-size:.9rem;color:#065F46;background:#D1FAE5;border:1px solid #A7F3D0}
-    .h1{margin:12px 0 8px;font-size:clamp(2rem,5.2vw,3.6rem);line-height:1.05;color:var(--ink);font-weight:900}
-    .accent{color:var(--accent)}.sub{color:var(--muted);font-size:clamp(1rem,2.2vw,1.15rem);margin:0 0 10px}
-    .id{margin:8px 0 14px;color:#1F2937;font-weight:600}.link{color:#0EA5E9;text-decoration:none}
-    .tags{margin:10px 0 16px}.tag{display:inline-block;margin:0 6px 6px 0;padding:6px 10px;border:1px solid var(--ring);border-radius:999px;color:#334155;font-size:13px;line-height:18px}
-    .btns{display:flex;flex-wrap:wrap;gap:12px;margin-top:6px}
-    .btn{display:inline-flex;align-items:center;gap:.6ch;padding:12px 16px;border-radius:12px;font-weight:800;text-decoration:none;border:1px solid var(--ring);color:#111;background:#fff}
-    .btn.primary{background:var(--gold);color:#111;border-color:#D97706}
-    .btn.accent{background:#fff;color:#111;border-color:#6D28D9}
-    .cols{display:grid;grid-template-columns:1fr;gap:16px;margin-top:18px}
+    /* ====== Neon palette inspired by the PDF look ====== */
+    :root{
+      --bg-deep:#0B1220;              /* deep navy */
+      --bg-top:#0E1630;               /* panel */
+      --ink:#E6EAF2;                  /* light text */
+      --muted:#A8B0C2;                /* muted text */
+      --ring:#1C2A42;                 /* card border */
+      --pill:#0ED3CF;                 /* mint/teal dot */
+      --btn-grad-start:#6F43FF;       /* violet */
+      --btn-grad-end:#2BD4FF;         /* cyan */
+      --chip:#19253B;                 /* chip background */
+      --chip-ring:#284061;            /* chip border */
+      --accent:#B94BFF;               /* magenta-violet accent */
+    }
+
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;font-family:ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Arial;
+      color:var(--ink);
+      background:
+        radial-gradient(1200px 800px at 70% 20%, rgba(185,75,255,.18), transparent 60%),
+        radial-gradient(900px 600px at 10% 90%, rgba(43,212,255,.18), transparent 60%),
+        linear-gradient(180deg, var(--bg-deep) 0%, #060A14 100%);
+      overflow-x:hidden;
+    }
+
+    .wrap{min-height:100dvh;display:grid;place-items:center;padding:28px}
+    .card{
+      width:min(980px,94vw);
+      background:linear-gradient(180deg, rgba(255,255,255,.02), rgba(255,255,255,.00));
+      border:1px solid var(--ring);
+      border-radius:28px;
+      box-shadow:
+        0 10px 40px rgba(0,0,0,.5),
+        inset 0 1px 0 rgba(255,255,255,.06);
+      padding:clamp(22px,5vw,44px);
+      position:relative; overflow:hidden;
+    }
+
+    /* subtle neon corner flourish */
+    .glow{
+      position:absolute; inset:-35% -10% auto auto; width:60%; height:60%;
+      background:radial-gradient(closest-side, rgba(185,75,255,.24), transparent 70%);
+      filter:blur(26px); pointer-events:none;
+    }
+
+    .pill{
+      display:inline-flex; align-items:center; gap:.6ch;
+      padding:8px 14px; border-radius:999px; font-size:.92rem; color:#B6F3F1;
+      background:linear-gradient(180deg, rgba(46,232,224,.12), rgba(46,232,224,.04));
+      border:1px solid rgba(46,232,224,.35)
+    }
+    .pill-dot{width:8px;height:8px;border-radius:50%;background:var(--pill);box-shadow:0 0 0 6px rgba(46,232,224,.16)}
+
+    h1{margin:14px 0 10px;font-size:clamp(2.2rem,5.8vw,3.8rem);line-height:1.06;font-weight:900}
+    .accent{color:var(--accent)}
+    .sub{color:var(--muted);font-size:clamp(1rem,2.2vw,1.15rem);margin:0 0 12px}
+
+    .id{margin:10px 0 16px;color:#BFD1E8;font-weight:600}
+    .id a{color:#7AD0FF;text-decoration:none}
+
+    /* Neon chips */
+    .chips{display:flex;flex-wrap:wrap;gap:10px;margin:14px 0 18px}
+    .chip{
+      display:inline-flex; align-items:center; gap:.6ch;
+      padding:8px 12px; border-radius:999px; background:var(--chip);
+      border:1px solid var(--chip-ring); color:#D3DBEA; font-weight:650; font-size:13px;
+    }
+    .chip .dot{width:6px;height:6px;border-radius:50%;background:#7A9BFF}
+
+    /* Buttons */
+    .btns{display:flex;flex-wrap:wrap;gap:12px;margin-top:8px}
+    .btn{display:inline-flex;align-items:center;gap:.6ch;padding:12px 18px;border-radius:14px;
+         font-weight:900;text-decoration:none;letter-spacing:.01em; border:1px solid var(--ring); color:#EAF2FF; background:#101827}
+    .btn.call{
+      background:linear-gradient(90deg, var(--btn-grad-start), var(--btn-grad-end));
+      border-color:transparent; color:#09121E; /* dark text on white pill below */
+      position:relative;
+    }
+    .btn.call span{
+      display:inline-block;background:#ffffff;border-radius:10px;padding:6px 10px;font-weight:900;color:#0B1220
+    }
+    .btn.secondary{background:#101827;color:#EAF2FF}
+
+    .cols{display:grid;grid-template-columns:1fr;gap:16px;margin-top:20px}
     @media (min-width:820px){.cols{grid-template-columns:1.1fr .9fr}}
-    .panel{background:#F8FAFC;border:1px solid var(--ring);border-radius:14px;padding:16px}
-    .panel h3{margin:0 0 8px;font-size:1.05rem;color:var(--ink)}
-    .panel ul{margin:0;padding-left:18px;color:#374151}
-    footer{opacity:.8;font-size:.95rem;margin-top:22px;color:#334155}
+
+    .panel{
+      background:var(--bg-top); border:1px solid var(--ring); border-radius:16px; padding:16px;
+      box-shadow:inset 0 1px 0 rgba(255,255,255,.04)
+    }
+    .panel h3{margin:0 0 8px;font-size:1.05rem;color:#F1F5FF}
+    .panel ul{margin:0;padding-left:18px;color:#C6D2E8}
+    footer{opacity:.75;font-size:.95rem;margin-top:22px;color:#9FB1CE}
   </style>
 </head>
 <body>
   <div class="wrap">
     <main class="card" role="main" aria-label="Hire Dayna">
-      <span class="pill">Ready to work in St. Pete / Tampa Bay</span>
-      <h1 class="h1">Hire <span class="accent">Dayna</span>.<br/>Strategy, copy, content that works.</h1>
-      <p class="sub">Smart messaging, sharp strategy, and words that land — no fluff, just results.</p>
-      <p class="id">Dayna Himot · Saint Petersburg, FL · <a class="link" href="mailto:info@gofercontent.com">info@gofercontent.com</a></p>
-      <div class="tags" aria-label="Capabilities">
-        <span class="tag">Messaging & Copy</span><span class="tag">Web & Media Strategy</span><span class="tag">Content Systems</span><span class="tag">Email Campaigns</span><span class="tag">AI Content Ops</span>
+      <div class="glow" aria-hidden="true"></div>
+
+      <span class="pill"><span class="pill-dot"></span>Ready to work in St. Pete / Tampa Bay</span>
+
+      <h1>Hire <span class="accent">Dayna</span>.<br/>Strategy, copy, content that works.</h1>
+      <p class="sub">Comms and messaging that make sense — ship faster, say less, convert more.</p>
+
+      <p class="id">
+        Dayna Himot · Saint Petersburg, FL ·
+        <a href="mailto:info@gofercontent.com">info@gofercontent.com</a> ·
+        <a href="tel:YOUR_PHONE_NUMBER">YOUR_PHONE_NUMBER</a>
+      </p>
+
+      <div class="chips" aria-label="Capabilities">
+        <span class="chip"><span class="dot"></span> Messaging & Copy</span>
+        <span class="chip"><span class="dot"></span> Web & Media Strategy</span>
+        <span class="chip"><span class="dot"></span> Content Systems</span>
+        <span class="chip"><span class="dot"></span> Email Campaigns</span>
+        <span class="chip"><span class="dot"></span> AI Content Ops</span>
       </div>
+
       <div class="btns" aria-label="Quick actions">
-        <a class="btn primary" href="mailto:info@gofercontent.com?subject=Project%20inquiry%20for%20Dayna&body=Hi%20Dayna%2C%20we%27re%20looking%20for...">✉️ Email Dayna</a>
-        <a class="btn accent" href="/dayna-resume/">📄 View Résumé</a>
-        <a class="btn" href="https://gofercontent.com" target="_blank" rel="noopener">🏁 Gofer Content</a>
+        <a class="btn call" href="tel:YOUR_PHONE_NUMBER">📞 <span>Call Dayna</span></a>
+        <a class="btn secondary" href="mailto:info@gofercontent.com?subject=Project%20inquiry%20for%20Dayna&body=Hi%20Dayna%2C%20we%27re%20looking%20for...">✉️ Email Dayna</a>
+        <a class="btn secondary" href="/dayna-resume/">📄 View Résumé</a>
       </div>
+
       <div class="cols" aria-label="Details">
-        <section class="panel"><h3>What you get</h3>
-          <ul><li>Clear positioning & voice (no fluff)</li><li>Campaigns that ship and convert</li><li>Systems you can run without me</li></ul>
+        <section class="panel">
+          <h3>What you get</h3>
+          <ul>
+            <li>Clear positioning & voice (no fluff)</li>
+            <li>Campaigns that ship and convert</li>
+            <li>Systems you can run without me</li>
+          </ul>
         </section>
-        <aside class="panel"><h3>How to start</h3>
-          <ul><li>Email the goal & deadline</li><li>Agree scope and flat fee</li><li>Deliver draft → refine → publish</li></ul>
+
+        <aside class="panel">
+          <h3>How to start</h3>
+          <ul>
+            <li>Email the goal & deadline</li>
+            <li>Agree scope and flat fee</li>
+            <li>Deliver draft → refine → publish</li>
+          </ul>
         </aside>
       </div>
+
       <footer>© <span id="yr"></span> Dayna Himot — Gofer Content, St. Petersburg, FL</footer>
     </main>
   </div>
-  <script>document.getElementById('yr').textContent=new Date().getFullYear()</script>
-</body>
-</html>
 
-<!-- =========================
-FILE 2: /dayna-resume/index.html  (Print-ready résumé)
-Paste this file at gofer-content/dayna-resume/index.html
-========================= -->
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="utf-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <title>Dayna Himot — Résumé</title>
-  <meta name="description" content="Résumé — Dayna Himot (Gofer Content): messaging, strategy, copywriting, and content systems."/>
-  <style>
-    body{font-family:Arial,Helvetica,sans-serif;color:#111;margin:0;background:#fff}
-    .page{max-width:800px;margin:32px auto;padding:0 16px}
-    h1{font-size:24px;margin:0 0 4px}
-    .contact{color:#374151;margin:0 0 16px}
-    h2{font-size:14px;border-bottom:1px solid #E5E7EB;padding-bottom:4px;margin:18px 0 8px}
-    .job{margin:10px 0 12px}.where{font-weight:700}.meta{color:#6B7280}
-    ul{margin:6px 0 0 18px}li{margin:2px 0}
-    .actions{margin:14px 0 18px}.btn{display:inline-block;background:#111;color:#fff;text-decoration:none;padding:8px 12px;border-radius:8px}
-    @media print{.actions{display:none}body{background:#fff}}
-  </style>
-</head>
-<body>
-  <div class="page">
-    <h1>Dayna Himot</h1>
-    <p class="contact">St. Petersburg, FL · <a href="mailto:info@gofercontent.com">info@gofercontent.com</a></p>
-
-    <h2>Professional Summary</h2>
-    <p>Messaging strategist and copywriter turning complex offers into clear, conversion-ready content. Experienced in web & media strategy, email systems, and AI-assisted content ops. Results-first, no-fluff approach.</p>
-
-    <h2>Experience</h2>
-
-    <div class="job"><div class="where">Gofer Content — Founder</div>
-      <div class="meta">St. Petersburg, FL | Jan 2025 – Present</div>
-      <ul><li>Built clear messaging & content systems for contractors, nonprofits, and startups.</li>
-        <li>Planned email campaigns and website copy that shipped on deadline.</li>
-        <li>Set up AI-assisted copy ops to reduce time-to-publish.</li></ul>
-    </div>
-
-    <div class="job"><div class="where">MODIPHY — Business Development</div>
-      <div class="meta">Aug 2021 – Jan 2025 · St. Petersburg, FL</div>
-      <ul><li>Drove proposals, discovery, and scopes for web projects; closed and kicked off delivery.</li>
-        <li>Partnered with content/design/dev to launch multi-page sites and campaigns.</li>
-        <li>Relationship building, strategic planning, and client communications.</li></ul>
-    </div>
-
-    <div class="job"><div class="where">MODIPHY — Content Director</div>
-      <div class="meta">Sep 2021 – Nov 2022</div>
-      <ul><li>Led content development and web project management for enterprise accounts.</li>
-        <li>Built briefs, messaging frameworks, and editorial calendars; shipped on schedule.</li></ul>
-    </div>
-
-    <div class="job"><div class="where">Client Translator (Contract)</div>
-      <div class="meta">Sep 2021 – Dec 2021</div>
-      <ul><li>Bridged client needs and production teams; clarified specs and timelines.</li>
-        <li>Customer support, comms, and retention during delivery.</li></ul>
-    </div>
-
-    <div class="job"><div class="where">321 Ignition — Senior Copywriter & Onboarding Specialist</div>
-      <div class="meta">Aug 2019 – Feb 2021</div>
-      <ul><li>Wrote/implemented in-house + client copy to drive revenue and visibility.</li>
-        <li>Planned and executed on-page SEO content; translated technical topics for non-technical audiences.</li>
-        <li>Coordinated with dev/design/PM across multiple platforms to meet timelines.</li></ul>
-    </div>
-
-    <div class="job"><div class="where">Haddad & Partners — Copywriter</div>
-      <div class="meta">Apr 2019 – Oct 2020</div>
-      <ul><li>Wrote newsletters, banners, social and web copy across automotive, finance, food/bev sectors.</li>
-        <li>Maintained brand + AP Style guidelines; contributed to in-house style docs.</li></ul>
-    </div>
-
-    <div class="job"><div class="where">KDVR / FOX31 Denver — Digital Content Producer</div>
-      <div class="meta">Feb 2019 – May 2019 · Denver, CO</div>
-      <ul><li>Produced breaking news content with accuracy, push alerts, and social posts.</li>
-        <li>Edited/strategized with anchors & producers to increase engagement.</li></ul>
-    </div>
-
-    <div class="job"><div class="where">Athena Project — Director</div>
-      <div class="meta">Aug 2018 – Dec 2018 · Denver, CO</div>
-      <ul><li>Directed, edited, and mixed multitrack VO podcast; led TEDx-style Q&A audience sessions.</li></ul>
-    </div>
-
-    <div class="job"><div class="where">MSU Denver Journalism — Managing Editor</div>
-      <div class="meta">Nov 2017 – Dec 2018 · Denver, CO</div>
-      <ul><li>Managed 60-page non-fiction book (Small Towns Colorado): reporting, photojournalism, layout.</li>
-        <li>Fact-checked, copy-edited, and oversaw student editorial workflow.</li></ul>
-    </div>
-
-    <div class="job"><div class="where">MSU Denver — Journalism Teaching Assistant</div>
-      <div class="meta">Sep 2017 – Dec 2018 · Greater Denver Area</div>
-      <ul><li>Graded weekly AP Style quizzes; created interactive learning with response systems.</li>
-        <li>Taught ethical practices and standards in applied journalism.</li></ul>
-    </div>
-
-    <div class="job"><div class="where">Burning Man Project — Coordinator of Volunteers (Intern)</div>
-      <div class="meta">Apr 2018 – Oct 2018 · San Francisco Bay Area</div>
-      <ul><li>Coordinated volunteer scheduling/requests; liaison with HQ staff pre- and during event.</li>
-        <li>Tools: Salesforce, Google Drive/MS Office, Marcato Asset Request.</li></ul>
-    </div>
-
-    <h2>Skills</h2>
-    <ul>
-      <li>Messaging & Copywriting · Web & Media Strategy · Email Systems · AI Content Ops</li>
-      <li>Project Planning · Stakeholder Comms · Creative Direction</li>
-    </ul>
-
-    <h2>Contact</h2>
-    <p>Email: <a href="mailto:info@gofercontent.com">info@gofercontent.com</a></p>
-
-    <div class="actions">
-      <a class="btn" href="javascript:window.print()">🖨️ Print / Save as PDF</a>
-      <a class="btn" href="/dayna/">← Back to Hire Dayna</a>
-    </div>
-  </div>
+  <script>
+    document.getElementById('yr').textContent = new Date().getFullYear();
+    /* Replace YOUR_PHONE_NUMBER above with e.g. +1727XXXXXXX (digits only for tel:) */
+  </script>
 </body>
 </html>
