@@ -9,13 +9,12 @@
   <!-- Canonical -->
   <link rel="canonical" href="https://gofercontent.com/dayna/"/>
 
-  <!-- Favicons / PWA polish -->
+  <!-- Favicons / polish -->
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16.png">
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
   <meta name="theme-color" content="#0B1220"/>
 
-  <!-- Title + Meta (clear, specific, people-first, under ~160 chars) -->
   <title>Hire Dayna Himot | Brand Messaging Strategist & Copywriter</title>
   <meta name="description" content="Copywriter and brand messaging strategist helping good brands speak clearly, build trust, and convert. Based in St. Petersburg, FL; remote-friendly."/>
 
@@ -37,42 +36,31 @@
     "@type": "Person",
     "name": "Dayna Himot",
     "jobTitle": "Brand Messaging Strategist & Copywriter",
-    "worksFor": {
-      "@type": "Organization",
-      "name": "Gofer Content",
-      "url": "https://gofercontent.com"
-    },
+    "worksFor": { "@type": "Organization", "name": "Gofer Content", "url": "https://gofercontent.com" },
     "url": "https://gofercontent.com/dayna/",
     "email": "info@gofercontent.com",
     "telephone": "+17273539673",
-    "address": {
-      "@type": "PostalAddress",
-      "addressLocality": "St. Petersburg",
-      "addressRegion": "FL",
-      "addressCountry": "USA"
-    },
+    "address": { "@type": "PostalAddress", "addressLocality": "St. Petersburg", "addressRegion": "FL", "addressCountry": "USA" },
     "image": "https://gofercontent.com/og-image.png",
-    "sameAs": [
-      "https://www.linkedin.com/in/daynahimot/",
-      "https://gofercontent.com/"
-    ]
+    "sameAs": ["https://www.linkedin.com/in/daynahimot/","https://gofercontent.com/"]
   }
   </script>
 
   <style>
-    /* ===== Palette ===== */
+    /* ===== 2026 palette ===== */
     :root{
       --bg-deep:#0B1220;
       --bg-top:#0E1630;
       --ink:#E6EAF2;
       --muted:#A8B0C2;
       --ring:#1C2A42;
-      --mint:#0ED3CF;
-      --btn-grad-start:#6F43FF;
-      --btn-grad-end:#2BD4FF;
-      --chip:#19253B;
-      --chip-ring:#284061;
-      --accent:#B94BFF;
+      --teal-2026:#00E8D6;     /* subtle 2026 teal */
+      --violet:#7C4DFF;
+      --cyan:#2BD4FF;
+      --magenta:#B94BFF;
+      --gradient-hero: radial-gradient(1200px 800px at 70% 20%, rgba(185,75,255,.18), transparent 60%),
+                       radial-gradient(900px 600px at 10% 90%, rgba(43,212,255,.18), transparent 60%),
+                       linear-gradient(180deg, var(--bg-deep) 0%, #060A14 100%);
     }
 
     *{box-sizing:border-box}
@@ -80,10 +68,7 @@
     body{
       margin:0;font-family:ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Arial;
       color:var(--ink);
-      background:
-        radial-gradient(1200px 800px at 70% 20%, rgba(185,75,255,.18), transparent 60%),
-        radial-gradient(900px 600px at 10% 90%, rgba(43,212,255,.18), transparent 60%),
-        linear-gradient(180deg, var(--bg-deep) 0%, #060A14 100%);
+      background:var(--gradient-hero);
       overflow-x:hidden;
     }
 
@@ -97,58 +82,84 @@
       padding:clamp(22px,5vw,44px);
       position:relative; overflow:hidden;
     }
+    /* ambient hero glow + vertical energy line, Stripe-esque */
     .glow{position:absolute; inset:-35% -10% auto auto; width:60%; height:60%;
       background:radial-gradient(closest-side, rgba(185,75,255,.24), transparent 70%);
-      filter:blur(26px); pointer-events:none;
+      filter:blur(26px); pointer-events:none;}
+    .energy{
+      position:absolute; top:-20%; right:6%; width:10px; height:140%;
+      background:linear-gradient(180deg, rgba(255,255,255,.0) 0%, rgba(255,255,255,.25) 10%, var(--teal-2026) 45%, var(--magenta) 65%, rgba(255,255,255,.0) 100%);
+      border-radius:999px; filter:blur(8px); opacity:.35; pointer-events:none;
+      animation: drift 9s ease-in-out infinite;
     }
+    @keyframes drift { 0%,100%{transform:translateY(0)} 50%{transform:translateY(3%)} }
+    @media (prefers-reduced-motion: reduce){ .energy{animation:none} }
 
     .pill{
       display:inline-flex; align-items:center; gap:.6ch;
       padding:8px 14px; border-radius:999px; font-size:.92rem; color:#B6F3F1;
-      background:linear-gradient(180deg, rgba(46,232,224,.12), rgba(46,232,224,.04));
-      border:1px solid rgba(46,232,224,.35)
+      background:linear-gradient(180deg, rgba(0,232,214,.15), rgba(0,232,214,.05));
+      border:1px solid rgba(0,232,214,.35)
     }
-    .pill-dot{width:8px;height:8px;border-radius:50%;background:var(--mint);box-shadow:0 0 0 6px rgba(46,232,224,.16)}
+    .pill-dot{width:8px;height:8px;border-radius:50%;background:var(--teal-2026);box-shadow:0 0 0 6px rgba(0,232,214,.16)}
 
     h1{margin:14px 0 10px;font-size:clamp(2.2rem,5.8vw,3.8rem);line-height:1.06;font-weight:900}
-    .accent{color:var(--accent)}
+    .accent{color:var(--magenta)}
     .sub{color:var(--muted);font-size:clamp(1rem,2.2vw,1.15rem);margin:0 0 12px}
 
-    /* capabilities (no bullets/dots) */
-    .chips{display:flex;flex-wrap:wrap;gap:10px;margin:14px 0 18px}
-    .chip{
-      display:inline-flex; align-items:center;
-      padding:8px 12px; border-radius:999px; background:var(--chip);
-      border:1px solid var(--chip-ring); color:#D3DBEA; font-weight:650; font-size:13px;
+    /* ===== ticker ===== */
+    .ticker{
+      margin:16px 0 18px; border:1px solid var(--ring); border-radius:999px; background:rgba(25,37,59,.55);
+      overflow:hidden; mask-image: linear-gradient(90deg, transparent 0, #000 6%, #000 94%, transparent 100%);
     }
+    .track{
+      display:flex; gap:14px; padding:10px 16px; width:max-content;
+      animation: scroll 22s linear infinite;
+    }
+    .tag{
+      white-space:nowrap; padding:8px 14px; border-radius:999px;
+      color:#D3DBEA; font-weight:650; font-size:13px;
+      background:#101827; border:1px solid var(--ring);
+    }
+    .ticker:hover .track, .ticker:focus-within .track{animation-play-state:paused}
+    @keyframes scroll{ from{transform:translateX(0)} to{transform:translateX(-50%)} }
+    @media (prefers-reduced-motion: reduce){ .track{animation:none} }
 
-    /* Buttons */
+    /* ===== Buttons (brighter gradients) ===== */
     .btns{display:flex;flex-wrap:wrap;gap:12px;margin-top:8px}
     .btn{display:inline-flex;align-items:center;justify-content:center;padding:12px 18px;border-radius:14px;
-         font-weight:900;text-decoration:none;letter-spacing:.01em; border:1px solid var(--ring); color:#EAF2FF; background:#101827}
+         font-weight:900;text-decoration:none;letter-spacing:.01em; border:1px solid var(--ring); color:#0A1020;
+         background:linear-gradient(90deg, var(--violet), var(--cyan)); box-shadow:0 6px 16px rgba(124,77,255,.35);}
     .btn:focus-visible{outline:3px solid #7AD0FF; outline-offset:2px}
-    .btn.primary{
-      background:linear-gradient(90deg, var(--btn-grad-start), var(--btn-grad-end));
-      border-color:transparent; color:#09121E;
-    }
-    .btn.ghost{background:#101827;color:#EAF2FF}
-
-    /* Mobile / desktop layout */
+    .btn.ghost{color:#EAF2FF; background:#101827; border-color:var(--ring); box-shadow:none}
     .btns a { flex:1 1 auto; min-width:140px; text-align:center; }
+    .btn:hover{filter:saturate(1.15) brightness(1.05)}
 
+    /* ===== Three ways to work ===== */
     .cols{display:grid;grid-template-columns:1fr;gap:16px;margin-top:20px}
-    @media (min-width:860px){.cols{grid-template-columns:repeat(3,1fr);}}
+    @media (min-width:960px){.cols{grid-template-columns:repeat(3,1fr);gap:18px}}
 
     .card2{
-      background:var(--bg-top); border:1px solid var(--ring); border-radius:16px; padding:16px;
-      box-shadow:inset 0 1px 0 rgba(255,255,255,.04)
+      position:relative;
+      background:var(--bg-top);
+      border:1px solid var(--ring);
+      border-radius:16px; padding:16px 16px 16px 18px;
+      box-shadow:inset 0 1px 0 rgba(255,255,255,.04);
+      transition: transform .2s ease;
     }
+    .card2:hover{ transform: translateY(-2px) }
+    /* animated energy stripe on the left */
+    .card2::before{
+      content:""; position:absolute; left:-1px; top:10px; bottom:10px; width:6px; border-radius:10px;
+      background:linear-gradient(180deg, rgba(255,255,255,.0), var(--teal-2026), var(--magenta), rgba(255,255,255,.0));
+      filter:blur(0.5px); opacity:.55;
+      animation: breathe 6s ease-in-out infinite;
+    }
+    @keyframes breathe{0%,100%{opacity:.45}50%{opacity:.85}}
+    @media (prefers-reduced-motion: reduce){ .card2::before{animation:none} }
+
     .card2 h2{margin:0 0 8px;font-size:1.1rem;color:#F1F5FF}
     .card2 p { margin:0; font-size:1rem; line-height:1.6; }
-
-    @media (max-width:600px){
-      .cols{grid-template-columns:1fr;gap:12px;}
-    }
 
     footer{opacity:.75;font-size:.95rem;margin-top:22px;color:#9FB1CE}
   </style>
@@ -157,26 +168,37 @@
   <div class="wrap">
     <main class="card" role="main" aria-label="Hire Dayna">
       <div class="glow" aria-hidden="true"></div>
+      <div class="energy" aria-hidden="true"></div>
 
       <span class="pill"><span class="pill-dot"></span>Ready to work in St. Pete and Tampa Bay</span>
 
       <h1>Hire <span class="accent">Dayna</span>.<br>Messaging that moves people and metrics.</h1>
       <p class="sub">Helping good brands speak clearly and build trust online and off. Based in St. Petersburg, FL; remote-friendly.</p>
 
-      <div class="chips" aria-label="Capabilities">
-        <span class="chip">Messaging and Copy</span>
-        <span class="chip">Web and Media Strategy</span>
-        <span class="chip">Content Systems</span>
-        <span class="chip">Email Campaigns</span>
-        <span class="chip">AI Content Ops</span>
+      <!-- Scrolling capability ticker -->
+      <div class="ticker" aria-label="Capabilities marquee">
+        <div class="track" aria-hidden="true">
+          <span class="tag">Messaging and Copy</span>
+          <span class="tag">Web and Media Strategy</span>
+          <span class="tag">Content Systems</span>
+          <span class="tag">Email Campaigns</span>
+          <span class="tag">AI Content Ops</span>
+
+          <!-- duplicate for seamless loop -->
+          <span class="tag">Messaging and Copy</span>
+          <span class="tag">Web and Media Strategy</span>
+          <span class="tag">Content Systems</span>
+          <span class="tag">Email Campaigns</span>
+          <span class="tag">AI Content Ops</span>
+        </div>
       </div>
 
       <!-- Actions -->
       <div class="btns" aria-label="Quick actions">
-        <a class="btn primary" href="tel:+17273539673">Call Dayna</a>
-        <a class="btn ghost" href="sms:+17273539673?&body=Hi%20Dayna%2C%20I%27m%20reaching%20out%20about%20communications%2C%20marketing%2C%20or%20strategy%20work.%20Can%20we%20connect%3F">Text Dayna</a>
-        <a class="btn ghost" href="mailto:info@gofercontent.com?subject=Hire%20Dayna&body=Hi%20Dayna%2C%20I%27m%20reaching%20out%20about%20communications%2C%20marketing%2C%20or%20strategy%20work.%20Can%20we%20connect%3F">Email Dayna</a>
-        <a class="btn ghost" href="/dayna-resume/">View Résumé</a>
+        <a class="btn" href="tel:+17273539673">Call Dayna</a>
+        <a class="btn" href="sms:+17273539673?&body=Hi%20Dayna%2C%20I%27m%20reaching%20out%20about%20communications%2C%20marketing%2C%20or%20strategy%20work.%20Can%20we%20connect%3F">Text Dayna</a>
+        <a class="btn" href="mailto:info@gofercontent.com?subject=Hire%20Dayna&body=Hi%20Dayna%2C%20I%27m%20reaching%20out%20about%20communications%2C%20marketing%2C%20or%20strategy%20work.%20Can%20we%20connect%3F">Email Dayna</a>
+        <a class="btn ghost" href="/dayna-resume/">View Resume</a>
       </div>
 
       <!-- Three ways to work -->
