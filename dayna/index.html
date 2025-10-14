@@ -2,21 +2,32 @@
 <html lang="en">
 <head>
   <meta charset="utf-8"/>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="robots" content="index,follow"/>
 
-  <!-- Title + Meta (clear, specific, people-first) -->
+  <!-- Canonical -->
+  <link rel="canonical" href="https://gofercontent.com/dayna/"/>
+
+  <!-- Favicons / PWA polish -->
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <meta name="theme-color" content="#0B1220"/>
+
+  <!-- Title + Meta (clear, specific, people-first, under ~160 chars) -->
   <title>Hire Dayna Himot | Brand Messaging Strategist & Copywriter</title>
-  <meta name="description" content="Dayna Himot is a copywriter and brand messaging strategist helping good brands speak clearly and build trust online and off. Based in St. Petersburg, Florida; available remotely."/>
+  <meta name="description" content="Copywriter and brand messaging strategist helping good brands speak clearly, build trust, and convert. Based in St. Petersburg, FL; remote-friendly."/>
 
   <!-- Open Graph / Twitter -->
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://gofercontent.com/dayna/">
   <meta property="og:title" content="Hire Dayna Himot | Brand Messaging Strategist & Copywriter">
-  <meta property="og:description" content="Helping good brands speak clearly and build trust online and off. Based in St. Petersburg, Florida; available anywhere.">
+  <meta property="og:description" content="Helping good brands speak clearly, build trust, and convert. St. Petersburg, FL; remote-friendly.">
   <meta property="og:image" content="https://gofercontent.com/og-image.png">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Hire Dayna Himot | Brand Messaging Strategist & Copywriter">
-  <meta name="twitter:description" content="Helping good brands speak clearly and build trust online and off. Based in St. Petersburg, Florida; available anywhere.">
+  <meta name="twitter:description" content="Helping good brands speak clearly, build trust, and convert. St. Petersburg, FL; remote-friendly.">
   <meta name="twitter:image" content="https://gofercontent.com/og-image.png">
 
   <!-- Structured Data (Person) -->
@@ -49,14 +60,14 @@
   </script>
 
   <style>
-    /* ====== Neon palette inspired by the PDF look ====== */
+    /* ===== Palette ===== */
     :root{
       --bg-deep:#0B1220;
       --bg-top:#0E1630;
       --ink:#E6EAF2;
       --muted:#A8B0C2;
       --ring:#1C2A42;
-      --pill:#0ED3CF;
+      --mint:#0ED3CF;
       --btn-grad-start:#6F43FF;
       --btn-grad-end:#2BD4FF;
       --chip:#19253B;
@@ -82,15 +93,11 @@
       background:linear-gradient(180deg, rgba(255,255,255,.02), rgba(255,255,255,.00));
       border:1px solid var(--ring);
       border-radius:28px;
-      box-shadow:
-        0 10px 40px rgba(0,0,0,.5),
-        inset 0 1px 0 rgba(255,255,255,.06);
+      box-shadow:0 10px 40px rgba(0,0,0,.5), inset 0 1px 0 rgba(255,255,255,.06);
       padding:clamp(22px,5vw,44px);
       position:relative; overflow:hidden;
     }
-
-    .glow{
-      position:absolute; inset:-35% -10% auto auto; width:60%; height:60%;
+    .glow{position:absolute; inset:-35% -10% auto auto; width:60%; height:60%;
       background:radial-gradient(closest-side, rgba(185,75,255,.24), transparent 70%);
       filter:blur(26px); pointer-events:none;
     }
@@ -101,54 +108,51 @@
       background:linear-gradient(180deg, rgba(46,232,224,.12), rgba(46,232,224,.04));
       border:1px solid rgba(46,232,224,.35)
     }
-    .pill-dot{width:8px;height:8px;border-radius:50%;background:var(--pill);box-shadow:0 0 0 6px rgba(46,232,224,.16)}
+    .pill-dot{width:8px;height:8px;border-radius:50%;background:var(--mint);box-shadow:0 0 0 6px rgba(46,232,224,.16)}
 
     h1{margin:14px 0 10px;font-size:clamp(2.2rem,5.8vw,3.8rem);line-height:1.06;font-weight:900}
     .accent{color:var(--accent)}
     .sub{color:var(--muted);font-size:clamp(1rem,2.2vw,1.15rem);margin:0 0 12px}
 
-    .id{margin:10px 0 16px;color:#BFD1E8;font-weight:600}
-    .id a{color:#7AD0FF;text-decoration:none}
-
+    /* capabilities (no bullets/dots) */
     .chips{display:flex;flex-wrap:wrap;gap:10px;margin:14px 0 18px}
     .chip{
-      display:inline-flex; align-items:center; gap:.6ch;
+      display:inline-flex; align-items:center;
       padding:8px 12px; border-radius:999px; background:var(--chip);
       border:1px solid var(--chip-ring); color:#D3DBEA; font-weight:650; font-size:13px;
     }
-    .chip .dot{width:6px;height:6px;border-radius:50%;background:#7A9BFF}
 
+    /* Buttons */
     .btns{display:flex;flex-wrap:wrap;gap:12px;margin-top:8px}
-    .btn{display:inline-flex;align-items:center;justify-content:center;gap:.6ch;padding:12px 18px;border-radius:14px;
+    .btn{display:inline-flex;align-items:center;justify-content:center;padding:12px 18px;border-radius:14px;
          font-weight:900;text-decoration:none;letter-spacing:.01em; border:1px solid var(--ring); color:#EAF2FF; background:#101827}
+    .btn:focus-visible{outline:3px solid #7AD0FF; outline-offset:2px}
     .btn.primary{
       background:linear-gradient(90deg, var(--btn-grad-start), var(--btn-grad-end));
       border-color:transparent; color:#09121E;
     }
     .btn.ghost{background:#101827;color:#EAF2FF}
 
-    .cols{display:grid;grid-template-columns:1fr;gap:16px;margin-top:20px}
-    @media (min-width:820px){.cols{grid-template-columns:1.1fr .9fr}}
+    /* Mobile / desktop layout */
+    .btns a { flex:1 1 auto; min-width:140px; text-align:center; }
 
-    .panel{
+    .cols{display:grid;grid-template-columns:1fr;gap:16px;margin-top:20px}
+    @media (min-width:860px){.cols{grid-template-columns:repeat(3,1fr);}}
+
+    .card2{
       background:var(--bg-top); border:1px solid var(--ring); border-radius:16px; padding:16px;
       box-shadow:inset 0 1px 0 rgba(255,255,255,.04)
     }
-    .panel h3{margin:0 0 8px;font-size:1.05rem;color:#F1F5FF}
-    .panel ul{margin:0;padding-left:18px;color:#C6D2E8}
-
-    footer{opacity:.75;font-size:.95rem;margin-top:22px;color:#9FB1CE}
-
-    /* ===== Requested Mobile / Desktop CSS fixes ===== */
-    .btns a { flex:1 1 auto; min-width:140px; text-align:center; }
-    .card2 { background:var(--bg-top); border:1px solid var(--ring); border-radius:16px; padding:16px; box-shadow:inset 0 1px 0 rgba(255,255,255,.04) }
+    .card2 h2{margin:0 0 8px;font-size:1.1rem;color:#F1F5FF}
     .card2 p { margin:0; font-size:1rem; line-height:1.6; }
+
     @media (max-width:600px){
       .cols{grid-template-columns:1fr;gap:12px;}
     }
+
+    footer{opacity:.75;font-size:.95rem;margin-top:22px;color:#9FB1CE}
   </style>
 </head>
-
 <body>
   <div class="wrap">
     <main class="card" role="main" aria-label="Hire Dayna">
@@ -156,41 +160,39 @@
 
       <span class="pill"><span class="pill-dot"></span>Ready to work in St. Pete and Tampa Bay</span>
 
-      <h1>Hire <span class="accent">Dayna</span>.<br>Messaging that moves people, not metrics.</h1>
-      <p class="sub">Helping good brands speak clearly and build trust online and off. Based in St. Petersburg and Tampa Bay; available for remote work anywhere.</p>
-
-      <p class="id">
-        Dayna Himot · Saint Petersburg, FL ·
-        <a href="mailto:info@gofercontent.com">info@gofercontent.com</a> ·
-        <a href="tel:+17273539673">727-353-9673</a>
-      </p>
+      <h1>Hire <span class="accent">Dayna</span>.<br>Messaging that moves people and metrics.</h1>
+      <p class="sub">Helping good brands speak clearly and build trust online and off. Based in St. Petersburg, FL; remote-friendly.</p>
 
       <div class="chips" aria-label="Capabilities">
-        <span class="chip"><span class="dot"></span> Messaging and Copy</span>
-        <span class="chip"><span class="dot"></span> Web and Media Strategy</span>
-        <span class="chip"><span class="dot"></span> Content Systems</span>
-        <span class="chip"><span class="dot"></span> Email Campaigns</span>
-        <span class="chip"><span class="dot"></span> AI Content Ops</span>
+        <span class="chip">Messaging and Copy</span>
+        <span class="chip">Web and Media Strategy</span>
+        <span class="chip">Content Systems</span>
+        <span class="chip">Email Campaigns</span>
+        <span class="chip">AI Content Ops</span>
       </div>
 
-      <!-- Buttons (no emojis, cleaner) -->
+      <!-- Actions -->
       <div class="btns" aria-label="Quick actions">
         <a class="btn primary" href="tel:+17273539673">Call Dayna</a>
-        <a class="btn ghost" href="sms:+17273539673?&body=Hi%20Dayna%2C%20this%20is%20%3Cyour%20name%3E.%20I%E2%80%99m%20reaching%20out%20about%20communications%2C%20marketing%2C%20or%20strategy%20work.%20Can%20we%20connect%3F">Text Dayna</a>
-        <a class="btn ghost" href="mailto:info@gofercontent.com?subject=Hire%20Dayna&body=Hi%20Dayna%2C%20I%E2%80%99m%20reaching%20out%20about%20communications%2C%20marketing%2C%20or%20strategy%20work.%20Can%20we%20connect%3F">Email Dayna</a>
+        <a class="btn ghost" href="sms:+17273539673?&body=Hi%20Dayna%2C%20I%27m%20reaching%20out%20about%20communications%2C%20marketing%2C%20or%20strategy%20work.%20Can%20we%20connect%3F">Text Dayna</a>
+        <a class="btn ghost" href="mailto:info@gofercontent.com?subject=Hire%20Dayna&body=Hi%20Dayna%2C%20I%27m%20reaching%20out%20about%20communications%2C%20marketing%2C%20or%20strategy%20work.%20Can%20we%20connect%3F">Email Dayna</a>
         <a class="btn ghost" href="/dayna-resume/">View Résumé</a>
       </div>
 
-      <!-- Copy refresh: accessible text blocks (no lists) -->
-      <div class="cols" aria-label="Details">
+      <!-- Three ways to work -->
+      <div class="cols" aria-label="Ways to work">
         <section class="card2">
-          <h2>What You Get</h2>
-          <p>Messaging, copy, and content systems that connect, not confuse. Clear voice, focused strategy, and materials that convert.</p>
+          <h2>Project Work</h2>
+          <p>Fixed-scope projects that ship fast: website copy, service pages, email sequences, landing pages, and small campaigns with a clear deliverable and flat rate.</p>
         </section>
-        <aside class="card2">
-          <h2>How to Start</h2>
-          <p>Email your goal and deadline. We will scope, quote a flat rate, deliver the first draft, refine, and publish. Simple.</p>
-        </aside>
+        <section class="card2">
+          <h2>Freelance Support</h2>
+          <p>Ongoing help as you need it. Weekly or monthly blocks for copy, strategy, audits, and content systems. Easy to pause or ramp based on your calendar.</p>
+        </section>
+        <section class="card2">
+          <h2>Contract Hire</h2>
+          <p>Short-term embedded work with your team for launches or turnarounds. I plan, write, and help you stand up simple systems your team can run after handoff.</p>
+        </section>
       </div>
 
       <footer>© <span id="yr"></span> Dayna Himot — Gofer Content, St. Petersburg, FL</footer>
