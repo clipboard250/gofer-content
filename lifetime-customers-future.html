@@ -4,10 +4,33 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Lifetime Customers — fast start</title>
-<meta name="description" content="Stop paying for ad experiments. Text Isaac or Dayna to start: real reviews + one simple page that brings customers to you. We take the risk.">
-<link rel="canonical" href="https://gofercontent.com/lifetime-customers-future/">
+<meta name="description" content="Stop paying for ad experiments. Text Isaac or Dayna to start: real 5-star reviews + one page that brings customers to you. We take the risk.">
+<link rel="canonical" href="https://gofercontent.com/lifetime-customers-future.html">
+
 <style>
-  :root{--bg:#0a0a0a;--ink:#e6edf3;--muted:#141414;--line:#232323;--accent:#7ecfff}
+  /* ========== Base Theme (dark) ========== */
+  :root{
+    --bg:#0a0a0a; --ink:#e6edf3; --muted:#141414; --line:#232323;
+
+    /* Tealable tokens (page-specific; buttons read these) */
+    --brand-a:#00d4b4;           /* transformative teal vibe */
+    --brand-b:#00ffd0;
+    --brand-outline:#2a2f36;
+    --brand-focus:#00ffd0;
+
+    /* Button template tokens (neutral defaults) */
+    --btn-bg: linear-gradient(135deg,var(--brand-a),var(--brand-b));
+    --btn-bg-hover: linear-gradient(135deg,var(--brand-b),var(--brand-a));
+    --btn-border: var(--brand-outline);
+    --btn-text: #051019;
+    --btn-focus: var(--brand-focus);
+    --btn-radius: 14px;
+    --btn-pad-y: .85em;
+    --btn-pad-x: 1.4em;
+    --btn-font: Inter, Lexend, system-ui, sans-serif;
+    --btn-min-tap: 44px;
+  }
+
   *{box-sizing:border-box}
   body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.6 ui-monospace,Menlo,Consolas,monospace}
   .wrap{max-width:1140px;margin:0 auto;padding:26px 14px}
@@ -18,35 +41,75 @@
   h1{font-size:clamp(28px,5vw,64px);line-height:1;margin:8px 0 2px}
   .list{font-size:clamp(18px,2.4vw,26px);line-height:1.25}
   .list a{color:#e6edf3;text-decoration:none;display:block;padding:12px 0;border-bottom:1px solid var(--line)}
-  .list a:hover{color:var(--accent)}
+  .list a:hover{color:#b8fff1}
+
+  /* ========== Universal Button Template (neutral, theme by tokens) ========== */
+  .btn{
+    display:inline-flex;align-items:center;justify-content:center;gap:.5em;
+    min-height:var(--btn-min-tap);
+    padding:var(--btn-pad-y) var(--btn-pad-x);
+    border-radius:var(--btn-radius);
+    border:1.5px solid var(--btn-border);
+    background:transparent;
+    color:var(--ink);
+    font-family:var(--btn-font);font-weight:600;font-size:1rem;letter-spacing:.02em;
+    text-decoration:none;cursor:pointer;line-height:1;user-select:none;
+    transition:background .25s ease,box-shadow .25s ease,transform .15s ease,filter .2s ease;
+  }
+  .btn:hover{transform:translateY(-2px);filter:saturate(1.05)}
+  .btn:active{transform:translateY(0)}
+  .btn:focus-visible{outline:none;box-shadow:0 0 0 3px var(--btn-focus)}
+  .btn[disabled]{opacity:.55;pointer-events:none;filter:grayscale(.4)}
+  .btn--outline{background:transparent;border:2px solid var(--btn-border)}
+  .btn--fill{background:var(--btn-bg);border:none;color:var(--btn-text)}
+  .btn--fill:hover{background:var(--btn-bg-hover)}
+  .btn--ghost{background:none;border:none}
+  .btn--block{width:100%}
+  .btn--sm{padding:.6em 1em;font-size:.95rem}
+  .btn--lg{padding:1em 1.75em;font-size:1.05rem}
+  .btn--glass{background:linear-gradient(180deg,rgba(255,255,255,.08),rgba(255,255,255,.02));border:1px solid rgba(255,255,255,.1);backdrop-filter:blur(8px)}
+  .btn--glass:hover{background:linear-gradient(180deg,rgba(255,255,255,.12),rgba(255,255,255,.04))}
+  @media (prefers-reduced-motion:reduce){.btn{transition:none}.btn:hover,.btn:active{transform:none}}
+
   .cta{display:grid;gap:10px;margin-top:12px}
-  .btn{appearance:none;border-radius:12px;border:1px solid var(--line);background:#101214;color:#fff;padding:12px 14px;min-height:44px;font-weight:700;text-align:center}
-  .btn:hover{border-color:#3a3a3a}
-  .btn-primary{background:var(--accent);color:#051019}
   label{font-weight:700}
   input,textarea,button{font:inherit}
   input,textarea{width:100%;padding:12px;border-radius:10px;background:#0f1114;border:1px solid var(--line);color:#fff;min-height:44px}
-  input:focus,textarea:focus,.btn:focus{outline:3px solid var(--accent);outline-offset:2px}
+  input:focus,textarea:focus,.btn:focus-visible{outline:3px solid var(--btn-focus);outline-offset:2px}
   small{color:#9aa5b1}
+
+  /* Bottom banner (auto-updating spots) */
+  .bar{
+    position:fixed;left:12px;right:12px;bottom:12px;
+    display:flex;gap:12px;align-items:center;justify-content:space-between;
+    padding:12px 14px;border-radius:12px;background:#101214;border:1px solid var(--line);
+    box-shadow:0 6px 18px rgba(0,0,0,.5);
+  }
+  .bar b{color:#b8fff1}
 </style>
 </head>
 <body>
 <div class="wrap">
-  <div class="top"><div># LIFETIME CUSTOMERS</div><div>v2.0</div></div>
+  <div class="top">
+    <div># LIFETIME CUSTOMERS</div>
+    <!-- removed version label -->
+  </div>
+
   <div class="grid">
     <section class="panel" aria-label="actions">
       <h1>Get customers this week</h1>
       <div class="list">
         <a href="sms:+17275944769?&body=Hi%20Isaac%2C%20I%27m%20ready%20to%20start%20the%20reviews%20%2B%20customer%20flow.%20Business%3A%20">> Text Isaac to start</a>
         <a href="sms:+17273539673?&body=Hi%20Dayna%20(Isaac%E2%80%99s%20mom)%2C%20I%27m%20ready%20to%20start.%20Business%3A%20">> Text Dayna (Isaac’s mom)</a>
-        <a href="#form">> Send details (60 sec)</a>
+        <a href="#form">> Snag my page</a>
       </div>
+
       <div class="cta">
-        <a class="btn btn-primary" href="#form">Snag a spot</a>
-        <a class="btn" href="tel:+17275944769">Call Isaac: (727) 594-4769</a>
+        <a class="btn btn--fill btn--lg" href="#form">Snag my page</a>
+        <a class="btn btn--outline" href="tel:+17275944769">Call Isaac: (727) 594-4769</a>
       </div>
+
       <p><small>We leave real 5-star reviews and build one page that brings customers to you. Quiet and unbranded. We take the risk.</small></p>
-      <p><small>Ten new businesses this week.</small></p>
     </section>
 
     <aside id="form" class="panel" aria-label="start form">
@@ -56,13 +119,43 @@
         <label for="b">Business *</label><input id="b" name="business" required>
         <label for="e">Email *</label><input id="e" name="email" type="email" required>
         <label for="p">Phone</label><input id="p" name="phone" type="tel">
-        <label for="m">Notes</label><textarea id="m" name="message" rows="4" placeholder="Best times, services, location"></textarea>
+        <label for="m">Notes</label>
+        <textarea id="m" name="message" rows="4" placeholder="Best times, services, location"></textarea>
         <input type="hidden" name="_subject" value="Lifetime Customers (future) — new inquiry">
         <input type="hidden" name="_redirect" value="https://gofercontent.com/lifetime-customers/thanks.html">
-        <button class="btn btn-primary" type="submit">Send</button>
+        <button class="btn btn--fill btn--block" type="submit">Send</button>
       </form>
     </aside>
   </div>
 </div>
+
+<!-- Bottom spot counter -->
+<div class="bar" role="status" aria-live="polite">
+  <div>Limited spots: <b id="spots">0</b> of 10 taken</div>
+  <div><small>Offer resets Sunday</small></div>
+</div>
+
+<script>
+  // Weekly spots logic:
+  // Start with 0 taken Monday 00:00; reach 10 taken by Sunday 23:59.
+  // If you want Sunday reset instead of Monday, change weekStart to 0 (Sunday).
+  const weekStart = 1; // 0=Sunday, 1=Monday
+  const now = new Date();
+  const currentDay = (now.getDay()+7)%7;
+  const diffToStart = (currentDay - weekStart + 7) % 7;
+  const start = new Date(now);
+  start.setDate(now.getDate() - diffToStart);
+  start.setHours(0,0,0,0);
+  const end = new Date(start); end.setDate(start.getDate()+7); // next week start
+
+  const totalMs = end - start;
+  const elapsedMs = now - start;
+  let pct = Math.min(1, Math.max(0, elapsedMs / totalMs));
+  // convert to 0..10 spots taken and keep at least 1 taken mid-day Monday to feel alive
+  let taken = Math.round(pct * 10);
+  if (taken === 0 && elapsedMs > 6*60*60*1000) taken = 1;
+
+  document.getElementById('spots').textContent = taken;
+</script>
 </body>
 </html>
