@@ -126,4 +126,22 @@
     "slug": "mind-map-renovations",
     "created_at": "2025-10-09T12:00:00Z"
   }
+  {
+  "title": "Frank Gay Electrical",
+  "tagline": "Licensed electricians — 49 years serving St. Petersburg",
+  "type": "Business/Service",
+  "industry": "Home Services",
+  "perks": ["24 hours open", "Free estimate", "Licensed + insured"],
+  "when": "",
+  "where": "St. Petersburg & nearby areas",
+  "audience": "Homeowners",
+  "links": [
+    { "type": "website", "href": "https://frankgayelectrical.com" },
+    { "type": "phone", "href": "tel:+14073689260" },
+    { "type": "map", "href": "https://www.google.com/maps/place/Frank+Gay+Electrical" }
+  ],
+  "slug": "frank-gay-electrical",
+  "created_at": "2025-10-17T10:00:00Z",
+  "tags": ["Electrician","St Pete","24 hours"]
+}
 ]
