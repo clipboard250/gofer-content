@@ -34,7 +34,7 @@
     --bg:#0a0a0a; --ink:#e6edf3; --muted:#141414; --line:#232323;
 
     /* Theme tokens (buttons read these) — “transformative teal” but easily changeable */
-    --brand-a:#00d4b4; --brand-b:#00ffd0;  /* gradient endpoints */
+    --brand-a:#00d4b4; --brand-b:#00ffd0;
     --brand-outline:#2a2f36; --brand-focus:#00ffd0;
 
     /* Universal button template tokens */
@@ -62,7 +62,7 @@
   .list a{color:#e6edf3;text-decoration:none;display:block;padding:12px 0;border-bottom:1px solid var(--line)}
   .list a:hover{color:#b8fff1}
 
-  /* ===== Universal Button Template (neutral; themed by tokens above) ===== */
+  /* ===== Universal Button Template ===== */
   .btn{
     display:inline-flex;align-items:center;justify-content:center;gap:.5em;
     min-height:var(--btn-min-tap);padding:var(--btn-pad-y) var(--btn-pad-x);
@@ -93,18 +93,19 @@
   input:focus,textarea:focus,.btn:focus-visible{outline:3px solid var(--btn-focus);outline-offset:2px}
   small{color:#9aa5b1}
 
-  /* ===== Bottom ticker ===== */
+  /* ===== Bottom ticker (faster + text-only) ===== */
   .ticker{
     position:fixed;left:0;right:0;bottom:0;z-index:30;
     background:#101214;border-top:1px solid var(--line);
-    overflow:hidden;mask-image:linear-gradient(to right,transparent 0,black 40px,black calc(100% - 40px),transparent 100%);
+    overflow:hidden;
+    mask-image:linear-gradient(to right,transparent 0,black 40px,black calc(100% - 40px),transparent 100%);
   }
   .track{
-    display:flex;gap:40px;white-space:nowrap;align-items:center;padding:10px 0;color:#cfe3f5;
-    animation:scroll 22s linear infinite;
+    display:flex;gap:80px;white-space:nowrap;align-items:center;padding:10px 0;color:#cfe3f5;
+    /* faster speed */
+    animation:scroll 14s linear infinite;
   }
   .track b{color:#b8fff1}
-  .tick-btn{margin-right:16px}
   @keyframes scroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
   @media (prefers-reduced-motion:reduce){.track{animation:none}}
 </style>
@@ -146,36 +147,30 @@
   </div>
 </div>
 
-<!-- BOTTOM TICKER (daily countdown Sun=10 ... Sat=1) -->
+<!-- BOTTOM TICKER (text-only, faster) -->
 <div class="ticker" role="status" aria-live="polite">
   <div class="track" id="track">
-    <!-- text duplicated so it scrolls seamlessly -->
     <div id="msg"></div>
-    <div class="tick-btn"><a class="btn btn--fill btn--sm" href="sms:+17275944769?&body=Hi%20Isaac%2C%20I%27m%20ready%20to%20start%20the%20reviews%20%2B%20customer%20flow.%20Business%3A%20">Text Isaac</a></div>
-    <div style="opacity:.6">•</div>
-    <div id="msg2" style="margin-left:24px"></div>
-    <div class="tick-btn"><a class="btn btn--fill btn--sm" href="sms:+17273539673?&body=Hi%20Dayna%2C%20I%27m%20ready%20to%20start.">Text Dayna</a></div>
-    <div style="opacity:.6">•</div>
+    <div id="msg2"></div>
   </div>
 </div>
 
 <script>
-  // --- Daily spots: Sun=10, Mon=9, Tue=8, Wed=7, Thu=6, Fri=5, Sat=1
+  // Daily spots: Sun=10, Mon=9, Tue=8, Wed=7, Thu=6, Fri=5, Sat=1
+  // This "recharges" on Sunday (shows 10 of 10 taken).
   const map=[10,9,8,7,6,5,1];
   const day=new Date().getDay(); // 0 Sun .. 6 Sat
   const taken=map[day];
   const s=`Limited spots: <b>${taken}</b> of 10 taken`;
 
-  // ticker content
-  const msg=document.getElementById('msg');
-  const msg2=document.getElementById('msg2');
-  msg.innerHTML=s; msg2.innerHTML=s;
+  // ticker content (duplicated for seamless scroll)
+  document.getElementById('msg').innerHTML=s;
+  document.getElementById('msg2').innerHTML=s;
 
-  // motion-respect for ticker
+  // respect reduced motion
   if (window.matchMedia('(prefers-reduced-motion: reduce)').matches){
     document.querySelector('.track').style.animation='none';
   }
 </script>
 </body>
 </html>
-```
