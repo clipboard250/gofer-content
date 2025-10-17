@@ -1,102 +1,188 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Lifetime Customers | Direct Local Growth</title>
-<meta name="description" content="We help local businesses get seen through authentic reviews and direct customer connections. No branding. No middlemen. Just results.">
-<link rel="canonical" href="https://gofercontent.com/lifetime-customers">
-<meta property="og:title" content="Lifetime Customers | Direct Local Growth">
-<meta property="og:description" content="Helping local businesses get seen through authentic reviews and real customer connections.">
-<meta property="og:type" content="website">
-<meta property="og:image" content="https://gofercontent.com/assets/og-lifetime-customers.jpg">
-<link rel="stylesheet" href="/assets/css/ui-system.css?v=2025-10-17">
-<link rel="stylesheet" href="/assets/css/button-template.css?v=2025-10-17">
-<style>
-body {
-  font-family: Inter, system-ui, sans-serif;
-  background: #f8f9fa;
-  color: #0b0f14;
-  margin: 0;
-}
-section {
-  max-width: 640px;
-  margin: 0 auto;
-  padding: 3rem 1.5rem;
-  text-align: center;
-}
-h1 {
-  font-size: 2rem;
-  font-weight: 700;
-  margin-bottom: .75rem;
-}
-p {
-  font-size: 1.1rem;
-  line-height: 1.6;
-  margin-bottom: 1.5rem;
-}
-.gofer-btn {
-  margin: 0.5rem;
-  font-size: 1rem;
-}
-form {
-  margin-top: 2rem;
-  display: grid;
-  gap: 1rem;
-}
-input, textarea {
-  font-family: inherit;
-  font-size: 1rem;
-  padding: 0.8rem;
-  border: 1px solid #ccc;
-  border-radius: 8px;
-  width: 100%;
-}
-label {
-  text-align: left;
-  font-weight: 600;
-  font-size: .95rem;
-}
-footer {
-  margin-top: 2rem;
-  font-size: .9rem;
-  color: #555;
-}
-</style>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Lifetime Customers</title>
+  <meta name="description" content="Authentic reviews and simple pages that bring real customers to good local businesses. No branding. No middlemen." />
+  <link rel="canonical" href="https://gofercontent.com/lifetime-customers/" />
+
+  <!-- Font: Inter -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --bg:#0b0f14;
+      --ink:#e6edf3;
+      --muted:#121821;
+      --card:#0f1520;
+      --brand:#7aa2ff;
+      --brand-2:#c084fc;
+      --ok:#10b981;
+      --ring:#7aa2ff;
+      --radius:18px;
+      --shadow:0 10px 30px rgba(0,0,0,.35);
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family:Inter,system-ui,Segoe UI,Roboto,Arial,sans-serif;
+      color:var(--ink);
+      background:
+        radial-gradient(1200px 900px at 20% -10%, #1c2333 0%, transparent 70%),
+        radial-gradient(1200px 900px at 100% 10%, #191e2b 0%, transparent 60%),
+        linear-gradient(180deg, #0b0f14, #0b0f14 60%);
+    }
+    a{color:var(--brand);text-decoration:none}
+    a:focus{outline:3px solid var(--ring);outline-offset:2px;border-radius:8px}
+    .wrap{max-width:1000px;margin:0 auto;padding:32px 18px}
+    .hero{
+      min-height:78vh;display:grid;align-content:center;gap:24px;
+      text-align:center;
+    }
+    .badge{
+      display:inline-flex;align-items:center;gap:.5rem;
+      padding:.5rem .8rem;border-radius:999px;background:rgba(122,162,255,.15);
+      border:1px solid rgba(122,162,255,.35);backdrop-filter:blur(6px)
+    }
+    h1{
+      font-weight:800;letter-spacing:-.02em;line-height:1.1;
+      font-size:clamp(1.9rem,3.6vw,3rem);margin:8px 0 2px
+    }
+    .lead{
+      font-size:clamp(1.05rem,1.5vw,1.2rem);
+      color:#cdd7e3;max-width:760px;margin:0 auto 12px
+    }
+    .glass{
+      background:linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.03));
+      border:1px solid rgba(255,255,255,.12);
+      border-radius:var(--radius);
+      box-shadow:var(--shadow);
+    }
+    .cta{
+      display:flex;flex-wrap:wrap;gap:12px;justify-content:center;margin-top:8px
+    }
+    .btn{
+      appearance:none;border:0;cursor:pointer;
+      padding:14px 18px;border-radius:14px;font-weight:700;min-height:44px;
+      transition:transform .12s ease,background .2s ease,color .2s ease;
+      text-align:center
+    }
+    .btn-primary{background:var(--brand);color:#0b0f14}
+    .btn-primary:hover,.btn-primary:focus{transform:translateY(-2px)}
+    .btn-outline{border:2px solid var(--brand);color:var(--brand);background:transparent}
+    .btn-outline:hover,.btn-outline:focus{background:var(--brand);color:#0b0f14}
+    .btn-dark{background:#161b26;color:#e6edf3;border:1px solid rgba(255,255,255,.14)}
+    .grid{display:grid;gap:22px}
+    .two{grid-template-columns:repeat(2,minmax(0,1fr))}
+    @media (max-width:820px){.two{grid-template-columns:1fr}}
+    .section{margin:46px 0 24px}
+    .card{padding:22px}
+    .kicker{font-weight:700;color:#a8b4c7;margin:0 0 6px}
+    h2{font-size:clamp(1.25rem,2vw,1.6rem);margin:0 0 10px}
+    /* Form */
+    form{display:grid;gap:12px;margin-top:10px}
+    label{font-weight:700}
+    input,textarea{
+      width:100%;padding:13px 14px;border-radius:12px;color:var(--ink);
+      background:#0d131e;border:1px solid rgba(255,255,255,.16);min-height:44px
+    }
+    input:focus,textarea:focus,.btn:focus{outline:3px solid var(--ring);outline-offset:2px}
+    .fine{color:#9fb0c6;font-size:.95rem}
+    footer{padding:34px 0 22px;color:#8ea0b7;text-align:center}
+    /* Reveal animation */
+    .reveal{opacity:0;transform:translateY(16px);transition:opacity .6s ease,transform .6s ease}
+    .reveal.show{opacity:1;transform:none}
+  </style>
 </head>
 <body>
+  <div class="wrap">
 
-<section>
-  <h1>Let's Build Lifetime Customers</h1>
-  <p>We help great local businesses get seen through authentic reviews and simple pages that connect real customers directly to you — no logos, no middlemen.</p>
-  
-  <p><strong>Due to high demand, we’re only taking on ten new businesses this week.</strong></p>
+    <!-- HERO -->
+    <section class="hero">
+      <span class="badge">Lifetime Customers</span>
+      <h1 class="reveal">Authentic reviews. Simple pages. Real customers.</h1>
+      <p class="lead reveal">
+        We keep it quiet and unbranded. It is just my mom and me helping good businesses get seen and helping real customers reach you.
+      </p>
 
-  <div>
-    <a href="tel:+1-727-555-1234" class="gofer-btn">Call Gofer Line 1</a>
-    <a href="sms:+1-727-555-5678" class="gofer-btn gofer-btn--outline">Text Gofer Line 2</a>
+      <div class="cta">
+        <a class="btn btn-primary" href="#start">Snag your spot</a>
+        <a class="btn btn-outline" href="sms:+17273539673?&body=Hi%20—%20I%20am%20ready%20to%20start.">Text Gofer</a>
+        <a class="btn btn-dark" href="sms:+17275944769?&body=Hi%20Isaac%2C%20I%20am%20ready%20to%20start.">Text Isaac</a>
+      </div>
+
+      <p class="fine">Due to high demand, we are only taking on ten new businesses this week.</p>
+    </section>
+
+    <!-- COPY that matches the email -->
+    <section class="section grid two">
+      <article class="glass card reveal">
+        <p class="kicker">Quick ask</p>
+        <h2>Want a few 5-star reviews?</h2>
+        <p>Let me know if you want me to leave some 5-star reviews for your business.</p>
+      </article>
+
+      <article class="glass card reveal">
+        <p class="kicker">Why this</p>
+        <h2>Spend less. Win more.</h2>
+        <p>There is no reason to be paying thousands a month just to make an impact online. We build simple pages that bring in new customers from Google and Facebook and we take on the risk so you do not have to.</p>
+      </article>
+
+      <article class="glass card reveal">
+        <p class="kicker">How it works</p>
+        <h2>No logos. No middlemen.</h2>
+        <p>We do this quietly and unbranded. It is just me and my mom helping book the best customers directly into your schedule.</p>
+      </article>
+
+      <!-- FORM -->
+      <aside id="start" class="glass card reveal" aria-label="Get started">
+        <h2>Start here</h2>
+        <form action="https://formspree.io/f/YOUR_FORMSPREE_ID" method="POST">
+          <label for="name">Name *</label>
+          <input id="name" name="name" required autocomplete="name">
+
+          <label for="biz">Business Name *</label>
+          <input id="biz" name="business" required autocomplete="organization">
+
+          <label for="email">Email *</label>
+          <input id="email" name="email" type="email" required autocomplete="email">
+
+          <label for="phone">Phone</label>
+          <input id="phone" name="phone" type="tel" autocomplete="tel">
+
+          <label for="msg">Anything we should know?</label>
+          <textarea id="msg" name="message" rows="4" placeholder="Scheduling notes, services, location"></textarea>
+
+          <input type="hidden" name="_subject" value="Lifetime Customers — new inquiry">
+          <input type="hidden" name="_redirect" value="https://gofercontent.com/lifetime-customers/thanks.html">
+
+          <button class="btn btn-primary" type="submit">Snag your spot</button>
+          <p class="fine">Your message goes straight to us. No lists.</p>
+        </form>
+
+        <div class="cta" style="margin-top:10px">
+          <a class="btn btn-outline" href="tel:+17273539673">Call Gofer: (727) 353-9673</a>
+          <a class="btn btn-outline" href="tel:+17275944769">Call Isaac: (727) 594-4769</a>
+        </div>
+      </aside>
+    </section>
+
+    <footer class="reveal">© 2025 Gofer • Helping real businesses get seen</footer>
   </div>
 
-  <form action="https://formspree.io/f/XXXXXXX" method="POST">
-    <label for="name">Name*</label>
-    <input id="name" name="name" required placeholder="Your name">
-
-    <label for="business">Business Name*</label>
-    <input id="business" name="business" required placeholder="Your business">
-
-    <label for="email">Email*</label>
-    <input id="email" name="email" type="email" required placeholder="you@example.com">
-
-    <label for="message">Message</label>
-    <textarea id="message" name="message" rows="4" placeholder="Tell us what kind of customers you want to reach."></textarea>
-
-    <button class="gofer-btn">Snag Your Spot</button>
-  </form>
-
-  <footer>
-    <p>© 2025 Lifetime Customers | Part of the Gofer Network</p>
-  </footer>
-</section>
-
+  <script>
+    // Simple scroll-reveal (accessible, no motion if user prefers reduced motion)
+    const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if(!prefersReduced){
+      const io = new IntersectionObserver((entries)=>{
+        entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('show'); io.unobserve(e.target); } });
+      }, {threshold:.12});
+      document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+    } else {
+      document.querySelectorAll('.reveal').forEach(el=>el.classList.add('show'));
+    }
+  </script>
 </body>
 </html>
