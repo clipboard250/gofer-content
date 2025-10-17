@@ -208,36 +208,5 @@
     }
   }, {passive:false});
 </script>
-  <!-- 🍪 Gofer Spinny Cookie -->
-<div class="cookie" aria-label="freshly baked cookie"></div>
-
-<style>
-.cookie{
-  position:fixed;
-  bottom:16px;
-  right:16px;
-  z-index:60;
-  font-size:22px;
-  cursor:pointer;
-  user-select:none;
-  animation:spin 6s linear infinite;
-  transition:transform .3s ease, filter .3s ease;
-}
-@keyframes spin{from{transform:rotate(0)}to{transform:rotate(360deg)}}
-.cookie:hover{
-  transform:scale(1.3);
-  filter:brightness(1.3);
-}
-@media (prefers-reduced-motion:reduce){.cookie{animation:none}}
-</style>
-
-<script>
-const cookie=document.querySelector('.cookie');
-cookie.textContent='🍪';
-cookie.title='Freshly baked update';
-cookie.addEventListener('click',()=>{
-  alert('Fresh batch shipped '+new Date().toLocaleDateString());
-});
-</script>
 </body>
 </html>
