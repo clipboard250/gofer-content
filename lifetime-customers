@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Lifetime Customers | Direct Local Growth</title>
+<meta name="description" content="We help local businesses get seen through authentic reviews and direct customer connections. No branding. No middlemen. Just results.">
+<link rel="canonical" href="https://gofercontent.com/lifetime-customers">
+<meta property="og:title" content="Lifetime Customers | Direct Local Growth">
+<meta property="og:description" content="Helping local businesses get seen through authentic reviews and real customer connections.">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://gofercontent.com/assets/og-lifetime-customers.jpg">
+<link rel="stylesheet" href="/assets/css/ui-system.css?v=2025-10-17">
+<link rel="stylesheet" href="/assets/css/button-template.css?v=2025-10-17">
+<style>
+body {
+  font-family: Inter, system-ui, sans-serif;
+  background: #f8f9fa;
+  color: #0b0f14;
+  margin: 0;
+}
+section {
+  max-width: 640px;
+  margin: 0 auto;
+  padding: 3rem 1.5rem;
+  text-align: center;
+}
+h1 {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: .75rem;
+}
+p {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+}
+.gofer-btn {
+  margin: 0.5rem;
+  font-size: 1rem;
+}
+form {
+  margin-top: 2rem;
+  display: grid;
+  gap: 1rem;
+}
+input, textarea {
+  font-family: inherit;
+  font-size: 1rem;
+  padding: 0.8rem;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  width: 100%;
+}
+label {
+  text-align: left;
+  font-weight: 600;
+  font-size: .95rem;
+}
+footer {
+  margin-top: 2rem;
+  font-size: .9rem;
+  color: #555;
+}
+</style>
+</head>
+<body>
+
+<section>
+  <h1>Let's Build Lifetime Customers</h1>
+  <p>We help great local businesses get seen through authentic reviews and simple pages that connect real customers directly to you — no logos, no middlemen.</p>
+  
+  <p><strong>Due to high demand, we’re only taking on ten new businesses this week.</strong></p>
+
+  <div>
+    <a href="tel:+1-727-555-1234" class="gofer-btn">Call Gofer Line 1</a>
+    <a href="sms:+1-727-555-5678" class="gofer-btn gofer-btn--outline">Text Gofer Line 2</a>
+  </div>
+
+  <form action="https://formspree.io/f/XXXXXXX" method="POST">
+    <label for="name">Name*</label>
+    <input id="name" name="name" required placeholder="Your name">
+
+    <label for="business">Business Name*</label>
+    <input id="business" name="business" required placeholder="Your business">
+
+    <label for="email">Email*</label>
+    <input id="email" name="email" type="email" required placeholder="you@example.com">
+
+    <label for="message">Message</label>
+    <textarea id="message" name="message" rows="4" placeholder="Tell us what kind of customers you want to reach."></textarea>
+
+    <button class="gofer-btn">Snag Your Spot</button>
+  </form>
+
+  <footer>
+    <p>© 2025 Lifetime Customers | Part of the Gofer Network</p>
+  </footer>
+</section>
+
+</body>
+</html>
