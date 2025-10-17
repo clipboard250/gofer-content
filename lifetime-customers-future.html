@@ -89,21 +89,27 @@
     .cta-label{display:inline}
     .cta-label--mobile{display:none}
   }
+  
+/* ===== Bottom ticker (mobile-smooth + faster) ===== */
+.ticker{
+  position:fixed;left:0;right:0;bottom:0;z-index:30;
+  background:#101214;border-top:1px solid var(--line);
+  overflow:hidden;
+  mask-image:linear-gradient(to right,transparent 0,black 40px,black calc(100% - 40px),transparent 100%);
+}
+.track{
+  display:flex;gap:40px;white-space:nowrap;align-items:center;padding:10px 0;color:#cfe3f5;
+  animation:scroll 6s linear infinite;         /* was 10s → now 6s */
+  will-change: transform;                       /* smoother on iOS */
+}
+.track b{color:#b8fff1}
+/* translate3d encourages GPU accel on iOS */
+@keyframes scroll{
+  from{transform:translate3d(0,0,0)}
+  to{transform:translate3d(-50%,0,0)}
+}
+@media (prefers-reduced-motion:reduce){.track{animation:none}}
 
-  /* Bottom ticker (faster, text-only) */
-  .ticker{
-    position:fixed;left:0;right:0;bottom:0;z-index:30;
-    background:#101214;border-top:1px solid var(--line);
-    overflow:hidden;
-    mask-image:linear-gradient(to right,transparent 0,black 40px,black calc(100% - 40px),transparent 100%);
-  }
-  .track{
-    display:flex;gap:80px;white-space:nowrap;align-items:center;padding:10px 0;color:#cfe3f5;
-    animation:scroll 10s linear infinite; /* zippier */
-  }
-  .track b{color:#b8fff1}
-  @keyframes scroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
-  @media (prefers-reduced-motion:reduce){.track{animation:none}}
 </style>
 </head>
 <body>
