@@ -4,29 +4,37 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Lifetime Customers — fast start</title>
-<meta name="description" content="Stop paying for ad experiments. Text Isaac or Dayna to start: real 5-star reviews + one page that brings customers to you. We take the risk.">
+<meta name="description" content="We leave real 5-star reviews and build one page that brings new customers to you. We take the risk. Text Isaac or Dayna to start.">
 <link rel="canonical" href="https://gofercontent.com/lifetime-customers-future.html">
 
+<!-- OG/Twitter for this FUTURE page -->
+<meta property="og:url" content="https://gofercontent.com/lifetime-customers-future.html">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Lifetime Customers — fast start">
+<meta property="og:description" content="We leave real 5-star reviews and build one page that brings new customers to you. We take the risk.">
+<meta property="og:image" content="https://gofercontent.com/assets/og-future.svg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Lifetime Customers — fast start">
+<meta name="twitter:description" content="We leave real 5-star reviews and build one page that brings new customers to you. We take the risk.">
+<meta name="twitter:image" content="https://gofercontent.com/assets/og-future.svg">
+
 <style>
-  /* ========== Base Theme (dark) ========== */
+  /* ===== Dark base ===== */
   :root{
     --bg:#0a0a0a; --ink:#e6edf3; --muted:#141414; --line:#232323;
 
-    /* Tealable tokens (page-specific; buttons read these) */
-    --brand-a:#00d4b4;           /* transformative teal vibe */
-    --brand-b:#00ffd0;
-    --brand-outline:#2a2f36;
-    --brand-focus:#00ffd0;
+    /* Theme tokens (buttons read these) — “transformative teal” but easily changeable */
+    --brand-a:#00d4b4; --brand-b:#00ffd0;  /* gradient endpoints */
+    --brand-outline:#2a2f36; --brand-focus:#00ffd0;
 
-    /* Button template tokens (neutral defaults) */
+    /* Universal button template tokens */
     --btn-bg: linear-gradient(135deg,var(--brand-a),var(--brand-b));
     --btn-bg-hover: linear-gradient(135deg,var(--brand-b),var(--brand-a));
     --btn-border: var(--brand-outline);
     --btn-text: #051019;
     --btn-focus: var(--brand-focus);
     --btn-radius: 14px;
-    --btn-pad-y: .85em;
-    --btn-pad-x: 1.4em;
+    --btn-pad-y: .85em; --btn-pad-x: 1.4em;
     --btn-font: Inter, Lexend, system-ui, sans-serif;
     --btn-min-tap: 44px;
   }
@@ -39,21 +47,18 @@
   @media (max-width:900px){.grid{grid-template-columns:1fr}}
   .panel{background:var(--muted);border:1px solid var(--line);border-radius:14px;padding:18px}
   h1{font-size:clamp(28px,5vw,64px);line-height:1;margin:8px 0 2px}
+
   .list{font-size:clamp(18px,2.4vw,26px);line-height:1.25}
   .list a{color:#e6edf3;text-decoration:none;display:block;padding:12px 0;border-bottom:1px solid var(--line)}
   .list a:hover{color:#b8fff1}
 
-  /* ========== Universal Button Template (neutral, theme by tokens) ========== */
+  /* ===== Universal Button Template (neutral; themed by tokens above) ===== */
   .btn{
     display:inline-flex;align-items:center;justify-content:center;gap:.5em;
-    min-height:var(--btn-min-tap);
-    padding:var(--btn-pad-y) var(--btn-pad-x);
-    border-radius:var(--btn-radius);
-    border:1.5px solid var(--btn-border);
-    background:transparent;
-    color:var(--ink);
-    font-family:var(--btn-font);font-weight:600;font-size:1rem;letter-spacing:.02em;
-    text-decoration:none;cursor:pointer;line-height:1;user-select:none;
+    min-height:var(--btn-min-tap);padding:var(--btn-pad-y) var(--btn-pad-x);
+    border-radius:var(--btn-radius);border:1.5px solid var(--btn-border);
+    background:transparent;color:var(--ink);font-family:var(--btn-font);font-weight:600;font-size:1rem;
+    letter-spacing:.02em;text-decoration:none;cursor:pointer;line-height:1;user-select:none;
     transition:background .25s ease,box-shadow .25s ease,transform .15s ease,filter .2s ease;
   }
   .btn:hover{transform:translateY(-2px);filter:saturate(1.05)}
@@ -78,26 +83,29 @@
   input:focus,textarea:focus,.btn:focus-visible{outline:3px solid var(--btn-focus);outline-offset:2px}
   small{color:#9aa5b1}
 
-  /* Bottom banner (auto-updating spots) */
-  .bar{
-    position:fixed;left:12px;right:12px;bottom:12px;
-    display:flex;gap:12px;align-items:center;justify-content:space-between;
-    padding:12px 14px;border-radius:12px;background:#101214;border:1px solid var(--line);
-    box-shadow:0 6px 18px rgba(0,0,0,.5);
+  /* ===== Bottom ticker ===== */
+  .ticker{
+    position:fixed;left:0;right:0;bottom:0;z-index:30;
+    background:#101214;border-top:1px solid var(--line);
+    overflow:hidden;mask-image:linear-gradient(to right,transparent 0,black 40px,black calc(100% - 40px),transparent 100%);
   }
-  .bar b{color:#b8fff1}
+  .track{
+    display:flex;gap:40px;white-space:nowrap;align-items:center;padding:10px 0;color:#cfe3f5;
+    animation:scroll 22s linear infinite;
+  }
+  .track b{color:#b8fff1}
+  .tick-btn{margin-right:16px}
+  @keyframes scroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+  @media (prefers-reduced-motion:reduce){.track{animation:none}}
 </style>
 </head>
 <body>
 <div class="wrap">
-  <div class="top">
-    <div># LIFETIME CUSTOMERS</div>
-    <!-- removed version label -->
-  </div>
+  <div class="top"><div># LIFETIME CUSTOMERS</div><div></div></div>
 
   <div class="grid">
     <section class="panel" aria-label="actions">
-      <h1>Get customers this week</h1>
+      <h1>Get new customers</h1>
       <div class="list">
         <a href="sms:+17275944769?&body=Hi%20Isaac%2C%20I%27m%20ready%20to%20start%20the%20reviews%20%2B%20customer%20flow.%20Business%3A%20">> Text Isaac to start</a>
         <a href="sms:+17273539673?&body=Hi%20Dayna%20(Isaac%E2%80%99s%20mom)%2C%20I%27m%20ready%20to%20start.%20Business%3A%20">> Text Dayna (Isaac’s mom)</a>
@@ -109,7 +117,7 @@
         <a class="btn btn--outline" href="tel:+17275944769">Call Isaac: (727) 594-4769</a>
       </div>
 
-      <p><small>We leave real 5-star reviews and build one page that brings customers to you. Quiet and unbranded. We take the risk.</small></p>
+      <p><small>We leave real 5-star reviews and build one page that brings new customers to you. We take the risk.</small></p>
     </section>
 
     <aside id="form" class="panel" aria-label="start form">
@@ -119,8 +127,7 @@
         <label for="b">Business *</label><input id="b" name="business" required>
         <label for="e">Email *</label><input id="e" name="email" type="email" required>
         <label for="p">Phone</label><input id="p" name="phone" type="tel">
-        <label for="m">Notes</label>
-        <textarea id="m" name="message" rows="4" placeholder="Best times, services, location"></textarea>
+        <label for="m">Notes</label><textarea id="m" name="message" rows="4" placeholder="Best times, services, location"></textarea>
         <input type="hidden" name="_subject" value="Lifetime Customers (future) — new inquiry">
         <input type="hidden" name="_redirect" value="https://gofercontent.com/lifetime-customers/thanks.html">
         <button class="btn btn--fill btn--block" type="submit">Send</button>
@@ -129,33 +136,35 @@
   </div>
 </div>
 
-<!-- Bottom spot counter -->
-<div class="bar" role="status" aria-live="polite">
-  <div>Limited spots: <b id="spots">0</b> of 10 taken</div>
-  <div><small>Offer resets Sunday</small></div>
+<!-- BOTTOM TICKER (daily countdown Sun=10 ... Sat=1) -->
+<div class="ticker" role="status" aria-live="polite">
+  <div class="track" id="track">
+    <!-- text duplicated so it scrolls seamlessly -->
+    <div id="msg"></div>
+    <div class="tick-btn"><a class="btn btn--fill btn--sm" href="sms:+17275944769?&body=Hi%20Isaac%2C%20I%27m%20ready%20to%20start%20the%20reviews%20%2B%20customer%20flow.%20Business%3A%20">Text Isaac</a></div>
+    <div style="opacity:.6">•</div>
+    <div id="msg2" style="margin-left:24px"></div>
+    <div class="tick-btn"><a class="btn btn--fill btn--sm" href="sms:+17273539673?&body=Hi%20Dayna%2C%20I%27m%20ready%20to%20start.">Text Dayna</a></div>
+    <div style="opacity:.6">•</div>
+  </div>
 </div>
 
 <script>
-  // Weekly spots logic:
-  // Start with 0 taken Monday 00:00; reach 10 taken by Sunday 23:59.
-  // If you want Sunday reset instead of Monday, change weekStart to 0 (Sunday).
-  const weekStart = 1; // 0=Sunday, 1=Monday
-  const now = new Date();
-  const currentDay = (now.getDay()+7)%7;
-  const diffToStart = (currentDay - weekStart + 7) % 7;
-  const start = new Date(now);
-  start.setDate(now.getDate() - diffToStart);
-  start.setHours(0,0,0,0);
-  const end = new Date(start); end.setDate(start.getDate()+7); // next week start
+  // --- Daily spots: Sun=10, Mon=9, Tue=8, Wed=7, Thu=6, Fri=5, Sat=1
+  const map=[10,9,8,7,6,5,1];
+  const day=new Date().getDay(); // 0 Sun .. 6 Sat
+  const taken=map[day];
+  const s=`Limited spots: <b>${taken}</b> of 10 taken`;
 
-  const totalMs = end - start;
-  const elapsedMs = now - start;
-  let pct = Math.min(1, Math.max(0, elapsedMs / totalMs));
-  // convert to 0..10 spots taken and keep at least 1 taken mid-day Monday to feel alive
-  let taken = Math.round(pct * 10);
-  if (taken === 0 && elapsedMs > 6*60*60*1000) taken = 1;
+  // ticker content
+  const msg=document.getElementById('msg');
+  const msg2=document.getElementById('msg2');
+  msg.innerHTML=s; msg2.innerHTML=s;
 
-  document.getElementById('spots').textContent = taken;
+  // motion-respect for ticker
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches){
+    document.querySelector('.track').style.animation='none';
+  }
 </script>
 </body>
 </html>
