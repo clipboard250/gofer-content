@@ -3,77 +3,68 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Lifetime Customers — fast start</title>
-<meta name="description" content="We leave real 5-star reviews and build one page that brings new customers to you. We take the risk. Text Isaac or Dayna to start.">
-<link rel="canonical" href="https://gofercontent.com/lifetime-customers-future.html">
 
-<!-- OG/Twitter for this FUTURE page -->
-<meta property="og:url" content="https://gofercontent.com/lifetime-customers-future.html">
+<!-- HTML Meta Tags -->
+<title>Lifetime Customers — Start Now</title>
+<meta name="description" content="Real 5-star reviews and one simple promo page that quietly brings the right customers to you. No ad spend, no risk.">
+
+<!-- Open Graph / Facebook -->
+<meta property="og:url" content="https://gofercontent.com/lifetime-customers">
 <meta property="og:type" content="website">
-<meta property="og:title" content="Lifetime Customers — fast start">
-<meta property="og:description" content="We leave real 5-star reviews and build one page that brings new customers to you. We take the risk.">
-<meta property="og:image" content="https://gofercontent.com/assets/og-future.svg">
+<meta property="og:site_name" content="Gofer Content">
+<meta property="og:title" content="Lifetime Customers — Start Now">
+<meta property="og:description" content="Real 5-star reviews and one simple promo page that quietly brings the right customers to you. No ad spend, no risk.">
+<meta property="og:image" content="https://gofercontent.com/assets/og-future.jpg?v=1">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+
+<!-- Twitter -->
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Lifetime Customers — fast start">
-<meta name="twitter:description" content="We leave real 5-star reviews and build one page that brings new customers to you. We take the risk.">
-<meta name="twitter:image" content="https://gofercontent.com/assets/og-future.svg">
+<meta name="twitter:site" content="@gofercontent">
+<meta name="twitter:title" content="Lifetime Customers — Start Now">
+<meta name="twitter:description" content="Real 5-star reviews and one simple promo page that quietly brings the right customers to you. No ad spend, no risk.">
+<meta name="twitter:image" content="https://gofercontent.com/assets/og-future.jpg?v=1">
 
 <style>
-  /* ===== Dark base ===== */
   :root{
     --bg:#0a0a0a; --ink:#e6edf3; --muted:#141414; --line:#232323;
-
-    /* Theme tokens (buttons read these) — “transformative teal” but easily changeable */
-    --brand-a:#00d4b4; --brand-b:#00ffd0;  /* gradient endpoints */
+    --brand-a:#00d4b4; --brand-b:#00ffd0;
     --brand-outline:#2a2f36; --brand-focus:#00ffd0;
-
-    /* Universal button template tokens */
     --btn-bg: linear-gradient(135deg,var(--brand-a),var(--brand-b));
     --btn-bg-hover: linear-gradient(135deg,var(--brand-b),var(--brand-a));
     --btn-border: var(--brand-outline);
-    --btn-text: #051019;
-    --btn-focus: var(--brand-focus);
-    --btn-radius: 14px;
-    --btn-pad-y: .85em; --btn-pad-x: 1.4em;
-    --btn-font: Inter, Lexend, system-ui, sans-serif;
-    --btn-min-tap: 44px;
+    --btn-text:#051019; --btn-focus:var(--brand-focus);
+    --btn-radius:14px; --btn-pad-y:.85em; --btn-pad-x:1.4em;
+    --btn-font:Inter,Lexend,system-ui,sans-serif; --btn-min-tap:44px;
   }
 
   *{box-sizing:border-box}
   body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.6 ui-monospace,Menlo,Consolas,monospace}
   .wrap{max-width:1140px;margin:0 auto;padding:26px 14px}
-  .top{display:flex;justify-content:space-between;align-items:center}
   .grid{display:grid;grid-template-columns:1.2fr .9fr;gap:20px;margin-top:24px}
   @media (max-width:900px){.grid{grid-template-columns:1fr}}
   .panel{background:var(--muted);border:1px solid var(--line);border-radius:14px;padding:18px}
   h1{font-size:clamp(28px,5vw,64px);line-height:1;margin:8px 0 2px}
-
   .list{font-size:clamp(18px,2.4vw,26px);line-height:1.25}
   .list a{color:#e6edf3;text-decoration:none;display:block;padding:12px 0;border-bottom:1px solid var(--line)}
   .list a:hover{color:#b8fff1}
 
-  /* ===== Universal Button Template (neutral; themed by tokens above) ===== */
   .btn{
     display:inline-flex;align-items:center;justify-content:center;gap:.5em;
     min-height:var(--btn-min-tap);padding:var(--btn-pad-y) var(--btn-pad-x);
     border-radius:var(--btn-radius);border:1.5px solid var(--btn-border);
-    background:transparent;color:var(--ink);font-family:var(--btn-font);font-weight:600;font-size:1rem;
-    letter-spacing:.02em;text-decoration:none;cursor:pointer;line-height:1;user-select:none;
+    background:transparent;color:var(--ink);font-family:var(--btn-font);
+    font-weight:600;font-size:1rem;letter-spacing:.02em;text-decoration:none;
+    cursor:pointer;line-height:1;user-select:none;
     transition:background .25s ease,box-shadow .25s ease,transform .15s ease,filter .2s ease;
   }
   .btn:hover{transform:translateY(-2px);filter:saturate(1.05)}
   .btn:active{transform:translateY(0)}
   .btn:focus-visible{outline:none;box-shadow:0 0 0 3px var(--btn-focus)}
-  .btn[disabled]{opacity:.55;pointer-events:none;filter:grayscale(.4)}
   .btn--outline{background:transparent;border:2px solid var(--btn-border)}
   .btn--fill{background:var(--btn-bg);border:none;color:var(--btn-text)}
   .btn--fill:hover{background:var(--btn-bg-hover)}
-  .btn--ghost{background:none;border:none}
   .btn--block{width:100%}
-  .btn--sm{padding:.6em 1em;font-size:.95rem}
-  .btn--lg{padding:1em 1.75em;font-size:1.05rem}
-  .btn--glass{background:linear-gradient(180deg,rgba(255,255,255,.08),rgba(255,255,255,.02));border:1px solid rgba(255,255,255,.1);backdrop-filter:blur(8px)}
-  .btn--glass:hover{background:linear-gradient(180deg,rgba(255,255,255,.12),rgba(255,255,255,.04))}
   @media (prefers-reduced-motion:reduce){.btn{transition:none}.btn:hover,.btn:active{transform:none}}
 
   .cta{display:grid;gap:10px;margin-top:12px}
@@ -83,26 +74,24 @@
   input:focus,textarea:focus,.btn:focus-visible{outline:3px solid var(--btn-focus);outline-offset:2px}
   small{color:#9aa5b1}
 
-  /* ===== Bottom ticker ===== */
+  /* ===== ticker (clean, slow, pain points) ===== */
   .ticker{
     position:fixed;left:0;right:0;bottom:0;z-index:30;
     background:#101214;border-top:1px solid var(--line);
     overflow:hidden;mask-image:linear-gradient(to right,transparent 0,black 40px,black calc(100% - 40px),transparent 100%);
   }
   .track{
-    display:flex;gap:40px;white-space:nowrap;align-items:center;padding:10px 0;color:#cfe3f5;
-    animation:scroll 22s linear infinite;
+    display:flex;gap:36px;white-space:nowrap;align-items:center;
+    padding:12px 0;color:#cfe3f5;
+    animation:scroll 40s linear infinite;
   }
-  .track b{color:#b8fff1}
-  .tick-btn{margin-right:16px}
   @keyframes scroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
   @media (prefers-reduced-motion:reduce){.track{animation:none}}
+  .track b{color:#b8fff1}
 </style>
 </head>
 <body>
 <div class="wrap">
-  <div class="top"><div># LIFETIME CUSTOMERS</div><div></div></div>
-
   <div class="grid">
     <section class="panel" aria-label="actions">
       <h1>Get new customers</h1>
@@ -113,7 +102,7 @@
       </div>
 
       <div class="cta">
-        <a class="btn btn--fill btn--lg" href="#form">Snag my page</a>
+        <a class="btn btn--fill" href="#form">Snag my page</a>
         <a class="btn btn--outline" href="tel:+17275944769">Call Isaac: (727) 594-4769</a>
       </div>
 
@@ -136,35 +125,24 @@
   </div>
 </div>
 
-<!-- BOTTOM TICKER (daily countdown Sun=10 ... Sat=1) -->
+<!-- bottom ticker -->
 <div class="ticker" role="status" aria-live="polite">
   <div class="track" id="track">
-    <!-- text duplicated so it scrolls seamlessly -->
     <div id="msg"></div>
-    <div class="tick-btn"><a class="btn btn--fill btn--sm" href="sms:+17275944769?&body=Hi%20Isaac%2C%20I%27m%20ready%20to%20start%20the%20reviews%20%2B%20customer%20flow.%20Business%3A%20">Text Isaac</a></div>
-    <div style="opacity:.6">•</div>
-    <div id="msg2" style="margin-left:24px"></div>
-    <div class="tick-btn"><a class="btn btn--fill btn--sm" href="sms:+17273539673?&body=Hi%20Dayna%2C%20I%27m%20ready%20to%20start.">Text Dayna</a></div>
-    <div style="opacity:.6">•</div>
+    <div>• Stop paying for ad experiments.</div>
+    <div>• Real reviews + one page that converts.</div>
+    <div>• We take the risk.</div>
+    <div id="msg2"></div>
   </div>
 </div>
 
 <script>
-  // --- Daily spots: Sun=10, Mon=9, Tue=8, Wed=7, Thu=6, Fri=5, Sat=1
+  // Daily count: Sun=10, Mon=9, Tue=8, Wed=7, Thu=6, Fri=5, Sat=1
   const map=[10,9,8,7,6,5,1];
-  const day=new Date().getDay(); // 0 Sun .. 6 Sat
-  const taken=map[day];
-  const s=`Limited spots: <b>${taken}</b> of 10 taken`;
-
-  // ticker content
-  const msg=document.getElementById('msg');
-  const msg2=document.getElementById('msg2');
-  msg.innerHTML=s; msg2.innerHTML=s;
-
-  // motion-respect for ticker
-  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches){
-    document.querySelector('.track').style.animation='none';
-  }
+  const taken = map[new Date().getDay()];
+  const line = `Limited spots: <b>${taken}</b> of 10 taken`;
+  document.getElementById('msg').innerHTML=line;
+  document.getElementById('msg2').innerHTML=line;
 </script>
 </body>
 </html>
