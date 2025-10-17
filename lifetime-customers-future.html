@@ -4,7 +4,6 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 
-<!-- Canonical aligned to OG URL -->
 <link rel="canonical" href="https://gofercontent.com/lifetime-customers">
 
 <!-- HTML Meta Tags -->
@@ -26,18 +25,11 @@
 <meta name="twitter:description" content="Real 5-star reviews + one promo page to rule them all and get ideal customers to you behind the scenes. ">
 <meta name="twitter:image" content="https://opengraph.b-cdn.net/production/images/b7ed05cd-f4bf-4a07-b0bb-0080ddbd66b1.png?token=VokE7pXYruTDjM9FG0m-pQaKTV2VCryF5k1QybcHP9Y&height=675&width=1200&expires=33296724024">
 
-<!-- Meta Tags Generated via https://www.opengraph.xyz -->
-
 <style>
-  /* ===== Dark base ===== */
   :root{
     --bg:#0a0a0a; --ink:#e6edf3; --muted:#141414; --line:#232323;
-
-    /* Theme tokens (buttons read these) — “transformative teal” but easily changeable */
     --brand-a:#00d4b4; --brand-b:#00ffd0;
     --brand-outline:#2a2f36; --brand-focus:#00ffd0;
-
-    /* Universal button template tokens */
     --btn-bg: linear-gradient(135deg,var(--brand-a),var(--brand-b));
     --btn-bg-hover: linear-gradient(135deg,var(--brand-b),var(--brand-a));
     --btn-border: var(--brand-outline);
@@ -62,7 +54,7 @@
   .list a{color:#e6edf3;text-decoration:none;display:block;padding:12px 0;border-bottom:1px solid var(--line)}
   .list a:hover{color:#b8fff1}
 
-  /* ===== Universal Button Template ===== */
+  /* Buttons */
   .btn{
     display:inline-flex;align-items:center;justify-content:center;gap:.5em;
     min-height:var(--btn-min-tap);padding:var(--btn-pad-y) var(--btn-pad-x);
@@ -78,12 +70,9 @@
   .btn--outline{background:transparent;border:2px solid var(--btn-border)}
   .btn--fill{background:var(--btn-bg);border:none;color:var(--btn-text)}
   .btn--fill:hover{background:var(--btn-bg-hover)}
-  .btn--ghost{background:none;border:none}
   .btn--block{width:100%}
   .btn--sm{padding:.6em 1em;font-size:.95rem}
   .btn--lg{padding:1em 1.75em;font-size:1.05rem}
-  .btn--glass{background:linear-gradient(180deg,rgba(255,255,255,.08),rgba(255,255,255,.02));border:1px solid rgba(255,255,255,.1);backdrop-filter:blur(8px)}
-  .btn--glass:hover{background:linear-gradient(180deg,rgba(255,255,255,.12),rgba(255,255,255,.04))}
   @media (prefers-reduced-motion:reduce){.btn{transition:none}.btn:hover,.btn:active{transform:none}}
 
   .cta{display:grid;gap:10px;margin-top:12px}
@@ -93,7 +82,15 @@
   input:focus,textarea:focus,.btn:focus-visible{outline:3px solid var(--btn-focus);outline-offset:2px}
   small{color:#9aa5b1}
 
-  /* ===== Bottom ticker (faster + text-only) ===== */
+  /* Responsive CTA label swap */
+  .cta-label{display:none}
+  .cta-label--mobile{display:inline}
+  @media (min-width:901px){
+    .cta-label{display:inline}
+    .cta-label--mobile{display:none}
+  }
+
+  /* Bottom ticker (faster, text-only) */
   .ticker{
     position:fixed;left:0;right:0;bottom:0;z-index:30;
     background:#101214;border-top:1px solid var(--line);
@@ -102,8 +99,7 @@
   }
   .track{
     display:flex;gap:80px;white-space:nowrap;align-items:center;padding:10px 0;color:#cfe3f5;
-    /* faster speed */
-    animation:scroll 14s linear infinite;
+    animation:scroll 10s linear infinite; /* zippier */
   }
   .track b{color:#b8fff1}
   @keyframes scroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
@@ -117,14 +113,19 @@
   <div class="grid">
     <section class="panel" aria-label="actions">
       <h1>Get new customers</h1>
+
       <div class="list">
         <a href="sms:+17275944769?&body=Hi%20Isaac%2C%20I%27m%20ready%20to%20start%20the%20reviews%20%2B%20customer%20flow.%20Business%3A%20">> Text Isaac to start</a>
         <a href="sms:+17273539673?&body=Hi%20Dayna%20(Isaac%E2%80%99s%20mom)%2C%20I%27m%20ready%20to%20start.%20Business%3A%20">> Text Dayna (Isaac’s mom)</a>
-        <a href="#form">> Snag my page</a>
+        <!-- Removed the third list link to reduce confusion on desktop -->
       </div>
 
       <div class="cta">
-        <a class="btn btn--fill btn--lg" href="#form">Snag my page</a>
+        <!-- Desktop label = Send message; Mobile label = Snag my page -->
+        <a id="ctaBtn" class="btn btn--fill btn--lg" href="#form">
+          <span class="cta-label">Send message</span>
+          <span class="cta-label--mobile">Snag my page</span>
+        </a>
         <a class="btn btn--outline" href="tel:+17275944769">Call Isaac: (727) 594-4769</a>
       </div>
 
@@ -147,7 +148,7 @@
   </div>
 </div>
 
-<!-- BOTTOM TICKER (text-only, faster) -->
+<!-- BOTTOM TICKER (text-only) -->
 <div class="ticker" role="status" aria-live="polite">
   <div class="track" id="track">
     <div id="msg"></div>
@@ -156,21 +157,50 @@
 </div>
 
 <script>
-  // Daily spots: Sun=10, Mon=9, Tue=8, Wed=7, Thu=6, Fri=5, Sat=1
-  // This "recharges" on Sunday (shows 10 of 10 taken).
-  const map=[10,9,8,7,6,5,1];
-  const day=new Date().getDay(); // 0 Sun .. 6 Sat
-  const taken=map[day];
-  const s=`Limited spots: <b>${taken}</b> of 10 taken`;
+  // Spots: Sun=10, Mon=9, Tue=8, Wed=7, Thu=6, Fri=5, Sat=1
+  const spotsMap=[10,9,8,7,6,5,1];
+  const today=new Date();
+  const day=today.getDay(); // 0..6
+
+  // next Sunday (if Sunday today, roll to next week)
+  function nextSundayDate(d){
+    const n = new Date(d);
+    const add = (7 - n.getDay()) % 7; // days until Sunday (0 if Sun)
+    n.setDate(n.getDate() + (add === 0 ? 7 : add)); // roll to next if today is Sun
+    return n;
+  }
+
+  // Format as e.g., Sun Oct 19, 2025
+  function fmtDate(dt){
+    return dt.toLocaleDateString(undefined,{weekday:'short', month:'short', day:'numeric', year:'numeric'});
+  }
+
+  const taken = spotsMap[day];
+  const expDate = nextSundayDate(today);
+
+  const s1 = `Limited spots: <b>${taken}</b> of 10 taken`;
+  const s2 = `Offer expires: <b>${fmtDate(expDate)}</b>`;
 
   // ticker content (duplicated for seamless scroll)
-  document.getElementById('msg').innerHTML=s;
-  document.getElementById('msg2').innerHTML=s;
+  document.getElementById('msg').innerHTML = `${s1} • ${s2}`;
+  document.getElementById('msg2').innerHTML = `${s1} • ${s2}`;
 
   // respect reduced motion
   if (window.matchMedia('(prefers-reduced-motion: reduce)').matches){
     document.querySelector('.track').style.animation='none';
   }
+
+  // When CTA clicked, smooth scroll & focus the Name field (less confusion)
+  const ctaBtn = document.getElementById('ctaBtn');
+  ctaBtn.addEventListener('click', function(e){
+    const target = document.getElementById('form');
+    if(target){
+      e.preventDefault();
+      target.scrollIntoView({behavior:'smooth', block:'start'});
+      setTimeout(()=> document.getElementById('n')?.focus(), 350);
+      history.replaceState(null, '', '#form');
+    }
+  }, {passive:false});
 </script>
 </body>
 </html>
