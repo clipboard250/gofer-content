@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0b0f14"/>
+      <stop offset="1" stop-color="#151f2c"/>
+    </linearGradient>
+    <linearGradient id="pill" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#00d4b4"/>
+      <stop offset="1" stop-color="#00ffd0"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <text x="60" y="260" font-family="Inter, Arial, sans-serif" font-size="72" font-weight="800" fill="#ffffff">
+    Lifetime Customers
+  </text>
+  <text x="60" y="340" font-family="Inter, Arial, sans-serif" font-size="36" fill="#cfe0f2">
+    New customers. No ad spend.
+  </text>
+  <rect x="60" y="390" rx="12" width="420" height="64" fill="url(#pill)"/>
+  <text x="80" y="433" font-family="Inter, Arial, sans-serif" font-size="28" font-weight="800" fill="#051019">
+    Text Isaac to start
+  </text>
+</svg>
