@@ -1,4 +1,3 @@
-<script>
 document.addEventListener('DOMContentLoaded', () => {
   // Your new Formspree ID
   const NEW_ID = 'xpwybgga'; // https://formspree.io/f/xpwybgga
@@ -7,11 +6,9 @@ document.addEventListener('DOMContentLoaded', () => {
   // Find any form that posts to Formspree and point it to the new ID
   document.querySelectorAll('form[action*="formspree.io"]').forEach(form => {
     form.setAttribute('action', NEW_ACTION);
-
-    // Make sure method is POST
     form.setAttribute('method', 'POST');
 
-    // Keep your redirect working if the page forgot it
+    // Keep your redirect working if a page forgot it
     if (!form.querySelector('input[name="_redirect"]')) {
       const redirect = document.createElement('input');
       redirect.type = 'hidden';
@@ -20,7 +17,7 @@ document.addEventListener('DOMContentLoaded', () => {
       form.appendChild(redirect);
     }
 
-    // Optional: a clearer subject line
+    // Optional: clearer subject line so your inbox is tidy
     if (!form.querySelector('input[name="_subject"]')) {
       const subj = document.createElement('input');
       subj.type = 'hidden';
@@ -30,4 +27,3 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 });
-</script>
