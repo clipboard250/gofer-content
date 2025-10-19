@@ -1,0 +1,177 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Dayna Himot • Community Manager Application</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --ink:#0b0f14;
+      --muted:#6b7280;
+      --bg:#ffffff;
+      --line:#e8e9ef;
+      --accent:#5b7cff;
+      --max:940px;
+      --radius:16px;
+      --shadow:0 12px 30px rgba(16,24,40,.08);
+    }
+    *{box-sizing:border-box}
+    html,body{margin:0;padding:0;background:var(--bg);color:var(--ink);font:15.5px/1.6 Lexend,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif}
+    .wrap{max-width:var(--max);margin:0 auto;padding:28px 18px}
+    header{display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;padding:18px;border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow);background:#fff}
+    .name{font-weight:700;font-size:22px;letter-spacing:.2px}
+    .meta{color:var(--muted);font-size:14px}
+    .btns{display:flex;gap:10px;flex-wrap:wrap}
+    .btn{appearance:none;border:1px solid var(--line);background:#fff;color:var(--ink);padding:12px 16px;border-radius:12px;font-weight:700;font-size:14px;cursor:pointer;transition:transform .08s ease}
+    .btn:active{transform:translateY(1px)}
+    .btn.primary{background:var(--accent);border-color:var(--accent);color:#fff}
+    a.btn{text-decoration:none;display:inline-block}
+    .online{margin:12px 2px 18px 2px;color:var(--muted);font-size:14px}
+    .link{color:var(--accent);text-decoration:none;border-bottom:1px solid rgba(91,124,255,.35);padding-bottom:1px}
+    .card{border:1px solid var(--line);border-radius:var(--radius);padding:22px;background:#fff;box-shadow:var(--shadow);margin:16px 0}
+    h2{font-size:16px;margin:0 0 12px 0;letter-spacing:.2px}
+    .row{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;margin:6px 0}
+    .title{font-weight:700}
+    .stamp{font-size:13px;color:var(--muted)}
+    .small{font-size:14px;color:var(--muted)}
+    .stack p{margin:6px 0}
+    footer{margin-top:18px;color:var(--muted);font-size:13px;text-align:center}
+
+    @media print{
+      .btns,.online{display:none !important}
+      body{background:#fff}
+      .wrap{padding:0}
+      header{box-shadow:none}
+      .card{box-shadow:none}
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+
+    <header aria-label="Header">
+      <div>
+        <div class="name">Dayna Himot</div>
+        <div class="meta">St. Petersburg FL • daynahimot@gmail.com • linkedin.com/in/daynahimot • muckrack.com/daynahimot</div>
+      </div>
+      <div class="btns" role="group" aria-label="Actions">
+        <button class="btn primary" onclick="window.print()">Download PDF</button>
+        <a class="btn" href="#resume">Skip to Resume</a>
+      </div>
+    </header>
+
+    <div class="online">
+      View Online Resume:
+      <a class="link" href="https://gofercontent.com/dayna-mercor.html">https://gofercontent.com/dayna-mercor.html</a>
+    </div>
+
+    <section class="card" id="letter" aria-label="Cover Letter">
+      <h2>Cover Letter</h2>
+      <div class="stack">
+        <p>Mercor Hiring Team</p>
+        <p>Community Manager</p>
+        <p>San Francisco CA</p>
+        <p>Thank you for the chance to apply. My background is event production, community operations, and communications. I have led large crews in the field, shipped programs on deadline, and kept teams moving with simple systems. That is the work this role needs.</p>
+        <p>Recent seasons: Shop Steward with the Man Pavilion crew at Burning Man. I manage inventory, tool safety, and supply logistics for more than one hundred people. I write the simple docs the crew uses. Earlier, I coordinated the year round volunteer pool for the Communications team. Scheduling. Onboarding. Credentials. On site support.</p>
+        <p>Before and around that, I produced multi day festivals including Boulder International Fringe, Fast Forward Fringe, and Gaia Film Festival. I ran vendor and venue coordination, budgets, press, and volunteer teams. I also built Gofer Content to handle the communications side for community clients. Websites. Run of show packets. Email and social kits.</p>
+        <p>If you are looking for a builder who can turn a plan into rooms full of the right people, I can help. I work the full stack of events from plan and budget to load in, live show, and wrap.</p>
+        <p>Dayna Himot</p>
+      </div>
+    </section>
+
+    <section class="card" id="resume" aria-label="Resume">
+      <h2>Summary</h2>
+      <div class="stack">
+        <p>Twenty five plus years producing and managing large scale events, festivals, and communication projects. Runs complex operations from planning to load out. Leads crews, coordinates vendors, and keeps projects on schedule and within scope.</p>
+      </div>
+
+      <h2>Experience</h2>
+
+      <div class="row">
+        <span class="title">Gofer Content — Founder and Communications Director</span>
+        <span class="stamp">St. Petersburg FL | 2025 to Present</span>
+      </div>
+      <div class="small">
+        Builds simple sites and systems for small business and community clients. Plans and delivers web, print, and media projects. Prepares event materials and workflows that keep teams organized. Develops websites and digital systems that remove bottlenecks and help clients execute faster.
+      </div>
+
+      <div class="row">
+        <span class="title">Modiphy Agency — Business Development and Content Director</span>
+        <span class="stamp">St. Petersburg FL | 2021 to 2025</span>
+      </div>
+      <div class="small">
+        Managed client projects from proposal through launch. Coordinated design, development, and marketing to hit dates. Improved client communication and reporting processes.
+      </div>
+
+      <div class="row">
+        <span class="title">Burning Man Project — Seasonal Shop Steward, Department of Public Works</span>
+        <span class="stamp">Gerlach NV | 2023 to Present</span>
+      </div>
+      <div class="small">
+        Manages inventory, tool safety, and supply logistics for the Man Pavilion crew. Supports more than one hundred workers through setup, operations, and teardown. Writes and maintains field process documents.
+      </div>
+
+      <div class="row">
+        <span class="title">Burning Man Project — Volunteer Coordinator, Communications Department</span>
+        <span class="stamp">San Francisco CA / Black Rock City NV | 2016 to 2023</span>
+      </div>
+      <div class="small">
+        Directed year round scheduling, onboarding, and communication for volunteers. Coordinated on site logistics and training. Introduced simple tracking for credentials and equipment checkouts.
+      </div>
+
+      <div class="row">
+        <span class="title">Athena Project — Director</span>
+        <span class="stamp">Denver CO | 2018</span>
+      </div>
+      <div class="small">
+        Produced live events and recorded sessions. Managed budgets, schedules, and production crews.
+      </div>
+
+      <div class="row">
+        <span class="title">Boulder International Fringe Festival • Fast Forward Fringe • Gaia Film Festival — Producer</span>
+        <span class="stamp">Colorado | 2007 to 2008</span>
+      </div>
+      <div class="small">
+        Produced multi day arts and film festivals. Supervised volunteers, coordinated venues, handled press outreach and sponsor relations.
+      </div>
+
+      <div class="row">
+        <span class="title">FOX31 Denver — Digital Content Producer</span>
+        <span class="stamp">Denver CO | 2019</span>
+      </div>
+      <div class="small">
+        Published web stories and social updates in real time. Worked with reporters and editors to deliver verified information quickly.
+      </div>
+
+      <div class="row">
+        <span class="title">321 Ignition — Senior Copywriter and Onboarding Specialist</span>
+        <span class="stamp">Remote | 2019 to 2021</span>
+      </div>
+      <div class="small">
+        Created internal docs and onboarding materials for SaaS clients. Worked with engineering and design to refine product information.
+      </div>
+
+      <h2>Education</h2>
+      <div class="stack">
+        <p>Metropolitan State University of Denver — B.A., Social Documentary Journalism</p>
+      </div>
+
+      <h2>Awards</h2>
+      <div class="stack">
+        <p>Frances Belford Wayne Merit Award</p>
+        <p>Society of Professional Journalists Mark of Excellence Finalist</p>
+      </div>
+
+      <h2>Skills</h2>
+      <div class="stack">
+        <p>Event and Festival Production. Crew Management. Logistics and Scheduling. Volunteer Coordination. Vendor Relations. Operations Systems. Airtable. Notion. Eventbrite. Slack. Google Workspace. Vibecoding and full stack implementation for rapid client systems and prototypes.</p>
+      </div>
+    </section>
+
+    <footer>
+      This page uses Lexend for readability. Click Download PDF to save a copy.
+    </footer>
+  </div>
+</body>
+</html>
