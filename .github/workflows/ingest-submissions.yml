@@ -1,9 +1,7 @@
 name: Ingest Community Submissions
 
 on:
-  schedule:
-    - cron: "0 0 * * *"      # run once a day at midnight UTC
-  workflow_dispatch: {}       # allow manual run from Actions tab
+  workflow_dispatch: {}   # manual only (safe while testing)
 
 jobs:
   ingest:
@@ -16,9 +14,6 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: "20"
-
-      - name: Install csv-parse
-        run: npm install csv-parse@5.5.3
 
       - name: Run the ingester script
         run: node scripts/ingest-submissions.js
