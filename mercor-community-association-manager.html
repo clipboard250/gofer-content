@@ -39,12 +39,18 @@
     .stack p + p{margin-top:10px}
 .stack p strong{font-weight:700}
     footer{margin-top:18px;color:var(--muted);font-size:13px;text-align:center;border-top:1px solid var(--line);padding-top:14px}
-    @media print{
-      .btns,.online{display:none !important}
-      .wrap{padding:0}
-      header{box-shadow:none}
-      .card{box-shadow:none}
-    }
+   @media print{
+  .btns,.online{display:none !important}
+  body{background:#fff}
+  .wrap{padding:0}
+  header{box-shadow:none;border:none;padding:0;margin:0}
+  .meta{display:none} /* NEW: hide header meta on print */
+  .card{box-shadow:none;border:none;padding:0;margin:0 0 14px 0}
+  h2{margin:8px 0 8px 0}
+  .stack p{margin:5px 0; line-height:1.4} /* NEW: better spacing */
+  .row{margin:4px 0}
+  footer{display:none} /* NEW: hide footer on print */
+}
   </style>
 </head>
 <body>
