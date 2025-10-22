@@ -119,31 +119,55 @@
 
  /* Print */
 @media print {
-  /* hide UI buttons and extra elements */
+  /* hide UI buttons and extras */
   .actions, .ui-btn-row, .no-print {
     display: none !important;
   }
 
-  /* white background for printing */
   body {
     background: #fff;
     margin: 0;
     padding: 0;
   }
 
-  /* keep header + hero together on one page */
-  header, .hero, .actions {
-    page-break-after: avoid;
+  /* lock header layout for print */
+  header.hero,
+  .hero-inner {
+    display: flex !important;
+    flex-wrap: nowrap !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    gap: 0.5in !important;
   }
 
-  /* prevent boxes from splitting between pages */
+  header.hero img.logo {
+    height: 0.8in !important;
+    width: auto !important;
+  }
+
+  .headshot img {
+    height: 0.8in !important;
+    width: 0.8in !important;
+    border: 2px solid #b22c2f !important;
+  }
+
+  .head-contact {
+    text-align: right !important;
+  }
+
+  .hero,
+  header,
+  .actions {
+    page-break-after: avoid;
+    break-after: avoid;
+  }
+
   .card {
     page-break-inside: avoid;
-    margin-bottom: 0.75rem;
     break-inside: avoid;
+    margin-bottom: 0.5rem;
   }
 
-  /* smaller uniform print margins */
   @page {
     margin: 0.5in;
   }
