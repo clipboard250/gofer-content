@@ -117,12 +117,38 @@
     footer{margin:2rem 0 0;border-top:1px solid var(--line)}
     footer .foot-inner{max-width:var(--max);margin:0 auto;padding:1rem 1.25rem;color:var(--ws-espresso);font-size:.92rem}
 
-    /* Print */
-    @media print{
-      .actions, .ui-btn-row, .no-print{display:none !important}
-      body{background:#fff}
-      .card{break-inside:avoid}
-    }
+ /* Print */
+@media print {
+  /* hide UI buttons and extra elements */
+  .actions, .ui-btn-row, .no-print {
+    display: none !important;
+  }
+
+  /* white background for printing */
+  body {
+    background: #fff;
+    margin: 0;
+    padding: 0;
+  }
+
+  /* keep header + hero together on one page */
+  header, .hero, .actions {
+    page-break-after: avoid;
+  }
+
+  /* prevent boxes from splitting between pages */
+  .card {
+    page-break-inside: avoid;
+    margin-bottom: 0.75rem;
+    break-inside: avoid;
+  }
+
+  /* smaller uniform print margins */
+  @page {
+    margin: 0.5in;
+  }
+}
+
   </style>
 
   <script>
@@ -130,14 +156,6 @@
   </script>
 </head>
 <body>
-  <header style="background-color:#b22c2f;padding:0.75rem 1rem;display:flex;align-items:center;justify-content:space-between;">
-  <img src="/images/wilis-black-logo.png" alt="Willis Smith Construction logo" style="height:42px;width:auto;">
-  <span style="color:#fcfffc;font-family:Montserrat,sans-serif;font-weight:600;">
-    Dayna Himot | Marketing Assistant Application
-  </span>
-</header>
-
-
   <!-- Header -->
   <header class="hero" role="banner">
     <div class="hero-inner">
