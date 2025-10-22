@@ -2,99 +2,95 @@
 <html lang="en">
 <head>
   <!-- stop stale HTML from sticking in the browser -->
-<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
-<meta http-equiv="Pragma" content="no-cache">
-<meta http-equiv="Expires" content="0">
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width,initial-scale=1" />
-<title>Gofer Content — Helping good businesses earn lifetime customers</title>
-<meta name="description" content="Gofer Content assists makers, musicians, tradespeople, artists, wellness pros, and local groups reach the right people and keep them coming back." />
-<meta property="og:title" content="Gofer Content — Helping good businesses earn lifetime customers">
-<meta property="og:description" content="Work done right serves people and strengthens communities. I help you reach the right people — and keep them coming back.">
-<meta property="og:image" content="og-image.png">
-<meta property="og:type" content="website">
-<link rel="icon" href="pfpdayna.jpeg" data-bust>
-<meta name="theme-color" content="#ff6a00" />
-<style>
-:root{
-  --bg:#0f0f0f; --ink:#f7f3e8; --muted:#cfc8b8;
-  --brand:#ff6a00; --brand2:#8a2c00; --accent:#7FFF00;
-  --card:#1a1a1a; --radius:18px; --shadow:0 10px 30px rgba(0,0,0,.35);
-  --max:1000px; --headerH:64px;
-}
-*,*:before,*:after{box-sizing:border-box}
-html,body{margin:0;background:radial-gradient(1200px 600px at 12% -8%, rgba(255,106,0,.24), transparent),var(--bg);color:var(--ink);font:16px/1.55 system-ui,-apple-system,Segoe UI,Inter,Roboto,Arial,sans-serif}
-img{max-width:100%;height:auto}
-a{color:var(--ink);text-decoration:none}
-a:focus,button:focus{outline:2px solid var(--brand);outline-offset:3px}
-.wrap{max-width:var(--max);margin-inline:auto;padding:18px}
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+  <meta http-equiv="Pragma" content="no-cache">
+  <meta http-equiv="Expires" content="0">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Gofer Content — Helping good businesses earn lifetime customers</title>
+  <meta name="description" content="Gofer Content assists makers, musicians, tradespeople, artists, wellness pros, and local groups reach the right people and keep them coming back." />
+  <meta property="og:title" content="Gofer Content — Helping good businesses earn lifetime customers">
+  <meta property="og:description" content="Work done right serves people and strengthens communities. I help you reach the right people — and keep them coming back.">
+  <meta property="og:image" content="og-image.png">
+  <meta property="og:type" content="website">
+  <link rel="icon" href="pfpdayna.jpeg" data-bust>
+  <meta name="theme-color" content="#ff6a00" />
+  <style>
+  :root{
+    --bg:#0f0f0f; --ink:#f7f3e8; --muted:#cfc8b8;
+    --brand:#ff6a00; --brand2:#8a2c00; --accent:#7FFF00;
+    --card:#1a1a1a; --radius:18px; --shadow:0 10px 30px rgba(0,0,0,.35);
+    --max:1000px; --headerH:64px;
+  }
+  *,*:before,*:after{box-sizing:border-box}
+  html,body{margin:0;background:radial-gradient(1200px 600px at 12% -8%, rgba(255,106,0,.24), transparent),var(--bg);color:var(--ink);font:16px/1.55 system-ui,-apple-system,Segoe UI,Inter,Roboto,Arial,sans-serif}
+  img{max-width:100%;height:auto}
+  a{color:var(--ink);text-decoration:none}
+  a:focus,button:focus{outline:2px solid var(--brand);outline-offset:3px}
+  .wrap{max-width:var(--max);margin-inline:auto;padding:18px}
 
-/* header */
-header{position:sticky;top:0;height:var(--headerH);display:flex;align-items:center;background:rgba(15,15,15,.85);backdrop-filter:blur(6px);border-bottom:1px solid #262626;z-index:20}
-nav{display:flex;align-items:center;justify-content:space-between;gap:10px}
-.logo{display:flex;align-items:center;gap:12px;min-width:0;flex:1}
-.logo img{width:42px;height:42px;border-radius:50%;border:3px solid var(--brand)}
-.logo strong{white-space:nowrap}
-.pill{display:inline-flex;align-items:center;border:1px solid #333;padding:.35rem .6rem;border-radius:999px;color:var(--muted);font-size:.9rem;white-space:nowrap}
-@media (max-width:1100px){ .pill{display:none} }
+  /* header */
+  header{position:sticky;top:0;height:var(--headerH);display:flex;align-items:center;background:rgba(15,15,15,.85);backdrop-filter:blur(6px);border-bottom:1px solid #262626;z-index:20}
+  nav{display:flex;align-items:center;justify-content:space-between;gap:10px}
+  .logo{display:flex;align-items:center;gap:12px;min-width:0;flex:1}
+  .logo img{width:42px;height:42px;border-radius:50%;border:3px solid var(--brand)}
+  .logo strong{white-space:nowrap}
+  .pill{display:inline-flex;align-items:center;border:1px solid #333;padding:.35rem .6rem;border-radius:999px;color:var(--muted);font-size:.9rem;white-space:nowrap}
+  @media (max-width:1100px){ .pill{display:none} }
 
-/* hamburger (always) */
-.hamb{display:flex;gap:6px;flex-direction:column;cursor:pointer;background:transparent;border:0;padding:8px}
-.hamb span{width:24px;height:2px;background:#fff;border-radius:2px}
+  /* hamburger (always) */
+  .hamb{display:flex;gap:6px;flex-direction:column;cursor:pointer;background:transparent;border:0;padding:8px}
+  .hamb span{width:24px;height:2px;background:#fff;border-radius:2px}
 
-/* drawer */
-.menu{position:fixed;left:0;right:0;top:var(--headerH);background:#0f0f0f;border-top:1px solid #262626;display:none;z-index:15}
-.menu.open{display:block}
-.menu .wrap{display:grid;gap:10px}
-.menu a{display:block;padding:14px 0;border-bottom:1px solid #1f1f1f}
+  /* drawer */
+  .menu{position:fixed;left:0;right:0;top:var(--headerH);background:#0f0f0f;border-top:1px solid #262626;display:none;z-index:15}
+  .menu.open{display:block}
+  .menu .wrap{display:grid;gap:10px}
+  .menu a{display:block;padding:14px 0;border-bottom:1px solid #1f1f1f}
 
-/* layout */
-main{padding-top:10px}
-section{padding-block:34px;border-top:1px solid #1f1f1f;scroll-margin-top:calc(var(--headerH) + 8px)}
+  /* layout */
+  main{padding-top:10px}
+  section{padding-block:34px;border-top:1px solid #1f1f1f;scroll-margin-top:calc(var(--headerH) + 8px)}
 
-/* cards + buttons */
-.card{background:var(--card);border:1px solid #262626;border-radius:var(--radius);padding:18px}
-.btn{display:inline-block;padding:.78rem 1rem;border-radius:12px;background:#2a2a2a;color:var(--ink);border:1px solid #3b3b3b;font-weight:700;white-space:nowrap;cursor:pointer}
-.btn.brand{background:linear-gradient(180deg,var(--brand),var(--brand2));color:#111;box-shadow:var(--shadow)}
-.btn.neutral{background:#222;border-color:#3b3b3b}
-.btn.accent{background:transparent;border:2px solid var(--accent);color:var(--accent);font-weight:800}
-.cta-row{display:flex;gap:12px;flex-wrap:wrap}
+  /* cards + buttons */
+  .card{background:var(--card);border:1px solid #262626;border-radius:var(--radius);padding:18px}
+  .btn{display:inline-block;padding:.78rem 1rem;border-radius:12px;background:#2a2a2a;color:var(--ink);border:1px solid #3b3b3b;font-weight:700;white-space:nowrap;cursor:pointer}
+  .btn.brand{background:linear-gradient(180deg,var(--brand),var(--brand2));color:#111;box-shadow:var(--shadow)}
+  .btn.neutral{background:#222;border-color:#3b3b3b}
+  .btn.accent{background:transparent;border:2px solid var(--accent);color:var(--accent);font-weight:800}
+  .cta-row{display:flex;gap:12px;flex-wrap:wrap}
 
-/* hero */
-.hero-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:24px;align-items:center}
-.hero h1{font-size:clamp(26px,4.2vw,44px);line-height:1.06;margin:.2rem 0}
-.hero p{color:var(--muted);font-size:1.05rem}
+  /* hero */
+  .hero-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:24px;align-items:center}
+  .hero h1{font-size:clamp(26px,4.2vw,44px);line-height:1.06;margin:.2rem 0}
+  .hero p{color:var(--muted);font-size:1.05rem}
 
-/* identify/develop/equip with icons */
-.grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
-.icon{width:28px;height:28px;display:inline-block;margin-right:8px;vertical-align:middle}
-.icon path{fill:#ffd166}
-h3{font-size:clamp(20px,2.6vw,26px);margin:0 0 6px}
+  /* identify/develop/equip with icons */
+  .grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+  .icon{width:28px;height:28px;display:inline-block;margin-right:8px;vertical-align:middle}
+  .icon path{fill:#ffd166}
+  h3{font-size:clamp(20px,2.6vw,26px);margin:0 0 6px}
 
-/* two-up section for generator + bulletin */
-.duo{display:grid;grid-template-columns:1fr;gap:18px}
-@media (min-width:900px){ .duo{grid-template-columns:1fr 1fr} }
+  /* contact layout */
+  .form-grid{display:grid;grid-template-columns:1fr;gap:10px}
+  @media(min-width:840px){ .form-grid{grid-template-columns:1fr 1fr} }
+  label{font-size:.95rem;color:var(--muted)}
+  input,textarea{background:#121212;border:1px solid #2b2b2b;border-radius:12px;padding:.7rem 1rem;color:var(--ink);width:100%}
+  small.help{color:var(--muted)}
+  .success{margin-top:8px;color:#9ae6b4}
+  .by{color:var(--muted);font-size:.95rem;margin-top:8px}
 
-/* contact layout */
-.form-grid{display:grid;grid-template-columns:1fr;gap:10px}
-@media(min-width:840px){ .form-grid{grid-template-columns:1fr 1fr} }
-label{font-size:.95rem;color:var(--muted)}
-input,textarea{background:#121212;border:1px solid #2b2b2b;border-radius:12px;padding:.7rem 1rem;color:var(--ink);width:100%}
-small.help{color:var(--muted)}
-.success{margin-top:8px;color:#9ae6b4}
-.by{color:var(--muted);font-size:.95rem;margin-top:8px}
+  /* responsive */
+  @media (max-width:900px){ .hero-grid{grid-template-columns:1fr} .grid-3{grid-template-columns:1fr} }
+  @media (max-width:520px){ :root{ --headerH:58px; } .btn{padding:.68rem .9rem} }
+  .skip{position:absolute;left:-9999px}
+  .skip:focus{position:static;background:#000;padding:.6rem;border:2px dashed var(--brand)}
 
-/* responsive */
-@media (max-width:900px){ .hero-grid{grid-template-columns:1fr} .grid-3{grid-template-columns:1fr} }
-@media (max-width:520px){ :root{ --headerH:58px; } .btn{padding:.68rem .9rem} }
-.skip{position:absolute;left:-9999px}
-.skip:focus{position:static;background:#000;padding:.6rem;border:2px dashed var(--brand)}
-
-/* confetti */
-.confetti{position:fixed;inset:0;pointer-events:none;overflow:hidden}
-.confetti i{position:absolute;width:9px;height:9px;background:var(--brand);opacity:.95;border-radius:2px;animation:fall 1100ms cubic-bezier(.2,.7,.2,1) forwards}
-@keyframes fall{to{transform:translateY(110vh) rotate(260deg);opacity:.1}}
-</style>
+  /* confetti */
+  .confetti{position:fixed;inset:0;pointer-events:none;overflow:hidden}
+  .confetti i{position:absolute;width:9px;height:9px;background:var(--brand);opacity:.95;border-radius:2px;animation:fall 1100ms cubic-bezier(.2,.7,.2,1) forwards}
+  @keyframes fall{to{transform:translateY(110vh) rotate(260deg);opacity:.1}}
+  </style>
 </head>
   <script src="/assets/js/hotfix-index.js"></script>
 <body>
@@ -116,8 +112,10 @@ small.help{color:var(--muted)}
   <div id="mobileMenu" class="menu" role="dialog" aria-label="Menu">
     <div class="wrap">
       <a class="m-link" href="#how">How I help</a>
+      <!-- HIDDEN for now:
       <a class="m-link" href="#builder">Website generator</a>
       <a class="m-link" href="#bulletin">Community bulletin board</a>
+      -->
       <a class="m-link" href="#proof">Word on the street</a>
       <a class="m-link" href="#projects">Projects</a>
       <a class="m-link" href="#contact">Contact</a>
@@ -141,7 +139,7 @@ small.help{color:var(--muted)}
           <p class="by">Built the Gofer way: quick proofs, useful drafts, and shipping what works.</p>
         </div>
         <div class="card" role="img" aria-label="Gofer Content banner">
-        <img src="og-image.png" alt="Gofer Content banner art" data-bust>
+          <img src="og-image.png" alt="Gofer Content banner art" data-bust>
         </div>
       </div>
     </div>
@@ -178,7 +176,7 @@ small.help{color:var(--muted)}
         </article>
       </div>
 
-      <!-- DIY two-up -->
+      <!-- HIDDEN DIY two-up (Website generator + Community bulletin)
       <div class="duo" style="margin-top:18px">
         <div class="card">
           <h3>Website generator</h3>
@@ -195,6 +193,7 @@ small.help{color:var(--muted)}
           </div>
         </div>
       </div>
+      -->
     </div>
   </section>
 
@@ -346,6 +345,7 @@ small.help{color:var(--muted)}
     }catch{ ok.textContent='Network hiccup — email info@gofercontent.com.'; }
   });
 </script>
+
 <script>
 /* gofer cache-buster:
    - reads /version.txt (no-store)
@@ -384,5 +384,6 @@ small.help{color:var(--muted)}
     .catch(()=> bust('dev'));
 })();
 </script>
+
 </body>
 </html>
