@@ -6,10 +6,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <!-- SEO -->
-  <meta name="description" content="Marketing professional & builder. Proposal support, graphics, and clear communications with field experience. In-person for Sarasota/Manatee.">
+  <meta name="description" content="Marketing professional & builder. Proposal support, graphics, and clear communications with field experience. Sarasota–Manatee in-person.">
   <link rel="canonical" href="https://gofercontent.com/dayna-himot-willis-smith-resume.html">
 
-  <!-- Open Graph / Twitter (use your OG image path) -->
+  <!-- OG / Twitter -->
   <meta property="og:type" content="profile">
   <meta property="og:title" content="Dayna Himot — Marketing Assistant | Willis Smith Construction">
   <meta property="og:description" content="Proposal-ready communication + job-site fluency. Sarasota/Manatee in-person availability.">
@@ -18,7 +18,7 @@
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:image" content="/images/willis-smith-construction-og-image.png">
 
-  <!-- Favicon (your headshot works great for personal brand) -->
+  <!-- Favicon -->
   <link rel="icon" href="/images/pfpdayna.jpeg" type="image/jpeg">
 
   <!-- Fonts + Gofer UI -->
@@ -27,7 +27,6 @@
   <link rel="stylesheet" href="/assets/css/ui-system.css?v=2025-10-22">
 
   <style>
-    /* Brand palette (Willis Smith–familiar) */
     :root{
       --ws-red:#b22c2f;
       --ws-cream:#fcfffc;
@@ -45,134 +44,74 @@
       line-height:1.6;
     }
 
-    /* Header */
-    .hero{
-      background:linear-gradient(180deg,var(--ws-cream),#fff);
-      border-bottom:1px solid var(--line);
-    }
+    /* HEADER */
+    .hero{background:#fff;border-bottom:1px solid var(--line);}
     .hero-inner{
       max-width:var(--max);
       margin:0 auto;
-      padding:2.25rem 1.25rem 1.5rem;
-      display:grid;
-      grid-template-columns:1fr auto;
-      gap:1rem;
+      padding:1.1rem 1.25rem;
+      display:flex;
+      justify-content:space-between;
       align-items:center;
+      gap:1rem;
+      flex-wrap:nowrap;
     }
-    .brand{
-      display:flex;align-items:center;gap:1rem;
-    }
-    .brand img.logo{
-      height:46px; width:auto; display:block;
-    }
-    .headshot{
-      display:flex;align-items:center;gap:.75rem;
-    }
+    .brand{display:flex;align-items:center;gap:1rem;}
+    .brand img.logo{height:50px;width:auto;display:block;}
+    .tagline{color:var(--ws-espresso);font-weight:500;}
+    .headshot{display:flex;align-items:center;gap:.75rem;}
     .headshot img{
-      width:56px;height:56px;border-radius:999px;object-fit:cover;border:3px solid var(--ws-red);
+      width:60px;height:60px;border-radius:999px;object-fit:cover;border:3px solid var(--ws-red);
     }
     .head-contact a{color:var(--ws-charcoal);text-decoration:none}
-    .tagline{color:var(--ws-espresso);font-weight:500}
 
-    /* Sticky actions */
+    /* ACTIONS */
     .actions{
-      position:sticky; top:0; z-index:8;
-      background:#ffffffea; backdrop-filter:saturate(180%) blur(6px);
+      position:sticky;top:0;z-index:8;
+      background:#ffffffea;backdrop-filter:saturate(180%) blur(6px);
       border-bottom:1px solid var(--line);
     }
     .actions-inner{
       max-width:var(--max);margin:0 auto;padding:.6rem 1.25rem;
       display:flex;flex-wrap:wrap;gap:.5rem;
     }
-    .gofer-btn{border-radius:12px}
+    .gofer-btn{border-radius:12px;background:var(--ws-red);color:#fff;border-color:var(--ws-red)}
+    .gofer-btn--outline{background:#fff;color:var(--ws-red);border-color:var(--ws-red)}
+    .gofer-btn--ghost{background:#fff;color:var(--ws-charcoal);border-color:var(--line)}
+    .gofer-btn:hover{filter:brightness(.93)}
 
-    /* Layout */
+    /* LAYOUT */
     .wrap{max-width:var(--max);margin:2rem auto 5rem;padding:0 1.25rem}
     .card{
       background:#fff;border:1px solid var(--line);border-radius:var(--radius);
-      padding:1.25rem 1.25rem 1.35rem;margin-bottom:1rem;
+      padding:1.25rem;margin-bottom:1rem;
     }
-    .section-title{
-      margin:0 0 .5rem;font-weight:700;font-size:1.15rem;
-      letter-spacing:.2px;color:var(--ws-charcoal);
-    }
+    .section-title{margin:0 0 .5rem;font-weight:700;font-size:1.15rem;color:var(--ws-charcoal)}
     .lede{color:var(--ws-espresso)}
-
-    /* Grid for resume blocks */
     .grid{display:grid;gap:1rem}
     @media(min-width:860px){.grid{grid-template-columns:1fr 1fr}}
-
-    /* Lists */
     .ui-list li{margin:.25rem 0}
     .kvs{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:.5rem}
     .kv{border:1px solid var(--line);border-radius:999px;padding:.2rem .6rem;font-size:.85rem;color:var(--ws-espresso);background:#fff}
-
-    /* Buttons coloring */
-    .gofer-btn{background:var(--ws-red);color:#fff;border-color:var(--ws-red)}
-    .gofer-btn:hover{filter:brightness(0.93)}
-    .gofer-btn--outline{background:#fff;color:var(--ws-red);border-color:var(--ws-red)}
-    .gofer-btn--ghost{background:#fff;color:var(--ws-charcoal);border-color:var(--line)}
-
-    /* Footer */
     footer{margin:2rem 0 0;border-top:1px solid var(--line)}
     footer .foot-inner{max-width:var(--max);margin:0 auto;padding:1rem 1.25rem;color:var(--ws-espresso);font-size:.92rem}
 
- /* Print */
-@media print {
-  /* hide UI buttons and extras */
-  .actions, .ui-btn-row, .no-print {
-    display: none !important;
-  }
-
-  body {
-    background: #fff;
-    margin: 0;
-    padding: 0;
-  }
-
-  /* lock header layout for print */
-  header.hero,
-  .hero-inner {
-    display: flex !important;
-    flex-wrap: nowrap !important;
-    justify-content: space-between !important;
-    align-items: center !important;
-    gap: 0.5in !important;
-  }
-
-  header.hero img.logo {
-    height: 0.8in !important;
-    width: auto !important;
-  }
-
-  .headshot img {
-    height: 0.8in !important;
-    width: 0.8in !important;
-    border: 2px solid #b22c2f !important;
-  }
-
-  .head-contact {
-    text-align: right !important;
-  }
-
-  .hero,
-  header,
-  .actions {
-    page-break-after: avoid;
-    break-after: avoid;
-  }
-
-  .card {
-    page-break-inside: avoid;
-    break-inside: avoid;
-    margin-bottom: 0.5rem;
-  }
-
-  @page {
-    margin: 0.5in;
-  }
-}
-
+    /* PRINT */
+    @media print {
+      .actions,.ui-btn-row,.no-print{display:none !important;}
+      body{background:#fff;margin:0;padding:0;}
+      .hero-inner{
+        display:flex !important;flex-wrap:nowrap !important;
+        justify-content:space-between !important;align-items:center !important;
+        gap:.4in !important;
+      }
+      .brand img.logo{height:0.9in !important;width:auto !important;}
+      .headshot img{height:0.9in !important;width:0.9in !important;border:2px solid #b22c2f !important;}
+      .head-contact{text-align:right !important;}
+      .hero,header,.actions{page-break-after:avoid;break-after:avoid;}
+      .card{page-break-inside:avoid;break-inside:avoid;margin-bottom:.5rem;}
+      @page{margin:0.5in;}
+    }
   </style>
 
   <script>
@@ -180,11 +119,10 @@
   </script>
 </head>
 <body>
-  <!-- Header -->
+  <!-- HEADER -->
   <header class="hero" role="banner">
     <div class="hero-inner">
       <div class="brand">
-        <!-- Use your saved logo path -->
         <img class="logo" src="/images/wilis-black-logo.png" alt="Willis Smith Construction logo">
         <div>
           <h1 class="ui-h1" style="margin:0;font-size:1.5rem">Dayna Himot</h1>
@@ -202,7 +140,7 @@
     </div>
   </header>
 
-  <!-- Sticky Actions -->
+  <!-- ACTIONS -->
   <div class="actions no-print">
     <div class="actions-inner">
       <button class="gofer-btn" onclick="printResume()">Download / Print PDF</button>
@@ -213,25 +151,28 @@
   </div>
 
   <main class="wrap ui-page">
-    <!-- Cover Letter -->
+    <!-- COVER LETTER -->
     <section class="card" aria-label="Cover Letter">
       <h2 class="section-title">Cover Letter</h2>
       <p class="lede"><strong>Dear Hiring Team,</strong></p>
-      <p>I’ve long admired Willis Smith’s impact across Sarasota and Manatee — schools, civic places, and cultural work that become part of daily life. I’m excited to support that story as your next <strong>Marketing Assistant</strong>, bringing two strengths your team can use immediately: <strong>proposal-ready communication</strong> and <strong>job-site fluency</strong>.</p>
+
+      <p>I recognize a lot of Willis Smith’s work across Sarasota and Manatee—schools, cultural spaces, and public buildings people use every day. That practical, high-impact focus is why I’m applying for the <strong>Marketing Assistant</strong> role. I already work the way your projects move: clear plans, clean documentation, tight turnarounds.</p>
 
       <ul class="ui-list">
-        <li><strong>Proposal Support (InDesign + copy):</strong> Build/format RFQ/RFP packages; update resumes & project sheets; proof to AP Style; keep folders and versions tight.</li>
-        <li><strong>Visual & Graphic Support:</strong> InDesign/Illustrator/Photoshop/Canva for charts, org charts, one-pagers, and signage; light photo edits; consistent exports.</li>
-        <li><strong>Marketing Operations:</strong> Track pursuit deadlines, awards, and ads; maintain bios/project data and CRM entries (HubSpot/Airtable; OpenAsset-friendly workflows).</li>
-        <li><strong>Builder context:</strong> As a <em>Shop Steward & Carpenter (DPW Man Pavilion)</em>, I managed tool inventories, hardware trailers, and safety signage — I respect chain of command and bring field accuracy into marketing materials.</li>
+        <li><strong>Proposal support (InDesign + copy):</strong> format and proof RFQ/RFP responses, update resumes and project sheets, and keep folders and versioning under control.</li>
+        <li><strong>Visual & graphic support:</strong> build charts, org charts, and signage in InDesign/Canva; organize photography with captions/alt text for quick reuse.</li>
+        <li><strong>Marketing operations:</strong> track deadlines for pursuits, awards, and ads; maintain project data and CRM entries (HubSpot/Airtable/OpenAsset-style systems).</li>
+        <li><strong>Builder context:</strong> as a <em>Shop Steward & Carpenter</em> (DPW Man Pavilion), I’ve managed tools, trailers, and safety signage—so I understand what it means when a plan hits the field.</li>
       </ul>
 
-      <p><strong>Availability:</strong> Based in St. Petersburg with reliable transportation; fully available for in-person collaboration in Sarasota/Manatee to support your in-office culture.</p>
-      <p>Thank you for your consideration — I’d be honored to contribute to the team building Southwest Florida.</p>
-      <p><strong>Respectfully,</strong><br>Dayna Himot</p>
+      <p>Small visibility win I can knock out quickly: branded share previews (OG image) for your public pages so projects present well when links are shared.</p>
+
+      <p>I realize my background is broader than the posting, and that’s intentional—I'm looking to contribute where organization and clear communication matter more than titles. I’m based in St. Petersburg and available for in-person collaboration in Sarasota.</p>
+
+      <p><strong>Best,</strong><br>Dayna Himot</p>
     </section>
 
-    <!-- Résumé Summary -->
+    <!-- SUMMARY -->
     <section class="card" aria-label="Professional Summary">
       <h2 class="section-title">Professional Summary</h2>
       <p>Marketing professional and former content director with journalism roots and hands-on builder experience. Translate complex build environments into clear proposals, visuals, and pursuit operations. Organized, deadline-reliable, and precise with copy, assets, and versioning.</p>
@@ -248,7 +189,7 @@
       </div>
     </section>
 
-    <!-- Skills & Tools -->
+    <!-- SKILLS / TOOLS -->
     <section class="grid" aria-label="Skills and Tools">
       <article class="card">
         <h2 class="section-title">Core Skills</h2>
@@ -264,7 +205,7 @@
       <article class="card">
         <h2 class="section-title">Tools</h2>
         <ul class="ui-list">
-          <li><strong>Adobe:</strong> InDesign, Illustrator, Photoshop</li>
+          <li><strong>Adobe:</strong> InDesign, Illustrator, Photoshop (template updates & exports)</li>
           <li><strong>Office:</strong> Word, PowerPoint, Excel, Outlook</li>
           <li><strong>Other:</strong> Canva, HubSpot, Airtable, OpenAsset-friendly workflows</li>
           <li><strong>Web basics:</strong> WordPress; image optimization; simple SEO hygiene</li>
@@ -272,7 +213,7 @@
       </article>
     </section>
 
-    <!-- Experience -->
+    <!-- EXPERIENCE -->
     <section class="card" aria-label="Experience">
       <h2 class="section-title">Experience</h2>
 
@@ -291,7 +232,7 @@
         <em>Proposals, onboarding frameworks, and editorial QA</em>
         <ul class="ui-list">
           <li>Formatted client decks and case studies; standardized styles for repeatable outputs.</li>
-          <li>Interviewed SMEs; drafted short, clear narratives and edited to AP Style under tight deadlines.</li>
+          <li>Interviewed SMEs; drafted clear narratives and edited to AP Style under tight deadlines.</li>
           <li>Coordinated cross-functional assets (design/dev/PM) to keep deliverables on schedule.</li>
         </ul>
       </div>
@@ -315,7 +256,7 @@
       </div>
     </section>
 
-    <!-- Education / Community -->
+    <!-- EDUCATION / NOTES -->
     <section class="grid" aria-label="Education and Community">
       <article class="card">
         <h2 class="section-title">Education</h2>
@@ -332,16 +273,6 @@
           <li>Comfortable adopting OpenAsset conventions and your file taxonomy.</li>
         </ul>
       </article>
-    </section>
-
-    <!-- Contact / Call to Action -->
-    <section class="card no-print" aria-label="Connect">
-      <h2 class="section-title">Let’s Connect</h2>
-      <div class="ui-btn-row">
-        <a class="gofer-btn" href="mailto:info@gofercontent.com?subject=Interview%20Request%20%E2%80%94%20Dayna%20Himot">Request Interview</a>
-        <a class="gofer-btn gofer-btn--outline" href="tel:+17273539673">Call 727-353-9673</a>
-        <a class="gofer-btn gofer-btn--ghost" href="https://gofercontent.com" target="_blank" rel="noopener">Back to GoferContent.com</a>
-      </div>
     </section>
 
     <footer role="contentinfo">
