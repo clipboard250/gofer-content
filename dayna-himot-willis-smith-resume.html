@@ -58,7 +58,6 @@ html,body{
 }
 .brand{display:flex;align-items:center;gap:1rem;min-width:0;}
 .brand img.logo{height:55px;width:auto;}
-.tagline{color:var(--ws-espresso);font-weight:500;}
 .headshot{display:flex;align-items:center;gap:.75rem;}
 .headshot img{
   width:60px;height:60px;border-radius:999px;object-fit:cover;
@@ -95,44 +94,25 @@ color:var(--ws-espresso);font-size:.92rem}
 
 /* PRINT — 3-col grid header that stays on one line */
 @media print{
-
-  /* page box */
   @page { size: Letter; margin: 0.5in; }
-
-  /* hide UI */
   .actions, .ui-btn-row, .no-print{ display:none !important; }
-
-  /* white canvas */
   html, body{ background:#fff !important; margin:0; padding:0; -webkit-print-color-adjust:exact; print-color-adjust:exact; }
-
-  /* fixed printable width */
   :root{ --print-width:7.25in; }
-
-  .wrap,
-  .hero-inner{
-    max-width:var(--print-width) !important;
-    width:var(--print-width) !important;
-    margin:0 auto !important;
-  }
-
-  /* keep header together on one page */
+  .wrap, .hero-inner{ max-width:var(--print-width) !important; width:var(--print-width) !important; margin:0 auto !important; }
   header, .hero, .hero-inner{ break-inside:avoid; page-break-inside:avoid; page-break-after:avoid; }
 
-  /* turn header into 3-column grid */
   .hero-inner{
     display:grid !important;
-    grid-template-columns: auto 1fr auto !important; /* logo | name | photo+contact */
+    grid-template-columns:auto 1fr auto !important;
     align-items:center !important;
     column-gap:0.25in !important;
   }
-
-  /* left block (logo) */
   .brand{
     display:grid !important;
     grid-auto-flow:column !important;
     align-items:center !important;
     column-gap:0.15in !important;
-    min-width:0 !important;            /* prevent grid blowout */
+    min-width:0 !important;
     flex:0 0 auto !important;
   }
   .brand img.logo{
@@ -143,18 +123,12 @@ color:var(--ws-espresso);font-size:.92rem}
     font-size:14pt !important;
     line-height:1.1 !important;
     margin:0 !important;
-    white-space:nowrap !important;      /* no wrap in name */
-  }
-  .tagline{
-    font-size:10pt !important;
-    line-height:1.15 !important;
     white-space:nowrap !important;
   }
 
-  /* right block (photo + contact) */
   .headshot{
     display:grid !important;
-    grid-template-columns: 0.70in auto !important;   /* photo | contact text */
+    grid-template-columns:0.70in auto !important;
     align-items:center !important;
     column-gap:0.15in !important;
     flex:0 0 auto !important;
@@ -172,14 +146,9 @@ color:var(--ws-espresso);font-size:.92rem}
     line-height:1.2 !important;
     white-space:nowrap !important;
   }
-
-  /* cards should not split across pages */
   .card{ break-inside:avoid; page-break-inside:avoid; margin-bottom:.5rem; }
-
-  /* ensure background tints and brand red print correctly in Chrome */
   *{ -webkit-print-color-adjust:exact; print-color-adjust:exact; }
 }
-
 </style>
 
 <script>
@@ -194,7 +163,6 @@ function printResume(){ window.print(); }
       <img class="logo" src="/images/wilis-black-logo.png" alt="Willis Smith Construction logo">
       <div>
         <h1 class="ui-h1" style="margin:0;font-size:1.5rem;">Dayna Himot</h1>
-        <div class="tagline">Marketing Assistant — Proposal Support • Graphics • Operations</div>
       </div>
     </div>
     <div class="headshot">
