@@ -1,0 +1,33 @@
+:root{
+  --ink:#0b0f14;
+  --muted:#5a6675;
+  --paper:#fff;
+  --accent:#F57D31; /* Pantone Orange 021 C per your system */
+  --maxw: 880px;
+  --lh:1.5;
+}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0;background:var(--paper);color:var(--ink);font:16px/var(--lh) system-ui,-apple-system,Segoe UI,Roboto,Inter,Arial,sans-serif}
+.resume{max-width:var(--maxw);margin:32px auto;padding:24px}
+.resume h1{font-size:28px;line-height:1.2;margin:0 0 6px}
+.resume h2{font-size:16px;text-transform:uppercase;letter-spacing:.06em;margin:24px 0 8px;color:var(--muted)}
+.resume h3{font-size:16px;margin:0}
+.resume p{margin:8px 0}
+.resume .tagline{color:var(--muted)}
+.resume .meta{display:flex;flex-wrap:wrap;gap:12px;list-style:none;padding:0;margin:8px 0}
+.resume .meta a{color:var(--ink);text-decoration:none;border-bottom:1px solid rgba(0,0,0,.15)}
+.resume .actions{margin:12px 0;display:flex;gap:10px}
+.bullets{margin:8px 0;padding-left:18px}
+.time{color:var(--muted);font-size:14px}
+.role{margin:12px 0 16px;padding:12px;border-left:3px solid var(--accent);background:#fffaf6}
+.resume__split{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+@media (max-width:760px){.resume__split{grid-template-columns:1fr}}
+/* Print: one page, remove buttons, tighten spacing */
+@media print{
+  .no-print{display:none!important}
+  body{background:#fff}
+  .resume{margin:0;padding:0}
+  .role{background:#fff;border-left:2px solid #000}
+  a{color:#000;text-decoration:none}
+  @page{size: A4; margin: 12mm}
+}
