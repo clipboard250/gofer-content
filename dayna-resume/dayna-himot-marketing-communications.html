@@ -5,15 +5,54 @@
   <title>Dayna Himot — Marketing & Communications Résumé | Gofer Content</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="Dayna Himot — Copywriter, Content Strategist, Marketing Communications.">
-  <link rel="canonical" href="https://gofercontent.com/dayna-himot">
-  <!-- Optional: link your shared UI if present on the site -->
-  <link rel="stylesheet" href="/assets/css/button-template.css">
-  <link rel="stylesheet" href="/assets/css/ui-system.css">
-  <link rel="stylesheet" href="/assets/css/resume.css">
+  <link rel="canonical" href="https://gofercontent.com/dayna-resume/dayna-himot-marketing-communications.html">
+  <style>
+    :root{
+      --ink:#0b0f14;
+      --muted:#5a6675;
+      --paper:#fff;
+      --accent:#F57D31;
+      --maxw:880px;
+      --lh:1.5;
+    }
+    *{box-sizing:border-box}
+    html,body{margin:0;padding:0;background:var(--paper);color:var(--ink);
+      font:16px/var(--lh) system-ui,-apple-system,Segoe UI,Roboto,Inter,Arial,sans-serif}
+    .resume{max-width:var(--maxw);margin:32px auto;padding:24px}
+    h1{font-size:28px;line-height:1.2;margin:0 0 6px}
+    h2{font-size:16px;text-transform:uppercase;letter-spacing:.06em;
+      margin:24px 0 8px;color:var(--muted)}
+    h3{font-size:16px;margin:0}
+    p{margin:8px 0}
+    .tagline{color:var(--muted)}
+    .meta{display:flex;flex-wrap:wrap;gap:12px;list-style:none;
+      padding:0;margin:8px 0}
+    .meta a{color:var(--ink);text-decoration:none;border-bottom:1px solid rgba(0,0,0,.15)}
+    .actions{margin:18px 0 8px;display:flex;gap:10px;flex-wrap:wrap}
+    .gofer-btn{display:inline-block;padding:10px 14px;border-radius:10px;
+      font-weight:600;text-decoration:none;color:var(--paper);
+      background:var(--accent);border:none}
+    .gofer-btn--outline{background:#fff;color:var(--ink);
+      border:2px solid var(--accent)}
+    .bullets{margin:8px 0;padding-left:18px}
+    .time{color:var(--muted);font-size:14px}
+    .role{margin:12px 0 16px;padding:12px;border-left:3px solid var(--accent);
+      background:#fffaf6}
+    .resume__split{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+    @media (max-width:760px){.resume__split{grid-template-columns:1fr}}
+    @media print{
+      .no-print{display:none!important}
+      body{background:#fff}
+      .resume{margin:0;padding:0}
+      .role{background:#fff;border-left:2px solid #000}
+      a{color:#000;text-decoration:none}
+      @page{size:A4;margin:12mm}
+    }
+  </style>
 </head>
 <body>
 <main class="resume">
-  <header class="resume__head">
+  <header>
     <h1>Dayna Himot — Marketing &amp; Communications</h1>
     <p class="tagline">Copywriter · Content Strategist · Marketing Communications</p>
     <ul class="meta">
@@ -23,12 +62,11 @@
       <li><a href="https://github.com/clipboard250" target="_blank" rel="noopener">github.com/clipboard250</a></li>
     </ul>
     <div class="actions no-print">
-      <a class="gofer-btn" href="/assets/pdf/Dayna_Himot_MarketingCommunications_2025.pdf" download>Download PDF</a>
-      <button class="gofer-btn gofer-btn--outline" onclick="window.print()">Print</button>
+      <button class="gofer-btn" onclick="window.print()">Download / Print Résumé</button>
     </div>
   </header>
 
-  <section class="resume__section">
+  <section>
     <h2>Summary</h2>
     <p>Marketing communicator with newsroom speed and agency discipline. Writes clear, conversion-oriented copy, organizes complex information, and drives consistent publishing across web, email, and social. Experienced in stakeholder interviews, briefs, SEO basics, and project coordination across design and dev.</p>
   </section>
@@ -38,7 +76,7 @@
       <h2>Core Skills</h2>
       <ul class="bullets">
         <li>Copywriting: web, landing pages, email, ads, social</li>
-        <li>Messaging/positioning; interview synthesis; briefs</li>
+        <li>Messaging and positioning; interview synthesis; briefs</li>
         <li>Editorial calendars; multi-channel content ops</li>
         <li>On-page SEO fundamentals (titles, meta, H1/H2, IL)</li>
         <li><strong>Version control &amp; hosting:</strong> Git, GitHub, GitHub Pages</li>
@@ -50,11 +88,11 @@
     </div>
     <div>
       <h2>Tools</h2>
-      <p>Google Workspace · WordPress · Basecamp/Trello/Asana · AP Style · <strong>Git/GitHub (Pages)</strong> · <strong>Canva</strong> · GA basics · Search Console basics · Basic Adobe CC.</p>
+      <p>Google Workspace · WordPress · Basecamp/Trello/Asana · AP Style · Git/GitHub (Pages) · Canva · GA basics · Search Console basics · Basic Adobe CC.</p>
     </div>
   </section>
 
-  <section class="resume__section">
+  <section>
     <h2>Experience (last 6 years)</h2>
 
     <article class="role">
