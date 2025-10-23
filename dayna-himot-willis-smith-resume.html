@@ -39,6 +39,7 @@ html,body{
   font-family:Montserrat,system-ui,-apple-system,"Segoe UI",Arial,sans-serif;
   line-height:1.6;
   -webkit-print-color-adjust:exact;
+  print-color-adjust:exact;
 }
 
 /* HEADER */
@@ -55,7 +56,7 @@ html,body{
   justify-content:space-between;
   flex-wrap:nowrap;
 }
-.brand{display:flex;align-items:center;gap:1rem;}
+.brand{display:flex;align-items:center;gap:1rem;min-width:0;}
 .brand img.logo{height:55px;width:auto;}
 .tagline{color:var(--ws-espresso);font-weight:500;}
 .headshot{display:flex;align-items:center;gap:.75rem;}
@@ -93,196 +94,83 @@ footer .foot-inner{max-width:var(--max);margin:0 auto;padding:1rem 1.25rem;
 color:var(--ws-espresso);font-size:.92rem}
 
 /* PRINT — lock width + keep header in one line */
-@media print {
-  /* page box */
-  @page {
-    size: Letter;
-    margin: 0.5in;
-  }
+@media print{
+  /* page and margins */
+  @page { size: Letter; margin: 0.5in; }
 
-  /* Hide interactive UI */
-  .actions, .ui-btn-row, .no-print {
-    display: none !important;
-  }
+  /* hide UI */
+  .actions,.ui-btn-row,.no-print{display:none !important;}
 
-  /* White background and zero body padding for PDF */
-  body {
-    background: #fff;
-    margin: 0;
-    padding: 0;
-    -webkit-print-color-adjust: exact;
-    print-color-adjust: exact;
-  }
+  /* white background */
+  body{background:#fff;margin:0;padding:0;}
 
-  /* Use a printable max width so nothing wraps */
-  :root { --print-width: 7.25in; } /* < 7.5in available width */
+  /* printable width (under 7.5in available) */
+  :root { --print-width: 7.25in; }
 
-  /* Constrain main containers to printable width */
+  /* constrain main wrappers */
   .hero-inner,
-  .wrap {
-    max-width: var(--print-width) !important;
-    width: var(--print-width) !important;
-    margin: 0 auto !important;
+  .wrap{
+    max-width:var(--print-width) !important;
+    width:var(--print-width) !important;
+    margin:0 auto !important;
   }
 
-  /* Keep header elements on one row */
-  .hero-inner {
-    display: flex !important;
-    flex-wrap: nowrap !important;
-    align-items: center !important;
-    justify-content: space-between !important;
-    gap: 0.25in !important;
+  /* header lock */
+  .hero-inner{
+    display:flex !important;
+    flex-wrap:nowrap !important;
+    align-items:center !important;
+    justify-content:space-between !important;
+    gap:0.25in !important;
   }
 
-  /* Left side (logo + name) can shrink */
-  .brand {
-    flex: 1 1 auto !important;
-    min-width: 0 !important;
-    display: flex !important;
-    align-items: center !important;
-    gap: 0.15in !important;
+  .brand{
+    display:flex !important;
+    align-items:center !important;
+    gap:0.15in !important;
+    min-width:0 !important;
+    flex:1 1 auto !important; /* allow shrink */
   }
 
-  /* Scale down logo for print */
-  .brand img.logo {
-    height: 0.70in !important;
-    width: auto !important;
+  .brand img.logo{
+    height:0.70in !important;
+    width:auto !important;
   }
 
-  /* Print-friendly header text sizes */
-  .brand h1 {
-    font-size: 14pt !important;
-    margin: 0 !important;
-  }
-  .tagline {
-    font-size: 10pt !important;
+  .brand h1{
+    font-size:14pt !important;
+    margin:0 !important;
   }
 
-  /* Right side (photo + contact) stays compact */
-  .headshot {
-    flex: 0 0 auto !important;
-    align-items: center !important;
-    gap: 0.15in !important;
-  }
-  .headshot img {
-    height: 0.70in !important;
-    width: 0.70in !important;
-    border: 2px solid #b22c2f !important;
-    border-radius: 999px !important;
-    object-fit: cover !important;
-  }
-  .head-contact {
-    text-align: right !important;
-    font-size: 10pt !important;
+  .tagline{ font-size:10pt !important; }
+
+  .headshot{
+    flex:0 0 auto !important;
+    align-items:center !important;
+    gap:0.15in !important;
   }
 
-  /* Keep header + sections together nicely */
-  .hero, header, .actions {
-    page-break-after: avoid;
-    break-after: avoid;
+  .headshot img{
+    height:0.70in !important;
+    width:0.70in !important;
+    border:2px solid #b22c2f !important;
+    border-radius:999px !important;
+    object-fit:cover !important;
   }
-  .card {
-    page-break-inside: avoid;
-    break-inside: avoid;
-    margin-bottom: 0.45rem;
+
+  .head-contact{
+    text-align:right !important;
+    font-size:10pt !important;
   }
+
+  /* keep sections tidy */
+  .hero,header,.actions{page-break-after:avoid;break-after:avoid;}
+  .card{page-break-inside:avoid;break-inside:avoid;margin-bottom:.5rem;}
 }
-/* PRINT — lock width + keep header in one line */
-@media print {
-  /* page box */
-  @page {
-    size: Letter;
-    margin: 0.5in;
-  }
+</style>
 
-  /* Hide interactive UI */
-  .actions, .ui-btn-row, .no-print {
-    display: none !important;
-  }
-
-  /* White background and zero body padding for PDF */
-  body {
-    background: #fff;
-    margin: 0;
-    padding: 0;
-    -webkit-print-color-adjust: exact;
-    print-color-adjust: exact;
-  }
-
-  /* Use a printable max width so nothing wraps */
-  :root { --print-width: 7.25in; } /* < 7.5in available width */
-
-  /* Constrain main containers to printable width */
-  .hero-inner,
-  .wrap {
-    max-width: var(--print-width) !important;
-    width: var(--print-width) !important;
-    margin: 0 auto !important;
-  }
-
-  /* Keep header elements on one row */
-  .hero-inner {
-    display: flex !important;
-    flex-wrap: nowrap !important;
-    align-items: center !important;
-    justify-content: space-between !important;
-    gap: 0.25in !important;
-  }
-
-  /* Left side (logo + name) can shrink */
-  .brand {
-    flex: 1 1 auto !important;
-    min-width: 0 !important;
-    display: flex !important;
-    align-items: center !important;
-    gap: 0.15in !important;
-  }
-
-  /* Scale down logo for print */
-  .brand img.logo {
-    height: 0.70in !important;
-    width: auto !important;
-  }
-
-  /* Print-friendly header text sizes */
-  .brand h1 {
-    font-size: 14pt !important;
-    margin: 0 !important;
-  }
-  .tagline {
-    font-size: 10pt !important;
-  }
-
-  /* Right side (photo + contact) stays compact */
-  .headshot {
-    flex: 0 0 auto !important;
-    align-items: center !important;
-    gap: 0.15in !important;
-  }
-  .headshot img {
-    height: 0.70in !important;
-    width: 0.70in !important;
-    border: 2px solid #b22c2f !important;
-    border-radius: 999px !important;
-    object-fit: cover !important;
-  }
-  .head-contact {
-    text-align: right !important;
-    font-size: 10pt !important;
-  }
-
-  /* Keep header + sections together nicely */
-  .hero, header, .actions {
-    page-break-after: avoid;
-    break-after: avoid;
-  }
-  .card {
-    page-break-inside: avoid;
-    break-inside: avoid;
-    margin-bottom: 0.45rem;
-  }
-}
-
+<script>
+function printResume(){ window.print(); }
 </script>
 </head>
 
@@ -332,9 +220,9 @@ color:var(--ws-espresso);font-size:.92rem}
 
 <p>At Modiphy, I worked directly on <strong>RFP packaging and business development deliverables</strong>, creating templates and visuals that helped secure new work. That experience gave me the eye for consistency and timing that proposal teams rely on.</p>
 
-<p>My seasonal build work is what made me fall in love with construction, seeing first hand how well-planned structures take shape has me thinking long-term about pivoting toward construction management. For now, this marketing role feels like the right place to bridge my healthy career in communications and marketing with what I’m learning hands-on.</p>
+<p>My seasonal build work is what made me fall in love with construction—seeing how well-planned structures take shape has me thinking long-term about continuing in the field, possibly toward construction management. For now, this marketing role feels like the right place to bridge what I know about communication with what I’m learning hands-on.</p>
 
-<p>I realize my background is broader than the posting, and that’s intentional, I’m looking to contribute where organization and clear communication matter more than titles. I’m based in St. Petersburg and available for in-person collaboration in Sarasota.</p>
+<p>I realize my background is broader than the posting, and that’s intentional—I’m looking to contribute where organization and clear communication matter more than titles. I’m based in St. Petersburg and available for in-person collaboration in Sarasota.</p>
 
 <p><strong>Best,</strong><br>Dayna Himot</p>
 </section>
