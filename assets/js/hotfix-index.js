@@ -1,41 +1,16 @@
-document.addEventListener('DOMContentLoaded', () => {
-  // 1) Make the menu item go to the live board (not #bulletin)
-  document.querySelectorAll('#mobileMenu a.m-link').forEach(a => {
-    const txt = (a.textContent || '').trim().toLowerCase();
-    if (txt.includes('community bulletin')) {
-      a.href = '/community-bulletin-board/';
-      a.removeAttribute('target');
-      a.addEventListener('click', (e) => {
-        e.preventDefault();
-        location.href = '/community-bulletin-board/';
-      });
+/* hotfix-index.js — hide “Schedule” CTA (temporary) */
+(() => {
+  const labels = ['schedule', 'schedule a call', 'book', 'appointment'];
+  const nodes = Array.from(document.querySelectorAll('a, button'));
+  nodes.forEach(el => {
+    const txt = (el.textContent || '').trim().toLowerCase();
+    if (labels.some(l => txt === l || txt.includes(l))) {
+      // Hide element and remove from accessibility tree/tab order
+      el.style.display = 'none';
+      el.setAttribute('aria-hidden', 'true');
+      el.setAttribute('tabindex', '-1');
+      const li = el.closest('li');
+      if (li) li.style.display = 'none'; // avoid empty nav gap
     }
   });
-
-  // Also fix any hero/CTA that points to the board
-  document.querySelectorAll('a[href*="community-bulletin"]').forEach(a => {
-    a.href = '/community-bulletin-board/';
-    a.removeAttribute('target');
-  });
-
-  // 2) Update the pill text + tone down the styling
-  const pill = document.querySelector('.logo .pill');
-  if (pill) {
-    pill.textContent = 'Based in Old Northeast, St. Petersburg, Florida';
-    pill.classList.add('pill--plain');
-  }
-
-  // 3) Inject minimal CSS to de-badge the pill (no border/bubble look)
-  const css = `
-    .pill.pill--plain{
-      border: 0 !important;
-      background: transparent !important;
-      color: var(--muted);
-      padding: 0 !important;
-      font-size: .95rem;
-    }
-  `;
-  const style = document.createElement('style');
-  style.textContent = css;
-  document.head.appendChild(style);
-});
+})();
