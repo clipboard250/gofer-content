@@ -93,63 +93,72 @@ footer{margin:2rem 0 0;border-top:1px solid var(--line);}
 footer .foot-inner{max-width:var(--max);margin:0 auto;padding:1rem 1.25rem;
 color:var(--ws-espresso);font-size:.92rem}
 
-/* PRINT — lock width + keep header in one line */
+/* PRINT — 3-col grid header that stays on one line */
 @media print{
-  /* page and margins */
+
+  /* page box */
   @page { size: Letter; margin: 0.5in; }
 
   /* hide UI */
-  .actions,.ui-btn-row,.no-print{display:none !important;}
+  .actions, .ui-btn-row, .no-print{ display:none !important; }
 
-  /* white background */
-  body{background:#fff;margin:0;padding:0;}
+  /* white canvas */
+  html, body{ background:#fff !important; margin:0; padding:0; -webkit-print-color-adjust:exact; print-color-adjust:exact; }
 
-  /* printable width (under 7.5in available) */
-  :root { --print-width: 7.25in; }
+  /* fixed printable width */
+  :root{ --print-width:7.25in; }
 
-  /* constrain main wrappers */
-  .hero-inner,
-  .wrap{
+  .wrap,
+  .hero-inner{
     max-width:var(--print-width) !important;
     width:var(--print-width) !important;
     margin:0 auto !important;
   }
 
-  /* header lock */
+  /* keep header together on one page */
+  header, .hero, .hero-inner{ break-inside:avoid; page-break-inside:avoid; page-break-after:avoid; }
+
+  /* turn header into 3-column grid */
   .hero-inner{
-    display:flex !important;
-    flex-wrap:nowrap !important;
+    display:grid !important;
+    grid-template-columns: auto 1fr auto !important; /* logo | name | photo+contact */
     align-items:center !important;
-    justify-content:space-between !important;
-    gap:0.25in !important;
+    column-gap:0.25in !important;
   }
 
+  /* left block (logo) */
   .brand{
-    display:flex !important;
+    display:grid !important;
+    grid-auto-flow:column !important;
     align-items:center !important;
-    gap:0.15in !important;
-    min-width:0 !important;
-    flex:1 1 auto !important; /* allow shrink */
+    column-gap:0.15in !important;
+    min-width:0 !important;            /* prevent grid blowout */
+    flex:0 0 auto !important;
   }
-
   .brand img.logo{
     height:0.70in !important;
     width:auto !important;
   }
-
   .brand h1{
     font-size:14pt !important;
+    line-height:1.1 !important;
     margin:0 !important;
+    white-space:nowrap !important;      /* no wrap in name */
+  }
+  .tagline{
+    font-size:10pt !important;
+    line-height:1.15 !important;
+    white-space:nowrap !important;
   }
 
-  .tagline{ font-size:10pt !important; }
-
+  /* right block (photo + contact) */
   .headshot{
-    flex:0 0 auto !important;
+    display:grid !important;
+    grid-template-columns: 0.70in auto !important;   /* photo | contact text */
     align-items:center !important;
-    gap:0.15in !important;
+    column-gap:0.15in !important;
+    flex:0 0 auto !important;
   }
-
   .headshot img{
     height:0.70in !important;
     width:0.70in !important;
@@ -157,16 +166,20 @@ color:var(--ws-espresso);font-size:.92rem}
     border-radius:999px !important;
     object-fit:cover !important;
   }
-
   .head-contact{
     text-align:right !important;
     font-size:10pt !important;
+    line-height:1.2 !important;
+    white-space:nowrap !important;
   }
 
-  /* keep sections tidy */
-  .hero,header,.actions{page-break-after:avoid;break-after:avoid;}
-  .card{page-break-inside:avoid;break-inside:avoid;margin-bottom:.5rem;}
+  /* cards should not split across pages */
+  .card{ break-inside:avoid; page-break-inside:avoid; margin-bottom:.5rem; }
+
+  /* ensure background tints and brand red print correctly in Chrome */
+  *{ -webkit-print-color-adjust:exact; print-color-adjust:exact; }
 }
+
 </style>
 
 <script>
