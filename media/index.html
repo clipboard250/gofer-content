@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- prevent stale caches -->
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+  <meta http-equiv="Pragma" content="no-cache">
+  <meta http-equiv="Expires" content="0">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+
+  <title>Gofer Content — Media Kit</title>
+  <meta name="description" content="Fast media kit for partners: audience, channels, sample rates, and downloadable assets." />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Gofer Content — Media Kit">
+  <meta property="og:description" content="Quick facts for partners: audience, channels, sample rates, and assets." />
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="/og-image.png">
+  <link rel="canonical" href="https://gofercontent.com/media/">
+
+  <!-- Icons -->
+  <link rel="icon" href="/pfpdayna.jpeg" data-bust>
+
+  <meta name="theme-color" content="#ff6a00" />
+
+  <style>
+  :root{
+    --bg:#0f0f0f; --ink:#f7f3e8; --muted:#cfc8b8;
+    --brand:#ff6a00; --brand2:#8a2c00; --accent:#7FFF00;
+    --card:#1a1a1a; --line:#262626;
+    --radius:18px; --shadow:0 10px 30px rgba(0,0,0,.35);
+    --max:1000px; --headerH:64px;
+  }
+  *,*:before,*:after{box-sizing:border-box}
+  html,body{margin:0;background:radial-gradient(1200px 600px at 12% -8%, rgba(255,106,0,.24), transparent),var(--bg);color:var(--ink);font:16px/1.55 system-ui,-apple-system,Segoe UI,Inter,Roboto,Arial,sans-serif}
+  img{max-width:100%;height:auto}
+  a{color:var(--ink);text-decoration:none}
+  a:focus,button:focus{outline:3px solid var(--brand);outline-offset:3px}
+  .wrap{max-width:var(--max);margin-inline:auto;padding:18px}
+
+  /* header */
+  header{position:sticky;top:0;height:var(--headerH);display:flex;align-items:center;background:rgba(15,15,15,.85);backdrop-filter:blur(6px);border-bottom:1px solid var(--line);z-index:20}
+  nav{display:flex;align-items:center;justify-content:space-between;gap:10px}
+  .logo{display:flex;align-items:center;gap:12px;min-width:0;flex:1}
+  .logo img{width:42px;height:42px;border-radius:50%;border:3px solid var(--brand)}
+  .logo strong{white-space:nowrap}
+  .pill{display:inline-flex;align-items:center;border:1px solid #333;padding:.35rem .6rem;border-radius:999px;color:var(--muted);font-size:.9rem;white-space:nowrap}
+  @media (max-width:1100px){ .pill{display:none} }
+  .hamb{display:flex;gap:6px;flex-direction:column;cursor:pointer;background:transparent;border:0;padding:8px}
+  .hamb span{width:24px;height:2px;background:#fff;border-radius:2px}
+  .menu{position:fixed;left:0;right:0;top:var(--headerH);background:#0f0f0f;border-top:1px solid var(--line);display:none;z-index:15}
+  .menu.open{display:block}
+  .menu .wrap{display:grid;gap:10px}
+  .menu a{display:block;padding:14px 0;border-bottom:1px solid #1f1f1f}
+
+  /* layout */
+  main{padding-top:10px}
+  section{padding-block:34px;border-top:1px solid #1f1f1f;scroll-margin-top:calc(var(--headerH) + 8px)}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:18px}
+  .btn{display:inline-block;padding:.78rem 1rem;border-radius:12px;background:#222;border:1px solid #3b3b3b;color:var(--ink);font-weight:700;white-space:nowrap;cursor:pointer}
+  .btn.brand{background:linear-gradient(180deg,var(--brand),var(--brand2));color:#111;box-shadow:var(--shadow)}
+  .btn.accent{background:transparent;border:2px solid var(--accent);color:var(--accent);font-weight:800}
+  .cta-row{display:flex;gap:12px;flex-wrap:wrap}
+
+  .hero-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:24px;align-items:center}
+  .hero h1{font-size:clamp(26px,4.2vw,44px);line-height:1.06;margin:.2rem 0}
+  .hero p{color:var(--muted);font-size:1.05rem}
+
+  .grid-2{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+  .grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+  @media(max-width:900px){ .hero-grid{grid-template-columns:1fr} .grid-2{grid-template-columns:1fr} .grid-3{grid-template-columns:1fr} }
+
+  table{width:100%;border-collapse:separate;border-spacing:0;border:1px solid var(--line);border-radius:14px;overflow:hidden;background:#141414}
+  th,td{padding:.75rem 1rem;border-bottom:1px solid #1f1f1f;text-align:left}
+  th{background:#171717;color:var(--muted);font-weight:700}
+  tr:last-child td{border-bottom:0}
+
+  .assets{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+  @media(max-width:640px){ .assets{grid-template-columns:1fr} }
+
+  /* print */
+  @media print{
+    header,.menu{display:none!important}
+    body{background:#fff;color:#111}
+    .card{border:1px solid #ccc;box-shadow:none}
+    a{color:#111;text-decoration:underline}
+  }
+
+  .skip{position:absolute;left:-9999px}
+  .skip:focus{position:static;background:#000;padding:.6rem;border:2px dashed var(--brand)}
+  </style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<header role="banner">
+  <div class="wrap">
+    <nav aria-label="Primary">
+      <div class="logo">
+        <img src="/pfpdayna.jpeg" alt="Dayna Himot headshot">
+        <strong>Gofer Content</strong>
+        <span class="pill">St. Pete, FL • Media Kit</span>
+      </div>
+      <button class="hamb" aria-label="Open menu" aria-controls="mobileMenu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </nav>
+  </div>
+  <div id="mobileMenu" class="menu" role="dialog" aria-label="Menu">
+    <div class="wrap">
+      <a class="m-link" href="#facts">Quick facts</a>
+      <a class="m-link" href="#audience">Audience</a>
+      <a class="m-link" href="#channels">Channels</a>
+      <a class="m-link" href="#rates">Sample rates</a>
+      <a class="m-link" href="#assets">Logos & colors</a>
+      <a class="m-link" href="#contact">Contact</a>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+  <!-- HERO -->
+  <section class="wrap">
+    <div class="card hero">
+      <div class="hero-grid">
+        <div>
+          <h1>Gofer Content — Media Kit</h1>
+          <p>Copy and systems for small teams, creators, and local groups. I share tools that help real people stay organized, communicate well, and keep customers coming back.</p>
+          <div class="cta-row" style="margin-top:10px">
+            <a class="btn brand" href="#contact">Partner with Gofer Content</a>
+            <button class="btn" onclick="window.print()">Print / Save as PDF</button>
+          </div>
+          <p class="pill" style="margin-top:10px">No trackers • Simple files • Fast load</p>
+        </div>
+        <div class="card" role="img" aria-label="Gofer Content banner">
+          <img src="/og-image.png" alt="Gofer Content banner art" data-bust>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- QUICK FACTS -->
+  <section id="facts" aria-labelledby="facts-title">
+    <div class="wrap">
+      <h2 id="facts-title">Quick facts</h2>
+      <div class="grid-2">
+        <div class="card">
+          <ul>
+            <li><strong>Location:</strong> St. Petersburg, Florida (US)</li>
+            <li><strong>Focus:</strong> messaging, web copy, helpful workflows, light automations</li>
+            <li><strong>People I help:</strong> makers, musicians, trades, artists, wellness pros, local orgs</li>
+            <li><strong>Partnerships:</strong> affiliate and content collaborations with useful tools</li>
+          </ul>
+        </div>
+        <div class="card">
+          <ul>
+            <li><strong>Channels:</strong> website, email list, social, small events, 1-on-1 setups</li>
+            <li><strong>Geography:</strong> mostly North America</li>
+            <li><strong>Audience size:</strong> 0–1,000 monthly (tight, high-trust)</li>
+            <li><strong>Turnaround:</strong> fast drafts, clear approvals, ship what works</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- AUDIENCE -->
+  <section id="audience" aria-labelledby="aud-title">
+    <div class="wrap">
+      <h2 id="aud-title">Who listens</h2>
+      <div class="grid-3">
+        <div class="card">
+          <strong>Small teams</strong>
+          <p>Shops with 1–10 people who need pages, emails, and a simple way to run work.</p>
+        </div>
+        <div class="card">
+          <strong>Independents</strong>
+          <p>Solo owners, tradespeople, and artists who value straight talk and useful tools.</p>
+        </div>
+        <div class="card">
+          <strong>Community projects</strong>
+          <p>Local groups and nonprofits that want clear pages, easy forms, and better follow-ups.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CHANNELS -->
+  <section id="channels" aria-labelledby="ch-title">
+    <div class="wrap">
+      <h2 id="ch-title">How I share partners</h2>
+      <table aria-describedby="channels-help">
+        <thead><tr><th>Channel</th><th>What it looks like</th></tr></thead>
+        <tbody>
+          <tr><td>Website</td><td>Tutorial pages, checklists, and “ship logs” with clear steps and screenshots.</td></tr>
+          <tr><td>Email</td><td>Short stories with one link, one ask. Helpful before hype.</td></tr>
+          <tr><td>Social</td><td>Practical posts, quick reels, and before/after notes from real projects.</td></tr>
+          <tr><td>Workshops</td><td>Small live sessions (virtual or local) showing the workflow end-to-end.</td></tr>
+        </tbody>
+      </table>
+      <p id="channels-help" class="pill" style="margin-top:8px">No click-bait. Useful first, always.</p>
+    </div>
+  </section>
+
+  <!-- RATES -->
+  <section id="rates" aria-labelledby="rates-title">
+    <div class="wrap">
+      <h2 id="rates-title">Sample rates</h2>
+      <div class="grid-2">
+        <div class="card">
+          <ul>
+            <li><strong>Article / tutorial:</strong> $350–$500</li>
+            <li><strong>Social post:</strong> $150</li>
+            <li><strong>Email feature:</strong> $250</li>
+            <li><strong>Live demo / workshop:</strong> custom (scope + materials)</li>
+          </ul>
+        </div>
+        <div class="card">
+          <ul>
+            <li><strong>Commission models:</strong> revenue share, CPL, or upfront</li>
+            <li><strong>What helps:</strong> ROI notes, ideal customer, and ready-to-use assets</li>
+            <li><strong>What I promote:</strong> tools that save time, reduce hassle, and help teams keep customers</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ASSETS -->
+  <section id="assets" aria-labelledby="assets-title">
+    <div class="wrap">
+      <h2 id="assets-title">Logos & colors</h2>
+      <div class="card">
+        <div class="assets" style="margin-top:6px">
+          <div>
+            <p><strong>Primary color:</strong> <span class="pill" style="border-color:#ff6a00;background:linear-gradient(180deg,#ff6a00,#8a2c00);color:#111">#ff6a00 → #8a2c00</span></p>
+            <p><strong>Accent:</strong> <span class="pill" style="border-color:#7FFF00;color:#111;background:#7FFF00">#7FFF00</span></p>
+            <p><strong>Neutrals:</strong> #0f0f0f, #1a1a1a, #f7f3e8</p>
+            <p><strong>Typography:</strong> system-ui stack (no webfonts)</p>
+          </div>
+          <div>
+            <p><strong>Downloads</strong></p>
+            <ul>
+              <li><a href="/assets/media/gofer-logo-light.png" download>Logo — light PNG</a></li>
+              <li><a href="/assets/media/gofer-logo-dark.png" download>Logo — dark PNG</a></li>
+              <li><a href="/assets/media/gofer-logo.svg" download>Logo — SVG</a></li>
+              <li><a href="/assets/media/dayna-headshot.jpg" download>Headshot — JPG</a></li>
+            </ul>
+            <p class="pill">Alt text: “Gofer Content mark” • “Dayna Himot headshot”</p>
+          </div>
+        </div>
+        <p class="pill" style="margin-top:10px">Replace file paths above with your final assets if needed.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact" aria-labelledby="contact-title">
+    <div class="wrap">
+      <h2 id="contact-title">Start a partnership</h2>
+      <div class="card">
+        <p><strong>Email:</strong> <a class="btn" href="mailto:info@gofercontent.com?subject=Partner%20with%20Gofer%20Content">info@gofercontent.com</a></p>
+        <div class="cta-row" role="group" aria-label="Quick contact options">
+          <a class="btn brand" href="sms:+17273539673?&body=Hi%20Gofer%20Content%2C%20let%E2%80%99s%20discuss%20a%20partner%20idea.">Text 727-353-WORD</a>
+          <a class="btn" href="tel:+17273539673">Call</a>
+          <a class="btn accent" href="https://gofercontent.zohobookings.com/#/4734166000000046014" target="_blank" rel="noopener">Schedule</a>
+        </div>
+        <p class="pill" style="margin-top:10px">Please include ROI examples, ideal customer details, and terms.</p>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer role="contentinfo">
+  <div class="wrap pill">© <span id="y"></span> Gofer Content • St. Petersburg, Florida</div>
+</footer>
+
+<script>
+  // year
+  document.getElementById('y').textContent = new Date().getFullYear();
+
+  // mobile menu
+  const hamb = document.querySelector('.hamb');
+  const menu = document.getElementById('mobileMenu');
+  if (hamb){
+    hamb.addEventListener('click', ()=>{
+      const open = menu.classList.toggle('open');
+      hamb.setAttribute('aria-expanded', open ? 'true' : 'false');
+    });
+    document.querySelectorAll('#mobileMenu .m-link').forEach(a=>{
+      a.addEventListener('click', ()=>{
+        menu.classList.remove('open');
+        hamb.setAttribute('aria-expanded','false');
+      });
+    });
+  }
+
+  // cache-buster: add ?v=version to any [data-bust] assets; refresh once if version changes
+  (function(){
+    const key='gofer_version';
+    function bust(v){
+      document.querySelectorAll('[data-bust]').forEach(el=>{
+        const attr = el.tagName==='LINK' ? 'href' : 'src';
+        const url0 = el.getAttribute(attr);
+        if(!url0) return;
+        const url = url0 + (url0.includes('?') ? '&' : '?') + 'v=' + encodeURIComponent(v);
+        el.setAttribute(attr, url);
+      });
+    }
+    fetch('/version.txt',{cache:'no-store'})
+      .then(r=>r.text())
+      .then(t=>{
+        const remote=(t||'').trim();
+        const current=sessionStorage.getItem(key);
+        if(current && remote && current!==remote){
+          sessionStorage.setItem(key,remote);
+          const sep=location.search ? '&' : '?';
+          if(!location.search.includes('v=')){
+            location.replace(location.href + sep + 'v=' + encodeURIComponent(remote));
+            return;
+          }
+        }else if(remote){ sessionStorage.setItem(key,remote); }
+        bust(remote||'dev');
+      })
+      .catch(()=>bust('dev'));
+  })();
+</script>
+</body>
+</html>
