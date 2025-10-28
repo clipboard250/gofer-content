@@ -91,6 +91,73 @@
   .confetti i{position:absolute;width:9px;height:9px;background:var(--brand);opacity:.95;border-radius:2px;animation:fall 1100ms cubic-bezier(.2,.7,.2,1) forwards}
   @keyframes fall{to{transform:translateY(110vh) rotate(260deg);opacity:.1}}
   </style>
+  <!-- Gofer Content — JSON-LD structured data -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://gofercontent.com/#org",
+      "name": "Gofer Content",
+      "url": "https://gofercontent.com/",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://gofercontent.com/og-image.png",
+        "width": 1200,
+        "height": 630
+      },
+      "sameAs": [
+        "https://www.linkedin.com/in/daynahimot",
+        "https://www.instagram.com/gofercontent"
+      ],
+      "description": "Messaging strategy and copy that earns lifetime customers."
+    },
+    {
+      "@type": "LocalBusiness",
+      "@id": "https://gofercontent.com/#business",
+      "name": "Gofer Content",
+      "url": "https://gofercontent.com/",
+      "image": "https://gofercontent.com/og-image.png",
+      "telephone": "+1-727-353-9673",
+      "priceRange": "$$",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "St. Petersburg",
+        "addressRegion": "FL",
+        "postalCode": "33701",
+        "addressCountry": "US"
+      },
+      "areaServed": "United States",
+      "parentOrganization": { "@id": "https://gofercontent.com/#org" }
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://gofercontent.com/#website",
+      "url": "https://gofercontent.com/",
+      "name": "Gofer Content",
+      "publisher": { "@id": "https://gofercontent.com/#org" },
+      "inLanguage": "en"
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://gofercontent.com/#webpage",
+      "url": "https://gofercontent.com/",
+      "name": "Gofer Content — Helping good businesses earn lifetime customers",
+      "description": "Gofer Content assists makers, musicians, tradespeople, artists, wellness pros, and local groups reach the right people and keep them coming back.",
+      "isPartOf": { "@id": "https://gofercontent.com/#website" },
+      "about": { "@id": "https://gofercontent.com/#org" },
+      "primaryImageOfPage": {
+        "@type": "ImageObject",
+        "url": "https://gofercontent.com/og-image.png",
+        "width": 1200,
+        "height": 630
+      },
+      "inLanguage": "en"
+    }
+  ]
+}
+</script>
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
