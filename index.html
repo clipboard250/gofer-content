@@ -90,7 +90,16 @@
   .confetti{position:fixed;inset:0;pointer-events:none;overflow:hidden}
   .confetti i{position:absolute;width:9px;height:9px;background:var(--brand);opacity:.95;border-radius:2px;animation:fall 1100ms cubic-bezier(.2,.7,.2,1) forwards}
   @keyframes fall{to{transform:translateY(110vh) rotate(260deg);opacity:.1}}
+
+  /* --- reviews glow + stars (for dynamic cards) --- */
+  .review-card{border-color:rgba(255,106,0,.6); box-shadow:
+    0 0 0 1px rgba(255,106,0,.55),
+    0 0 22px rgba(255,106,0,.22);}
+  .review-card .stars{font-size:1rem; line-height:1; margin:.2rem 0 .4rem; color:var(--brand);}
+  .review-card .src{color:var(--muted); font-size:.9rem; margin-left:.25rem}
+  .review-card .date{display:none;}
   </style>
+
   <!-- Gofer Content — JSON-LD structured data -->
 <script type="application/ld+json">
 {
@@ -158,85 +167,32 @@
   ]
 }
 </script>
+
   <!-- Gofer Content — Breadcrumb structured data -->
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "BreadcrumbList",
   "itemListElement": [
-    {
-      "@type": "ListItem",
-      "position": 1,
-      "name": "Home",
-      "item": "https://gofercontent.com/"
-    },
-    {
-      "@type": "ListItem",
-      "position": 2,
-      "name": "How I Help",
-      "item": "https://gofercontent.com/#how"
-    },
-    {
-      "@type": "ListItem",
-      "position": 3,
-      "name": "Projects",
-      "item": "https://gofercontent.com/#projects"
-    },
-    {
-      "@type": "ListItem",
-      "position": 4,
-      "name": "Contact",
-      "item": "https://gofercontent.com/#contact"
-    }
+    {"@type":"ListItem","position":1,"name":"Home","item":"https://gofercontent.com/"},
+    {"@type":"ListItem","position":2,"name":"How I Help","item":"https://gofercontent.com/#how"},
+    {"@type":"ListItem","position":3,"name":"Projects","item":"https://gofercontent.com/#projects"},
+    {"@type":"ListItem","position":4,"name":"Contact","item":"https://gofercontent.com/#contact"}
   ]
 }
 </script>
+
 <!-- Gofer Content — FAQPage structured data -->
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "FAQPage",
   "mainEntity": [
-    {
-      "@type": "Question",
-      "name": "What does Gofer Content actually do?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "I help small teams and local businesses fix weak messaging, shape clear offers, and ship pages that earn lifetime customers. Every project ends with tools you can keep using—no retainers, no mystery."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Who hires Gofer Content?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Makers, musicians, tradespeople, artists, wellness pros, and local groups who want copy that converts without hype. I work directly with owners, not layers of agencies."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "How long does a project take?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Most first drafts ship in days, not months. Quick proofs show what works fast so we can test, adjust, and publish with confidence."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Can you build the site too?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Yes. I hand-code clean, accessible pages that match your message. If you already have a platform, I adapt to it and keep performance strong."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "What does it cost to start?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Every job starts with a short call to define the goal. Most small projects start around a few hundred dollars and scale by scope—not by hours."
-      }
-    }
+    {"@type":"Question","name":"What does Gofer Content actually do?","acceptedAnswer":{"@type":"Answer","text":"I help small teams and local businesses fix weak messaging, shape clear offers, and ship pages that earn lifetime customers. Every project ends with tools you can keep using—no retainers, no mystery."}},
+    {"@type":"Question","name":"Who hires Gofer Content?","acceptedAnswer":{"@type":"Answer","text":"Makers, musicians, tradespeople, artists, wellness pros, and local groups who want copy that converts without hype. I work directly with owners, not layers of agencies."}},
+    {"@type":"Question","name":"How long does a project take?","acceptedAnswer":{"@type":"Answer","text":"Most first drafts ship in days, not months. Quick proofs show what works fast so we can test, adjust, and publish with confidence."}},
+    {"@type":"Question","name":"Can you build the site too?","acceptedAnswer":{"@type":"Answer","text":"Yes. I hand-code clean, accessible pages that match your message. If you already have a platform, I adapt to it and keep performance strong."}},
+    {"@type":"Question","name":"What does it cost to start?","acceptedAnswer":{"@type":"Answer","text":"Every job starts with a short call to define the goal. Most small projects start around a few hundred dollars and scale by scope—not by hours."}}
   ]
 }
 </script>
@@ -324,25 +280,6 @@
           <p>Practical handoff — simple guides, small automations, and everyday tools your team can use. No retainers. Just systems that last.</p>
         </article>
       </div>
-
-      <!-- HIDDEN DIY two-up (Website generator + Community bulletin)
-      <div class="duo" style="margin-top:18px">
-        <div class="card">
-          <h3>Website generator</h3>
-          <p>Answer a few friendly prompts, see your site preview live, copy/download the HTML — or book a setup call if you want me to ship it.</p>
-          <div class="cta-row">
-            <a class="btn brand js-cta" href="builder.html">Open the website generator</a>
-          </div>
-        </div>
-        <div class="card">
-          <h3>Community bulletin board</h3>
-          <p>Events, fundraisers, services, house shows — simple listings that help locals find what’s happening.</p>
-          <div class="cta-row">
-            <a class="btn accent js-cta" href="/community-bulletin-board/" target="_blank" rel="noopener">Open the board</a>
-          </div>
-        </div>
-      </div>
-      -->
     </div>
   </section>
 
@@ -350,14 +287,8 @@
   <section id="proof" aria-labelledby="proof-title">
     <div class="wrap">
       <h2 id="proof-title">Word on the street</h2>
-      <div class="grid-3">
-        <div class="card"><p class="quote">“Cold email overhaul is generating more responses.”</p><p class="by">— Michael Noffsinger</p></div>
-        <div class="card"><p class="quote">“Perfect message for my audience. Professional and a pleasure.”</p><p class="by">— Joseph Interante</p></div>
-        <div class="card"><p class="quote">“Zealous storyteller who designs her own path—fun to be around.”</p><p class="by">— Steve Krizman</p></div>
-        <div class="card"><p class="quote">“Company gem. Made everything easy.”</p><p class="by">— Louisiana Links</p></div>
-        <div class="card"><p class="quote">“Ideas I hadn’t thought of. 10/10.”</p><p class="by">— Natasha Carter</p></div>
-        <div class="card"><p class="quote">“She genuinely cares. Highly recommend.”</p><p class="by">— Ryan Mills</p></div>
-      </div>
+      <!-- dynamic reviews render here -->
+      <div id="reviews" class="grid-3" aria-live="polite"></div>
     </div>
   </section>
 
@@ -533,6 +464,10 @@
     .catch(()=> bust('dev'));
 })();
 </script>
+
+<!-- load dynamic reviews (file to be added next) -->
+<script src="/assets/js/reviews.js" defer></script>
+
 <script src="/assets/js/hotfix-index.js" defer></script>
 
 </body>
