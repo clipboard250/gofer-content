@@ -9,11 +9,11 @@
   <meta name="viewport" content="width=device-width,initial-scale=1" />
 
   <title>Gofer Content — Helping good businesses earn lifetime customers</title>
-  <meta name="description" content="Gofer Content assists makers, musicians, tradespeople, artists, wellness pros, and local groups reach the right people and keep them coming back.">
+  <meta name="description" content="Get lifetime customers with locally branded landing pages. Messaging and copy for tradespeople, home services, makers, musicians, artists, wellness pros, and local groups.">
 
   <!-- Open Graph -->
   <meta property="og:title" content="Gofer Content — Helping good businesses earn lifetime customers">
-  <meta property="og:description" content="Work done right serves people and strengthens communities. I help you reach the right people and keep them coming back.">
+  <meta property="og:description" content="Get lifetime customers with locally branded landing pages. Built fast, accessible, and ready to convert.">
   <meta property="og:image" content="og-image.png">
   <meta property="og:type" content="website">
 
@@ -41,7 +41,10 @@
   .logo img{width:42px;height:42px;border-radius:50%;border:3px solid var(--brand)}
   .logo strong{white-space:nowrap}
   .pill{display:inline-flex;align-items:center;border:1px solid #333;padding:.35rem .6rem;border-radius:999px;color:var(--muted);font-size:.9rem;white-space:nowrap}
-  @media (max-width:1100px){ .pill{display:none} }
+  .nav-links{display:flex;gap:14px;margin-left:16px}
+  .nav-links a{color:var(--muted);padding:6px 10px;border-radius:10px;border:1px solid #2a2a2a}
+  .nav-links a:focus{outline:3px solid var(--brand);outline-offset:2px}
+  @media (max-width:1100px){ .pill,.nav-links{display:none} }
 
   /* hamburger */
   .hamb{display:flex;gap:6px;flex-direction:column;cursor:pointer;background:transparent;border:0;padding:8px}
@@ -59,7 +62,7 @@
 
   /* cards + buttons */
   .card{background:var(--card);border:1px solid #262626;border-radius:var(--radius);padding:18px}
-  .btn{display:inline-block;padding:.78rem 1rem;border-radius:12px;background:#2a2a2a;color:var(--ink);border:1px solid #3b3b3b;font-weight:700;white-space:nowrap;cursor:pointer}
+  .btn{display:inline-block;padding:.78rem 1rem;border-radius:12px;background:#2a2a2a;color:var(--ink);border:1px solid #3b3b3b;font-weight:700;white-space:nowrap;cursor:pointer;min-width:44px;min-height:44px}
   .btn.brand{background:linear-gradient(180deg,var(--brand),var(--brand2));color:#111;box-shadow:var(--shadow)}
   .btn.neutral{background:#222;border-color:#3b3b3b}
   .btn.accent{background:transparent;border:2px solid var(--accent);color:var(--accent);font-weight:800}
@@ -69,6 +72,13 @@
   .hero-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:24px;align-items:center}
   .hero h1{font-size:clamp(26px,4.2vw,44px);line-height:1.06;margin:.2rem 0}
   .hero p{color:var(--muted);font-size:1.05rem}
+  .hero .sub{color:#ffe6d1;margin:.25rem 0 .6rem;font-weight:700}
+  .hero .art{display:flex;align-items:center;justify-content:center;background:#151515;border:1px solid #2a2a2a;border-radius:22px;padding:14px}
+  .hero .art img{width:100%;max-width:420px;border-radius:14px}
+  @media (max-width:900px){
+    .hero-grid{grid-template-columns:1fr}
+    .hero .art img{max-width:260px}
+  }
 
   /* three-up */
   .grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
@@ -86,17 +96,23 @@
   .success{margin-top:8px;color:#9ae6b4}
   .by{color:var(--muted);font-size:.95rem;margin-top:8px}
 
-  /* reviews grid + glow */
+  /* reviews grid + orange glow */
   .review-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
   @media (max-width:900px){ .review-grid{grid-template-columns:1fr} }
   .review-card{
     background:var(--card);
-    border:1px solid #262626;
+    border:1px solid rgba(255,106,0,.55);
     border-radius:var(--radius);
     padding:18px;
     position:relative;
-    box-shadow:0 0 0 1px #262626, 0 0 16px rgba(255,106,0,.28);
+    box-shadow:
+      0 0 0 1px rgba(255,106,0,.45),
+      0 0 18px rgba(255,106,0,.26);
+    transition:box-shadow .2s ease, border-color .2s ease;
   }
+  .review-card:hover{box-shadow:
+      0 0 0 1px rgba(255,106,0,.65),
+      0 0 28px rgba(255,106,0,.32)}
   .review-card .quote{font-size:1.05rem;margin:0 0 .35rem;color:var(--ink)}
   .review-card .meta{color:var(--muted);font-size:.95rem;margin:0}
   .review-card .stars{letter-spacing:2px;margin:.35rem 0;color:#ffd166}
@@ -154,7 +170,7 @@
         "@id": "https://gofercontent.com/#webpage",
         "url": "https://gofercontent.com/",
         "name": "Gofer Content — Helping good businesses earn lifetime customers",
-        "description": "Gofer Content assists makers, musicians, tradespeople, artists, wellness pros, and local groups reach the right people and keep them coming back.",
+        "description": "Get lifetime customers with locally branded landing pages.",
         "isPartOf": { "@id": "https://gofercontent.com/#website" },
         "about": { "@id": "https://gofercontent.com/#org" },
         "primaryImageOfPage": { "@type": "ImageObject", "url": "https://gofercontent.com/og-image.png", "width": 1200, "height": 630 },
@@ -220,7 +236,7 @@
   <script type="application/ld+json">
   {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
     {"@type":"Question","name":"What does Gofer Content actually do?","acceptedAnswer":{"@type":"Answer","text":"I help small teams and local businesses fix weak messaging, shape clear offers, and ship pages that earn lifetime customers. Every project ends with tools you can keep using—no retainers, no mystery."}},
-    {"@type":"Question","name":"Who hires Gofer Content?","acceptedAnswer":{"@type":"Answer","text":"Makers, musicians, tradespeople, artists, wellness pros, and local groups who want copy that converts without hype. I work directly with owners, not layers of agencies."}},
+    {"@type":"Question","name":"Who hires Gofer Content?","acceptedAnswer":{"@type":"Answer","text":"Tradespeople and home services first—plus makers, musicians, artists, wellness pros, and local groups."}},
     {"@type":"Question","name":"How long does a project take?","acceptedAnswer":{"@type":"Answer","text":"Most first drafts ship in days, not months. Quick proofs show what works fast so we can test, adjust, and publish with confidence."}},
     {"@type":"Question","name":"Can you build the site too?","acceptedAnswer":{"@type":"Answer","text":"Yes. I hand-code clean, accessible pages that match your message. If you already have a platform, I adapt to it and keep performance strong."}},
     {"@type":"Question","name":"What does it cost to start?","acceptedAnswer":{"@type":"Answer","text":"Every job starts with a short call to define the goal. Most small projects start around a few hundred dollars and scale by scope—not by hours."}}
@@ -238,6 +254,10 @@
         <img src="pfpdayna.jpeg" alt="Dayna Himot headshot">
         <strong>Gofer Content</strong>
         <span class="pill">St. Pete, FL • Messaging Strategy</span>
+        <!-- desktop inline links -->
+        <div class="nav-links" aria-hidden="false">
+          <a href="#how">How I help</a>
+        </div>
       </div>
       <button class="hamb" aria-label="Open menu" aria-controls="mobileMenu" aria-expanded="false">
         <span></span><span></span><span></span>
@@ -247,8 +267,8 @@
   <div id="mobileMenu" class="menu" role="dialog" aria-label="Menu">
     <div class="wrap">
       <a class="m-link" href="#how">How I help</a>
-      <a class="m-link" href="#proof">Word on the street</a>
       <a class="m-link" href="#projects">Projects</a>
+      <a class="m-link" href="#proof">Word on the street</a>
       <a class="m-link" href="#contact">Contact</a>
     </div>
   </div>
@@ -261,15 +281,15 @@
       <div class="hero-grid">
         <div>
           <h1>Helping good businesses earn lifetime customers.</h1>
-          <p>Gofer Content assists makers, musicians, tradespeople, artists, wellness pros, and local groups reach the right people and keep them coming back.</p>
+          <p class="sub">Get lifetime customers with locally branded landing pages.</p>
+          <p>Gofer Content helps <strong>tradespeople and home services</strong> first—plus makers, musicians, artists, wellness pros, and local groups—reach the right people and keep them coming back.</p>
           <div class="cta-row" style="margin-top:10px">
-            <a class="btn brand js-cta" href="#contact" aria-label="Contact Gofer Content">Get lifetime customers</a>
-            <a class="btn neutral" href="#how">How I help</a>
-            <a class="btn neutral" href="#projects">Projects</a>
+            <a class="btn brand js-cta" href="tel:+17273539673">Call now</a>
+            <a class="btn neutral js-cta" href="sms:+17273539673?&body=Hi%20Gofer%20Content%2C%20I%27d%20like%20help%20with%20local%20landing%20pages.">Text now</a>
           </div>
           <p class="by">Built the Gofer way: quick proofs, useful drafts, and shipping what works.</p>
         </div>
-        <div class="card" role="img" aria-label="Gofer Content banner">
+        <div class="art" role="img" aria-label="Gofer Content banner">
           <img src="og-image.png" alt="Gofer Content banner art" data-bust>
         </div>
       </div>
@@ -287,7 +307,7 @@
             <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2l3 6 6 1-4.5 4.2 1 6L12 16l-5.5 3.2 1-6L3 9l6-1z"/></svg>
             Identify
           </h3>
-          <p>I look at every place your message shows up — homepages, booking flows, emails, press, even window signs — and find what’s missing or leaking trust.</p>
+          <p>I look at every place your message shows up — homepages, booking flows, service pages, emails, and ads — and find what’s missing or leaking trust.</p>
         </article>
 
         <article class="card">
@@ -295,7 +315,7 @@
             <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16v2H4V7zm0 5h12v2H4v-2zm0 5h8v2H4v-2z"/></svg>
             Develop
           </h3>
-          <p>I shape the story for response — website copy, Google service pages, follow-ups, socials — and spin up quick live pages so you can see it working.</p>
+          <p>I shape the story for response — local landing pages, Google service pages, follow-ups — and spin up live drafts so you can see it working.</p>
         </article>
 
         <article class="card">
@@ -303,18 +323,9 @@
             <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a5 5 0 015 5v3h3l-4 5-4-5h3V7a3 3 0 10-6 0v10H7V7a5 5 0 015-5z"/></svg>
             Equip
           </h3>
-          <p>Practical handoff — simple guides, small automations, and everyday tools your team can use. No retainers. Just systems that last.</p>
+          <p>Practical handoff — simple guides and tools your team can use. No retainers. Just systems that last.</p>
         </article>
       </div>
-    </div>
-  </section>
-
-  <!-- PROOF -->
-  <section id="proof" aria-labelledby="proof-title">
-    <div class="wrap">
-      <h2 id="proof-title">Word on the street</h2>
-      <div id="reviews" class="review-grid" aria-live="polite"></div>
-      <p class="by" style="margin-top:8px">These are real notes from clients and colleagues.</p>
     </div>
   </section>
 
@@ -330,15 +341,23 @@
     </div>
   </section>
 
+  <!-- PROOF -->
+  <section id="proof" aria-labelledby="proof-title">
+    <div class="wrap">
+      <h2 id="proof-title">Word on the street</h2>
+      <div id="reviews" class="review-grid" aria-live="polite"></div>
+      <p class="by" style="margin-top:8px">These are real notes from clients and colleagues.</p>
+    </div>
+  </section>
+
   <!-- CONTACT -->
   <section id="contact" aria-labelledby="contact-title">
     <div class="wrap">
       <h2 id="contact-title">Let’s talk</h2>
       <div class="card">
         <div class="cta-row" role="group" aria-label="Quick contact options">
-          <a class="btn brand js-cta" href="sms:+17273539673?&body=Hi%20Gofer%20Content%2C%20can%20we%20talk%20about%20my%20website%2Fmessage%3F">Text 727-353-WORD</a>
-          <a class="btn neutral js-cta" href="tel:+17273539673">Call</a>
-          <a class="btn neutral js-cta" href="mailto:info@gofercontent.com?subject=Gofer%20Content&body=Goal%3A%20%5Bone%20line%5D%0ALink%3A%20%5Bpaste%5D">Email</a>
+          <a class="btn brand js-cta" href="tel:+17273539673">Call now</a>
+          <a class="btn neutral js-cta" href="sms:+17273539673?&body=Hi%20Gofer%20Content%2C%20I%27d%20like%20help%20with%20local%20landing%20pages.">Text now</a>
           <a class="btn accent js-cta" href="https://gofercontent.zohobookings.com/#/4734166000000046014" target="_blank" rel="noopener">Schedule</a>
         </div>
 
