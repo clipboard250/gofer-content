@@ -99,6 +99,21 @@
   .review-card .src{color:var(--muted); font-size:.9rem; margin-left:.25rem}
   .review-card .date{display:none;}
   </style>
+/* reviews grid + neon accent */
+.review-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+@media (max-width:900px){ .review-grid{grid-template-columns:1fr} }
+.review-card{
+  background:var(--card);
+  border:1px solid #262626;
+  border-radius:var(--radius);
+  padding:18px;
+  position:relative;
+  box-shadow:0 0 0 1px #262626, 0 0 16px rgba(255,106,0,.28); /* thin neon glow */
+}
+.review-card:focus-within{ outline:3px solid var(--brand); outline-offset:2px; }
+.review-card .quote{font-size:1.05rem;margin:0 0 .35rem;color:var(--ink)}
+.review-card .meta{color:var(--muted);font-size:.95rem;margin:0}
+.review-card .stars{letter-spacing:2px;margin:.35rem 0;color:#ffd166}
 
   <!-- Gofer Content — JSON-LD structured data -->
 <script type="application/ld+json">
@@ -327,26 +342,17 @@
     </div>
   </section>
 
-  <!-- PROOF -->
-  <section id="proof" aria-labelledby="proof-title">
-    <div class="wrap">
-      <h2 id="proof-title">Word on the street</h2>
-      <!-- dynamic reviews render here -->
-      <div id="reviews" class="grid-3" aria-live="polite"></div>
-    </div>
-  </section>
+ <!-- PROOF -->
+<section id="proof" aria-labelledby="proof-title">
+  <div class="wrap">
+    <h2 id="proof-title">Word on the street</h2>
 
-  <!-- PROJECTS -->
-  <section id="projects" aria-labelledby="projects-title">
-    <div class="wrap">
-      <h2 id="projects-title">Projects</h2>
-      <div class="grid-3">
-        <a class="card" href="/mobile-detailing-jenny/" target="_blank" rel="noopener"><strong>Mobile Detailing — Jenny →</strong><p class="by">Quick pitch + booking</p></a>
-        <a class="card" href="https://clipboard250.github.io/hire-Isaac-now/" target="_blank" rel="noopener"><strong>Hire Isaac — Quick Pitch →</strong><p class="by">Fast one-pager</p></a>
-      </div>
-      <p class="by" style="margin-top:8px">Want something like this? <a href="#contact">Let’s talk</a>.</p>
-    </div>
-  </section>
+    <!-- Dynamic reviews render here -->
+    <div id="reviews" class="review-grid" aria-live="polite"></div>
+
+    <p class="by" style="margin-top:8px">These are real notes from clients and colleagues.</p>
+  </div>
+</section>
 
   <!-- CONTACT -->
   <section id="contact" aria-labelledby="contact-title">
@@ -513,6 +519,8 @@
 <script src="/assets/js/reviews.js" defer></script>
 
 <script src="/assets/js/hotfix-index.js" defer></script>
+  <script src="/assets/js/reviews.js" defer></script>
+
 
 </body>
 </html>
