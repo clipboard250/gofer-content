@@ -3,431 +3,138 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Allied Electrical Systems: Trusted Electricians in Florida</title>
-  <meta name="description" content="Licensed electricians serving Pinellas County since 1993. Contact us for reliable residential and commercial electrical services today." />
+  <title>Allied Electrical Systems — trusted electricians in Florida</title>
+  <meta name="description" content="Licensed electricians serving Pinellas County since 1993. Call or request a callback for safe, affordable electrical service today." />
+  <link rel="canonical" href="https://gofercontent.com/allied-electrical-systems/">
   <meta name="theme-color" content="#2B4C7E" />
 
   <meta property="og:url" content="https://gofercontent.com/allied-electrical-systems/">
   <meta property="og:type" content="website">
-  <meta property="og:title" content="Allied Electrical Systems: Trusted Electricians in Florida">
-  <meta property="og:description" content="Licensed electricians serving Pinellas County since 1993. Contact us for reliable residential and commercial electrical services today.">
-  <meta property="og:image" content="https://opengraph.b-cdn.net/production/images/7923c1df-d60e-4a86-b1b9-6da1baff9f98.jpg?token=Bm4zAcU_RCTzbbFwyzdxPjVu9nVGmiRZcpr028cW8l0&height=750&width=1000&expires=33295790427">
+  <meta property="og:title" content="Allied Electrical Systems — trusted electricians in Florida">
+  <meta property="og:description" content="Licensed electricians serving Pinellas County since 1993. Call or request a callback for safe, affordable electrical service today.">
+  <meta property="og:image" content="https://opengraph.b-cdn.net/production/images/7923c1df-d60e-4a86-b1b9-6da1baff9f98.jpg?height=750&width=1000">
 
   <meta name="twitter:card" content="summary_large_image">
   <meta property="twitter:domain" content="gofercontent.com">
   <meta property="twitter:url" content="https://gofercontent.com/allied-electrical-systems/">
-  <meta name="twitter:title" content="Allied Electrical Systems: Trusted Electricians in Florida">
-  <meta name="twitter:description" content="Licensed electricians serving Pinellas County since 1993. Contact us for reliable residential and commercial electrical services today.">
-  <meta name="twitter:image" content="https://opengraph.b-cdn.net/production/images/7923c1df-d60e-4a86-b1b9-6da1baff9f98.jpg?token=Bm4zAcU_RCTzbbFwyzdxPjVu9nVGmiRZcpr028cW8l0&height=750&width=1000&expires=33295790427">
+  <meta name="twitter:title" content="Allied Electrical Systems — trusted electricians in Florida">
+  <meta name="twitter:description" content="Licensed electricians serving Pinellas County since 1993. Call or request a callback for safe, affordable electrical service today.">
+  <meta name="twitter:image" content="https://opengraph.b-cdn.net/production/images/7923c1df-d60e-4a86-b1b9-6da1baff9f98.jpg?height=750&width=1000">
 
-  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin=""/>
-  
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
 
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin=""/>
+
   <style>
     :root{
-      --navy:#2B4C7E;
-      --orange:#FF5722;
-      --orange-light:#FF7043;
-      --blue-dark:#1E3A5F;
-      --sea:#E8F4F8;
-      --ink:#0A0E27;
-      --muted:#64748B;
-      --paper:#FFFFFF;
-      --card:#F8FAFC;
-      --nav-h:70px;
+      --navy:#2B4C7E; --orange:#FF5722; --orange-light:#FF7043;
+      --blue-dark:#1E3A5F; --sea:#E8F4F8; --ink:#0A0E27;
+      --muted:#64748B; --paper:#FFFFFF; --card:#F8FAFC; --nav-h:70px;
     }
     *{box-sizing:border-box;margin:0;padding:0}
-    
-    html, body{
-      height:100%;
-      font-family:'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
-      color:var(--ink);
-      background:var(--paper);
-      overflow-x:hidden;
-      -webkit-font-smoothing:antialiased;
-      -moz-osx-font-smoothing:grayscale;
-    }
-    
-    html{scroll-padding-top:var(--nav-h);scroll-behavior:smooth}
-    img, svg, video, canvas{max-width:100%;height:auto}
-    
-    a{color:var(--orange);text-decoration:none;transition:all 0.2s ease}
+    html,body{height:100%;font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',system-ui,sans-serif;color:var(--ink);background:var(--paper);overflow-x:hidden;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;scroll-behavior:smooth;scroll-padding-top:var(--nav-h)}
+    img,svg,video,canvas{max-width:100%;height:auto}
+    a{color:var(--orange);text-decoration:none;transition:color .2s}
     a:hover{color:var(--orange-light)}
     a:focus-visible{outline:3px solid var(--orange);outline-offset:2px}
     .wrap{max-width:1200px;margin:0 auto;padding:0 24px}
 
-    /* Nav - Clean & Consistent */
-    .nav{
-      position:sticky;
-      top:0;
-      z-index:30;
-      background:rgba(30,58,95,0.98);
-      backdrop-filter:saturate(180%) blur(20px);
-      border-bottom:1px solid rgba(255,255,255,0.1);
-      box-shadow:0 4px 12px rgba(0,0,0,0.08);
-    }
-    .nav-inner{
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap:16px;
-      padding:14px 0;
-      overflow:hidden;
-    }
-    .brand{
-      display:flex;
-      align-items:center;
-      gap:10px;
-      color:#fff;
-      font-weight:800;
-      letter-spacing:-0.02em;
-      font-size:16px;
-      white-space:nowrap;
-    }
-    .brand .dot{
-      width:8px;
-      height:8px;
-      border-radius:50%;
-      background:var(--orange);
-      flex-shrink:0;
-    }
-    .nav-links{
-      display:none;
-      flex-direction:column;
-      gap:16px;
-      width:100%;
-      padding:20px 0;
-      background:rgba(30,58,95,0.98);
-      position:absolute;
-      top:70px;
-      left:0;
-      border-top:1px solid rgba(255,255,255,0.1);
-    }
+    .nav{position:sticky;top:0;z-index:30;background:rgba(30,58,95,.98);backdrop-filter:saturate(180%) blur(20px);border-bottom:1px solid rgba(255,255,255,.1);box-shadow:0 4px 12px rgba(0,0,0,.08)}
+    .nav-inner{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:14px 0}
+    .brand{display:flex;align-items:center;gap:10px;color:#fff;font-weight:800;letter-spacing:-.02em;font-size:16px;white-space:nowrap}
+    .brand .dot{width:8px;height:8px;border-radius:50%;background:var(--orange)}
+    .nav-links{display:none;flex-direction:column;gap:16px;width:100%;padding:20px 0;background:rgba(30,58,95,.98);position:absolute;top:70px;left:0;border-top:1px solid rgba(255,255,255,.1)}
     .nav-links.open{display:flex}
-    .nav-links a{
-      color:rgba(255,255,255,0.9);
-      font-weight:600;
-      font-size:16px;
-      padding:8px 24px;
-    }
+    .nav-links a{color:rgba(255,255,255,.9);font-weight:600;font-size:16px;padding:8px 24px}
     .nav-links a:hover{color:#fff}
-    .nav-links a:focus-visible{outline:2px solid var(--orange);outline-offset:4px}
-    .hamburger{
-      display:flex;
-      flex-direction:column;
-      gap:4px;
-      background:transparent;
-      border:none;
-      cursor:pointer;
-      padding:8px;
-    }
-    .hamburger span{
-      width:24px;
-      height:3px;
-      background:#fff;
-      border-radius:2px;
-      transition:all 0.3s ease;
-    }
+    .hamburger{display:flex;flex-direction:column;gap:4px;background:transparent;border:none;cursor:pointer;padding:8px}
+    .hamburger span{width:24px;height:3px;background:#fff;border-radius:2px}
     .hamburger:focus-visible{outline:2px solid var(--orange);outline-offset:4px}
     @media(min-width:768px){
       .hamburger{display:none}
-      .nav-links{
-        display:flex;
-        flex-direction:row;
-        position:relative;
-        top:0;
-        width:auto;
-        padding:0;
-        border:none;
-      }
+      .nav-links{display:flex;flex-direction:row;position:relative;top:0;width:auto;padding:0;border:none}
       .nav-links a{padding:0}
     }
 
-    /* Scrolling Trust Ticker */
-    .trust-ticker{
-      background:var(--sea);
-      border-bottom:1px solid rgba(43,76,126,0.15);
-      overflow:hidden;
-      position:relative;
-      height:42px;
-    }
-    .ticker-content{
-      display:flex;
-      animation:scroll 15s linear infinite;
-      white-space:nowrap;
-    }
-    .ticker-item{
-      display:inline-flex;
-      align-items:center;
-      gap:8px;
-      padding:0 20px;
-      font-size:14px;
-      font-weight:600;
-      color:var(--navy);
-    }
-    @keyframes scroll{
-      0%{transform:translateX(0)}
-      100%{transform:translateX(-50%)}
-    }
-    @media (prefers-reduced-motion: reduce){
-      .ticker-content{animation:none}
-    }
+    .trust-ticker{background:var(--sea);border-bottom:1px solid rgba(43,76,126,.15);overflow:hidden;position:relative;height:42px}
+    .ticker-content{display:flex;animation:scroll 15s linear infinite;white-space:nowrap}
+    .ticker-item{display:inline-flex;align-items:center;gap:8px;padding:0 20px;font-size:14px;font-weight:600;color:var(--navy)}
+    @keyframes scroll{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+    @media (prefers-reduced-motion: reduce){.ticker-content{animation:none}}
 
-    /* Buttons - Consistent spacing & icons */
-    .btn{
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
-      gap:8px;
-      border-radius:8px;
-      padding:16px 24px;
-      font-weight:700;
-      border:none;
-      min-height:52px;
-      font-size:16px;
-      cursor:pointer;
-      transition:all 0.2s ease;
-      text-align:center;
-      margin:4px;
-    }
-    .btn:focus-visible{
-      outline:3px solid var(--orange);
-      outline-offset:3px;
-    }
-    .btn.primary{
-      background:var(--navy);
-      color:#fff;
-      box-shadow:0 2px 8px rgba(43,76,126,0.25);
-    }
-    .btn.primary:hover{
-      background:var(--blue-dark);
-      transform:translateY(-2px);
-      box-shadow:0 4px 12px rgba(43,76,126,0.35);
-    }
-    .btn.alt{
-      background:var(--orange);
-      color:#fff;
-      box-shadow:0 2px 8px rgba(255,87,34,0.25);
-    }
-    .btn.alt:hover{
-      background:var(--orange-light);
-      transform:translateY(-2px);
-      box-shadow:0 4px 12px rgba(255,87,34,0.35);
-    }
-    .btn.ghost{
-      background:#fff;
-      color:var(--navy);
-      border:2px solid var(--navy);
-    }
-    .btn.ghost:hover{
-      background:var(--navy);
-      color:#fff;
-    }
+    .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;border-radius:8px;padding:16px 24px;font-weight:700;border:none;min-height:52px;font-size:16px;cursor:pointer;transition:all .2s;margin:4px}
+    .btn:focus-visible{outline:3px solid var(--orange);outline-offset:3px}
+    .btn.primary{background:var(--navy);color:#fff;box-shadow:0 2px 8px rgba(43,76,126,.25)}
+    .btn.primary:hover{background:var(--blue-dark);transform:translateY(-2px)}
+    .btn.alt{background:var(--orange);color:#fff}
+    .btn.alt:hover{background:var(--orange-light);transform:translateY(-2px)}
+    .btn.ghost{background:#fff;color:var(--navy);border:2px solid var(--navy)}
+    .btn.ghost:hover{background:var(--navy);color:#fff}
 
-    /* Hero */
-    .hero{
-      background:linear-gradient(135deg,var(--sea) 0%,#fff 100%);
-      padding:40px 0 48px;
-      margin:0 20px;
-    }
-    .hero-inner{display:grid;gap:32px;padding:0}
-    .hero h1{
-      font-size:clamp(32px,5vw,56px);
-      line-height:1.1;
-      margin:0 0 16px 0;
-      color:var(--navy);
-      font-weight:800;
-      letter-spacing:-0.02em;
-    }
-    .hero h1 .highlight{color:var(--orange)}
-    .sub{
-      color:var(--muted);
-      font-size:clamp(16px,2.4vw,20px);
-      line-height:1.6;
-      margin-bottom:24px;
-    }
+    .hero{background:linear-gradient(135deg,var(--sea) 0%,#fff 100%);padding:40px 0 48px;margin:0 20px}
+    .hero-inner{display:grid;gap:32px}
+    .hero h1{font-size:clamp(32px,5vw,56px);line-height:1.1;margin:0 0 16px;color:var(--navy);font-weight:800;letter-spacing:-.02em}
+    .sub{color:var(--muted);font-size:clamp(16px,2.4vw,20px);line-height:1.6;margin-bottom:24px}
     .cta-row{display:grid;grid-template-columns:1fr;gap:12px;margin-top:24px}
 
-    /* Sections */
     section{scroll-margin-top:var(--nav-h);margin:32px 20px}
     .grid{display:grid;gap:24px}
     .cards{display:grid;gap:20px;grid-template-columns:1fr}
-    .card{
-      background:var(--card);
-      border:1px solid #E2E8F0;
-      border-radius:12px;
-      padding:24px;
-      box-shadow:0 1px 3px rgba(0,0,0,0.05);
-    }
-    .card h3{
-      margin:0 0 12px 0;
-      font-size:22px;
-      font-weight:800;
-      color:var(--navy);
-    }
-    .list{margin:8px 0 0 0;padding:0 0 0 20px;line-height:1.8}
+    .card{background:var(--card);border:1px solid #E2E8F0;border-radius:12px;padding:24px;box-shadow:0 1px 3px rgba(0,0,0,.05)}
+    .card h3{margin:0 0 12px;font-size:22px;font-weight:800;color:var(--navy)}
+    .list{margin:8px 0 0;padding:0 0 0 20px;line-height:1.8}
     .list li{margin-bottom:8px;color:var(--muted)}
-    .section-title{
-      font-size:28px;
-      font-weight:800;
-      color:var(--navy);
-      margin:0 0 16px 0;
-      letter-spacing:-0.02em;
-    }
+    .section-title{font-size:28px;font-weight:800;color:var(--navy);margin:0 0 16px;letter-spacing:-.02em}
     .lead{font-size:17px;color:var(--muted);line-height:1.7}
 
-    /* Hours */
-    .hours{
-      display:grid;
-      grid-template-columns:auto 1fr;
-      gap:12px 24px;
-      font-variant-numeric:tabular-nums;
-      font-size:16px;
-    }
-    .hours > div:nth-child(odd){font-weight:600;color:var(--navy)}
-    .hours > div:nth-child(even){color:var(--muted)}
+    .hours{display:grid;grid-template-columns:auto 1fr;gap:12px 24px;font-variant-numeric:tabular-nums;font-size:16px}
+    .hours>div:nth-child(odd){font-weight:600;color:var(--navy)}
+    .hours>div:nth-child(even){color:var(--muted)}
 
-    /* Form */
     .form{display:grid;gap:14px}
-    input,textarea,select{
-      width:100%;
-      padding:14px 16px;
-      border:2px solid #E2E8F0;
-      border-radius:8px;
-      background:#fff;
-      font-size:16px;
-      font-family:inherit;
-      transition:border-color 0.2s ease;
-    }
-    input:focus,textarea:focus,select:focus{
-      outline:none;
-      border-color:var(--orange);
-    }
+    .form label{font-weight:600;color:var(--navy);margin-bottom:4px;display:block}
+    input,textarea,select{width:100%;padding:14px 16px;border:2px solid #E2E8F0;border-radius:8px;background:#fff;font-size:16px;font-family:inherit;transition:border-color .2s}
+    input:focus,textarea:focus,select:focus{outline:none;border-color:var(--orange)}
     textarea{min-height:120px;resize:vertical}
+    .help{font-size:14px;color:var(--muted)}
 
-    .band{
-      background:var(--navy);
-      color:#E8F4F8;
-      border-radius:12px;
-      padding:24px;
-      line-height:1.7;
-    }
+    .band{background:var(--navy);color:#E8F4F8;border-radius:12px;padding:24px;line-height:1.7}
     .band a{color:var(--orange-light);font-weight:600}
     .band strong{color:#fff}
 
-    .footer{
-      margin-top:48px;
-      padding:24px 0;
-      color:var(--muted);
-      font-size:13px;
-      border-top:1px solid #E2E8F0;
-      text-align:center;
-    }
+    .footer{margin-top:48px;padding:24px 0;color:var(--muted);font-size:13px;border-top:1px solid #E2E8F0;text-align:center}
 
-    /* Map */
-    #service-map, .leaflet-container{
-      width:100% !important;
-      max-width:100%;
-      height:clamp(280px,50vh,450px);
-      border-radius:12px;
-      border:1px solid #E2E8F0;
-      overflow:hidden;
-    }
+    #service-map,.leaflet-container{width:100% !important;max-width:100%;height:clamp(280px,50vh,450px);border-radius:12px;border:1px solid #E2E8F0;overflow:hidden}
 
-    /* Gallery */
-    .gallery{
-      display:flex;
-      gap:12px;
-      overflow-x:auto;
-      scroll-snap-type:x mandatory;
-      padding-bottom:8px;
-      -webkit-overflow-scrolling:touch;
-      scrollbar-width:none;
-    }
+    .gallery{display:flex;gap:12px;overflow-x:auto;scroll-snap-type:x mandatory;padding-bottom:8px;-webkit-overflow-scrolling:touch;scrollbar-width:none}
     .gallery::-webkit-scrollbar{display:none}
-    .gallery img{
-      height:clamp(140px,28vw,240px);
-      aspect-ratio:4/3;
-      object-fit:cover;
-      border-radius:12px;
-      flex:0 0 auto;
-      scroll-snap-align:start;
-      box-shadow:0 2px 8px rgba(0,0,0,0.1);
-    }
+    .gallery img{height:clamp(140px,28vw,240px);aspect-ratio:4/3;object-fit:cover;border-radius:12px;flex:0 0 auto;scroll-snap-align:start;box-shadow:0 2px 8px rgba(0,0,0,.1)}
 
-    /* Trust row */
-    .trust-row{
-      display:grid;
-      gap:16px;
-      margin:24px 0;
-    }
-    .trust-item{
-      background:#fff;
-      border:2px solid #E2E8F0;
-      border-radius:12px;
-      padding:20px;
-      text-align:center;
-    }
-    .trust-item strong{
-      display:block;
-      font-size:18px;
-      color:var(--navy);
-      margin-bottom:8px;
-      font-weight:800;
-    }
-    .trust-item p{
-      font-size:14px;
-      color:var(--muted);
-      margin:0;
-    }
+    .trust-row{display:grid;gap:16px;margin:24px 0}
+    .trust-item{background:#fff;border:2px solid #E2E8F0;border-radius:12px;padding:20px;text-align:center}
+    .trust-item strong{display:block;font-size:18px;color:var(--navy);margin-bottom:8px;font-weight:800}
+    .trust-item p{font-size:14px;color:var(--muted);margin:0}
 
-    /* Location tags - cleaner */
-    .location-tags{
-      display:flex;
-      flex-wrap:wrap;
-      gap:8px;
-      margin-top:16px;
-    }
-    .location-tag{
-      padding:8px 14px;
-      background:#fff;
-      border:1px solid #E2E8F0;
-      border-radius:20px;
-      font-size:13px;
-      font-weight:600;
-      color:var(--navy);
-      transition:all 0.2s ease;
-    }
-    .location-tag:hover{
-      background:var(--sea);
-      border-color:var(--navy);
-    }
+    .location-tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:16px}
+    .location-tag{padding:8px 14px;background:#fff;border:1px solid #E2E8F0;border-radius:20px;font-size:13px;font-weight:600;color:var(--navy);transition:all .2s}
+    .location-tag:hover{background:var(--sea);border-color:var(--navy)}
 
-    /* Desktop */
     @media(min-width:900px){
-      .hero-inner{grid-template-columns:1.2fr 0.8fr;align-items:start;gap:48px}
+      .hero-inner{grid-template-columns:1.2fr .8fr;align-items:start;gap:48px}
       .cta-row{grid-template-columns:repeat(3,1fr)}
       .cards{grid-template-columns:repeat(3,1fr)}
       .trust-row{grid-template-columns:repeat(3,1fr)}
     }
-
-    @media (prefers-reduced-motion: reduce){
-      *{animation:none !important;transition:none !important}
-    }
+    @media (prefers-reduced-motion: reduce){*{animation:none !important;transition:none !important}}
   </style>
 </head>
 <body>
   <nav class="nav" role="navigation" aria-label="Main navigation">
     <div class="wrap nav-inner">
       <div class="brand"><span class="dot"></span>Allied Electrical Systems</div>
-      <button class="hamburger" aria-label="Toggle menu" aria-expanded="false" id="menuToggle">
-        <span></span>
-        <span></span>
-        <span></span>
-      </button>
+      <button class="hamburger" aria-label="Toggle menu" aria-expanded="false" id="menuToggle"><span></span><span></span><span></span></button>
       <div class="nav-links" id="navMenu">
         <a href="#services">Services</a>
         <a href="#why">Why Allied</a>
@@ -439,14 +146,14 @@
 
   <div class="trust-ticker" role="marquee" aria-label="Trust indicators">
     <div class="ticker-content">
-      <span class="ticker-item">30+ Years Local</span>
-      <span class="ticker-item">Licensed & Insured</span>
-      <span class="ticker-item">BBB A+ Rated</span>
+      <span class="ticker-item">30+ years local</span>
+      <span class="ticker-item">Licensed & insured</span>
+      <span class="ticker-item">BBB A+ rated</span>
       <span class="ticker-item">Serving Pinellas County</span>
       <span class="ticker-item">License ER0012322</span>
-      <span class="ticker-item">30+ Years Local</span>
-      <span class="ticker-item">Licensed & Insured</span>
-      <span class="ticker-item">BBB A+ Rated</span>
+      <span class="ticker-item">30+ years local</span>
+      <span class="ticker-item">Licensed & insured</span>
+      <span class="ticker-item">BBB A+ rated</span>
       <span class="ticker-item">Serving Pinellas County</span>
       <span class="ticker-item">License ER0012322</span>
     </div>
@@ -455,44 +162,55 @@
   <header class="hero">
     <div class="wrap hero-inner">
       <div>
-        <h1>Power Problems? <span class="highlight">Same-Day Solutions.</span></h1>
-        <p class="sub"><strong>Breakers tripping? Lights flickering? Outlets dead?</strong> Our licensed electricians diagnose and fix your electrical problems fast—safely, affordably, with honest upfront pricing.</p>
+        <h1>Power problems? <span class="highlight" style="color:var(--orange)">same-day solutions.</span></h1>
+        <p class="sub"><strong>Breakers tripping? Lights flickering? Outlets dead?</strong> Our licensed electricians diagnose and fix your electrical problems fast—safely and affordably—with honest upfront pricing.</p>
         <div class="cta-row">
-          <a class="btn primary" href="tel:+17273233596" aria-label="Call Allied Electrical Systems at 7 2 7 3 2 3 3 5 9 6">📞 Call (727) 323-3596</a>
-          <a class="btn alt" href="#quote" aria-label="Request a callback">📋 Request Callback</a>
-          <a class="btn ghost" href="#map" aria-label="View service areas">📍 Service Areas</a>
+          <a class="btn primary" href="tel:+17273539673" aria-label="Call now at 7 2 7 3 5 3 9 6 7 3">Call (727) 353-9673</a>
+          <a class="btn alt" href="#quote" aria-label="Request a callback">Request callback</a>
+          <a class="btn ghost" href="#map" aria-label="View service areas">Service areas</a>
         </div>
       </div>
 
-      <div class="card">
-        <h3>Request a Callback</h3>
-        <p class="lead">Fill this out and we'll call you back within 2 hours (usually faster).</p>
-        <form class="form" action="https://formspree.io/f/xovkloyz" method="POST">
-          <label for="name" class="sr-only">Your name</label>
-          <input type="text" id="name" name="name" placeholder="Your name" required aria-required="true">
-          
-          <label for="phone" class="sr-only">Phone number</label>
-          <input type="tel" id="phone" name="phone" placeholder="Phone number" required aria-required="true">
-          
-          <label for="email" class="sr-only">Email address (optional)</label>
-          <input type="email" id="email" name="email" placeholder="Email (optional)">
-          
-          <label for="service" class="sr-only">What do you need?</label>
-          <select id="service" name="service" aria-label="Select service type">
-            <option selected>What do you need?</option>
-            <option>No Power / Emergency</option>
-            <option>Panel Upgrade</option>
-            <option>New Outlets / Circuits</option>
-            <option>Lighting & Fans</option>
-            <option>EV Charger Install</option>
-            <option>Commercial Service</option>
-            <option>Other</option>
-          </select>
-          
-          <label for="message" class="sr-only">Describe the issue</label>
-          <textarea id="message" name="message" placeholder="Describe the issue" aria-label="Describe your electrical issue"></textarea>
-          
-          <button class="btn alt" type="submit">📤 Send Request</button>
+      <div class="card" id="quote">
+        <h3>Request a callback</h3>
+        <p class="lead">
+          Call for faster response: <a href="tel:+17273539673">(727) 353-9673</a> &nbsp;|&nbsp; Prefer texting? <a href="sms:+17273539673">Text this number</a>.
+        </p>
+        <form class="form" action="https://formspree.io/f/xovkloyz" method="POST" aria-describedby="formHelp" id="callbackForm">
+          <div>
+            <label for="name">Your name <span aria-hidden="true">*</span></label>
+            <input type="text" id="name" name="name" required aria-required="true" autocomplete="name">
+          </div>
+          <div>
+            <label for="phone">Phone number <span aria-hidden="true">*</span></label>
+            <input type="tel" id="phone" name="phone" required aria-required="true" autocomplete="tel">
+          </div>
+          <div>
+            <label for="email">Email (optional)</label>
+            <input type="email" id="email" name="email" autocomplete="email">
+          </div>
+          <div>
+            <label for="service">What do you need?</label>
+            <select id="service" name="service">
+              <option selected>Choose a service…</option>
+              <option>No power / emergency</option>
+              <option>Panel upgrade</option>
+              <option>New outlets / circuits</option>
+              <option>Lighting & fans</option>
+              <option>EV charger install</option>
+              <option>Commercial service</option>
+              <option>Other</option>
+            </select>
+          </div>
+          <div>
+            <label for="message">Describe the issue</label>
+            <textarea id="message" name="message" aria-label="Describe your electrical issue"></textarea>
+          </div>
+
+          <button class="btn alt" type="submit" id="sendBtn">Send request</button>
+          <p class="help" id="formHelp">We’ll call you back within 2 hours during business hours. Required fields are marked with “*”.</p>
+          <div role="status" aria-live="polite" id="formStatus" class="help"></div>
+
           <input type="hidden" name="source" value="Allied Electrical Landing" />
           <input type="hidden" name="_subject" value="Allied Website Lead">
           <input type="hidden" name="page" value="gofercontent.com/allied-electrical-systems">
@@ -503,17 +221,17 @@
 
   <main class="wrap grid">
     <section class="card" id="about">
-      <h2 class="section-title">Get Safe, Reliable Electrical Work—Fast</h2>
-      <p class="lead"><strong>Here's the deal:</strong> Bad electrical work puts your family and property at risk. Flickering lights, tripping breakers, and outdated panels aren't just annoying—they're fire hazards.</p>
-      <p class="lead" style="margin-top:16px">Since 1993, Allied Electrical Systems has been Pinellas County's go-to team for electrical work done <strong>right, on time, and on budget.</strong> Our licensed electricians show up when we say we will, diagnose problems fast, give you honest upfront pricing, and complete the job safely—no surprises, no shortcuts.</p>
+      <h2 class="section-title">Get safe, reliable electrical work—fast</h2>
+      <p class="lead"><strong>Here’s the deal:</strong> bad electrical work puts your family and property at risk. Flickering lights, tripping breakers, and outdated panels aren’t just annoying—they’re fire hazards.</p>
+      <p class="lead" style="margin-top:16px">Since 1993, Allied Electrical Systems has been Pinellas County’s go-to team for electrical work done <strong>right, on time, and on budget.</strong> Our licensed electricians show up when we say we will, diagnose problems fast, give you honest upfront pricing, and complete the job safely—no surprises, no shortcuts.</p>
       <p class="lead" style="margin-top:16px"><strong>Emergency repair or planned upgrade?</strong> You get the same expert service, fair pricing, and respect for your home or business every single time.</p>
     </section>
 
     <section id="services" aria-labelledby="services-heading">
-      <h2 id="services-heading" class="section-title">What We Fix</h2>
+      <h2 id="services-heading" class="section-title">What we fix</h2>
       <div class="cards">
         <article class="card">
-          <h3>⚡ Emergency Repairs</h3>
+          <h3>Emergency repairs</h3>
           <ul class="list">
             <li>No power troubleshooting</li>
             <li>Tripping breakers & faults</li>
@@ -522,7 +240,7 @@
           </ul>
         </article>
         <article class="card">
-          <h3>🏠 Residential</h3>
+          <h3>Residential</h3>
           <ul class="list">
             <li>Panel upgrades & replacements</li>
             <li>New circuits & outlets</li>
@@ -531,7 +249,7 @@
           </ul>
         </article>
         <article class="card">
-          <h3>🏢 Commercial</h3>
+          <h3>Commercial</h3>
           <ul class="list">
             <li>Tenant build-outs</li>
             <li>Lighting retrofits</li>
@@ -543,36 +261,36 @@
     </section>
 
     <section class="card" aria-labelledby="gallery-heading">
-      <h2 id="gallery-heading" class="section-title">Our Team in Action</h2>
+      <h2 id="gallery-heading" class="section-title">Our team in action</h2>
       <div class="gallery" role="list">
-        <img src="./aes-truck.jpg" alt="Allied Electrical Systems service truck parked outside" role="listitem">
-        <img src="./aes-family.jpg" alt="Allied Electrical Systems team photo" role="listitem">
-        <img src="./aes-steve-2018.jpg" alt="Allied electrician by service truck" role="listitem">
-        <img src="./aes-jesse-2018.jpg" alt="Jesse, Allied electrician, on the job" role="listitem">
-        <img src="./aes-palm-tree-truck.jpg" alt="Allied service truck in St. Petersburg" role="listitem">
+        <img src="./aes-truck.jpg" width="1000" height="750" loading="lazy" decoding="async" alt="Allied Electrical Systems service truck parked outside" role="listitem">
+        <img src="./aes-family.jpg" width="1080" height="604" loading="lazy" decoding="async" alt="Allied Electrical Systems team photo" role="listitem">
+        <img src="./aes-steve-2018.jpg" width="1360" height="1020" loading="lazy" decoding="async" alt="Allied electrician by service truck" role="listitem">
+        <img src="./aes-jesse-2018.jpg" width="750" height="1000" loading="lazy" decoding="async" alt="Jesse, Allied electrician, on the job" role="listitem">
+        <img src="./aes-palm-tree-truck.jpg" width="640" height="480" loading="lazy" decoding="async" alt="Allied service truck in St. Petersburg" role="listitem">
       </div>
     </section>
 
     <section id="why" aria-labelledby="why-heading">
-      <h2 id="why-heading" class="section-title">Why Pinellas Chooses Allied</h2>
+      <h2 id="why-heading" class="section-title">Why Pinellas chooses Allied</h2>
       <div class="trust-row">
         <div class="trust-item">
-          <strong>30+ Years Local</strong>
+          <strong>30+ years local</strong>
           <p>Three decades serving your neighbors</p>
         </div>
         <div class="trust-item">
-          <strong>BBB A+ Rated</strong>
+          <strong>BBB A+ rated</strong>
           <p>Trusted, honest, reliable service</p>
         </div>
         <div class="trust-item">
-          <strong>Licensed & Insured</strong>
+          <strong>Licensed & insured</strong>
           <p>Professional, code-compliant work</p>
         </div>
       </div>
     </section>
 
     <section id="hours" class="card" aria-labelledby="hours-heading">
-      <h2 id="hours-heading" class="section-title">Hours & Contact</h2>
+      <h2 id="hours-heading" class="section-title">Hours & contact</h2>
       <div class="hours" role="table" aria-label="Business hours">
         <div>Mon</div><div>8:00 AM – 5:00 PM</div>
         <div>Tue</div><div>8:00 AM – 5:00 PM</div>
@@ -583,20 +301,20 @@
         <div>Sun</div><div>Closed</div>
       </div>
       <div class="band" style="margin-top:20px">
-        <strong>📞 Call Now:</strong> <a href="tel:+17273233596">(727) 323-3596</a><br>
-        <strong>📍 Our Location:</strong> 745 40th St S, Saint Petersburg, FL 33711
+        <strong>Call now:</strong> <a href="tel:+17273539673">(727) 353-9673</a><br>
+        <strong>Text:</strong> <a href="sms:+17273539673">(727) 353-9673</a><br>
+        <strong>Our location:</strong> 745 40th St S, Saint Petersburg, FL 33711
       </div>
     </section>
 
     <section id="map" class="card" aria-labelledby="service-area-heading">
-      <h2 id="service-area-heading" class="section-title">We Come to You</h2>
+      <h2 id="service-area-heading" class="section-title">We come to you</h2>
       <p class="lead">Serving all of <strong>Pinellas County</strong> — St. Petersburg, Clearwater, Largo, Gulfport, and the beaches.</p>
       <div id="service-map" aria-label="Map of Pinellas County service area"></div>
       <div class="location-tags">
-        <a class="location-tag" href="https://www.google.com/search?sca_esv=35b4b4eaf34d9443&rlz=1C5CHFA_enUS1149US1149&sxsrf=AE3TifNAkDGKpxXT3iRgrc9FqQ7tyaKGUg:1759793946529&si=AMgyJEuzsz2NflaaWzrzdpjxXXRaJ2hfdMsbe_mSWso6src8sw_grS17LcHdhL-SqKwrM4BXwFUeCDPJ2whZXNpjZotnNp2NIEPQmBAPdfORwc94nfVlg60CKhAL6FeXLuALZM1ZadDP4KQZle6JJrMu5fTKKqSaSQ%3D%3D&q=Allied+Electrical+Systems+Inc.+Reviews&sa=X&ved=2ahUKEwjd-L2o35CQAxX7RTABHTUEHqAQ0bkNegQILBAC&biw=1280&bih=678&dpr=2" target="_blank" rel="noopener" aria-label="See our Google reviews">⭐ See Reviews on Google</a>
+        <a class="location-tag" href="https://www.google.com/search?q=Allied+Electrical+Systems+Inc.+Reviews" target="_blank" rel="noopener">See reviews on Google</a>
       </div>
     </section>
-
   </main>
 
   <footer class="wrap footer">
@@ -604,82 +322,48 @@
   </footer>
 
   <script>
-    const navEl = document.querySelector('.nav');
-    const setNavH = () => {
-      if (!navEl) return;
-      document.documentElement.style.setProperty('--nav-h', (navEl.offsetHeight + 10) + 'px');
-    };
-    setNavH();
-    window.addEventListener('resize', setNavH);
+    const navEl=document.querySelector('.nav');
+    const setNavH=()=>{if(!navEl)return;document.documentElement.style.setProperty('--nav-h',(navEl.offsetHeight+10)+'px')};
+    setNavH();window.addEventListener('resize',setNavH);
 
-    // Hamburger menu toggle
-    const menuToggle = document.getElementById('menuToggle');
-    const navMenu = document.getElementById('navMenu');
-    
-    menuToggle.addEventListener('click', () => {
-      const isOpen = navMenu.classList.toggle('open');
-      menuToggle.setAttribute('aria-expanded', isOpen);
+    const menuToggle=document.getElementById('menuToggle');
+    const navMenu=document.getElementById('navMenu');
+    menuToggle.addEventListener('click',()=>{const isOpen=navMenu.classList.toggle('open');menuToggle.setAttribute('aria-expanded',isOpen)});
+    document.querySelectorAll('.nav-links a').forEach(l=>l.addEventListener('click',()=>{navMenu.classList.remove('open');menuToggle.setAttribute('aria-expanded','false')}));
+
+    document.querySelectorAll('a[href^="#"]').forEach(a=>{
+      a.addEventListener('click',e=>{
+        const href=a.getAttribute('href'); if(href&&href.length>1){e.preventDefault();const t=document.querySelector(href); if(t) t.scrollIntoView({behavior:'smooth',block:'start'})}
+      })
     });
 
-    // Close menu when clicking a link
-    document.querySelectorAll('.nav-links a').forEach(link => {
-      link.addEventListener('click', () => {
-        navMenu.classList.remove('open');
-        menuToggle.setAttribute('aria-expanded', 'false');
-      });
-    });
-
-    // Smooth scroll for anchor links
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-      anchor.addEventListener('click', function(e) {
-        const href = this.getAttribute('href');
-        if (href && href.length > 1) {
-          e.preventDefault();
-          const target = document.querySelector(href);
-          if (target) {
-            target.scrollIntoView({behavior: 'smooth', block: 'start'});
-          }
-        }
-      });
-    });
+    const form=document.getElementById('callbackForm');
+    const sendBtn=document.getElementById('sendBtn');
+    const statusEl=document.getElementById('formStatus');
+    if(form){form.addEventListener('submit',()=>{sendBtn.disabled=true;sendBtn.textContent='Sending…';statusEl.textContent='Submitting your request…'})}
   </script>
 
   <style>.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border-width:0}</style>
 
   <script type="application/ld+json">
   {
-    "@context": "https://schema.org",
-    "@type": "Electrician",
-    "name": "Allied Electrical Systems, Inc.",
-    "address": {
-      "@type": "PostalAddress",
-      "streetAddress": "745 40th St S",
-      "addressLocality": "Saint Petersburg",
-      "addressRegion": "FL",
-      "postalCode": "33711",
-      "addressCountry": "US"
-    },
-    "telephone": "+1-727-323-3596",
-    "email": "wattman53@gmail.com",
-    "openingHours": [
-      "Mo-Fr 08:00-17:00"
-    ],
-    "url": "https://gofercontent.com/allied-electrical-systems",
-    "foundingDate": "1993",
-    "areaServed": "Pinellas County, FL"
+    "@context":"https://schema.org",
+    "@type":"Electrician",
+    "name":"Allied Electrical Systems, Inc.",
+    "address":{"@type":"PostalAddress","streetAddress":"745 40th St S","addressLocality":"Saint Petersburg","addressRegion":"FL","postalCode":"33711","addressCountry":"US"},
+    "telephone":"+1-727-353-9673",
+    "openingHours":["Mo-Fr 08:00-17:00"],
+    "url":"https://gofercontent.com/allied-electrical-systems/"
   }
   </script>
 
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
   <script>
-    const map = L.map('service-map',{scrollWheelZoom:false}).setView([27.84,-82.73], 11);
-    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{
-      maxZoom: 19,
-      attribution:'© OpenStreetMap'
-    }).addTo(map);
-    const marker = L.marker([27.761992,-82.687872]).addTo(map).bindPopup('Allied Electrical Systems');
-    const serviceCircle = L.circle([27.90,-82.73],{radius:26000,color:'#FF5722',fillColor:'#FF5722',fillOpacity:0.15,weight:2}).addTo(map);
-    const group = new L.featureGroup([serviceCircle, marker]);
+    const map=L.map('service-map',{scrollWheelZoom:false}).setView([27.84,-82.73],11);
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{maxZoom:19,attribution:'© OpenStreetMap'}).addTo(map);
+    const marker=L.marker([27.761992,-82.687872]).addTo(map).bindPopup('Allied Electrical Systems');
+    const serviceCircle=L.circle([27.90,-82.73],{radius:26000,color:'#FF5722',fillColor:'#FF5722',fillOpacity:0.15,weight:2}).addTo(map);
+    const group=new L.featureGroup([serviceCircle,marker]);
     map.fitBounds(group.getBounds(),{padding:[20,20]});
   </script>
 </body>
