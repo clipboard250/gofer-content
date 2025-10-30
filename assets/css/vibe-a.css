@@ -1,0 +1,73 @@
+/* Option A skin — bold, chunky, accessible. No external brand words. */
+:root{
+  --ink:#111; --ink-2:#222; --text:#f5f5f5; --muted:#bbbbbb;
+  --paper:#0c0c0c; --card:#161616; --line:#262626;
+  --y1:#ffd43b; --y2:#ffae00; --p1:#ff5aa3; --b1:#00b0ff; /* gradient stops */
+  --ring:#ff9900;
+  --r-lg:22px; --r-md:14px; --r-sm:10px;
+  --shadow:0 10px 30px rgba(0,0,0,.35);
+}
+
+/* base */
+.vibe-a, .vibe-a body{background:var(--paper);color:var(--text);font:16px/1.55 Inter, system-ui, -apple-system, Segoe UI, Arial, sans-serif;}
+a{color:#e8e8e8;text-decoration:none}
+a:focus-visible, button:focus-visible, .ui-btn:focus-visible, .ui-link:focus-visible{outline:3px solid var(--ring);outline-offset:3px}
+
+/* wrappers */
+.va-wrap{max-width:1100px;margin:auto;padding:18px}
+
+/* header */
+.va-header{position:sticky;top:0;background:rgba(12,12,12,.85);backdrop-filter:blur(6px);border-bottom:1px solid var(--line);z-index:50}
+.va-header nav{display:flex;gap:14px}
+.va-brand{display:flex;align-items:center;gap:10px}
+.va-brand img{width:36px;height:36px;border-radius:50%;border:2px solid var(--y2)}
+.va-title{font-weight:800}
+
+/* hero */
+.va-hero-card{
+  background:
+    linear-gradient(180deg,var(--y1) 0%, rgba(255,212,59,.96) 18%, rgba(255,106,0,.30) 55%, var(--p1) 100%);
+  color:var(--ink);
+  border-radius:var(--r-lg);
+  box-shadow:var(--shadow);
+  border:1px solid rgba(0,0,0,.2);
+  padding:clamp(16px,4vw,34px);
+}
+.ui-h1{font-weight:900;letter-spacing:-.02em;line-height:1.05;font-size:clamp(28px,6vw,68px);margin:0 0 .35rem}
+.ui-lead{color:#222;font-weight:700}
+.ui-btn-row .ui-btn{min-height:44px;border-radius:12px;font-weight:800}
+.ui-btn{background:#111;color:#fff;border:2px solid #111}
+.ui-btn:hover{filter:brightness(1.05)}
+.ui-btn--outline{background:transparent;color:#111;border:2px solid #111}
+.ui-btn--ghost{background:transparent;color:#111;border:2px dashed #111}
+
+.va-chips{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:10px}
+.va-chip{display:inline-flex;align-items:center;border:1px solid rgba(0,0,0,.25);background:rgba(255,255,255,.7);color:#111;border-radius:999px;padding:.45rem .75rem;font-weight:800}
+
+/* tabs */
+.va-tabrow{display:flex;gap:12px;flex-wrap:wrap}
+.va-tab{display:inline-flex;align-items:center;justify-content:center;min-height:44px;padding:.7rem 1.2rem;border-radius:14px;font-weight:900;background:#111;color:#fff;border:2px solid #111}
+.va-tab.is-active{background:#fff;color:#111;border-color:#111}
+.va-tab:focus-visible{outline:3px solid var(--ring);outline-offset:3px}
+
+/* cards & grid */
+.ui-card{background:var(--card);border:1px solid var(--line);border-radius:var(--r-md);padding:18px;box-shadow:0 0 0 1px rgba(255,106,0,.25),0 0 18px rgba(255,106,0,.18)}
+.ui-section{padding:30px 0;border-top:1px solid var(--line)}
+.ui-h2{font-weight:800;letter-spacing:-.01em;margin:0 0 .35rem}
+.va-linkcard{display:block;position:relative}
+.va-linkcard .va-arrow{position:absolute;right:16px;bottom:16px;font-weight:900}
+
+/* FAQ */
+.va-faq{background:var(--card);border:1px solid var(--line);border-radius:var(--r-md);padding:14px;margin:10px 0}
+.va-faq > summary{cursor:pointer;font-weight:900}
+.va-faq > summary::-webkit-details-marker{display:none}
+.va-faq[open]{box-shadow:0 0 0 1px rgba(255,106,0,.35),0 0 18px rgba(255,106,0,.2)}
+
+/* footer */
+.va-footer{color:#b8b8b8;border-top:1px solid var(--line);padding:12px 0}
+
+/* helpers */
+.sr-only{position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden}
+.skip{position:absolute;left:-9999px}
+.skip:focus{position:static;background:#000;padding:.6rem;border:2px dashed var(--y2)}
+@media (max-width:900px){ .va-header nav{display:none} }
