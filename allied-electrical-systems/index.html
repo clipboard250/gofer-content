@@ -66,7 +66,7 @@
 
     .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;border-radius:8px;padding:16px 24px;font-weight:700;border:none;min-height:52px;font-size:16px;cursor:pointer;transition:all .2s;margin:4px}
     .btn:focus-visible{outline:3px solid var(--orange);outline-offset:3px}
-    .btn.primary{background:var(--navy);color:#fff;box-shadow:0 2px 8px rgba(43,76,126,.25)}
+    .btn.primary{background:var(--navy);color:#fff}
     .btn.primary:hover{background:var(--blue-dark);transform:translateY(-2px)}
     .btn.alt{background:var(--orange);color:#fff}
     .btn.alt:hover{background:var(--orange-light);transform:translateY(-2px)}
@@ -163,18 +163,21 @@
     <div class="wrap hero-inner">
       <div>
         <h1>Power problems? <span class="highlight" style="color:var(--orange)">same-day solutions.</span></h1>
-        <p class="sub"><strong>Breakers tripping? Lights flickering? Outlets dead?</strong> Our licensed electricians diagnose and fix your electrical problems fast—safely and affordably—with honest upfront pricing.</p>
+        <p class="sub"><strong>Breakers tripping? Lights flickering? Outlets dead?</strong> Our licensed electricians find the problem fast, fix it safely and affordably, and give upfront pricing you can trust.</p>
         <div class="cta-row">
-          <a class="btn primary" href="tel:+17273539673" aria-label="Call now at 7 2 7 3 5 3 9 6 7 3">Call (727) 353-9673</a>
-          <a class="btn alt" href="#quote" aria-label="Request a callback">Request callback</a>
-          <a class="btn ghost" href="#map" aria-label="View service areas">Service areas</a>
+          <!-- Primary: Text with prefilled message -->
+          <a class="btn alt" href="sms:+17273539673&body=Hi%20Allied%20lead%20via%20Gofer%20Content.%20I%27m%20in%20%5Bcity%5D.%20Issue%3A%20%5Bdescribe%5D.%20Preferred%20time%20to%20call%3A%20%5Btime%5D." aria-label="Text now to 7 2 7 3 5 3 9 6 7 3">Text now</a>
+          <!-- Secondary: Form -->
+          <a class="btn primary" href="#quote" aria-label="Request a callback">Request callback</a>
+          <!-- Tertiary: Phone call -->
+          <a class="btn ghost" href="tel:+17273539673" aria-label="Call now">Call</a>
         </div>
       </div>
 
       <div class="card" id="quote">
         <h3>Request a callback</h3>
         <p class="lead">
-          Call for faster response: <a href="tel:+17273539673">(727) 353-9673</a> &nbsp;|&nbsp; Prefer texting? <a href="sms:+17273539673">Text this number</a>.
+          Call for faster response: <a href="tel:+17273539673">(727) 353-9673</a>. Prefer texting? <a href="sms:+17273539673&body=Hi%20Allied%20lead%20via%20Gofer%20Content.%20I%27m%20in%20%5Bcity%5D.%20Issue%3A%20%5Bdescribe%5D.%20Preferred%20time%20to%20call%3A%20%5Btime%5D.">Send a text</a>.
         </p>
         <form class="form" action="https://formspree.io/f/xovkloyz" method="POST" aria-describedby="formHelp" id="callbackForm">
           <div>
@@ -196,7 +199,7 @@
               <option>No power / emergency</option>
               <option>Panel upgrade</option>
               <option>New outlets / circuits</option>
-              <option>Lighting & fans</option>
+              <option>Lighting and fans</option>
               <option>EV charger install</option>
               <option>Commercial service</option>
               <option>Other</option>
@@ -208,7 +211,7 @@
           </div>
 
           <button class="btn alt" type="submit" id="sendBtn">Send request</button>
-          <p class="help" id="formHelp">We’ll call you back within 2 hours during business hours. Required fields are marked with “*”.</p>
+          <p class="help" id="formHelp">We call back within 2 hours during business hours. Required fields are marked with “*”.</p>
           <div role="status" aria-live="polite" id="formStatus" class="help"></div>
 
           <input type="hidden" name="source" value="Allied Electrical Landing" />
@@ -221,10 +224,10 @@
 
   <main class="wrap grid">
     <section class="card" id="about">
-      <h2 class="section-title">Get safe, reliable electrical work—fast</h2>
-      <p class="lead"><strong>Here’s the deal:</strong> bad electrical work puts your family and property at risk. Flickering lights, tripping breakers, and outdated panels aren’t just annoying—they’re fire hazards.</p>
-      <p class="lead" style="margin-top:16px">Since 1993, Allied Electrical Systems has been Pinellas County’s go-to team for electrical work done <strong>right, on time, and on budget.</strong> Our licensed electricians show up when we say we will, diagnose problems fast, give you honest upfront pricing, and complete the job safely—no surprises, no shortcuts.</p>
-      <p class="lead" style="margin-top:16px"><strong>Emergency repair or planned upgrade?</strong> You get the same expert service, fair pricing, and respect for your home or business every single time.</p>
+      <h2 class="section-title">Get safe, reliable electrical work fast</h2>
+      <p class="lead"><strong>Here is the truth:</strong> bad electrical work puts your family and property at risk. Flickering lights, tripping breakers, and outdated panels are not just annoying, they are fire hazards.</p>
+      <p class="lead" style="margin-top:16px">Since 1993, Allied Electrical Systems has been Pinellas County’s go-to team for electrical work done right, on time, and on budget. Our licensed electricians show up when we say we will, diagnose problems fast, give honest upfront pricing, and complete the job safely. No surprises. No shortcuts.</p>
+      <p class="lead" style="margin-top:16px"><strong>Emergency repair or planned upgrade?</strong> You get the same expert service, fair pricing, and respect for your home or business every time.</p>
     </section>
 
     <section id="services" aria-labelledby="services-heading">
@@ -234,16 +237,16 @@
           <h3>Emergency repairs</h3>
           <ul class="list">
             <li>No power troubleshooting</li>
-            <li>Tripping breakers & faults</li>
-            <li>Storm & surge damage</li>
+            <li>Tripping breakers and faults</li>
+            <li>Storm and surge damage</li>
             <li>Same-day service available</li>
           </ul>
         </article>
         <article class="card">
           <h3>Residential</h3>
           <ul class="list">
-            <li>Panel upgrades & replacements</li>
-            <li>New circuits & outlets</li>
+            <li>Panel upgrades and replacements</li>
+            <li>New circuits and outlets</li>
             <li>Lighting, fans, smart controls</li>
             <li>EV charger installation</li>
           </ul>
@@ -283,14 +286,14 @@
           <p>Trusted, honest, reliable service</p>
         </div>
         <div class="trust-item">
-          <strong>Licensed & insured</strong>
+          <strong>Licensed and insured</strong>
           <p>Professional, code-compliant work</p>
         </div>
       </div>
     </section>
 
     <section id="hours" class="card" aria-labelledby="hours-heading">
-      <h2 id="hours-heading" class="section-title">Hours & contact</h2>
+      <h2 id="hours-heading" class="section-title">Hours and contact</h2>
       <div class="hours" role="table" aria-label="Business hours">
         <div>Mon</div><div>8:00 AM – 5:00 PM</div>
         <div>Tue</div><div>8:00 AM – 5:00 PM</div>
@@ -301,15 +304,15 @@
         <div>Sun</div><div>Closed</div>
       </div>
       <div class="band" style="margin-top:20px">
-        <strong>Call now:</strong> <a href="tel:+17273539673">(727) 353-9673</a><br>
-        <strong>Text:</strong> <a href="sms:+17273539673">(727) 353-9673</a><br>
+        <strong>Call:</strong> <a href="tel:+17273539673">(727) 353-9673</a><br>
+        <strong>Text:</strong> <a href="sms:+17273539673&body=Hi%20Allied%20lead%20via%20Gofer%20Content.%20I%27m%20in%20%5Bcity%5D.%20Issue%3A%20%5Bdescribe%5D.%20Preferred%20time%20to%20call%3A%20%5Btime%5D.">(727) 353-9673</a><br>
         <strong>Our location:</strong> 745 40th St S, Saint Petersburg, FL 33711
       </div>
     </section>
 
     <section id="map" class="card" aria-labelledby="service-area-heading">
       <h2 id="service-area-heading" class="section-title">We come to you</h2>
-      <p class="lead">Serving all of <strong>Pinellas County</strong> — St. Petersburg, Clearwater, Largo, Gulfport, and the beaches.</p>
+      <p class="lead">Serving all of Pinellas County, including St. Petersburg, Clearwater, Largo, Gulfport, and the beaches.</p>
       <div id="service-map" aria-label="Map of Pinellas County service area"></div>
       <div class="location-tags">
         <a class="location-tag" href="https://www.google.com/search?q=Allied+Electrical+Systems+Inc.+Reviews" target="_blank" rel="noopener">See reviews on Google</a>
@@ -340,7 +343,7 @@
     const form=document.getElementById('callbackForm');
     const sendBtn=document.getElementById('sendBtn');
     const statusEl=document.getElementById('formStatus');
-    if(form){form.addEventListener('submit',()=>{sendBtn.disabled=true;sendBtn.textContent='Sending…';statusEl.textContent='Submitting your request…'})}
+    if(form){form.addEventListener('submit',()=>{sendBtn.disabled=true;sendBtn.textContent='Sending...';statusEl.textContent='Submitting your request...'})}
   </script>
 
   <style>.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border-width:0}</style>
