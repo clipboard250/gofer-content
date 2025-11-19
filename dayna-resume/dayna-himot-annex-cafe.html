@@ -113,6 +113,39 @@ li{
     margin:0 0 10px 0;
     page-break-inside:avoid;
   }
+  @media print {
+
+  /* Remove all top + bottom margins on cards when printing */
+  .card {
+   	margin: 4px 0 !important;
+   	padding: 8px 0 !important;
+   	border: none !important;
+   	page-break-inside: avoid;
+  }
+
+  /* Tighten global spacing */
+  h1, h2 {
+   	margin: 4px 0 4px 0 !important;
+  }
+
+  ul {
+   	margin: 4px 0 4px 16px !important;
+  }
+
+  .block {
+   	margin-bottom: 4px !important;
+  }
+
+  /* Remove header padding so page 1 starts higher */
+  .header {
+   	padding: 8px !important;
+   	margin-bottom: 4px !important;
+  }
+
+  /* Disable the little outbound link arrows */
+  a::after {
+   	content: "" !important;
+  }
 }
 </style>
 </head>
