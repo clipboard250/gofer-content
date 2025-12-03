@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Security website playbook</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  body {
+    margin: 0;
+    background: radial-gradient(circle at top, #181328 0, #050508 45%, #020205 100%);
+    font-family: "Space Grotesk", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    color: #eee;
+    line-height: 1.6;
+  }
+
+  :root {
+    --accent1: #B400FF;
+    --accent2: #FF006E;
+  }
+
+  * {
+    box-sizing: border-box;
+  }
+
+  header {
+    padding: 70px 20px 60px;
+    text-align: center;
+  }
+
+  .tagline {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 4px 10px;
+    border-radius: 999px;
+    border: 1px solid rgba(255,255,255,0.12);
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: #aaa;
+    margin-bottom: 14px;
+    background: rgba(0,0,0,0.35);
+  }
+
+  .pulse-dot {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: var(--accent2);
+    box-shadow: 0 0 8px rgba(255,0,110,0.9);
+  }
+
+  header h1 {
+    font-size: 2.3rem;
+    font-weight: 700;
+    margin: 0 0 12px;
+    background: linear-gradient(135deg, var(--accent1), var(--accent2));
+    -webkit-background-clip: text;
+    color: transparent;
+  }
+
+  header p {
+    max-width: 720px;
+    margin: 0 auto;
+    color: #c4c4d8;
+    font-size: 1rem;
+  }
+
+  main {
+    padding-bottom: 40px;
+  }
+
+  section {
+    padding: 32px 20px 10px;
+    max-width: 960px;
+    margin: 0 auto;
+  }
+
+  h2 {
+    color: var(--accent1);
+    font-size: 1.4rem;
+    margin-bottom: 18px;
+  }
+
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 18px;
+  }
+
+  .tile {
+    background: rgba(10,10,16,0.9);
+    padding: 22px 20px;
+    border-radius: 14px;
+    border: 1px solid rgba(255,255,255,0.06);
+    position: relative;
+    overflow: hidden;
+    cursor: default;
+    transition: border-color 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease;
+    box-shadow: 0 0 0 rgba(0,0,0,0);
+  }
+
+  .tile::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(180,0,255,0.15), rgba(255,0,110,0.1));
+    opacity: 0;
+    transition: opacity 0.25s ease;
+    pointer-events: none;
+  }
+
+  .tile:hover,
+  .tile:active {
+    border-color: var(--accent2);
+    transform: translateY(-3px) rotate3d(0, 1, 0, 6deg);
+    box-shadow: 0 10px 26px rgba(0,0,0,0.55);
+  }
+
+  .tile:hover::before,
+  .tile:active::before {
+    opacity: 1;
+  }
+
+  .tile-title {
+    font-size: 0.86rem;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    color: #8c8ca5;
+    margin-bottom: 6px;
+  }
+
+  .tile strong {
+    color: #f3f3ff;
+  }
+
+  .muted {
+    color: #b0b0c5;
+    font-size: 0.95rem;
+  }
+
+  .compare-wrap {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 18px;
+  }
+
+  .compare {
+    background: rgba(9,9,15,0.95);
+    padding: 20px 18px;
+    border-radius: 14px;
+    border: 1px solid rgba(255,255,255,0.06);
+    position: relative;
+    overflow: hidden;
+    cursor: default;
+    transition: border-color 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease;
+  }
+
+  .compare::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(255,0,110,0.12), rgba(180,0,255,0.18));
+    opacity: 0;
+    transition: opacity 0.25s ease;
+    pointer-events: none;
+  }
+
+  .compare:hover,
+  .compare:active {
+    border-color: var(--accent2);
+    transform: translateY(-3px) rotate3d(0, 1, 0, -4deg);
+    box-shadow: 0 10px 26px rgba(0,0,0,0.55);
+  }
+
+  .compare:hover::before,
+  .compare:active::before {
+    opacity: 1;
+  }
+
+  .compare h3 {
+    margin: 0 0 8px;
+    font-size: 1.05rem;
+    color: var(--accent2);
+  }
+
+  .compare ul {
+    padding-left: 18px;
+    margin: 0;
+    color: #d0d0e0;
+    font-size: 0.95rem;
+  }
+
+  .compare li + li {
+    margin-top: 3px;
+  }
+
+  .pill-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 6px;
+  }
+
+  .pill {
+    border-radius: 999px;
+    padding: 4px 10px;
+    border: 1px solid rgba(255,255,255,0.16);
+    font-size: 0.75rem;
+    color: #bfbfe0;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 86px;
+    text-align: center;
+  }
+
+  footer {
+    padding: 28px 20px 40px;
+    text-align: center;
+    color: #777791;
+    font-size: 0.9rem;
+  }
+
+  /* entry animation */
+  .fade-up {
+    opacity: 0;
+    transform: translateY(14px);
+    animation: fadeUp 0.6s ease forwards;
+  }
+
+  .fade-up.delay-1 { animation-delay: 0.1s; }
+  .fade-up.delay-2 { animation-delay: 0.2s; }
+  .fade-up.delay-3 { animation-delay: 0.3s; }
+
+  @keyframes fadeUp {
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .tile:hover,
+    .tile:active,
+    .compare:hover,
+    .compare:active {
+      transform: none;
+    }
+
+    .fade-up {
+      opacity: 1;
+      transform: none;
+      animation: none;
+    }
+  }
+
+  @media (max-width: 600px) {
+    header {
+      padding-top: 54px;
+    }
+    header h1 {
+      font-size: 1.9rem;
+    }
+  }
+</style>
+</head>
+<body>
+<header class="fade-up">
+  <div class="tagline"><span class="pulse-dot"></span> quick checklist, not a lecture</div>
+  <h1>Security website playbook</h1>
+  <p>A simple scroll-through of things security companies (cyber or physical) often miss when they put their site together.</p>
+</header>
+
+<main>
+  <section class="fade-up delay-1">
+    <h2>Where sites usually go sideways</h2>
+    <div class="grid">
+      <article class="tile">
+        <div class="tile-title">first impression</div>
+        <p class="muted">Most visitors decide in a few seconds if they trust the site or not. Busy layouts, random photos, and vague text all push them away before they even read the details.</p>
+      </article>
+      <article class="tile">
+        <div class="tile-title">doing the most</div>
+        <p class="muted">Security as a field is serious. If the site feels all over the place, people assume the service is the same. A calmer layout with visible structure sends a different message.</p>
+      </article>
+    </div>
+  </section>
+
+  <section class="fade-up delay-2">
+    <h2>Bad vs. better patterns</h2>
+    <div class="compare-wrap">
+      <article class="compare">
+        <h3>Typical "messy" layout</h3>
+        <ul>
+          <li>Big hero text that does not say what you actually handle</li>
+          <li>Five different fonts and colors fighting each other</li>
+          <li>Stock photos that do not look like your world</li>
+          <li>Services buried in a long paragraph</li>
+          <li>Contact info hidden in the footer only</li>
+        </ul>
+      </article>
+      <article class="compare">
+        <h3>More focused layout</h3>
+        <ul>
+          <li>One clear sentence: who you protect and how</li>
+          <li>Short service list broken into simple chunks</li>
+          <li>Modern visuals that match the type of security you offer</li>
+          <li>Contact button near the top plus phone / form options</li>
+          <li>Enough detail to feel solid, not overloaded</li>
+        </ul>
+      </article>
+    </div>
+  </section>
+
+  <section class="fade-up delay-3">
+    <h2>Pieces every security site needs</h2>
+    <div class="grid">
+      <article class="tile">
+        <div class="tile-title">services</div>
+        <p class="muted"><strong>Spell it out clearly.</strong> Guards, patrol, monitoring, cyber hardening, cameras, transport, events, consulting — whatever applies. People should not have to guess.</p>
+        <div class="pill-row">
+          <span class="pill">patrol</span>
+          <span class="pill">event security</span>
+          <span class="pill">cyber defense</span>
+        </div>
+      </article>
+
+      <article class="tile">
+        <div class="tile-title">contact paths</div>
+        <p class="muted"><strong>Make it easy to reach you.</strong> A simple contact button, a short form, and a phone number. No hunting through menus.</p>
+        <div class="pill-row">
+          <span class="pill">call</span>
+          <span class="pill">request info</span>
+          <span class="pill">email</span>
+        </div>
+      </article>
+
+      <article class="tile">
+        <div class="tile-title">quick read</div>
+        <p class="muted"><strong>Keep the intro tight.</strong> In the first panel, visitors should learn: what you do, who you serve, and where you operate.</p>
+      </article>
+
+      <article class="tile">
+        <div class="tile-title">proof</div>
+        <p class="muted"><strong>Show evidence without bragging.</strong> Licensing, experience, training, tools, or the types of clients you usually help.</p>
+      </article>
+
+      <article class="tile">
+        <div class="tile-title">visual style</div>
+        <p class="muted"><strong>Modern but steady.</strong> Dark backgrounds, strong typography, and consistent spacing feel more secure than loud colors and busy shapes.</p>
+      </article>
+
+      <article class="tile">
+        <div class="tile-title">phones first</div>
+        <p class="muted"><strong>Assume they are on mobile.</strong> Buttons that are easy to tap, text that does not require zooming, and pages that load fast.</p>
+      </article>
+    </div>
+  </section>
+
+  <section class="fade-up delay-3">
+    <h2>One simple layout that usually works</h2>
+    <div class="grid">
+      <article class="tile">
+        <div class="tile-title">top of page</div>
+        <p class="muted">Hero line, one short subline, and a clear “Talk to us” or “Request details” button.</p>
+      </article>
+      <article class="tile">
+        <div class="tile-title">middle</div>
+        <p class="muted">Service grid, two or three short proof points, and one real photo if you have it.</p>
+      </article>
+      <article class="tile">
+        <div class="tile-title">bottom</div>
+        <p class="muted">FAQ or a few common questions, plus contact paths repeated so nobody has to scroll back up.</p>
+      </article>
+    </div>
+  </section>
+
+  <section class="fade-up delay-3">
+    <h2>Local view: St. Petersburg and Tampa Bay</h2>
+    <div class="grid">
+      <article class="tile">
+        <div class="tile-title">coverage zone</div>
+        <p class="muted">Call out the areas you know: St. Petersburg, Pinellas County, downtown corridors, beaches, waterfront venues, and nearby cities like Clearwater or Tampa. That line alone helps visitors feel like you are from here and not just dropping a pin on a map.</p>
+      </article>
+      <article class="tile">
+        <div class="tile-title">Florida realities</div>
+        <p class="muted">Mention hurricane season readiness, nightlife corridors, festivals, and waterfront events. This shows you understand how security shifts when the weather changes or crowds spike.</p>
+      </article>
+      <article class="tile">
+        <div class="tile-title">late-night presence</div>
+        <p class="muted">If you support late hours, say it plainly: late-night patrol, bar and venue closings, overnight monitoring, or patrol around popular trails and parking areas.</p>
+      </article>
+    </div>
+  </section>
+
+  <section class="fade-up delay-3">
+    <h2>ADA essentials</h2>
+    <div class="grid">
+      <article class="tile">
+        <div class="tile-title">screen readers</div>
+        <p class="muted">Give every meaningful image <strong>alt text</strong> that describes what is happening, not just file names. Pages should follow a steady heading order so assistive tech can move through the content in a predictable way.</p>
+      </article>
+      <article class="tile">
+        <div class="tile-title">keyboard path</div>
+        <p class="muted">All links and buttons must be reachable by keyboard alone. Focus outlines should stay visible so visitors always know where they are.</p>
+      </article>
+      <article class="tile">
+        <div class="tile-title">brightness</div>
+        <p class="muted">Dark themes still need high contrast. Text should stand out against the background for visitors with limited vision.</p>
+      </article>
+    </div>
+  </section>
+
+  <section class="fade-up delay-3">
+    <h2>SEO notes (AI-friendly)</h2>
+    <div class="grid">
+      <article class="tile">
+        <div class="tile-title">straight answers</div>
+        <p class="muted">Search systems read for direct statements. Short lines like “We offer event security in St. Petersburg and nearby beaches” are easy for both people and AI tools to surface.</p>
+      </article>
+      <article class="tile">
+        <div class="tile-title">questions people ask</div>
+        <p class="muted">Examples to answer on the site: “What areas in St. Petersburg do you cover?”, “Do you support late-night events?”, “Do you handle waterfront venues?”, “How fast can someone reach you?”.</p>
+      </article>
+      <article class="tile">
+        <div class="tile-title">speed</div>
+        <p class="muted">Fast pages help visitors stay. Smaller image sizes and straightforward code let the site load even when mobile data gets unstable during storms.</p>
+      </article>
+    </div>
+  </section>
+
+  <section class="fade-up delay-3">
+    <h2>Hurricane mode checklist</h2>
+    <div class="grid">
+      <article class="tile">
+        <div class="tile-title">status banner</div>
+        <p class="muted">During storms, a simple banner at the top can show whether your team is taking calls, on standby, or following county orders.</p>
+      </article>
+      <article class="tile">
+        <div class="tile-title">priorities</div>
+        <p class="muted">Explain what you focus on when weather shifts: protecting sites before landfall, watching for looting after, or checking critical locations when streets reopen.</p>
+      </article>
+      <article class="tile">
+        <div class="tile-title">contact plan</div>
+        <p class="muted">Let clients know the best way to reach you in a storm: direct line, text, or a simple form. Clear steps help when everyone is stressed.</p>
+      </article>
+    </div>
+  </section>
+
+  <section class="fade-up delay-3">
+    <h2>Common questions to answer on the site</h2>
+    <div class="grid">
+      <article class="tile">
+        <div class="tile-title">who do you protect?</div>
+        <p class="muted">Homes, small businesses, events, warehouses, churches, schools, nightlife spots, or something else. A short line for each helps people self-select.</p>
+      </article>
+      <article class="tile">
+        <div class="tile-title">when are you available?</div>
+        <p class="muted">Daytime only, overnight, weekends, or on-call for special situations. People should not have to guess if their schedule matches yours.</p>
+      </article>
+      <article class="tile">
+        <div class="tile-title">how do you respond?</div>
+        <p class="muted">Briefly explain how you react to alerts: call first, dispatch, patrol, or coordinate with law enforcement when needed.</p>
+      </article>
+    </div>
+  </section>
+</main>
+
+<footer class="fade-up delay-3">
+  <p>This is just a reference. Use whatever parts match what you are building and ignore the rest.</p>
+</footer>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "name": "Example Security Co.",
+  "description": "Security services in St. Petersburg and the Tampa Bay area.",
+  "areaServed": ["St. Petersburg FL", "Pinellas County FL", "Tampa Bay FL"],
+  "url": "https://gofercontent.com/security-website-playbook/"
+}
+</script>
+
+</body>
+</html>
