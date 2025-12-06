@@ -2,28 +2,41 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Editing scope for Pam Gaylor | Gofer Content</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <!-- Keep this page out of search -->
+  <!-- HTML Meta Tags -->
+  <title>Editing scope for Pam Gaylor | Gofer Content</title>
+  <meta name="description" content="Scope of services for line editing and light copy edit of Fiction Book by Pam Gaylor">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="robots" content="noindex, nofollow">
 
-  <!-- Open Graph -->
+  <!-- Facebook / Open Graph Meta Tags -->
+  <meta property="og:url" content="https://gofercontent.com/pam-gaylor/">
+  <meta property="og:type" content="website">
   <meta property="og:title" content="Editing scope for Pam Gaylor | Gofer Content">
-  <meta property="og:description" content="Scope of services for line editing and light copy edit of Parker Stone and the Legend of Enbarr.">
-  <!-- Update this to your actual OG image URL if different -->
-  <meta property="og:image" content="https://gofercontent.com/assets/img/gofercontent-og.jpg">
-  <meta property="og:url" content="https://gofercontent.com/pam-gaylor">
+  <meta property="og:description" content="Scope of services for line editing and light copy edit of Fiction Book by Pam Gaylor">
+  <meta property="og:image" content="https://gofercontent.com/assets/img/og-image.png">
+
+  <!-- Twitter Meta Tags -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta property="twitter:domain" content="gofercontent.com">
+  <meta property="twitter:url" content="https://gofercontent.com/pam-gaylor/">
+  <meta name="twitter:title" content="Editing scope for Pam Gaylor | Gofer Content">
+  <meta name="twitter:description" content="Scope of services for line editing and light copy edit of Fiction Book by Pam Gaylor">
+  <meta name="twitter:image" content="https://gofercontent.com/assets/img/og-image.png">
 
   <style>
     :root {
-      --ink: #111111;
+      --bg: #050816;
+      --bg-soft: radial-gradient(circle at top left, #f97316 0, #050816 45%, #020617 100%);
+      --card: rgba(15, 23, 42, 0.96);
       --paper: #ffffff;
-      --accent: #0f766e;
-      --muted: #6b7280;
-      --border: #e5e7eb;
-      --radius: 14px;
-      --shadow: 0 14px 30px rgba(15, 23, 42, 0.12);
+      --ink: #f9fafb;
+      --ink-muted: #cbd5f5;
+      --accent: #f97316;
+      --border: rgba(148, 163, 184, 0.4);
+      --radius: 16px;
+      --shadow: 0 18px 40px rgba(0, 0, 0, 0.55);
     }
 
     * {
@@ -33,209 +46,341 @@
     html, body {
       margin: 0;
       padding: 0;
-      background: #f3f4f6;
-      color: var(--ink);
       font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
       line-height: 1.5;
+      background: var(--bg-soft);
+      color: var(--ink);
     }
 
     body {
+      min-height: 100vh;
       padding: 32px 16px;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
     }
 
     .page {
-      max-width: 900px;
-      margin: 0 auto;
+      width: 100%;
+      max-width: 960px;
+    }
+
+    .logo-row {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 20px;
+    }
+
+    .logo-row img {
+      width: 72px;
+      height: 72px;
+      border-radius: 999px;
+      object-fit: cover;
+      border: 2px solid rgba(248, 250, 252, 0.8);
+    }
+
+    .logo-row .brand-text {
+      font-weight: 700;
+      font-size: 1.2rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--ink-muted);
+    }
+
+    .card {
+      background: var(--card);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      border: 1px solid var(--border);
+      padding: 28px 22px 24px;
     }
 
     header {
-      margin-bottom: 24px;
-      text-align: left;
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 14px;
+      margin-bottom: 18px;
     }
 
     header h1 {
-      font-size: 1.75rem;
-      margin: 0 0 6px;
+      margin: 0 0 4px;
+      font-size: 1.6rem;
       letter-spacing: 0.02em;
     }
 
     header p {
       margin: 0;
       font-size: 0.95rem;
-      color: var(--muted);
+      color: var(--ink-muted);
     }
 
-    .card {
-      background: var(--paper);
-      border-radius: var(--radius);
-      box-shadow: var(--shadow);
-      padding: 24px;
-      border: 1px solid var(--border);
+    .meta-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 6px 20px;
+      font-size: 0.95rem;
+      margin-bottom: 12px;
+    }
+
+    .meta-label {
+      font-weight: 600;
+      color: var(--ink-muted);
+      margin-right: 4px;
     }
 
     h2 {
-      font-size: 1.15rem;
-      margin-top: 1.5rem;
-      margin-bottom: 0.25rem;
+      font-size: 1.1rem;
+      margin: 1.1rem 0 0.15rem;
     }
 
     h3 {
       font-size: 1rem;
-      margin-top: 1.25rem;
-      margin-bottom: 0.25rem;
+      margin: 0.8rem 0 0.15rem;
     }
 
     p {
-      margin: 0.25rem 0 0.5rem;
-      font-size: 0.96rem;
+      margin: 0 0 0.4rem;
+      font-size: 0.94rem;
     }
 
     ul {
-      margin: 0.25rem 0 0.75rem 1.2rem;
+      margin: 0.2rem 0 0.65rem 1.1rem;
       padding: 0;
-      font-size: 0.95rem;
+      font-size: 0.93rem;
     }
 
     li {
       margin: 0.1rem 0;
     }
 
-    .meta-row {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-      gap: 8px 20px;
-      margin-bottom: 0.75rem;
-      font-size: 0.95rem;
+    .pay-box {
+      margin-top: 0.2rem;
+      padding: 0.6rem 0.8rem;
+      border-radius: 10px;
+      border: 1px solid var(--border);
+      background: rgba(15, 23, 42, 0.8);
+      font-size: 0.93rem;
     }
 
-    .meta-label {
+    .pay-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-top: 0.25rem;
+    }
+
+    .pay-label {
       font-weight: 600;
-      color: var(--muted);
-      margin-right: 4px;
+    }
+
+    .accept-box {
+      margin-top: 0.9rem;
+      padding-top: 0.7rem;
+      border-top: 1px solid var(--border);
+    }
+
+    .accept-box form {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 8px;
+      margin-top: 0.4rem;
+    }
+
+    .accept-box label {
+      font-size: 0.9rem;
+    }
+
+    .accept-box input[type="text"],
+    .accept-box input[type="email"],
+    .accept-box textarea {
+      width: 100%;
+      padding: 6px 8px;
+      border-radius: 6px;
+      border: 1px solid rgba(148, 163, 184, 0.9);
+      background: rgba(15, 23, 42, 0.8);
+      color: var(--ink);
+      font-size: 0.9rem;
+    }
+
+    .accept-box textarea {
+      min-height: 60px;
+      resize: vertical;
+    }
+
+    .accept-box button {
+      justify-self: start;
+      margin-top: 2px;
+      padding: 7px 14px;
+      border-radius: 999px;
+      border: none;
+      cursor: pointer;
+      background: var(--accent);
+      color: #111827;
+      font-weight: 600;
+      font-size: 0.9rem;
+      letter-spacing: 0.03em;
+      text-transform: uppercase;
     }
 
     .summary {
+      margin-top: 0.9rem;
+      padding-top: 0.7rem;
       border-top: 1px solid var(--border);
-      margin-top: 1.25rem;
-      padding-top: 1rem;
-      font-size: 0.96rem;
+      font-size: 0.94rem;
+      color: var(--ink-muted);
     }
 
-    @media print {
+    @media (max-width: 640px) {
       body {
-        background: #ffffff;
-        padding: 0;
+        padding: 20px 10px;
       }
       .card {
-        box-shadow: none;
+        padding: 20px 16px 18px;
+      }
+    }
+
+    /* Print rules for black and white output */
+    @media print {
+      body {
+        background: #ffffff !important;
+        padding: 0;
+      }
+      .page {
+        max-width: 100%;
+      }
+      .logo-row,
+      .logo-row img {
+        display: none;
+      }
+      .card {
+        background: #ffffff !important;
+        color: #000000 !important;
         border-radius: 0;
         border: none;
+        box-shadow: none;
       }
-      header {
-        margin-bottom: 12px;
+      * {
+        color: #000000 !important;
+        background: #ffffff !important;
+      }
+      a {
+        color: #000000 !important;
+        text-decoration: underline;
+      }
+      .accept-box button {
+        border: 1px solid #000000 !important;
+        background: #ffffff !important;
+        color: #000000 !important;
       }
     }
   </style>
 </head>
+
 <body>
   <div class="page">
-    <header>
-      <h1>Scope of services</h1>
-      <p>Line edit and light copy edit for <em>Parker Stone and the Legend of Enbarr</em></p>
-    </header>
+
+    <div class="logo-row">
+      <img src="https://gofercontent.com/assets/img/og-image.png" alt="Gofer Content logo">
+      <div class="brand-text">Gofer Content</div>
+    </div>
 
     <section class="card">
-      <div class="meta-row">
+      <header>
+        <h1>Scope of services and payment agreement</h1>
+        <p>Line edit and light copy edit for <em>Parker Stone and the Legend of Enbarr</em></p>
+      </header>
+
+      <div class="meta-grid">
         <div><span class="meta-label">Client:</span> Pam Gaylor</div>
         <div><span class="meta-label">Editor:</span> Dayna Himot, Gofer Content</div>
-      </div>
-      <div class="meta-row">
-        <div><span class="meta-label">Service type:</span> Line edit with light copy edit</div>
-        <div><span class="meta-label">Flat rate:</span> Six hundred dollars (friend rate)</div>
-      </div>
-      <div class="meta-row">
-        <div><span class="meta-label">Estimated hours:</span> Twenty to twenty five hours</div>
-        <div><span class="meta-label">Hourly equivalent:</span> Twenty five dollars per hour</div>
+        <div><span class="meta-label">Service:</span> Line edit with light copy edit</div>
+        <div><span class="meta-label">Flat rate:</span> Six hundred dollars</div>
       </div>
 
       <h2>1. Purpose</h2>
       <p>
-        This is a refinement edit. The writing is already strong. The goal is to smooth the prose,
-        tighten pacing, and offer natural alternatives while preserving the author’s style.
-        This is not a structural or developmental edit.
+        This is a refinement edit. The manuscript already has a strong foundation.
+        The goal is to smooth the prose, adjust pacing, refine phrasing, and reduce
+        AI-like language while preserving the author’s tone.
       </p>
 
       <h2>2. Scope of services</h2>
 
       <h3>2.1 Line by line refinement</h3>
-      <p>I recommend the following where it strengthens the chapter.</p>
       <ul>
         <li>Smoothing long or dense sentences</li>
         <li>Adjusting pacing inside scenes</li>
-        <li>Offering alternate phrasing that keeps the tone and improves flow</li>
-        <li>Removing unintentional repetition of ideas or imagery</li>
-        <li>Improving rhythm between sentences and paragraphs</li>
+        <li>Offering alternative phrasing that keeps tone intact</li>
+        <<li>Removing unintentional repetition</li>
+        <li>Improving rhythm between paragraphs</li>
       </ul>
 
       <h3>2.2 Light copy edit</h3>
-      <p>I recommend a light pass for:</p>
       <ul>
         <li>Minor grammar and tense corrections</li>
         <li>Consistency checks</li>
-        <li>Small adjustments where a sentence is unclear or overly complex</li>
+        <li>Small adjustments for clarity</li>
       </ul>
 
       <h3>2.3 Repetition review</h3>
-      <p>
-        I recommend noting places where the same word or concept appears close together and
-        suggesting options. For example, in the opening scene the word
-        “reflection” appears more than once. Natural alternatives include:
-      </p>
+      <p>I will note repeated phrasing and suggest options, for example:</p>
       <ul>
         <li>“the face staring back at her”</li>
         <li>“the woman in the mirror”</li>
       </ul>
 
-      <h3>2.4 Tone and word choice</h3>
-      <p>
-        I recommend suggesting alternatives for modern terms that can feel mechanical in a
-        Celtic and mythic setting, while keeping your intent.
-      </p>
+      <h3>2.4 Tone and removal of AI-like language</h3>
       <ul>
-        <li>Chaos alternatives: turmoil, upheaval, confusion, inner storm</li>
-        <li>Clarity alternatives: understanding, things coming into focus, the fog lifting, a settled mind</li>
+        <li>Chaos options: turmoil, upheaval, confusion, inner storm</li>
+        <li>Clarity options: understanding, things coming into focus, the fog lifting</li>
       </ul>
 
       <h3>2.5 Margin notes</h3>
-      <p>
-        I will leave light comments in the file where helpful. These will be optional suggestions
-        about pacing, character intention, or specific sentences that may benefit from a small adjustment.
-      </p>
+      <p>Light comments for pacing, emotional beats, or sentence refinement.</p>
 
       <h2>3. Out of scope</h2>
-      <p>The following are not included in the flat rate and can be discussed separately if desired.</p>
       <ul>
         <li>Developmental editing</li>
-        <li>Structural changes or reorganization of chapters</li>
-        <li>Scene or chapter rewrites</li>
+        <li>Structural changes</li>
+        <li>Scene rewrites</li>
         <li>Multiple revision cycles</li>
-        <li>Proofreading after author revisions</li>
-        <li>Formatting for print or digital distribution</li>
+        <li>Proofreading after revisions</li>
+        <li>Formatting for print or digital editions</li>
       </ul>
 
       <h2>4. Deliverables</h2>
       <ul>
-        <li>Edited manuscript file with tracked changes</li>
+        <li>Edited manuscript with tracked changes</li>
         <li>Margin notes with optional suggestions</li>
-        <li>Brief follow up conversation if needed after delivery</li>
+        <li>Brief follow up conversation if needed</li>
       </ul>
 
-      <div class="summary">
-        <strong>Summary.</strong>
-        This scope covers a refinement pass that smooths, tightens, and polishes the manuscript
-        while keeping the author’s tone and style intact. All edits are suggestions and the author
-        has final say on any changes.
+      <h2>5. Payment terms</h2>
+      <div class="pay-box">
+        <p>Total fee is six hundred dollars regardless of the time required. The client may choose the deposit amount and timeline for installments. Final payment is requested within thirty days after the completed manuscript is delivered.</p>
+        <div class="pay-row">
+          <div><span class="pay-label">Venmo:</span> @Dayna-Himot</div>
+          <div><span class="pay-label">Zelle:</span> 303 435 3805</div>
+          <div><span class="pay-label">PayPal:</span> daynahimot@gmail.com</div>
+        </div>
       </div>
+
+      <div class="accept-box">
+        <h3>6. Acceptance</h3>
+        <p>Client may approve this scope by submitting the form below.</p>
+        <form action="https://formspree.io/f/xwpgqlkl" method="POST">
+          <label>Name<input type="text" name="name" required></label>
+          <label>Email<input type="email" name="email" required></label>
+          <label>Preferred payment plan<textarea name="message"></textarea></label>
+          <label><input type="checkbox" name="accept" value="yes" required>I accept this scope and the six hundred dollar fee.</label>
+          <button type="submit">Submit acceptance</button>
+        </form>
+      </div>
+
+      <div class="summary">
+        Summary: this refinement edit smooths, tightens, and polishes the manuscript while preserving the author’s style.
+      </div>
+
     </section>
   </div>
 </body>
