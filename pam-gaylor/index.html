@@ -157,9 +157,11 @@
 
     .accept-box label {
       font-size: 0.92rem;
+      display: block;
     }
 
-    .accept-box input,
+    .accept-box input[type="text"],
+    .accept-box input[type="email"],
     .accept-box textarea {
       width: 100%;
       padding: 7px 8px;
@@ -167,17 +169,33 @@
       border: 1px solid rgba(148,163,184,0.85);
       background: rgba(15,23,42,0.85);
       color: var(--ink);
+      margin-top: 3px;
+    }
+
+    .accept-row {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.92rem;
+      margin-top: 4px;
+    }
+
+    .accept-row input[type="checkbox"] {
+      width: 16px;
+      height: 16px;
     }
 
     .accept-box button {
       background: var(--accent);
       color: #111827;
-      padding: 7px 14px;
+      padding: 7px 16px;
       border-radius: 999px;
       border: none;
       cursor: pointer;
       font-weight: 600;
       font-size: 0.9rem;
+      justify-self: flex-start;
+      margin-top: 4px;
     }
 
     .summary {
@@ -261,8 +279,8 @@
 
       <h3>2.4 Tone and removal of AI-like language</h3>
       <ul>
-        <li>Chaos options: turmoil, upheaval, confusion, inner storm</li>
-        <li>Clarity options: understanding, things coming into focus, the fog lifting</li>
+        <li>Options for “chaos”: turmoil, upheaval, confusion, inner storm</li>
+        <li>For that same idea in a calm state: understanding, things coming into focus, the fog lifting</li>
       </ul>
 
       <h3>2.5 Margin notes</h3>
@@ -301,13 +319,24 @@
         <p>Client may approve this scope by submitting the form below.</p>
 
         <form action="https://formspree.io/f/xwpgqlkl" method="POST">
-          <label>Name<input type="text" name="name" required></label>
-          <label>Email<input type="email" name="email" required></label>
-          <label>Preferred payment plan<textarea name="message"></textarea></label>
           <label>
-            <input type="checkbox" name="accept" value="yes" required>
-            I accept this scope and the $600 fee.
+            Name
+            <input type="text" name="name" required>
           </label>
+          <label>
+            Email
+            <input type="email" name="email" required>
+          </label>
+          <label>
+            Preferred payment plan
+            <textarea name="message"></textarea>
+          </label>
+
+          <div class="accept-row">
+            <input type="checkbox" name="accept" value="yes" required>
+            <span>I accept this scope and the $600 fee.</span>
+          </div>
+
           <button type="submit">Submit acceptance</button>
         </form>
       </div>
