@@ -1,27 +1,32 @@
+```html
 <!doctype html>
 <html lang="en">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Winter solstice, give or take a week | Misfit Toys</title>
-  <meta name="description" content="A winter tease for Black Rock City 2026: a giant runner sled, shanties, and campfire time—play, reflection, and community." />
-  <link rel="canonical" href="https://www.misfittoys.art/winter-solstice/" />
 
-  <!-- Favicon -->
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ctext y='50' font-size='48'%3E%E2%9D%84%EF%B8%8F%3C/text%3E%3C/svg%3E" />
+  <!-- HTML Meta Tags -->
+  <title>Winter Solstice (Give or Take a Week)</title>
+  <meta name="description" content="A winter tease for Black Rock City 2026: sled, shanties, campfire. Play, reflection, and community." />
+  <link rel="canonical" href="https://gofercontent.com/misfits-winter-solstice.html" />
 
   <!-- Open Graph -->
   <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://gofercontent.com/misfits-winter-solstice.html" />
   <meta property="og:title" content="Winter Solstice (Give or Take a Week)" />
-  <meta property="og:description" content="A winter tease for Black Rock City 2026: sled, shanties, campfire—play, reflection, and community." />
-  <meta property="og:url" content="https://www.misfittoys.art/winter-solstice/" />
-  <meta property="og:image" content="https://www.misfittoys.art/assets/og/winter-solstice.jpg" />
+  <meta property="og:description" content="A winter tease for Black Rock City 2026: sled, shanties, campfire. Play, reflection, and community." />
+  <meta property="og:image" content="https://gofercontent.com/assets/img/og-winter-solstice.png" />
 
   <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image" />
+  <meta property="twitter:domain" content="gofercontent.com" />
+  <meta property="twitter:url" content="https://gofercontent.com/misfits-winter-solstice.html" />
   <meta name="twitter:title" content="Winter Solstice (Give or Take a Week)" />
-  <meta name="twitter:description" content="A winter tease for Black Rock City 2026." />
-  <meta name="twitter:image" content="https://www.misfittoys.art/assets/og/winter-solstice.jpg" />
+  <meta name="twitter:description" content="A winter tease for Black Rock City 2026: sled, shanties, campfire." />
+  <meta name="twitter:image" content="https://gofercontent.com/assets/img/og-winter-solstice.png" />
+
+  <!-- Favicon (snowflake) -->
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ctext y='50' font-size='48'%3E%E2%9D%84%EF%B8%8F%3C/text%3E%3C/svg%3E" />
 
   <!-- JSON-LD (basic, safe) -->
   <script type="application/ld+json">
@@ -29,8 +34,8 @@
     "@context":"https://schema.org",
     "@type":"WebPage",
     "name":"Winter Solstice (Give or Take a Week)",
-    "url":"https://www.misfittoys.art/winter-solstice/",
-    "description":"A winter tease for Black Rock City 2026: a giant runner sled, shanties, and campfire time—play, reflection, and community.",
+    "url":"https://gofercontent.com/misfits-winter-solstice.html",
+    "description":"A winter tease for Black Rock City 2026: sled, shanties, campfire. Play, reflection, and community.",
     "isPartOf":{
       "@type":"WebSite",
       "name":"Misfit Toys",
@@ -53,6 +58,9 @@
     }
 
     *{ box-sizing:border-box; }
+
+    html{ scroll-behavior:smooth; }
+
     body{
       margin:0;
       font-family: Georgia, serif;
@@ -145,7 +153,9 @@
       border-radius: 999px;
       box-shadow: 0 10px 30px rgba(74,144,226,.25);
       font-weight:700;
-      transition: transform .18s ease, box-shadow .18s ease;
+      transition: transform .18s ease, box-shadow .18s ease, filter .18s ease;
+      min-height:44px;
+      min-width:44px;
     }
     .btn.secondary{
       background: rgba(255,255,255,.06);
@@ -154,6 +164,7 @@
     .btn:hover{
       transform: translateY(-3px);
       box-shadow: 0 16px 40px rgba(74,144,226,.30);
+      filter: brightness(.92);
     }
 
     main{
@@ -171,6 +182,16 @@
       margin: 0 0 18px;
       text-align:center;
     }
+
+    .teaser{
+      max-width: 920px;
+      margin: 0 auto;
+      text-align:center;
+      color: var(--muted);
+      line-height: 1.75;
+      font-size: 1.08rem;
+    }
+    .teaser strong{ color:#fff; }
 
     .grid{
       display:grid;
@@ -205,15 +226,34 @@
       font-size: 1.02rem;
     }
 
-    .teaser{
-      max-width: 920px;
-      margin: 0 auto;
-      text-align:center;
-      color: var(--muted);
-      line-height: 1.75;
-      font-size: 1.08rem;
+    .stats{
+      max-width: 980px;
+      margin: 22px auto 0;
+      padding: 18px;
+      border-radius: 18px;
+      background: rgba(255,255,255,.03);
+      border: 1px solid var(--border);
+      display:flex;
+      justify-content:space-around;
+      flex-wrap:wrap;
+      gap: 10px;
     }
-    .teaser strong{ color:#fff; }
+    .stat{
+      text-align:center;
+      padding: 8px 10px;
+      min-width: 140px;
+    }
+    .stat .num{
+      font-size: 2.2rem;
+      font-weight: 800;
+      color: var(--ice);
+      line-height: 1.1;
+    }
+    .stat .lbl{
+      color: rgba(255,255,255,.72);
+      font-size: .95rem;
+      line-height: 1.3;
+    }
 
     .panel{
       margin: 26px auto 0;
@@ -231,12 +271,14 @@
       gap: 12px;
       text-align:left;
     }
+
     label{
       font-weight: 700;
       color:#fff;
       display:block;
       margin-bottom: 6px;
     }
+
     input[type="text"], input[type="email"], textarea{
       width:100%;
       padding: 12px 12px;
@@ -244,23 +286,29 @@
       border: 1px solid var(--border);
       background: rgba(0,0,0,.18);
       color:#fff;
+      min-height:44px;
     }
-    textarea{ min-height: 90px; resize: vertical; }
+
+    textarea{
+      min-height: 110px;
+      resize: vertical;
+    }
 
     input[type="file"]{
       width:100%;
-      padding: 10px;
+      padding: 12px;
       border-radius: 12px;
       border: 1px dashed rgba(255,255,255,.28);
       background: rgba(0,0,0,.12);
       color: var(--muted);
+      min-height:44px;
     }
 
     .small{
       font-size: .95rem;
       color: rgba(255,255,255,.70);
       line-height: 1.5;
-      margin-top: -6px;
+      margin: 6px 0 0;
     }
 
     .actions{
@@ -268,6 +316,7 @@
       gap: 10px;
       flex-wrap:wrap;
       align-items:center;
+      margin-top: 6px;
     }
 
     .btnlike{
@@ -282,9 +331,21 @@
       display:inline-flex;
       align-items:center;
       justify-content:center;
+      min-height:44px;
+      min-width:44px;
+      transition: filter .18s ease, transform .18s ease;
     }
     .btnlike.primary{
       background: linear-gradient(135deg, rgba(74,144,226,.85) 0%, rgba(135,206,235,.75) 100%);
+      color:#fff;
+    }
+    .btnlike:hover{
+      filter: brightness(.92);
+      transform: translateY(-2px);
+    }
+    .btnlike[aria-disabled="true"], button:disabled{
+      opacity:.55;
+      pointer-events:none;
     }
 
     footer{
@@ -313,9 +374,13 @@
 
     /* Motion safety */
     @media (prefers-reduced-motion: reduce){
-      .snowflake{ display:none !important; }
-      .btn, .card{ transition:none; }
       html{ scroll-behavior:auto; }
+      .snowflake{ display:none !important; }
+      .btn, .card, .btnlike{ transition:none; }
+    }
+
+    @media (max-width: 768px){
+      .stats{ justify-content:center; }
     }
   </style>
 </head>
@@ -325,67 +390,34 @@
 
   <header class="hero" aria-label="Winter Solstice teaser">
     <div class="hero-inner">
-      <h1>❄️ Winter solstice ❄️</h1>
+      <h1>❄️ Winter Solstice ❄️</h1>
       <p class="kicker">Give or take a week.</p>
+
       <p class="lede">
-        Winter is coming. Not the calendar kind. The kind that sneaks up and reminds you what play felt like.
+        We are gathering winter reference photos for an installation planned for Black Rock City 2026.
+        If you have a photo that feels like sled, ice, shanty, dock, campfire, send it here.
       </p>
+
       <div class="buttons">
-        <a class="btn" href="#what">What this is</a>
-        <a class="btn secondary" href="#share">Share a winter memory</a>
+        <a class="btn" href="#share">Send photos</a>
+        <a class="btn secondary" href="#what">What it includes</a>
       </div>
+
       <p class="small" style="margin-top:14px;">Black Rock City 2026 • Misfit Toys</p>
     </div>
   </header>
 
   <main id="main">
-    <section id="what" aria-label="What this is">
-      <h2>What this is</h2>
-      <p class="teaser">
-        A winter teaser for Black Rock City 2026.
-        Enough to picture it. Not enough to spoil it.
-        Think: <strong>play</strong>, <strong>quiet</strong>, and <strong>people</strong>.
-      </p>
-
-      <div class="grid" role="list" aria-label="Experience elements">
-        <div class="card" role="listitem">
-          <h3>🛷 A big sled</h3>
-          <p>Climb, slide, laugh. The rest is a surprise.</p>
-        </div>
-        <div class="card" role="listitem">
-          <h3>🏠 A few shanties</h3>
-          <p>Small rooms. Big moods. Different hands inside each one.</p>
-        </div>
-        <div class="card" role="listitem">
-          <h3>🔥 A fire</h3>
-          <p>Warmth, stories, and the kind of talk you do not schedule.</p>
-        </div>
-        <div class="card" role="listitem">
-          <h3>🎣 The dock</h3>
-          <p>A place to sit and stare at an illusion—cracking sounds included.</p>
-        </div>
-        <div class="card" role="listitem">
-          <h3>🚗 The car</h3>
-          <p>Bench seats. radio. secret transmissions. a tiny time capsule you can climb into.</p>
-        </div>
-        <div class="card" role="listitem">
-          <h3>🧰 Built for after</h3>
-          <p>Designed with reuse in mind—quality build, second life after debut.</p>
-        </div>
-      </div>
-    </section>
-
-    <section id="share" aria-label="Share a winter memory">
-      <h2>Share a winter memory</h2>
+    <section id="share" aria-label="Send photos">
+      <h2>Send photos</h2>
 
       <div class="panel">
         <p class="teaser" style="margin:0;">
-          Got a photo of a sled, a frozen lake, a campfire, or anything that feels like “winter solstice”? Send it.
-          We’re collecting textures, scenes, and reference—without spilling the whole plan.
+          One photo is great. Ten is great. Old photos welcome.
+          Add one sentence if you want, or skip it.
         </p>
 
-        <!-- Replace ACTION_URL_HERE with your real upload endpoint when you have one -->
-        <form action="ACTION_URL_HERE" method="POST" enctype="multipart/form-data">
+        <form action="https://formspree.io/f/xgvgbkqg" method="POST" enctype="multipart/form-data">
           <div>
             <label for="name">Name</label>
             <input id="name" name="name" type="text" autocomplete="name" />
@@ -393,29 +425,29 @@
 
           <div>
             <label for="email">Email</label>
-            <input id="email" name="email" type="email" autocomplete="email" />
+            <input id="email" name="email" type="email" autocomplete="email" required />
           </div>
 
           <div>
             <label for="note">One line of context (optional)</label>
-            <textarea id="note" name="note" placeholder="Where was this? What is it? Why it matters?"></textarea>
+            <textarea id="note" name="note" placeholder="Where was this? What are we looking at?"></textarea>
           </div>
 
           <div>
-            <label for="files">Upload files</label>
-            <input id="files" name="files" type="file" multiple accept="image/*,video/*" />
+            <label for="files">Upload images</label>
+            <input id="files" name="attachment" type="file" multiple accept="image/*" />
+            <p class="small">If your files are huge and the form complains, email them instead.</p>
             <p class="small">
-              Right now, the safest option is email:
-              <a href="mailto:info@gofercontent.com?subject=Winter%20solstice%20reference%20media">info@gofercontent.com</a>
-              (attach as many as you want)
+              <a href="mailto:info@gofercontent.com?subject=Winter%20Solstice%20reference%20photos">info@gofercontent.com</a>
             </p>
-            <p class="small">If we add an upload link later, it will show up here.</p>
           </div>
+
+          <input type="hidden" name="_subject" value="Winter Solstice reference photos" />
 
           <div class="actions">
             <button class="btnlike primary" type="submit">Send</button>
-            <span class="small" aria-live="polite">If this button does nothing, the upload link is not wired yet.</span>
-            <a class="btnlike" href="https://www.misfittoys.art/">Back to misfittoys.art</a>
+            <a class="btnlike" href="#what">What it includes</a>
+            <a class="btnlike" href="https://www.misfittoys.art/">misfittoys.art</a>
           </div>
 
           <p class="small">By sending, you confirm you own this media or have permission to share it.</p>
@@ -423,10 +455,77 @@
       </div>
     </section>
 
+    <section id="what" aria-label="What it includes">
+      <h2>What it includes</h2>
+
+      <p class="teaser">
+        A winter scene in the desert.
+        A big sled, a few small spaces, a dock, and a fire.
+        Play, reflection, and community.
+      </p>
+
+      <div class="grid" role="list" aria-label="Experience elements">
+        <div class="card" role="listitem">
+          <h3>🛷 The sled</h3>
+          <p>Climb, slide, laugh. Simple.</p>
+        </div>
+        <div class="card" role="listitem">
+          <h3>🏠 The shanties</h3>
+          <p>Small rooms with different moods inside each one.</p>
+        </div>
+        <div class="card" role="listitem">
+          <h3>🎣 The dock</h3>
+          <p>A place to sit, listen, and stare at “ice” that complains.</p>
+        </div>
+        <div class="card" role="listitem">
+          <h3>🔥 The fire</h3>
+          <p>Warmth, stories, and the kind of talk you do not schedule.</p>
+        </div>
+        <div class="card" role="listitem">
+          <h3>🚗 The car</h3>
+          <p>Bench seats, radio, secret transmissions, tiny time capsule.</p>
+        </div>
+        <div class="card" role="listitem">
+          <h3>🧰 Afterlife</h3>
+          <p>Built with reuse in mind after debut.</p>
+        </div>
+      </div>
+
+      <div class="stats" aria-label="Project stats">
+        <div class="stat">
+          <div class="num">170ft</div>
+          <div class="lbl">Installation length</div>
+        </div>
+        <div class="stat">
+          <div class="num">5–7</div>
+          <div class="lbl">Shanties</div>
+        </div>
+        <div class="stat">
+          <div class="num">$108K</div>
+          <div class="lbl">Total budget</div>
+        </div>
+        <div class="stat">
+          <div class="num">$50K</div>
+          <div class="lbl">Funding goal</div>
+        </div>
+      </div>
+
+      <p class="teaser" style="margin-top:18px;">
+        Want to give? Email <a href="mailto:info@gofercontent.com?subject=Winter%20Solstice%20donation">info@gofercontent.com</a>
+        and we will reply with the current donation details.
+      </p>
+    </section>
+
     <section aria-label="Who we are">
       <h2>The Misfit Toys</h2>
       <p class="teaser">
-        A rotating crew from across Black Rock City builds—artists, makers, architects, electricians, welders, woodworkers.
+        A rotating crew from across Black Rock City builds.
+        Artists, makers, architects, electricians, welders, woodworkers.
+      </p>
+      <p class="teaser" style="margin-top:10px;">
+        <a href="https://www.facebook.com/misfittoysartcrew/">Facebook</a>
+        &nbsp;•&nbsp;
+        <a href="https://www.onetinsoldier.art/">onetinsoldier.art</a>
       </p>
     </section>
   </main>
@@ -434,7 +533,6 @@
   <footer>
     <p>Winter Solstice (Give or Take a Week)</p>
     <p>Black Rock City 2026 • Misfit Toys</p>
-    <p><a href="https://www.facebook.com/misfittoysartcrew/">Facebook</a> • <a href="https://www.onetinsoldier.art/">onetinsoldier.art</a></p>
   </footer>
 
   <script>
@@ -449,7 +547,11 @@
       document.body.appendChild(snowflake);
       setTimeout(() => snowflake.remove(), 10000);
     }
-    setInterval(createSnowflake, 320);
+
+    const prefersReduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if(!prefersReduced){
+      setInterval(createSnowflake, 320);
+    }
 
     document.querySelectorAll('a[href^="#"]').forEach(a => {
       a.addEventListener('click', e => {
@@ -458,9 +560,10 @@
         const el = document.querySelector(id);
         if(!el) return;
         e.preventDefault();
-        el.scrollIntoView({ behavior: 'smooth' });
+        el.scrollIntoView({ behavior: prefersReduced ? 'auto' : 'smooth' });
       });
     });
   </script>
 </body>
 </html>
+```
