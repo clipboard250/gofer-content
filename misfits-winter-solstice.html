@@ -3,128 +3,74 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Winter solstice, give or take a week | Misfit Toys</title>
-  <meta name="description" content="A winter tease for Black Rock City 2026: a giant runner sled, shanties, and campfire time—play, reflection, and community." />
-  <link rel="canonical" href="https://www.misfittoys.art/winter-solstice/" />
 
-  <!-- Favicon -->
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ctext y='50' font-size='48'%3E%E2%9D%84%EF%B8%8F%3C/text%3E%3C/svg%3E" />
+  <title>Winter solstice (Give or take a week)</title>
+  <meta name="description" content="A winter tease for Black Rock City 2026: sled, shanties, campfire. Play, reflection, and community." />
+  <link rel="canonical" href="https://gofercontent.com/misfits-winter-solstice/" />
 
   <!-- Open Graph -->
   <meta property="og:type" content="website" />
-  <meta property="og:title" content="Winter Solstice (Give or Take a Week)" />
-  <meta property="og:description" content="A winter tease for Black Rock City 2026: sled, shanties, campfire—play, reflection, and community." />
-  <meta property="og:url" content="https://www.misfittoys.art/winter-solstice/" />
-  <meta property="og:image" content="https://www.misfittoys.art/assets/og/winter-solstice.jpg" />
+  <meta property="og:url" content="https://gofercontent.com/misfits-winter-solstice/" />
+  <meta property="og:title" content="Winter solstice (Give or take a week)" />
+  <meta property="og:description" content="A winter tease for Black Rock City 2026: sled, shanties, campfire. Play, reflection, and community." />
+  <meta property="og:image" content="https://gofercontent.com/assets/img/og-winter-solstice.png" />
 
   <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Winter Solstice (Give or Take a Week)" />
+  <meta name="twitter:title" content="Winter solstice (Give or take a week)" />
   <meta name="twitter:description" content="A winter tease for Black Rock City 2026." />
-  <meta name="twitter:image" content="https://www.misfittoys.art/assets/og/winter-solstice.jpg" />
+  <meta name="twitter:image" content="https://gofercontent.com/assets/img/og-winter-solstice.png" />
 
-  <!-- JSON-LD (basic, safe) -->
-  <script type="application/ld+json">
-  {
-    "@context":"https://schema.org",
-    "@type":"WebPage",
-    "name":"Winter Solstice (Give or Take a Week)",
-    "url":"https://www.misfittoys.art/winter-solstice/",
-    "description":"A winter tease for Black Rock City 2026: a giant runner sled, shanties, and campfire time—play, reflection, and community.",
-    "isPartOf":{
-      "@type":"WebSite",
-      "name":"Misfit Toys",
-      "url":"https://www.misfittoys.art/"
-    }
-  }
-  </script>
+  <!-- Favicon -->
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ctext y='50' font-size='48'%3E%E2%9D%84%EF%B8%8F%3C/text%3E%3C/svg%3E" />
 
   <style>
     :root{
       --bg1:#121a26;
       --bg2:#233a56;
       --text:#ffffff;
-      --muted:rgba(255,255,255,.78);
-      --ice:#87ceeb;
+      --muted:rgba(255,255,255,.8);
+      --ice:#8ecae6;
       --glass:rgba(255,255,255,.06);
-      --border:rgba(255,255,255,.12);
-      --shadow:rgba(0,0,0,.35);
-      --focus:#ffd66b;
+      --border:rgba(255,255,255,.14);
     }
 
     *{ box-sizing:border-box; }
+
     body{
       margin:0;
-      font-family: Georgia, serif;
+      font-family: Iowan Old Style, Palatino Linotype, Palatino, Georgia, serif;
       color:var(--text);
-      background: linear-gradient(180deg, var(--bg1) 0%, var(--bg2) 100%);
-      overflow-x:hidden;
+      background: linear-gradient(180deg, var(--bg1), var(--bg2));
     }
 
     a{ color:inherit; }
-    a:focus, button:focus, input:focus, textarea:focus{
-      outline:3px solid var(--focus);
-      outline-offset:3px;
-    }
 
-    .skip-link{
-      position:absolute;
-      left:-999px;
-      top:auto;
-      width:1px;
-      height:1px;
-      overflow:hidden;
-    }
-    .skip-link:focus{
-      left:16px;
-      top:16px;
-      width:auto;
-      height:auto;
-      padding:10px 12px;
-      background:#000;
-      border:1px solid var(--border);
-      border-radius:10px;
-      z-index:9999;
-    }
-
-    header.hero{
+    header{
       min-height:100vh;
       display:flex;
       align-items:center;
       justify-content:center;
-      padding:56px 18px;
       text-align:center;
-      position:relative;
-      background: radial-gradient(ellipse at center, rgba(255,255,255,0.10) 0%, transparent 70%);
-    }
-
-    .hero-inner{
-      max-width: 980px;
-      margin:0 auto;
-      position:relative;
-      z-index:1;
+      padding:56px 18px;
     }
 
     h1{
-      margin:0 0 12px;
-      font-size: clamp(2.6rem, 7vw, 6rem);
-      letter-spacing: .04em;
-      text-shadow: 0 0 26px rgba(135,206,235,.35);
+      font-size: clamp(2.6rem, 7vw, 5.8rem);
+      margin:0 0 10px;
     }
 
     .kicker{
-      margin:0 0 22px;
-      font-size: clamp(1.05rem, 2.4vw, 1.55rem);
-      color: var(--ice);
-      font-style: italic;
+      color:var(--ice);
+      font-style:italic;
+      margin-bottom:22px;
     }
 
     .lede{
-      margin:0 auto 26px;
-      max-width: 820px;
-      font-size: clamp(1.05rem, 2.1vw, 1.35rem);
+      max-width:820px;
+      margin:0 auto 28px;
       line-height:1.7;
-      color: var(--muted);
+      color:var(--muted);
     }
 
     .buttons{
@@ -132,335 +78,180 @@
       gap:12px;
       justify-content:center;
       flex-wrap:wrap;
-      margin-top: 8px;
     }
 
     .btn{
-      display:inline-block;
-      text-decoration:none;
-      border:1px solid var(--border);
-      background: linear-gradient(135deg, rgba(74,144,226,.85) 0%, rgba(135,206,235,.75) 100%);
-      color:#fff;
       padding:14px 22px;
-      border-radius: 999px;
-      box-shadow: 0 10px 30px rgba(74,144,226,.25);
+      border-radius:999px;
+      border:1px solid var(--border);
+      background:var(--glass);
       font-weight:700;
-      transition: transform .18s ease, box-shadow .18s ease;
-    }
-    .btn.secondary{
-      background: rgba(255,255,255,.06);
-      box-shadow: none;
-    }
-    .btn:hover{
-      transform: translateY(-3px);
-      box-shadow: 0 16px 40px rgba(74,144,226,.30);
+      text-decoration:none;
     }
 
     main{
-      max-width: 1100px;
-      margin: 0 auto;
-      padding: 54px 18px 10px;
-    }
-
-    section{
-      margin: 0 0 44px;
+      max-width:900px;
+      margin:0 auto;
+      padding:40px 18px;
     }
 
     h2{
-      font-size: clamp(1.8rem, 3vw, 2.4rem);
-      margin: 0 0 18px;
       text-align:center;
-    }
-
-    .grid{
-      display:grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 16px;
-      margin-top: 18px;
-    }
-
-    .card{
-      background: var(--glass);
-      border: 1px solid var(--border);
-      border-radius: 18px;
-      padding: 18px 18px 16px;
-      backdrop-filter: blur(10px);
-      box-shadow: 0 14px 34px var(--shadow);
-      transition: transform .18s ease, background .18s ease;
-      min-height: 150px;
-    }
-    .card:hover{
-      transform: translateY(-5px);
-      background: rgba(255,255,255,.09);
-    }
-    .card h3{
-      margin: 0 0 10px;
-      font-size: 1.25rem;
-      color: var(--ice);
-    }
-    .card p{
-      margin:0;
-      color: var(--muted);
-      line-height: 1.6;
-      font-size: 1.02rem;
+      margin-bottom:14px;
     }
 
     .teaser{
-      max-width: 920px;
-      margin: 0 auto;
       text-align:center;
-      color: var(--muted);
-      line-height: 1.75;
-      font-size: 1.08rem;
+      max-width:820px;
+      margin:0 auto 26px;
+      line-height:1.7;
+      color:var(--muted);
     }
-    .teaser strong{ color:#fff; }
 
     .panel{
-      margin: 26px auto 0;
-      max-width: 920px;
-      background: linear-gradient(135deg, rgba(74,144,226,.18) 0%, rgba(135,206,235,.14) 100%);
-      border: 1px solid var(--border);
-      border-radius: 22px;
-      padding: 22px;
-      box-shadow: 0 18px 50px rgba(0,0,0,.25);
+      background:var(--glass);
+      border:1px solid var(--border);
+      border-radius:18px;
+      padding:20px;
     }
 
     form{
-      margin-top: 14px;
       display:grid;
-      gap: 12px;
-      text-align:left;
-    }
-    label{
-      font-weight: 700;
-      color:#fff;
-      display:block;
-      margin-bottom: 6px;
-    }
-    input[type="text"], input[type="email"], textarea{
-      width:100%;
-      padding: 12px 12px;
-      border-radius: 12px;
-      border: 1px solid var(--border);
-      background: rgba(0,0,0,.18);
-      color:#fff;
-    }
-    textarea{ min-height: 90px; resize: vertical; }
-
-    input[type="file"]{
-      width:100%;
-      padding: 10px;
-      border-radius: 12px;
-      border: 1px dashed rgba(255,255,255,.28);
-      background: rgba(0,0,0,.12);
-      color: var(--muted);
+      gap:12px;
+      margin-top:14px;
     }
 
-    .small{
-      font-size: .95rem;
-      color: rgba(255,255,255,.70);
-      line-height: 1.5;
-      margin-top: -6px;
+    label{ font-weight:700; }
+
+    input, textarea{
+      width:100%;
+      padding:12px;
+      border-radius:12px;
+      border:1px solid var(--border);
+      background:rgba(0,0,0,.2);
+      color:#fff;
     }
+
+    textarea{ min-height:90px; }
 
     .actions{
       display:flex;
-      gap: 10px;
+      gap:12px;
       flex-wrap:wrap;
-      align-items:center;
+      margin-top:8px;
     }
 
-    .btnlike{
+    button{
+      padding:12px 18px;
+      border-radius:999px;
       border:1px solid var(--border);
-      border-radius: 999px;
-      padding: 12px 18px;
-      background: rgba(255,255,255,.06);
-      color:#fff;
-      cursor:pointer;
+      background:var(--ice);
+      color:#0e1621;
       font-weight:800;
-      text-decoration:none;
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
-    }
-    .btnlike.primary{
-      background: linear-gradient(135deg, rgba(74,144,226,.85) 0%, rgba(135,206,235,.75) 100%);
+      cursor:pointer;
     }
 
     footer{
-      margin-top: 48px;
-      padding: 34px 18px;
       text-align:center;
-      background: rgba(0,0,0,.28);
-      border-top: 1px solid var(--border);
-      color: rgba(255,255,255,.72);
+      padding:30px 18px;
+      color:rgba(255,255,255,.7);
     }
-    footer p{ margin: 6px 0; }
 
-    /* Snow */
     .snowflake{
-      position: fixed;
-      top: -14px;
-      color: rgba(255,255,255,.55);
-      font-size: 1.2rem;
-      animation: fall linear infinite;
+      position:fixed;
+      top:-10px;
+      animation:fall linear infinite;
+      opacity:.6;
       pointer-events:none;
-      z-index: 0;
-    }
-    @keyframes fall{
-      to{ transform: translateY(110vh) rotate(360deg); }
     }
 
-    /* Motion safety */
-    @media (prefers-reduced-motion: reduce){
-      .snowflake{ display:none !important; }
-      .btn, .card{ transition:none; }
-      html{ scroll-behavior:auto; }
+    @keyframes fall{
+      to{ transform:translateY(110vh) rotate(360deg); }
     }
   </style>
 </head>
 
 <body>
-  <a class="skip-link" href="#main">Skip to content</a>
 
-  <header class="hero" aria-label="Winter Solstice teaser">
-    <div class="hero-inner">
-      <h1>❄️ Winter solstice ❄️</h1>
-      <p class="kicker">Give or take a week.</p>
-      <p class="lede">
-        Winter is coming. Not the calendar kind. The kind that sneaks up and reminds you what play felt like.
-      </p>
-      <div class="buttons">
-        <a class="btn" href="#what">What this is</a>
-        <a class="btn secondary" href="#share">Share a winter memory</a>
-      </div>
-      <p class="small" style="margin-top:14px;">Black Rock City 2026 • Misfit Toys</p>
+<header>
+  <div>
+    <h1>❄️ Winter solstice ❄️</h1>
+    <p class="kicker">Give or take a week.</p>
+    <p class="lede">
+      Winter is coming. Not the calendar kind. The kind that sneaks up and reminds you what play felt like.
+    </p>
+    <div class="buttons">
+      <a class="btn" href="#what">What this is</a>
+      <a class="btn" href="#share">Share a winter memory</a>
     </div>
-  </header>
+    <p class="teaser">Black Rock City 2026 • Misfit Toys</p>
+  </div>
+</header>
 
-  <main id="main">
-    <section id="what" aria-label="What this is">
-      <h2>What this is</h2>
+<main>
+  <section id="what">
+    <h2>What this is</h2>
+    <p class="teaser">
+      A winter teaser for Black Rock City 2026.<br>
+      Just enough to picture it in your mind.<br>
+      Think: <strong>A Christmas Story</strong> meets <strong>J.R. Tolkien</strong>.
+    </p>
+  </section>
+
+  <section id="share">
+    <h2>Share a winter memory</h2>
+    <div class="panel">
       <p class="teaser">
-        A winter teaser for Black Rock City 2026.
-        Enough to picture it. Not enough to spoil it.
-        Think: <strong>play</strong>, <strong>quiet</strong>, and <strong>people</strong>.
+        Sleds. ice. fire. quiet moments.<br>
+        Send a photo and one line of context.
       </p>
 
-      <div class="grid" role="list" aria-label="Experience elements">
-        <div class="card" role="listitem">
-          <h3>🛷 A big sled</h3>
-          <p>Climb, slide, laugh. The rest is a surprise.</p>
+      <form action="https://formspree.io/f/xgvgbkqg" method="POST" enctype="multipart/form-data">
+        <label>Name
+          <input type="text" name="name">
+        </label>
+
+        <label>Email
+          <input type="email" name="email" required>
+        </label>
+
+        <label>One line of context (optional)
+          <textarea name="note"></textarea>
+        </label>
+
+        <label>Upload images
+          <input type="file" name="attachment" multiple accept="image/*">
+        </label>
+
+        <input type="hidden" name="_subject" value="Winter solstice reference media">
+
+        <div class="actions">
+          <button type="submit">Send</button>
+          <a class="btn" href="https://www.misfittoys.art/">Back to site</a>
         </div>
-        <div class="card" role="listitem">
-          <h3>🏠 A few shanties</h3>
-          <p>Small rooms. Big moods. Different hands inside each one.</p>
-        </div>
-        <div class="card" role="listitem">
-          <h3>🔥 A fire</h3>
-          <p>Warmth, stories, and the kind of talk you do not schedule.</p>
-        </div>
-        <div class="card" role="listitem">
-          <h3>🎣 The dock</h3>
-          <p>A place to sit and stare at an illusion—cracking sounds included.</p>
-        </div>
-        <div class="card" role="listitem">
-          <h3>🚗 The car</h3>
-          <p>Bench seats. radio. secret transmissions. a tiny time capsule you can climb into.</p>
-        </div>
-        <div class="card" role="listitem">
-          <h3>🧰 Built for after</h3>
-          <p>Designed with reuse in mind—quality build, second life after debut.</p>
-        </div>
-      </div>
-    </section>
+      </form>
+    </div>
+  </section>
+</main>
 
-    <section id="share" aria-label="Share a winter memory">
-      <h2>Share a winter memory</h2>
+<footer>
+  <p>Winter solstice (Give or take a week)</p>
+  <p>Black Rock City 2026 • Misfit Toys</p>
+</footer>
 
-      <div class="panel">
-        <p class="teaser" style="margin:0;">
-          Got a photo of a sled, a frozen lake, a campfire, or anything that feels like “winter solstice”? Send it.
-          We’re collecting textures, scenes, and reference—without spilling the whole plan.
-        </p>
+<script>
+  function snow(){
+    const f=document.createElement('div');
+    f.className='snowflake';
+    f.textContent='❄';
+    f.style.left=Math.random()*100+'%';
+    f.style.animationDuration=6+Math.random()*6+'s';
+    f.style.fontSize=.6+Math.random()*1+'rem';
+    document.body.appendChild(f);
+    setTimeout(()=>f.remove(),12000);
+  }
+  setInterval(snow,300);
+</script>
 
-        <!-- Replace ACTION_URL_HERE with your real upload endpoint when you have one -->
-        <form action="ACTION_URL_HERE" method="POST" enctype="multipart/form-data">
-          <div>
-            <label for="name">Name</label>
-            <input id="name" name="name" type="text" autocomplete="name" />
-          </div>
-
-          <div>
-            <label for="email">Email</label>
-            <input id="email" name="email" type="email" autocomplete="email" />
-          </div>
-
-          <div>
-            <label for="note">One line of context (optional)</label>
-            <textarea id="note" name="note" placeholder="Where was this? What is it? Why it matters?"></textarea>
-          </div>
-
-          <div>
-            <label for="files">Upload files</label>
-            <input id="files" name="files" type="file" multiple accept="image/*,video/*" />
-            <p class="small">
-              Right now, the safest option is email:
-              <a href="mailto:info@gofercontent.com?subject=Winter%20solstice%20reference%20media">info@gofercontent.com</a>
-              (attach as many as you want)
-            </p>
-            <p class="small">If we add an upload link later, it will show up here.</p>
-          </div>
-
-          <div class="actions">
-            <button class="btnlike primary" type="submit">Send</button>
-            <span class="small" aria-live="polite">If this button does nothing, the upload link is not wired yet.</span>
-            <a class="btnlike" href="https://www.misfittoys.art/">Back to misfittoys.art</a>
-          </div>
-
-          <p class="small">By sending, you confirm you own this media or have permission to share it.</p>
-        </form>
-      </div>
-    </section>
-
-    <section aria-label="Who we are">
-      <h2>The Misfit Toys</h2>
-      <p class="teaser">
-        A rotating crew from across Black Rock City builds—artists, makers, architects, electricians, welders, woodworkers.
-      </p>
-    </section>
-  </main>
-
-  <footer>
-    <p>Winter Solstice (Give or Take a Week)</p>
-    <p>Black Rock City 2026 • Misfit Toys</p>
-    <p><a href="https://www.facebook.com/misfittoysartcrew/">Facebook</a> • <a href="https://www.onetinsoldier.art/">onetinsoldier.art</a></p>
-  </footer>
-
-  <script>
-    function createSnowflake(){
-      const snowflake = document.createElement('div');
-      snowflake.className = 'snowflake';
-      snowflake.textContent = '❄';
-      snowflake.style.left = (Math.random() * 100) + '%';
-      snowflake.style.animationDuration = (Math.random() * 3 + 7) + 's';
-      snowflake.style.opacity = (Math.random() * 0.55 + 0.2);
-      snowflake.style.fontSize = (Math.random() * 1 + 0.6) + 'rem';
-      document.body.appendChild(snowflake);
-      setTimeout(() => snowflake.remove(), 10000);
-    }
-    setInterval(createSnowflake, 320);
-
-    document.querySelectorAll('a[href^="#"]').forEach(a => {
-      a.addEventListener('click', e => {
-        const id = a.getAttribute('href');
-        if(!id || id === '#') return;
-        const el = document.querySelector(id);
-        if(!el) return;
-        e.preventDefault();
-        el.scrollIntoView({ behavior: 'smooth' });
-      });
-    });
-  </script>
 </body>
 </html>
