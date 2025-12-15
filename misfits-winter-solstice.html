@@ -493,7 +493,7 @@
 
     <div class="upload-area">
       <p class="helperline">
-        What to submit: images of long winter nights, solstice celebrations, cold mornings, sledding experiences, fireplace fires, headlights in dust, ice, shacks, docks, chosen family photos, and everything in between.
+        What to send: winter nights, solstice nights, cold mornings, firelight, headlights in dust, ice, sleds, shacks, docks, quiet groups, loud groups, and everything in between.
       </p>
 
       <form action="https://formspree.io/f/xgvgbkqg" method="POST" enctype="multipart/form-data">
@@ -530,9 +530,7 @@
         </div>
 
         <div class="helperline">
-          By sending, you confirm you own this media or have permission to share it and you’re okay with us using them as reference and sharing them in posts about this project. We’ll credit you when we can.
-</div>
-
+          By sending, you confirm you own this media or have permission to share it.
         </div>
       </form>
     </div>
@@ -569,8 +567,7 @@
     }
 
     const prefersReduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    if (!prefersReduced) let snowInterval = setInterval(createSnowflake, 300);
-
+    if (!prefersReduced) setInterval(createSnowflake, 300);
 
     // swipe deck (future-friendly for images)
     const deck = document.getElementById('deck');
