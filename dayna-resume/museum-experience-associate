@@ -1,0 +1,259 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Dayna Himot | Resume | Museum Experience Associate</title>
+  <style>
+    :root{
+      --ink:#111;
+      --muted:#555;
+      --rule:#ddd;
+      --paper:#fff;
+    }
+    html,body{background:#f3f3f3;margin:0;padding:0;color:var(--ink);font:15px/1.35 system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;}
+    .page{max-width:850px;margin:24px auto;background:var(--paper);box-shadow:0 10px 30px rgba(0,0,0,.08);border:1px solid #e6e6e6;}
+    .wrap{padding:36px 42px;}
+    h1,h2,h3{margin:0;}
+    h1{font-size:28px;letter-spacing:.2px;}
+    .top{display:flex;gap:16px;justify-content:space-between;align-items:flex-start;}
+    .contact{font-size:13px;color:var(--muted);text-align:right;}
+    .contact a{color:inherit;text-decoration:none;border-bottom:1px solid #bbb;}
+    .kicker{margin-top:8px;color:var(--muted);max-width:70ch;}
+    .rule{height:1px;background:var(--rule);margin:18px 0;}
+    .grid{display:grid;grid-template-columns: 1.15fr .85fr;gap:26px;}
+    h2{font-size:14px;text-transform:uppercase;letter-spacing:.12em;color:#222;margin-bottom:8px;}
+    .bullets{margin:8px 0 0 18px;padding:0;}
+    .bullets li{margin:6px 0;}
+    .job{margin-bottom:14px;}
+    .jobhead{display:flex;justify-content:space-between;gap:12px;align-items:baseline;}
+    .role{font-weight:700;}
+    .meta{color:var(--muted);font-size:13px;white-space:nowrap;}
+    .org{color:#222;}
+    .small{font-size:13px;color:var(--muted);}
+    .tagline{margin-top:8px;padding:10px 12px;border:1px solid var(--rule);border-radius:10px;background:#fcfcfc;}
+    .tagline strong{font-weight:700;}
+    .pillrow{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px;}
+    .pill{border:1px solid var(--rule);border-radius:999px;padding:6px 10px;font-size:12px;color:#222;background:#fff;}
+    .printbar{display:flex;gap:10px;justify-content:flex-end;margin:0 0 10px;}
+    button{appearance:none;border:1px solid var(--rule);background:#fff;border-radius:10px;padding:10px 12px;font-weight:600;cursor:pointer;}
+    button:hover{border-color:#bbb;}
+    @media print{
+      body{background:#fff;}
+      .page{box-shadow:none;border:none;margin:0;}
+      .wrap{padding:0.55in 0.6in;}
+      .printbar{display:none;}
+      a{border:none;text-decoration:none;color:inherit;}
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <div class="wrap">
+
+      <div class="printbar">
+        <button onclick="window.print()">Print / Save as PDF</button>
+      </div>
+
+      <section class="top">
+        <div>
+          <h1>Dayna Himot</h1>
+          <div class="kicker">
+            Visitor-facing operations, ticketing and membership support, calm problem-solving, and event execution.
+            Known for clear communication, warm service, and steady follow-through in busy public settings.
+          </div>
+
+          <div class="tagline">
+            <strong>Availability:</strong> Fully available for weekday, evening, and weekend shifts. On-site ready.
+          </div>
+        </div>
+
+        <div class="contact">
+          St. Petersburg, FL<br />
+          <span class="small">Near downtown waterfront</span><br />
+          <br />
+          Phone: <span class="small">[YOUR NUMBER]</span><br />
+          Email: <a href="mailto:[YOUR EMAIL]">[YOUR EMAIL]</a><br />
+          Portfolio: <a href="https://gofercontent.com/">gofercontent.com</a><br />
+          LinkedIn: <a href="[YOUR LINKEDIN URL]">[LinkedIn URL]</a>
+        </div>
+      </section>
+
+      <div class="rule"></div>
+
+      <section class="grid">
+
+        <!-- LEFT COLUMN -->
+        <div>
+          <h2>Highlights for museum experience associate</h2>
+          <ul class="bullets">
+            <li>Frontline visitor service with high courtesy, clear policy explanations, and steady composure.</li>
+            <li>Comfortable with ticketing, membership conversations, and retail-style transactions.</li>
+            <li>Strong public speaking and group comfort across ages and backgrounds. :contentReference[oaicite:3]{index=3}</li>
+            <li>Visitor flow monitoring, security-minded gallery awareness, and issue escalation.</li>
+            <li>Accurate data entry, attendance tracking, and quick learning for tools like Altru. :contentReference[oaicite:4]{index=4}</li>
+            <li>Event operations and volunteer coordination, including large volunteer teams.</li>
+          </ul>
+
+          <div class="rule"></div>
+
+          <h2>Experience</h2>
+
+          <div class="job">
+            <div class="jobhead">
+              <div>
+                <div class="role">Founder, Communications and Web Support</div>
+                <div class="org">Gofer Content (Self-employed)</div>
+              </div>
+              <div class="meta">Jan 2025 – Present · St. Petersburg, FL</div>
+            </div>
+            <ul class="bullets">
+              <li>Client support for websites, email updates, and day-to-day communications needs.</li>
+              <li>Builds simple pages and systems that reduce confusion for customers and staff.</li>
+              <li>Coordinates timelines, assets, approvals, and last-mile details under deadline.</li>
+            </ul>
+          </div>
+
+          <div class="job">
+            <div class="jobhead">
+              <div>
+                <div class="role">DPW Man Pavilion Crew Shop Steward (Seasonal)</div>
+                <div class="org">Burning Man Project</div>
+              </div>
+              <div class="meta">Jul 2023 – Nov 2025 · Gerlach, NV</div>
+            </div>
+            <ul class="bullets">
+              <li>Frontline service and operations in a high-volume, public-facing environment.</li>
+              <li>Coordinates people, supplies, and process during peak periods.</li>
+              <li>Supports volunteer coordination and communications needs as assigned.</li>
+            </ul>
+          </div>
+
+          <div class="job">
+            <div class="jobhead">
+              <div>
+                <div class="role">Business Development</div>
+                <div class="org">Modiphy</div>
+              </div>
+              <div class="meta">Aug 2021 – Jan 2025 · St. Petersburg, FL</div>
+            </div>
+            <ul class="bullets">
+              <li>Client-facing communication, intake, and coordination across teams.</li>
+              <li>Handled sensitive information with discretion and professional judgment.</li>
+              <li>Maintained accurate records, follow-ups, and deadline control.</li>
+            </ul>
+          </div>
+
+          <div class="job">
+            <div class="jobhead">
+              <div>
+                <div class="role">Content Director</div>
+                <div class="org">Modiphy</div>
+              </div>
+              <div class="meta">Sep 2021 – Nov 2022 · United States</div>
+            </div>
+            <ul class="bullets">
+              <li>Led clear documentation, standards, and process across multiple projects.</li>
+              <li>Coordinated schedules and deliverables with cross-functional teams.</li>
+            </ul>
+          </div>
+
+          <div class="job">
+            <div class="jobhead">
+              <div>
+                <div class="role">Senior Copywriter and Onboarding Specialist</div>
+                <div class="org">321 Ignition</div>
+              </div>
+              <div class="meta">Aug 2019 – Feb 2021 · United States</div>
+            </div>
+            <ul class="bullets">
+              <li>Ran onboarding calls, gathered inputs, and translated needs into clear next steps.</li>
+              <li>Kept clients informed, calm, and confident during time-sensitive launches.</li>
+            </ul>
+          </div>
+
+          <div class="job">
+            <div class="jobhead">
+              <div>
+                <div class="role">Copywriter</div>
+                <div class="org">Haddad &amp; Partners</div>
+              </div>
+              <div class="meta">Apr 2019 – Oct 2020 · United States</div>
+            </div>
+            <ul class="bullets">
+              <li>Wrote and edited newsletters and digital content under tight deadlines.</li>
+              <li>Coordinated approvals and kept details accurate across versions.</li>
+            </ul>
+          </div>
+
+          <div class="job">
+            <div class="jobhead">
+              <div>
+                <div class="role">Radio Host, Web Editor, Staff Writer</div>
+                <div class="org">Met Media</div>
+              </div>
+              <div class="meta">Earlier career · United States</div>
+            </div>
+            <ul class="bullets">
+              <li>Public-facing communication and on-the-spot speaking in live settings.</li>
+              <li>Fast, accurate writing and editing with strong attention to details.</li>
+            </ul>
+          </div>
+
+        </div>
+
+        <!-- RIGHT COLUMN -->
+        <aside>
+          <h2>Skills</h2>
+          <div class="pillrow">
+            <div class="pill">Customer service</div>
+            <div class="pill">Ticketing and check-in</div>
+            <div class="pill">Membership conversations</div>
+            <div class="pill">Retail and POS basics</div>
+            <div class="pill">Cash handling (trained)</div>
+            <div class="pill">Visitor flow monitoring</div>
+            <div class="pill">De-escalation</div>
+            <div class="pill">Public speaking</div>
+            <div class="pill">Data entry and records</div>
+            <div class="pill">Survey collection</div>
+            <div class="pill">Event operations</div>
+            <div class="pill">Volunteer coordination</div>
+          </div>
+
+          <div class="rule"></div>
+
+          <h2>Role fit notes</h2>
+          <ul class="bullets">
+            <li>Comfortable standing for long periods and staying alert in gallery spaces. :contentReference[oaicite:5]{index=5}</li>
+            <li>Available for evenings, weekends, and holidays. :contentReference[oaicite:6]{index=6}</li>
+            <li>Ready to learn Altru quickly and keep accurate attendance records. :contentReference[oaicite:7]{index=7}</li>
+          </ul>
+
+          <div class="rule"></div>
+
+          <h2>Education</h2>
+          <div class="job">
+            <div class="role">B.A., Social Documentary Journalism</div>
+            <div class="small">Details available upon request</div>
+          </div>
+
+          <div class="rule"></div>
+
+          <h2>Optional</h2>
+          <div class="small">
+            If you want a one-page version for HR scanning, I can compress this into a tighter layout.
+          </div>
+        </aside>
+
+      </section>
+
+      <div class="rule"></div>
+
+      <section class="small">
+        <strong>Note:</strong> Replace the bracketed fields with your phone, email, and LinkedIn URL before exporting.
+      </section>
+
+    </div>
+  </main>
+</body>
+</html>
