@@ -9,12 +9,12 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
 
-  <title>Gofer Content — Helping good businesses earn lifetime customers</title>
+  <title>Gofer Content - Helping good businesses earn lifetime customers</title>
   <meta name="description" content="Get lifetime customers with localized marketing and landing pages. Messaging and copy for contractors, electricians, plumbers, musicians, artists, wellness pros, and local organizations.">
 
   <!-- Open Graph -->
-  <meta property="og:title" content="Gofer Content — Helping good businesses earn lifetime customers">
-  <meta property="og:description" content="Localized marketing and landing pages that earn lifetime customers. Built fast, accessible, and ready to convert.">
+  <meta property="og:title" content="Gofer Content - Helping good businesses earn lifetime customers">
+  <meta property="og:description" content="Localized marketing and landing pages that earn lifetime customers. Built fast, accessible, and ready to get calls.">
   <meta property="og:image" content="og-image.png">
   <meta property="og:type" content="website">
 
@@ -141,16 +141,19 @@
   .confetti{position:fixed;inset:0;pointer-events:none;overflow:hidden}
   .confetti i{position:absolute;width:9px;height:9px;background:var(--brand);opacity:.95;border-radius:2px;animation:fall 1100ms cubic-bezier(.2,.7,.2,1) forwards}
   @keyframes fall{to{transform:translateY(110vh) rotate(260deg);opacity:.1}}
+
+  /* IMMEDIATE HIDE: Projects section */
+  #projects{display:none !important;}
   </style>
 
-  <!-- JSON-LD blocks (unchanged & valid) -->
-  <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"https://gofercontent.com/#org","name":"Gofer Content","url":"https://gofercontent.com/","logo":{"@type":"ImageObject","url":"https://gofercontent.com/og-image.png","width":1200,"height":630},"sameAs":["https://www.linkedin.com/in/daynahimot","https://www.instagram.com/gofercontent"],"description":"Messaging strategy and copy that earns lifetime customers."},{"@type":"LocalBusiness","@id":"https://gofercontent.com/#business","name":"Gofer Content","url":"https://gofercontent.com/","image":"https://gofercontent.com/og-image.png","telephone":"+1-727-353-9673","priceRange":"$$","address":{"@type":"PostalAddress","addressLocality":"St. Petersburg","addressRegion":"FL","postalCode":"33701","addressCountry":"US"},"areaServed":"United States","parentOrganization":{"@id":"https://gofercontent.com/#org"}},{"@type":"WebSite","@id":"https://gofercontent.com/#website","url":"https://gofercontent.com/","name":"Gofer Content","publisher":{"@id":"https://gofercontent.com/#org"},"inLanguage":"en"},{"@type":"WebPage","@id":"https://gofercontent.com/#webpage","url":"https://gofercontent.com/","name":"Gofer Content — Helping good businesses earn lifetime customers","description":"Get lifetime customers with localized marketing and landing pages.","isPartOf":{"@id":"https://gofercontent.com/#website"},"about":{"@id":"https://gofercontent.com/#org"},"primaryImageOfPage":{"@type":"ImageObject","url":"https://gofercontent.com/og-image.png","width":1200,"height":630},"inLanguage":"en"}]}</script>
+  <!-- JSON-LD blocks (updated to remove Projects breadcrumb and avoid hidden section references) -->
+  <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"https://gofercontent.com/#org","name":"Gofer Content","url":"https://gofercontent.com/","logo":{"@type":"ImageObject","url":"https://gofercontent.com/og-image.png","width":1200,"height":630},"sameAs":["https://www.linkedin.com/in/daynahimot","https://www.instagram.com/gofercontent"],"description":"Messaging strategy and copy that earns lifetime customers."},{"@type":"LocalBusiness","@id":"https://gofercontent.com/#business","name":"Gofer Content","url":"https://gofercontent.com/","image":"https://gofercontent.com/og-image.png","telephone":"+1-727-353-9673","priceRange":"$$","address":{"@type":"PostalAddress","addressLocality":"St. Petersburg","addressRegion":"FL","postalCode":"33701","addressCountry":"US"},"areaServed":"United States","parentOrganization":{"@id":"https://gofercontent.com/#org"}},{"@type":"WebSite","@id":"https://gofercontent.com/#website","url":"https://gofercontent.com/","name":"Gofer Content","publisher":{"@id":"https://gofercontent.com/#org"},"inLanguage":"en"},{"@type":"WebPage","@id":"https://gofercontent.com/#webpage","url":"https://gofercontent.com/","name":"Gofer Content - Helping good businesses earn lifetime customers","description":"Get lifetime customers with localized marketing and landing pages.","isPartOf":{"@id":"https://gofercontent.com/#website"},"about":{"@id":"https://gofercontent.com/#org"},"primaryImageOfPage":{"@type":"ImageObject","url":"https://gofercontent.com/og-image.png","width":1200,"height":630},"inLanguage":"en"}]}</script>
 
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"LocalBusiness","@id":"https://gofercontent.com/#business","aggregateRating":{"@type":"AggregateRating","ratingValue":"5.0","bestRating":"5","ratingCount":"3"},"review":[{"@type":"Review","itemReviewed":{"@id":"https://gofercontent.com/#business"},"author":{"@type":"Person","name":"Amy Thompson"},"reviewBody":"Working with Dayna was the best experience I've had in a long time. She asked the right questions and guided our team onto the right path.","reviewRating":{"@type":"Rating","ratingValue":"5","bestRating":"5"},"datePublished":"2025-06-10"},{"@type":"Review","itemReviewed":{"@id":"https://gofercontent.com/#business"},"author":{"@type":"Person","name":"Rebekah Perkins"},"reviewBody":"She saved my website and turned things around for my business. Best decision I've made.","reviewRating":{"@type":"Rating","ratingValue":"5","bestRating":"5"},"datePublished":"2025-06-28"},{"@type":"Review","itemReviewed":{"@id":"https://gofercontent.com/#business"},"author":{"@type":"Person","name":"Rachel Grace"},"reviewBody":"Fresh ideas that helped my small business. Practical and clear.","reviewRating":{"@type":"Rating","ratingValue":"5","bestRating":"5"},"datePublished":"2025-07-14"}]}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"LocalBusiness","@id":"https://gofercontent.com/#business","aggregateRating":{"@type":"AggregateRating","ratingValue":"5.0","bestRating":"5","ratingCount":"3"},"review":[{"@type":"Review","itemReviewed":{"@id":"https://gofercontent.com/#business"},"author":{"@type":"Person","name":"Amy Thompson"},"reviewBody":"Dayna made this one of the best experiences I've had in a long time. She asked the right questions and guided our team onto the right path.","reviewRating":{"@type":"Rating","ratingValue":"5","bestRating":"5"},"datePublished":"2025-06-10"},{"@type":"Review","itemReviewed":{"@id":"https://gofercontent.com/#business"},"author":{"@type":"Person","name":"Rebekah Perkins"},"reviewBody":"She saved my website and turned things around for my business. Best decision I've made.","reviewRating":{"@type":"Rating","ratingValue":"5","bestRating":"5"},"datePublished":"2025-06-28"},{"@type":"Review","itemReviewed":{"@id":"https://gofercontent.com/#business"},"author":{"@type":"Person","name":"Rachel Grace"},"reviewBody":"Fresh ideas that helped my small business. Practical and clear.","reviewRating":{"@type":"Rating","ratingValue":"5","bestRating":"5"},"datePublished":"2025-07-14"}]}</script>
 
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://gofercontent.com/"},{"@type":"ListItem","position":2,"name":"How I Help","item":"https://gofercontent.com/#how"},{"@type":"ListItem","position":3,"name":"Projects","item":"https://gofercontent.com/#projects"},{"@type":"ListItem","position":4,"name":"Contact","item":"https://gofercontent.com/#contact"}]}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://gofercontent.com/"},{"@type":"ListItem","position":2,"name":"How I Help","item":"https://gofercontent.com/#how"},{"@type":"ListItem","position":3,"name":"Contact","item":"https://gofercontent.com/#contact"}]}</script>
 
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What does Gofer Content actually do?","acceptedAnswer":{"@type":"Answer","text":"I help small teams and local businesses fix weak messaging, shape clear offers, and ship pages that earn lifetime customers. Every project ends with tools you can keep using—no retainers, no mystery."}},{"@type":"Question","name":"Who hires Gofer Content?","acceptedAnswer":{"@type":"Answer","text":"Contractors and home services first—plus makers, musicians, artists, wellness pros, and local groups."}},{"@type":"Question","name":"How long does a project take?","acceptedAnswer":{"@type":"Answer","text":"Most first drafts ship in days, not months. Quick proofs show what works fast so we can test, adjust, and publish with confidence."}},{"@type":"Question","name":"Can you build the site too?","acceptedAnswer":{"@type":"Answer","text":"Yes. I hand-code clean, accessible pages that match your message. If you already have a platform, I adapt to it and keep performance strong."}},{"@type":"Question","name":"What does it cost to start?","acceptedAnswer":{"@type":"Answer","text":"Every job starts with a short call to define the goal. Most small projects start around a few hundred dollars and scale by scope—not by hours."}}]}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What does Gofer Content actually do?","acceptedAnswer":{"@type":"Answer","text":"I help small teams and local businesses fix weak messaging, shape clear offers, and ship pages that earn lifetime customers. Every project ends with tools you can keep using. No retainers. No mystery."}},{"@type":"Question","name":"Who hires Gofer Content?","acceptedAnswer":{"@type":"Answer","text":"Contractors and home services first, plus makers, musicians, artists, wellness pros, and local groups."}},{"@type":"Question","name":"How long does a project take?","acceptedAnswer":{"@type":"Answer","text":"Most first drafts ship in days, not months. Quick proofs show what works fast so we can test, adjust, and publish with confidence."}},{"@type":"Question","name":"Can you build the site too?","acceptedAnswer":{"@type":"Answer","text":"Yes. I hand-code clean, accessible pages that match your message. If you already have a platform, I adapt to it and keep performance strong."}},{"@type":"Question","name":"What does it cost to start?","acceptedAnswer":{"@type":"Answer","text":"Every job starts with a short call to define the goal. Most small projects start around a few hundred dollars and scale by scope, not by hours."}}]}</script>
 </head>
 
 <body>
@@ -175,7 +178,6 @@
   <div id="mobileMenu" class="menu" role="dialog" aria-label="Menu">
     <div class="wrap">
       <a class="m-link" href="#how">How I help</a>
-      <a class="m-link" href="#projects">Projects</a>
       <a class="m-link" href="#proof">Word on the street</a>
       <a class="m-link" href="#contact">Contact</a>
     </div>
@@ -190,7 +192,7 @@
         <div>
           <h1>Helping good businesses earn lifetime customers.</h1>
           <p class="sub">Localized marketing and landing pages.</p>
-          <p>Gofer Content helps <strong>contractors, electricians, plumbers</strong> — plus musicians, artists, wellness pros, and local organizations — reach the right people and keep them coming back.</p>
+          <p>Gofer Content helps <strong>contractors, electricians, plumbers</strong>, plus musicians, artists, wellness pros, and local organizations reach the right people and keep them coming back.</p>
           <div class="cta-row" style="margin-top:10px">
             <a class="btn brand js-cta" href="tel:+17273539673">Call now</a>
             <a class="btn neutral js-cta" href="sms:+17273539673?&body=Hi%20Gofer%20Content%2C%20I%27d%20like%20help%20with%20localized%20landing%20pages.">Text now</a>
@@ -224,13 +226,13 @@
     </div>
   </section>
 
-  <!-- PROJECTS -->
+  <!-- PROJECTS (HIDDEN BY CSS ABOVE) -->
   <section id="projects" aria-labelledby="projects-title">
     <div class="wrap">
       <h2 id="projects-title">Projects</h2>
       <div class="grid-3">
-        <a class="card" href="/mobile-detailing-jenny/" target="_blank" rel="noopener"><strong>Mobile Detailing — Jenny →</strong><p class="by">Quick pitch + booking</p></a>
-        <a class="card" href="https://clipboard250.github.io/hire-Isaac-now/" target="_blank" rel="noopener"><strong>Hire Isaac — Quick Pitch →</strong><p class="by">Fast one-pager</p></a>
+        <a class="card" href="/mobile-detailing-jenny/" target="_blank" rel="noopener"><strong>Mobile Detailing - Jenny →</strong><p class="by">Quick pitch + booking</p></a>
+        <a class="card" href="https://clipboard250.github.io/hire-Isaac-now/" target="_blank" rel="noopener"><strong>Hire Isaac - Quick Pitch →</strong><p class="by">Fast one-pager</p></a>
       </div>
       <p class="by" style="margin-top:8px">Want something like this? <a href="#contact">Let’s talk</a>.</p>
     </div>
@@ -243,12 +245,10 @@
         <h2 id="proof-title">Word on the street</h2>
         <div class="review-links">
           <a class="badge" href="https://www.linkedin.com/in/daynahimot/details/recommendations/" target="_blank" rel="noopener" aria-label="LinkedIn Recommendations">
-            <!-- LinkedIn icon -->
             <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="#0A66C2" d="M4.98 3.5C4.98 4.88 3.86 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1s2.48 1.12 2.48 2.5zM.5 8.5h4V23h-4V8.5zm7 0h3.8v1.98h.05c.53-1 1.84-2.05 3.78-2.05 4.04 0 4.78 2.66 4.78 6.12V23h-3.96v-6.5c0-1.55-.03-3.54-2.16-3.54-2.16 0-2.49 1.69-2.49 3.43V23H7.5V8.5z"/></svg>
             LinkedIn
           </a>
           <a class="badge" href="https://muckrack.com/daynahimot/articles" target="_blank" rel="noopener" aria-label="FOX31 / MuckRack Articles">
-            <!-- Simple FOX31 badge -->
             <svg viewBox="0 0 64 24" aria-hidden="true"><rect x="0" y="0" width="64" height="24" rx="4" fill="#1f1f1f"/><text x="8" y="16" font-size="12" fill="#f7f3e8" font-family="system-ui,Arial">FOX 31</text></svg>
             Articles
           </a>
@@ -288,7 +288,7 @@
             </div>
           </div>
 
-          <input type="hidden" name="_subject" value="Gofer Content — Website Contact">
+          <input type="hidden" name="_subject" value="Gofer Content - Website Contact">
           <input type="hidden" name="page" value="gofercontent.com">
 
           <div class="cta-row" style="margin-top:8px">
