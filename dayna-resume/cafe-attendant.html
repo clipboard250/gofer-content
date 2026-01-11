@@ -2,246 +2,309 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Dayna Himot – Cafe Counter Attendant Resume</title>
   <style>
     :root{
-      --ink:#1f2937;
+      --text:#1f2937;
       --muted:#4b5563;
-      --rule:#d1d5db;
-      --accent:#166534; /* deep green */
-      --paper:#ffffff;
+      --line:#d1d5db;
+      --accent:#166534;   /* deep green */
+      --bg:#ffffff;
+      --soft:#f3f4f6;
     }
-
-    html,body{background:var(--paper);}
+    *{ box-sizing:border-box; }
     body{
-      font-family: Arial, sans-serif;
-      color:var(--ink);
+      margin:0;
+      background:var(--bg);
+      color:var(--text);
+      font-family: Arial, Helvetica, sans-serif;
       font-size:11px;
-      line-height:1.32;
-      margin:18px;
+      line-height:1.35;
     }
-
     .page{
-      max-width: 820px;
+      max-width: 900px;
       margin: 0 auto;
+      padding: 22px;
     }
 
-    header{
+    /* Header */
+    .header{
       text-align:center;
-      padding: 4px 0 10px;
-      border-bottom: 2px solid var(--rule);
-      margin-bottom: 10px;
+      padding-bottom:10px;
+      border-bottom:2px solid var(--line);
     }
     h1{
-      font-size:20px;
       margin:0;
+      font-size:20px;
       letter-spacing:.2px;
     }
     .contact{
-      margin-top:6px;
-      font-size:10.5px;
+      margin-top:4px;
       color:var(--muted);
+      font-size:10px;
     }
-    .contact a{ color:inherit; text-decoration:none; }
-    .contact .dot{ padding: 0 6px; }
+    .target{
+      margin-top:8px;
+      display:flex;
+      flex-wrap:wrap;
+      justify-content:center;
+      gap:6px 10px;
+      color:var(--muted);
+      font-size:10px;
+    }
+    .target span{
+      padding:2px 0;
+      border-bottom:1px dotted var(--line);
+    }
 
+    /* Layout */
     .grid{
       display:grid;
-      grid-template-columns: 1.55fr 1fr;
-      gap: 12px;
-      margin-top: 10px;
+      grid-template-columns: 1.35fr .85fr;
+      gap:18px;
+      padding-top:14px;
+    }
+    @media (max-width: 780px){
+      .grid{ grid-template-columns:1fr; }
     }
 
+    /* Sections */
     h2{
+      margin:0 0 6px 0;
       font-size:12px;
-      margin: 10px 0 6px;
-      color: var(--accent);
-      letter-spacing:.2px;
-      text-transform: uppercase;
+      letter-spacing:.3px;
+      color:var(--accent);
+      text-transform:uppercase;
     }
-
-    .block{
-      margin-bottom: 8px;
+    .section{
+      margin-bottom:14px;
+      padding-bottom:12px;
+      border-bottom:1px solid var(--line);
     }
+    .section:last-child{ border-bottom:none; padding-bottom:0; }
 
-    p{ margin:0 0 6px; }
-
-    ul{
-      margin: 0 0 6px 16px;
-      padding: 0;
+    .summary{
+      background:var(--soft);
+      padding:10px;
+      border:1px solid var(--line);
+      border-radius:6px;
     }
-    li{ margin: 0 0 2px; }
+    .summary p{ margin:0; }
 
+    /* Job blocks */
     .job{
-      margin: 0 0 8px;
-      padding-bottom: 8px;
-      border-bottom: 1px solid var(--rule);
+      margin-bottom:10px;
+      padding-bottom:10px;
+      border-bottom:1px solid var(--line);
     }
-    .job:last-child{ border-bottom:none; padding-bottom:0; }
+    .job:last-child{
+      border-bottom:none;
+      padding-bottom:0;
+      margin-bottom:0;
+    }
     .job-top{
       display:flex;
       justify-content:space-between;
-      gap:10px;
+      gap:12px;
       font-weight:700;
+      font-size:11px;
     }
-    .job-sub{
+    .job-meta{
       margin-top:2px;
       color:var(--muted);
-      font-style: italic;
+      font-style:italic;
       font-size:10px;
     }
-
-    .pillrow{
-      display:flex;
-      flex-wrap:wrap;
-      gap:6px;
-      margin-top:6px;
+    ul{
+      margin:6px 0 0 16px;
+      padding:0;
     }
-    .pill{
-      border: 1px solid var(--rule);
-      border-left: 3px solid var(--accent);
-      padding: 3px 6px;
-      border-radius: 999px;
-      font-size:10px;
-      color: var(--ink);
-      background:#fff;
-      white-space: nowrap;
-    }
+    li{ margin:0 0 3px 0; }
 
+    /* Right column lists */
+    .bullets{
+      margin:0;
+      padding-left:16px;
+    }
     .small{
-      font-size:10px;
       color:var(--muted);
+      font-size:10px;
+      margin-top:4px;
     }
 
-    .two-col{
-      columns: 2;
-      column-gap: 18px;
-    }
-    .two-col ul{ break-inside: avoid; }
-
+    /* Print */
     @media print{
-      body{ margin: 10mm; }
-      a{ color:inherit; text-decoration:none; }
+      body{ background:#fff; }
+      .page{ padding:10mm; }
+      .summary{ background:#fff; }
     }
   </style>
 </head>
 
 <body>
   <div class="page">
-    <header>
+    <div class="header">
       <h1>Dayna Himot</h1>
-      <div class="contact">
-        St. Petersburg, FL
-        <span class="dot">•</span> 303-435-3805
-        <span class="dot">•</span> <a href="mailto:daynahimot@gmail.com">daynahimot@gmail.com</a>
+      <div class="contact">St. Petersburg, FL • 303-435-3805 • daynahimot@gmail.com</div>
+      <div class="target">
+        <span>Cafe Counter Attendant</span>
+        <span>Barista</span>
+        <span>Cashiering</span>
+        <span>Food handling and sanitation</span>
+        <span>Early mornings OK</span>
       </div>
-      <div class="pillrow" aria-label="Target role">
-        <div class="pill">Cafe Counter Attendant</div>
-        <div class="pill">Barista</div>
-        <div class="pill">Cashiering</div>
-        <div class="pill">Food handling and sanitation</div>
-        <div class="pill">Early shifts OK</div>
-      </div>
-    </header>
+    </div>
 
     <div class="grid">
       <!-- LEFT COLUMN -->
-      <main>
-        <h2>Summary</h2>
-        <p class="block">
-          Guest-focused café and service worker with hands-on experience in espresso and counter service, cashiering,
-          baked goods production, and fast-paced hospitality. Known for showing up on time, following procedures,
-          staying calm when it gets busy, and treating every guest with respect.
-        </p>
-
-        <h2>Relevant Experience</h2>
-
-        <section class="job">
-          <div class="job-top">
-            <div>Baker Barista</div>
-            <div>2005–2007</div>
+      <div>
+        <div class="section">
+          <h2>Summary</h2>
+          <div class="summary">
+            <p>
+              Guest-focused café and service worker with hands-on experience in espresso and counter service,
+              cashiering, baked goods production, stocking, and fast-paced hospitality. Known for showing up on time,
+              following procedures, staying calm when it gets busy, and treating every guest with respect.
+            </p>
           </div>
-          <div class="job-sub">Spruce Confections • Boulder, CO</div>
-          <ul>
-            <li>Prepared daily production batches of cookies and scones with consistent results.</li>
-            <li>Supported counter service, order accuracy, and friendly guest interactions.</li>
-            <li>Maintained clean prep areas, storage, and equipment using basic food safety practices.</li>
-            <li>Worked efficiently during rush periods while staying organized.</li>
-          </ul>
-        </section>
+        </div>
 
-        <section class="job">
-          <div class="job-top">
-            <div>Assistant Manager</div>
-            <div>1994–1996</div>
+        <div class="section">
+          <h2>Food and Cafe Experience</h2>
+
+          <div class="job">
+            <div class="job-top">
+              <div>Baker Barista</div>
+              <div>2005–2007</div>
+            </div>
+            <div class="job-meta">Spruce Confections • Boulder, CO</div>
+            <ul>
+              <li>Prepared daily production batches of cookies and scones with consistent results.</li>
+              <li>Supported counter service, order accuracy, and friendly guest interactions.</li>
+              <li>Maintained clean prep areas, storage, and equipment using basic food safety practices.</li>
+              <li>Worked efficiently during rush periods while staying organized.</li>
+            </ul>
           </div>
-          <div class="job-sub">Joe Van Gogh (formerly Joe City Roasters) • Greensboro, NC</div>
-          <ul>
-            <li>Supported daily café operations including retail and lunch service.</li>
-            <li>Helped train staff, keep service stations stocked, and maintain smooth handoffs.</li>
-            <li>Handled guest issues with a calm, solution-first approach.</li>
-            <li>Assisted with gift basket prep and small production tasks as needed.</li>
-          </ul>
-        </section>
 
-        <section class="job">
-          <div class="job-top">
-            <div>Restaurant and Café Roles</div>
-            <div>1989–1993</div>
+          <div class="job">
+            <div class="job-top">
+              <div>Assistant Manager</div>
+              <div>1994–1996</div>
+            </div>
+            <div class="job-meta">Joe Van Gogh (formerly Joe City Roasters) • Greensboro, NC</div>
+            <ul>
+              <li>Supported daily café operations including retail and lunch service.</li>
+              <li>Helped train staff, keep service stations stocked, and maintain smooth handoffs.</li>
+              <li>Handled guest issues with a calm, solution-first approach.</li>
+              <li>Assisted with gift basket prep and small production tasks as needed.</li>
+            </ul>
           </div>
-          <div class="job-sub">Portland, ME • Various restaurants (including Alberta’s and Liza’s)</div>
-          <ul>
-            <li>Front-of-house support including customer service, order flow, and side work.</li>
-            <li>Worked long shifts, kept a clean station, and stayed reliable during busy service.</li>
-          </ul>
-        </section>
 
-        <h2>Additional Experience That Transfers Well</h2>
-
-        <section class="job">
-          <div class="job-top">
-            <div>Shop Steward, DPW Man Pavilion</div>
-            <div>2023–2025</div>
+          <div class="job">
+            <div class="job-top">
+              <div>Restaurant and Cafe Roles</div>
+              <div>Various</div>
+            </div>
+            <div class="job-meta">Portland, ME • Various restaurants (including Alberta’s and Liza’s)</div>
+            <ul>
+              <li>Front-of-house support including guest service, order flow, and side work.</li>
+              <li>Worked long shifts, kept a clean station, and stayed reliable during busy service.</li>
+            </ul>
           </div>
-          <div class="job-sub">Burning Man Project • Seasonal</div>
-          <ul>
-            <li>Organized inventory and supplies so the team could move quickly and safely.</li>
-            <li>Tracked stock levels, labeled storage, and kept work areas clean and orderly.</li>
-            <li>Supported loading and unloading and end-of-shift reset and cleanup.</li>
-          </ul>
-        </section>
+        </div>
 
-        <section class="job">
-          <div class="job-top">
-            <div>Reservations Specialist</div>
-            <div>1998–1999</div>
-          </div>
-          <div class="job-sub">American Skiing Company • Steamboat Springs, CO</div>
-          <ul>
-            <li>Handled guest calls, bookings, payments, and high-volume questions with accuracy.</li>
-            <li>Resolved issues quickly and kept communication clear and friendly.</li>
-          </ul>
-        </section>
+        <div class="section">
+          <h2>Operations and Inventory Experience</h2>
 
-        <section class="job" style="border-bottom:none;">
-          <div class="job-top">
-            <div>Events and Production Support</div>
-            <div>Various</div>
+          <div class="job">
+            <div class="job-top">
+              <div>Shop Steward, DPW Man Pavilion</div>
+              <div>2023–2025</div>
+            </div>
+            <div class="job-meta">Burning Man Project • Seasonal</div>
+            <ul>
+              <li>Organized inventory and supplies so the team could work quickly and safely.</li>
+              <li>Tracked stock levels, labeled storage, and kept work areas clean and orderly.</li>
+              <li>Supported loading and unloading and end-of-shift reset and cleanup.</li>
+              <li>Posted clear signage and simple instructions to reduce confusion and improve safety.</li>
+            </ul>
           </div>
-          <div class="job-sub">Festivals, theatre, venues</div>
-          <ul>
-            <li>Customer-facing support, setup and breakdown, schedules, and team coordination.</li>
-            <li>Comfortable in busy environments with lots of moving parts.</li>
-          </ul>
-        </section>
-      </main>
+
+          <div class="job">
+            <div class="job-top">
+              <div>Reservations Specialist</div>
+              <div>1998–1999</div>
+            </div>
+            <div class="job-meta">American Skiing Company • Steamboat Springs, CO</div>
+            <ul>
+              <li>Handled guest calls, bookings, payments, and high-volume questions with accuracy.</li>
+              <li>Resolved issues quickly and kept communication clear and friendly.</li>
+            </ul>
+          </div>
+
+          <div class="job">
+            <div class="job-top">
+              <div>Events and Production Support</div>
+              <div>Various</div>
+            </div>
+            <div class="job-meta">Festivals, theatre, venues</div>
+            <ul>
+              <li>Customer-facing support, setup and breakdown, schedules, and team coordination.</li>
+              <li>Comfortable in busy environments with many moving parts and tight timelines.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="section">
+          <h2>Additional Professional Experience</h2>
+          <div class="small">
+            Included to show reliability, communication, and follow-through across customer-facing work.
+          </div>
+
+          <div class="job">
+            <div class="job-top">
+              <div>Founder</div>
+              <div>2025–Present</div>
+            </div>
+            <div class="job-meta">Gofer Content • Self-employed</div>
+            <ul>
+              <li>Client communication, scheduling, email follow-up, and detail tracking.</li>
+              <li>Clear written instructions and fast turnaround under deadlines.</li>
+            </ul>
+          </div>
+
+          <div class="job">
+            <div class="job-top">
+              <div>Business Development and Content (Multiple roles)</div>
+              <div>2021–2025</div>
+            </div>
+            <div class="job-meta">MODIPHY • Full-time and contract</div>
+            <ul>
+              <li>Customer support, coordination, and clear communication across teams.</li>
+              <li>Process organization and follow-through on deliverables.</li>
+            </ul>
+          </div>
+
+          <div class="job">
+            <div class="job-top">
+              <div>Digital Content Producer</div>
+              <div>2019</div>
+            </div>
+            <div class="job-meta">FOX31 Denver / Channel 2 • Denver, CO</div>
+            <ul>
+              <li>High-speed work under pressure with accuracy and attention to detail.</li>
+              <li>Strong customer-facing judgment and calm communication during breaking situations.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
 
       <!-- RIGHT COLUMN -->
-      <aside>
-        <h2>Core Strengths</h2>
-        <div class="block two-col">
-          <ul>
+      <div>
+        <div class="section">
+          <h2>Core Strengths</h2>
+          <ul class="bullets">
             <li>Guest service</li>
             <li>Order accuracy</li>
             <li>Cash handling</li>
@@ -251,42 +314,32 @@
             <li>Stocking and restock</li>
             <li>Station setup and closing</li>
             <li>Team support</li>
-            <li>Early shifts</li>
+            <li>Early mornings</li>
           </ul>
         </div>
 
-        <h2>What You Will Get From Me</h2>
-        <ul>
-          <li>Friendly greeting and steady pace even during rush.</li>
-          <li>Careful listening for special requests and follow-through.</li>
-          <li>Clean counter, clean tools, clean handoff.</li>
-          <li>Reliable attendance and a team-first attitude.</li>
-        </ul>
-
-        <h2>Recent Professional Work</h2>
-        <p class="small">
-          Included for completeness. This experience strengthens communication, reliability, and follow-through.
-        </p>
-        <div class="job" style="border-bottom:none; padding-bottom:0; margin-bottom:0;">
-          <div class="job-top">
-            <div>Founder</div>
-            <div>2025–Present</div>
-          </div>
-          <div class="job-sub">Gofer Content • Self-employed</div>
-          <ul>
-            <li>Client communication, scheduling, and detail tracking.</li>
-            <li>Written responses, email follow-up, and deadline management.</li>
+        <div class="section">
+          <h2>What you get from me</h2>
+          <ul class="bullets">
+            <li>Friendly greeting and steady pace even during rush.</li>
+            <li>Careful listening for special requests and follow-through.</li>
+            <li>Clean counter, clean tools, clean handoff.</li>
+            <li>Reliable attendance and a team-first attitude.</li>
           </ul>
         </div>
 
-        <h2>Education</h2>
-        <p class="block">B.A., Social Documentary Journalism • MSU Denver</p>
+        <div class="section">
+          <h2>Education</h2>
+          <div>B.A., Social Documentary Journalism</div>
+          <div class="small">MSU Denver</div>
+        </div>
 
-        <h2>Availability</h2>
-        <p class="block">
-          Part-time. Open to early mornings, weekends, and holidays as needed.
-        </p>
-      </aside>
+        <div class="section">
+          <h2>Availability</h2>
+          <div>Part-time</div>
+          <div class="small">Open to early mornings, weekends, and holidays as needed.</div>
+        </div>
+      </div>
     </div>
   </div>
 </body>
