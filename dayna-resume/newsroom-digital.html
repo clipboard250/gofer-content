@@ -1,0 +1,224 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Dayna Himot — Newsroom + Digital Resume</title>
+  <style>
+    :root{
+      --ink:#111;
+      --muted:#555;
+      --rule:#ddd;
+      --accent:#0b3d91;
+      --bg:#fff;
+      --sans: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, "Noto Sans", "Liberation Sans", sans-serif;
+      --mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
+    }
+    *{box-sizing:border-box}
+    html,body{background:var(--bg); color:var(--ink); margin:0; padding:0; font-family:var(--sans); line-height:1.35}
+    a{color:var(--accent); text-decoration:none}
+    a:hover{text-decoration:underline}
+    .page{max-width:920px; margin:0 auto; padding:28px 28px 40px}
+    .top{
+      display:flex; gap:18px; align-items:flex-end; justify-content:space-between;
+      border-bottom:2px solid var(--ink); padding-bottom:14px; margin-bottom:16px;
+    }
+    .name{
+      font-size:32px; letter-spacing:-0.5px; font-weight:800; margin:0;
+    }
+    .tag{
+      margin:4px 0 0; font-weight:700; color:var(--accent);
+      font-size:14px; letter-spacing:0.2px;
+    }
+    .contact{
+      text-align:right; font-size:12.5px; color:var(--muted);
+    }
+    .contact div{margin:2px 0}
+    .hero{
+      display:grid; grid-template-columns: 1.4fr 1fr; gap:16px;
+      margin:14px 0 18px;
+    }
+    .summary{
+      border:1px solid var(--rule); border-left:6px solid var(--accent);
+      padding:12px 12px 10px; border-radius:10px;
+    }
+    .summary h2{margin:0 0 6px; font-size:13px; letter-spacing:0.3px; text-transform:uppercase}
+    .summary p{margin:0; font-size:13.5px}
+    .quick{
+      border:1px solid var(--rule); padding:12px; border-radius:10px;
+    }
+    .quick h2{margin:0 0 8px; font-size:13px; letter-spacing:0.3px; text-transform:uppercase}
+    .list{
+      margin:0; padding-left:18px; font-size:13px; color:var(--ink);
+    }
+    .list li{margin:4px 0}
+    .grid{
+      display:grid; grid-template-columns: 1fr 1fr; gap:18px;
+    }
+    h3.section{
+      margin:18px 0 8px; font-size:13px; letter-spacing:0.3px; text-transform:uppercase;
+      border-top:1px solid var(--rule); padding-top:12px;
+    }
+    .role{margin:0 0 12px}
+    .role-top{
+      display:flex; justify-content:space-between; gap:12px; align-items:baseline;
+    }
+    .role-title{
+      font-weight:800; font-size:14.5px; margin:0;
+    }
+    .role-meta{
+      font-size:12px; color:var(--muted); white-space:nowrap;
+    }
+    .org{font-weight:700; color:var(--ink)}
+    .bullets{margin:6px 0 0; padding-left:18px; font-size:13px}
+    .bullets li{margin:4px 0}
+    .skills{
+      display:flex; flex-wrap:wrap; gap:6px; margin:6px 0 0;
+    }
+    .chip{
+      font-size:12px; padding:6px 8px; border:1px solid var(--rule); border-radius:999px;
+      background:#fafafa;
+    }
+    .edu{margin:0}
+    .edu .line{display:flex; justify-content:space-between; gap:12px}
+    .small{font-size:12px; color:var(--muted)}
+    .mono{font-family:var(--mono)}
+    /* Print */
+    @media print{
+      .page{padding:0.5in}
+      a{color:var(--ink); text-decoration:none}
+      .summary{break-inside:avoid}
+      .role{break-inside:avoid}
+      .quick{break-inside:avoid}
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <header class="top">
+      <div>
+        <h1 class="name">Dayna Himot</h1>
+        <div class="tag">NEWSROOM + DIGITAL PUBLISHING • EDITING • AUDIENCE + SOCIAL</div>
+      </div>
+      <div class="contact">
+        <div>St. Petersburg, FL</div>
+        <div class="mono">phone: (XXX) XXX-XXXX</div>
+        <div class="mono">email: you@example.com</div>
+        <div class="mono">portfolio: yoursite.com</div>
+        <div class="mono">LinkedIn: linkedin.com/in/your-handle</div>
+      </div>
+    </header>
+
+    <section class="hero">
+      <div class="summary">
+        <h2>At a glance</h2>
+        <p>
+          Newsroom-trained digital producer and editor with strong AP Style discipline, fast turnaround,
+          clean copy editing, and steady publishing under deadline. Experienced with web publishing, push alerts,
+          social distribution, and cross-team coordination.
+        </p>
+      </div>
+
+      <div class="quick">
+        <h2>Core strengths</h2>
+        <ul class="list">
+          <li>Breaking news web publishing + updates</li>
+          <li>Copy editing and headline writing</li>
+          <li>Push alerts + social scheduling</li>
+          <li>Source handling, accuracy, fairness</li>
+          <li>Publishing systems + process documentation</li>
+        </ul>
+      </div>
+    </section>
+
+    <h3 class="section">Selected skills</h3>
+    <div class="skills" aria-label="skills">
+      <span class="chip">AP Style</span>
+      <span class="chip">Copy editing</span>
+      <span class="chip">Headlines</span>
+      <span class="chip">Breaking news</span>
+      <span class="chip">Web publishing</span>
+      <span class="chip">Push alerts</span>
+      <span class="chip">Social feeds</span>
+      <span class="chip">WordPress (and similar CMS)</span>
+      <span class="chip">Editorial judgment</span>
+      <span class="chip">Fact checking</span>
+      <span class="chip">Audio + video basics</span>
+      <span class="chip">Documentation</span>
+    </div>
+
+    <h3 class="section">Experience</h3>
+
+    <article class="role">
+      <div class="role-top">
+        <p class="role-title">Digital Content Producer</p>
+        <p class="role-meta"><span class="org">KDVR – FOX31 Denver (Tribune Media)</span> • Feb 2019 – May 2019 • Denver, CO</p>
+      </div>
+      <ul class="bullets">
+        <li>Wrote and published breaking news content fast and accurately in AP Style for web and alerts.</li>
+        <li>Managed social feeds for two stations; copy edited reporters before publishing.</li>
+        <li>Handled multi-platform publishing, frequent updates, and deadline pressure.</li>
+        <li>Collaborated with anchors and producers to align web, alerts, and social with live coverage.</li>
+      </ul>
+    </article>
+
+    <article class="role">
+      <div class="role-top">
+        <p class="role-title">Managing Editor</p>
+        <p class="role-meta"><span class="org">MSU Denver — Journalism &amp; Technical Communication Dept.</span> • Nov 2017 – Dec 2018 • Denver, CO</p>
+      </div>
+      <ul class="bullets">
+        <li>Project managed second-edition production of a 60-page nonfiction book of student reporting.</li>
+        <li>Fact checked, copy edited, and applied editorial judgment; coordinated layout and design oversight.</li>
+        <li>Maintained consistency and standards across multiple contributors.</li>
+      </ul>
+    </article>
+
+    <article class="role">
+      <div class="role-top">
+        <p class="role-title">Radio Host, Web Editor, Staff Writer</p>
+        <p class="role-meta"><span class="org">Met Media</span> • Jul 2015 – Feb 2018 • Denver, CO</p>
+      </div>
+      <ul class="bullets">
+        <li>Developed story ideas, wrote scripts, and produced weekly on-air broadcasts and podcast episodes.</li>
+        <li>Built and maintained publishing and archive process for podcast distribution.</li>
+        <li>Trained incoming student staff on interviewing, scripting, recording, and post-production.</li>
+      </ul>
+    </article>
+
+    <article class="role">
+      <div class="role-top">
+        <p class="role-title">Senior Copywriter &amp; Onboarding Specialist</p>
+        <p class="role-meta"><span class="org">321 Ignition</span> • Aug 2019 – Feb 2021</p>
+      </div>
+      <ul class="bullets">
+        <li>Interviewed clients, created briefs, and delivered clear copy under tight timelines.</li>
+        <li>Maintained editorial guidelines and consistency across projects and stakeholders.</li>
+        <li>Translated technical topics into plain language for non-technical audiences.</li>
+      </ul>
+    </article>
+
+    <h3 class="section">Education</h3>
+    <div class="edu">
+      <div class="line">
+        <div><strong>B.A., Social Documentary Journalism</strong> — Metropolitan State University of Denver</div>
+        <div class="small">2015 – 2018</div>
+      </div>
+      <div class="small">Society of Professional Journalists (student chapter leadership) • Teaching assistant • Youth journalism mentoring</div>
+    </div>
+
+    <h3 class="section">Relevant leadership (high-pressure ops)</h3>
+    <article class="role">
+      <div class="role-top">
+        <p class="role-title">Man Pavilion Shop Steward (DPW)</p>
+        <p class="role-meta"><span class="org">Burning Man Project</span> • Jul 2023 – Nov 2025 • Gerlach, NV</p>
+      </div>
+      <ul class="bullets">
+        <li>Managed inventory and status tracking for essential tools and equipment across multiple trailers.</li>
+        <li>Built clear process signage and announcements to keep a fast crew aligned and safe.</li>
+        <li>Coordinated repairs, manuals, and pack-out logistics for smooth transitions.</li>
+      </ul>
+    </article>
+  </main>
+</body>
+</html>
