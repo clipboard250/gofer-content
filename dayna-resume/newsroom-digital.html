@@ -14,135 +14,191 @@
       --sans: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
       --mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
     }
+
     *{box-sizing:border-box}
-    html,body{margin:0;padding:0;background:var(--bg);color:var(--ink);font-family:var(--sans);line-height:1.3}
-    .page{max-width:900px;margin:0 auto;padding:26px}
-    .top{display:flex;justify-content:space-between;align-items:flex-end;border-bottom:2px solid var(--ink);padding-bottom:12px}
-    .name{font-size:30px;font-weight:800;margin:0}
-    .tag{margin-top:4px;font-size:13px;font-weight:700;color:var(--accent)}
-    .contact{text-align:right;font-size:12.5px;color:var(--muted)}
-    .contact div{margin:2px 0}
-    .hero{display:grid;grid-template-columns:1.4fr 1fr;gap:14px;margin-top:14px}
-    .box{border:1px solid var(--rule);border-left:6px solid var(--accent);border-radius:10px;padding:10px}
-    .box h2{margin:0 0 6px;font-size:12.5px;text-transform:uppercase;letter-spacing:.3px}
-    .box p{margin:0;font-size:13px}
-    h3{margin:16px 0 6px;font-size:12.5px;text-transform:uppercase;letter-spacing:.3px;border-top:1px solid var(--rule);padding-top:10px}
-    .role{margin-bottom:12px}
+    html,body{margin:0;padding:0;background:var(--bg);color:var(--ink);font-family:var(--sans);line-height:1.26}
+
+    /* page */
+    .page{
+      max-width:900px;
+      margin:0 auto;
+      padding:22px; /* tighter */
+    }
+
+    /* header */
+    .top{
+      display:flex;
+      justify-content:space-between;
+      align-items:flex-end;
+      border-bottom:2px solid var(--ink);
+      padding-bottom:10px;
+    }
+    .name{font-size:29px;font-weight:800;margin:0}
+    .tag{margin-top:4px;font-size:12.8px;font-weight:700;color:var(--accent)}
+    .contact{text-align:right;font-size:12px;color:var(--muted)}
+    .contact div{margin:1px 0}
+    .mono{font-family:var(--mono)}
+
+    /* hero boxes */
+    .hero{
+      display:grid;
+      grid-template-columns:1.4fr 1fr;
+      gap:12px;
+      margin-top:12px;
+    }
+    .box{
+      border:1px solid var(--rule);
+      border-left:6px solid var(--accent);
+      border-radius:10px;
+      padding:9px; /* tighter */
+    }
+    .box h2{
+      margin:0 0 5px;
+      font-size:12px;
+      text-transform:uppercase;
+      letter-spacing:.3px
+    }
+    .box p{margin:0;font-size:12.6px}
+
+    /* sections */
+    h3{
+      margin:14px 0 6px;
+      font-size:12px;
+      text-transform:uppercase;
+      letter-spacing:.3px;
+      border-top:1px solid var(--rule);
+      padding-top:9px;
+    }
+
+    .role{margin-bottom:10px; break-inside: avoid; page-break-inside: avoid;}
     .role-top{display:flex;justify-content:space-between;gap:12px}
-    .role-title{font-weight:800;font-size:14px;margin:0}
-    .role-meta{font-size:12px;color:var(--muted)}
-    ul{margin:6px 0 0;padding-left:18px;font-size:12.8px}
-    li{margin:3px 0}
-    .edu{font-size:12.8px}
-    .small{font-size:12px;color:var(--muted)}
+    .role-title{font-weight:800;font-size:13.2px;margin:0}
+    .role-meta{font-size:11.5px;color:var(--muted)}
+
+    ul{margin:5px 0 0;padding-left:18px;font-size:12.3px}
+    li{margin:2px 0}
+
+    .edu{font-size:12.3px}
+    .small{font-size:11.6px;color:var(--muted)}
     .keep-together{break-inside:avoid;page-break-inside:avoid}
+
+    /* Print tuning for iOS/Safari */
     @media print{
-      .page{padding:.5in}
+      @page { margin: 0.45in; } /* helps some printers */
+      html,body{line-height:1.22}
+      .page{padding:0} /* let @page margins handle spacing */
+      .name{font-size:28px}
+      .tag{font-size:12.4px}
+      .box{padding:8px}
+      h3{margin:12px 0 5px;padding-top:8px}
+      ul{font-size:12.1px}
+      .role-title{font-size:13px}
+      .role{margin-bottom:9px}
     }
   </style>
 </head>
 <body>
 <main class="page">
 
-<header class="top">
-  <div>
-    <h1 class="name">Dayna Himot</h1>
-    <div class="tag">NEWSROOM + DIGITAL PUBLISHING • EDITING • AUDIENCE & SOCIAL</div>
-  </div>
-  <div class="contact">
-    <div>St. Petersburg, FL</div>
-    <div class="mono">303-435-3805</div>
-    <div class="mono">daynahimot@gmail.com</div>
-    <div class="mono">linkedin.com/in/daynahimot</div>
-  </div>
-</header>
+  <header class="top">
+    <div>
+      <h1 class="name">Dayna Himot</h1>
+      <div class="tag">NEWSROOM + DIGITAL PUBLISHING • EDITING • AUDIENCE &amp; SOCIAL</div>
+    </div>
+    <div class="contact">
+      <div>St. Petersburg, FL</div>
+      <div class="mono">303-435-3805</div>
+      <div class="mono">daynahimot@gmail.com</div>
+      <div class="mono">linkedin.com/in/daynahimot</div>
+    </div>
+  </header>
 
-<section class="hero">
-  <div class="box">
-    <h2>At a glance</h2>
-    <p>
-      Newsroom-trained digital producer and editor with strong AP Style discipline,
-      fast turnaround, and sound editorial judgment. Experienced in breaking news,
-      web publishing, copy editing, and social distribution under deadline.
-    </p>
-  </div>
-  <div class="box">
-    <h2>Core strengths</h2>
+  <section class="hero">
+    <div class="box">
+      <h2>At a glance</h2>
+      <p>
+        Newsroom-trained digital producer and editor with strong AP Style discipline,
+        fast turnaround, and sound editorial judgment. Experienced in breaking news,
+        web publishing, copy editing, and social distribution under deadline.
+      </p>
+    </div>
+    <div class="box">
+      <h2>Core strengths</h2>
+      <ul>
+        <li>Breaking news web publishing</li>
+        <li>AP Style editing and headlines</li>
+        <li>Push alerts and social feeds</li>
+        <li>Accuracy, verification, fairness</li>
+        <li>Clear coordination under pressure</li>
+      </ul>
+    </div>
+  </section>
+
+  <h3>Experience</h3>
+
+  <div class="role">
+    <div class="role-top">
+      <p class="role-title">Digital Content Producer</p>
+      <p class="role-meta"><strong>KDVR FOX31 Denver</strong> • 2019</p>
+    </div>
     <ul>
-      <li>Breaking news web publishing</li>
-      <li>AP Style editing and headlines</li>
-      <li>Push alerts and social feeds</li>
-      <li>Accuracy, verification, fairness</li>
-      <li>Clear coordination under pressure</li>
+      <li>Wrote and published breaking news quickly and accurately in AP Style.</li>
+      <li>Edited reporters and managed continuous updates across platforms.</li>
+      <li>Handled social feeds and push alerts in deadline-driven conditions.</li>
     </ul>
   </div>
-</section>
 
-<h3>Experience</h3>
-
-<div class="role">
-  <div class="role-top">
-    <p class="role-title">Digital Content Producer</p>
-    <p class="role-meta"><strong>KDVR FOX31 Denver</strong> • 2019</p>
+  <div class="role">
+    <div class="role-top">
+      <p class="role-title">Director of Content &amp; Digital Strategy</p>
+      <p class="role-meta"><strong>Modiphy</strong> • 2021–2025</p>
+    </div>
+    <ul>
+      <li>Led editorial direction, editing standards, and digital publishing workflows.</li>
+      <li>Interviewed sources and stakeholders; edited for clarity and accuracy.</li>
+      <li>Maintained consistency across web and social channels.</li>
+    </ul>
   </div>
-  <ul>
-    <li>Wrote and published breaking news quickly and accurately in AP Style.</li>
-    <li>Edited reporters and managed continuous updates across platforms.</li>
-    <li>Handled social feeds and push alerts in deadline-driven conditions.</li>
-  </ul>
-</div>
 
-<div class="role">
-  <div class="role-top">
-    <p class="role-title">Director of Content & Digital Strategy</p>
-    <p class="role-meta"><strong>Modiphy</strong> • 2021–2025</p>
+  <div class="role">
+    <div class="role-top">
+      <p class="role-title">Founder &amp; Communications Consultant</p>
+      <p class="role-meta"><strong>Gofer Content</strong> • 2021–Present</p>
+    </div>
+    <ul>
+      <li>Provided editorial guidance, copy editing, and publish-ready digital content.</li>
+      <li>Worked directly with clients and sources to shape clear, truthful communication.</li>
+    </ul>
   </div>
-  <ul>
-    <li>Led editorial direction, editing standards, and digital publishing workflows.</li>
-    <li>Interviewed sources and stakeholders; edited for clarity and accuracy.</li>
-    <li>Maintained consistency across web and social channels.</li>
-  </ul>
-</div>
 
-<div class="role">
-  <div class="role-top">
-    <p class="role-title">Founder & Communications Consultant</p>
-    <p class="role-meta"><strong>Gofer Content</strong> • 2021–Present</p>
+  <div class="role">
+    <div class="role-top">
+      <p class="role-title">Field Communications Lead</p>
+      <p class="role-meta"><strong>Burning Man Project (DPW / Man Pavilion)</strong> • 2023–2025</p>
+    </div>
+    <ul>
+      <li>Produced written communication, signage, and documentation for large field crews.</li>
+      <li>Maintained accuracy and shared understanding in fast-moving environments.</li>
+    </ul>
   </div>
-  <ul>
-    <li>Provided editorial guidance, copy editing, and publish-ready digital content.</li>
-    <li>Worked directly with clients and sources to shape clear, truthful communication.</li>
-  </ul>
-</div>
 
-<div class="role">
-  <div class="role-top">
-    <p class="role-title">Field Communications Lead</p>
-    <p class="role-meta"><strong>Burning Man Project (DPW / Man Pavilion)</strong> • 2023–2025</p>
+  <div class="role">
+    <div class="role-top">
+      <p class="role-title">Managing Editor</p>
+      <p class="role-meta"><strong>MSU Denver Journalism Dept.</strong> • 2017–2018</p>
+    </div>
+    <ul>
+      <li>Fact-checked, copy-edited, and coordinated layout and design for a 60-page publication.</li>
+    </ul>
   </div>
-  <ul>
-    <li>Produced written communication, signage, and documentation for large field crews.</li>
-    <li>Maintained accuracy and shared understanding in fast-moving environments.</li>
-  </ul>
-</div>
 
-<div class="role">
-  <div class="role-top">
-    <p class="role-title">Managing Editor</p>
-    <p class="role-meta"><strong>MSU Denver Journalism Dept.</strong> • 2017–2018</p>
+  <h3 class="keep-together">Education</h3>
+  <div class="edu keep-together">
+    <strong>B.A. Social Documentary Journalism</strong> — Metropolitan State University of Denver
+    <div class="small">
+      Journalism Teaching Assistant (AP Style) • Society of Professional Journalists • Youth Journalism Mentor
+    </div>
   </div>
-  <ul>
-    <li>Fact-checked, copy-edited, and coordinated layout and design for a 60-page publication.</li>
-  </ul>
-</div>
-
-<h3 class="keep-together">Education</h3>
-<div class="edu keep-together">
-  <strong>B.A. Social Documentary Journalism</strong> — Metropolitan State University of Denver
-  <div class="small">
-    Journalism Teaching Assistant (AP Style) • Society of Professional Journalists • Youth Journalism Mentor
-  </div>
-</div>
 
 </main>
 </body>
