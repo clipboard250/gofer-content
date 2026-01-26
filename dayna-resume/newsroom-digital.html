@@ -22,12 +22,15 @@
     .tag{margin-top:4px;font-size:14px;font-weight:700;color:var(--accent)}
     .contact{text-align:right;font-size:12.5px;color:var(--muted)}
     .contact div{margin:2px 0}
+    .mono{font-family:var(--mono)}
     .hero{display:grid;grid-template-columns:1.4fr 1fr;gap:16px;margin-top:16px}
     .box{border:1px solid var(--rule);border-left:6px solid var(--accent);border-radius:10px;padding:12px}
     .box h2{margin:0 0 6px;font-size:13px;text-transform:uppercase;letter-spacing:.3px}
     .box p{margin:0;font-size:13.5px}
-    h3{margin:20px 0 8px;font-size:13px;text-transform:uppercase;letter-spacing:.3px;border-top:1px solid var(--rule);padding-top:12px}
-    .role{margin-bottom:14px}
+
+    h3{margin:18px 0 8px;font-size:13px;text-transform:uppercase;letter-spacing:.3px;border-top:1px solid var(--rule);padding-top:12px}
+
+    .role{margin-bottom:12px; break-inside: avoid; page-break-inside: avoid;}
     .role-top{display:flex;justify-content:space-between;gap:12px}
     .role-title{font-weight:800;font-size:14.5px;margin:0}
     .role-meta{font-size:12px;color:var(--muted)}
@@ -35,7 +38,21 @@
     li{margin:4px 0}
     .edu{font-size:13px}
     .small{font-size:12px;color:var(--muted)}
-    @media print{.page{padding:.5in}}
+
+    .keep-together{break-inside: avoid; page-break-inside: avoid;}
+
+    @media print{
+      .page{padding:.5in}
+      /* tighten only for print */
+      h3{margin:14px 0 6px; padding-top:10px}
+      .hero{margin-top:12px}
+      .role{margin-bottom:10px}
+      ul{margin-top:5px}
+      li{margin:3px 0}
+      .box{padding:10px}
+      .name{font-size:30px}
+      .tag{font-size:13.5px}
+    }
   </style>
 </head>
 <body>
@@ -43,7 +60,7 @@
   <header class="top">
     <div>
       <h1 class="name">Dayna Himot</h1>
-      <div class="tag">NEWSROOM + DIGITAL PUBLISHING • EDITING • AUDIENCE & SOCIAL</div>
+      <div class="tag">NEWSROOM + DIGITAL PUBLISHING • EDITING • AUDIENCE &amp; SOCIAL</div>
     </div>
     <div class="contact">
       <div>St. Petersburg, FL</div>
@@ -59,8 +76,7 @@
       <p>
         Newsroom-trained digital producer and editor with strong AP Style discipline,
         fast turnaround, and sound editorial judgment. Experienced in breaking news,
-        web publishing, copy editing, social distribution, and clear communication
-        under pressure.
+        web publishing, copy editing, social distribution, and clear communication under pressure.
       </p>
     </div>
     <div class="box">
@@ -89,28 +105,32 @@
     </ul>
   </div>
 
+  <h3 class="keep-together">Education</h3>
+  <div class="edu keep-together">
+    <strong>B.A. Social Documentary Journalism</strong> — Metropolitan State University of Denver
+    <div class="small">Society of Professional Journalists • Teaching Assistant • Youth Journalism Mentor</div>
+  </div>
+
   <div class="role">
     <div class="role-top">
-      <p class="role-title">Director of Content & Digital Strategy</p>
+      <p class="role-title">Director of Content</p>
       <p class="role-meta"><strong>Modiphy</strong> • 2021–2025</p>
     </div>
     <ul>
-      <li>Led content direction, editing, and publishing standards across client and in-house digital properties.</li>
-      <li>Interviewed stakeholders, developed briefs, and edited copy for clarity, accuracy, and audience relevance.</li>
-      <li>Maintained editorial consistency across web and social channels.</li>
-      <li>Translated complex topics into clear, accessible language under deadline.</li>
+      <li>Led content direction, editing, and publishing standards across digital properties.</li>
+      <li>Interviewed stakeholders and edited copy for clarity, accuracy, and audience relevance.</li>
+      <li>Maintained consistent publishing across web and social channels.</li>
     </ul>
   </div>
 
   <div class="role">
     <div class="role-top">
-      <p class="role-title">Founder & Communications Consultant</p>
+      <p class="role-title">Founder &amp; Communications Consultant</p>
       <p class="role-meta"><strong>Gofer Content</strong> • 2021–Present</p>
     </div>
     <ul>
-      <li>Provided editorial guidance, content development, and copy editing for mission-driven organizations.</li>
-      <li>Worked directly with sources and clients to shape clear, truthful communication.</li>
-      <li>Delivered publish-ready content across web and digital platforms.</li>
+      <li>Edited and produced publish-ready web and digital content for clients.</li>
+      <li>Shaped messaging through interviews and tight, audience-first writing.</li>
     </ul>
   </div>
 
@@ -121,8 +141,7 @@
     </div>
     <ul>
       <li>Produced clear written communication, signage, and documentation for large field crews.</li>
-      <li>Maintained shared understanding and accuracy in fast-moving, high-pressure environments.</li>
-      <li>Served as a central point for information flow and issue resolution.</li>
+      <li>Kept teams aligned in fast-moving, high-pressure environments.</li>
     </ul>
   </div>
 
@@ -133,15 +152,10 @@
     </div>
     <ul>
       <li>Led editing and production of a 60-page nonfiction student publication.</li>
-      <li>Fact-checked, copy-edited, and coordinated layout and design.</li>
+      <li>Fact-checked, copy-edited, and oversaw layout.</li>
     </ul>
   </div>
 
-  <h3>Education</h3>
-  <div class="edu">
-    <strong>B.A. Social Documentary Journalism</strong> — Metropolitan State University of Denver
-    <div class="small">Society of Professional Journalists • Teaching Assistant • Youth Journalism Mentor</div>
-  </div>
 </main>
 </body>
 </html>
