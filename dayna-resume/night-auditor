@@ -1,0 +1,214 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Dayna Himot — Night Auditor Resume</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <style>
+    :root{
+      --ink:#111827;
+      --muted:#4b5563;
+      --rule:#e5e7eb;
+    }
+    *{ box-sizing:border-box; }
+    body{
+      margin:0;
+      font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Inter,Arial,sans-serif;
+      color:var(--ink);
+      background:#fff;
+      line-height:1.25;
+    }
+    .page{
+      max-width:900px;
+      margin:28px auto;
+      padding:28px;
+      border:1px solid var(--rule);
+      border-radius:14px;
+    }
+    header{
+      display:flex;
+      justify-content:space-between;
+      align-items:flex-start;
+      padding-bottom:14px;
+      border-bottom:1px solid var(--rule);
+    }
+    h1{
+      margin:0;
+      font-size:24px;
+      letter-spacing:-0.02em;
+    }
+    .subtitle{
+      margin-top:6px;
+      font-size:13px;
+      color:var(--muted);
+    }
+    .contact{
+      text-align:right;
+      font-size:12px;
+      color:var(--muted);
+      line-height:1.35;
+      white-space:nowrap;
+    }
+    section{
+      padding-top:14px;
+      margin-top:14px;
+      border-top:1px solid var(--rule);
+    }
+    section:first-of-type{
+      border-top:none;
+      margin-top:0;
+      padding-top:0;
+    }
+    .label{
+      font-size:11px;
+      letter-spacing:0.12em;
+      text-transform:uppercase;
+      color:var(--muted);
+      margin-bottom:10px;
+    }
+    .p{
+      font-size:13px;
+      margin:0;
+    }
+    .job{
+      font-size:13px;
+      margin:0;
+    }
+    .job strong{ font-weight:700; }
+    .meta{
+      font-size:12px;
+      color:var(--muted);
+      margin-top:4px;
+    }
+    .block{
+      margin-top:8px;
+      font-size:13px;
+    }
+    .grid{
+      display:grid;
+      grid-template-columns:1.3fr 0.7fr;
+      gap:18px;
+    }
+
+    @media print{
+      .page{
+        border:none;
+        border-radius:0;
+        margin:0;
+        padding:0.5in;
+        max-width:none;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <main class="page">
+    <header>
+      <div>
+        <h1>Dayna Himot</h1>
+        <div class="subtitle">Night Auditor • Front Desk • Guest Services</div>
+      </div>
+      <div class="contact">
+        St. Petersburg, FL<br />
+        303-432-4805<br />
+        info@gofercontent.com
+      </div>
+    </header>
+
+    <section>
+      <div class="label">Summary</div>
+      <p class="p">
+        Hospitality and operations professional with long-term experience in customer-facing roles that require accuracy,
+        discretion, and calm decision-making. Comfortable working overnight shifts, handling guest needs independently,
+        balancing reports, and maintaining a professional front desk presence.
+      </p>
+    </section>
+
+    <div class="grid">
+      <!-- LEFT -->
+      <div>
+        <section>
+          <div class="label">Relevant Experience</div>
+
+          <p class="job"><strong>Front-Facing Operations & Guest Support</strong></p>
+          <div class="meta">Hospitality, events, and service environments</div>
+          <p class="block">
+            Provided late-hour and independent guest support in environments where clear communication,
+            issue resolution, and professionalism were required. Handled guest questions and concerns,
+            followed established procedures, and ensured smooth operations without escalation.
+          </p>
+
+          <p class="block">
+            Regular responsibilities included accurate documentation, schedule adherence,
+            end-of-day close-out tasks, and coordination with on-site teams.
+          </p>
+
+          <div class="meta" style="margin-top:10px;">
+            Experience translates directly to overnight front desk coverage,
+            check-ins and check-outs, and audit-shift responsibility.
+          </div>
+        </section>
+
+        <section>
+          <div class="label">Operations & Accountability</div>
+          <p class="p">
+            Trusted with responsibility during off-hours, including maintaining secure spaces,
+            following cash and payment procedures, producing reports, and ensuring policies
+            are followed consistently.
+          </p>
+        </section>
+
+        <section>
+          <div class="label">Communication</div>
+          <p class="p">
+            Clear, professional communication with guests, coworkers, and management.
+            Comfortable explaining policies, documenting issues, and escalating only when necessary.
+          </p>
+        </section>
+      </div>
+
+      <!-- RIGHT -->
+      <div>
+        <section>
+          <div class="label">Availability</div>
+          <p class="p">
+            Overnight shifts<br />
+            Weekends and holidays<br />
+            Full-time or part-time
+          </p>
+        </section>
+
+        <section>
+          <div class="label">Skills</div>
+          <p class="p">
+            Guest service<br />
+            Cash handling awareness<br />
+            Report generation<br />
+            Computer systems<br />
+            Independent shift coverage<br />
+            Calm issue resolution
+          </p>
+        </section>
+
+        <section>
+          <div class="label">Education</div>
+          <p class="p">
+            B.A., Social Documentary Journalism<br />
+            Metropolitan State University of Denver
+          </p>
+        </section>
+
+        <section>
+          <div class="label">Additional</div>
+          <p class="p">
+            Detail-oriented<br />
+            Reliable attendance<br />
+            Comfortable working alone overnight
+          </p>
+        </section>
+      </div>
+    </div>
+  </main>
+</body>
+</html>
