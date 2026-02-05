@@ -1,88 +1,366 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<title>Dayna Himot | Events Manager</title>
-<style>
-body {
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
-  color: #111;
-  margin: 40px;
-  line-height: 1.35;
-}
-h1 {
-  font-size: 22px;
-  margin-bottom: 4px;
-}
-h2 {
-  font-size: 14px;
-  margin-top: 22px;
-  border-bottom: 1px solid #ccc;
-  padding-bottom: 4px;
-}
-p, li {
-  font-size: 11.5px;
-}
-ul {
-  margin: 6px 0 12px 18px;
-}
-.header {
-  margin-bottom: 18px;
-}
-.small {
-  font-size: 11px;
-}
-</style>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Dayna Himot — Events Manager Resume</title>
+  <style>
+    :root{
+      --ink:#0f172a;
+      --muted:#475569;
+      --line:#e2e8f0;
+      --paper:#ffffff;
+      --accent:#0b3a5b;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
+      color:var(--ink);
+      background:#f8fafc;
+      line-height:1.25;
+    }
+    .page{
+      max-width: 940px;
+      margin: 28px auto;
+      background: var(--paper);
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      padding: 26px 28px 22px;
+      box-shadow: 0 10px 30px rgba(2,6,23,.06);
+    }
+    header{
+      display:flex;
+      gap:16px;
+      align-items:flex-start;
+      justify-content:space-between;
+      padding-bottom:14px;
+      border-bottom:1px solid var(--line);
+    }
+    h1{
+      margin:0;
+      font-size: 28px;
+      letter-spacing: -0.02em;
+    }
+    .role{
+      margin-top:6px;
+      font-size: 13px;
+      color: var(--muted);
+    }
+    .contact{
+      text-align:right;
+      font-size: 12px;
+      color: var(--muted);
+      line-height:1.35;
+      white-space:nowrap;
+    }
+    a{color:var(--accent); text-decoration:none}
+    a:hover{text-decoration:underline}
+    .grid{
+      display:grid;
+      grid-template-columns: 1.25fr .75fr;
+      gap: 18px;
+      padding-top: 14px;
+    }
+    .section{
+      padding-top: 10px;
+    }
+    .section h2{
+      margin:0 0 10px 0;
+      font-size: 12px;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+    .summary{
+      margin:0;
+      font-size: 13px;
+      color: var(--ink);
+    }
+    .kicker{
+      margin:10px 0 0 0;
+      font-size: 12.5px;
+      color: var(--muted);
+    }
+    .item{
+      padding: 12px 0;
+      border-top: 1px solid var(--line);
+    }
+    .item:first-of-type{border-top:none; padding-top:0}
+    .item h3{
+      margin:0;
+      font-size: 14px;
+      letter-spacing:-0.01em;
+    }
+    .meta{
+      margin-top:4px;
+      font-size: 12px;
+      color: var(--muted);
+      display:flex;
+      flex-wrap:wrap;
+      gap:8px;
+    }
+    .meta span::after{content:"•"; margin-left:8px; color:var(--line)}
+    .meta span:last-child::after{content:""}
+    .desc{
+      margin:8px 0 0 0;
+      font-size: 12.5px;
+      color: var(--ink);
+    }
+    .desc p{margin:0 0 6px 0}
+    .desc p:last-child{margin-bottom:0}
+    .tagblock{
+      border:1px solid var(--line);
+      border-radius: 12px;
+      padding: 12px 12px 10px;
+      background: #fbfdff;
+    }
+    .tags{
+      margin:0;
+      font-size: 12.5px;
+      color: var(--ink);
+    }
+    .tags .label{
+      display:block;
+      margin:0 0 6px 0;
+      font-size: 11.5px;
+      letter-spacing:.14em;
+      text-transform:uppercase;
+      color: var(--muted);
+    }
+    .tags .row{
+      margin:0 0 6px 0;
+      color: var(--ink);
+    }
+    .tags .row:last-child{margin-bottom:0}
+    .small{
+      font-size: 12px;
+      color: var(--muted);
+      margin: 0;
+    }
+    footer{
+      margin-top: 14px;
+      padding-top: 12px;
+      border-top: 1px solid var(--line);
+      display:flex;
+      justify-content:space-between;
+      gap:14px;
+      font-size: 11.5px;
+      color: var(--muted);
+      flex-wrap:wrap;
+    }
+
+    /* Print */
+    @media print{
+      body{background:#fff}
+      .page{
+        margin:0;
+        border:none;
+        border-radius:0;
+        box-shadow:none;
+        padding: 18px 18px 14px;
+        max-width:none;
+      }
+      a{color:inherit; text-decoration:none}
+    }
+  </style>
 </head>
+
 <body>
+  <main class="page" aria-label="Resume">
+    <header>
+      <div>
+        <h1>Dayna Himot</h1>
+        <div class="role">Events Manager · Event Operations · Guest Experience · Sales-to-Service Turnover</div>
+      </div>
 
-<div class="header">
-  <h1>Dayna Himot</h1>
-  <p class="small">St. Petersburg, FL · 303-432-4805 · daynahimot@gmail.com</p>
-</div>
+      <div class="contact">
+        St. Petersburg, FL<br />
+        303-432-4805<br />
+        daynahimot@gmail.com<br />
+        LinkedIn: <a href="https://www.linkedin.com/in/daynahimot" target="_blank" rel="noopener">linkedin.com/in/daynahimot</a><br />
+        Clips: <a href="https://muckrack.com/daynahimot/articles" target="_blank" rel="noopener">muckrack.com/daynahimot</a>
+      </div>
+    </header>
 
-<h2>EVENTS MANAGER | EVENT OPERATIONS</h2>
-<p>Event professional with 30 years of experience managing live events, conferences, festivals, and hospitality operations. Known for calm execution, precise coordination, and strong guest service.</p>
+    <section class="section">
+      <h2>Profile</h2>
+      <p class="summary">
+        Event and hospitality operator with three decades of live-event and guest-service experience across festivals, hotels, venues, and high-pressure environments.
+        Known for calm execution, clean documentation, and steady coordination across departments from pre-event planning through post-event follow-up.
+      </p>
+      <p class="kicker">
+        Strong fit for property events that require accurate event documentation, confident client-facing presence, billing review discipline, and smooth handoffs between Sales, Operations, and service teams.
+      </p>
+    </section>
 
-<h2>CORE STRENGTHS</h2>
-<ul>
-  <li>Event logistics & documentation</li>
-  <li>Client and guest experience</li>
-  <li>Sales-to-service turnover</li>
-  <li>Vendor & department coordination</li>
-  <li>Budget oversight & billing review</li>
-  <li>Room blocks & space management</li>
-  <li>Staff & volunteer leadership</li>
-</ul>
+    <div class="grid">
+      <section class="section">
+        <h2>Relevant Experience</h2>
 
-<h2>PROFESSIONAL EXPERIENCE</h2>
+        <article class="item">
+          <h3>Founder / Principal — Gofer Content</h3>
+          <div class="meta">
+            <span>St. Petersburg, FL</span>
+            <span>Jan 2025–Present</span>
+          </div>
+          <div class="desc">
+            <p>Supports client-facing projects that require tight timelines, accurate written documentation, and clear coordination across stakeholders.</p>
+            <p>Creates schedules, run-of-show notes, and written communications that keep work moving without confusion.</p>
+          </div>
+        </article>
 
-<p><strong>Founder / Principal — Gofer Content</strong> (2025–Present)</p>
-<ul>
-  <li>Supported client events and conferences through planning, coordination, and execution</li>
-  <li>Prepared schedules, documentation, and cross-team communication</li>
-</ul>
+        <article class="item">
+          <h3>Business Development; Content Director — MODIPHY®</h3>
+          <div class="meta">
+            <span>Aug 2021–Jan 2025</span>
+            <span>Online and in-person programming</span>
+          </div>
+          <div class="desc">
+            <p>Planned and coordinated community events, including online programming and in-person conferences.</p>
+            <p>Handled logistics, scheduling, speaker and stakeholder coordination, and attendee experience across cross-functional teams.</p>
+          </div>
+        </article>
 
-<p><strong>Business Development & Content Director — Modiphy</strong> (2021–2025)</p>
-<ul>
-  <li>Planned and coordinated community events, including online programming and in-person conferences</li>
-  <li>Managed logistics, schedules, speakers, vendors, and attendee experience</li>
-</ul>
+        <article class="item">
+          <h3>DPW Man Pavilion Shop Steward — Burning Man Project</h3>
+          <div class="meta">
+            <span>Gerlach, NV</span>
+            <span>Jul 2023–Nov 2025 (seasonal)</span>
+          </div>
+          <div class="desc">
+            <p>Ran high-volume operations support for an active build crew; maintained inventory systems, equipment readiness, and clear processes.</p>
+            <p>Created signage and simple documentation that improved workflow, safety, and handoffs across shifts.</p>
+          </div>
+        </article>
 
-<p><strong>Special Events Producer — Boulder International Fringe Festival</strong> (2007–2008)</p>
-<ul>
-  <li>Produced multi-day festival events and managed budgets, venues, and teams</li>
-</ul>
+        <article class="item">
+          <h3>Coordinator of Volunteers (HQ) — Burning Man Project</h3>
+          <div class="meta">
+            <span>Apr 2018–Mar 2023</span>
+            <span>San Francisco Bay Area</span>
+          </div>
+          <div class="desc">
+            <p>Coordinated volunteer schedules and requests; served as a steady liaison between volunteers and staff before and during major event cycles.</p>
+            <p>Worked in Salesforce and shared-drive systems to keep records accurate and communication clean.</p>
+          </div>
+        </article>
 
-<p><strong>Housekeeping Supervisor — Beach View Inn</strong> (1995–1996)</p>
-<ul>
-  <li>Supervised housekeeping operations for 25-room hotel</li>
-  <li>Ensured guest satisfaction and operational standards</li>
-</ul>
+        <article class="item">
+          <h3>Special Events Producer — Boulder International Fringe Festival</h3>
+          <div class="meta">
+            <span>Boulder, CO</span>
+            <span>Jan 2007–Aug 2008</span>
+          </div>
+          <div class="desc">
+            <p>Produced multiple events during a 12-day festival; managed venues, schedules, teams, and vendor coordination.</p>
+            <p>Managed event budgets in the $2,000–$5,000 range; handled venue proposals and public-facing communications.</p>
+          </div>
+        </article>
 
-<h2>EDUCATION</h2>
-<p>Bachelor of Arts — Social Documentary Journalism<br>
-Metropolitan State University of Denver</p>
+        <article class="item">
+          <h3>Production Coordinator — Gaia Film Festival (Gaiam)</h3>
+          <div class="meta">
+            <span>Louisville, CO</span>
+            <span>Mar 2008–Jul 2008</span>
+          </div>
+          <div class="desc">
+            <p>Coordinated schedules and training for 75+ volunteers; supported guest lists and ticketing flow with venue partners.</p>
+            <p>Created schedules and documentation used for staffing, operations, and post-event improvement.</p>
+          </div>
+        </article>
 
+        <article class="item">
+          <h3>Director / Audio Production — Athena Project (Media Mash-Up)</h3>
+          <div class="meta">
+            <span>Denver, CO</span>
+            <span>Aug 2018–Dec 2018</span>
+          </div>
+          <div class="desc">
+            <p>Directed and edited multitrack audio production for a live audience event; supported run-of-show timing and performance flow.</p>
+          </div>
+        </article>
+
+        <article class="item">
+          <h3>Production Coordinator — Zootz Nightclub (selected work)</h3>
+          <div class="meta">
+            <span>Portland, ME</span>
+            <span>2009 (reunion event) and earlier venue operations</span>
+          </div>
+          <div class="desc">
+            <p>Production-coordinated a reunion event for approximately 700 guests at Port City Music Hall with traveling DJs and sold-out attendance.</p>
+            <p>Earlier nightclub operations included back-of-house support and green-room oversight in a fast-paced live-music environment.</p>
+          </div>
+        </article>
+
+        <article class="item">
+          <h3>Hospitality Operations — Restaurant and venue roles (selected)</h3>
+          <div class="meta">
+            <span>Portsmouth, NH; Portland, ME and other locations</span>
+            <span>1990s–2000s</span>
+          </div>
+          <div class="desc">
+            <p>High-volume guest service experience built in real service environments, including The Press Room (Portsmouth, NH) and long-running restaurant and venue work.</p>
+          </div>
+        </article>
+
+      </section>
+
+      <aside class="section">
+        <h2>Strengths</h2>
+        <div class="tagblock">
+          <div class="tags">
+            <span class="label">Event operations</span>
+            <div class="row">Event documentation · Banquet-style coordination · Pre/post meetings · Cross-department alignment</div>
+            <div class="row">Client-facing presence · Guest relations · Issue resolution during live service</div>
+            <div class="row">Billing discipline · Detail review · Clean handoffs from Sales to service and back</div>
+          </div>
+        </div>
+
+        <div style="height:12px"></div>
+
+        <div class="tagblock">
+          <div class="tags">
+            <span class="label">Tools</span>
+            <div class="row">Google Workspace · Microsoft Office · Salesforce · WordPress</div>
+            <div class="row">Adobe Creative Cloud (selected) · Shared drives · Documentation systems</div>
+          </div>
+        </div>
+
+        <div style="height:12px"></div>
+
+        <section class="section">
+          <h2>Education</h2>
+          <div class="item" style="border-top:none;padding-top:0">
+            <h3>B.A., Social Documentary Journalism</h3>
+            <div class="meta">
+              <span>Metropolitan State University of Denver</span>
+              <span>2015–2018</span>
+            </div>
+          </div>
+        </section>
+
+        <section class="section">
+          <h2>Additional Experience</h2>
+          <div class="item" style="border-top:none;padding-top:0">
+            <h3>Housekeeping Supervisor — Beach View Inn</h3>
+            <div class="meta">
+              <span>Hampton Beach, NH</span>
+              <span>1995–1996</span>
+            </div>
+            <div class="desc">
+              <p>Managed chambermaid team for a family-owned inn; ensured room readiness, quality checks, and guest standards for a ~25-room property.</p>
+            </div>
+          </div>
+        </section>
+      </aside>
+    </div>
+
+    <footer>
+      <div>Available: full-time · on-site · schedule flexibility for event calendars</div>
+      <div>References available upon request</div>
+    </footer>
+  </main>
 </body>
 </html>
