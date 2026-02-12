@@ -1,0 +1,1635 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cycle-Rama, Inc. | Building Power Since 1976</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Barlow:wght@300;400;500;600&family=Barlow+Condensed:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --black: #0a0a0a;
+  --dark: #111111;
+  --dark-grey: #1a1a1a;
+  --mid-grey: #2a2a2a;
+  --light-grey: #888;
+  --white: #f5f5f0;
+  --cream: #e8e4dc;
+  --orange: #e87a1e;
+  --orange-bright: #f59325;
+  --orange-dark: #c4650f;
+  --orange-glow: rgba(232, 122, 30, 0.15);
+  --red-accent: #c0392b;
+}
+
+- { margin: 0; padding: 0; box-sizing: border-box; }
+
+html {
+scroll-behavior: smooth;
+scrollbar-color: var(–orange) var(–dark);
+}
+
+body {
+font-family: ‘Barlow’, sans-serif;
+background: var(–black);
+color: var(–white);
+overflow-x: hidden;
+-webkit-font-smoothing: antialiased;
+}
+
+/* ══════════════════════════════════════
+UTILITY
+══════════════════════════════════════ */
+.container {
+max-width: 1200px;
+margin: 0 auto;
+padding: 0 24px;
+}
+
+.section-label {
+font-family: ‘Barlow Condensed’, sans-serif;
+font-weight: 600;
+font-size: 0.75rem;
+letter-spacing: 0.25em;
+text-transform: uppercase;
+color: var(–orange);
+margin-bottom: 12px;
+}
+
+.section-title {
+font-family: ‘Oswald’, sans-serif;
+font-weight: 700;
+font-size: clamp(2rem, 5vw, 3.5rem);
+line-height: 1.05;
+text-transform: uppercase;
+margin-bottom: 20px;
+}
+
+.divider {
+width: 60px;
+height: 3px;
+background: var(–orange);
+margin: 24px 0;
+}
+
+.btn {
+display: inline-flex;
+align-items: center;
+gap: 10px;
+font-family: ‘Barlow Condensed’, sans-serif;
+font-weight: 600;
+font-size: 0.95rem;
+letter-spacing: 0.12em;
+text-transform: uppercase;
+text-decoration: none;
+padding: 14px 32px;
+border: 2px solid var(–orange);
+color: var(–white);
+background: transparent;
+cursor: pointer;
+transition: all 0.3s ease;
+position: relative;
+overflow: hidden;
+}
+
+.btn::before {
+content: ‘’;
+position: absolute;
+top: 0; left: -100%;
+width: 100%; height: 100%;
+background: var(–orange);
+transition: left 0.3s ease;
+z-index: -1;
+}
+
+.btn:hover::before { left: 0; }
+.btn:hover { color: var(–black); }
+
+.btn-solid {
+background: var(–orange);
+color: var(–black);
+border-color: var(–orange);
+}
+.btn-solid::before { background: var(–orange-bright); }
+.btn-solid:hover { color: var(–black); }
+
+/* ══════════════════════════════════════
+NOISE OVERLAY
+══════════════════════════════════════ */
+body::after {
+content: ‘’;
+position: fixed;
+top: 0; left: 0;
+width: 100%; height: 100%;
+background-image: url(“data:image/svg+xml,%3Csvg viewBox=‘0 0 256 256’ xmlns=‘http://www.w3.org/2000/svg’%3E%3Cfilter id=‘noise’%3E%3CfeTurbulence type=‘fractalNoise’ baseFrequency=‘0.9’ numOctaves=‘4’ stitchTiles=‘stitch’/%3E%3C/filter%3E%3Crect width=‘100%25’ height=‘100%25’ filter=‘url(%23noise)’ opacity=‘0.03’/%3E%3C/svg%3E”);
+pointer-events: none;
+z-index: 9999;
+}
+
+/* ══════════════════════════════════════
+NAV
+══════════════════════════════════════ */
+nav {
+position: fixed;
+top: 0;
+width: 100%;
+z-index: 1000;
+padding: 16px 0;
+transition: all 0.4s ease;
+background: rgba(10,10,10,0.85);
+backdrop-filter: blur(12px);
+border-bottom: 1px solid rgba(232,122,30,0.1);
+}
+
+nav .container {
+display: flex;
+align-items: center;
+justify-content: space-between;
+}
+
+.nav-logo {
+display: flex;
+align-items: center;
+gap: 14px;
+text-decoration: none;
+color: var(–white);
+}
+
+.nav-logo-icon {
+width: 48px;
+height: 48px;
+border: 2px solid var(–orange);
+border-radius: 50%;
+display: flex;
+align-items: center;
+justify-content: center;
+font-family: ‘Oswald’, sans-serif;
+font-weight: 700;
+font-size: 1.1rem;
+color: var(–orange);
+}
+
+.nav-logo-text {
+font-family: ‘Oswald’, sans-serif;
+font-weight: 700;
+font-size: 1.2rem;
+text-transform: uppercase;
+letter-spacing: 0.05em;
+}
+
+.nav-logo-sub {
+font-family: ‘Barlow Condensed’, sans-serif;
+font-size: 0.65rem;
+letter-spacing: 0.2em;
+text-transform: uppercase;
+color: var(–orange);
+margin-top: -2px;
+}
+
+.nav-links {
+display: flex;
+gap: 32px;
+align-items: center;
+list-style: none;
+}
+
+.nav-links a {
+font-family: ‘Barlow Condensed’, sans-serif;
+font-weight: 500;
+font-size: 0.85rem;
+letter-spacing: 0.15em;
+text-transform: uppercase;
+text-decoration: none;
+color: var(–cream);
+transition: color 0.3s;
+position: relative;
+}
+
+.nav-links a::after {
+content: ‘’;
+position: absolute;
+bottom: -4px;
+left: 0;
+width: 0;
+height: 1px;
+background: var(–orange);
+transition: width 0.3s;
+}
+
+.nav-links a:hover { color: var(–orange); }
+.nav-links a:hover::after { width: 100%; }
+
+.nav-cta {
+font-family: ‘Barlow Condensed’, sans-serif;
+font-weight: 600;
+font-size: 0.8rem;
+letter-spacing: 0.15em;
+text-transform: uppercase;
+text-decoration: none;
+padding: 10px 24px;
+background: var(–orange);
+color: var(–black);
+border: none;
+cursor: pointer;
+transition: background 0.3s;
+}
+
+.nav-cta:hover { background: var(–orange-bright); }
+
+.nav-mobile-toggle {
+display: none;
+background: none;
+border: none;
+cursor: pointer;
+padding: 8px;
+}
+
+.nav-mobile-toggle span {
+display: block;
+width: 24px;
+height: 2px;
+background: var(–orange);
+margin: 5px 0;
+transition: all 0.3s;
+}
+
+/* ══════════════════════════════════════
+HERO
+══════════════════════════════════════ */
+.hero {
+min-height: 100vh;
+display: flex;
+align-items: center;
+position: relative;
+overflow: hidden;
+padding-top: 80px;
+}
+
+.hero-bg {
+position: absolute;
+top: 0; left: 0;
+width: 100%; height: 100%;
+background:
+radial-gradient(ellipse at 80% 50%, rgba(232,122,30,0.08) 0%, transparent 60%),
+radial-gradient(ellipse at 20% 80%, rgba(232,122,30,0.04) 0%, transparent 50%),
+linear-gradient(180deg, var(–black) 0%, var(–dark) 100%);
+}
+
+.hero-lines {
+position: absolute;
+top: 0; left: 0;
+width: 100%; height: 100%;
+overflow: hidden;
+opacity: 0.06;
+}
+
+.hero-lines::before,
+.hero-lines::after {
+content: ‘’;
+position: absolute;
+background: var(–orange);
+}
+
+.hero-lines::before {
+width: 1px;
+height: 120%;
+top: -10%;
+left: 25%;
+transform: rotate(15deg);
+}
+
+.hero-lines::after {
+width: 1px;
+height: 120%;
+top: -10%;
+right: 30%;
+transform: rotate(-10deg);
+}
+
+.hero .container {
+position: relative;
+z-index: 2;
+display: grid;
+grid-template-columns: 1fr 1fr;
+gap: 60px;
+align-items: center;
+}
+
+.hero-content { max-width: 600px; }
+
+.hero-est {
+font-family: ‘Barlow Condensed’, sans-serif;
+font-weight: 600;
+font-size: 0.75rem;
+letter-spacing: 0.3em;
+text-transform: uppercase;
+color: var(–orange);
+margin-bottom: 20px;
+display: flex;
+align-items: center;
+gap: 12px;
+}
+
+.hero-est::before {
+content: ‘’;
+width: 40px;
+height: 1px;
+background: var(–orange);
+}
+
+.hero-title {
+font-family: ‘Oswald’, sans-serif;
+font-weight: 700;
+font-size: clamp(3rem, 7vw, 5.5rem);
+line-height: 0.95;
+text-transform: uppercase;
+margin-bottom: 24px;
+}
+
+.hero-title .accent {
+color: var(–orange);
+display: block;
+}
+
+.hero-tagline {
+font-family: ‘Oswald’, sans-serif;
+font-weight: 400;
+font-size: clamp(1.1rem, 2vw, 1.4rem);
+text-transform: uppercase;
+letter-spacing: 0.08em;
+color: var(–cream);
+opacity: 0.7;
+margin-bottom: 32px;
+}
+
+.hero-desc {
+font-size: 1.05rem;
+line-height: 1.7;
+color: var(–cream);
+opacity: 0.6;
+max-width: 480px;
+margin-bottom: 40px;
+}
+
+.hero-buttons {
+display: flex;
+gap: 16px;
+flex-wrap: wrap;
+}
+
+.hero-stats {
+display: flex;
+gap: 40px;
+margin-top: 60px;
+padding-top: 32px;
+border-top: 1px solid rgba(255,255,255,0.08);
+}
+
+.hero-stat-num {
+font-family: ‘Oswald’, sans-serif;
+font-weight: 700;
+font-size: 2.5rem;
+color: var(–orange);
+line-height: 1;
+}
+
+.hero-stat-label {
+font-family: ‘Barlow Condensed’, sans-serif;
+font-weight: 500;
+font-size: 0.7rem;
+letter-spacing: 0.2em;
+text-transform: uppercase;
+color: var(–light-grey);
+margin-top: 6px;
+}
+
+/* Hero right side - decorative */
+.hero-visual {
+position: relative;
+display: flex;
+align-items: center;
+justify-content: center;
+min-height: 500px;
+}
+
+.hero-badge {
+width: 380px;
+height: 380px;
+border-radius: 50%;
+border: 2px solid rgba(232,122,30,0.2);
+display: flex;
+flex-direction: column;
+align-items: center;
+justify-content: center;
+position: relative;
+background: radial-gradient(circle, rgba(232,122,30,0.06) 0%, transparent 70%);
+}
+
+.hero-badge::before {
+content: ‘’;
+position: absolute;
+width: 420px;
+height: 420px;
+border-radius: 50%;
+border: 1px solid rgba(232,122,30,0.08);
+animation: pulse-ring 4s ease-in-out infinite;
+}
+
+@keyframes pulse-ring {
+0%, 100% { transform: scale(1); opacity: 1; }
+50% { transform: scale(1.05); opacity: 0.5; }
+}
+
+.hero-badge-cr {
+font-family: ‘Oswald’, sans-serif;
+font-weight: 700;
+font-size: 6rem;
+color: var(–orange);
+line-height: 1;
+letter-spacing: -0.02em;
+}
+
+.hero-badge-text {
+font-family: ‘Barlow Condensed’, sans-serif;
+font-weight: 600;
+font-size: 0.7rem;
+letter-spacing: 0.35em;
+text-transform: uppercase;
+color: var(–cream);
+opacity: 0.5;
+margin-top: 8px;
+}
+
+.hero-badge-year {
+font-family: ‘Oswald’, sans-serif;
+font-weight: 400;
+font-size: 1.1rem;
+color: var(–orange);
+opacity: 0.6;
+margin-top: 4px;
+}
+
+/* ══════════════════════════════════════
+TICKER STRIP
+══════════════════════════════════════ */
+.ticker {
+background: var(–orange);
+padding: 14px 0;
+overflow: hidden;
+position: relative;
+}
+
+.ticker-track {
+display: flex;
+gap: 60px;
+animation: ticker-scroll 30s linear infinite;
+white-space: nowrap;
+width: max-content;
+}
+
+@keyframes ticker-scroll {
+0% { transform: translateX(0); }
+100% { transform: translateX(-50%); }
+}
+
+.ticker-item {
+font-family: ‘Oswald’, sans-serif;
+font-weight: 600;
+font-size: 0.85rem;
+letter-spacing: 0.2em;
+text-transform: uppercase;
+color: var(–black);
+display: flex;
+align-items: center;
+gap: 60px;
+}
+
+.ticker-item::after {
+content: ‘◆’;
+font-size: 0.5rem;
+}
+
+/* ══════════════════════════════════════
+ABOUT SECTION
+══════════════════════════════════════ */
+.about {
+padding: 120px 0;
+position: relative;
+}
+
+.about .container {
+display: grid;
+grid-template-columns: 1fr 1fr;
+gap: 80px;
+align-items: center;
+}
+
+.about-visual {
+position: relative;
+height: 500px;
+background: var(–dark-grey);
+border: 1px solid var(–mid-grey);
+display: flex;
+align-items: center;
+justify-content: center;
+overflow: hidden;
+}
+
+.about-visual-inner {
+text-align: center;
+padding: 40px;
+}
+
+.about-visual-year {
+font-family: ‘Oswald’, sans-serif;
+font-weight: 700;
+font-size: 8rem;
+color: var(–orange);
+opacity: 0.15;
+line-height: 1;
+}
+
+.about-visual-text {
+font-family: ‘Barlow Condensed’, sans-serif;
+font-weight: 600;
+font-size: 1rem;
+letter-spacing: 0.3em;
+text-transform: uppercase;
+color: var(–cream);
+opacity: 0.4;
+margin-top: -20px;
+}
+
+.about-content p {
+font-size: 1.05rem;
+line-height: 1.8;
+color: var(–cream);
+opacity: 0.65;
+margin-bottom: 20px;
+}
+
+.about-content p:first-of-type {
+font-size: 1.2rem;
+opacity: 0.8;
+}
+
+.about-highlights {
+display: grid;
+grid-template-columns: 1fr 1fr;
+gap: 24px;
+margin-top: 40px;
+}
+
+.about-highlight {
+padding: 20px;
+border: 1px solid rgba(232,122,30,0.15);
+background: rgba(232,122,30,0.03);
+}
+
+.about-highlight-title {
+font-family: ‘Barlow Condensed’, sans-serif;
+font-weight: 600;
+font-size: 0.75rem;
+letter-spacing: 0.2em;
+text-transform: uppercase;
+color: var(–orange);
+margin-bottom: 6px;
+}
+
+.about-highlight-text {
+font-size: 0.9rem;
+color: var(–cream);
+opacity: 0.5;
+line-height: 1.5;
+}
+
+/* ══════════════════════════════════════
+PRODUCTS
+══════════════════════════════════════ */
+.products {
+padding: 120px 0;
+background: var(–dark);
+position: relative;
+}
+
+.products::before {
+content: ‘’;
+position: absolute;
+top: 0; left: 0;
+width: 100%; height: 100%;
+background:
+radial-gradient(ellipse at 0% 0%, rgba(232,122,30,0.04) 0%, transparent 50%),
+radial-gradient(ellipse at 100% 100%, rgba(232,122,30,0.03) 0%, transparent 50%);
+}
+
+.products .container { position: relative; z-index: 2; }
+
+.products-header {
+text-align: center;
+margin-bottom: 80px;
+max-width: 600px;
+margin-left: auto;
+margin-right: auto;
+}
+
+.products-header p {
+font-size: 1.05rem;
+line-height: 1.7;
+color: var(–cream);
+opacity: 0.55;
+}
+
+.products-grid {
+display: grid;
+grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+gap: 2px;
+}
+
+.product-card {
+background: var(–dark-grey);
+padding: 48px 36px;
+border: 1px solid rgba(255,255,255,0.04);
+transition: all 0.4s ease;
+position: relative;
+overflow: hidden;
+text-decoration: none;
+color: var(–white);
+display: block;
+}
+
+.product-card::before {
+content: ‘’;
+position: absolute;
+top: 0; left: 0;
+width: 100%; height: 3px;
+background: var(–orange);
+transform: scaleX(0);
+transform-origin: left;
+transition: transform 0.4s ease;
+}
+
+.product-card:hover::before { transform: scaleX(1); }
+.product-card:hover {
+background: var(–mid-grey);
+transform: translateY(-4px);
+}
+
+.product-icon {
+font-family: ‘Oswald’, sans-serif;
+font-weight: 700;
+font-size: 2.5rem;
+color: var(–orange);
+opacity: 0.3;
+margin-bottom: 20px;
+}
+
+.product-name {
+font-family: ‘Oswald’, sans-serif;
+font-weight: 600;
+font-size: 1.4rem;
+text-transform: uppercase;
+margin-bottom: 12px;
+}
+
+.product-desc {
+font-size: 0.9rem;
+line-height: 1.6;
+color: var(–cream);
+opacity: 0.5;
+margin-bottom: 20px;
+}
+
+.product-models {
+display: flex;
+flex-wrap: wrap;
+gap: 8px;
+}
+
+.product-model-tag {
+font-family: ‘Barlow Condensed’, sans-serif;
+font-weight: 500;
+font-size: 0.7rem;
+letter-spacing: 0.12em;
+text-transform: uppercase;
+padding: 4px 12px;
+border: 1px solid rgba(232,122,30,0.25);
+color: var(–orange);
+}
+
+.product-price-range {
+font-family: ‘Barlow Condensed’, sans-serif;
+font-weight: 600;
+font-size: 0.85rem;
+letter-spacing: 0.05em;
+color: var(–orange);
+margin-top: 16px;
+padding-top: 16px;
+border-top: 1px solid rgba(255,255,255,0.06);
+}
+
+.product-link {
+font-family: ‘Barlow Condensed’, sans-serif;
+font-weight: 600;
+font-size: 0.75rem;
+letter-spacing: 0.15em;
+text-transform: uppercase;
+color: var(–orange);
+margin-top: 16px;
+display: flex;
+align-items: center;
+gap: 8px;
+opacity: 0;
+transform: translateX(-10px);
+transition: all 0.3s ease;
+}
+
+.product-card:hover .product-link {
+opacity: 1;
+transform: translateX(0);
+}
+
+.product-link::after {
+content: ‘→’;
+font-size: 1rem;
+}
+
+/* ══════════════════════════════════════
+DYNO SECTION
+══════════════════════════════════════ */
+.dyno {
+padding: 120px 0;
+position: relative;
+}
+
+.dyno .container {
+display: grid;
+grid-template-columns: 1fr 1fr;
+gap: 80px;
+align-items: center;
+}
+
+.dyno-chart-area {
+background: var(–dark-grey);
+border: 1px solid var(–mid-grey);
+padding: 40px;
+position: relative;
+}
+
+.dyno-chart-header {
+display: flex;
+justify-content: space-between;
+align-items: center;
+margin-bottom: 32px;
+}
+
+.dyno-chart-title {
+font-family: ‘Barlow Condensed’, sans-serif;
+font-weight: 600;
+font-size: 0.7rem;
+letter-spacing: 0.25em;
+text-transform: uppercase;
+color: var(–light-grey);
+}
+
+.dyno-chart-legend {
+display: flex;
+gap: 20px;
+}
+
+.dyno-legend-item {
+display: flex;
+align-items: center;
+gap: 6px;
+font-family: ‘Barlow Condensed’, sans-serif;
+font-size: 0.7rem;
+letter-spacing: 0.1em;
+text-transform: uppercase;
+color: var(–light-grey);
+}
+
+.dyno-legend-dot {
+width: 8px;
+height: 8px;
+border-radius: 50%;
+}
+
+.dyno-legend-dot.hp { background: var(–orange); }
+.dyno-legend-dot.tq { background: var(–cream); opacity: 0.4; }
+
+.dyno-chart-visual {
+height: 240px;
+position: relative;
+border-bottom: 1px solid rgba(255,255,255,0.1);
+border-left: 1px solid rgba(255,255,255,0.1);
+}
+
+.dyno-chart-visual svg {
+width: 100%;
+height: 100%;
+}
+
+.dyno-cam-list {
+display: flex;
+flex-direction: column;
+gap: 16px;
+margin-top: 32px;
+}
+
+.dyno-cam-item {
+display: flex;
+justify-content: space-between;
+align-items: center;
+padding: 12px 16px;
+background: rgba(232,122,30,0.04);
+border-left: 3px solid var(–orange);
+transition: background 0.3s;
+cursor: pointer;
+}
+
+.dyno-cam-item:hover { background: rgba(232,122,30,0.08); }
+
+.dyno-cam-name {
+font-family: ‘Oswald’, sans-serif;
+font-weight: 600;
+font-size: 1rem;
+text-transform: uppercase;
+}
+
+.dyno-cam-hp {
+font-family: ‘Barlow Condensed’, sans-serif;
+font-weight: 600;
+font-size: 0.85rem;
+color: var(–orange);
+letter-spacing: 0.05em;
+}
+
+.dyno-content p {
+font-size: 1.05rem;
+line-height: 1.8;
+color: var(–cream);
+opacity: 0.6;
+margin-bottom: 16px;
+}
+
+/* ══════════════════════════════════════
+SERVICES
+══════════════════════════════════════ */
+.services {
+padding: 100px 0;
+background: var(–dark);
+}
+
+.services-grid {
+display: grid;
+grid-template-columns: repeat(4, 1fr);
+gap: 0;
+margin-top: 60px;
+}
+
+.service-item {
+padding: 48px 32px;
+border: 1px solid rgba(255,255,255,0.04);
+text-align: center;
+transition: all 0.3s;
+}
+
+.service-item:hover {
+background: rgba(232,122,30,0.04);
+border-color: rgba(232,122,30,0.15);
+}
+
+.service-num {
+font-family: ‘Oswald’, sans-serif;
+font-weight: 700;
+font-size: 2.5rem;
+color: var(–orange);
+opacity: 0.2;
+margin-bottom: 16px;
+}
+
+.service-title {
+font-family: ‘Oswald’, sans-serif;
+font-weight: 600;
+font-size: 1.1rem;
+text-transform: uppercase;
+margin-bottom: 12px;
+}
+
+.service-text {
+font-size: 0.85rem;
+line-height: 1.6;
+color: var(–cream);
+opacity: 0.45;
+}
+
+/* ══════════════════════════════════════
+CTA / QUOTE
+══════════════════════════════════════ */
+.cta {
+padding: 120px 0;
+position: relative;
+overflow: hidden;
+}
+
+.cta-bg {
+position: absolute;
+top: 0; left: 0;
+width: 100%; height: 100%;
+background:
+radial-gradient(ellipse at center, rgba(232,122,30,0.1) 0%, transparent 60%),
+var(–black);
+}
+
+.cta .container {
+position: relative;
+z-index: 2;
+text-align: center;
+max-width: 700px;
+}
+
+.cta .section-title {
+font-size: clamp(2.5rem, 6vw, 4rem);
+margin-bottom: 24px;
+}
+
+.cta p {
+font-size: 1.1rem;
+line-height: 1.7;
+color: var(–cream);
+opacity: 0.55;
+margin-bottom: 40px;
+}
+
+.cta-buttons {
+display: flex;
+gap: 16px;
+justify-content: center;
+flex-wrap: wrap;
+}
+
+.cta-phone {
+display: flex;
+align-items: center;
+gap: 12px;
+margin-top: 40px;
+justify-content: center;
+}
+
+.cta-phone-label {
+font-family: ‘Barlow Condensed’, sans-serif;
+font-size: 0.7rem;
+letter-spacing: 0.2em;
+text-transform: uppercase;
+color: var(–light-grey);
+}
+
+.cta-phone-number {
+font-family: ‘Oswald’, sans-serif;
+font-weight: 600;
+font-size: 1.5rem;
+color: var(–orange);
+text-decoration: none;
+}
+
+.cta-phone-number:hover { color: var(–orange-bright); }
+
+/* ══════════════════════════════════════
+DEALER SECTION
+══════════════════════════════════════ */
+.dealer {
+padding: 80px 0;
+background: var(–dark);
+border-top: 1px solid rgba(255,255,255,0.04);
+}
+
+.dealer .container {
+display: flex;
+justify-content: space-between;
+align-items: center;
+gap: 40px;
+}
+
+.dealer-text h3 {
+font-family: ‘Oswald’, sans-serif;
+font-weight: 600;
+font-size: 1.6rem;
+text-transform: uppercase;
+margin-bottom: 8px;
+}
+
+.dealer-text p {
+font-size: 0.95rem;
+color: var(–cream);
+opacity: 0.45;
+}
+
+/* ══════════════════════════════════════
+FOOTER
+══════════════════════════════════════ */
+footer {
+padding: 60px 0 40px;
+border-top: 1px solid rgba(255,255,255,0.06);
+}
+
+.footer-grid {
+display: grid;
+grid-template-columns: 2fr 1fr 1fr 1fr;
+gap: 60px;
+margin-bottom: 60px;
+}
+
+.footer-brand p {
+font-size: 0.9rem;
+line-height: 1.6;
+color: var(–cream);
+opacity: 0.4;
+margin-top: 12px;
+max-width: 300px;
+}
+
+.footer-col-title {
+font-family: ‘Barlow Condensed’, sans-serif;
+font-weight: 600;
+font-size: 0.7rem;
+letter-spacing: 0.25em;
+text-transform: uppercase;
+color: var(–orange);
+margin-bottom: 20px;
+}
+
+.footer-col a {
+display: block;
+font-size: 0.9rem;
+color: var(–cream);
+opacity: 0.45;
+text-decoration: none;
+margin-bottom: 10px;
+transition: all 0.3s;
+}
+
+.footer-col a:hover {
+opacity: 1;
+color: var(–orange);
+}
+
+.footer-bottom {
+padding-top: 32px;
+border-top: 1px solid rgba(255,255,255,0.06);
+display: flex;
+justify-content: space-between;
+align-items: center;
+}
+
+.footer-copy {
+font-size: 0.8rem;
+color: var(–light-grey);
+opacity: 0.5;
+}
+
+.footer-location {
+font-family: ‘Barlow Condensed’, sans-serif;
+font-size: 0.75rem;
+letter-spacing: 0.15em;
+text-transform: uppercase;
+color: var(–light-grey);
+opacity: 0.4;
+}
+
+/* ══════════════════════════════════════
+CALIFORNIA NOTICE (done right)
+══════════════════════════════════════ */
+.ca-notice {
+position: fixed;
+bottom: 24px;
+right: 24px;
+max-width: 360px;
+background: var(–dark-grey);
+border: 1px solid rgba(232,122,30,0.2);
+border-left: 3px solid var(–orange);
+padding: 20px 24px;
+z-index: 999;
+display: none;
+animation: slideUp 0.4s ease;
+}
+
+.ca-notice.show { display: block; }
+
+@keyframes slideUp {
+from { transform: translateY(20px); opacity: 0; }
+to { transform: translateY(0); opacity: 1; }
+}
+
+.ca-notice-title {
+font-family: ‘Barlow Condensed’, sans-serif;
+font-weight: 600;
+font-size: 0.7rem;
+letter-spacing: 0.2em;
+text-transform: uppercase;
+color: var(–orange);
+margin-bottom: 8px;
+}
+
+.ca-notice-text {
+font-size: 0.85rem;
+line-height: 1.5;
+color: var(–cream);
+opacity: 0.6;
+}
+
+.ca-notice-close {
+position: absolute;
+top: 12px; right: 12px;
+background: none;
+border: none;
+color: var(–light-grey);
+cursor: pointer;
+font-size: 1.2rem;
+line-height: 1;
+padding: 4px;
+}
+
+.ca-notice-close:hover { color: var(–white); }
+
+/* ══════════════════════════════════════
+ANIMATIONS
+══════════════════════════════════════ */
+.fade-in {
+opacity: 0;
+transform: translateY(30px);
+transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.fade-in.visible {
+opacity: 1;
+transform: translateY(0);
+}
+
+/* ══════════════════════════════════════
+RESPONSIVE
+══════════════════════════════════════ */
+@media (max-width: 1024px) {
+.hero .container { grid-template-columns: 1fr; }
+.hero-visual { display: none; }
+.about .container { grid-template-columns: 1fr; }
+.about-visual { height: 300px; }
+.dyno .container { grid-template-columns: 1fr; }
+.services-grid { grid-template-columns: repeat(2, 1fr); }
+.footer-grid { grid-template-columns: 1fr 1fr; gap: 40px; }
+}
+
+@media (max-width: 768px) {
+.nav-links { display: none; }
+.nav-mobile-toggle { display: block; }
+
+.hero { padding-top: 100px; min-height: auto; padding-bottom: 80px; }
+.hero-stats { gap: 24px; }
+.hero-stat-num { font-size: 2rem; }
+
+.products-grid { grid-template-columns: 1fr; }
+.services-grid { grid-template-columns: 1fr; }
+
+.about-highlights { grid-template-columns: 1fr; }
+
+.dealer .container { flex-direction: column; text-align: center; }
+
+.footer-grid { grid-template-columns: 1fr; gap: 32px; }
+.footer-bottom { flex-direction: column; gap: 12px; text-align: center; }
+
+.cta-buttons { flex-direction: column; align-items: center; }
+
+.ca-notice {
+bottom: 0; right: 0; left: 0;
+max-width: none;
+}
+}
+</style>
+
+</head>
+<body>
+
+<!-- NAV -->
+
+<nav>
+  <div class="container">
+    <a href="#" class="nav-logo">
+      <div class="nav-logo-icon">CR</div>
+      <div>
+        <div class="nav-logo-text">Cycle-Rama</div>
+        <div class="nav-logo-sub">Building Power Since 1976</div>
+      </div>
+    </a>
+    <ul class="nav-links">
+      <li><a href="#products">Products</a></li>
+      <li><a href="#dyno">Dyno Charts</a></li>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#dealers">Dealers</a></li>
+      <li><a href="#quote" class="nav-cta">Get a Quote</a></li>
+    </ul>
+    <button class="nav-mobile-toggle" onclick="document.querySelector('.nav-links').classList.toggle('mobile-open')" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- HERO -->
+
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-lines"></div>
+  <div class="container">
+    <div class="hero-content">
+      <div class="hero-est">Established 1976 · Pinellas Park, FL</div>
+      <h1 class="hero-title">
+        Life's Too Short<br>
+        <span class="accent">To Be Slow.</span>
+      </h1>
+      <p class="hero-tagline">Performance Cams & Engine Work for Harley-Davidson</p>
+      <p class="hero-desc">
+        Nearly five decades of building the fastest, most reliable Harley engines on the road. 
+        M8 and Twin Cam specialists. CNC ported heads. Dyno-proven results.
+      </p>
+      <div class="hero-buttons">
+        <a href="#products" class="btn btn-solid">Shop Parts</a>
+        <a href="#quote" class="btn">Request a Quote</a>
+      </div>
+      <div class="hero-stats">
+        <div>
+          <div class="hero-stat-num">49</div>
+          <div class="hero-stat-label">Years in Business</div>
+        </div>
+        <div>
+          <div class="hero-stat-num">20+</div>
+          <div class="hero-stat-label">Cam Profiles</div>
+        </div>
+        <div>
+          <div class="hero-stat-num">∞</div>
+          <div class="hero-stat-label">Miles Proven</div>
+        </div>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <div class="hero-badge">
+        <div class="hero-badge-cr">CR</div>
+        <div class="hero-badge-text">Cycle-Rama Inc.</div>
+        <div class="hero-badge-year">Est. 1976</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TICKER -->
+
+<div class="ticker">
+  <div class="ticker-track">
+    <span class="ticker-item">M8 Camshafts</span>
+    <span class="ticker-item">Twin Cam Performance</span>
+    <span class="ticker-item">CNC Ported Heads</span>
+    <span class="ticker-item">Dyno Tuning</span>
+    <span class="ticker-item">Engine Building</span>
+    <span class="ticker-item">Big Bore Kits</span>
+    <span class="ticker-item">Comp Ramps</span>
+    <span class="ticker-item">CR202 Lifters</span>
+    <span class="ticker-item">Pushrod Kits</span>
+    <span class="ticker-item">Machine Work</span>
+    <span class="ticker-item">M8 Camshafts</span>
+    <span class="ticker-item">Twin Cam Performance</span>
+    <span class="ticker-item">CNC Ported Heads</span>
+    <span class="ticker-item">Dyno Tuning</span>
+    <span class="ticker-item">Engine Building</span>
+    <span class="ticker-item">Big Bore Kits</span>
+    <span class="ticker-item">Comp Ramps</span>
+    <span class="ticker-item">CR202 Lifters</span>
+    <span class="ticker-item">Pushrod Kits</span>
+    <span class="ticker-item">Machine Work</span>
+  </div>
+</div>
+
+<!-- ABOUT -->
+
+<section class="about" id="about">
+  <div class="container">
+    <div class="about-visual">
+      <div class="about-visual-inner">
+        <div class="about-visual-year">1976</div>
+        <div class="about-visual-text">Where It All Began</div>
+      </div>
+    </div>
+    <div class="about-content fade-in">
+      <div class="section-label">Our Story</div>
+      <h2 class="section-title">Built on Passion.<br>Proven by Performance.</h2>
+      <div class="divider"></div>
+      <p>Founded by Wes Brown, Cycle-Rama has been at the forefront of motorcycle performance innovation for nearly five decades. What started as a commitment to making Harleys faster has evolved into a legacy that riders across the country depend on.</p>
+      <p>We specialize in performance parts tailored for M8 and Twin Cam engines, with a focus on camshafts that deliver proven performance and durability. Every part is designed, tested, and proven on our in-house dyno.</p>
+      <div class="about-highlights">
+        <div class="about-highlight">
+          <div class="about-highlight-title">CNC Ported Heads</div>
+          <div class="about-highlight-text">State-of-the-art flow bench tested. Maximum potential, both cylinders.</div>
+        </div>
+        <div class="about-highlight">
+          <div class="about-highlight-title">In-House Dyno</div>
+          <div class="about-highlight-text">Every cam profile tested and validated. No guesswork.</div>
+        </div>
+        <div class="about-highlight">
+          <div class="about-highlight-title">Machine Shop</div>
+          <div class="about-highlight-text">Custom machining and engine building under one roof.</div>
+        </div>
+        <div class="about-highlight">
+          <div class="about-highlight-title">Expert Support</div>
+          <div class="about-highlight-text">Call and talk to an actual technician. Every time.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRODUCTS -->
+
+<section class="products" id="products">
+  <div class="container">
+    <div class="products-header fade-in">
+      <div class="section-label">Performance Parts</div>
+      <h2 class="section-title">The Goods</h2>
+      <p>Everything you need to unlock your bike's full potential, from our proprietary cam profiles to complete install kits.</p>
+    </div>
+    <div class="products-grid">
+      <a href="https://cycle-rama.com/shop/" class="product-card fade-in">
+        <div class="product-icon">M8</div>
+        <div class="product-name">M8 Camshafts</div>
+        <div class="product-desc">Our flagship cam profiles for Milwaukee-Eight engines. From mild street performance to all-out race builds.</div>
+        <div class="product-models">
+          <span class="product-model-tag">APE/CR483</span>
+          <span class="product-model-tag">CR484</span>
+          <span class="product-model-tag">APE/CR485</span>
+          <span class="product-model-tag">CR512</span>
+          <span class="product-model-tag">CR550</span>
+          <span class="product-model-tag">CR557</span>
+          <span class="product-model-tag">CR565VVT</span>
+        </div>
+        <div class="product-price-range">Starting at $349</div>
+        <div class="product-link">Shop M8 Cams</div>
+      </a>
+      <a href="https://cycle-rama.com/shop/" class="product-card fade-in">
+        <div class="product-icon">TC</div>
+        <div class="product-name">07-17 Twin Cams</div>
+        <div class="product-desc">Proven performance profiles for Twin Cam engines. Bolt-in power that lasts.</div>
+        <div class="product-models">
+          <span class="product-model-tag">CR570-2</span>
+          <span class="product-model-tag">CR575</span>
+        </div>
+        <div class="product-price-range">Starting at $383</div>
+        <div class="product-link">Shop Twin Cams</div>
+      </a>
+      <a href="https://cycle-rama.com/shop/" class="product-card fade-in">
+        <div class="product-icon">KIT</div>
+        <div class="product-name">Install Kits & Pushrods</div>
+        <div class="product-desc">Complete cam install kits with everything you need, plus S&S Quickee pushrod kits with tubes.</div>
+        <div class="product-models">
+          <span class="product-model-tag">M8 Install Kit</span>
+          <span class="product-model-tag">S&S Pushrods</span>
+          <span class="product-model-tag">Cometic Gaskets</span>
+        </div>
+        <div class="product-price-range">Starting at $49</div>
+        <div class="product-link">Shop Kits</div>
+      </a>
+      <a href="https://cycle-rama.com/shop/" class="product-card fade-in">
+        <div class="product-icon">HD</div>
+        <div class="product-name">CNC Heads & Machine Work</div>
+        <div class="product-desc">Exclusive CNC porting for Twin Cam and M8 heads. Flow-bench tested, maximum consistency across both cylinders.</div>
+        <div class="product-models">
+          <span class="product-model-tag">Evo</span>
+          <span class="product-model-tag">Twin Cam</span>
+          <span class="product-model-tag">M8</span>
+          <span class="product-model-tag">Sportster</span>
+        </div>
+        <div class="product-link">Request Quote</div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- DYNO -->
+
+<section class="dyno" id="dyno">
+  <div class="container">
+    <div class="dyno-chart-area fade-in">
+      <div class="dyno-chart-header">
+        <div class="dyno-chart-title">Dyno-Proven Performance</div>
+        <div class="dyno-chart-legend">
+          <div class="dyno-legend-item"><div class="dyno-legend-dot hp"></div> HP</div>
+          <div class="dyno-legend-item"><div class="dyno-legend-dot tq"></div> TQ</div>
+        </div>
+      </div>
+      <div class="dyno-chart-visual">
+        <svg viewBox="0 0 500 240" preserveAspectRatio="none">
+          <!-- Grid lines -->
+          <line x1="0" y1="60" x2="500" y2="60" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
+          <line x1="0" y1="120" x2="500" y2="120" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
+          <line x1="0" y1="180" x2="500" y2="180" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
+          <!-- HP curve -->
+          <path d="M0,220 C50,210 100,190 150,160 C200,130 250,90 300,55 C350,35 400,25 450,20 L500,22" 
+                fill="none" stroke="rgba(232,122,30,0.8)" stroke-width="2.5"/>
+          <path d="M0,220 C50,210 100,190 150,160 C200,130 250,90 300,55 C350,35 400,25 450,20 L500,22 L500,240 L0,240 Z" 
+                fill="url(#hp-gradient)" opacity="0.15"/>
+          <!-- TQ curve -->
+          <path d="M0,200 C50,160 100,120 150,90 C200,70 250,60 300,55 C350,58 400,65 450,80 L500,90" 
+                fill="none" stroke="rgba(245,245,240,0.25)" stroke-width="2"/>
+          <defs>
+            <linearGradient id="hp-gradient" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stop-color="var(--orange)"/>
+              <stop offset="100%" stop-color="var(--orange)" stop-opacity="0"/>
+            </linearGradient>
+          </defs>
+        </svg>
+      </div>
+      <div class="dyno-cam-list">
+        <div class="dyno-cam-item">
+          <span class="dyno-cam-name">CR470</span>
+          <span class="dyno-cam-hp">View Dyno Sheet →</span>
+        </div>
+        <div class="dyno-cam-item">
+          <span class="dyno-cam-name">CR480 OG / MT</span>
+          <span class="dyno-cam-hp">View Dyno Sheet →</span>
+        </div>
+        <div class="dyno-cam-item">
+          <span class="dyno-cam-name">CR482</span>
+          <span class="dyno-cam-hp">View Dyno Sheet →</span>
+        </div>
+        <div class="dyno-cam-item">
+          <span class="dyno-cam-name">APE/CR483</span>
+          <span class="dyno-cam-hp">View Dyno Sheet →</span>
+        </div>
+        <div class="dyno-cam-item">
+          <span class="dyno-cam-name">APE/CR485</span>
+          <span class="dyno-cam-hp">View Dyno Sheet →</span>
+        </div>
+        <div class="dyno-cam-item">
+          <span class="dyno-cam-name">CR557</span>
+          <span class="dyno-cam-hp">View Dyno Sheet →</span>
+        </div>
+      </div>
+    </div>
+    <div class="dyno-content fade-in">
+      <div class="section-label">Dyno Charts</div>
+      <h2 class="section-title">Numbers Don't Lie.</h2>
+      <div class="divider"></div>
+      <p>Every Cycle-Rama cam profile is validated on our in-house dyno. No marketing hype — just real HP and torque numbers from real engines.</p>
+      <p>Our state-of-the-art flow bench uses custom valve opening fixtures designed and manufactured by our in-house machinist to measure flow rates at various opening heights. You get data, not promises.</p>
+      <p>Select a cam profile to see its dyno sheet, or request a custom recommendation based on your build.</p>
+      <div style="margin-top: 32px;">
+        <a href="#quote" class="btn">Get a Cam Recommendation</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+
+<section class="services" id="services">
+  <div class="container">
+    <div class="fade-in" style="text-align:center; max-width:600px; margin:0 auto 0;">
+      <div class="section-label">What We Do</div>
+      <h2 class="section-title">More Than Parts.</h2>
+    </div>
+    <div class="services-grid">
+      <div class="service-item fade-in">
+        <div class="service-num">01</div>
+        <div class="service-title">Custom Cam Grinds</div>
+        <div class="service-text">Proprietary profiles designed for specific applications. Street, strip, or somewhere in between.</div>
+      </div>
+      <div class="service-item fade-in">
+        <div class="service-num">02</div>
+        <div class="service-title">CNC Head Porting</div>
+        <div class="service-text">Precision CNC porting for Evo, Twin Cam, M8, and Sportster heads. Flow-bench validated.</div>
+      </div>
+      <div class="service-item fade-in">
+        <div class="service-num">03</div>
+        <div class="service-title">Engine Building</div>
+        <div class="service-text">Complete engine builds from mild to wild. Every detail accounted for, every bolt torqued right.</div>
+      </div>
+      <div class="service-item fade-in">
+        <div class="service-num">04</div>
+        <div class="service-title">Dyno Tuning</div>
+        <div class="service-text">Dial in your setup for maximum power and rideability. Custom fuel maps included with cam purchases.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+
+<section class="cta" id="quote">
+  <div class="cta-bg"></div>
+  <div class="container fade-in">
+    <div class="section-label">Ready to Build?</div>
+    <h2 class="section-title">Let's Talk About<br>Your Build.</h2>
+    <p>Tell us about your bike, your goals, and your budget. We'll put together a package that makes sense — no upselling, no BS. Just honest advice from people who've been doing this since '76.</p>
+    <div class="cta-buttons">
+      <a href="https://cycle-rama.com/get-a-quote/" class="btn btn-solid">Request a Quote</a>
+      <a href="https://cycle-rama.com/shop/" class="btn">Browse the Shop</a>
+    </div>
+    <div class="cta-phone">
+      <span class="cta-phone-label">Call Direct</span>
+      <a href="tel:7275460889" class="cta-phone-number">(727) 546-0889</a>
+    </div>
+  </div>
+</section>
+
+<!-- DEALER -->
+
+<section class="dealer" id="dealers">
+  <div class="container">
+    <div class="dealer-text">
+      <div class="section-label">For Shops</div>
+      <h3>Become a Cycle-Rama Dealer</h3>
+      <p>Full-time commercial motorcycle shops can apply for dealer pricing and direct support.</p>
+    </div>
+    <a href="https://cycle-rama.com/dealer-application/" class="btn">Dealer Application</a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div style="font-family:'Oswald',sans-serif; font-weight:700; font-size:1.3rem; text-transform:uppercase;">Cycle-Rama, Inc.</div>
+        <p>Building the fastest, most reliable Harley engines since 1976. Pinellas Park, Florida.</p>
+        <p style="margin-top:16px;">
+          <a href="mailto:info@cycle-rama.com" style="color:var(--orange); text-decoration:none;">info@cycle-rama.com</a><br>
+          <a href="tel:7275460889" style="color:var(--cream); opacity:0.6; text-decoration:none;">(727) 546-0889</a>
+        </p>
+      </div>
+      <div class="footer-col">
+        <div class="footer-col-title">Products</div>
+        <a href="#">M8 Camshafts</a>
+        <a href="#">Twin Cam Cams</a>
+        <a href="#">Install Kits</a>
+        <a href="#">Pushrods</a>
+        <a href="#">Comp Ramps</a>
+        <a href="#">Lifters</a>
+      </div>
+      <div class="footer-col">
+        <div class="footer-col-title">Services</div>
+        <a href="#">CNC Head Porting</a>
+        <a href="#">Engine Building</a>
+        <a href="#">Dyno Tuning</a>
+        <a href="#">Machine Work</a>
+      </div>
+      <div class="footer-col">
+        <div class="footer-col-title">Company</div>
+        <a href="#">About</a>
+        <a href="#">Dyno Charts</a>
+        <a href="#">Dealer Application</a>
+        <a href="#">Dealer Portal</a>
+        <a href="#">Contact</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="footer-copy">&copy; 2026 Cycle-Rama, Inc. All rights reserved.</div>
+      <div class="footer-location">Pinellas Park, FL · Since 1976</div>
+    </div>
+  </div>
+</footer>
+
+<!-- CALIFORNIA NOTICE (the right way) -->
+
+<div class="ca-notice" id="caNotice">
+  <button class="ca-notice-close" onclick="document.getElementById('caNotice').style.display='none'" aria-label="Close">&times;</button>
+  <div class="ca-notice-title">California Customers</div>
+  <div class="ca-notice-text">Due to state emission regulations, camshafts and piston kits cannot be shipped to California. All other products ship nationwide. <a href="mailto:info@cycle-rama.com" style="color:var(--orange);">Contact us</a> with questions.</div>
+</div>
+
+<script>
+// Scroll animations
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+    }
+  });
+}, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+
+document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+// Show CA notice after 3 seconds (subtle, dismissible)
+setTimeout(() => {
+  document.getElementById('caNotice').classList.add('show');
+}, 3000);
+
+// Smooth scroll for anchor links
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+  anchor.addEventListener('click', function(e) {
+    e.preventDefault();
+    const target = document.querySelector(this.getAttribute('href'));
+    if (target) {
+      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  });
+});
+</script>
+
+</body>
+</html>
