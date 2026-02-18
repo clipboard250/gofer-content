@@ -5,6 +5,17 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="robots" content="noindex, nofollow">
 <title>Living Restorations — Digital Audit & Action Plan | Gofer Content</title>
+<meta name="description" content="Confidential digital audit and action plan prepared for Living Restorations by Gofer Content.">
+<meta property="og:url" content="https://gofercontent.com/living-restorations-audit/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Living Restorations — Digital Audit & Action Plan">
+<meta property="og:description" content="Confidential audit and action plan prepared by Gofer Content.">
+<meta property="og:image" content="https://gofercontent.com/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Living Restorations — Digital Audit & Action Plan">
+<meta name="twitter:description" content="Confidential audit and action plan prepared by Gofer Content.">
+<meta name="twitter:image" content="https://gofercontent.com/og-image.png">
+<link rel="icon" href="https://gofercontent.com/og-image.png" type="image/png">
 <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,700;1,500&display=swap" rel="stylesheet">
 <style>
 :root{--ink:#0d0f0e;--paper:#faf9f6;--sage:#4a7c6a;--sage-light:#e8f0ec;--sage-dark:#2d5a48;--warm:#c9a96e;--warm-light:#f5eedf;--red:#c0392b;--red-light:#fdf0ee;--orange:#d4760a;--orange-light:#fef6eb;--green-check:#27ae60;--green-light:#eefbf3;--muted:#6b7b74;--border:#ddd8d0;--radius:6px}
@@ -76,11 +87,20 @@
 .phase-content h4{font-size:.95rem;font-weight:600;margin-bottom:.5rem}
 .phase-content ul{list-style:none;padding:0}
 .phase-content li{font-size:.85rem;color:var(--muted);padding:.35rem 0;padding-left:1.4rem;position:relative;line-height:1.6}
-.phase-content li::before{content:'☐';position:absolute;left:0;color:var(--sage)}
+.phase-content li::before{content:'\2610';position:absolute;left:0;color:var(--sage)}
+/* questionnaire */
+.q-card{display:flex;gap:1.25rem;background:#fff;border:1px solid var(--border);border-radius:var(--radius);padding:1.5rem;margin-bottom:1rem;transition:border-color .2s}
+.q-card:hover{border-color:var(--sage)}
+.q-number{font-family:'Playfair Display',serif;font-size:1.8rem;font-weight:700;color:var(--sage);line-height:1;flex-shrink:0;width:32px}
+.q-content{flex:1}
+.q-content h4{font-size:.95rem;font-weight:600;margin-bottom:.35rem}
+.q-content p{font-size:.85rem;color:var(--muted);line-height:1.6;margin-bottom:.75rem}
+.q-btn{display:inline-block;padding:.6rem 1.2rem;background:var(--sage);color:#fff;text-decoration:none;border-radius:var(--radius);font-size:.82rem;font-weight:500;transition:background .2s}
+.q-btn:hover{background:var(--sage-dark)}
 .audit-footer{max-width:900px;margin:0 auto;padding:3rem 4%;border-top:2px solid var(--ink);text-align:center}
 .audit-footer p{font-size:.82rem;color:var(--muted);margin-bottom:.5rem}
 .audit-footer a{color:var(--sage);text-decoration:none;font-weight:500}
-@media(max-width:700px){.comparison{grid-template-columns:1fr}.score-grid{grid-template-columns:repeat(2,1fr)}.timeline-phase{grid-template-columns:1fr;gap:.75rem}.prepared-for{grid-template-columns:1fr}}
+@media(max-width:700px){.comparison{grid-template-columns:1fr}.score-grid{grid-template-columns:repeat(2,1fr)}.timeline-phase{grid-template-columns:1fr;gap:.75rem}.prepared-for{grid-template-columns:1fr}.q-card{flex-direction:column;gap:.5rem}}
 </style>
 </head>
 <body>
@@ -91,7 +111,7 @@
     <h2 class="gate-title">Confidential Audit</h2>
     <p class="gate-sub">This document is prepared exclusively for Living Restorations.<br>Enter your access code to continue.</p>
     <input type="password" class="gate-input" id="passInput" placeholder="Enter access code" autofocus>
-    <button class="gate-btn" onclick="checkPass()">View Audit →</button>
+    <button class="gate-btn" onclick="checkPass()">View Audit &#8594;</button>
     <p class="gate-error" id="passError">Incorrect code. Please try again.</p>
   </div>
 </div>
@@ -99,28 +119,29 @@
 <div id="content">
 <div class="topbar">
   <div class="topbar-brand">Gofer Content</div>
-  <div class="topbar-meta">Prepared <strong>February 18, 2026</strong> &middot; Confidential</div>
+  <div class="topbar-meta">Prepared <strong>February 18, 2026</strong> &#183; Confidential</div>
 </div>
 
 <header class="audit-hero">
-  <span class="badge badge-confidential">Confidential — Client Eyes Only</span>
-  <h1>Living Restorations<br>Digital Audit & <em>Action Plan</em></h1>
-  <p class="lead">A comprehensive review of your current digital presence — websites, SEO, social media, and brand positioning — with a phased action plan to consolidate, fix, and grow.</p>
+  <span class="badge badge-confidential">Confidential &#8212; Client Eyes Only</span>
+  <h1>Living Restorations<br>Digital Audit &amp; <em>Action Plan</em></h1>
+  <p class="lead">A comprehensive review of your current digital presence &#8212; websites, SEO, social media, and brand positioning &#8212; with a phased action plan to consolidate, fix, and grow.</p>
   <dl class="prepared-for">
-    <dt>Prepared For</dt><dd>Kiamesha Wray — Living Restorations</dd>
-    <dt>Prepared By</dt><dd>Dayna Himot — Gofer Content</dd>
+    <dt>Prepared For</dt><dd>Kiamesha Wray &#8212; Living Restorations</dd>
+    <dt>Prepared By</dt><dd>Dayna Himot &#8212; Gofer Content</dd>
     <dt>Date</dt><dd>February 18, 2026</dd>
-    <dt>Deadline</dt><dd>March 1, 2026 — Off Rebolt</dd>
+    <dt>Deadline</dt><dd>March 1, 2026 &#8212; Off Rebolt</dd>
   </dl>
   <nav class="toc">
     <p class="toc-title">Contents</p>
     <a href="#current">Current State Snapshot <span>01</span></a>
     <a href="#websites">Website Audit <span>02</span></a>
-    <a href="#seo">SEO & Technical Findings <span>03</span></a>
-    <a href="#social">Social & Visibility Audit <span>04</span></a>
+    <a href="#seo">SEO &amp; Technical Findings <span>03</span></a>
+    <a href="#social">Social &amp; Visibility Audit <span>04</span></a>
     <a href="#opportunities">Untapped Opportunities <span>05</span></a>
     <a href="#plan">Phased Action Plan <span>06</span></a>
     <a href="#delivered">What's Already Done <span>07</span></a>
+    <a href="#questionnaire">Questionnaire &#8212; Text Me Your Answers <span>08</span></a>
   </nav>
 </header>
 
@@ -133,14 +154,14 @@
     <div class="score-item"><div class="score-value warn">?</div><div class="score-label">Social Profiles</div></div>
     <div class="score-item"><div class="score-value bad">Split</div><div class="score-label">SEO Authority</div></div>
   </div>
-  <p style="font-size:.9rem;color:var(--muted);line-height:1.8;margin-bottom:1rem;">Living Restorations currently operates two separate websites on the Rebolt platform for what is functionally the same business. Neither site is indexed by Google due to <code>robots.txt</code> blocking all crawlers. SEO authority is split across two domains with no consolidation strategy. The business has excellent real-world reputation — glowing reviews, press coverage, FANN credentials — that is not being leveraged online.</p>
+  <p style="font-size:.9rem;color:var(--muted);line-height:1.8;margin-bottom:1rem;">Living Restorations currently operates two separate websites on the Rebolt platform for what is functionally the same business. Neither site is indexed by Google due to <code>robots.txt</code> blocking all crawlers. SEO authority is split across two domains with no consolidation strategy. The business has excellent real-world reputation &#8212; glowing reviews, press coverage, FANN credentials &#8212; that is not being leveraged online.</p>
   <div class="comparison">
     <div class="comp-card comp-bad">
-      <h4>🔴 livingrestorations.com</h4>
+      <h4>&#128308; livingrestorations.com</h4>
       <ul>
         <li>Stock hero image unrelated to actual work</li>
-        <li>Service pages say "UNDER CONSTRUCTION" — live to public</li>
-        <li>Service cards show generic "Services" — no real names</li>
+        <li>Service pages say "UNDER CONSTRUCTION" &#8212; live to public</li>
+        <li>Service cards show generic "Services" &#8212; no real names</li>
         <li>robots.txt blocks all search engines</li>
         <li>Cookie-cutter Rebolt template</li>
         <li>No real content, testimonials, or project photos</li>
@@ -148,7 +169,7 @@
       </ul>
     </div>
     <div class="comp-card comp-bad">
-      <h4>🔴 livingspacesgardening.com</h4>
+      <h4>&#128308; livingspacesgardening.com</h4>
       <ul>
         <li>Footer stuffed with every Florida city (SEO penalty risk)</li>
         <li>About copy reads like AI-generated first draft</li>
@@ -165,19 +186,19 @@
 <!-- 02 -->
 <section class="audit-section" id="websites">
   <div class="section-divider"><div class="section-number">02</div><div><p class="section-label">Website Audit</p><h2 class="section-heading">What's Broken and Why</h2></div></div>
-  <div class="finding finding-critical"><div class="finding-header"><div class="finding-icon">!</div><h4>Two Domains, One Business — SEO Authority Split</h4></div><p>Running two websites for the same business splits all link equity, domain authority, and search signals. Google doesn't know which is the "real" site. Neither ranks. You're competing against yourself.</p></div>
-  <div class="finding finding-critical"><div class="finding-header"><div class="finding-icon">!</div><h4>robots.txt Blocking All Search Engines — Both Sites</h4></div><p>Both domains have <code>robots.txt</code> files telling Google, Bing, and every search engine to stay away. Neither site appears in search results. Zero organic traffic is possible with this configuration.</p></div>
+  <div class="finding finding-critical"><div class="finding-header"><div class="finding-icon">!</div><h4>Two Domains, One Business &#8212; SEO Authority Split</h4></div><p>Running two websites for the same business splits all link equity, domain authority, and search signals. Google doesn't know which is the "real" site. Neither ranks. You're competing against yourself.</p></div>
+  <div class="finding finding-critical"><div class="finding-header"><div class="finding-icon">!</div><h4>robots.txt Blocking All Search Engines &#8212; Both Sites</h4></div><p>Both domains have <code>robots.txt</code> files telling Google, Bing, and every search engine to stay away. Neither site appears in search results. Zero organic traffic is possible with this configuration.</p></div>
   <div class="finding finding-critical"><div class="finding-header"><div class="finding-icon">!</div><h4>"Under Construction" Pages Live on livingrestorations.com</h4></div><p>Service pages are published with "THIS PAGE IS UNDER CONSTRUCTION" banners visible to anyone who visits. This destroys credibility with potential clients.</p></div>
-  <div class="finding finding-warning"><div class="finding-header"><div class="finding-icon">⚠</div><h4>Location-Stuffing Footer on livingspacesgardening.com</h4></div><p>The footer contains a raw list of every Florida city. This is a known Google penalty trigger — it signals spam, not legitimate service coverage.</p></div>
-  <div class="finding finding-warning"><div class="finding-header"><div class="finding-icon">⚠</div><h4>Generic AI-Generated Copy Throughout</h4></div><p>Both sites contain template-style content that reads like AI-generated first drafts. Phrases like "embracing values of trust, innovation, and Earth stewardship" are filler. Kiamesha's real voice and expertise are absent from these pages.</p></div>
-  <div class="finding finding-warning"><div class="finding-header"><div class="finding-icon">⚠</div><h4>No Schema Markup or Structured Data</h4></div><p>Neither site has LocalBusiness schema or structured data. Google can't display rich results (star ratings, service areas, hours) in search.</p></div>
-  <div class="finding finding-warning"><div class="finding-header"><div class="finding-icon">⚠</div><h4>No OG Tags or Social Preview Cards</h4></div><p>Sharing either URL on Facebook, iMessage, or LinkedIn shows a generic preview with no image, no description, no brand presence. Every share is a missed opportunity.</p></div>
+  <div class="finding finding-warning"><div class="finding-header"><div class="finding-icon">&#9888;</div><h4>Location-Stuffing Footer on livingspacesgardening.com</h4></div><p>The footer contains a raw list of every Florida city. This is a known Google penalty trigger &#8212; it signals spam, not legitimate service coverage.</p></div>
+  <div class="finding finding-warning"><div class="finding-header"><div class="finding-icon">&#9888;</div><h4>Generic AI-Generated Copy Throughout</h4></div><p>Both sites contain template-style content that reads like AI-generated first drafts. Phrases like "embracing values of trust, innovation, and Earth stewardship" are filler. Kiamesha's real voice and expertise are absent from these pages.</p></div>
+  <div class="finding finding-warning"><div class="finding-header"><div class="finding-icon">&#9888;</div><h4>No Schema Markup or Structured Data</h4></div><p>Neither site has LocalBusiness schema or structured data. Google can't display rich results (star ratings, service areas, hours) in search.</p></div>
+  <div class="finding finding-warning"><div class="finding-header"><div class="finding-icon">&#9888;</div><h4>No OG Tags or Social Preview Cards</h4></div><p>Sharing either URL on Facebook, iMessage, or LinkedIn shows a generic preview with no image, no description, no brand presence. Every share is a missed opportunity.</p></div>
   <div class="finding finding-info"><div class="finding-header"><div class="finding-icon">i</div><h4>Rebolt Platform Limitations</h4></div><p>Rebolt is an AI-powered website builder for home service businesses. While convenient, it produces cookie-cutter templates with limited SEO control and defaults that actively harm search performance. Moving off Rebolt is the right call.</p></div>
 </section>
 
 <!-- 03 -->
 <section class="audit-section" id="seo">
-  <div class="section-divider"><div class="section-number">03</div><div><p class="section-label">SEO & Technical</p><h2 class="section-heading">Search Engine Visibility</h2></div></div>
+  <div class="section-divider"><div class="section-number">03</div><div><p class="section-label">SEO &amp; Technical</p><h2 class="section-heading">Search Engine Visibility</h2></div></div>
   <div class="score-grid">
     <div class="score-item"><div class="score-value bad">F</div><div class="score-label">Crawlability</div></div>
     <div class="score-item"><div class="score-value bad">F</div><div class="score-label">Indexation</div></div>
@@ -186,26 +207,26 @@
   </div>
   <div class="finding finding-critical"><div class="finding-header"><div class="finding-icon">!</div><h4>Google Cannot See Either Website</h4></div><p>A <code>robots.txt</code> with <code>Disallow: /</code> on both domains means zero pages are indexed. Running <code>site:livingrestorations.com</code> confirms no pages appear in Google. You are invisible to anyone searching for ecological restoration in Florida.</p></div>
   <div class="finding finding-critical"><div class="finding-header"><div class="finding-icon">!</div><h4>No Sitemap Submitted</h4></div><p>Neither site has a sitemap.xml. Even once robots.txt is fixed, Google won't know which pages to prioritize.</p></div>
-  <div class="finding finding-warning"><div class="finding-header"><div class="finding-icon">⚠</div><h4>Duplicate Content — Same Reviews on All Location Pages</h4></div><p>livingspacesgardening.com has dozens of location pages (Pinellas, Hillsborough, Pasco, Manatee, Tampa, St. Pete, etc.) with identical testimonials and near-identical copy — just the city name swapped. Google treats this as thin, duplicate content.</p></div>
-  <div class="finding finding-warning"><div class="finding-header"><div class="finding-icon">⚠</div><h4>E-E-A-T Signals Wasted</h4></div><p>Kiamesha has exceptional credentials not being leveraged: Florida Master Naturalist certification, first FANN credentialed professionals in Florida, Homes & Gardens magazine feature (Nov 2025), 7+ years of project work, named client testimonials. None of this is structured for Google to understand or reward.</p></div>
-  <div class="finding finding-good"><div class="finding-header"><div class="finding-icon">✓</div><h4>Domain livingrestorations.com Is Strong</h4></div><p>The domain name is exact-match for the service, brandable, and memorable. With proper content and configuration, it has strong ranking potential for ecological restoration queries in Florida.</p></div>
+  <div class="finding finding-warning"><div class="finding-header"><div class="finding-icon">&#9888;</div><h4>Duplicate Content &#8212; Same Reviews on All Location Pages</h4></div><p>livingspacesgardening.com has dozens of location pages (Pinellas, Hillsborough, Pasco, Manatee, Tampa, St. Pete, etc.) with identical testimonials and near-identical copy &#8212; just the city name swapped. Google treats this as thin, duplicate content.</p></div>
+  <div class="finding finding-warning"><div class="finding-header"><div class="finding-icon">&#9888;</div><h4>E-E-A-T Signals Wasted</h4></div><p>Kiamesha has exceptional credentials not being leveraged: Florida Master Naturalist certification, first FANN credentialed professionals in Florida, Homes &amp; Gardens magazine feature (Nov 2025), 7+ years of project work, named client testimonials. None of this is structured for Google to understand or reward.</p></div>
+  <div class="finding finding-good"><div class="finding-header"><div class="finding-icon">&#10003;</div><h4>Domain livingrestorations.com Is Strong</h4></div><p>The domain name is exact-match for the service, brandable, and memorable. With proper content and configuration, it has strong ranking potential for ecological restoration queries in Florida.</p></div>
 </section>
 
 <!-- 04 -->
 <section class="audit-section" id="social">
-  <div class="section-divider"><div class="section-number">04</div><div><p class="section-label">Social & Visibility</p><h2 class="section-heading">Beyond the Website</h2></div></div>
-  <div class="finding finding-info"><div class="finding-header"><div class="finding-icon">i</div><h4>TikTok: @livingspacesgardening — Exists</h4></div><p>A TikTok account exists under the Living Spaces Gardening brand. Content audit needed. Handle should eventually align with consolidated brand.</p></div>
-  <div class="finding finding-warning"><div class="finding-header"><div class="finding-icon">⚠</div><h4>Instagram, Facebook, YouTube — Status Unknown</h4></div><p>Could not locate verified Instagram or Facebook pages through search. Need direct access from Kiamesha. Team member Ether is listed as media producer — content may exist but isn't being published strategically.</p></div>
-  <div class="finding finding-warning"><div class="finding-header"><div class="finding-icon">⚠</div><h4>Google Business Profile — Needs Audit</h4></div><p>GBP is critical for local service businesses. Need to verify: Does it exist? Under which name? Is it claimed? Are reviews being collected? Is the website link correct?</p></div>
-  <div class="finding finding-good"><div class="finding-header"><div class="finding-icon">✓</div><h4>Homes & Gardens Press Feature — Nov 2025</h4></div><p>Kiamesha was quoted as an expert in Homes & Gardens magazine on coastal resilience landscaping. This is a major authority signal — E-E-A-T gold — that should be prominently featured everywhere.</p></div>
-  <div class="finding finding-good"><div class="finding-header"><div class="finding-icon">✓</div><h4>FANN Credential — First in Florida</h4></div><p>Listed on Plant Real Florida as having the first FANN credentialed professionals in the state. A unique differentiator that belongs front and center.</p></div>
-  <div class="finding finding-good"><div class="finding-header"><div class="finding-icon">✓</div><h4>Strong Client Reviews Exist</h4></div><p>Multiple detailed reviews naming Kiamesha, Justice/Justis, Osiris, and Ether. Reviews reference specific work — rain gardens, dry river beds, native plants from Wilcox Nursery. Authentic and powerful — just need proper display and leverage.</p></div>
+  <div class="section-divider"><div class="section-number">04</div><div><p class="section-label">Social &amp; Visibility</p><h2 class="section-heading">Beyond the Website</h2></div></div>
+  <div class="finding finding-info"><div class="finding-header"><div class="finding-icon">i</div><h4>TikTok: @livingspacesgardening &#8212; Exists</h4></div><p>A TikTok account exists under the Living Spaces Gardening brand. Content audit needed. Handle should eventually align with consolidated brand.</p></div>
+  <div class="finding finding-warning"><div class="finding-header"><div class="finding-icon">&#9888;</div><h4>Instagram, Facebook, YouTube &#8212; Status Unknown</h4></div><p>Could not locate verified Instagram or Facebook pages through search. Need direct access from Kiamesha. Team member Ether is listed as media producer &#8212; content may exist but isn't being published strategically.</p></div>
+  <div class="finding finding-warning"><div class="finding-header"><div class="finding-icon">&#9888;</div><h4>Google Business Profile &#8212; Needs Audit</h4></div><p>GBP is critical for local service businesses. Need to verify: Does it exist? Under which name? Is it claimed? Are reviews being collected? Is the website link correct?</p></div>
+  <div class="finding finding-good"><div class="finding-header"><div class="finding-icon">&#10003;</div><h4>Homes &amp; Gardens Press Feature &#8212; Nov 2025</h4></div><p>Kiamesha was quoted as an expert in Homes &amp; Gardens magazine on coastal resilience landscaping. This is a major authority signal &#8212; E-E-A-T gold &#8212; that should be prominently featured everywhere.</p></div>
+  <div class="finding finding-good"><div class="finding-header"><div class="finding-icon">&#10003;</div><h4>FANN Credential &#8212; First in Florida</h4></div><p>Listed on Plant Real Florida as having the first FANN credentialed professionals in the state. A unique differentiator that belongs front and center.</p></div>
+  <div class="finding finding-good"><div class="finding-header"><div class="finding-icon">&#10003;</div><h4>Strong Client Reviews Exist</h4></div><p>Multiple detailed reviews naming Kiamesha, Justice/Justis, Osiris, and Ether. Reviews reference specific work &#8212; rain gardens, dry river beds, native plants from Wilcox Nursery. Authentic and powerful &#8212; just need proper display.</p></div>
 </section>
 
 <!-- 05 -->
 <section class="audit-section" id="opportunities">
   <div class="section-divider"><div class="section-number">05</div><div><p class="section-label">Untapped Opportunities</p><h2 class="section-heading">What's Being Left on the Table</h2></div></div>
-  <div class="opp-card"><span class="opp-tag">Authority</span><h4>"As Featured in Homes & Gardens" Credibility Bar</h4><p>A press mention from a major publication is a trust signal most competitors will never have. An "As Seen In" bar on the website, social bios, and GBP would immediately elevate perceived authority.</p></div>
+  <div class="opp-card"><span class="opp-tag">Authority</span><h4>"As Featured in Homes &amp; Gardens" Credibility Bar</h4><p>A press mention from a major publication is a trust signal most competitors will never have. An "As Seen In" bar on the website, social bios, and GBP would immediately elevate perceived authority.</p></div>
   <div class="opp-card"><span class="opp-tag">SEO</span><h4>Zero Competition for "Ecological Restoration + [Florida City]"</h4><p>Most competitors target "landscaping" or "lawn care." The ecological restoration / living shoreline / dune restoration niche has relatively low keyword competition but high intent. Rankings could come quickly with a properly indexed site.</p></div>
   <div class="opp-card"><span class="opp-tag">Content</span><h4>Before/After Project Case Studies</h4><p>Kiamesha's work is visual and dramatic. Before/after galleries with project narratives serve triple duty: website SEO content, social media content, and prospect trust-building.</p></div>
   <div class="opp-card"><span class="opp-tag">Video</span><h4>YouTube Channel for Project Walkthroughs</h4><p>Video content showing restoration process, plant selection, and completed projects would rank in YouTube search and embed into the website. Educational content about living shorelines and dune restoration has strong search volume.</p></div>
@@ -218,8 +239,8 @@
   <div class="section-divider"><div class="section-number">06</div><div><p class="section-label">Action Plan</p><h2 class="section-heading">Phased Roadmap</h2></div></div>
   <div class="timeline">
     <div class="timeline-phase">
-      <div class="phase-badge"><div class="phase-num">1</div><div class="phase-date">Feb 18–28</div></div>
-      <div class="phase-content"><h4>🔥 Emergency Launch — Off Rebolt by March 1</h4><ul>
+      <div class="phase-badge"><div class="phase-num">1</div><div class="phase-date">Feb 18&#8211;28</div></div>
+      <div class="phase-content"><h4>&#128293; Emergency Launch &#8212; Off Rebolt by March 1</h4><ul>
         <li>Point livingrestorations.com DNS to Vercel</li>
         <li>Cancel Rebolt subscription</li>
         <li>Replace placeholder images with real project photos</li>
@@ -231,11 +252,11 @@
       </ul></div>
     </div>
     <div class="timeline-phase">
-      <div class="phase-badge"><div class="phase-num">2</div><div class="phase-date">Mar 1–15</div></div>
-      <div class="phase-content"><h4>🔧 Foundation — SEO & Profiles</h4><ul>
+      <div class="phase-badge"><div class="phase-num">2</div><div class="phase-date">Mar 1&#8211;15</div></div>
+      <div class="phase-content"><h4>&#128295; Foundation &#8212; SEO &amp; Profiles</h4><ul>
         <li>Audit and optimize Google Business Profile</li>
         <li>Audit Instagram, Facebook, TikTok accounts</li>
-        <li>Add "As Featured in Homes & Gardens" to site</li>
+        <li>Add "As Featured in Homes &amp; Gardens" to site</li>
         <li>Add FANN credential prominently</li>
         <li>Display testimonials with proper schema</li>
         <li>Create 301 redirect strategy for livingspacesgardening.com</li>
@@ -244,11 +265,11 @@
       </ul></div>
     </div>
     <div class="timeline-phase">
-      <div class="phase-badge"><div class="phase-num">3</div><div class="phase-date">Mar 15–31</div></div>
-      <div class="phase-content"><h4>📸 Content & Social Launch</h4><ul>
+      <div class="phase-badge"><div class="phase-num">3</div><div class="phase-date">Mar 15&#8211;31</div></div>
+      <div class="phase-content"><h4>&#128248; Content &amp; Social Launch</h4><ul>
         <li>Build before/after project gallery</li>
         <li>Collect and display all existing reviews</li>
-        <li>Create social content calendar (2–3 posts/week)</li>
+        <li>Create social content calendar (2&#8211;3 posts/week)</li>
         <li>Audit existing video/photo content from Ether</li>
         <li>Set up YouTube channel and upload project videos</li>
         <li>Begin regular GBP posts</li>
@@ -257,7 +278,7 @@
     </div>
     <div class="timeline-phase">
       <div class="phase-badge"><div class="phase-num">4</div><div class="phase-date">Apr+</div></div>
-      <div class="phase-content"><h4>📈 Growth — Ongoing</h4><ul>
+      <div class="phase-content"><h4>&#128200; Growth &#8212; Ongoing</h4><ul>
         <li>Monthly SEO review and keyword tracking</li>
         <li>Build proper service-area landing pages</li>
         <li>Blog content strategy (educational restoration content)</li>
@@ -274,28 +295,88 @@
 <section class="audit-section" id="delivered">
   <div class="section-divider"><div class="section-number">07</div><div><p class="section-label">Already Delivered</p><h2 class="section-heading">What's Done Right Now</h2></div></div>
   <p style="font-size:.9rem;color:var(--muted);line-height:1.8;margin-bottom:1.5rem;">The following has been completed and is ready for deployment:</p>
-  <div class="finding finding-good"><div class="finding-header"><div class="finding-icon">✓</div><h4>Custom-Coded Website — Live on Vercel</h4></div><p>Complete single-page site at <code>living-restorations.vercel.app</code>. Hand-coded HTML/CSS/JS. No templates, no page builders. Proper semantic structure, responsive, fast.</p></div>
-  <div class="finding finding-good"><div class="finding-header"><div class="finding-icon">✓</div><h4>SMS-First Conversion Flow</h4></div><p>Every CTA opens an SMS modal with 5 pre-written message options. Proper URL encoding for cross-device reliability.</p></div>
-  <div class="finding finding-good"><div class="finding-header"><div class="finding-icon">✓</div><h4>Full Meta Tags & OG Cards</h4></div><p>Complete Open Graph and Twitter Card meta tags. Social shares display branded previews.</p></div>
-  <div class="finding finding-good"><div class="finding-header"><div class="finding-icon">✓</div><h4>Schema Markup — LocalBusiness</h4></div><p>Structured data for LocalBusiness with service types, phone, and area. Google can understand the business.</p></div>
-  <div class="finding finding-good"><div class="finding-header"><div class="finding-icon">✓</div><h4>Service Area Selector with Google Maps</h4></div><p>Interactive region dropdown covering all Florida service areas with Google Maps embed.</p></div>
-  <div class="finding finding-good"><div class="finding-header"><div class="finding-icon">✓</div><h4>Favicon & Branding Updated</h4></div><p>LR monogram implemented as favicon and Apple touch icon across all pages.</p></div>
+  <div class="finding finding-good"><div class="finding-header"><div class="finding-icon">&#10003;</div><h4>Custom-Coded Website &#8212; Live on Vercel</h4></div><p>Complete single-page site at <code>living-restorations.vercel.app</code>. Hand-coded HTML/CSS/JS. No templates, no page builders. Proper semantic structure, responsive, fast.</p></div>
+  <div class="finding finding-good"><div class="finding-header"><div class="finding-icon">&#10003;</div><h4>SMS-First Conversion Flow</h4></div><p>Every CTA opens an SMS modal with 5 pre-written message options. Proper URL encoding for cross-device reliability.</p></div>
+  <div class="finding finding-good"><div class="finding-header"><div class="finding-icon">&#10003;</div><h4>Full Meta Tags &amp; OG Cards</h4></div><p>Complete Open Graph and Twitter Card meta tags. Social shares display branded previews.</p></div>
+  <div class="finding finding-good"><div class="finding-header"><div class="finding-icon">&#10003;</div><h4>Schema Markup &#8212; LocalBusiness</h4></div><p>Structured data for LocalBusiness with service types, phone, and area. Google can understand the business.</p></div>
+  <div class="finding finding-good"><div class="finding-header"><div class="finding-icon">&#10003;</div><h4>Service Area Selector with Google Maps</h4></div><p>Interactive region dropdown covering all Florida service areas with Google Maps embed.</p></div>
+  <div class="finding finding-good"><div class="finding-header"><div class="finding-icon">&#10003;</div><h4>Favicon &amp; Branding Updated</h4></div><p>LR monogram implemented as favicon and Apple touch icon across all pages.</p></div>
 </section>
 
-<!-- NEEDS -->
-<section class="audit-section">
-  <div class="section-divider"><div class="section-number">→</div><div><p class="section-label">What I Need From You</p><h2 class="section-heading">To Hit March 1</h2></div></div>
-  <div class="finding finding-info"><div class="finding-header"><div class="finding-icon">?</div><h4>Real Project Photos (5–10 minimum)</h4></div><p>Before/after shots, in-progress work, finished installations. The site is built — it just needs your actual work on it.</p></div>
-  <div class="finding finding-info"><div class="finding-header"><div class="finding-icon">?</div><h4>Video Content (if available)</h4></div><p>Project walkthroughs, drone footage, timelapse. The hero section has a video player ready.</p></div>
-  <div class="finding finding-info"><div class="finding-header"><div class="finding-icon">?</div><h4>Social Media Handles & Access</h4></div><p>Instagram, Facebook, YouTube, Google Business Profile. I need to see everything before building strategy.</p></div>
-  <div class="finding finding-info"><div class="finding-header"><div class="finding-icon">?</div><h4>Rebolt Account Details</h4></div><p>Monthly cost, contract terms, cancellation process. Also need DNS/domain registrar access for livingrestorations.com.</p></div>
-  <div class="finding finding-info"><div class="finding-header"><div class="finding-icon">?</div><h4>Confirm Actual Service Areas</h4></div><p>The site lists statewide coverage. Is this accurate or aspirational? Honest service area = better SEO.</p></div>
+<!-- 08 QUESTIONNAIRE -->
+<section class="audit-section" id="questionnaire">
+  <div class="section-divider"><div class="section-number">08</div><div><p class="section-label">Quick Questionnaire</p><h2 class="section-heading">Text Me Your Answers</h2></div></div>
+  <p style="font-size:.9rem;color:var(--muted);line-height:1.8;margin-bottom:1.5rem;">Tap any button below to open a pre-filled text message. Fill in the blanks, hit send. Takes 30 seconds per question. I need these to hit the March 1 deadline.</p>
+
+  <div class="q-card">
+    <div class="q-number">1</div>
+    <div class="q-content">
+      <h4>Social Media Accounts</h4>
+      <p>What are your Instagram, Facebook, YouTube, and TikTok handles? Send me links or @handles for everything you have.</p>
+      <a class="q-btn" href="sms:7273539673?body=Hey%20Dayna%20%E2%80%94%20here%20are%20my%20social%20accounts%20for%20Living%20Restorations%3A%0A%0AInstagram%3A%20%0AFacebook%3A%20%0AYouTube%3A%20%0ATikTok%3A%20%40livingspacesgardening%0AOther%3A%20">&#128241; Text My Social Handles</a>
+    </div>
+  </div>
+
+  <div class="q-card">
+    <div class="q-number">2</div>
+    <div class="q-content">
+      <h4>Google Business Profile</h4>
+      <p>Do you have a Google Business Profile? Which business name is it under? Can you share login access?</p>
+      <a class="q-btn" href="sms:7273539673?body=Hey%20Dayna%20%E2%80%94%20Google%20Business%20Profile%3A%0A%0ADo%20I%20have%20one%3A%20yes%2Fno%0ABusiness%20name%20on%20it%3A%20%0AI%20can%20share%20access%3A%20yes%2Fno">&#128241; Text About My GBP</a>
+    </div>
+  </div>
+
+  <div class="q-card">
+    <div class="q-number">3</div>
+    <div class="q-content">
+      <h4>Rebolt Details</h4>
+      <p>How much are you paying Rebolt monthly? Contract or month-to-month? Who has the DNS/domain login for livingrestorations.com?</p>
+      <a class="q-btn" href="sms:7273539673?body=Hey%20Dayna%20%E2%80%94%20Rebolt%20details%3A%0A%0AMonthly%20cost%3A%20%24%0AContract%20or%20month-to-month%3A%20%0ADNS%2Fdomain%20login%20I%20have%20access%3A%20yes%2Fno%0ARegistrar%20(GoDaddy%2C%20etc)%3A%20">&#128241; Text Rebolt Info</a>
+    </div>
+  </div>
+
+  <div class="q-card">
+    <div class="q-number">4</div>
+    <div class="q-content">
+      <h4>Photos &amp; Video</h4>
+      <p>Do you have project photos ready to send? Before/afters? Is Ether still doing media for you? Any video content available?</p>
+      <a class="q-btn" href="sms:7273539673?body=Hey%20Dayna%20%E2%80%94%20photos%20%26%20video%3A%0A%0AI%20have%20project%20photos%20ready%3A%20yes%2Fno%0AEther%20still%20on%20the%20team%3A%20yes%2Fno%0AVideo%20content%20available%3A%20yes%2Fno%0ABest%20way%20to%20send%20them%3A%20">&#128241; Text About Content</a>
+    </div>
+  </div>
+
+  <div class="q-card">
+    <div class="q-number">5</div>
+    <div class="q-content">
+      <h4>Service Areas &#8212; For Real</h4>
+      <p>The site lists statewide coverage. Is that accurate or aspirational? Where do most of your jobs actually happen?</p>
+      <a class="q-btn" href="sms:7273539673?body=Hey%20Dayna%20%E2%80%94%20service%20areas%3A%0A%0AWhere%20most%20jobs%20happen%3A%20%0AStatewide%20is%20accurate%2Faspirational%3A%20%0AAny%20areas%20to%20add%20or%20remove%3A%20">&#128241; Text My Service Areas</a>
+    </div>
+  </div>
+
+  <div class="q-card">
+    <div class="q-number">6</div>
+    <div class="q-content">
+      <h4>Brand Name Going Forward</h4>
+      <p>Are we consolidating everything under "Living Restorations"? Or keeping "Living Spaces Gardening" alive too? This affects domains, social, and SEO.</p>
+      <a class="q-btn" href="sms:7273539673?body=Hey%20Dayna%20%E2%80%94%20brand%20name%3A%0A%0AGoing%20forward%20I%20want%20to%20use%3A%20%0AKeep%20Living%20Spaces%20Gardening%20alive%3A%20yes%2Fno%0ANotes%3A%20">&#128241; Text Brand Decision</a>
+    </div>
+  </div>
+
+  <div class="q-card">
+    <div class="q-number">7</div>
+    <div class="q-content">
+      <h4>Domain Ownership</h4>
+      <p>Who registered livingrestorations.com and livingspacesgardening.com? Do you have login access to the registrar (GoDaddy, Namecheap, Google Domains, etc)?</p>
+      <a class="q-btn" href="sms:7273539673?body=Hey%20Dayna%20%E2%80%94%20domain%20info%3A%0A%0Alivingrestorations.com%20registered%20with%3A%20%0Alivingspacesgardening.com%20registered%20with%3A%20%0AI%20have%20login%20access%3A%20yes%2Fno">&#128241; Text Domain Info</a>
+    </div>
+  </div>
+
 </section>
 
 <footer class="audit-footer">
-  <p><strong>Gofer Content</strong> &middot; Marketing Consultancy & Content Strategy</p>
-  <p>Dayna Himot &middot; <a href="mailto:info@gofercontent.com">info@gofercontent.com</a> &middot; St. Petersburg, FL</p>
-  <p style="margin-top:1rem;font-size:.72rem;color:rgba(0,0,0,.25);">This document is confidential. &copy; 2026 Gofer Content</p>
+  <p><strong>Gofer Content</strong> &#183; Marketing Consultancy &amp; Content Strategy</p>
+  <p>Dayna Himot &#183; info&#64;gofercontent.com &#183; St. Petersburg, FL</p>
+  <p style="margin-top:1rem;font-size:.72rem;color:rgba(0,0,0,.25);">This document is confidential. &#169; 2026 Gofer Content</p>
 </footer>
 </div>
 
