@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dayna Himot — Resume</title>
+<!-- Google Fonts load when viewed in browser; PDF uses fallback system fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Source+Sans+Pro:ital,wght@0,300;0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #1a1a1a;
+    --mid: #4a4a4a;
+    --light: #6e6e6e;
+    --rule: #c8c8c8;
+    --accent: #2c5f7c;
+    --bg: #ffffff;
+    --page-width: 8.5in;
+    --page-padding: 0.65in;
+  }
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+@page {
+size: letter;
+margin: 0.5in 0.55in;
+}
+
+body {
+font-family: ‘Source Sans Pro’, ‘Segoe UI’, sans-serif;
+font-size: 10.5pt;
+line-height: 1.45;
+color: var(–ink);
+background: #f0f0f0;
+-webkit-print-color-adjust: exact;
+print-color-adjust: exact;
+}
+
+.page {
+width: var(–page-width);
+max-width: 100%;
+margin: 0 auto;
+background: var(–bg);
+padding: var(–page-padding);
+min-height: 11in;
+}
+
+@media screen and (min-width: 900px) {
+.page {
+margin: 24px auto;
+box-shadow: 0 1px 8px rgba(0,0,0,0.12);
+}
+}
+
+@media print {
+body { background: white; }
+.page { box-shadow: none; margin: 0; padding: 0; }
+.no-print { display: none !important; }
+}
+
+/* ── Header ── */
+header { margin-bottom: 18pt; }
+
+h1 {
+font-family: ‘Libre Baskerville’, Georgia, serif;
+font-size: 22pt;
+font-weight: 700;
+color: var(–ink);
+letter-spacing: 0.02em;
+margin-bottom: 3pt;
+}
+
+.tagline {
+font-size: 11pt;
+font-weight: 600;
+color: var(–accent);
+letter-spacing: 0.03em;
+margin-bottom: 8pt;
+}
+
+.contact-row {
+font-size: 9.5pt;
+color: var(–mid);
+display: flex;
+flex-wrap: wrap;
+gap: 6pt 18pt;
+}
+
+.contact-row a {
+color: var(–mid);
+text-decoration: none;
+}
+
+.contact-row a:hover { color: var(–accent); }
+
+/* ── Section headings ── */
+.section-title {
+font-family: ‘Libre Baskerville’, Georgia, serif;
+font-size: 11pt;
+font-weight: 700;
+color: var(–accent);
+text-transform: uppercase;
+letter-spacing: 0.12em;
+border-bottom: 1.5px solid var(–accent);
+padding-bottom: 3pt;
+margin-top: 16pt;
+margin-bottom: 10pt;
+}
+
+/* ── Summary ── */
+.summary {
+font-size: 10.5pt;
+color: var(–mid);
+line-height: 1.5;
+margin-bottom: 2pt;
+}
+
+/* ── Experience entries ── */
+.entry { margin-bottom: 12pt; page-break-inside: avoid; }
+
+.entry-header {
+display: flex;
+justify-content: space-between;
+align-items: baseline;
+flex-wrap: wrap;
+gap: 0 12pt;
+}
+
+.entry-title {
+font-weight: 700;
+font-size: 10.5pt;
+color: var(–ink);
+}
+
+.entry-org {
+font-weight: 400;
+color: var(–mid);
+}
+
+.entry-date {
+font-size: 9.5pt;
+color: var(–light);
+white-space: nowrap;
+}
+
+.entry-location {
+font-size: 9pt;
+color: var(–light);
+font-style: italic;
+margin-bottom: 3pt;
+}
+
+.entry ul {
+margin: 3pt 0 0 14pt;
+padding: 0;
+}
+
+.entry li {
+margin-bottom: 2pt;
+font-size: 10pt;
+color: var(–mid);
+line-height: 1.42;
+}
+
+/* ── Skills grid ── */
+.skills-grid {
+display: grid;
+grid-template-columns: repeat(3, 1fr);
+gap: 4pt 20pt;
+font-size: 10pt;
+color: var(–mid);
+}
+
+.skill-category {
+font-weight: 600;
+color: var(–ink);
+font-size: 9.5pt;
+margin-bottom: 1pt;
+}
+
+.skill-items {
+font-size: 9.5pt;
+line-height: 1.4;
+}
+
+/* ── Education ── */
+.edu-entry {
+display: flex;
+justify-content: space-between;
+align-items: baseline;
+}
+
+.edu-degree { font-weight: 600; }
+.edu-school { color: var(–mid); }
+.edu-year { font-size: 9.5pt; color: var(–light); }
+
+/* ── Print button ── */
+.print-bar {
+text-align: center;
+padding: 16px;
+}
+
+.print-btn {
+font-family: ‘Source Sans Pro’, sans-serif;
+font-size: 13px;
+font-weight: 600;
+color: white;
+background: var(–accent);
+border: none;
+padding: 10px 28px;
+border-radius: 4px;
+cursor: pointer;
+letter-spacing: 0.04em;
+}
+
+.print-btn:hover { opacity: 0.85; }
+</style>
+
+</head>
+<body>
+
+<div class="print-bar no-print">
+  <button class="print-btn" onclick="window.print()">Save as PDF / Print</button>
+</div>
+
+<div class="page">
+
+  <header>
+    <h1>Dayna Himot</h1>
+    <div class="tagline">Communications Strategist · Event Producer · Community Builder</div>
+    <div class="contact-row">
+      <span>St. Petersburg, FL</span>
+      <a href="mailto:daynahimot@gmail.com">daynahimot@gmail.com</a>
+      <span>303-435-3805</span>
+      <a href="https://www.linkedin.com/in/daynahimot">linkedin.com/in/daynahimot</a>
+      <a href="https://gofercontent.com">gofercontent.com</a>
+    </div>
+  </header>
+
+  <!-- ── Summary ── -->
+
+  <div class="section-title">Summary</div>
+  <p class="summary">
+    Communications professional with 10+ years bridging journalism, marketing, and community engagement. Proven ability to coordinate volunteers, produce events, and turn complex ideas into clear, compelling content. Combines newsroom speed, agency-level polish, and real-world logistics experience across Fortune 500 campaigns, local nonprofits, and large-scale cultural events. Available for full-time, contract, or project-based roles.
+  </p>
+
+  <!-- ── Experience ── -->
+
+  <div class="section-title">Experience</div>
+
+  <div class="entry">
+    <div class="entry-header">
+      <div class="entry-title">Founder &amp; Communications Strategist <span class="entry-org">— Gofer Content</span></div>
+      <div class="entry-date">2025 – Present</div>
+    </div>
+    <div class="entry-location">St. Petersburg, FL</div>
+    <ul>
+      <li>Build messaging systems, landing pages, and local-impact campaigns for small businesses and community organizations</li>
+      <li>Coordinate volunteers and event logistics for local initiatives; create standardized checklists and post-event reports</li>
+      <li>Produce SEO-optimized web content with accessible structure, alt text, and search-friendly metadata</li>
+      <li>Consult on practical AI integration for small business workflows — content, scheduling, and customer communication</li>
+    </ul>
+  </div>
+
+  <div class="entry">
+    <div class="entry-header">
+      <div class="entry-title">Business Development &amp; Content Director <span class="entry-org">— Modiphy</span></div>
+      <div class="entry-date">2021 – 2025</div>
+    </div>
+    <div class="entry-location">St. Petersburg, FL</div>
+    <ul>
+      <li>Wrote sponsor ad copy for an automotive client featured on Theo Von's podcast (2.3M YouTube views in 24 hours), contributing to measurable traffic lift</li>
+      <li>Produced sales collateral and coordinated outreach that opened new accounts; managed handoffs between marketing and project teams</li>
+      <li>Planned client webinars and on-site activations — guest communication, run-of-show, and post-event documentation</li>
+    </ul>
+  </div>
+
+  <div class="entry">
+    <div class="entry-header">
+      <div class="entry-title">Senior Copywriter &amp; SEO Specialist <span class="entry-org">— 321 Ignition</span></div>
+      <div class="entry-date">2019 – 2021</div>
+    </div>
+    <ul>
+      <li>Led on-page and technical SEO across mobile-first sites; created briefs and copy that improved organic rankings and lead flow</li>
+      <li>Partnered with product, design, and dev to align content goals with API integrations and schema markup</li>
+      <li>Conducted client interviews and published case-style articles showcasing conversion wins</li>
+    </ul>
+  </div>
+
+  <div class="entry">
+    <div class="entry-header">
+      <div class="entry-title">Copywriter <span class="entry-org">— Haddad &amp; Partners</span></div>
+      <div class="entry-date">2019 – 2020</div>
+    </div>
+    <ul>
+      <li>Wrote and edited newsletters, banners, social media, and website copy across automotive, financial, and F&B sectors</li>
+      <li>Maintained client style guides and collaborated with creative teams on advertising execution</li>
+    </ul>
+  </div>
+
+  <div class="entry">
+    <div class="entry-header">
+      <div class="entry-title">Digital Content Producer <span class="entry-org">— FOX31 / KWGN (Tribune Media)</span></div>
+      <div class="entry-date">2019</div>
+    </div>
+    <div class="entry-location">Denver, CO</div>
+    <ul>
+      <li>Wrote breaking news with speed and accuracy in AP Style; managed social feeds for two television stations</li>
+      <li>Coordinated with anchors and producers to publish accurate, real-time digital updates and push alerts</li>
+    </ul>
+  </div>
+
+  <div class="entry">
+    <div class="entry-header">
+      <div class="entry-title">DPW Shop Steward <span class="entry-org">— Burning Man Project</span></div>
+      <div class="entry-date">2023 – Present (seasonal)</div>
+    </div>
+    <div class="entry-location">Gerlach, NV</div>
+    <ul>
+      <li>Manage tool inventory and two equipment trailers (27' shop, 25' hardware) for Man Pavilion build crew</li>
+      <li>Coordinate volunteers and logistics during build and strike; develop signage, safety protocols, and quick-reference guides</li>
+      <li>Track repairs, parts, and crew hand-offs in a high-demand, physically intensive environment</li>
+    </ul>
+  </div>
+
+  <div class="entry">
+    <div class="entry-header">
+      <div class="entry-title">Managing Editor <span class="entry-org">— MSU Denver Journalism Dept.</span></div>
+      <div class="entry-date">2017 – 2018</div>
+    </div>
+    <ul>
+      <li>Project-managed second edition printing of "Small Towns Colorado," a 60-page nonfiction book — fact-checking, copy editing, layout, and design oversight</li>
+    </ul>
+  </div>
+
+  <div class="entry">
+    <div class="entry-header">
+      <div class="entry-title">Special Events Producer <span class="entry-org">— Boulder Int'l Fringe Festival</span></div>
+      <div class="entry-date">2007 – 2008</div>
+    </div>
+    <div class="entry-location">Boulder, CO</div>
+    <ul>
+      <li>Managed budgets of $2,000–$5,000 for 15 events during annual 12-day festival</li>
+      <li>Submitted venue proposals, coordinated volunteer teams, wrote press releases, and curated monthly performance salon</li>
+    </ul>
+  </div>
+
+  <div class="entry">
+    <div class="entry-header">
+      <div class="entry-title">Production Coordinator <span class="entry-org">— Gaiam / Gaia Film Festival</span></div>
+      <div class="entry-date">2008</div>
+    </div>
+    <div class="entry-location">Louisville, CO</div>
+    <ul>
+      <li>Coordinated schedules and led training for 75+ volunteers; managed press outreach, ticketing, and sponsorship packages</li>
+    </ul>
+  </div>
+
+  <!-- ── Volunteer & Community ── -->
+
+  <div class="section-title">Volunteer &amp; Community</div>
+
+  <div class="entry">
+    <ul>
+      <li><strong>Coordinator of Volunteers (Intern), Burning Man HQ</strong> — Managed volunteer shift scheduling, Salesforce list maintenance, and liaison between staff and volunteer teams (2018)</li>
+      <li><strong>Director, Athena Project</strong> — Directed and mixed professional-grade multitrack voice-over podcast for seven actors; led Q&A at TEDxMileHigh (2018)</li>
+      <li><strong>Production Coordinator, Theatre13</strong> — Managed budgets for black-box theater productions, coordinated venues, volunteers, press, and donor relations (2005–2007)</li>
+      <li><strong>Local community stewardship</strong> — Organizes ad-hoc neighborhood clean-ups, trail maintenance, and informal community-building initiatives in St. Petersburg</li>
+    </ul>
+  </div>
+
+  <!-- ── Skills ── -->
+
+  <div class="section-title">Skills</div>
+  <div class="skills-grid">
+    <div>
+      <div class="skill-category">Communication</div>
+      <div class="skill-items">AP Style, copywriting, editing, press releases, internal comms, storytelling, creative briefs</div>
+    </div>
+    <div>
+      <div class="skill-category">Events &amp; Coordination</div>
+      <div class="skill-items">Volunteer management, run-of-show, event logistics, stakeholder outreach, sponsorship, budgets</div>
+    </div>
+    <div>
+      <div class="skill-category">Digital &amp; Technical</div>
+      <div class="skill-items">SEO, WordPress, HTML/CSS, CMS, Google Suite, Canva, Salesforce, analytics, accessibility</div>
+    </div>
+  </div>
+
+  <!-- ── Education ── -->
+
+  <div class="section-title">Education</div>
+  <div class="edu-entry">
+    <div>
+      <span class="edu-degree">Bachelor of Arts, Social Documentary Journalism</span>
+      <span class="edu-school"> — Metropolitan State University of Denver</span>
+    </div>
+    <div class="edu-year">2015 – 2018</div>
+  </div>
+
+</div><!-- .page -->
+
+</body>
+</html>
