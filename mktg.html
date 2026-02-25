@@ -1,0 +1,583 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Emersoft Creator Marketing Proposal</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      line-height: 1.6;
+      color: #1a1a1a;
+      background: #f8f9fa;
+      padding: 20px;
+      -webkit-font-smoothing: antialiased;
+    }
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      background: white;
+      padding: 32px 20px;
+      border-radius: 12px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    }
+    @media (min-width: 600px) {
+      .container { padding: 60px 48px; }
+    }
+    h1 {
+      font-size: 26px;
+      color: #10b981;
+      margin-bottom: 8px;
+      line-height: 1.2;
+      font-weight: 700;
+    }
+    @media (min-width: 600px) {
+      h1 { font-size: 34px; }
+    }
+    .subtitle {
+      color: #6b7280;
+      font-size: 13px;
+      margin-bottom: 32px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      font-weight: 600;
+    }
+    h2 {
+      font-size: 20px;
+      color: #111;
+      margin: 40px 0 16px;
+      padding-bottom: 8px;
+      border-bottom: 2px solid #10b981;
+      font-weight: 700;
+    }
+    @media (min-width: 600px) {
+      h2 { font-size: 26px; }
+    }
+    h3 {
+      font-size: 17px;
+      color: #374151;
+      margin: 24px 0 12px;
+      font-weight: 600;
+    }
+    @media (min-width: 600px) {
+      h3 { font-size: 18px; }
+    }
+    p, li {
+      margin-bottom: 12px;
+      color: #4b5563;
+      font-size: 15px;
+    }
+    ul, ol {
+      margin-left: 20px;
+      margin-bottom: 16px;
+    }
+    .highlight-box {
+      background: #ecfdf5;
+      border-left: 4px solid #10b981;
+      padding: 18px;
+      margin: 24px 0;
+      border-radius: 6px;
+    }
+    .warning-box {
+      background: #fef3c7;
+      border-left: 4px solid #f59e0b;
+      padding: 18px;
+      margin: 24px 0;
+      border-radius: 6px;
+    }
+    .price-box {
+      background: #f9fafb;
+      border: 2px solid #10b981;
+      padding: 24px;
+      margin: 32px 0;
+      text-align: center;
+      border-radius: 8px;
+    }
+    .price {
+      font-size: 38px;
+      font-weight: 800;
+      color: #10b981;
+      margin: 8px 0;
+      line-height: 1;
+    }
+    @media (min-width: 600px) {
+      .price { font-size: 42px; }
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 20px 0;
+      font-size: 14px;
+    }
+    th, td {
+      padding: 10px 8px;
+      text-align: left;
+      border-bottom: 1px solid #e5e7eb;
+    }
+    th {
+      background: #f9fafb;
+      font-weight: 600;
+      color: #374151;
+      font-size: 13px;
+    }
+    .table-scroll {
+      overflow-x: auto;
+      margin: 20px 0;
+      border: 1px solid #e5e7eb;
+      border-radius: 8px;
+    }
+    .footer {
+      margin-top: 48px;
+      padding-top: 24px;
+      border-top: 1px solid #e5e7eb;
+      color: #6b7280;
+      font-size: 14px;
+    }
+    strong { color: #111; font-weight: 600; }
+    .badge {
+      display: inline-block;
+      background: #fef3c7;
+      color: #92400e;
+      padding: 4px 12px;
+      border-radius: 12px;
+      font-size: 12px;
+      font-weight: 700;
+      margin-bottom: 24px;
+    }
+    .option-box {
+      background: #f9fafb;
+      border: 2px solid #e5e7eb;
+      padding: 20px;
+      margin: 16px 0;
+      border-radius: 8px;
+    }
+    .option-box h3 {
+      margin-top: 0;
+      color: #111;
+    }
+    .screenshot {
+      width: 100%;
+      height: auto;
+      border: 1px solid #e5e7eb;
+      border-radius: 8px;
+      margin: 16px 0;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.06);
+      display: block;
+    }
+    .screenshot-caption {
+      font-size: 13px;
+      color: #6b7280;
+      text-align: center;
+      margin: -8px 0 20px;
+      font-style: italic;
+    }
+    .assets-required {
+      background: #fff7ed;
+      border: 2px solid #fb923c;
+      padding: 14px;
+      margin: 16px 0;
+      border-radius: 6px;
+      font-weight: 600;
+      font-size: 14px;
+    }
+    .cta-box {
+      background: #10b981;
+      color: white;
+      padding: 24px;
+      margin: 32px 0;
+      border-radius: 8px;
+      text-align: center;
+    }
+    .cta-box strong {
+      color: white;
+      font-size: 18px;
+    }
+    .hook-example {
+      background: #f9fafb;
+      border-left: 3px solid #10b981;
+      padding: 12px 16px;
+      margin: 12px 0;
+      border-radius: 4px;
+      font-size: 14px;
+    }
+    .hook-example strong {
+      color: #10b981;
+      display: block;
+      margin-bottom: 4px;
+      font-size: 13px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Creator Marketing Strategy for Emersoft</h1>
+    <p class="subtitle">Prepared by Dayna Himot, Gofer Content</p>
+
+    <div class="badge">✨ Research Preview Included</div>
+
+    <div class="highlight-box">
+      <strong>The Issue:</strong><br>
+      Emersoft built the only Shopify app connecting indie bookstores to Ingram's 12M+ titles, but store owners don't know it exists and readers don't know their local shops can suddenly carry any book they want.
+    </div>
+
+    <p><strong>My Solution:</strong> Stop marketing only to store owners. Create reader-facing content through authentic creators who show real shops thriving with Emersoft.</p>
+
+    <h2>Phase 1: Research + Strategy + Scripts ($1,500)</h2>
+
+    <p>This is a <strong>one-time deliverable</strong> that gives you everything you need to launch creator campaigns.</p>
+
+    <h3>1. Market Research (100-Video Audit)</h3>
+    <p>I'm analyzing 50 TikToks + 50 Instagram Reels in book retail, e-commerce, and Shopify to identify:</p>
+    <ul>
+      <li>Hooks that stop scrolling in 3 seconds</li>
+      <li>Formats that drive saves, shares, and conversions</li>
+      <li>How top creators structure content</li>
+      <li>CTAs that get people to act</li>
+    </ul>
+
+    <p><strong>Progress so far:</strong> 15 videos analyzed (10 TikToks, 5 Reels). Here's my research:</p>
+
+    <img src="research-tiktok.png" alt="TikTok research analysis" class="screenshot">
+    <p class="screenshot-caption">TikTok Research: Top-performing hooks and formats</p>
+
+    <img src="research-instagram.png" alt="Instagram research analysis" class="screenshot">
+    <p class="screenshot-caption">Instagram Research: Content patterns that drive engagement</p>
+
+    <div class="table-scroll">
+      <table>
+        <thead>
+          <tr>
+            <th>Hook</th>
+            <th>Views</th>
+            <th>Why It Works</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>"Why do some companies expand globally while others stay stuck?"</td>
+            <td>2.5M</td>
+            <td>Big question + relatable metaphor</td>
+          </tr>
+          <tr>
+            <td>"I need to get rich..." (shows failed side hustles)</td>
+            <td>2M</td>
+            <td>Relatable struggle + payoff</td>
+          </tr>
+          <tr>
+            <td>"Be honest, how often do you think about opening a bookstore?"</td>
+            <td>15.3M</td>
+            <td>Romantic daydream vibe</td>
+          </tr>
+          <tr>
+            <td>"Nothing a little Shopify magic can't fix"</td>
+            <td>4.2M</td>
+            <td>Simple humor + quick visual</td>
+          </tr>
+          <tr>
+            <td>"How to build a Shopify store in 5 minutes"</td>
+            <td>625K</td>
+            <td>Clear promise + time frame</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <p><strong>Deliverable:</strong> Full research doc with hook patterns, engagement drivers, and content frameworks you can reuse.</p>
+
+    <h3>2. Strategy Framework</h3>
+    <p>Based on the research, I'll provide:</p>
+    <ul>
+      <li>Content pillars for Emersoft (product, emotional, educational, community)</li>
+      <li>Platform-specific best practices (TikTok vs. Instagram)</li>
+      <li>Posting cadence recommendations</li>
+      <li>Creator vetting criteria</li>
+      <li>Performance benchmarks to track</li>
+    </ul>
+
+    <h3>3. 25 Custom Hooks for Emersoft</h3>
+    <p>Proven hook templates in 4 categories, adapted for both TikTok and Instagram:</p>
+
+    <h4 style="font-size: 16px; color: #374151; margin: 20px 0 8px;">Product Hooks (6 templates)</h4>
+    <div class="hook-example">
+      <strong>Example:</strong>
+      "This is your store before and after connecting to Ingram"
+    </div>
+
+    <h4 style="font-size: 16px; color: #374151; margin: 20px 0 8px;">Emotional Hooks (6 templates)</h4>
+    <div class="hook-example">
+      <strong>Example:</strong>
+      "I needed to keep my bookstore open. Tried events, subscriptions, merch… then added Ingram through Emersoft and finally hit consistent sales."
+    </div>
+    <div class="hook-example">
+      <strong>Example:</strong>
+      "We used to say 'Sorry, we don't carry that.' Now we say 'Give us a sec.'"
+    </div>
+
+    <h4 style="font-size: 16px; color: #374151; margin: 20px 0 8px;">Educational Hooks (7 templates)</h4>
+    <div class="hook-example">
+      <strong>Example:</strong>
+      "How to add thousands of titles without warehousing them"
+    </div>
+    <div class="hook-example">
+      <strong>Example:</strong>
+      "Do these two things to your Shopify bookstore site tonight and your book sales won't be the same"
+    </div>
+
+    <h4 style="font-size: 16px; color: #374151; margin: 20px 0 8px;">Community Hooks (6 templates)</h4>
+    <div class="hook-example">
+      <strong>Example:</strong>
+      "Be honest, how often do you think about owning your dream bookstore? Here's how real shops are turning that dream into online reality with Emersoft."
+    </div>
+    <div class="hook-example">
+      <strong>Example:</strong>
+      "Tag a shop that needs this app today"
+    </div>
+
+    <p style="margin-top: 16px;"><strong>Platform Adaptation:</strong> Each hook includes specific notes for TikTok (casual, trending audio) vs. Instagram (polished, story-driven).</p>
+
+    <h3>4. 12 Ready-to-Film Scripts</h3>
+    <p>Each script includes:</p>
+    <ul>
+      <li>Hook (first 3 seconds)</li>
+      <li>Structure (problem → reveal → payoff)</li>
+      <li>Key talking points</li>
+      <li>B-roll suggestions</li>
+      <li>Platform-specific notes (TikTok vs. Instagram)</li>
+      <li>Call-to-action</li>
+      <li>Caption + hashtags</li>
+    </ul>
+    <p><strong>Mix:</strong> 6 TikToks, 6 Instagram Reels</p>
+
+    <h3>5. Profile Optimization Checklist</h3>
+    <ul>
+      <li>Bio keywords</li>
+      <li>Highlight setup</li>
+      <li>Story strategy</li>
+      <li>Link-in-bio</li>
+    </ul>
+
+    <h3>6. KPI Tracker</h3>
+    <p>Simple template to track views, engagement, clicks, and demo requests.</p>
+
+    <h3>7. JoinBrands Implementation Guide</h3>
+    <p>Step-by-step instructions for posting campaigns and activating creators (see Phase 2 details below).</p>
+
+    <div class="price-box">
+      <p><strong>Phase 1 Investment</strong></p>
+      <div class="price">$1,500</div>
+      <p>One-time. All research, strategy, scripts, and guides included.</p>
+    </div>
+
+    <h2>Delivery Timeline</h2>
+
+    <div class="warning-box">
+      <strong>⏰ Fast-Track Delivery for Holiday Season</strong><br>
+      To capitalize on peak book shopping season (Nov-Dec), I'm delivering everything by November 16.
+    </div>
+
+    <table>
+      <tr>
+        <th style="width: 30%;">Date</th>
+        <th>What Happens</th>
+      </tr>
+      <tr>
+        <td>Nov 11 (Mon)</td>
+        <td>Kickoff call — I collect app details, assets, target info</td>
+      </tr>
+      <tr>
+        <td>Nov 12-14 (Tue-Thu)</td>
+        <td>Complete 100-video research + deliver strategy framework + 25 hooks</td>
+      </tr>
+      <tr>
+        <td>Nov 15-16 (Fri-Sat)</td>
+        <td>Deliver 12 scripts + captions + profile checklist + KPI tracker + JoinBrands guide</td>
+      </tr>
+      <tr>
+        <td>Nov 17 (Sun)</td>
+        <td>Review call (optional) — answer questions, clarify implementation</td>
+      </tr>
+    </table>
+
+    <h3>My Availability (Nov 17 - Dec 23)</h3>
+    <p>I have a contract commitment Nov 17 - Dec 23. During this period:</p>
+    <ul>
+      <li><strong>Response time:</strong> 24 hours for emails/messages</li>
+      <li><strong>Calls:</strong> Evenings/weekends only</li>
+      <li><strong>Work schedule:</strong> After-hours and weekends (I deliver results on my schedule)</li>
+      <li><strong>If you choose Option B (managed):</strong> Campaign management continues, weekly reports delivered Sundays</li>
+    </ul>
+
+    <p><strong>After Dec 23:</strong> Fully available for holiday campaign acceleration through Dec 31.</p>
+
+    <div class="highlight-box">
+      <strong>Why this timeline works:</strong> You'll have all Phase 1 materials by Nov 16, giving you time to review and launch campaigns before Black Friday (Nov 28). Peak book season runs through Dec 31, so we're perfectly positioned to drive holiday sales.
+    </div>
+
+    <h2>Phase 2: JoinBrands Activation (Optional)</h2>
+
+    <h3>What is JoinBrands?</h3>
+    <p>JoinBrands is a creator marketplace. Here's how it works:</p>
+    <ol>
+      <li>You post ONE campaign using one of my scripts</li>
+      <li>Multiple creators apply to your campaign</li>
+      <li>You approve the creators you like (typically 5-12 creators)</li>
+      <li>Each approved creator makes ONE video based on your script</li>
+      <li>Creators submit their videos for your approval</li>
+      <li>You approve the videos you want to use</li>
+      <li>Creators either post to their feed OR send you raw files to use as ads</li>
+    </ol>
+
+    <p><strong>Result:</strong> 12 approved creators = 12 unique videos from different voices, all promoting Emersoft.</p>
+
+    <div class="highlight-box">
+      <strong>Real Example:</strong> Bloom (wellness brand) approved 700 creators in 10 days, got 700 unique videos, reached 20M+ people, and became the top Prime Day brand in their category.
+    </div>
+
+    <h3>JoinBrands Platform Walkthrough</h3>
+    <p>Here's what the campaign creation process looks like:</p>
+
+    <img src="joinbrands-dashboard.png" alt="JoinBrands creator dashboard" class="screenshot">
+    <p class="screenshot-caption">JoinBrands Creator Dashboard: Browse and select qualified creators</p>
+
+    <img src="joinbrands-step1.png" alt="JoinBrands campaign setup" class="screenshot">
+    <p class="screenshot-caption">Step 1: Choose business type and campaign objective</p>
+
+    <img src="joinbrands-step2.png" alt="JoinBrands content type selection" class="screenshot">
+    <p class="screenshot-caption">Step 2: Select content type (TikTok, Instagram, or both)</p>
+
+    <img src="joinbrands-step3.png" alt="JoinBrands content brief" class="screenshot">
+    <p class="screenshot-caption">Step 3: Paste your content brief (I provide this for you)</p>
+
+    <img src="joinbrands-step4.png" alt="JoinBrands asset upload" class="screenshot">
+    <p class="screenshot-caption">Step 4: Upload brand assets and reference links</p>
+
+    <h3>JoinBrands Pricing (Paid Directly to Platform)</h3>
+    <div class="table-scroll">
+      <table>
+        <tr>
+          <th>Deliverable Type</th>
+          <th>Typical Cost</th>
+          <th>What You Get</th>
+        </tr>
+        <tr>
+          <td>Content + Posting</td>
+          <td>~$100/video</td>
+          <td>Creator films, posts to their feed, tags your brand</td>
+        </tr>
+        <tr>
+          <td>Content Only</td>
+          <td>~$15/video</td>
+          <td>Raw files delivered for you to post or use as ads</td>
+        </tr>
+        <tr>
+          <td>Social Blasts</td>
+          <td>~$9/post</td>
+          <td>Quick shoutout (non-refundable, charged upfront)</td>
+        </tr>
+        <tr>
+          <td>Lives</td>
+          <td>~$50+</td>
+          <td>TikTok Live mentions (requires TikTok Shop)</td>
+        </tr>
+        <tr>
+          <td>Retainer Creators</td>
+          <td>~$400/month</td>
+          <td>One dedicated creator, ongoing monthly content</td>
+        </tr>
+      </table>
+    </div>
+
+    <p style="font-size: 14px; color: #6b7280; margin-top: -8px;"><em>Note: Pricing varies by creator. You're only charged when a creator accepts your job (except for Blasts, which are charged upfront). A 10% tax may apply to product reimbursements.</em></p>
+
+    <h3>Two Activation Options</h3>
+
+    <div class="option-box">
+      <h3>Option A: Your Team Manages It</h3>
+      <p>Your social team uses my scripts and guide to run JoinBrands campaigns.</p>
+      
+      <p><strong>What you do:</strong></p>
+      <ul>
+        <li>Create JoinBrands account</li>
+        <li>Post campaigns using my brief prompts and scripts</li>
+        <li>Review creator applications and approve your favorites</li>
+        <li>Review submitted videos and approve final content</li>
+        <li>Track performance using my KPI template</li>
+      </ul>
+
+      <div class="assets-required">
+        ⚠️ <strong>You must provide assets:</strong> App screenshots, logo, demo video, promo link/code, brand guidelines
+      </div>
+
+      <p><strong>What you pay:</strong> Creator fees only (paid directly to JoinBrands)</p>
+      <p style="font-size: 14px; color: #6b7280;"><em>Example: 12 creators at ~$100 each = ~$1,200 total</em></p>
+    </div>
+
+    <div class="option-box">
+      <h3>Option B: I Manage It For You</h3>
+      <p>I handle everything: setup, briefs, creator vetting, approvals, edits, reporting.</p>
+      
+      <p><strong>What I do:</strong></p>
+      <ul>
+        <li>Set up and manage your JoinBrands account</li>
+        <li>Post optimized campaigns using my scripts</li>
+        <li>Vet creator applications and create shortlist for your approval</li>
+        <li>Manage content submissions, request edits if needed</li>
+        <li>Organize final approved videos in shared folder</li>
+        <li>Provide weekly performance reports (delivered Sundays)</li>
+      </ul>
+
+      <div class="assets-required">
+        ⚠️ <strong>You must provide assets:</strong> App screenshots, logo, demo video, promo link/code, brand guidelines
+      </div>
+
+      <p><strong>Management Fee: $1,500/month</strong></p>
+      <p style="font-size: 14px; color: #6b7280; margin-bottom: 16px;">Covers campaign setup + management for up to 12 creators/month</p>
+
+      <p><strong>PLUS creator costs (paid directly to JoinBrands):</strong></p>
+      <p style="font-size: 14px; color: #6b7280;"><em>Example: 12 creators at ~$100 each = ~$1,200 creator costs</em></p>
+      <p style="font-size: 14px; color: #6b7280;"><em>Total monthly: $1,500 (management) + ~$1,200 (creators) = ~$2,700</em></p>
+
+      <div class="warning-box" style="margin-top: 20px;">
+        <strong>Optional Add-On: New Monthly Scripts ($1,200)</strong><br>
+        Want 12 fresh scripts each month based on performance data? Add $1,200/month. Only needed if you want net-new content beyond Phase 1 scripts.
+      </div>
+    </div>
+
+    <h2>What I Need From You (By Nov 12)</h2>
+    <p><strong>To hit the Nov 16 delivery deadline, I need these materials by Nov 12:</strong></p>
+    <ol>
+      <li><strong>App demo or walkthrough</strong> (Loom video, 5 min max, or existing demo)</li>
+      <li><strong>Brand assets:</strong> logo, 3-5 app screenshots, any existing promo materials</li>
+      <li><strong>Target customer:</strong> 2-3 sentences describing your ideal bookstore owner</li>
+      <li><strong>Main CTA:</strong> demo request link, signup page, or promo code</li>
+      <li><strong>Messaging guidelines:</strong> phrases to avoid, competitor positioning, brand voice notes</li>
+    </ol>
+
+    <p style="font-size: 14px; color: #6b7280; margin-top: 16px;"><em>Can't get everything by Nov 12? Send what you have and I'll work with it. The more info you provide, the more customized the scripts.</em></p>
+
+    <h2>Why This Works</h2>
+    <div class="highlight-box">
+      <ul style="margin:0">
+        <li>80% of marketing leaders shifting budget from SEO to influencer marketing (Sprout Social, 2025)</li>
+        <li>JoinBrands costs 1/10th of traditional influencer contracts</li>
+        <li>58% of holiday shoppers buy books — Q4 is your window</li>
+        <li>Independent bookstores need online integration to stay competitive (Ingram)</li>
+        <li>Creator campaigns like Bloom's generated 20M views in 10 days</li>
+      </ul>
+    </div>
+
+    <div class="cta-box">
+      <strong>Ready to Start?</strong><br>
+      <p style="margin: 12px 0 0; font-size: 15px;">Reply <strong>"Let's go"</strong> to approve Phase 1 ($1,500). I'll send the invoice and kickoff calendar link today.</p>
+      <p style="margin: 8px 0 0; font-size: 14px;">Questions? Let's do a 15-minute call this week.</p>
+    </div>
+
+    <div class="footer">
+      <strong>Dayna Himot</strong><br>
+      Founder, Gofer Content<br>
+      <a href="mailto:info@gofercontent.com" style="color: #10b981;">info@gofercontent.com</a>
+    </div>
+  </div>
+</body>
+</html>
