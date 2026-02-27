@@ -4,7 +4,6 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <link rel="canonical" href="https://gofercontent.com/">
-  <!-- HTML Meta Tags -->
   <title>Gofer Content | Websites, AEO + Hosting in 24-72 Hours</title>
   <meta name="description" content="Director of Online Presence. Websites, AEO, SEO, and hosting rebuilt and live in 24-72 hours. St. Petersburg, FL.">
 
@@ -43,6 +42,24 @@
     a:focus-visible,button:focus-visible{outline:3px solid var(--coral);outline-offset:3px}
     .skip{position:absolute;left:-9999px;background:var(--coral);color:#fff;padding:.5rem 1rem;font-weight:700;z-index:100}
     .skip:focus{position:fixed;top:8px;left:8px}
+
+    /* NAV */
+    .nav{position:fixed;top:0;left:0;right:0;z-index:50;background:var(--black);padding:12px 20px;display:flex;align-items:center;justify-content:space-between}
+    .nav-logo{font-family:var(--head);font-size:.9rem;text-transform:uppercase;color:var(--cream);letter-spacing:.05em}
+    .nav-toggle{background:none;border:none;cursor:pointer;display:flex;flex-direction:column;gap:5px;padding:8px 4px}
+    .nav-toggle span{display:block;width:24px;height:2px;background:var(--cream);transition:all .3s}
+    .nav-toggle[aria-expanded="true"] span:nth-child(1){transform:rotate(45deg) translate(5px,5px)}
+    .nav-toggle[aria-expanded="true"] span:nth-child(2){opacity:0}
+    .nav-toggle[aria-expanded="true"] span:nth-child(3){transform:rotate(-45deg) translate(5px,-5px)}
+    .nav-menu{position:fixed;top:0;left:0;right:0;bottom:0;background:var(--black);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:28px;opacity:0;pointer-events:none;transition:opacity .3s;z-index:49}
+    .nav-menu.open{opacity:1;pointer-events:auto}
+    .nav-menu a{font-family:var(--head);font-size:clamp(24px,6vw,40px);text-transform:uppercase;color:var(--cream);letter-spacing:.04em;transition:color .2s}
+    .nav-menu a:hover{color:var(--coral)}
+    .nav-close{position:absolute;top:12px;right:20px;background:none;border:none;cursor:pointer;padding:8px 4px}
+    .nav-close span{display:block;width:24px;height:2px;background:var(--cream)}
+    .nav-close span:first-child{transform:rotate(45deg) translate(1px,1px)}
+    .nav-close span:last-child{transform:rotate(-45deg) translate(1px,-1px)}
+    body{padding-top:50px}
 
     /* REVEALS */
     .rv{opacity:0;transform:translateY(24px);transition:opacity .7s cubic-bezier(.16,1,.3,1),transform .7s cubic-bezier(.16,1,.3,1)}
@@ -90,13 +107,25 @@
     .svc-item{padding:16px;background:var(--black-warm);border:1.5px solid rgba(212,184,240,.12);border-radius:12px;text-align:center;font-size:.78rem;font-weight:700;text-transform:uppercase;letter-spacing:.04em;color:var(--cream);transition:border-color .25s,transform .25s}
     .svc-item:hover{border-color:var(--purple);transform:translateY(-3px)}
 
+    /* STATS STRIP */
+    .stats{padding:48px 28px;background:var(--cream);border-top:2.5px solid var(--black);border-bottom:2.5px solid var(--black)}
+    .stats h3{font-family:var(--head);font-size:1rem;text-transform:uppercase;text-align:center;letter-spacing:.06em;color:var(--muted);margin-bottom:24px}
+    .stats-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;max-width:700px;margin:0 auto}
+    .stat{text-align:center}
+    .stat-num{font-family:var(--head);font-size:clamp(36px,8vw,56px);line-height:1;color:var(--coral)}
+    .stat-label{font-family:var(--mono);font-size:.65rem;font-weight:700;text-transform:uppercase;letter-spacing:.05em;color:var(--muted);margin-top:6px}
+    .stats-note{font-family:var(--serif);font-style:italic;font-size:.85rem;color:var(--muted);text-align:center;margin-top:20px;max-width:520px;margin-left:auto;margin-right:auto}
+    .stats-note strong{color:var(--ink);font-style:normal}
+    @media(max-width:500px){.stats-grid{grid-template-columns:repeat(2,1fr);gap:20px}}
+
     /* CLIENTS STRIP */
     .clients{padding:48px 28px;background:var(--cream);text-align:center}
     .clients h3{font-family:var(--head);font-size:1rem;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);margin-bottom:24px}
     .client-grid{display:flex;flex-wrap:wrap;justify-content:center;gap:16px;max-width:760px;margin:0 auto}
-    .client-card{display:inline-flex;align-items:center;padding:14px 24px;border:2px solid var(--ink);border-radius:50px;font-family:var(--mono);font-size:.78rem;font-weight:700;text-transform:uppercase;letter-spacing:.03em;color:var(--ink);transition:all .25s;text-decoration:none}
+    .client-card{display:inline-flex;flex-direction:column;align-items:center;padding:16px 28px;border:2px solid var(--ink);border-radius:50px;font-family:var(--mono);font-size:.78rem;font-weight:700;text-transform:uppercase;letter-spacing:.03em;color:var(--ink);transition:all .25s;text-decoration:none}
     .client-card:hover{background:var(--ink);color:var(--cream);border-color:var(--ink)}
-    .client-tag{display:block;font-family:var(--serif);font-style:italic;font-size:.7rem;font-weight:400;text-transform:none;letter-spacing:0;color:var(--muted);margin-top:2px}
+    .client-card:hover .client-tag{color:var(--purple)}
+    .client-tag{display:block;font-family:var(--serif);font-style:italic;font-size:.75rem;font-weight:400;text-transform:none;letter-spacing:0;color:var(--muted);margin-top:4px}
 
     /* GOLD BAND */
     .band-gold{padding:32px 28px;background:var(--gold);text-align:center}
@@ -120,7 +149,9 @@
       .block-coral p{font-size:.95rem}
       .block-purple p{font-size:1.1rem}
       .svc-item{font-size:.85rem}
-      .client-card{font-size:.82rem;padding:12px 20px}
+      .client-card{font-size:.82rem;padding:14px 22px}
+      .stat-label{font-size:.6rem}
+      .stats-note{font-size:.9rem}
     }
 
     @media(prefers-reduced-motion:reduce){
@@ -138,6 +169,23 @@
 <body>
 <a class="skip" href="#main">Skip to content</a>
 
+<!-- NAV -->
+<nav class="nav" role="navigation" aria-label="Main navigation">
+  <span class="nav-logo">Gofer Content</span>
+  <button class="nav-toggle" aria-expanded="false" aria-controls="nav-menu" aria-label="Open menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+<div class="nav-menu" id="nav-menu" role="dialog" aria-label="Navigation menu">
+  <button class="nav-close" aria-label="Close menu">
+    <span></span><span></span>
+  </button>
+  <a href="#services" data-nav>Services</a>
+  <a href="#scores" data-nav>Scores</a>
+  <a href="#clients" data-nav>Clients</a>
+  <a href="#contact" data-nav>Contact</a>
+</div>
+
 <main id="main">
 
   <!-- MARQUEE TOP -->
@@ -150,8 +198,8 @@
 
   <!-- HERO -->
   <section class="hero">
-    <h1 class="rv">YOUR SITE<br>IN 72 HOURS.<em>Not 6 months. Not even two weeks.</em></h1>
-    <p class="hero-body rv d1"><strong>Gofer Content</strong> is a <strong>Director of Online Presence</strong> with 10+ years in SEO, 4 years working with AI, and a broadcast journalism background that means every word on your site earns its place.<span class="blink"> _</span></p>
+    <h1 class="rv">YOUR SITE<br>IN 72 HOURS.<em>Not 6 months, not even two weeks.</em></h1>
+    <p class="hero-body rv d1"><strong>Gofer Content</strong> is a <strong>Director of Online Presence</strong> with 10+ years in SEO and senior copywriting, 4 years working with AI, and a broadcast journalism background that means every word on your site earns its place.<span class="blink"> _</span></p>
     <p class="hero-body rv d2">Full website revamps in 24-72 hours. Site updates same day. AEO, SEO, hosting, and search profiles handled so you never have to think about it.</p>
     <div class="ctas rv d3">
       <a class="cta cta-fill" href="sms:+17273539673?&body=Hey%20Dayna%2C%20I%20want%20to%20talk%20about%20what%20Gofer%20Content%20can%20do%20for%20my%20business.">Text me</a>
@@ -163,7 +211,7 @@
   <!-- CORAL: THE POINT -->
   <div class="block-coral">
     <h2 class="rv">YOUR WEBSITE SHOULDN'T COST A FORTUNE OR TAKE FOREVER.</h2>
-    <p class="rv d1">Gofer Content founder Dayna Himot has spent a decade in search, four years working directly with AI, and built a career on one principle: your online presence should work as hard as you do. Gofer Content delivers full site revamps in 24-72 hours, same-day updates, and ongoing optimization so your business shows up where it matters.</p>
+    <p class="rv d1">Gofer Content founder Dayna Himot has spent a decade in search and senior copywriting, four years working directly with AI, and built a career on one principle: your online presence should work as hard as you do. Gofer Content delivers full site revamps in 24-72 hours, same-day updates, and ongoing optimization so your business shows up where it matters.</p>
     <p class="rv d2"><strong>AEO is the next level of SEO.</strong> If that sentence means nothing to you yet, we should talk.</p>
   </div>
 
@@ -176,7 +224,7 @@
   </div>
 
   <!-- SERVICES -->
-  <div class="svc-strip">
+  <div class="svc-strip" id="services">
     <h3 class="rv">What Gofer Content handles for you</h3>
     <div class="svc-grid">
       <div class="svc-item rv d1">Website builds</div>
@@ -188,8 +236,32 @@
     </div>
   </div>
 
+  <!-- SCORES -->
+  <section class="stats" id="scores">
+    <h3 class="rv">Google Lighthouse scores on this page</h3>
+    <div class="stats-grid rv d1">
+      <div class="stat">
+        <div class="stat-num">100</div>
+        <div class="stat-label">Accessibility</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num">100</div>
+        <div class="stat-label">Best Practices</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num">100</div>
+        <div class="stat-label">SEO</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num">99</div>
+        <div class="stat-label">Performance</div>
+      </div>
+    </div>
+    <p class="stats-note rv d2"><strong>Full ADA compliance baked into the code.</strong> No overlays, no plugins, no extra extensions. Every Gofer Content site ships accessible out of the box.</p>
+  </section>
+
   <!-- CLIENTS -->
-  <section class="clients">
+  <section class="clients" id="clients">
     <h3 class="rv">Currently directing online presence for</h3>
     <div class="client-grid">
       <a class="client-card rv d1" href="https://www.livingrestorations.com/" target="_blank" rel="noopener">Living Restorations<span class="client-tag">Ecological Design + Coastal Restoration</span></a>
@@ -205,7 +277,7 @@
   </div>
 
   <!-- PURPLE: CLOSE -->
-  <section class="block-purple">
+  <section class="block-purple" id="contact">
     <h2 class="rv">READY WHEN<br>YOU ARE.</h2>
     <p class="rv d1">Your online presence deserves someone who moves as fast as you do.</p>
     <div class="ctas rv d2">
@@ -222,8 +294,21 @@
 
 <script>
 document.getElementById('y').textContent=new Date().getFullYear();
+
+// Reveal animations
 const r=matchMedia('(prefers-reduced-motion:reduce)').matches;
 if(!r){const o=new IntersectionObserver(e=>{e.forEach(e=>{if(e.isIntersecting){e.target.classList.add('on');o.unobserve(e.target)}})},{threshold:.08,rootMargin:'0px 0px -30px 0px'});document.querySelectorAll('.rv').forEach(el=>o.observe(el))}else{document.querySelectorAll('.rv').forEach(el=>el.classList.add('on'))}
+
+// Nav
+const toggle=document.querySelector('.nav-toggle');
+const menu=document.getElementById('nav-menu');
+const closeBtn=document.querySelector('.nav-close');
+function openNav(){menu.classList.add('open');toggle.setAttribute('aria-expanded','true');document.body.style.overflow='hidden'}
+function closeNav(){menu.classList.remove('open');toggle.setAttribute('aria-expanded','false');document.body.style.overflow=''}
+toggle.addEventListener('click',openNav);
+closeBtn.addEventListener('click',closeNav);
+menu.querySelectorAll('[data-nav]').forEach(a=>{a.addEventListener('click',()=>{closeNav()})});
+document.addEventListener('keydown',e=>{if(e.key==='Escape'&&menu.classList.contains('open'))closeNav()});
 </script>
 </body>
 </html>
