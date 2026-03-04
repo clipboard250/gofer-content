@@ -1,0 +1,723 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="noindex, nofollow, noarchive" />
+  <title>Client Brief Confirmation | Gofer Content</title>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,400;0,600;0,700;1,400&family=Noto+Serif:wght@400;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --terracotta: #9E4732;
+      --turquoise: #508E8A;
+      --sand: #F8F5EB;
+      --mustard: #C9802E;
+      --cocoa: #63403C;
+      --charcoal: #3B3836;
+      --white: #ffffff;
+      --light-sand: #fdfbf6;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Noto Sans', sans-serif;
+      background: var(--light-sand);
+      color: var(--charcoal);
+      min-height: 100vh;
+    }
+
+    /* ===== PASSWORD SCREEN ===== */
+    #lock-screen {
+      position: fixed;
+      inset: 0;
+      background: var(--charcoal);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 9999;
+      flex-direction: column;
+      gap: 0;
+    }
+
+    .lock-box {
+      background: var(--sand);
+      padding: 48px 40px;
+      max-width: 420px;
+      width: 90%;
+      border-top: 6px solid var(--terracotta);
+    }
+
+    .lock-logo {
+      font-family: 'Noto Serif', serif;
+      font-size: 13px;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--turquoise);
+      margin-bottom: 24px;
+    }
+
+    .lock-title {
+      font-family: 'Noto Serif', serif;
+      font-size: 22px;
+      color: var(--charcoal);
+      margin-bottom: 8px;
+      line-height: 1.3;
+    }
+
+    .lock-sub {
+      font-size: 14px;
+      color: var(--cocoa);
+      margin-bottom: 28px;
+      line-height: 1.6;
+    }
+
+    .lock-input {
+      width: 100%;
+      padding: 12px 16px;
+      border: 2px solid #ddd;
+      font-family: 'Noto Sans', sans-serif;
+      font-size: 15px;
+      color: var(--charcoal);
+      background: white;
+      outline: none;
+      transition: border-color 0.2s;
+      margin-bottom: 12px;
+    }
+
+    .lock-input:focus { border-color: var(--turquoise); }
+
+    .lock-btn {
+      width: 100%;
+      padding: 13px;
+      background: var(--terracotta);
+      color: white;
+      border: none;
+      font-family: 'Noto Sans', sans-serif;
+      font-size: 15px;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+
+    .lock-btn:hover { background: var(--cocoa); }
+
+    .lock-error {
+      font-size: 13px;
+      color: var(--terracotta);
+      margin-top: 10px;
+      display: none;
+    }
+
+    /* ===== MAIN PAGE ===== */
+    #main-content { display: none; }
+
+    .top-banner {
+      background: var(--charcoal);
+      padding: 14px 40px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .banner-logo {
+      font-family: 'Noto Serif', serif;
+      font-size: 13px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--turquoise);
+    }
+
+    .banner-tag {
+      font-size: 12px;
+      color: rgba(255,255,255,0.45);
+      letter-spacing: 0.08em;
+    }
+
+    .hero {
+      background: var(--sand);
+      border-bottom: 3px solid var(--mustard);
+      padding: 52px 40px 44px;
+      max-width: 820px;
+      margin: 0 auto;
+    }
+
+    .hero-eyebrow {
+      font-size: 11px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--turquoise);
+      font-weight: 700;
+      margin-bottom: 14px;
+    }
+
+    .hero-title {
+      font-family: 'Noto Serif', serif;
+      font-size: 32px;
+      color: var(--charcoal);
+      line-height: 1.25;
+      margin-bottom: 18px;
+    }
+
+    .hero-body {
+      font-size: 15px;
+      line-height: 1.75;
+      color: var(--cocoa);
+      max-width: 640px;
+    }
+
+    .urgency-bar {
+      background: var(--terracotta);
+      padding: 14px 40px;
+      max-width: 820px;
+      margin: 0 auto;
+    }
+
+    .urgency-text {
+      color: white;
+      font-size: 13.5px;
+      font-weight: 600;
+      line-height: 1.5;
+      letter-spacing: 0.01em;
+    }
+
+    .page-body {
+      max-width: 820px;
+      margin: 0 auto;
+      padding: 48px 40px 80px;
+    }
+
+    /* ===== BUSINESS SECTIONS ===== */
+    .biz-section {
+      margin-bottom: 56px;
+    }
+
+    .biz-header {
+      padding: 18px 24px;
+      margin-bottom: 0;
+      display: flex;
+      align-items: baseline;
+      gap: 16px;
+    }
+
+    .biz-header.lsg { background: var(--terracotta); }
+    .biz-header.lr  { background: var(--turquoise); }
+
+    .biz-name {
+      font-family: 'Noto Serif', serif;
+      font-size: 20px;
+      color: white;
+      font-weight: 700;
+    }
+
+    .biz-url {
+      font-size: 12px;
+      color: rgba(255,255,255,0.65);
+      letter-spacing: 0.05em;
+    }
+
+    .brief-card {
+      background: white;
+      border: 1px solid #e8e3d8;
+      border-top: none;
+      padding: 28px 28px 24px;
+      margin-bottom: 20px;
+    }
+
+    .brief-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px 32px;
+      margin-bottom: 0;
+    }
+
+    @media (max-width: 600px) {
+      .brief-grid { grid-template-columns: 1fr; }
+      .hero, .page-body, .urgency-bar, .top-banner { padding-left: 20px; padding-right: 20px; }
+      .hero-title { font-size: 24px; }
+    }
+
+    .brief-col h3 {
+      font-size: 10px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      font-weight: 700;
+      color: var(--mustard);
+      margin-bottom: 10px;
+    }
+
+    .brief-col ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .brief-col ul li {
+      font-size: 13.5px;
+      color: var(--charcoal);
+      line-height: 1.6;
+      padding: 3px 0 3px 14px;
+      position: relative;
+    }
+
+    .brief-col ul li::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 10px;
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      background: var(--turquoise);
+    }
+
+    .lsg .brief-col ul li::before { background: var(--terracotta); }
+    .lr  .brief-col ul li::before { background: var(--turquoise); }
+
+    .copy-note {
+      margin-top: 16px;
+      padding: 10px 14px;
+      background: var(--sand);
+      border-left: 3px solid var(--mustard);
+      font-size: 12.5px;
+      color: var(--cocoa);
+      font-style: italic;
+      line-height: 1.5;
+    }
+
+    /* ===== RESPONSE AREA ===== */
+    .response-label {
+      font-size: 11px;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      font-weight: 700;
+      color: var(--charcoal);
+      margin-bottom: 14px;
+    }
+
+    .options-row {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-bottom: 16px;
+    }
+
+    .option-btn {
+      display: flex;
+      align-items: center;
+      gap: 9px;
+      padding: 11px 20px;
+      border: 2px solid #ddd;
+      background: white;
+      cursor: pointer;
+      font-family: 'Noto Sans', sans-serif;
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--charcoal);
+      transition: all 0.15s;
+      user-select: none;
+    }
+
+    .option-btn:hover { border-color: var(--turquoise); color: var(--turquoise); }
+
+    .option-btn.selected-yes   { background: #edf7f6; border-color: var(--turquoise); color: var(--turquoise); }
+    .option-btn.selected-no    { background: #fdf0ed; border-color: var(--terracotta); color: var(--terracotta); }
+    .option-btn.selected-close { background: #fdf7ec; border-color: var(--mustard); color: var(--mustard); }
+
+    .option-dot {
+      width: 16px;
+      height: 16px;
+      border-radius: 50%;
+      border: 2px solid currentColor;
+      position: relative;
+      flex-shrink: 0;
+    }
+
+    .option-btn.selected-yes .option-dot::after,
+    .option-btn.selected-no .option-dot::after,
+    .option-btn.selected-close .option-dot::after {
+      content: '';
+      position: absolute;
+      inset: 2px;
+      border-radius: 50%;
+      background: currentColor;
+    }
+
+    .close-detail {
+      display: none;
+      margin-top: 4px;
+    }
+
+    .close-detail textarea {
+      width: 100%;
+      padding: 12px 14px;
+      border: 2px solid #ddd;
+      font-family: 'Noto Sans', sans-serif;
+      font-size: 13.5px;
+      color: var(--charcoal);
+      background: white;
+      resize: vertical;
+      min-height: 80px;
+      outline: none;
+      transition: border-color 0.2s;
+      line-height: 1.5;
+    }
+
+    .close-detail textarea:focus { border-color: var(--mustard); }
+
+    .close-detail label {
+      display: block;
+      font-size: 12px;
+      color: var(--cocoa);
+      margin-bottom: 8px;
+      font-style: italic;
+    }
+
+    /* ===== SUBMIT ===== */
+    .submit-section {
+      margin-top: 40px;
+      padding: 32px;
+      background: var(--charcoal);
+    }
+
+    .submit-title {
+      font-family: 'Noto Serif', serif;
+      font-size: 18px;
+      color: white;
+      margin-bottom: 8px;
+    }
+
+    .submit-sub {
+      font-size: 13px;
+      color: rgba(255,255,255,0.55);
+      margin-bottom: 22px;
+      line-height: 1.6;
+    }
+
+    .submit-btn {
+      padding: 14px 40px;
+      background: var(--mustard);
+      color: white;
+      border: none;
+      font-family: 'Noto Sans', sans-serif;
+      font-size: 15px;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+
+    .submit-btn:hover { background: var(--terracotta); }
+    .submit-btn:disabled { background: #999; cursor: not-allowed; }
+
+    /* ===== THANK YOU ===== */
+    #thank-you {
+      display: none;
+      max-width: 820px;
+      margin: 60px auto;
+      padding: 0 40px;
+      text-align: center;
+    }
+
+    .ty-icon {
+      width: 60px;
+      height: 60px;
+      background: var(--turquoise);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 24px;
+    }
+
+    .ty-title {
+      font-family: 'Noto Serif', serif;
+      font-size: 28px;
+      color: var(--charcoal);
+      margin-bottom: 12px;
+    }
+
+    .ty-body {
+      font-size: 15px;
+      color: var(--cocoa);
+      line-height: 1.7;
+      max-width: 480px;
+      margin: 0 auto;
+    }
+  </style>
+</head>
+<body>
+
+<!-- ===== LOCK SCREEN ===== -->
+<div id="lock-screen">
+  <div class="lock-box">
+    <div class="lock-logo">Gofer Content</div>
+    <div class="lock-title">Client Brief Review</div>
+    <div class="lock-sub">This page is private and just for you. Enter the password Dayna sent over to get started.</div>
+    <input type="password" class="lock-input" id="pw-input" placeholder="Enter password" />
+    <button class="lock-btn" onclick="checkPassword()">Open Brief</button>
+    <div class="lock-error" id="pw-error">That's not quite right. Check the password in Dayna's message.</div>
+  </div>
+</div>
+
+<!-- ===== MAIN CONTENT ===== -->
+<div id="main-content">
+
+  <div class="top-banner">
+    <span class="banner-logo">Gofer Content</span>
+    <span class="banner-tag">Private / Not indexed</span>
+  </div>
+
+  <div class="hero">
+    <div class="hero-eyebrow">Before we write a single word of copy</div>
+    <div class="hero-title">Who are we trying to reach?<br>Tell me if I got it right.</div>
+    <div class="hero-body">
+      I put this together from everything I already know about your work, credentials, and the people you've mentioned. I'm not asking you to build anything from scratch. I just need you to read through both sections and give me one reaction each. Yes, no, or close but add this one thing. That's it. I cannot write copy that actually converts until I know who it's for. This is the step that unlocks everything else.
+    </div>
+  </div>
+
+  <div class="urgency-bar">
+    <div class="urgency-text">Heads up: This is a required step. Copy for both sites is on hold until I hear back. Takes 5 minutes max.</div>
+  </div>
+
+  <form id="brief-form" action="https://formspree.io/f/mzdankle" method="POST">
+    <div class="page-body">
+
+      <!-- Hidden fields -->
+      <input type="hidden" name="_subject" value="Ideal Client Brief Response - Kiamesha" />
+      <input type="hidden" name="lsg_response" id="lsg_response_field" value="" />
+      <input type="hidden" name="lr_response" id="lr_response_field" value="" />
+
+      <!-- ===== LSG SECTION ===== -->
+      <div class="biz-section lsg">
+        <div class="biz-header lsg">
+          <span class="biz-name">Living Spaces Gardening</span>
+          <span class="biz-url">livingspacesgardening.com</span>
+        </div>
+        <div class="brief-card">
+          <div class="brief-grid">
+            <div class="brief-col">
+              <h3>Who They Are</h3>
+              <ul>
+                <li>Tampa Bay / St. Pete homeowner, ages 35-65</li>
+                <li>Owns their home, likely 3+ years in Florida</li>
+                <li>Household income $75k+, pays for quality when they trust you</li>
+                <li>Environmentally conscious, cares about birds, butterflies, pollinators</li>
+                <li>Frustrated with high water bills or a lawn that never looks right</li>
+                <li>Saw a stunning native yard and thought: I want that</li>
+              </ul>
+            </div>
+            <div class="brief-col">
+              <h3>What They Want</h3>
+              <ul>
+                <li>A beautiful yard that doesn't require constant work</li>
+                <li>To feel good about what they're doing for the environment</li>
+                <li>Someone who knows Florida, not a generic landscaper</li>
+                <li>Low-maintenance, drought-tolerant plants that actually thrive here</li>
+                <li>Trust: credentials, photos of real work, a real person</li>
+              </ul>
+            </div>
+            <div class="brief-col">
+              <h3>How They Find You</h3>
+              <ul>
+                <li>Instagram or TikTok (visual, before/after content)</li>
+                <li>Neighbor referral or word of mouth</li>
+                <li>Google: "Florida native landscaping St. Petersburg"</li>
+                <li>Homes & Gardens feature or editorial mentions</li>
+              </ul>
+            </div>
+            <div class="brief-col">
+              <h3>What They're Afraid Of</h3>
+              <ul>
+                <li>Spending money on something that dies or looks bad</li>
+                <li>A contractor who doesn't understand native plants</li>
+                <li>HOA pushback on non-traditional landscaping</li>
+              </ul>
+            </div>
+          </div>
+          <div class="copy-note">Copy direction: warm, reassuring, visual. Lead with beauty. Follow with ecology.</div>
+        </div>
+
+        <div class="brief-card" style="border-top: 1px solid #e8e3d8; margin-top: -1px;">
+          <div class="response-label">Your reaction to this</div>
+          <div class="options-row">
+            <div class="option-btn" onclick="selectOption('lsg','yes',this)">
+              <span class="option-dot"></span> Yes, that's my person
+            </div>
+            <div class="option-btn" onclick="selectOption('lsg','no',this)">
+              <span class="option-dot"></span> No, something's off
+            </div>
+            <div class="option-btn" onclick="selectOption('lsg','close',this)">
+              <span class="option-dot"></span> Close, but add something
+            </div>
+          </div>
+          <div class="close-detail" id="lsg-detail">
+            <label>What would you add or change?</label>
+            <textarea name="lsg_notes" placeholder="Type anything here, even just a few words..."></textarea>
+          </div>
+        </div>
+      </div>
+
+      <!-- ===== LR SECTION ===== -->
+      <div class="biz-section lr">
+        <div class="biz-header lr">
+          <span class="biz-name">Living Restorations</span>
+          <span class="biz-url">livingrestorations.com</span>
+        </div>
+        <div class="brief-card">
+          <div class="brief-grid">
+            <div class="brief-col">
+              <h3>Who They Are</h3>
+              <ul>
+                <li>Coastal or waterfront property owner with a restoration need</li>
+                <li>HOA or property manager with a pond, wetland, or shoreline</li>
+                <li>Developer, municipality, or land trust seeking permitted work</li>
+                <li>Environmental consultant looking for a credentialed partner</li>
+                <li>Sophisticated buyer: reads the scope, asks about methodology</li>
+              </ul>
+            </div>
+            <div class="brief-col">
+              <h3>What They Want</h3>
+              <ul>
+                <li>Science-based work from someone with real credentials</li>
+                <li>Compliance: permits, documentation, proper species selection</li>
+                <li>A contractor who understands coastal ecosystems, not just plants</li>
+                <li>Long-term ecological outcomes, not just aesthetics</li>
+                <li>Proof of credibility: FANN, Master Naturalist, project results</li>
+              </ul>
+            </div>
+            <div class="brief-col">
+              <h3>How They Find You</h3>
+              <ul>
+                <li>Professional referral: engineer, architect, county planner</li>
+                <li>Google: "coastal restoration St. Petersburg FL"</li>
+                <li>LinkedIn or industry directories</li>
+                <li>Direct outreach to you as a known FANN professional</li>
+              </ul>
+            </div>
+            <div class="brief-col">
+              <h3>What They're Afraid Of</h3>
+              <ul>
+                <li>Hiring someone who can't navigate permitting</li>
+                <li>Ecological missteps that create liability or re-work</li>
+                <li>A vendor who looks good online but lacks field experience</li>
+              </ul>
+            </div>
+          </div>
+          <div class="copy-note">Copy direction: precise, science-forward, credentialed. Lead with expertise. Follow with outcomes.</div>
+        </div>
+
+        <div class="brief-card" style="border-top: 1px solid #e8e3d8; margin-top: -1px;">
+          <div class="response-label">Your reaction to this</div>
+          <div class="options-row">
+            <div class="option-btn" onclick="selectOption('lr','yes',this)">
+              <span class="option-dot"></span> Yes, that's my person
+            </div>
+            <div class="option-btn" onclick="selectOption('lr','no',this)">
+              <span class="option-dot"></span> No, something's off
+            </div>
+            <div class="option-btn" onclick="selectOption('lr','close',this)">
+              <span class="option-dot"></span> Close, but add something
+            </div>
+          </div>
+          <div class="close-detail" id="lr-detail">
+            <label>What would you add or change?</label>
+            <textarea name="lr_notes" placeholder="Type anything here, even just a few words..."></textarea>
+          </div>
+        </div>
+      </div>
+
+      <!-- ===== SUBMIT ===== -->
+      <div class="submit-section">
+        <div class="submit-title">One click and you're done.</div>
+        <div class="submit-sub">Your answers go straight to Dayna. No login, no account, nothing else required. Once she has this, copy work begins.</div>
+        <button type="submit" class="submit-btn" id="submit-btn">Send My Answers</button>
+      </div>
+
+    </div>
+  </form>
+
+  <!-- THANK YOU -->
+  <div id="thank-you">
+    <div class="ty-icon">
+      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+    </div>
+    <div class="ty-title">Got it. Thank you, Kiamesha.</div>
+    <div class="ty-body">Dayna has your answers and will be in touch. Copy work is moving forward.</div>
+  </div>
+
+</div>
+
+<script>
+  // ===== PASSWORD =====
+  // Change this to whatever password you want to share with Kiamesha
+  const PASSWORD = "livingspaces2026";
+
+  function checkPassword() {
+    const val = document.getElementById('pw-input').value;
+    if (val === PASSWORD) {
+      document.getElementById('lock-screen').style.display = 'none';
+      document.getElementById('main-content').style.display = 'block';
+    } else {
+      document.getElementById('pw-error').style.display = 'block';
+      document.getElementById('pw-input').style.borderColor = '#9E4732';
+    }
+  }
+
+  document.getElementById('pw-input').addEventListener('keydown', function(e) {
+    if (e.key === 'Enter') checkPassword();
+  });
+
+  // ===== OPTION SELECTION =====
+  const selections = { lsg: null, lr: null };
+
+  function selectOption(biz, choice, el) {
+    const row = el.closest('.options-row');
+    row.querySelectorAll('.option-btn').forEach(b => {
+      b.classList.remove('selected-yes','selected-no','selected-close');
+    });
+    el.classList.add('selected-' + choice);
+    selections[biz] = choice;
+
+    const detail = document.getElementById(biz + '-detail');
+    detail.style.display = (choice === 'close') ? 'block' : 'none';
+    document.getElementById(biz + '_response_field').value = choice;
+  }
+
+  // ===== FORM SUBMIT =====
+  document.getElementById('brief-form').addEventListener('submit', async function(e) {
+    e.preventDefault();
+
+    const btn = document.getElementById('submit-btn');
+    btn.disabled = true;
+    btn.textContent = 'Sending...';
+
+    const formData = new FormData(this);
+
+    try {
+      const res = await fetch(this.action, {
+        method: 'POST',
+        body: formData,
+        headers: { 'Accept': 'application/json' }
+      });
+
+      if (res.ok) {
+        document.querySelector('.page-body').style.display = 'none';
+        document.querySelector('.hero').style.display = 'none';
+        document.querySelector('.urgency-bar').style.display = 'none';
+        document.getElementById('thank-you').style.display = 'block';
+      } else {
+        btn.disabled = false;
+        btn.textContent = 'Send My Answers';
+        alert('Something went wrong. Try refreshing and submitting again, or text Dayna at your usual number.');
+      }
+    } catch(err) {
+      btn.disabled = false;
+      btn.textContent = 'Send My Answers';
+      alert('Connection issue. Try again in a moment.');
+    }
+  });
+</script>
+
+</body>
+</html>
