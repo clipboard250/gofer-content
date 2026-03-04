@@ -27,90 +27,6 @@
       min-height: 100vh;
     }
 
-    /* ===== PASSWORD SCREEN ===== */
-    #lock-screen {
-      position: fixed;
-      inset: 0;
-      background: var(--charcoal);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      z-index: 9999;
-      flex-direction: column;
-      gap: 0;
-    }
-
-    .lock-box {
-      background: var(--sand);
-      padding: 48px 40px;
-      max-width: 420px;
-      width: 90%;
-      border-top: 6px solid var(--terracotta);
-    }
-
-    .lock-logo {
-      font-family: 'Noto Serif', serif;
-      font-size: 13px;
-      letter-spacing: 0.15em;
-      text-transform: uppercase;
-      color: var(--turquoise);
-      margin-bottom: 24px;
-    }
-
-    .lock-title {
-      font-family: 'Noto Sans', sans-serif;
-      font-weight: 700;
-      font-size: 22px;
-      color: var(--charcoal);
-      margin-bottom: 8px;
-      line-height: 1.3;
-    }
-
-    .lock-sub {
-      font-size: 14px;
-      color: var(--cocoa);
-      margin-bottom: 28px;
-      line-height: 1.6;
-    }
-
-    .lock-input {
-      width: 100%;
-      padding: 12px 16px;
-      border: 2px solid #ddd;
-      font-family: 'Noto Sans', sans-serif;
-      font-size: 15px;
-      color: var(--charcoal);
-      background: white;
-      outline: none;
-      transition: border-color 0.2s;
-      margin-bottom: 12px;
-    }
-
-    .lock-input:focus { border-color: var(--turquoise); }
-
-    .lock-btn {
-      width: 100%;
-      padding: 13px;
-      background: var(--terracotta);
-      color: white;
-      border: none;
-      font-family: 'Noto Sans', sans-serif;
-      font-size: 15px;
-      font-weight: 600;
-      letter-spacing: 0.05em;
-      cursor: pointer;
-      transition: background 0.2s;
-    }
-
-    .lock-btn:hover { background: var(--cocoa); }
-
-    .lock-error {
-      font-size: 13px;
-      color: var(--terracotta);
-      margin-top: 10px;
-      display: none;
-    }
-
     /* ===== MAIN PAGE ===== */
     #main-content { display: none; }
 
@@ -452,36 +368,24 @@
 </head>
 <body>
 
-<!-- ===== LOCK SCREEN ===== -->
-<div id="lock-screen">
-  <div class="lock-box">
-    <div class="lock-logo">Gofer Content</div>
-    <div class="lock-title">Client Brief Review</div>
-    <div class="lock-sub">This page is private and just for you. Enter the password Dayna sent over to get started.</div>
-    <input type="password" class="lock-input" id="pw-input" placeholder="Enter password" />
-    <button class="lock-btn" onclick="checkPassword()">Open Brief</button>
-    <div class="lock-error" id="pw-error">That's not quite right. Check the password in Dayna's message.</div>
-  </div>
-</div>
-
 <!-- ===== MAIN CONTENT ===== -->
-<div id="main-content">
+<div id="main-content" style="display:block">
 
   <div class="top-banner">
     <span class="banner-logo">Gofer Content</span>
-    <span class="banner-tag">Private / Not indexed</span>
+    <span class="banner-tag">For Kiamesha Wray</span>
   </div>
 
   <div class="hero">
-    <div class="hero-eyebrow">Quick question before your sites go full throttle</div>
-    <div class="hero-title">Who is your dream client?</div>
+    <div class="hero-eyebrow">Post-launch punch list</div>
+    <div class="hero-title">Quick one while we're in the groove.</div>
     <div class="hero-body">
-      The more clearly your websites describe who they're for, the better Google, AI search tools, and word of mouth can send the right people your way. Not just any inquiry, the ones who are already sold on what you do before they even contact you.<br><br>I put together a profile for each business based on everything I know about your work. Just tell me if it feels right. That's it.
+      Both sites are live. Most of the checklist I handle on my end. This one I need from you. It tells Google (SEO), AI search tools (AEO), and local search (GEO) exactly who to send your way. I took a first pass. Tell me if I'm right.
     </div>
   </div>
 
   <div class="urgency-bar">
-    <div class="urgency-text">Read each section. Pick yes, no, or add one thing. Done.</div>
+    <div class="urgency-text">Two sections. One reaction each. I'll handle the rest.</div>
   </div>
 
   <form id="brief-form" action="https://formspree.io/f/mzdankle" method="POST">
@@ -546,13 +450,10 @@
           <div class="response-label">Your reaction to this</div>
           <div class="options-row">
             <div class="option-btn" onclick="selectOption('lsg','yes',this)">
-              <span class="option-dot"></span> Yes, that's my person
-            </div>
-            <div class="option-btn" onclick="selectOption('lsg','no',this)">
-              <span class="option-dot"></span> No, something's off
+              <span class="option-dot"></span> Holy moly, spot on!
             </div>
             <div class="option-btn" onclick="selectOption('lsg','close',this)">
-              <span class="option-dot"></span> Close, but add something
+              <span class="option-dot"></span> Great start, needs some tweaks
             </div>
           </div>
           <div class="close-detail" id="lsg-detail">
@@ -615,13 +516,10 @@
           <div class="response-label">Your reaction to this</div>
           <div class="options-row">
             <div class="option-btn" onclick="selectOption('lr','yes',this)">
-              <span class="option-dot"></span> Yes, that's my person
-            </div>
-            <div class="option-btn" onclick="selectOption('lr','no',this)">
-              <span class="option-dot"></span> No, something's off
+              <span class="option-dot"></span> Holy moly, spot on!
             </div>
             <div class="option-btn" onclick="selectOption('lr','close',this)">
-              <span class="option-dot"></span> Close, but add something
+              <span class="option-dot"></span> Great start, needs some tweaks
             </div>
           </div>
           <div class="close-detail" id="lr-detail">
@@ -634,7 +532,7 @@
       <!-- ===== SUBMIT ===== -->
       <div class="submit-section">
         <div class="submit-title">That's it. You're done.</div>
-        <div class="submit-sub">Your answers go straight to Dayna. No login, no account, nothing else needed.</div>
+        <div class="submit-sub">Hit send and Dayna's got it.</div>
         <button type="submit" class="submit-btn" id="submit-btn">Send My Answers</button>
       </div>
 
@@ -646,32 +544,13 @@
     <div class="ty-icon">
       <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
     </div>
-    <div class="ty-title">Got it. Thank you, Kiamesha.</div>
-    <div class="ty-body">Dayna has your answers and will be in touch. Copy work is moving forward.</div>
+    <div class="ty-title">Thank you, Kiamesha.</div>
+    <div class="ty-body">You're honestly a dream client and this is going to make a real difference for both businesses. Dayna's on it.</div>
   </div>
 
 </div>
 
 <script>
-  // ===== PASSWORD =====
-  // Change this to whatever password you want to share with Kiamesha
-  const PASSWORD = "livingspaces2026";
-
-  function checkPassword() {
-    const val = document.getElementById('pw-input').value;
-    if (val === PASSWORD) {
-      document.getElementById('lock-screen').style.display = 'none';
-      document.getElementById('main-content').style.display = 'block';
-    } else {
-      document.getElementById('pw-error').style.display = 'block';
-      document.getElementById('pw-input').style.borderColor = '#9E4732';
-    }
-  }
-
-  document.getElementById('pw-input').addEventListener('keydown', function(e) {
-    if (e.key === 'Enter') checkPassword();
-  });
-
   // ===== OPTION SELECTION =====
   const selections = { lsg: null, lr: null };
 
