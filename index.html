@@ -463,17 +463,15 @@
         <button class="pop-btn" type="submit">Let me in</button>
       </form>
 
-      <!-- mobile: sms first -->
+      <!-- mobile: email first, text as option -->
       <div class="pop-sms-wrap" role="group" aria-label="Get the prompt kit">
-        <a class="pop-sms-btn" href="sms:+17273539673?&body=Hey%20Dayna%2C%20send%20me%20the%20AI%20prompt%20kit.">Text to get it</a>
+        <form class="pop-row" id="pop-form-m" novalidate style="width:100%">
+          <label for="pop-e-m" class="sr-only">Email address</label>
+          <input class="pop-input" type="email" id="pop-e-m" name="email" placeholder="your@email.com" autocomplete="email">
+          <button class="pop-btn" type="submit">Let me in</button>
+        </form>
         <span class="pop-or" aria-hidden="true">— or —</span>
-        <div class="pop-mobile-email">
-          <form class="pop-row" id="pop-form-m" novalidate>
-            <label for="pop-e-m" class="sr-only">Email address</label>
-            <input class="pop-input" type="email" id="pop-e-m" name="email" placeholder="or email instead" autocomplete="email">
-            <button class="pop-btn" type="submit">Let me in</button>
-          </form>
-        </div>
+        <a class="pop-sms-btn" href="sms:+17273539673?&body=Hey%20Dayna%2C%20I%20want%20inside%20the%20Gofer%20brain.">I'd rather text</a>
       </div>
 
       <p class="pop-fine">Fair warning—we're known to follow up.</p>
@@ -533,7 +531,7 @@ document.addEventListener('keydown',e=>{if(e.key==='Escape'&&menu.classList.cont
       if(e.shiftKey){if(document.activeElement===first){e.preventDefault();last.focus();}}
       else{if(document.activeElement===last){e.preventDefault();first.focus();}}
     });
-  },30000);
+  },15000);
 
   function closePop(){
     document.getElementById('pop-overlay').classList.remove('open');
