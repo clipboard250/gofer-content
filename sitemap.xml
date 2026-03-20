@@ -5,9 +5,4 @@
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
-  <url>
-    <loc>https://gofercontent.com/allied-electrical-systems/</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
-  </url>
 </urlset>
