@@ -25,7 +25,9 @@
   <meta name="theme-color" content="#e8553a">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Anton&family=Space+Mono:ital,wght@0,400;0,700;1,400&family=Instrument+Serif:ital@0;1&display=swap"> <link rel="stylesheet" media="print" onload="this.media='all'" href="https://fonts.googleapis.com/css2?family=Anton&family=Space+Mono:ital,wght@0,400;0,700;1,400&family=Instrument+Serif:ital@0;1&display=swap"> <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Anton&family=Space+Mono:ital,wght@0,400;0,700;1,400&family=Instrument+Serif:ital@0;1&display=swap"></noscript>
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Anton&family=Space+Mono:ital,wght@0,400;0,700;1,400&family=Instrument+Serif:ital@0;1&display=swap">
+  <link rel="stylesheet" media="print" onload="this.media='all'" href="https://fonts.googleapis.com/css2?family=Anton&family=Space+Mono:ital,wght@0,400;0,700;1,400&family=Instrument+Serif:ital@0;1&display=swap">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Anton&family=Space+Mono:ital,wght@0,400;0,700;1,400&family=Instrument+Serif:ital@0;1&display=swap"></noscript>
   <style>
     :root{
       --cream:#f5efe0;--coral:#e8553a;--gold:#f0c63a;--blue:#4a8fd9;
@@ -42,6 +44,7 @@
     a:focus-visible,button:focus-visible{outline:3px solid var(--coral);outline-offset:3px}
     .skip{position:absolute;left:-9999px;background:var(--coral);color:#fff;padding:.5rem 1rem;font-weight:700;z-index:100}
     .skip:focus{position:fixed;top:8px;left:8px}
+    .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
 
     /* NAV */
     .nav{position:fixed;top:0;left:0;right:0;z-index:50;background:var(--black);padding:12px 20px;display:flex;align-items:center;justify-content:space-between;border-bottom:2.5px solid var(--gold)}
@@ -84,7 +87,7 @@
     .hero-body{font-size:.88rem;color:var(--muted);max-width:520px;margin:0 auto 28px;line-height:1.75}
     .hero-body strong{color:var(--ink)}
     .blink{animation:blink 1.1s steps(2,start) infinite;color:var(--coral)}
-@keyframes blink{to{opacity:0}}
+    @keyframes blink{to{opacity:0}}
 
     /* CTA ROW */
     .ctas{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin-bottom:16px}
@@ -149,7 +152,7 @@
       .block-coral p{font-size:.95rem}
       .block-purple p{font-size:1.1rem}
       .svc-item{font-size:.85rem}
-     .client-card{font-size:.82rem;padding:14px 22px}
+      .client-card{font-size:.82rem;padding:14px 22px}
       .stat-label{font-size:.6rem}
       .stats-note{font-size:.9rem}
     }
@@ -159,6 +162,169 @@
       .mq-track{animation:none!important}
       *,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important}
     }
+
+    /* ── POPUP ── */
+    .pop-overlay{
+      display:none;position:fixed;inset:0;
+      background:rgba(17,17,17,.88);
+      z-index:200;align-items:center;justify-content:center;padding:20px;
+    }
+    .pop-overlay.open{display:flex;animation:pop-fade .3s ease}
+    @keyframes pop-fade{from{opacity:0}to{opacity:1}}
+
+    .pop{
+      background:var(--black);
+      border:2.5px solid var(--gold);
+      border-radius:4px;
+      padding:44px 36px 36px;
+      max-width:500px;width:100%;
+      position:relative;
+      text-align:center;
+      animation:pop-up .4s cubic-bezier(.16,1,.3,1);
+    }
+    @keyframes pop-up{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:translateY(0)}}
+
+    .pop-close{
+      position:absolute;top:14px;right:16px;
+      background:none;border:none;
+      color:var(--muted);font-family:var(--mono);
+      font-size:.68rem;font-weight:700;
+      text-transform:uppercase;letter-spacing:.06em;
+      cursor:pointer;padding:4px 8px;transition:color .2s;
+    }
+    .pop-close:hover{color:var(--cream)}
+
+    .pop h2{
+      font-family:var(--head);
+      font-size:clamp(28px,7vw,48px);
+      text-transform:uppercase;line-height:.92;
+      color:var(--cream);margin-bottom:12px;
+    }
+
+    .pop-body{
+      font-family:var(--mono);font-style:normal;
+      font-size:.82rem;color:rgba(245,239,224,.82);
+      max-width:380px;margin:0 auto 28px;line-height:1.85;
+    }
+    .pop-body strong{color:var(--gold);}
+
+    .pop-label{
+      font-family:var(--mono);font-size:.66rem;font-weight:700;
+      text-transform:uppercase;letter-spacing:.08em;
+      color:var(--gold);margin-bottom:12px;
+    }
+
+    .pop-row{display:flex;gap:8px}
+
+    .pop-input{
+      flex:1;min-height:52px;padding:.65rem 1.1rem;
+      background:rgba(245,239,224,.07);
+      border:2px solid rgba(245,239,224,.18);
+      border-radius:50px;color:var(--cream);
+      font-family:var(--mono);font-size:.8rem;
+      outline:none;transition:border-color .2s;
+    }
+    .pop-input::placeholder{color:var(--muted)}
+    .pop-input:focus{border-color:var(--cream)}
+    .pop-input:focus-visible{outline:3px solid var(--coral);outline-offset:3px}
+
+    .pop-btn{
+      min-height:52px;padding:.65rem 1.4rem;
+      border-radius:50px;background:var(--coral);
+      color:var(--cream);font-family:var(--mono);
+      font-weight:700;font-size:.8rem;
+      text-transform:uppercase;letter-spacing:.04em;
+      border:2.5px solid var(--coral);
+      cursor:pointer;transition:all .2s;white-space:nowrap;
+    }
+    .pop-btn:hover{background:var(--gold);border-color:var(--gold);color:var(--black)}
+    .pop-btn:disabled{opacity:.5;cursor:not-allowed}
+
+    .pop-sms-wrap{display:none;flex-direction:column;align-items:center;gap:10px}
+    .pop-sms-btn{
+      display:inline-flex;align-items:center;justify-content:center;
+      min-height:52px;width:100%;padding:.65rem 1.8rem;
+      border-radius:50px;background:var(--coral);color:var(--cream);
+      font-family:var(--mono);font-weight:700;font-size:.8rem;
+      text-transform:uppercase;letter-spacing:.04em;
+      border:2.5px solid var(--coral);text-decoration:none;transition:all .2s;
+    }
+    .pop-sms-btn:hover{background:var(--gold);border-color:var(--gold);color:var(--black)}
+    .pop-or{font-family:var(--mono);font-size:.64rem;color:var(--muted);text-transform:uppercase;letter-spacing:.06em}
+    .pop-mobile-email .pop-row{flex-direction:column;gap:8px}
+    .pop-mobile-email .pop-btn{width:100%}
+
+    @media(max-width:560px){
+      .pop-row{display:none}
+      .pop-sms-wrap{display:flex}
+      .pop{padding:40px 20px 28px}
+    }
+
+    .pop-fine{font-size:.64rem;color:var(--muted);font-style:italic;margin-top:10px}
+    .pop-err{font-size:.72rem;color:var(--coral);margin-top:8px;display:none}
+
+    /* unlocked state */
+    .pop-content{display:none;text-align:left}
+    .pop-content.on{display:block;animation:pop-fade .4s ease both}
+
+    .pop-reveal-body{
+      font-family:var(--mono);font-size:.78rem;
+      color:rgba(245,239,224,.75);line-height:1.8;
+      margin-bottom:20px;
+    }
+    .pop-words{
+      display:flex;flex-direction:column;gap:4px;
+      margin-bottom:20px;
+    }
+    .pop-words span{
+      font-family:var(--head);font-size:clamp(28px,6vw,42px);
+      text-transform:uppercase;line-height:1;
+      color:var(--coral);letter-spacing:.02em;
+    }
+    .pop-reveal-fine{
+      font-family:var(--serif);font-style:italic;
+      font-size:.85rem;color:var(--gold);
+    }
+
+    .pop-prompts{display:flex;flex-direction:column;gap:10px}
+
+    .pop-prompt{
+      background:var(--black-warm);
+      border:1.5px solid rgba(245,239,224,.1);
+      border-radius:10px;padding:16px 18px 14px;
+      transition:border-color .25s;
+    }
+    .pop-prompt:hover{border-color:rgba(245,239,224,.28)}
+
+    .pop-prompt-title{
+      font-family:var(--head);font-size:.82rem;
+      text-transform:uppercase;letter-spacing:.04em;
+      color:var(--cream);display:block;margin-bottom:3px;
+    }
+    .pop-when{
+      font-family:var(--serif);font-style:italic;
+      font-size:.72rem;color:var(--muted);
+      margin-bottom:10px;line-height:1.5;
+    }
+    .pop-text{
+      font-family:var(--mono);font-size:.72rem;
+      line-height:1.75;color:rgba(245,239,224,.78);
+      background:rgba(245,239,224,.04);
+      border:1.5px solid rgba(245,239,224,.07);
+      border-radius:6px;padding:12px 14px;
+      margin-bottom:8px;white-space:pre-wrap;
+    }
+    .pop-copy{
+      background:none;
+      border:1.5px solid rgba(245,239,224,.18);
+      border-radius:50px;padding:4px 12px;
+      font-family:var(--mono);font-size:.58rem;
+      font-weight:700;text-transform:uppercase;
+      letter-spacing:.05em;color:var(--cream);
+      cursor:pointer;transition:all .2s;
+    }
+    .pop-copy:hover{background:var(--cream);color:var(--black)}
+    .pop-copy.done{background:var(--gold);border-color:var(--gold);color:var(--black)}
   </style>
 
   <script type="application/ld+json">
@@ -199,8 +365,8 @@
   <!-- HERO -->
   <section class="hero">
     <h1 class="rv">NO ONE'S READING<br>YOUR WEBSITE.<em>Let's fix that in 72 hours.</em></h1>
-   <p class="hero-body rv d1">Your site, your goals, no templates, no lock-in. Built from scratch in 24-72 hours, SEO, AEO, hosting handled, and every AI answer engine from Google to Perplexity knows you exist. You never touch a thing.<span class="blink"> _</span></p>
-  <div class="ctas rv d2">
+    <p class="hero-body rv d1">Your site, your goals, no templates, no lock-in. Built from scratch in 24-72 hours, SEO, AEO, hosting handled, and every AI answer engine from Google to Perplexity knows you exist. You never touch a thing.<span class="blink"> _</span></p>
+    <div class="ctas rv d2">
       <a class="cta cta-fill" href="sms:+17273539673?&body=Hey%20Dayna%2C%20I%20want%20to%20talk%20about%20what%20Gofer%20Content%20can%20do%20for%20my%20business.">Text me</a>
       <a class="cta cta-open" href="tel:+17273539673">Call me</a>
     </div>
@@ -232,30 +398,18 @@
       <div class="svc-item rv d4">Google + Apple</div>
       <div class="svc-item rv d5">Marketing strategy</div>
       <div class="svc-item rv d6">Landing + Splash Pages</div>
-    <div class="svc-item rv d6">Social + Creator Content</div>
+      <div class="svc-item rv d6">Social + Creator Content</div>
     </div>
   </div>
-  
+
   <!-- SCORES -->
   <section class="stats" id="scores">
     <h3 class="rv">Google Lighthouse scores on this page</h3>
     <div class="stats-grid rv d1">
-      <div class="stat">
-        <div class="stat-num">100</div>
-        <div class="stat-label">Accessibility</div>
-      </div>
-      <div class="stat">
-        <div class="stat-num">100</div>
-        <div class="stat-label">Best Practices</div>
-      </div>
-      <div class="stat">
-        <div class="stat-num">100</div>
-        <div class="stat-label">SEO</div>
-      </div>
-      <div class="stat">
-        <div class="stat-num">99</div>
-        <div class="stat-label">Performance</div>
-      </div>
+      <div class="stat"><div class="stat-num">100</div><div class="stat-label">Accessibility</div></div>
+      <div class="stat"><div class="stat-num">100</div><div class="stat-label">Best Practices</div></div>
+      <div class="stat"><div class="stat-num">100</div><div class="stat-label">SEO</div></div>
+      <div class="stat"><div class="stat-num">99</div><div class="stat-label">Performance</div></div>
     </div>
     <p class="stats-note rv d2">Every customer who visits your site can use it, on any device, in any browser. No plugins, no add-ons, no extra cost. That's not a bonus feature. That's the baseline.</p>
   </section>
@@ -292,6 +446,55 @@
   <p>&copy; <span id="y"></span> Gofer Content <span class="sep">|</span> St. Petersburg, Florida <span class="sep">|</span> Yes, this page is the flex.</p>
 </footer>
 
+<!-- POPUP -->
+<div class="pop-overlay" id="pop-overlay" role="dialog" aria-modal="true" aria-labelledby="pop-heading">
+  <div class="pop" id="pop">
+    <button class="pop-close" id="pop-close" aria-label="Close popup">✕ close</button>
+
+    <div id="pop-gate">
+      <h2 id="pop-heading">NOT<br>CONVINCED?</h2>
+      <p class="pop-body">We pull people out of online <strong>dumpster fires</strong> for a living.</p>
+      <p class="pop-label">🧠 look inside Gofer Content's brain</p>
+
+      <!-- desktop email -->
+      <form class="pop-row" id="pop-form-d" novalidate aria-label="Get the prompt kit">
+        <label for="pop-e-d" class="sr-only">Email address</label>
+        <input class="pop-input" type="email" id="pop-e-d" name="email" placeholder="your@email.com" autocomplete="email" required>
+        <button class="pop-btn" type="submit">Let me in</button>
+      </form>
+
+      <!-- mobile: sms first -->
+      <div class="pop-sms-wrap" role="group" aria-label="Get the prompt kit">
+        <a class="pop-sms-btn" href="sms:+17273539673?&body=Hey%20Dayna%2C%20send%20me%20the%20AI%20prompt%20kit.">Text to get it</a>
+        <span class="pop-or" aria-hidden="true">— or —</span>
+        <div class="pop-mobile-email">
+          <form class="pop-row" id="pop-form-m" novalidate>
+            <label for="pop-e-m" class="sr-only">Email address</label>
+            <input class="pop-input" type="email" id="pop-e-m" name="email" placeholder="or email instead" autocomplete="email">
+            <button class="pop-btn" type="submit">Let me in</button>
+          </form>
+        </div>
+      </div>
+
+      <p class="pop-fine">Fair warning—we're known to follow up.</p>
+      <p class="pop-err" id="pop-err" role="alert">Something went wrong. <a href="sms:+17273539673" style="color:var(--coral)">Text me instead.</a></p>
+    </div>
+
+    <!-- unlocked -->
+    <div class="pop-content" id="pop-content" tabindex="-1">
+      <p class="pop-thanks">Hey, you made it.</p>
+      <p class="pop-reveal-body">Just so you know—if we see any of these words on your website, we eye roll and stop reading immediately.</p>
+      <div class="pop-words">
+        <span>Elevate.</span>
+        <span>Craft.</span>
+        <span>Impact.</span>
+      </div>
+      <p class="pop-reveal-fine">You're welcome. More where that came from.</p>
+    </div>
+
+  </div>
+</div>
+
 <script>
 document.getElementById('y').textContent=new Date().getFullYear();
 
@@ -309,6 +512,79 @@ toggle.addEventListener('click',openNav);
 closeBtn.addEventListener('click',closeNav);
 menu.querySelectorAll('[data-nav]').forEach(a=>{a.addEventListener('click',()=>{closeNav()})});
 document.addEventListener('keydown',e=>{if(e.key==='Escape'&&menu.classList.contains('open'))closeNav()});
+
+// Popup
+(function(){
+  var KEY='gc_pop';
+  var ENDPOINT='https://formspree.io/f/xdawjgpj';
+  if(localStorage.getItem(KEY)==='1')return;
+  if(sessionStorage.getItem('gc_pop_closed')==='1')return;
+
+  setTimeout(function(){
+    var ov=document.getElementById('pop-overlay');
+    ov.classList.add('open');
+    document.body.style.overflow='hidden';
+    document.getElementById('pop-close').focus();
+    ov.addEventListener('keydown',function trap(e){
+      if(e.key==='Escape'){closePop();return;}
+      if(e.key!=='Tab')return;
+      var els=document.getElementById('pop').querySelectorAll('button:not([disabled]),input,a[href]');
+      var first=els[0],last=els[els.length-1];
+      if(e.shiftKey){if(document.activeElement===first){e.preventDefault();last.focus();}}
+      else{if(document.activeElement===last){e.preventDefault();first.focus();}}
+    });
+  },30000);
+
+  function closePop(){
+    document.getElementById('pop-overlay').classList.remove('open');
+    document.body.style.overflow='';
+    sessionStorage.setItem('gc_pop_closed','1');
+  }
+
+  document.getElementById('pop-close').addEventListener('click',closePop);
+  document.getElementById('pop-overlay').addEventListener('click',function(e){if(e.target===this)closePop();});
+
+  function handleSubmit(e){
+    e.preventDefault();
+    var btn=e.target.querySelector('button');
+    var input=e.target.querySelector('input[type="email"]');
+    var email=input.value.trim();
+    var err=document.getElementById('pop-err');
+    if(!email||!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)){input.focus();return;}
+    btn.disabled=true;btn.textContent='Sending…';err.style.display='none';
+    fetch(ENDPOINT,{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},body:JSON.stringify({email:email,_subject:'AI Prompt Kit — '+email})})
+    .then(function(r){return r.json();})
+    .then(function(d){
+      if(d.ok){
+        localStorage.setItem(KEY,'1');
+        document.getElementById('pop-gate').style.display='none';
+        var c=document.getElementById('pop-content');
+        c.classList.add('on');c.focus();
+      }else{fail(btn);}
+    }).catch(function(){fail(btn);});
+  }
+
+  function fail(btn){
+    document.getElementById('pop-err').style.display='block';
+    btn.disabled=false;btn.textContent='Send it';
+  }
+
+  ['pop-form-d','pop-form-m'].forEach(function(id){
+    var f=document.getElementById(id);
+    if(f)f.addEventListener('submit',handleSubmit);
+  });
+
+  document.querySelectorAll('.pop-copy').forEach(function(btn){
+    btn.addEventListener('click',function(){
+      var el=document.getElementById(btn.getAttribute('data-t'));
+      if(!el)return;
+      navigator.clipboard.writeText(el.textContent.trim()).then(function(){
+        btn.textContent='Copied!';btn.classList.add('done');
+        setTimeout(function(){btn.textContent='Copy';btn.classList.remove('done');},2000);
+      });
+    });
+  });
+})();
 </script>
 </body>
 </html>
