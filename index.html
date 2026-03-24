@@ -246,7 +246,7 @@
     <h1 class="rv">NO ONE'S READING<br>YOUR WEBSITE.<em>Let's fix that in 72 hours.</em></h1>
     <p class="hero-body rv d1">Built from scratch. Live in 72 hours. You never touch a thing.<span class="blink"> _</span></p>
     <div class="ctas rv d2">
-      <a class="cta cta-fill" href="sms:+17273539673?&body=Hey%20Dayna%2C%20I%20want%20to%20talk%20about%20what%20Gofer%20Content%20can%20do%20for%20my%20business.">Text me</a>
+    <a class="cta cta-fill" href="#contact" onclick="openContact(event)">Text me</a>
       <a class="cta cta-open" href="tel:+17273539673">Call me</a>
     </div>
     <p class="fine rv d3">Not sure if you need it? Text me.</p>
@@ -314,7 +314,7 @@
     <h2 class="rv">READY WHEN<br>YOU ARE.</h2>
     <p class="rv d1">You needed this yesterday.</p>
     <div class="ctas rv d2">
-      <a class="cta cta-fill" href="sms:+17273539673?&body=Hey%20Dayna%2C%20I%20need%20a%20Director%20of%20Online%20Presence.%20Let's%20talk.">Let's talk</a>
+     <a class="cta cta-fill" href="#contact" onclick="openContact(event)">Let's talk</a>
       <a class="cta cta-open" href="tel:+17273539673">Call me</a>
     </div>
   </section>
@@ -360,6 +360,79 @@
       </div>
       <p class="pop-reveal-fine">You're welcome. More where that came from.</p>
     </div>
+  </div>
+</div>
+
+<!-- PICKER MODAL (desktop: text or email) -->
+<div id="gc-picker" style="display:none;position:fixed;inset:0;z-index:999;background:rgba(17,17,17,.82);align-items:center;justify-content:center;padding:20px;backdrop-filter:blur(4px)" role="dialog" aria-modal="true">
+  <div style="background:var(--black);border:2.5px solid var(--gold);border-radius:4px;padding:40px 32px;max-width:400px;width:100%;position:relative;text-align:center">
+    <button onclick="closePicker()" aria-label="Close" style="position:absolute;top:12px;right:14px;background:none;border:none;color:var(--muted);font-family:var(--mono);font-size:.68rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;cursor:pointer;padding:4px 8px">✕ close</button>
+    <p style="font-family:var(--mono);font-size:.66rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--gold);margin-bottom:12px">Get in touch</p>
+    <h3 style="font-family:var(--head);font-size:clamp(24px,5vw,36px);text-transform:uppercase;line-height:.95;color:var(--cream);margin-bottom:20px">HOW DO YOU<br>WANT TO REACH ME?</h3>
+    <div style="display:flex;flex-direction:column;gap:10px">
+      <button onclick="closePicker();openSMSModal()" style="min-height:52px;padding:.65rem 1.4rem;border-radius:50px;background:var(--coral);color:var(--cream);font-family:var(--mono);font-weight:700;font-size:.82rem;text-transform:uppercase;letter-spacing:.04em;border:2.5px solid var(--coral);cursor:pointer;transition:all .2s">📱 Text me</button>
+      <button onclick="closePicker();openEmailModal()" style="min-height:52px;padding:.65rem 1.4rem;border-radius:50px;background:transparent;color:var(--cream);font-family:var(--mono);font-weight:700;font-size:.82rem;text-transform:uppercase;letter-spacing:.04em;border:2.5px solid rgba(245,239,224,.3);cursor:pointer;transition:all .2s">📧 Send an email</button>
+    </div>
+  </div>
+</div>
+
+<!-- SMS MODAL (mobile pre-pop options) -->
+<div id="gc-sms" style="display:none;position:fixed;inset:0;z-index:999;background:rgba(17,17,17,.82);align-items:center;justify-content:center;padding:20px;backdrop-filter:blur(4px)" role="dialog" aria-modal="true">
+  <div style="background:var(--black);border:2.5px solid var(--gold);border-radius:4px;padding:40px 32px 32px;max-width:440px;width:100%;position:relative">
+    <button onclick="closeSMSModal()" aria-label="Close" style="position:absolute;top:12px;right:14px;background:none;border:none;color:var(--muted);font-family:var(--mono);font-size:.68rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;cursor:pointer;padding:4px 8px">✕ close</button>
+    <p style="font-family:var(--mono);font-size:.66rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--gold);margin-bottom:12px">What's going on?</p>
+    <h3 style="font-family:var(--head);font-size:clamp(22px,5vw,32px);text-transform:uppercase;line-height:.95;color:var(--cream);margin-bottom:20px">TELL ME WHAT<br>YOU NEED.</h3>
+    <div style="display:flex;flex-direction:column;gap:10px">
+      <a href="sms:+17273539673?body=Hey%20Dayna%2C%20my%20website%20is%20outdated%20and%20I%20need%20a%20full%20rebuild.%0A%0AName%3A%20%0ABusiness%3A%20%0AWebsite%3A%20%0A%0AWhat%27s%20wrong%20with%20it%3A%20" style="display:flex;align-items:center;gap:.75rem;min-height:52px;padding:.65rem 1.2rem;border-radius:50px;background:rgba(245,239,224,.07);border:1.5px solid rgba(245,239,224,.18);font-family:var(--mono);font-size:.78rem;color:var(--cream);text-decoration:none;transition:border-color .2s">🌐 I need a website rebuild</a>
+      <a href="sms:+17273539673?body=Hey%20Dayna%2C%20I%20need%20help%20with%20SEO%20and%20AEO.%20AI%20tools%20aren%27t%20finding%20my%20business.%0A%0AName%3A%20%0ABusiness%3A%20%0AWebsite%3A%20" style="display:flex;align-items:center;gap:.75rem;min-height:52px;padding:.65rem 1.2rem;border-radius:50px;background:rgba(245,239,224,.07);border:1.5px solid rgba(245,239,224,.18);font-family:var(--mono);font-size:.78rem;color:var(--cream);text-decoration:none;transition:border-color .2s">🤖 AI isn't finding my business</a>
+      <a href="sms:+17273539673?body=Hey%20Dayna%2C%20I%20need%20hosting%20and%20someone%20to%20handle%20my%20site%20ongoing.%0A%0AName%3A%20%0ABusiness%3A%20%0AWebsite%3A%20" style="display:flex;align-items:center;gap:.75rem;min-height:52px;padding:.65rem 1.2rem;border-radius:50px;background:rgba(245,239,224,.07);border:1.5px solid rgba(245,239,224,.18);font-family:var(--mono);font-size:.78rem;color:var(--cream);text-decoration:none;transition:border-color .2s">⚙️ I need hosting + ongoing help</a>
+      <a href="sms:+17273539673?body=Hey%20Dayna%2C%20I%20need%20a%20landing%20page%20or%20splash%20page%20built%20fast.%0A%0AName%3A%20%0ABusiness%3A%20%0AGoal%20of%20the%20page%3A%20" style="display:flex;align-items:center;gap:.75rem;min-height:52px;padding:.65rem 1.2rem;border-radius:50px;background:rgba(245,239,224,.07);border:1.5px solid rgba(245,239,224,.18);font-family:var(--mono);font-size:.78rem;color:var(--cream);text-decoration:none;transition:border-color .2s">🚀 I need a landing page fast</a>
+      <a href="sms:+17273539673?body=Hey%20Dayna%2C%20I%27m%20not%20sure%20exactly%20what%20I%20need%20yet%20%E2%80%94%20can%20we%20just%20talk%3F%0A%0AName%3A%20%0ABusiness%3A%20" style="display:flex;align-items:center;gap:.75rem;min-height:52px;padding:.65rem 1.2rem;border-radius:50px;background:rgba(245,239,224,.07);border:1.5px solid rgba(245,239,224,.18);font-family:var(--mono);font-size:.78rem;color:var(--cream);text-decoration:none;transition:border-color .2s">💬 Not sure yet. Let's just talk</a>
+    </div>
+  </div>
+</div>
+
+<!-- EMAIL MODAL (desktop form) -->
+<div id="gc-email" style="display:none;position:fixed;inset:0;z-index:999;background:rgba(17,17,17,.82);align-items:center;justify-content:center;padding:20px;backdrop-filter:blur(4px)" role="dialog" aria-modal="true">
+  <div style="background:var(--black);border:2.5px solid var(--gold);border-radius:4px;padding:40px 36px;max-width:520px;width:100%;position:relative;max-height:90vh;overflow-y:auto">
+    <button onclick="closeEmailModal()" aria-label="Close" style="position:absolute;top:12px;right:14px;background:none;border:none;color:var(--muted);font-family:var(--mono);font-size:.68rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;cursor:pointer;padding:4px 8px">✕ close</button>
+    <p style="font-family:var(--mono);font-size:.66rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--gold);margin-bottom:8px">Get in touch</p>
+    <h3 style="font-family:var(--head);font-size:clamp(22px,4vw,32px);text-transform:uppercase;line-height:.95;color:var(--cream);margin-bottom:6px">LET'S TALK<br>ABOUT YOUR SITE.</h3>
+    <p style="font-family:var(--mono);font-size:.76rem;color:rgba(245,239,224,.6);margin-bottom:24px;line-height:1.7">I respond personally. Usually same day.</p>
+    <form action="https://formspree.io/f/mbdprjyn" method="POST" style="display:flex;flex-direction:column;gap:14px">
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px">
+        <div style="display:flex;flex-direction:column;gap:6px">
+          <label style="font-family:var(--mono);font-size:.6rem;font-weight:700;text-transform:uppercase;letter-spacing:.12em;color:var(--gold)">Name</label>
+          <input type="text" name="name" placeholder="Your name" required style="font-family:var(--mono);font-size:.8rem;color:var(--cream);background:rgba(245,239,224,.07);border:1.5px solid rgba(245,239,224,.18);border-radius:8px;padding:.65rem 1rem;outline:none">
+        </div>
+        <div style="display:flex;flex-direction:column;gap:6px">
+          <label style="font-family:var(--mono);font-size:.6rem;font-weight:700;text-transform:uppercase;letter-spacing:.12em;color:var(--gold)">Email</label>
+          <input type="email" name="email" placeholder="your@email.com" required style="font-family:var(--mono);font-size:.8rem;color:var(--cream);background:rgba(245,239,224,.07);border:1.5px solid rgba(245,239,224,.18);border-radius:8px;padding:.65rem 1rem;outline:none">
+        </div>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:6px">
+        <label style="font-family:var(--mono);font-size:.6rem;font-weight:700;text-transform:uppercase;letter-spacing:.12em;color:var(--gold)">Your website (if you have one)</label>
+        <input type="url" name="website" placeholder="https://" style="font-family:var(--mono);font-size:.8rem;color:var(--cream);background:rgba(245,239,224,.07);border:1.5px solid rgba(245,239,224,.18);border-radius:8px;padding:.65rem 1rem;outline:none">
+      </div>
+      <div style="display:flex;flex-direction:column;gap:6px">
+        <label style="font-family:var(--mono);font-size:.6rem;font-weight:700;text-transform:uppercase;letter-spacing:.12em;color:var(--gold)">What do you need?</label>
+        <select name="topic" required style="font-family:var(--mono);font-size:.8rem;color:var(--cream);background:rgba(245,239,224,.07);border:1.5px solid rgba(245,239,224,.18);border-radius:8px;padding:.65rem 1rem;outline:none;appearance:none">
+          <option value="" disabled selected>Pick one</option>
+          <option value="Website rebuild">🌐 Website rebuild</option>
+          <option value="AEO + SEO">🤖 AI isn't finding my business</option>
+          <option value="Hosting + ongoing help">⚙️ Hosting + ongoing help</option>
+          <option value="Landing page">🚀 Landing page fast</option>
+          <option value="Not sure yet">💬 Not sure yet. Let's just talk</option>
+        </select>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:6px">
+        <label style="font-family:var(--mono);font-size:.6rem;font-weight:700;text-transform:uppercase;letter-spacing:.12em;color:var(--gold)">Tell me more</label>
+        <textarea name="message" rows="3" placeholder="What's going on, what you've tried, what you need..." style="font-family:var(--mono);font-size:.8rem;color:var(--cream);background:rgba(245,239,224,.07);border:1.5px solid rgba(245,239,224,.18);border-radius:8px;padding:.65rem 1rem;outline:none;resize:none"></textarea>
+      </div>
+      <input type="hidden" name="_next" value="https://gofercontent.com/thanks.html">
+      <button type="submit" style="min-height:52px;padding:.65rem 1.4rem;border-radius:50px;background:var(--coral);color:var(--cream);font-family:var(--mono);font-weight:700;font-size:.82rem;text-transform:uppercase;letter-spacing:.04em;border:2.5px solid var(--coral);cursor:pointer;margin-top:4px">Send it →</button>
+      <p style="font-family:var(--mono);font-size:.64rem;color:rgba(245,239,224,.4);text-align:center;font-style:italic">I respond personally. Usually same day.</p>
+    </form>
   </div>
 </div>
 
@@ -430,6 +503,17 @@ document.addEventListener('keydown',e=>{if(e.key==='Escape'&&menu.classList.cont
     if(f)f.addEventListener('submit',handleSubmit);
   });
 })();
+
+// Contact routing
+var gcMobile=/Android|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)||('ontouchstart' in window)||window.innerWidth<1024;
+function openContact(e){if(e)e.preventDefault();if(gcMobile){document.getElementById('gc-sms').style.display='flex';document.body.style.overflow='hidden';}else{document.getElementById('gc-picker').style.display='flex';document.body.style.overflow='hidden';}}
+function closePicker(){document.getElementById('gc-picker').style.display='none';document.body.style.overflow='';}
+function openSMSModal(){document.getElementById('gc-sms').style.display='flex';document.body.style.overflow='hidden';}
+function closeSMSModal(){document.getElementById('gc-sms').style.display='none';document.body.style.overflow='';}
+function openEmailModal(){document.getElementById('gc-email').style.display='flex';document.body.style.overflow='hidden';}
+function closeEmailModal(){document.getElementById('gc-email').style.display='none';document.body.style.overflow='';}
+['gc-picker','gc-sms','gc-email'].forEach(function(id){document.getElementById(id).addEventListener('click',function(e){if(e.target===this){this.style.display='none';document.body.style.overflow='';}});});
+document.addEventListener('keydown',function(e){if(e.key==='Escape'){closePicker();closeSMSModal();closeEmailModal();}});
 </script>
 </body>
 </html>
