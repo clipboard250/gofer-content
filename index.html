@@ -246,10 +246,9 @@
     <h1 class="rv">NO ONE'S READING<br>YOUR WEBSITE.<em>Let's fix that in 72 hours.</em></h1>
     <p class="hero-body rv d1">Built from scratch. Live in 72 hours. You never touch a thing.<span class="blink"> _</span></p>
     <div class="ctas rv d2">
-    <a class="cta cta-fill" href="#contact" onclick="openContact(event)">Text me</a>
-      <a class="cta cta-open" href="tel:+17273539673">Call me</a>
+   <a class="cta cta-fill" href="#contact" onclick="openContact(event)">Let's talk</a>
     </div>
-    <p class="fine rv d3">Not sure if you need it? Text me.</p>
+    <p class="fine rv d3">Not sure if you need it? Let's talk.</p>
   </section>
 
   <!-- CORAL: THE POINT -->
@@ -330,9 +329,9 @@
   <div class="pop" id="pop">
     <button class="pop-close" id="pop-close" aria-label="Close popup">✕ close</button>
     <div id="pop-gate">
-      <h2 id="pop-heading">NOT<br>CONVINCED?</h2>
-      <p class="pop-body">We pull people out of online <strong>dumpster fires</strong> for a living.</p>
-      <p class="pop-label">🧠 look inside Gofer Content's brain</p>
+   <h2 id="pop-heading">WAIT.<br>ONE SEC.</h2>
+      <p class="pop-body">Your competitors already did this.<br><strong>Are you good with that?</strong></p>
+      <p class="pop-label">🧠 get the free gut-check</p>
       <form class="pop-row" id="pop-form-d" novalidate aria-label="Get the prompt kit">
         <label for="pop-e-d" class="sr-only">Email address</label>
         <input class="pop-input" type="email" id="pop-e-d" name="email" placeholder="your@email.com" autocomplete="email" required>
@@ -352,7 +351,7 @@
     </div>
     <div class="pop-content" id="pop-content" tabindex="-1">
       <p class="pop-thanks">Hey, you made it.</p>
-      <p class="pop-reveal-body">Just so you know — if we see any of these words on your website, we eye roll and stop reading immediately.</p>
+      <p class="pop-reveal-body">If we see any of these words on your website, we stop reading immediately.</p>
       <div class="pop-words">
         <span>Elevate.</span>
         <span>Craft.</span>
@@ -448,7 +447,7 @@ function closeNav(){menu.classList.remove('open');toggle.setAttribute('aria-expa
 toggle.addEventListener('click',openNav);
 closeBtn.addEventListener('click',closeNav);
 menu.querySelectorAll('[data-nav]').forEach(a=>{a.addEventListener('click',()=>{closeNav()})});
-document.addEventListener('keydown',e=>{if(e.key==='Escape'&&menu.classList.contains('open'))closeNav()});
+document.addEventListener('keydown',e=>{if(e.key==='Escape'&&menu.classList.contains('open'))closeNav()}); document.getElementById('nav-menu').addEventListener('click',function(e){if(e.target===this)closeNav();});
 (function(){
   var KEY='gc_pop';
   var ENDPOINT='https://formspree.io/f/xdawjgpj';
@@ -506,7 +505,7 @@ document.addEventListener('keydown',e=>{if(e.key==='Escape'&&menu.classList.cont
 
 // Contact routing
 var gcMobile=/Android|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)||('ontouchstart' in window)||window.innerWidth<1024;
-function openContact(e){if(e)e.preventDefault();if(gcMobile){document.getElementById('gc-sms').style.display='flex';document.body.style.overflow='hidden';}else{document.getElementById('gc-picker').style.display='flex';document.body.style.overflow='hidden';}}
+function openContact(e){if(e)e.preventDefault();document.getElementById('gc-picker').style.display='flex';document.body.style.overflow='hidden';}
 function closePicker(){document.getElementById('gc-picker').style.display='none';document.body.style.overflow='';}
 function openSMSModal(){document.getElementById('gc-sms').style.display='flex';document.body.style.overflow='hidden';}
 function closeSMSModal(){document.getElementById('gc-sms').style.display='none';document.body.style.overflow='';}
