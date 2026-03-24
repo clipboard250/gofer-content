@@ -1,0 +1,1250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- Primary Meta -->
+<title>Studio 656 West | Leigh Clifton | Gulfport, Florida Photographer</title>
+<meta name="description" content="Leigh Clifton is a Gulfport, Florida photographer specializing in engagements, surprise proposals, portraits, and sunset photography. On location. Digital delivery. Tampa Bay and beyond.">
+<link rel="canonical" href="https://studio656west.com/">
+
+<!-- Open Graph -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://studio656west.com/">
+<meta property="og:title" content="Studio 656 West | Leigh Clifton | Gulfport, Florida Photographer">
+<meta property="og:description" content="Leigh Clifton is a Gulfport, Florida photographer specializing in engagements, surprise proposals, portraits, and sunset photography. On location. Digital delivery. Tampa Bay and beyond.">
+<meta property="og:image" content="https://studio656west.com/assets/og-image.jpg">
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image">
+<meta property="twitter:url" content="https://studio656west.com/">
+<meta name="twitter:title" content="Studio 656 West | Leigh Clifton | Gulfport, Florida Photographer">
+<meta name="twitter:description" content="Leigh Clifton is a Gulfport, Florida photographer specializing in engagements, surprise proposals, portraits, and sunset photography. On location. Digital delivery. Tampa Bay and beyond.">
+<meta name="twitter:image" content="https://studio656west.com/assets/og-image.jpg">
+
+<!-- Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Libre+Franklin:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<!-- JSON-LD Structured Data -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": ["LocalBusiness", "ProfessionalService"],
+      "@id": "https://studio656west.com/#business",
+      "name": "Studio 656 West",
+      "alternateName": "Studio656West Photography",
+      "url": "https://studio656west.com",
+      "telephone": "[PHONE]",
+      "email": "[EMAIL]",
+      "description": "Studio 656 West is a Gulfport, Florida photography business run by Leigh Clifton, a photojournalist and portrait photographer with 26 years of experience. Specializing in engagement photography, surprise proposals, family portraits, maternity, headshots, sports, and sunset photography across Tampa Bay.",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Gulfport",
+        "addressRegion": "FL",
+        "postalCode": "33707",
+        "addressCountry": "US"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 27.7478,
+        "longitude": -82.7073
+      },
+      "areaServed": {
+        "@type": "AdministrativeArea",
+        "name": "Tampa Bay, Florida"
+      },
+      "priceRange": "$$",
+      "paymentAccepted": "Cash, Check, Venmo, Zelle",
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "5.0",
+        "reviewCount": "240",
+        "bestRating": "5",
+        "worstRating": "1"
+      },
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Photography Services",
+        "itemListElement": [
+          {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Engagement Photography"}},
+          {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Surprise Proposal Photography"}},
+          {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Family Portrait Photography"}},
+          {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Maternity Photography"}},
+          {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Headshots"}},
+          {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Sports Photography"}},
+          {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Small Beach Wedding Photography"}},
+          {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Sunset Portrait Photography"}},
+          {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Graduation and Senior Portraits"}},
+          {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Event Photography"}}
+        ]
+      },
+      "sameAs": [
+        "https://www.instagram.com/studio656west/",
+        "https://www.linkedin.com/in/leigh-clifton-08862a5/",
+        "https://www.thumbtack.com/fl/saint-petersburg/portrait-photographers/studio-656-west/service/196705539528713391",
+        "https://www.mapquest.com/us/florida/studio656west-439363099"
+      ]
+    },
+    {
+      "@type": "Person",
+      "@id": "https://studio656west.com/#leigh-clifton",
+      "name": "Leigh Clifton",
+      "jobTitle": "Photographer and Editor",
+      "description": "Leigh Clifton is a Gulfport, Florida photographer and photojournalist with 26 years of experience. She holds a BA in Photojournalism and Communications, a Commercial Photography degree, and formerly freelanced for the Washington Post alongside two Pulitzer Prize-winning photographers. She is also the Editor of Gulfport Living Magazine.",
+      "worksFor": {"@id": "https://studio656west.com/#business"},
+      "hasCredential": [
+        {"@type": "EducationalOccupationalCredential", "name": "BA in Photojournalism and Communications"},
+        {"@type": "EducationalOccupationalCredential", "name": "Commercial Photography Degree", "dateCreated": "2010"},
+        {"@type": "EducationalOccupationalCredential", "name": "Thumbtack Platinum Top Pro", "description": "Top Pro 2016 through 2025"}
+      ],
+      "sameAs": [
+        "https://www.instagram.com/studio656west/",
+        "https://www.linkedin.com/in/leigh-clifton-08862a5/"
+      ]
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://studio656west.com/#website",
+      "url": "https://studio656west.com",
+      "name": "Studio 656 West",
+      "publisher": {"@id": "https://studio656west.com/#business"}
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://studio656west.com/#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "How does Studio 656 West deliver photos?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "All photos are delivered as digital files. After editing, Leigh sends you a link so you can download everything directly to your computer. No prints, no photo books, just clean digital files fast."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Where does Leigh Clifton shoot?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Studio 656 West is on-location only. Leigh travels to you, or you can come to Gulfport, Florida. She is known for her knowledge of Tampa Bay locations and regularly shoots at beaches, parks, and during golden hour sunsets throughout the area."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Does Studio 656 West do surprise proposals?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. Surprise proposals are one of Leigh's specialties. She works closely with the person planning the proposal to coordinate timing, location, and positioning so the moment is captured without giving anything away."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What photography services does Studio 656 West offer?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Engagement photography, surprise and staged proposals, family portraits, maternity, headshots, children and pets, couples, events, real estate, graduation and senior portraits, small beach weddings for under 20 people, and sports photography."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What is Leigh Clifton's photography background?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Leigh holds a BA in Photojournalism and Communications and earned a Commercial Photography degree in 2010. She interned at the Wilmington News Journal and freelanced for the Washington Post for three years, working alongside two Pulitzer Prize-winning photographers. She also covered high school sports for the Tampa Bay Times for two years and is currently the Editor of Gulfport Living Magazine."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How do I book a session with Studio 656 West?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Reach out directly by phone or email. Leigh offers a complimentary phone consultation with every prospective client and stays in touch throughout the entire process."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+
+<style>
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+
+:root {
+  --deep:    #18120F;
+  --ink:     #2C2118;
+  --gold:    #C08035;
+  --rust:    #A03228;
+  --cream:   #F6F0E8;
+  --sand:    #E8DDD0;
+  --warm:    #F0E8DC;
+  --muted:   #7A6A60;
+  --border:  #E0D4C4;
+}
+
+body {
+  font-family: 'Libre Franklin', sans-serif;
+  background: var(--cream);
+  color: var(--ink);
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ── SKIP LINK ── */
+.skip-link {
+  position: absolute; left: -9999px; top: auto; width: 1px; height: 1px; overflow: hidden;
+}
+.skip-link:focus {
+  position: fixed; left: 16px; top: 16px; width: auto; height: auto; overflow: visible;
+  background: var(--rust); color: #fff; padding: 10px 20px; font-size: .85rem; font-weight: 600;
+  z-index: 9999; text-decoration: none;
+}
+
+/* ── NAV ── */
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 200;
+  background: rgba(246,240,232,0.96);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--border);
+  padding: 1rem 5%;
+  display: flex; justify-content: space-between; align-items: center;
+  transition: box-shadow .3s;
+}
+nav.scrolled { box-shadow: 0 2px 20px rgba(0,0,0,.08); }
+.nav-logo {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.1rem;
+  font-style: italic;
+  color: var(--ink);
+  text-decoration: none;
+  letter-spacing: .02em;
+}
+.nav-links { display: flex; gap: 2.5rem; align-items: center; list-style: none; }
+.nav-links a {
+  font-size: .72rem; font-weight: 500;
+  letter-spacing: .08em; text-transform: uppercase;
+  color: var(--muted); text-decoration: none;
+  transition: color .2s;
+}
+.nav-links a:hover { color: var(--ink); }
+.nav-cta {
+  background: var(--rust) !important;
+  color: #fff !important;
+  padding: .55rem 1.25rem !important;
+  letter-spacing: .08em;
+  transition: background .2s !important;
+}
+.nav-cta:hover { background: var(--gold) !important; color: #fff !important; }
+.hamburger {
+  display: none; flex-direction: column; gap: 5px;
+  cursor: pointer; background: none; border: none; padding: .4rem;
+}
+.hamburger span { display: block; width: 22px; height: 1.5px; background: var(--ink); transition: .3s; }
+
+/* ── HERO ── */
+.hero {
+  min-height: 100vh;
+  padding-top: 72px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  position: relative;
+  overflow: hidden;
+}
+.hero-left {
+  background: var(--deep);
+  display: flex; flex-direction: column; justify-content: flex-end;
+  padding: 5rem 5% 5rem 5%;
+  position: relative;
+  overflow: hidden;
+}
+.hero-left::before {
+  content: '';
+  position: absolute; inset: 0;
+  background: url('assets/leigh-hero.jpg') center/cover no-repeat;
+  opacity: .35;
+}
+.hero-left-content { position: relative; z-index: 1; }
+.hero-over {
+  font-size: .65rem; font-weight: 600;
+  letter-spacing: .22em; text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 1.5rem;
+  display: flex; align-items: center; gap: 10px;
+}
+.hero-over::before {
+  content: ''; display: block;
+  width: 28px; height: 1px;
+  background: var(--gold); flex-shrink: 0;
+}
+.hero-name {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(2.8rem, 5vw, 5rem);
+  font-weight: 900;
+  line-height: 1.0;
+  color: #fff;
+  margin-bottom: 1.25rem;
+  letter-spacing: -.01em;
+}
+.hero-name em { font-style: italic; color: var(--gold); display: block; }
+.hero-sub {
+  font-size: .92rem; font-weight: 300;
+  color: rgba(255,255,255,.65);
+  line-height: 1.85; max-width: 400px;
+  margin-bottom: 2.5rem;
+}
+.hero-proof {
+  display: flex; gap: 2rem; margin-bottom: 2.5rem;
+}
+.proof-item {}
+.proof-num {
+  font-family: 'Playfair Display', serif;
+  font-size: 2rem; font-weight: 900;
+  color: var(--gold); line-height: 1;
+  display: block; margin-bottom: 2px;
+}
+.proof-label {
+  font-size: .62rem; font-weight: 500;
+  letter-spacing: .12em; text-transform: uppercase;
+  color: rgba(255,255,255,.45);
+}
+.btn-primary {
+  display: inline-flex; align-items: center; justify-content: center;
+  background: var(--rust); color: #fff;
+  font-size: .78rem; font-weight: 600;
+  letter-spacing: .08em; text-transform: uppercase;
+  padding: .9rem 2rem; text-decoration: none;
+  transition: background .2s, transform .2s;
+  min-height: 48px;
+}
+.btn-primary:hover { background: var(--gold); transform: translateY(-2px); }
+.btn-ghost {
+  display: inline-flex; align-items: center; justify-content: center;
+  border: 1px solid rgba(255,255,255,.3); color: rgba(255,255,255,.8);
+  font-size: .78rem; font-weight: 400;
+  letter-spacing: .06em; text-transform: uppercase;
+  padding: .9rem 2rem; text-decoration: none;
+  transition: border-color .2s, color .2s;
+  min-height: 48px;
+}
+.btn-ghost:hover { border-color: rgba(255,255,255,.7); color: #fff; }
+.hero-actions { display: flex; gap: .75rem; flex-wrap: wrap; }
+.hero-right {
+  background: var(--sand);
+  position: relative; overflow: hidden;
+  min-height: 600px;
+}
+.hero-right img {
+  width: 100%; height: 100%;
+  object-fit: cover; object-position: center top;
+  display: block;
+}
+.hero-right-placeholder {
+  width: 100%; height: 100%;
+  background: linear-gradient(160deg, var(--gold) 0%, var(--rust) 100%);
+  display: flex; align-items: center; justify-content: center;
+  min-height: 600px;
+}
+.hero-badge {
+  position: absolute; bottom: 2rem; left: -1.5rem;
+  background: var(--rust);
+  color: #fff; padding: 1.25rem 1.5rem;
+  max-width: 200px; z-index: 2;
+}
+.badge-num {
+  font-family: 'Playfair Display', serif;
+  font-size: 2rem; font-weight: 900;
+  display: block; line-height: 1;
+  margin-bottom: 4px; color: #fff;
+}
+.badge-text { font-size: .65rem; font-weight: 400; color: rgba(255,255,255,.7); line-height: 1.5; }
+
+/* ── MARQUEE ── */
+.marquee-wrap {
+  background: var(--gold); overflow: hidden;
+  height: 40px; display: flex; align-items: center;
+}
+.marquee-track {
+  display: flex; white-space: nowrap;
+  animation: marquee 32s linear infinite;
+}
+.marquee-track span {
+  font-size: .65rem; font-weight: 700;
+  letter-spacing: .2em; text-transform: uppercase;
+  padding: 0 2rem; color: #fff;
+}
+.marquee-track span.dot { opacity: .35; padding: 0 .5rem; }
+@keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+
+/* ── SECTIONS ── */
+section { padding: 6rem 5%; }
+.section-eyebrow {
+  font-size: .65rem; font-weight: 700;
+  letter-spacing: .2em; text-transform: uppercase;
+  color: var(--gold); margin-bottom: 1rem;
+  display: flex; align-items: center; gap: .75rem;
+}
+.section-eyebrow::before { content: ''; display: block; width: 24px; height: 1px; background: var(--gold); }
+.section-title {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 700; line-height: 1.15;
+  color: var(--ink); margin-bottom: 1.5rem;
+}
+.section-title em { font-style: italic; color: var(--rust); }
+
+/* ── ABOUT ── */
+.about { background: var(--cream); }
+.about-grid {
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 5rem; align-items: center;
+  max-width: 1200px; margin: 0 auto;
+}
+.about-text p {
+  font-size: .93rem; font-weight: 300;
+  color: #4A3C34; line-height: 1.9;
+  margin-bottom: 1rem;
+}
+.about-text strong { font-weight: 600; color: var(--ink); }
+.creds-list {
+  list-style: none; margin-top: 2rem;
+  display: flex; flex-direction: column; gap: .6rem;
+}
+.creds-list li {
+  font-size: .78rem; color: var(--muted);
+  display: flex; align-items: flex-start; gap: .75rem; line-height: 1.55;
+}
+.creds-list li::before { content: '/'; color: var(--gold); font-weight: 700; flex-shrink: 0; }
+.about-photo-wrap {
+  position: relative;
+}
+.about-photo-wrap img {
+  width: 100%; display: block;
+  aspect-ratio: 3/4; object-fit: cover;
+}
+.about-photo-placeholder {
+  width: 100%; aspect-ratio: 3/4;
+  background: linear-gradient(160deg, var(--sand) 0%, var(--border) 100%);
+  display: flex; align-items: center; justify-content: center;
+}
+.about-tag {
+  position: absolute; bottom: -1rem; right: -1rem;
+  background: var(--deep); color: #fff;
+  padding: 1rem 1.25rem;
+}
+.about-tag-text {
+  font-size: .65rem; font-weight: 600;
+  letter-spacing: .12em; text-transform: uppercase;
+  color: var(--gold); display: block; margin-bottom: 2px;
+}
+.about-tag-val {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.5rem; font-weight: 900; color: #fff; line-height: 1;
+}
+
+/* ── SERVICES ── */
+.services { background: var(--deep); }
+.services .section-eyebrow { color: var(--gold); }
+.services .section-title { color: #fff; }
+.services-grid {
+  display: grid; grid-template-columns: repeat(3, 1fr);
+  gap: 1px; background: rgba(255,255,255,.06);
+  border: 1px solid rgba(255,255,255,.06);
+  margin-top: 3rem;
+  max-width: 1200px;
+}
+.service-card {
+  background: var(--deep);
+  padding: 2rem 1.75rem;
+  transition: background .25s;
+  cursor: default;
+}
+.service-card:hover { background: #231A14; }
+.svc-num {
+  font-size: .6rem; font-weight: 700;
+  letter-spacing: .2em; color: var(--gold);
+  margin-bottom: 1rem; display: block;
+}
+.svc-name {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.2rem; font-weight: 700;
+  color: #fff; margin-bottom: .6rem; line-height: 1.2;
+}
+.svc-desc {
+  font-size: .8rem; font-weight: 300;
+  color: rgba(255,255,255,.5); line-height: 1.75;
+}
+
+/* ── REVIEWS ── */
+.reviews { background: var(--warm); }
+.reviews-grid {
+  display: grid; grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem; margin-top: 3rem;
+  max-width: 1200px;
+}
+.review-card {
+  background: #fff;
+  padding: 2rem; border-top: 3px solid transparent;
+  transition: border-color .25s;
+}
+.review-card:hover { border-color: var(--gold); }
+.stars { color: var(--gold); font-size: .85rem; margin-bottom: 1rem; letter-spacing: .1em; }
+.review-text {
+  font-size: .87rem; font-weight: 300;
+  color: var(--ink); line-height: 1.8;
+  margin-bottom: 1.25rem; font-style: italic;
+}
+.review-name {
+  font-size: .7rem; font-weight: 700;
+  letter-spacing: .1em; text-transform: uppercase;
+  color: var(--rust);
+}
+.review-type { font-size: .68rem; color: var(--muted); margin-top: .2rem; }
+.reviews-source {
+  margin-top: 2.5rem;
+  font-size: .75rem; color: var(--muted);
+  text-align: center;
+}
+.reviews-source a { color: var(--rust); text-decoration: underline; }
+
+/* ── HOW IT WORKS / FAQ ── */
+.faq { background: var(--cream); }
+.faq-list { max-width: 760px; margin: 2rem auto 0; }
+.faq-item {
+  border-bottom: 1px solid var(--border);
+}
+.faq-question {
+  width: 100%; background: none; border: none;
+  padding: 1.5rem 0;
+  text-align: left; cursor: pointer;
+  display: flex; justify-content: space-between; align-items: center;
+  font-family: 'Libre Franklin', sans-serif;
+  font-size: .95rem; font-weight: 600;
+  color: var(--ink);
+  transition: color .2s;
+  gap: 1rem;
+}
+.faq-question[aria-expanded="true"] { color: var(--rust); }
+.faq-question:hover { color: var(--rust); }
+.faq-icon { font-size: 1.3rem; font-weight: 300; transition: transform .3s; flex-shrink: 0; }
+.faq-question[aria-expanded="true"] .faq-icon { transform: rotate(45deg); }
+.faq-answer {
+  max-height: 0; overflow: hidden;
+  transition: max-height .35s ease, padding .3s ease;
+  padding: 0;
+}
+.faq-answer.open { max-height: 500px; padding-bottom: 1.5rem; }
+.faq-answer p {
+  font-size: .87rem; font-weight: 300;
+  color: var(--muted); line-height: 1.8;
+}
+
+/* ── PROCESS ── */
+.process { background: var(--sand); }
+.process-steps {
+  display: grid; grid-template-columns: repeat(4, 1fr);
+  gap: 2rem; margin-top: 3rem;
+  max-width: 1200px;
+}
+.step {}
+.step-num {
+  font-family: 'Playfair Display', serif;
+  font-size: 3rem; font-weight: 900;
+  color: var(--border); line-height: 1;
+  margin-bottom: .75rem;
+}
+.step-title {
+  font-size: .88rem; font-weight: 700;
+  letter-spacing: .06em; text-transform: uppercase;
+  color: var(--ink); margin-bottom: .5rem;
+}
+.step-desc {
+  font-size: .8rem; font-weight: 300;
+  color: var(--muted); line-height: 1.75;
+}
+
+/* ── CONTACT ── */
+.contact { background: var(--deep); text-align: center; padding: 7rem 5%; }
+.contact .section-eyebrow { justify-content: center; }
+.contact .section-eyebrow::before { display: none; }
+.contact .section-title { color: #fff; margin-bottom: 1rem; }
+.contact .section-title em { color: var(--gold); }
+.contact-sub {
+  font-size: .95rem; font-weight: 300;
+  color: rgba(255,255,255,.6); max-width: 520px;
+  margin: 0 auto 3rem; line-height: 1.8;
+}
+.contact-grid {
+  display: grid; grid-template-columns: repeat(3, 1fr);
+  gap: 1px; max-width: 720px; margin: 0 auto;
+  background: rgba(255,255,255,.06); border: 1px solid rgba(255,255,255,.06);
+}
+.contact-card {
+  background: var(--deep); padding: 2rem 1.5rem;
+  text-decoration: none; color: #fff;
+  transition: background .2s; display: block;
+  border-top: 3px solid transparent;
+  cursor: pointer;
+}
+.contact-card:hover { background: #231A14; }
+.cc-label {
+  font-size: .65rem; font-weight: 700;
+  letter-spacing: .16em; text-transform: uppercase;
+  color: var(--gold); margin-bottom: .5rem; display: block;
+}
+.cc-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.2rem; font-weight: 700; color: #fff;
+  margin-bottom: .4rem;
+}
+.cc-desc { font-size: .78rem; font-weight: 300; color: rgba(255,255,255,.45); }
+.contact-note {
+  margin-top: 2rem;
+  font-size: .72rem; color: rgba(255,255,255,.3);
+  letter-spacing: .06em;
+}
+
+/* ── FOOTER ── */
+footer {
+  background: #100C09;
+  padding: 2.5rem 5%;
+  display: flex; justify-content: space-between; align-items: center;
+  flex-wrap: wrap; gap: 1rem;
+}
+.foot-left {}
+.foot-name {
+  font-family: 'Playfair Display', serif;
+  font-style: italic; font-size: 1rem;
+  color: rgba(255,255,255,.4);
+}
+.foot-address {
+  font-size: .68rem; font-weight: 300;
+  color: rgba(255,255,255,.2); margin-top: .25rem;
+  letter-spacing: .04em;
+}
+.foot-social { display: flex; gap: 1.25rem; align-items: center; }
+.foot-social a {
+  font-size: .65rem; font-weight: 600;
+  letter-spacing: .12em; text-transform: uppercase;
+  color: rgba(255,255,255,.3); text-decoration: none;
+  transition: color .2s;
+}
+.foot-social a:hover { color: var(--gold); }
+.foot-right {
+  font-size: .65rem; font-weight: 300;
+  color: rgba(255,255,255,.2);
+  text-align: right;
+}
+.foot-right a { color: rgba(255,255,255,.2); text-decoration: underline; }
+
+/* ── CONTACT MODAL ── */
+.modal-bg {
+  display: none; position: fixed; inset: 0;
+  background: rgba(0,0,0,.7); z-index: 999;
+  align-items: flex-end; justify-content: center;
+  backdrop-filter: blur(4px);
+}
+.modal-bg.open { display: flex; }
+.modal-sheet {
+  background: var(--cream);
+  border-top: 3px solid var(--rust);
+  padding: 2.5rem 1.75rem 3rem;
+  width: 100%; max-width: 480px;
+  animation: sheetUp .28s cubic-bezier(.22,1,.36,1);
+  position: relative;
+}
+@keyframes sheetUp { from { transform: translateY(100%); } to { transform: translateY(0); } }
+.modal-close {
+  position: absolute; top: 1rem; right: 1rem;
+  background: none; border: none; font-size: 1.5rem;
+  cursor: pointer; color: var(--muted);
+  width: 36px; height: 36px;
+  display: flex; align-items: center; justify-content: center;
+  border-radius: 50%; transition: background .2s;
+}
+.modal-close:hover { background: var(--sand); }
+.modal-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.8rem; font-weight: 900;
+  color: var(--ink); margin-bottom: .4rem;
+}
+.modal-sub {
+  font-size: .83rem; font-weight: 300;
+  color: var(--muted); margin-bottom: 1.5rem; line-height: 1.6;
+}
+.modal-opts { display: flex; flex-direction: column; gap: 1px; background: var(--border); border: 1px solid var(--border); }
+.modal-opt {
+  background: var(--cream); padding: 1rem 1.25rem;
+  text-decoration: none; color: var(--ink);
+  display: grid; grid-template-columns: 1fr auto;
+  align-items: center; gap: 12px;
+  border-left: 3px solid transparent;
+  transition: background .15s, border-color .15s;
+}
+.modal-opt:hover { background: var(--sand); border-color: var(--rust); }
+.opt-label { font-size: .9rem; font-weight: 600; color: var(--ink); }
+.opt-detail { font-size: .73rem; font-weight: 300; color: var(--muted); margin-top: 2px; }
+.opt-arrow { color: var(--muted); }
+.modal-cancel {
+  width: 100%; margin-top: .75rem;
+  padding: .9rem; background: transparent;
+  border: 1px solid var(--border); cursor: pointer;
+  font-family: 'Libre Franklin', sans-serif;
+  font-size: .75rem; font-weight: 600;
+  letter-spacing: .1em; text-transform: uppercase;
+  color: var(--muted); transition: border-color .2s, color .2s;
+}
+.modal-cancel:hover { border-color: var(--ink); color: var(--ink); }
+
+/* ── RESPONSIVE ── */
+@media (max-width: 960px) {
+  .nav-links { display: none; }
+  .nav-links.open {
+    display: flex; flex-direction: column;
+    position: absolute; top: 68px; left: 0; right: 0;
+    background: var(--cream); border-bottom: 1px solid var(--border);
+    padding: 1.5rem 5%; gap: 1.25rem;
+    box-shadow: 0 8px 24px rgba(0,0,0,.1);
+  }
+  .hamburger { display: flex; }
+  .hero { grid-template-columns: 1fr; }
+  .hero-left { padding: 5rem 5% 4rem; min-height: 60vh; }
+  .hero-right { min-height: 360px; }
+  .hero-badge { display: none; }
+  .about-grid { grid-template-columns: 1fr; gap: 3rem; }
+  .about-photo-wrap { order: -1; }
+  .about-tag { bottom: .5rem; right: .5rem; }
+  .services-grid { grid-template-columns: 1fr 1fr; }
+  .reviews-grid { grid-template-columns: 1fr; }
+  .process-steps { grid-template-columns: 1fr 1fr; gap: 2.5rem; }
+  .contact-grid { grid-template-columns: 1fr; }
+  footer { flex-direction: column; text-align: center; }
+  .foot-social { justify-content: center; }
+  .foot-right { text-align: center; }
+}
+@media (max-width: 600px) {
+  section { padding: 4rem 5%; }
+  .services-grid { grid-template-columns: 1fr; }
+  .process-steps { grid-template-columns: 1fr; }
+  .hero-proof { flex-direction: column; gap: 1rem; }
+  .hero-actions { flex-direction: column; }
+  .hero-actions .btn-primary,
+  .hero-actions .btn-ghost { width: 100%; }
+}
+
+/* ── ANIMATIONS ── */
+.fade-up { opacity: 0; transform: translateY(22px); transition: opacity .65s ease, transform .65s ease; }
+.fade-up.visible { opacity: 1; transform: none; }
+@keyframes heroIn { from { opacity:0; transform:translateY(14px); } to { opacity:1; transform:none; } }
+.hero-over     { animation: heroIn .8s ease .2s both; }
+.hero-name     { animation: heroIn .9s ease .38s both; }
+.hero-sub      { animation: heroIn .8s ease .52s both; }
+.hero-proof    { animation: heroIn .8s ease .64s both; }
+.hero-actions  { animation: heroIn .8s ease .76s both; }
+</style>
+</head>
+<body>
+
+<a href="#main" class="skip-link">Skip to main content</a>
+
+<!-- NAV -->
+<nav id="nav" aria-label="Main navigation">
+  <a href="/" class="nav-logo">Studio 656 West</a>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="#about">Leigh</a></li>
+    <li><a href="#services">Services</a></li>
+    <li><a href="#reviews">Reviews</a></li>
+    <li><a href="#faq">How it works</a></li>
+    <li><a href="#contact" onclick="openModal(event)" class="nav-cta">Book a session</a></li>
+  </ul>
+  <button class="hamburger" id="hamburger" onclick="toggleMenu()" aria-label="Open menu" aria-expanded="false" aria-controls="navLinks">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<main id="main">
+
+<!-- HERO -->
+<section class="hero" aria-label="Hero">
+  <div class="hero-left">
+    <div class="hero-left-content">
+      <p class="hero-over">Gulfport, Florida</p>
+      <h1 class="hero-name">
+        Leigh<br>Clifton
+        <em>Studio 656 West</em>
+      </h1>
+      <p class="hero-sub">On-location photographer based in Gulfport, Florida. Known for sunset portraits, surprise proposals, and a photojournalist's eye for what's actually happening in the moment.</p>
+      <div class="hero-proof">
+        <div class="proof-item">
+          <span class="proof-num">5.0</span>
+          <span class="proof-label">240 reviews</span>
+        </div>
+        <div class="proof-item">
+          <span class="proof-num">362</span>
+          <span class="proof-label">Sessions booked</span>
+        </div>
+        <div class="proof-item">
+          <span class="proof-num">26</span>
+          <span class="proof-label">Years shooting</span>
+        </div>
+      </div>
+      <div class="hero-actions">
+        <a href="#contact" onclick="openModal(event)" class="btn-primary">Book a session</a>
+        <a href="#about" class="btn-ghost">About Leigh</a>
+      </div>
+    </div>
+  </div>
+  <div class="hero-right">
+    <img src="assets/leigh-portrait.jpg" alt="Leigh Clifton, Studio 656 West photographer in Gulfport, Florida" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+    <div class="hero-right-placeholder" style="display:none;" aria-hidden="true"></div>
+    <div class="hero-badge">
+      <span class="badge-num">Top Pro</span>
+      <span class="badge-text">Thumbtack Platinum, 2016 through 2025</span>
+    </div>
+  </div>
+</section>
+
+<!-- MARQUEE -->
+<div class="marquee-wrap" aria-hidden="true">
+  <div class="marquee-track">
+    <span>Engagement Photography</span><span class="dot">*</span>
+    <span>Surprise Proposals</span><span class="dot">*</span>
+    <span>Sunset Portraits</span><span class="dot">*</span>
+    <span>Family Portraits</span><span class="dot">*</span>
+    <span>Gulfport, Florida</span><span class="dot">*</span>
+    <span>Digital Delivery</span><span class="dot">*</span>
+    <span>Thumbtack Platinum Top Pro</span><span class="dot">*</span>
+    <span>Engagement Photography</span><span class="dot">*</span>
+    <span>Surprise Proposals</span><span class="dot">*</span>
+    <span>Sunset Portraits</span><span class="dot">*</span>
+    <span>Family Portraits</span><span class="dot">*</span>
+    <span>Gulfport, Florida</span><span class="dot">*</span>
+    <span>Digital Delivery</span><span class="dot">*</span>
+    <span>Thumbtack Platinum Top Pro</span><span class="dot">*</span>
+  </div>
+</div>
+
+<!-- ABOUT -->
+<section class="about" id="about">
+  <div class="about-grid">
+    <div class="about-text">
+      <p class="section-eyebrow">The photographer</p>
+      <h2 class="section-title">A photojournalist's eye. <em>A Gulfport heart.</em></h2>
+      <p>Leigh Clifton has been making photographs for 26 years. She earned a BA in Photojournalism and Communications, went back to school in 2010 for a Commercial Photography degree, and spent three years freelancing for the Washington Post alongside two Pulitzer Prize-winning photographers.</p>
+      <p>She covered high school sports for the Tampa Bay Times for two years. She is the current Editor of Gulfport Living Magazine, where she writes cover stories, shoots the cover photo, and lays out the entire publication every month. This is how she shoots portraits, too: with a journalist's eye for the real moment, not the posed version of it.</p>
+      <p>She lives in Gulfport, a funky, artistic beach town that is part of St. Petersburg. She shoots on location across Tampa Bay and knows every beautiful spot. She is particularly known for golden hour and sunset work, and does a lot of surprise engagements at the water's edge.</p>
+      <ul class="creds-list">
+        <li>BA in Photojournalism and Communications</li>
+        <li>Commercial Photography degree, 2010</li>
+        <li>Freelance photographer, Washington Post, 3 years</li>
+        <li>Freelance photographer, Tampa Bay Times (high school sports), 2 years</li>
+        <li>Editor, Gulfport Living Magazine</li>
+        <li>Thumbtack Platinum Top Pro, 2016 through 2025</li>
+        <li>Background checked</li>
+      </ul>
+    </div>
+    <div class="about-photo-wrap">
+      <img src="assets/leigh-about.jpg" alt="Leigh Clifton, photojournalist and portrait photographer based in Gulfport, Florida" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+      <div class="about-photo-placeholder" style="display:none;" aria-hidden="true"></div>
+      <div class="about-tag">
+        <span class="about-tag-text">Based in</span>
+        <span class="about-tag-val">Gulfport, FL</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="services" id="services">
+  <p class="section-eyebrow fade-up">What Leigh shoots</p>
+  <h2 class="section-title fade-up" style="color:#fff;">Every kind of moment. <em style="color:var(--gold);">All of it on location.</em></h2>
+  <div class="services-grid">
+
+    <div class="service-card fade-up">
+      <span class="svc-num">01</span>
+      <h3 class="svc-name">Engagement and Proposal Photography</h3>
+      <p class="svc-desc">Staged engagements and surprise proposals. Leigh coordinates with you so the moment happens naturally and she is in the right place to capture it.</p>
+    </div>
+
+    <div class="service-card fade-up">
+      <span class="svc-num">02</span>
+      <h3 class="svc-name">Sunset Portraits</h3>
+      <p class="svc-desc">Tampa Bay's light at golden hour is genuinely remarkable. Leigh has spent years learning every waterfront and park in the area. These are her best sessions.</p>
+    </div>
+
+    <div class="service-card fade-up">
+      <span class="svc-num">03</span>
+      <h3 class="svc-name">Family Portraits</h3>
+      <p class="svc-desc">Families, couples, and children. On location at a spot that fits your family. Leigh helps you pick it if you need guidance.</p>
+    </div>
+
+    <div class="service-card fade-up">
+      <span class="svc-num">04</span>
+      <h3 class="svc-name">Maternity</h3>
+      <p class="svc-desc">Maternity sessions on location, using natural light and natural surfaces. The kind of photographs that get framed.</p>
+    </div>
+
+    <div class="service-card fade-up">
+      <span class="svc-num">05</span>
+      <h3 class="svc-name">Headshots</h3>
+      <p class="svc-desc">Professional headshots on location or at your home or office. Studio backgrounds available for travel. Natural light preferred whenever possible.</p>
+    </div>
+
+    <div class="service-card fade-up">
+      <span class="svc-num">06</span>
+      <h3 class="svc-name">Sports Photography</h3>
+      <p class="svc-desc">Baseball, football, volleyball, basketball, swimming, soccer, track and field. Leigh covered high school sports professionally for the Tampa Bay Times.</p>
+    </div>
+
+    <div class="service-card fade-up">
+      <span class="svc-num">07</span>
+      <h3 class="svc-name">Small Beach Weddings</h3>
+      <p class="svc-desc">Beach weddings with 20 people or fewer. Gulfport and the surrounding coastline offer exceptional locations.</p>
+    </div>
+
+    <div class="service-card fade-up">
+      <span class="svc-num">08</span>
+      <h3 class="svc-name">Graduation and Senior Portraits</h3>
+      <p class="svc-desc">Graduation and senior portraits on location, with clothing and location guidance available if you want it.</p>
+    </div>
+
+    <div class="service-card fade-up">
+      <span class="svc-num">09</span>
+      <h3 class="svc-name">Events and More</h3>
+      <p class="svc-desc">Corporate events, real estate, pets, children, and anything not listed above. If you are not sure, just ask.</p>
+    </div>
+
+  </div>
+</section>
+
+<!-- REVIEWS -->
+<section class="reviews" id="reviews">
+  <p class="section-eyebrow fade-up">What clients say</p>
+  <h2 class="section-title fade-up">5.0 across 240 reviews on Thumbtack.</h2>
+  <div class="reviews-grid">
+
+    <div class="review-card fade-up">
+      <div class="stars">★★★★★</div>
+      <p class="review-text">"Leigh was amazing from start to finish. She was communicative and responsive. She recognized that this was a surprise proposal and helped me pull it off by providing key support when I needed it. We loved the final photos as much as we loved working with her."</p>
+      <p class="review-name">Kelly B.</p>
+      <p class="review-type">Surprise Proposal Photography</p>
+    </div>
+
+    <div class="review-card fade-up">
+      <div class="stars">★★★★★</div>
+      <p class="review-text">"Leigh was so great to work with for my engagement pictures. She loves what she does and delivers amazing quality pictures. She went above and beyond researching the perfect spot. She is very responsive and a local who knows her way around all the best photo spots in town."</p>
+      <p class="review-name">Evan L.</p>
+      <p class="review-type">Engagement Photography</p>
+    </div>
+
+    <div class="review-card fade-up">
+      <div class="stars">★★★★★</div>
+      <p class="review-text">"Leigh was an absolute pleasure to work with. She has a ton of experience in many different kinds of photography and it truly shows. I didn't have to give any direction. I just let her do what she does best and it showed. I highly recommend Leigh for any photography needs."</p>
+      <p class="review-name">Kyle H.</p>
+      <p class="review-type">Sports Photography</p>
+    </div>
+
+    <div class="review-card fade-up">
+      <div class="stars">★★★★★</div>
+      <p class="review-text">"Leigh was amazing. She was super flexible with us when the weather was very hit or miss and made sure to squeeze us in while we were visiting Florida. Such a fun photographer and me and my fiance both really enjoyed our session."</p>
+      <p class="review-name">Addie R.</p>
+      <p class="review-type">Couples Portrait Photography</p>
+    </div>
+
+    <div class="review-card fade-up">
+      <div class="stars">★★★★★</div>
+      <p class="review-text">"Leigh was great in helping me coordinate my engagement and photos. I came from out of state but she worked with my schedule and helped me accommodate everything to make the day and moment special. Definitely recommend."</p>
+      <p class="review-name">Keithlin G.</p>
+      <p class="review-type">Engagement Photography</p>
+    </div>
+
+    <div class="review-card fade-up">
+      <div class="stars">★★★★★</div>
+      <p class="review-text">"Leigh is an outstanding photographer. She has a wonderful eye, amazing patience, and made us all feel incredibly comfortable. She got shots I never would have expected. The photos came back beautifully edited and faster than I thought possible."</p>
+      <p class="review-name">Thumbtack client</p>
+      <p class="review-type">Family Portrait Photography</p>
+    </div>
+
+  </div>
+  <p class="reviews-source">Reviews from <a href="https://www.thumbtack.com/fl/saint-petersburg/portrait-photographers/studio-656-west/service/196705539528713391" target="_blank" rel="noopener">Thumbtack</a>. Thumbtack Platinum Top Pro 2016 through 2025.</p>
+</section>
+
+<!-- PROCESS -->
+<section class="process" id="process">
+  <p class="section-eyebrow fade-up">How it works</p>
+  <h2 class="section-title fade-up">Simple from the first message.</h2>
+  <div class="process-steps">
+    <div class="step fade-up">
+      <div class="step-num">01</div>
+      <h3 class="step-title">Reach out</h3>
+      <p class="step-desc">Text or email Leigh directly. She offers a complimentary phone consultation with every new client and responds quickly.</p>
+    </div>
+    <div class="step fade-up">
+      <div class="step-num">02</div>
+      <h3 class="step-title">Pick a location</h3>
+      <p class="step-desc">Leigh knows Tampa Bay. She can suggest the right spot based on the time of day, the look you want, and the season. She travels to you, or you can come to Gulfport.</p>
+    </div>
+    <div class="step fade-up">
+      <div class="step-num">03</div>
+      <h3 class="step-title">The session</h3>
+      <p class="step-desc">Leigh shoots the real moments. She uses natural light whenever possible and prefers natural surfaces over generic backdrops. You will not have to overthink it.</p>
+    </div>
+    <div class="step fade-up">
+      <div class="step-num">04</div>
+      <h3 class="step-title">Digital delivery</h3>
+      <p class="step-desc">After editing, Leigh sends a download link directly to you. No prints, no photo books, no waiting for a package. Just your files, ready to use.</p>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="faq" id="faq">
+  <p class="section-eyebrow" style="justify-content:center;">Common questions</p>
+  <h2 class="section-title" style="text-align:center;">Answers before you ask.</h2>
+  <div class="faq-list">
+
+    <div class="faq-item">
+      <button class="faq-question" aria-expanded="false" aria-controls="faq-1">
+        How does Leigh deliver the photos?
+        <span class="faq-icon" aria-hidden="true">+</span>
+      </button>
+      <div class="faq-answer" id="faq-1" role="region">
+        <p>All photos are delivered digitally. After editing, Leigh sends you a download link so you can save everything directly to your computer. No prints, no photo books, no waiting for mail.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-question" aria-expanded="false" aria-controls="faq-2">
+        Does Studio 656 West have a studio location?
+        <span class="faq-icon" aria-hidden="true">+</span>
+      </button>
+      <div class="faq-answer" id="faq-2" role="region">
+        <p>Leigh is on-location only. She travels to you anywhere in the Tampa Bay area, or you can come to Gulfport. She has portable studio backgrounds for headshots and will travel to your home or office if needed.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-question" aria-expanded="false" aria-controls="faq-3">
+        Can Leigh do surprise proposals?
+        <span class="faq-icon" aria-hidden="true">+</span>
+      </button>
+      <div class="faq-answer" id="faq-3" role="region">
+        <p>Yes, and she does a lot of them. Leigh works closely with whoever is planning the proposal to coordinate timing, positioning, and location so the moment is captured and nothing is given away ahead of time.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-question" aria-expanded="false" aria-controls="faq-4">
+        Does Leigh work with out-of-town visitors?
+        <span class="faq-icon" aria-hidden="true">+</span>
+      </button>
+      <div class="faq-answer" id="faq-4" role="region">
+        <p>Yes. Many clients visit Florida specifically for photos and Leigh is experienced at coordinating sessions around travel schedules and flexible weather situations. She has repeat clients who come back every time they visit Tampa Bay.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-question" aria-expanded="false" aria-controls="faq-5">
+        What does a session cost?
+        <span class="faq-icon" aria-hidden="true">+</span>
+      </button>
+      <div class="faq-answer" id="faq-5" role="region">
+        <p>Pricing depends on the number of people, location, and type of session. Leigh prices competitively and is willing to work with clients on budget. Reach out directly for a quote. She accepts Cash, Check, Venmo, and Zelle.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-question" aria-expanded="false" aria-controls="faq-6">
+        What should I wear or bring?
+        <span class="faq-icon" aria-hidden="true">+</span>
+      </button>
+      <div class="faq-answer" id="faq-6" role="region">
+        <p>Leigh offers clothing and location guidance as part of every consultation. She stays in touch throughout the process and is available to answer questions right up to the session day.</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact" id="contact">
+  <p class="section-eyebrow">Get started</p>
+  <h2 class="section-title">Ready to book? <em>Leigh picks up fast.</em></h2>
+  <p class="contact-sub">Complimentary phone consultation with every new client. Reach out the way that works for you.</p>
+  <div class="contact-grid">
+    <div class="contact-card" onclick="openModal(event)" style="border-top-color:var(--rust);">
+      <span class="cc-label">Fastest</span>
+      <div class="cc-title">Text or call</div>
+      <div class="cc-desc">Direct line to Leigh</div>
+    </div>
+    <a class="contact-card" href="[EMAIL_LINK]" style="border-top-color:var(--gold);">
+      <span class="cc-label">Email</span>
+      <div class="cc-title">Send a message</div>
+      <div class="cc-desc">Response within one business day</div>
+    </a>
+    <a class="contact-card" href="https://www.instagram.com/studio656west/" target="_blank" rel="noopener" style="border-top-color:rgba(255,255,255,.15);">
+      <span class="cc-label">Instagram</span>
+      <div class="cc-title">@studio656west</div>
+      <div class="cc-desc">See the work first</div>
+    </a>
+  </div>
+  <p class="contact-note">Gulfport, Florida 33707 - Serving Tampa Bay and beyond</p>
+</section>
+
+</main>
+
+<!-- FOOTER -->
+<footer>
+  <div class="foot-left">
+    <div class="foot-name">Studio 656 West</div>
+    <div class="foot-address">Gulfport, Florida 33707 - Tampa Bay area - serving clients worldwide</div>
+  </div>
+  <div class="foot-social">
+    <a href="https://www.instagram.com/studio656west/" target="_blank" rel="noopener">Instagram</a>
+    <a href="https://www.linkedin.com/in/leigh-clifton-08862a5/" target="_blank" rel="noopener">LinkedIn</a>
+    <a href="https://www.thumbtack.com/fl/saint-petersburg/portrait-photographers/studio-656-west/service/196705539528713391" target="_blank" rel="noopener">Thumbtack</a>
+  </div>
+  <div class="foot-right">
+    <p>&copy; 2026 Studio 656 West. Leigh Clifton Photography.</p>
+    <p style="margin-top:.25rem;">Built by <a href="https://gofercontent.com/" target="_blank" rel="noopener">gofer content</a></p>
+  </div>
+</footer>
+
+<!-- CONTACT MODAL -->
+<div class="modal-bg" id="contactModal" role="dialog" aria-label="Contact Studio 656 West" aria-modal="true">
+  <div class="modal-sheet">
+    <button class="modal-close" onclick="closeModal()" aria-label="Close">&times;</button>
+    <div class="modal-title">Book a session</div>
+    <p class="modal-sub">Choose how you want to reach Leigh. She responds quickly and offers a free phone consultation to every new client.</p>
+    <div class="modal-opts">
+      <a href="sms:[PHONE]&body=Hi%20Leigh!%20I%27d%20like%20to%20book%20a%20session.%0AMy%20name:%0AWhat%20I%27m%20looking%20for:" class="modal-opt" id="modal-sms" style="border-left-color:var(--rust);">
+        <div>
+          <div class="opt-label">Text Leigh</div>
+          <div class="opt-detail">Fastest way to get started</div>
+        </div>
+        <span class="opt-arrow">&#8594;</span>
+      </a>
+      <a href="tel:[PHONE]" class="modal-opt" style="border-left-color:var(--gold);">
+        <div>
+          <div class="opt-label">Call Leigh</div>
+          <div class="opt-detail">Free consultation included</div>
+        </div>
+        <span class="opt-arrow">&#8594;</span>
+      </a>
+      <a href="[EMAIL_LINK]" class="modal-opt" id="modal-email" style="border-left-color:rgba(0,0,0,.1);">
+        <div>
+          <div class="opt-label">Email</div>
+          <div class="opt-detail">Response within one business day</div>
+        </div>
+        <span class="opt-arrow">&#8594;</span>
+      </a>
+      <a href="https://www.thumbtack.com/fl/saint-petersburg/portrait-photographers/studio-656-west/service/196705539528713391" target="_blank" rel="noopener" class="modal-opt" style="border-left-color:rgba(0,0,0,.1);">
+        <div>
+          <div class="opt-label">Thumbtack</div>
+          <div class="opt-detail">240 reviews, 5.0 rating</div>
+        </div>
+        <span class="opt-arrow">&#8594;</span>
+      </a>
+    </div>
+    <button class="modal-cancel" onclick="closeModal()">Cancel</button>
+  </div>
+</div>
+
+<script>
+// Nav scroll
+var nav = document.getElementById('nav');
+window.addEventListener('scroll', function() {
+  nav.classList.toggle('scrolled', window.scrollY > 50);
+});
+
+// Mobile menu
+function toggleMenu() {
+  var menu = document.getElementById('navLinks');
+  var btn = document.getElementById('hamburger');
+  var isOpen = menu.classList.toggle('open');
+  btn.setAttribute('aria-expanded', isOpen);
+}
+document.querySelectorAll('.nav-links a').forEach(function(a) {
+  a.addEventListener('click', function() {
+    document.getElementById('navLinks').classList.remove('open');
+    document.getElementById('hamburger').setAttribute('aria-expanded', 'false');
+  });
+});
+
+// Modal
+function openModal(e) {
+  if (e) e.preventDefault();
+  document.getElementById('contactModal').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+function closeModal() {
+  document.getElementById('contactModal').classList.remove('open');
+  document.body.style.overflow = '';
+}
+document.getElementById('contactModal').addEventListener('click', function(e) {
+  if (e.target === this) closeModal();
+});
+document.addEventListener('keydown', function(e) {
+  if (e.key === 'Escape') closeModal();
+});
+
+// SMS vs email toggle for non-mobile
+var PHONE = '[PHONE]';
+var EMAIL = '[EMAIL]';
+var isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+if (!isMobile) {
+  var smsEl = document.getElementById('modal-sms');
+  var emailEl = document.getElementById('modal-email');
+  if (smsEl) smsEl.href = 'mailto:' + EMAIL + '?subject=Session%20inquiry%20from%20website';
+  if (emailEl) emailEl.href = 'mailto:' + EMAIL + '?subject=Session%20inquiry%20from%20website';
+  var emailLinks = document.querySelectorAll('a[href="[EMAIL_LINK]"]');
+  emailLinks.forEach(function(el) { el.href = 'mailto:' + EMAIL; });
+}
+
+// FAQ accordion
+document.querySelectorAll('.faq-question').forEach(function(btn) {
+  btn.addEventListener('click', function() {
+    var expanded = this.getAttribute('aria-expanded') === 'true';
+    document.querySelectorAll('.faq-question').forEach(function(other) {
+      other.setAttribute('aria-expanded', 'false');
+      document.getElementById(other.getAttribute('aria-controls')).classList.remove('open');
+    });
+    if (!expanded) {
+      this.setAttribute('aria-expanded', 'true');
+      document.getElementById(this.getAttribute('aria-controls')).classList.add('open');
+    }
+  });
+});
+
+// Scroll animations
+var obs = new IntersectionObserver(function(entries) {
+  entries.forEach(function(entry, i) {
+    if (entry.isIntersecting) {
+      setTimeout(function() {
+        entry.target.classList.add('visible');
+      }, i * 80);
+      obs.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.1 });
+document.querySelectorAll('.fade-up').forEach(function(el) { obs.observe(el); });
+
+// Smooth scroll
+document.querySelectorAll('a[href^="#"]').forEach(function(a) {
+  a.addEventListener('click', function(e) {
+    var target = document.querySelector(this.getAttribute('href'));
+    if (target) {
+      e.preventDefault();
+      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  });
+});
+</script>
+
+</body>
+</html>
