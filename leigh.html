@@ -701,6 +701,46 @@ footer {
 }
 .modal-cancel:hover { border-color: var(--ink); color: var(--ink); }
 
+/* ── CONTACT FORM ── */
+.contact-form { display: flex; flex-direction: column; gap: .85rem; }
+.form-row { display: flex; flex-direction: column; gap: .35rem; }
+.form-row label {
+  font-size: .68rem; font-weight: 600;
+  letter-spacing: .1em; text-transform: uppercase;
+  color: var(--muted);
+}
+.form-row input,
+.form-row select,
+.form-row textarea {
+  font-family: 'Libre Franklin', sans-serif;
+  font-size: .88rem; font-weight: 300;
+  color: var(--ink);
+  background: #fff;
+  border: 1.5px solid var(--border);
+  padding: .75rem 1rem;
+  transition: border-color .2s;
+  outline: none;
+  width: 100%;
+  appearance: none;
+  -webkit-appearance: none;
+}
+.form-row input:focus,
+.form-row select:focus,
+.form-row textarea:focus { border-color: var(--rust); }
+.form-row textarea { resize: vertical; min-height: 90px; line-height: 1.6; }
+.form-submit {
+  width: 100%; margin-top: .25rem;
+  padding: 1rem;
+  background: var(--rust); color: #fff;
+  border: none; cursor: pointer;
+  font-family: 'Libre Franklin', sans-serif;
+  font-size: .78rem; font-weight: 600;
+  letter-spacing: .1em; text-transform: uppercase;
+  transition: background .2s;
+  min-height: 48px;
+}
+.form-submit:hover { background: var(--gold); }
+
 /* ── RESPONSIVE ── */
 @media (max-width: 960px) {
   .nav-links { display: none; }
@@ -1078,19 +1118,19 @@ footer {
   <p class="contact-sub">Complimentary phone consultation with every new client. Reach out the way that works for you.</p>
   <div class="contact-grid">
     <div class="contact-card" onclick="openModal(event)" style="border-top-color:var(--rust);">
-      <span class="cc-label">Fastest</span>
-      <div class="cc-title">Text or call</div>
-      <div class="cc-desc">Direct line to Leigh</div>
+      <span class="cc-label">Send a message</span>
+      <div class="cc-title">Book a session</div>
+      <div class="cc-desc">Leigh responds personally to every inquiry</div>
     </div>
-    <a class="contact-card" href="[EMAIL_LINK]" style="border-top-color:var(--gold);">
-      <span class="cc-label">Email</span>
-      <div class="cc-title">Send a message</div>
-      <div class="cc-desc">Response within one business day</div>
-    </a>
-    <a class="contact-card" href="https://www.instagram.com/studio656west/" target="_blank" rel="noopener" style="border-top-color:rgba(255,255,255,.15);">
+    <a class="contact-card" href="https://www.instagram.com/studio656west/" target="_blank" rel="noopener" style="border-top-color:var(--gold);">
       <span class="cc-label">Instagram</span>
       <div class="cc-title">@studio656west</div>
       <div class="cc-desc">See the work first</div>
+    </a>
+    <a class="contact-card" href="https://www.thumbtack.com/fl/saint-petersburg/portrait-photographers/studio-656-west/service/196705539528713391" target="_blank" rel="noopener" style="border-top-color:rgba(255,255,255,.15);">
+      <span class="cc-label">Thumbtack</span>
+      <div class="cc-title">240 reviews</div>
+      <div class="cc-desc">5.0 rating, Platinum Top Pro</div>
     </a>
   </div>
   <p class="contact-note">Gulfport, Florida 33707 - Serving Tampa Bay and beyond</p>
@@ -1120,38 +1160,39 @@ footer {
   <div class="modal-sheet">
     <button class="modal-close" onclick="closeModal()" aria-label="Close">&times;</button>
     <div class="modal-title">Book a session</div>
-    <p class="modal-sub">Choose how you want to reach Leigh. She responds quickly and offers a free phone consultation to every new client.</p>
-    <div class="modal-opts">
-      <a href="sms:[PHONE]&body=Hi%20Leigh!%20I%27d%20like%20to%20book%20a%20session.%0AMy%20name:%0AWhat%20I%27m%20looking%20for:" class="modal-opt" id="modal-sms" style="border-left-color:var(--rust);">
-        <div>
-          <div class="opt-label">Text Leigh</div>
-          <div class="opt-detail">Fastest way to get started</div>
-        </div>
-        <span class="opt-arrow">&#8594;</span>
-      </a>
-      <a href="tel:[PHONE]" class="modal-opt" style="border-left-color:var(--gold);">
-        <div>
-          <div class="opt-label">Call Leigh</div>
-          <div class="opt-detail">Free consultation included</div>
-        </div>
-        <span class="opt-arrow">&#8594;</span>
-      </a>
-      <a href="[EMAIL_LINK]" class="modal-opt" id="modal-email" style="border-left-color:rgba(0,0,0,.1);">
-        <div>
-          <div class="opt-label">Email</div>
-          <div class="opt-detail">Response within one business day</div>
-        </div>
-        <span class="opt-arrow">&#8594;</span>
-      </a>
-      <a href="https://www.thumbtack.com/fl/saint-petersburg/portrait-photographers/studio-656-west/service/196705539528713391" target="_blank" rel="noopener" class="modal-opt" style="border-left-color:rgba(0,0,0,.1);">
-        <div>
-          <div class="opt-label">Thumbtack</div>
-          <div class="opt-detail">240 reviews, 5.0 rating</div>
-        </div>
-        <span class="opt-arrow">&#8594;</span>
-      </a>
-    </div>
-    <button class="modal-cancel" onclick="closeModal()">Cancel</button>
+    <p class="modal-sub">Send Leigh a message. She responds personally and includes a free consultation with every new inquiry.</p>
+    <form class="contact-form" action="https://formspree.io/f/mwvwevae" method="POST">
+      <input type="hidden" name="_next" value="[THANK_YOU_URL]">
+      <input type="hidden" name="_subject" value="New session inquiry — Studio 656 West">
+      <div class="form-row">
+        <label for="f-name">Your name</label>
+        <input type="text" id="f-name" name="name" placeholder="First and last name" required>
+      </div>
+      <div class="form-row">
+        <label for="f-email">Your email</label>
+        <input type="email" id="f-email" name="email" placeholder="you@email.com" required>
+      </div>
+      <div class="form-row">
+        <label for="f-type">What are you looking for?</label>
+        <select id="f-type" name="session_type">
+          <option value="">Select a session type</option>
+          <option>Engagement or proposal</option>
+          <option>Family portraits</option>
+          <option>Sunset portraits</option>
+          <option>Maternity</option>
+          <option>Headshots</option>
+          <option>Sports photography</option>
+          <option>Small beach wedding</option>
+          <option>Graduation or senior portraits</option>
+          <option>Something else</option>
+        </select>
+      </div>
+      <div class="form-row">
+        <label for="f-msg">Tell Leigh a little about your session</label>
+        <textarea id="f-msg" name="message" rows="4" placeholder="Dates, location ideas, anything helpful..."></textarea>
+      </div>
+      <button type="submit" class="form-submit">Send message</button>
+    </form>
   </div>
 </div>
 
@@ -1192,19 +1233,6 @@ document.getElementById('contactModal').addEventListener('click', function(e) {
 document.addEventListener('keydown', function(e) {
   if (e.key === 'Escape') closeModal();
 });
-
-// SMS vs email toggle for non-mobile
-var PHONE = '[PHONE]';
-var EMAIL = '[EMAIL]';
-var isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
-if (!isMobile) {
-  var smsEl = document.getElementById('modal-sms');
-  var emailEl = document.getElementById('modal-email');
-  if (smsEl) smsEl.href = 'mailto:' + EMAIL + '?subject=Session%20inquiry%20from%20website';
-  if (emailEl) emailEl.href = 'mailto:' + EMAIL + '?subject=Session%20inquiry%20from%20website';
-  var emailLinks = document.querySelectorAll('a[href="[EMAIL_LINK]"]');
-  emailLinks.forEach(function(el) { el.href = 'mailto:' + EMAIL; });
-}
 
 // FAQ accordion
 document.querySelectorAll('.faq-question').forEach(function(btn) {
