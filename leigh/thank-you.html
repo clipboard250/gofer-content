@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Message received — Studio 656 West</title>
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Libre+Franklin:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+:root {
+  --deep:  #18120F;
+  --ink:   #2C2118;
+  --gold:  #C08035;
+  --rust:  #A03228;
+  --cream: #F6F0E8;
+  --sand:  #E8DDD0;
+  --muted: #7A6A60;
+}
+body {
+  font-family: 'Libre Franklin', sans-serif;
+  background: var(--deep);
+  color: #fff;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  -webkit-font-smoothing: antialiased;
+}
+.wrap {
+  max-width: 560px;
+  text-align: center;
+  animation: fadeIn .8s ease both;
+}
+@keyframes fadeIn { from { opacity:0; transform:translateY(16px); } to { opacity:1; transform:none; } }
+.eyebrow {
+  font-size: .65rem; font-weight: 700;
+  letter-spacing: .22em; text-transform: uppercase;
+  color: var(--gold); margin-bottom: 1.5rem;
+}
+h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(2.2rem, 6vw, 3.5rem);
+  font-weight: 700; line-height: 1.1;
+  color: #fff; margin-bottom: 1.25rem;
+}
+h1 em { font-style: italic; color: var(--gold); }
+p {
+  font-size: .95rem; font-weight: 300;
+  color: rgba(255,255,255,.6);
+  line-height: 1.85; margin-bottom: 2.5rem;
+}
+.divider {
+  width: 40px; height: 1px;
+  background: var(--gold);
+  margin: 0 auto 2.5rem;
+}
+.back {
+  display: inline-block;
+  font-size: .75rem; font-weight: 600;
+  letter-spacing: .12em; text-transform: uppercase;
+  color: rgba(255,255,255,.4);
+  text-decoration: none;
+  border-bottom: 1px solid rgba(255,255,255,.15);
+  padding-bottom: .2rem;
+  transition: color .2s, border-color .2s;
+}
+.back:hover { color: var(--gold); border-color: var(--gold); }
+.instagram {
+  display: block; margin-top: 1.5rem;
+  font-size: .72rem; font-weight: 400;
+  color: rgba(255,255,255,.25);
+  text-decoration: none; letter-spacing: .06em;
+  transition: color .2s;
+}
+.instagram:hover { color: var(--gold); }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <p class="eyebrow">Studio 656 West</p>
+  <h1>Message <em>received.</em></h1>
+  <div class="divider"></div>
+  <p>Leigh will be in touch personally. She reads every inquiry herself and responds quickly. If you have something time-sensitive, her Instagram is a great place to reach her in the meantime.</p>
+  <a href="/" class="back">Back to the site</a>
+  <a href="https://www.instagram.com/studio656west/" target="_blank" rel="noopener" class="instagram">@studio656west on Instagram</a>
+</div>
+</body>
+</html>
