@@ -1,0 +1,1080 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>Abraham's Job Guide</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,700;12..96,800&family=Instrument+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
+
+:root {
+–white: #ffffff;
+–off: #f6f4f1;
+–ink: #0f0f0f;
+–muted: #7a7570;
+–border: rgba(0,0,0,0.08);
+
+–c1: #bdd9f7; –c1d: #1256a3; –c1bg: #e8f3fd;
+–c2: #cabfff; –c2d: #4427c4; –c2bg: #ede9ff;
+–c3: #b3e8d4; –c3d: #0f6649; –c3bg: #e3f7f0;
+–c4: #ffd5a8; –c4d: #9e4510; –c4bg: #fff0e0;
+–c5: #ffc4c4; –c5d: #b01b1b; –c5bg: #ffeaea;
+–c6: #c6f0b0; –c6d: #2d6e0e; –c6bg: #e8fadc;
+–c7: #e8c4ff; –c7d: #720cb0; –c7bg: #f6e8ff;
+–c8: #e2ddd8; –c8d: #3a2e26; –c8bg: #f2efeb;
+}
+
+html { background: var(–off); }
+body {
+font-family: ‘Instrument Sans’, sans-serif;
+background: var(–off);
+color: var(–ink);
+min-height: 100vh;
+max-width: 480px;
+margin: 0 auto;
+overflow-x: hidden;
+}
+
+/* ── HERO ── */
+.hero {
+padding: 52px 24px 36px;
+background: var(–white);
+border-bottom: 1px solid var(–border);
+}
+.hero-label {
+font-size: 11px;
+font-weight: 700;
+letter-spacing: 2.5px;
+text-transform: uppercase;
+color: var(–muted);
+margin-bottom: 12px;
+}
+.hero h1 {
+font-family: ‘Bricolage Grotesque’, sans-serif;
+font-size: 52px;
+font-weight: 800;
+line-height: 0.95;
+letter-spacing: -1px;
+margin-bottom: 16px;
+}
+.hero h1 em { font-style: normal; color: var(–c1d); }
+.hero p {
+font-size: 15px;
+line-height: 1.65;
+color: var(–muted);
+max-width: 320px;
+}
+.hero-stats {
+display: flex;
+gap: 16px;
+margin-top: 24px;
+}
+.hero-stat {
+flex: 1;
+background: var(–off);
+border-radius: 14px;
+padding: 14px;
+border: 1px solid var(–border);
+}
+.hero-stat .num {
+font-family: ‘Bricolage Grotesque’, sans-serif;
+font-size: 28px;
+font-weight: 800;
+line-height: 1;
+margin-bottom: 4px;
+color: var(–c1d);
+}
+.hero-stat .lbl { font-size: 11px; color: var(–muted); font-weight: 500; line-height: 1.4; }
+
+/* ── FOLDER TABS ── */
+.folder-wrap {
+padding: 28px 20px 0;
+}
+.folder-tabs {
+display: flex;
+gap: 0;
+position: relative;
+margin-bottom: -2px;
+overflow-x: auto;
+scrollbar-width: none;
+padding-bottom: 2px;
+}
+.folder-tabs::-webkit-scrollbar { display: none; }
+.tab-btn {
+flex-shrink: 0;
+padding: 9px 16px;
+border: none;
+border-radius: 10px 10px 0 0;
+font-family: ‘Instrument Sans’, sans-serif;
+font-size: 12px;
+font-weight: 700;
+cursor: pointer;
+transition: all 0.22s ease;
+position: relative;
+z-index: 1;
+background: rgba(0,0,0,0.07);
+color: var(–muted);
+margin-right: 3px;
+}
+.tab-btn.active {
+z-index: 10;
+color: var(–ink);
+}
+.tab-btn .tab-num {
+display: block;
+font-size: 9px;
+letter-spacing: 1px;
+opacity: 0.6;
+margin-bottom: 1px;
+}
+
+/* ── FOLDER PANEL ── */
+.folder-panel {
+display: none;
+border-radius: 0 16px 16px 16px;
+padding: 24px;
+border: 1px solid var(–border);
+animation: panelIn 0.28s ease both;
+}
+.folder-panel.active { display: block; }
+
+@keyframes panelIn {
+from { opacity: 0; transform: translateY(8px); }
+to   { opacity: 1; transform: translateY(0); }
+}
+
+.panel-title {
+font-family: ‘Bricolage Grotesque’, sans-serif;
+font-size: 26px;
+font-weight: 800;
+letter-spacing: -0.5px;
+margin-bottom: 6px;
+}
+.panel-desc {
+font-size: 13px;
+color: var(–muted);
+line-height: 1.6;
+margin-bottom: 20px;
+padding-bottom: 20px;
+border-bottom: 1px solid var(–border);
+}
+
+/* ── JOB CARDS ── */
+.job-cards { display: flex; flex-direction: column; gap: 14px; }
+
+.job-card {
+background: var(–white);
+border-radius: 16px;
+border: 1.5px solid var(–border);
+overflow: hidden;
+transition: transform 0.18s ease, box-shadow 0.18s ease;
+}
+.job-card:active { transform: scale(0.99); }
+
+.job-card-head {
+padding: 16px 18px 12px;
+border-bottom: 1px solid var(–border);
+}
+.job-badge {
+display: inline-flex;
+align-items: center;
+gap: 5px;
+font-size: 10px;
+font-weight: 700;
+letter-spacing: 1px;
+text-transform: uppercase;
+padding: 4px 10px;
+border-radius: 100px;
+margin-bottom: 10px;
+}
+.job-name {
+font-family: ‘Bricolage Grotesque’, sans-serif;
+font-size: 20px;
+font-weight: 800;
+letter-spacing: -0.3px;
+line-height: 1.15;
+margin-bottom: 4px;
+}
+.job-addr {
+font-size: 12px;
+color: var(–muted);
+font-weight: 500;
+}
+
+.job-card-body { padding: 14px 18px; }
+.job-row {
+display: flex;
+flex-direction: column;
+gap: 2px;
+padding: 10px 0;
+border-bottom: 1px solid var(–border);
+}
+.job-row:last-child { border-bottom: none; padding-bottom: 0; }
+.job-row-label {
+font-size: 10px;
+font-weight: 700;
+letter-spacing: 1.5px;
+text-transform: uppercase;
+color: var(–muted);
+}
+.job-row-text {
+font-size: 13.5px;
+line-height: 1.6;
+color: var(–ink);
+font-weight: 500;
+}
+.job-row-text strong { font-weight: 700; }
+
+.job-card-foot { padding: 14px 18px 18px; }
+.call-btn {
+display: flex;
+align-items: center;
+justify-content: space-between;
+width: 100%;
+padding: 14px 16px;
+border-radius: 12px;
+border: none;
+font-family: ‘Instrument Sans’, sans-serif;
+font-size: 14px;
+font-weight: 700;
+cursor: pointer;
+text-decoration: none;
+color: inherit;
+transition: opacity 0.15s;
+}
+.call-btn:active { opacity: 0.8; }
+.call-btn span { font-size: 18px; }
+
+/* ── STAT CALLOUT ── */
+.stat-callout {
+border-radius: 16px;
+padding: 24px;
+margin-top: 20px;
+border: 2px solid var(–border);
+}
+.stat-callout .big-num {
+font-family: ‘Bricolage Grotesque’, sans-serif;
+font-size: 64px;
+font-weight: 800;
+line-height: 1;
+letter-spacing: -2px;
+margin-bottom: 8px;
+}
+.stat-callout .big-text {
+font-size: 15px;
+line-height: 1.6;
+font-weight: 600;
+}
+
+/* ── STEPS ── */
+.steps { display: flex; flex-direction: column; gap: 12px; }
+.step-card {
+background: var(–white);
+border-radius: 16px;
+border: 1.5px solid var(–border);
+padding: 18px;
+display: flex;
+gap: 14px;
+align-items: flex-start;
+}
+.step-n {
+font-family: ‘Bricolage Grotesque’, sans-serif;
+font-size: 13px;
+font-weight: 800;
+min-width: 28px;
+height: 28px;
+display: flex;
+align-items: center;
+justify-content: center;
+border-radius: 8px;
+flex-shrink: 0;
+margin-top: 1px;
+}
+.step-body h3 { font-size: 14px; font-weight: 700; margin-bottom: 5px; }
+.step-body p { font-size: 13px; line-height: 1.65; color: #555; }
+.step-body p strong { color: var(–ink); font-weight: 700; }
+
+/* ── SCRIPT BOX ── */
+.script-box {
+border-radius: 16px;
+padding: 20px;
+margin-top: 14px;
+border-left: 4px solid;
+}
+.script-box p {
+font-size: 14px;
+line-height: 1.75;
+font-weight: 500;
+font-style: italic;
+}
+
+/* ── ALERT BOX ── */
+.alert-box {
+border-radius: 14px;
+padding: 16px 18px;
+margin-bottom: 20px;
+border: 1.5px solid;
+}
+.alert-box .alert-title {
+font-size: 12px;
+font-weight: 700;
+letter-spacing: 1px;
+text-transform: uppercase;
+margin-bottom: 7px;
+display: flex;
+align-items: center;
+gap: 6px;
+}
+.alert-box p { font-size: 13px; line-height: 1.65; }
+
+/* ── VOL CARDS ── */
+.vol-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.vol-card {
+background: var(–white);
+border-radius: 16px;
+border: 1.5px solid var(–border);
+padding: 16px;
+}
+.vol-icon { font-size: 24px; margin-bottom: 10px; }
+.vol-name { font-size: 13px; font-weight: 700; line-height: 1.35; margin-bottom: 6px; }
+.vol-desc { font-size: 12px; color: var(–muted); line-height: 1.55; margin-bottom: 10px; }
+.vol-tag {
+font-size: 10px;
+font-weight: 700;
+letter-spacing: 0.8px;
+text-transform: uppercase;
+padding: 3px 9px;
+border-radius: 100px;
+display: inline-block;
+}
+
+/* ── RESUME TIPS ── */
+.tip-list { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+.tip-list li {
+font-size: 13px;
+color: #444;
+line-height: 1.6;
+padding: 12px 14px;
+background: var(–white);
+border-radius: 12px;
+border: 1.5px solid var(–border);
+display: flex;
+gap: 10px;
+}
+.tip-list li::before { content: ‘→’; font-weight: 700; flex-shrink: 0; margin-top: 1px; }
+
+/* ── BOTTOM PAD ── */
+.bottom-pad { height: 60px; }
+
+/* ── ANIMATIONS ── */
+@keyframes fadeUp {
+from { opacity: 0; transform: translateY(12px); }
+to   { opacity: 1; transform: translateY(0); }
+}
+.stagger > * { animation: fadeUp 0.4s ease both; }
+.stagger > *:nth-child(1) { animation-delay: 0s; }
+.stagger > *:nth-child(2) { animation-delay: 0.06s; }
+.stagger > *:nth-child(3) { animation-delay: 0.12s; }
+.stagger > *:nth-child(4) { animation-delay: 0.18s; }
+.stagger > *:nth-child(5) { animation-delay: 0.24s; }
+.stagger > *:nth-child(6) { animation-delay: 0.30s; }
+.stagger > *:nth-child(7) { animation-delay: 0.36s; }
+</style>
+
+</head>
+<body>
+
+<!-- HERO -->
+
+<div class="hero">
+  <div class="hero-label">Hey Abraham 👋 · St. Pete, FL</div>
+  <h1>You<br>already<br>know<br><em>what you want.</em></h1>
+  <p>Someone put this together for you because you posted in a Facebook group and everybody told you to go work at Publix. Hard pass. Here are the actual shops in Pinellas County that might give you a real shot.</p>
+  <div class="hero-stats">
+    <div class="hero-stat">
+      <div class="num">30+</div>
+      <div class="lbl">Shops researched</div>
+    </div>
+    <div class="hero-stat">
+      <div class="num">~16</div>
+      <div class="lbl">Likely to say yes</div>
+    </div>
+    <div class="hero-stat">
+      <div class="num">1</div>
+      <div class="lbl">Yes is all it takes</div>
+    </div>
+  </div>
+</div>
+
+<!-- FOLDER TABS + PANELS -->
+
+<div class="folder-wrap">
+  <div class="folder-tabs" id="tabs">
+    <button class="tab-btn active" data-tab="moto" style="background:var(--c1);color:var(--c1d)"><span class="tab-num">01</span>Moto</button>
+    <button class="tab-btn" data-tab="power" style=""><span class="tab-num">02</span>Power</button>
+    <button class="tab-btn" data-tab="marine" style=""><span class="tab-num">03</span>Marine</button>
+    <button class="tab-btn" data-tab="classic" style=""><span class="tab-num">04</span>Classic</button>
+    <button class="tab-btn" data-tab="small" style=""><span class="tab-num">05</span>Small</button>
+    <button class="tab-btn" data-tab="kart" style=""><span class="tab-num">06</span>Karts</button>
+    <button class="tab-btn" data-tab="vol" style=""><span class="tab-num">07</span>Volunteer</button>
+    <button class="tab-btn" data-tab="hire" style=""><span class="tab-num">08</span>Get Hired</button>
+  </div>
+
+  <!-- 01 MOTORCYCLE -->
+
+  <div class="folder-panel active stagger" id="panel-moto" style="background:var(--c1bg)">
+    <div class="panel-title">Motorcycle Shops</div>
+    <div class="panel-desc">Moto shops run by one or two people who started exactly where you are. Small enough to be flexible, passionate enough to actually care. These are your best shot.</div>
+    <div class="job-cards">
+
+```
+  <div class="job-card">
+    <div class="job-card-head">
+      <div class="job-badge" style="background:rgba(18,86,163,0.1);color:var(--c1d)">🧠 Deep mentorship</div>
+      <div class="job-name">Greg's Custom Cycle Works</div>
+      <div class="job-addr">📍 1141 Court St, Clearwater</div>
+    </div>
+    <div class="job-card-body">
+      <div class="job-row">
+        <span class="job-row-label">The deal</span>
+        <span class="job-row-text">Founded 1991. Greg does engines, custom paint, metal fab, <strong>and welding</strong>—all under one roof. Most shops do one thing. Greg does everything, which means you'd learn everything.</span>
+      </div>
+      <div class="job-row">
+        <span class="job-row-label">Your shot</span>
+        <span class="job-row-text">One-person operation. His labor rate runs 25–30% below dealers because he's lean—a motivated helper is exactly what a shop like this needs.</span>
+      </div>
+    </div>
+    <div class="job-card-foot">
+      <a class="call-btn" href="tel:7274614840" style="background:var(--c1);color:var(--c1d)">📞 (727) 461-4840 <span>→</span></a>
+    </div>
+  </div>
+
+  <div class="job-card">
+    <div class="job-card-head">
+      <div class="job-badge" style="background:rgba(18,86,163,0.1);color:var(--c1d)">🔥 Est. 1970</div>
+      <div class="job-name">Syd's Cycles</div>
+      <div class="job-addr">📍 6600 Haines Rd N, St. Pete</div>
+    </div>
+    <div class="job-card-body">
+      <div class="job-row">
+        <span class="job-row-label">The deal</span>
+        <span class="job-row-text">Over 55 years in business. Ducati specialist—<strong>racing engines, precision rebuilds</strong>. Rated 4.9 stars. Nobody in the county knows motorcycle internals like this shop.</span>
+      </div>
+      <div class="job-row">
+        <span class="job-row-label">Your shot</span>
+        <span class="job-row-text">A shop this old and this small has seen motivated kids walk in before. The worst they can say is no.</span>
+      </div>
+    </div>
+    <div class="job-card-foot">
+      <a class="call-btn" href="tel:7275223333" style="background:var(--c1);color:var(--c1d)">📞 (727) 522-3333 <span>→</span></a>
+    </div>
+  </div>
+
+  <div class="job-card">
+    <div class="job-card-head">
+      <div class="job-badge" style="background:rgba(18,86,163,0.1);color:var(--c1d)">🏍️ Est. 1976</div>
+      <div class="job-name">Cycle-Rama Inc.</div>
+      <div class="job-addr">📍 7200 73rd St N, Pinellas Park</div>
+    </div>
+    <div class="job-card-body">
+      <div class="job-row">
+        <span class="job-row-label">The deal</span>
+        <span class="job-row-text">Founded by Wes Brown. Nearly 50 years of Harley performance—<strong>cams, dyno tuning, full engine builds</strong>. Reviews specifically say Wes loves explaining things. That's a teacher.</span>
+      </div>
+      <div class="job-row">
+        <span class="job-row-label">Your shot</span>
+        <span class="job-row-text">Family atmosphere, BBB A+. Wes and Pam are described as "welcoming." Walk in on a slow Tuesday morning.</span>
+      </div>
+    </div>
+    <div class="job-card-foot">
+      <a class="call-btn" href="tel:7275460889" style="background:var(--c1);color:var(--c1d)">📞 (727) 546-0889 <span>→</span></a>
+    </div>
+  </div>
+
+  <div class="job-card">
+    <div class="job-card-head">
+      <div class="job-badge" style="background:rgba(18,86,163,0.1);color:var(--c1d)">🎨 Custom builds</div>
+      <div class="job-name">The Cycle Ward</div>
+      <div class="job-addr">📍 5900 Park Blvd, Pinellas Park</div>
+    </div>
+    <div class="job-card-body">
+      <div class="job-row">
+        <span class="job-row-label">The deal</span>
+        <span class="job-row-text">Mechanic-owned—the owner IS the person turning wrenches. Custom Harleys and all makes. Reviewers say the shop looks <strong>like a bike show</strong> with impressive builds on display.</span>
+      </div>
+    </div>
+    <div class="job-card-foot">
+      <a class="call-btn" href="tel:7273298942" style="background:var(--c1);color:var(--c1d)">📞 (727) 329-8942 <span>→</span></a>
+    </div>
+  </div>
+
+  <div class="job-card">
+    <div class="job-card-head">
+      <div class="job-badge" style="background:rgba(18,86,163,0.1);color:var(--c1d)">🤝 Solo owner</div>
+      <div class="job-name">St. Pete Motorbikes</div>
+      <div class="job-addr">📍 4601 49th St N, St. Pete</div>
+    </div>
+    <div class="job-card-body">
+      <div class="job-row">
+        <span class="job-row-label">The deal</span>
+        <span class="job-row-text">Owner Mark Augustine, <strong>running solo since 2005</strong>. His motto: "No games, just honest local friends." A one-person shop that's stayed busy for 20 years almost certainly needs a second set of hands.</span>
+      </div>
+    </div>
+    <div class="job-card-foot">
+      <a class="call-btn" href="tel:7273886978" style="background:var(--c1);color:var(--c1d)">📞 (727) 388-6978 <span>→</span></a>
+    </div>
+  </div>
+
+</div>
+```
+
+  </div>
+
+  <!-- 02 POWERSPORTS -->
+
+  <div class="folder-panel stagger" id="panel-power" style="background:var(--c2bg)">
+    <div class="panel-title">Powersports</div>
+    <div class="panel-desc">ATVs, dirt bikes, go-karts, scooters, UTVs—shops that work on everything with an engine. More engine types = more things to learn = more valuable you become.</div>
+    <div class="job-cards">
+
+```
+  <div class="job-card">
+    <div class="job-card-head">
+      <div class="job-badge" style="background:rgba(68,39,196,0.1);color:var(--c2d)">⭐ Best overall pick</div>
+      <div class="job-name">Florida PowerSports</div>
+      <div class="job-addr">📍 4980 66th St N, St. Pete</div>
+    </div>
+    <div class="job-card-body">
+      <div class="job-row">
+        <span class="job-row-label">The deal</span>
+        <span class="job-row-text">Family-owned since 2001. Sells and services scooters, ATVs, dune buggies, go-karts, dirt bikes, UTVs, e-bikes, <strong>and mobility scooters</strong>—500,000+ parts in stock, 5 service bays. The most diverse mechanical education in one shop.</span>
+      </div>
+      <div class="job-row">
+        <span class="job-row-label">Your shot</span>
+        <span class="job-row-text">They started selling youth vehicles (pocket bikes, small scooters). They understand young customers and young workers.</span>
+      </div>
+    </div>
+    <div class="job-card-foot">
+      <a class="call-btn" href="tel:7275451900" style="background:var(--c2);color:var(--c2d)">📞 (727) 545-1900 <span>→</span></a>
+    </div>
+  </div>
+
+  <div class="job-card">
+    <div class="job-card-head">
+      <div class="job-badge" style="background:rgba(68,39,196,0.1);color:var(--c2d)">🏆 20+ years</div>
+      <div class="job-name">WC Powersports</div>
+      <div class="job-addr">📍 4242 54th Ave N, St. Pete</div>
+    </div>
+    <div class="job-card-body">
+      <div class="job-row">
+        <span class="job-row-label">The deal</span>
+        <span class="job-row-text">Owner Rob Partelo. ATVs, go-karts, dirt bikes, UTVs, golf carts. <strong>Small independent shop</strong> that's been at this location for over 20 years—that kind of longevity means steady customers and real work.</span>
+      </div>
+    </div>
+    <div class="job-card-foot">
+      <a class="call-btn" href="tel:7275260046" style="background:var(--c2);color:var(--c2d)">📞 (727) 526-0046 <span>→</span></a>
+    </div>
+  </div>
+
+  <div class="job-card">
+    <div class="job-card-head">
+      <div class="job-badge" style="background:rgba(68,39,196,0.1);color:var(--c2d)">🌴 Family owned</div>
+      <div class="job-name">Tropical Scooters & Motorcycles</div>
+      <div class="job-addr">📍 11594 Seminole Blvd, Largo</div>
+    </div>
+    <div class="job-card-body">
+      <div class="job-row">
+        <span class="job-row-label">The deal</span>
+        <span class="job-row-text">Women-owned, family-run since 2008. Scooters, 250cc bikes, SSR dirt bikes. <strong>Smaller engines = easier starting point</strong> for learning fundamentals before tackling bigger machines.</span>
+      </div>
+    </div>
+    <div class="job-card-foot">
+      <a class="call-btn" href="tel:7273976400" style="background:var(--c2);color:var(--c2d)">📞 (727) 397-6400 <span>→</span></a>
+    </div>
+  </div>
+
+</div>
+```
+
+  </div>
+
+  <!-- 03 MARINE -->
+
+  <div class="folder-panel stagger" id="panel-marine" style="background:var(--c3bg)">
+    <div class="panel-title">Marine Repair</div>
+    <div class="panel-desc">St. Pete sits on Tampa Bay—boat mechanics here are never out of work. Marine engines are basically automotive engines that got wet. Learn one, you understand the other.</div>
+    <div class="job-cards">
+
+```
+  <div class="job-card">
+    <div class="job-card-head">
+      <div class="job-badge" style="background:rgba(15,102,73,0.1);color:var(--c3d)">🧠 Natural mentor</div>
+      <div class="job-name">Floyd's Marine LLC</div>
+      <div class="job-addr">📍 Mobile service, St. Pete · floydsmarine.com</div>
+    </div>
+    <div class="job-card-body">
+      <div class="job-row">
+        <span class="job-row-label">The deal</span>
+        <span class="job-row-text">Owner Mike Floyd runs solo. Multiple customers write reviews saying he <strong>literally teaches them about their boat</strong> during every visit. A one-man mobile operation that could genuinely use a helper.</span>
+      </div>
+      <div class="job-row">
+        <span class="job-row-label">Real talk</span>
+        <span class="job-row-text">If Mike takes you on as a helper, you'd ride along to every job and see a completely different boat and problem every day. That's an accelerated education.</span>
+      </div>
+    </div>
+    <div class="job-card-foot">
+      <a class="call-btn" href="https://floydsmarine.com" target="_blank" style="background:var(--c3);color:var(--c3d)">🌐 floydsmarine.com <span>→</span></a>
+    </div>
+  </div>
+
+  <div class="job-card">
+    <div class="job-card-head">
+      <div class="job-badge" style="background:rgba(15,102,73,0.1);color:var(--c3d)">✅ Hiring now</div>
+      <div class="job-name">Blue Water Marine Repair</div>
+      <div class="job-addr">📍 4924 17th Ave S, Gulfport</div>
+    </div>
+    <div class="job-card-body">
+      <div class="job-row">
+        <span class="job-row-label">The deal</span>
+        <span class="job-row-text">Family-owned since 1994. <strong>Only authorized Volvo Penta dealer</strong> in Pinellas and Hillsborough counties. Their site actively advertises for technicians—a shop that invests in training is the best environment.</span>
+      </div>
+    </div>
+    <div class="job-card-foot">
+      <a class="call-btn" href="tel:7273276512" style="background:var(--c3);color:var(--c3d)">📞 (727) 327-6512 <span>→</span></a>
+    </div>
+  </div>
+
+  <div class="job-card">
+    <div class="job-card-head">
+      <div class="job-badge" style="background:rgba(15,102,73,0.1);color:var(--c3d)">🚪 Easy entry</div>
+      <div class="job-name">Stellar Marine</div>
+      <div class="job-addr">📍 5296 Haines Rd, St. Pete</div>
+    </div>
+    <div class="job-card-body">
+      <div class="job-row">
+        <span class="job-row-label">The deal</span>
+        <span class="job-row-text">Yamaha, Mercury, Suzuki 5-Star certified. They have a <strong>retail parts counter</strong>—the easiest entry point for someone 16. Start there, prove yourself, earn your way toward the service bays.</span>
+      </div>
+    </div>
+    <div class="job-card-foot">
+      <a class="call-btn" href="tel:7275259330" style="background:var(--c3);color:var(--c3d)">📞 (727) 525-9330 <span>→</span></a>
+    </div>
+  </div>
+
+  <div class="job-card">
+    <div class="job-card-head">
+      <div class="job-badge" style="background:rgba(15,102,73,0.1);color:var(--c3d)">⚓ Est. 1988</div>
+      <div class="job-name">Dave's Boat Repair</div>
+      <div class="job-addr">📍 1415 Burlington Ave N, St. Pete</div>
+    </div>
+    <div class="job-card-body">
+      <div class="job-row">
+        <span class="job-row-label">The deal</span>
+        <span class="job-row-text">Running since 1988. A customer brought in a Navy ship's bell just for fun—Dave fixed it and <strong>refused payment</strong> saying it was no trouble. That's the kind of person who'd give a kid a real shot.</span>
+      </div>
+    </div>
+    <div class="job-card-foot">
+      <a class="call-btn" href="https://yelp.com/biz/daves-boat-repair-saint-petersburg" target="_blank" style="background:var(--c3);color:var(--c3d)">🌐 Find on Yelp <span>→</span></a>
+    </div>
+  </div>
+
+</div>
+```
+
+  </div>
+
+  <!-- 04 CLASSIC CARS -->
+
+  <div class="folder-panel stagger" id="panel-classic" style="background:var(--c4bg)">
+    <div class="panel-title">Classic Car Shops</div>
+    <div class="panel-desc">Restoration is where trades get passed down. Most of these shop owners started on a car in a driveway at your age. They remember what it felt like—and that matters when you walk in.</div>
+    <div class="job-cards">
+
+```
+  <div class="job-card">
+    <div class="job-card-head">
+      <div class="job-badge" style="background:rgba(158,69,16,0.1);color:var(--c4d)">🏆 3rd generation</div>
+      <div class="job-name">Forte's Classic Garage</div>
+      <div class="job-addr">📍 11495 66th St, Largo</div>
+    </div>
+    <div class="job-card-body">
+      <div class="job-row">
+        <span class="job-row-label">The deal</span>
+        <span class="job-row-text"><strong>Founded 1956 by a WWII mechanic</strong>—now run by the third generation. Hot rods, muscle cars, custom suspensions, full engine rebuilds. Mentorship is literally in their DNA. They invite people to "stop by."</span>
+      </div>
+    </div>
+    <div class="job-card-foot">
+      <a class="call-btn" href="tel:7275446440" style="background:var(--c4);color:var(--c4d)">📞 (727) 544-6440 <span>→</span></a>
+    </div>
+  </div>
+
+  <div class="job-card">
+    <div class="job-card-head">
+      <div class="job-badge" style="background:rgba(158,69,16,0.1);color:var(--c4d)">🔑 He started at 14</div>
+      <div class="job-name">Ray's Classic Restorations</div>
+      <div class="job-addr">📍 12189 Murray Ave, Largo</div>
+    </div>
+    <div class="job-card-body">
+      <div class="job-row">
+        <span class="job-row-label">The deal</span>
+        <span class="job-row-text">Ray started working on cars <strong>at age 14</strong>—his first build was a 1963 VW Bug. He would get it. 40+ years of experience, Mustang specialist. This is your most relatable shop owner on the whole list.</span>
+      </div>
+    </div>
+    <div class="job-card-foot">
+      <a class="call-btn" href="tel:7273653983" style="background:var(--c4);color:var(--c4d)">📞 (727) 365-3983 <span>→</span></a>
+    </div>
+  </div>
+
+  <div class="job-card">
+    <div class="job-card-head">
+      <div class="job-badge" style="background:rgba(158,69,16,0.1);color:var(--c4d)">🎨 Family business</div>
+      <div class="job-name">Street Productions Inc.</div>
+      <div class="job-addr">📍 11733 66th St N, Unit 102, Largo</div>
+    </div>
+    <div class="job-card-body">
+      <div class="job-row">
+        <span class="job-row-label">The deal</span>
+        <span class="job-row-text">Owner Shawn calls it "a labor of love, turning a hobby into a family business." A veteran customer with 33 years of mechanical experience called them <strong>National Treasures</strong>. Shawn literally says "stop by our shop."</span>
+      </div>
+    </div>
+    <div class="job-card-foot">
+      <a class="call-btn" href="tel:7275479627" style="background:var(--c4);color:var(--c4d)">📞 (727) 547-9627 <span>→</span></a>
+    </div>
+  </div>
+
+  <div class="job-card">
+    <div class="job-card-head">
+      <div class="job-badge" style="background:rgba(158,69,16,0.1);color:var(--c4d)">🇬🇧 40+ years</div>
+      <div class="job-name">Glenn's MG & British Car Repair</div>
+      <div class="job-addr">📍 3130 39th Ave N, St. Pete</div>
+    </div>
+    <div class="job-card-body">
+      <div class="job-row">
+        <span class="job-row-label">The deal</span>
+        <span class="job-row-text">ASE Master Tech. 5,000 sq ft—<strong>6 lifts, body shop, paint booth, engine building area, and parts room</strong>, all under one roof. Rare specialty British cars = knowledge that barely anyone else in Florida has.</span>
+      </div>
+    </div>
+    <div class="job-card-foot">
+      <a class="call-btn" href="tel:7275219890" style="background:var(--c4);color:var(--c4d)">📞 (727) 521-9890 <span>→</span></a>
+    </div>
+  </div>
+
+</div>
+```
+
+  </div>
+
+  <!-- 05 SMALL ENGINE -->
+
+  <div class="folder-panel stagger" id="panel-small" style="background:var(--c5bg)">
+    <div class="panel-title">Small Engine</div>
+    <div class="panel-desc">Most of the best mechanics you'll ever meet started on a lawnmower or a chainsaw. Small engine shops are usually one person—meaning one-on-one time, flexible hours, and real work from day one.</div>
+    <div class="job-cards">
+
+```
+  <div class="job-card">
+    <div class="job-card-head">
+      <div class="job-badge" style="background:rgba(176,27,27,0.1);color:var(--c5d)">🤝 1-on-1 training</div>
+      <div class="job-name">Jason's Small Engine Repair</div>
+      <div class="job-addr">📍 9027 9th St N, St. Pete</div>
+    </div>
+    <div class="job-card-body">
+      <div class="job-row">
+        <span class="job-row-label">The deal</span>
+        <span class="job-row-text"><strong>One-man operation</strong>—Jason does everything himself. Neighbors on Nextdoor describe him as "super nice guy, very reasonable." A single-operator shop like this is the most natural apprenticeship setup that exists.</span>
+      </div>
+    </div>
+    <div class="job-card-foot">
+      <a class="call-btn" href="tel:7277422144" style="background:var(--c5);color:var(--c5d)">📞 (727) 742-2144 <span>→</span></a>
+    </div>
+  </div>
+
+  <div class="job-card">
+    <div class="job-card-head">
+      <div class="job-badge" style="background:rgba(176,27,27,0.1);color:var(--c5d)">📋 Est. 1981</div>
+      <div class="job-name">Northeast Mowers</div>
+      <div class="job-addr">📍 4301 Haines Rd N, St. Pete</div>
+    </div>
+    <div class="job-card-body">
+      <div class="job-row">
+        <span class="job-row-label">The deal</span>
+        <span class="job-row-text">Since 1981. Authorized Toro, Hustler, Ferris, Echo, Kawasaki dealer. <strong>70+ years of combined experience on the team.</strong> Factory-trained techs using real manufacturer procedures—you'd learn it the right way from the start.</span>
+      </div>
+    </div>
+    <div class="job-card-foot">
+      <a class="call-btn" href="tel:7275220022" style="background:var(--c5);color:var(--c5d)">📞 (727) 522-0022 <span>→</span></a>
+    </div>
+  </div>
+
+  <div class="job-card">
+    <div class="job-card-head">
+      <div class="job-badge" style="background:rgba(176,27,27,0.1);color:var(--c5d)">🔧 Est. 1980</div>
+      <div class="job-name">Pickelman's Lawn Mower Repair</div>
+      <div class="job-addr">📍 3118 23rd Ave N, St. Pete</div>
+    </div>
+    <div class="job-card-body">
+      <div class="job-row">
+        <span class="job-row-label">The deal</span>
+        <span class="job-row-text">George has been here since 1980—<strong>45 years of diagnosing engines</strong>. A customer feared a $2,000 bill; George found a bad carb and charged $45. That diagnostic wisdom is what an apprentice absorbs over time.</span>
+      </div>
+    </div>
+    <div class="job-card-foot">
+      <a class="call-btn" href="tel:7273238156" style="background:var(--c5);color:var(--c5d)">📞 (727) 323-8156 <span>→</span></a>
+    </div>
+  </div>
+
+  <div class="job-card">
+    <div class="job-card-head">
+      <div class="job-badge" style="background:rgba(176,27,27,0.1);color:var(--c5d)">⭐ 4.8 stars</div>
+      <div class="job-name">Kenny's Small Engine Repair</div>
+      <div class="job-addr">📍 1104 35th St S, St. Pete</div>
+    </div>
+    <div class="job-card-body">
+      <div class="job-row">
+        <span class="job-row-label">The deal</span>
+        <span class="job-row-text">4.8 stars from 91 reviews. Multiple neighbors call him <strong>THE best</strong>. A shop this well-reviewed has steady business—which means steady work for a helper, and steady wages.</span>
+      </div>
+    </div>
+    <div class="job-card-foot">
+      <a class="call-btn" href="tel:7272804953" style="background:var(--c5);color:var(--c5d)">📞 (727) 280-4953 <span>→</span></a>
+    </div>
+  </div>
+
+</div>
+```
+
+  </div>
+
+  <!-- 06 GO-KART -->
+
+  <div class="folder-panel stagger" id="panel-kart" style="background:var(--c6bg)">
+    <div class="panel-title">Go-Kart Tracks</div>
+    <div class="panel-desc">Kart tracks have to maintain a whole fleet of engines constantly. You'd be doing brake jobs, engine work, hydraulics—and probably getting to rip around the track on a slow Tuesday.</div>
+    <div class="job-cards">
+
+```
+  <div class="job-card">
+    <div class="job-card-head">
+      <div class="job-badge" style="background:rgba(45,110,14,0.1);color:var(--c6d)">🏁 3 generations</div>
+      <div class="job-name">Pro Karting Experience</div>
+      <div class="job-addr">📍 4770 34th St N, St. Pete</div>
+    </div>
+    <div class="job-card-body">
+      <div class="job-row">
+        <span class="job-row-label">The deal</span>
+        <span class="job-row-text"><strong>Three generations of karting knowledge</strong>—"not just a business, it's a lifestyle." Gas karts hitting 50+ mph with hydraulic brakes. Constant engine work, brake jobs, chassis setups. And it's one of the most fun jobs imaginable.</span>
+      </div>
+    </div>
+    <div class="job-card-foot">
+      <a class="call-btn" href="tel:7275255278" style="background:var(--c6);color:var(--c6d)">📞 (727) 525-5278 <span>→</span></a>
+    </div>
+  </div>
+
+  <div class="job-card">
+    <div class="job-card-head">
+      <div class="job-badge" style="background:rgba(45,110,14,0.1);color:var(--c6d)">✅ Careers page live</div>
+      <div class="job-name">Tampa Bay Grand Prix</div>
+      <div class="job-addr">📍 12350 Automobile Blvd, Clearwater</div>
+    </div>
+    <div class="job-card-body">
+      <div class="job-row">
+        <span class="job-row-label">The deal</span>
+        <span class="job-row-text">Indoor Italian pro-kart facility. <strong>Active careers page at tampabaygp.com/careers</strong>—they are genuinely hiring. Indoor operation means year-round work. Start in operations, earn your way to kart maintenance.</span>
+      </div>
+    </div>
+    <div class="job-card-foot">
+      <a class="call-btn" href="https://tampabaygp.com/careers" target="_blank" style="background:var(--c6);color:var(--c6d)">🌐 See open roles <span>→</span></a>
+    </div>
+  </div>
+
+</div>
+```
+
+  </div>
+
+  <!-- 07 VOLUNTEER -->
+
+  <div class="folder-panel stagger" id="panel-vol" style="background:var(--c7bg)">
+    <div class="panel-title">Volunteer First</div>
+    <div class="panel-desc">Here's the honest truth: a lot of shops want to help but their insurance policy literally won't allow anyone under 18 on the shop floor. It's not personal—it's just real. <strong>So here's the workaround: build your hands-on experience somewhere that can say yes, then walk into shops as someone with a track record instead of just enthusiasm.</strong></div>
+
+```
+<div class="alert-box" style="background:rgba(114,12,176,0.06);border-color:rgba(114,12,176,0.2);color:var(--c7d);margin-bottom:18px">
+  <div class="alert-title" style="color:var(--c7d)">💡 Why this actually works</div>
+  <p style="color:#444">When you walk into a shop with volunteer hours and something you've actually fixed on your resume, you're not just a kid who likes cars anymore—you're a kid who's already doing the work. That's a completely different conversation.</p>
+</div>
+
+<div class="vol-grid">
+  <div class="vol-card">
+    <div class="vol-icon">🚲</div>
+    <div class="vol-name">St. Pete Bike Co-op</div>
+    <div class="vol-desc">Open shop weekly. You show up, you wrench on real bikes. Free tools, real repairs. 559 Mirror Lake Dr N.</div>
+    <span class="vol-tag" style="background:rgba(114,12,176,0.1);color:var(--c7d)">Hands-on wrenching</span>
+  </div>
+  <div class="vol-card">
+    <div class="vol-icon">✈️</div>
+    <div class="vol-name">EAA Chapter 1602</div>
+    <div class="vol-desc">Youth aviation at Albert Whitted Airport. Plane builds, aviation days, A&P mechanics everywhere. Ages 8–17 welcome.</div>
+    <span class="vol-tag" style="background:rgba(114,12,176,0.1);color:var(--c7d)">Aviation mechanics</span>
+  </div>
+  <div class="vol-card">
+    <div class="vol-icon">🏎️</div>
+    <div class="vol-name">Car Shows & Swap Meets</div>
+    <div class="vol-desc">Volunteer to help set up local shows. You'll meet every shop owner and restorer in Pinellas County in one afternoon.</div>
+    <span class="vol-tag" style="background:rgba(114,12,176,0.1);color:var(--c7d)">Network building</span>
+  </div>
+  <div class="vol-card">
+    <div class="vol-icon">⛵</div>
+    <div class="vol-name">St. Pete Sailing Center</div>
+    <div class="vol-desc">Boat rigging, dock work, maintenance days near the Pier. Marine mechanics take notice of motivated volunteers.</div>
+    <span class="vol-tag" style="background:rgba(114,12,176,0.1);color:var(--c7d)">Marine exposure</span>
+  </div>
+  <div class="vol-card">
+    <div class="vol-icon">🛠️</div>
+    <div class="vol-name">Community Tool Libraries</div>
+    <div class="vol-desc">Organize, maintain, and repair donated tools. Shows shop owners you already know how to respect equipment.</div>
+    <span class="vol-tag" style="background:rgba(114,12,176,0.1);color:var(--c7d)">Tool skills</span>
+  </div>
+  <div class="vol-card">
+    <div class="vol-icon">🌱</div>
+    <div class="vol-name">Help a Neighbor</div>
+    <div class="vol-desc">Ask family friends or neighbors if you can help fix their lawnmower, car, bike—anything. Document it. It counts as experience.</div>
+    <span class="vol-tag" style="background:rgba(114,12,176,0.1);color:var(--c7d)">Real experience</span>
+  </div>
+</div>
+```
+
+  </div>
+
+  <!-- 08 GET HIRED -->
+
+  <div class="folder-panel stagger" id="panel-hire" style="background:var(--c8bg)">
+    <div class="panel-title">How to Get Hired</div>
+    <div class="panel-desc">Don't email. Don't DM. Walk in. Small shop owners respond to a real face and real enthusiasm way more than an application they'll never open. Here's the full playbook.</div>
+
+```
+<div class="stat-callout" style="background:var(--c1bg);border-color:var(--c1);margin-bottom:20px">
+  <div class="big-num" style="color:var(--c1d)">3–4</div>
+  <div class="big-text">shops a day, in person. Most will say no or not right now. That's fine. One yes and you're in.</div>
+</div>
+
+<div class="steps">
+  <div class="step-card">
+    <div class="step-n" style="background:var(--c1bg);color:var(--c1d)">01</div>
+    <div class="step-body">
+      <h3>Walk in—don't call, don't email</h3>
+      <p>A voicemail from a 16-year-old gets ignored. A 16-year-old standing in front of them, clearly serious? That's different. Hit them on a <strong>Tuesday or Wednesday morning</strong> when it's slow. Wear closed-toe shoes—look like you could start today.</p>
+    </div>
+  </div>
+  <div class="step-card">
+    <div class="step-n" style="background:var(--c2bg);color:var(--c2d)">02</div>
+    <div class="step-body">
+      <h3>Say this</h3>
+      <div class="script-box" style="background:var(--c2bg);border-color:var(--c2d)">
+        <p>"Hey, my name's Abraham. I'm 16, I'm homeschooled so I can work full-time, and I'm serious about learning this trade. Is there any way I could contribute here and earn something while I learn?"</p>
+      </div>
+      <p style="margin-top:10px;font-size:12px;color:#888">That's it. Short, direct, no begging.</p>
+    </div>
+  </div>
+  <div class="step-card">
+    <div class="step-n" style="background:var(--c3bg);color:var(--c3d)">03</div>
+    <div class="step-body">
+      <h3>Bring a one-page resume</h3>
+      <p>Even a short one. <strong>Most 16-year-olds don't do this.</strong> You will. Your name, phone number, "available full-time—homeschooled," anything you've fixed or built (even informal stuff), and one person who can vouch for you. That's enough.</p>
+    </div>
+  </div>
+  <div class="step-card">
+    <div class="step-n" style="background:var(--c4bg);color:var(--c4d)">04</div>
+    <div class="step-body">
+      <h3>Know something about their work</h3>
+      <p>Before you walk into a moto shop, look up one bike model they probably work on. Before a classic car shop, know one build you've seen online. You don't need to be an expert—you just need to show you're <strong>actually interested</strong>, not just looking for any job.</p>
+    </div>
+  </div>
+  <div class="step-card">
+    <div class="step-n" style="background:var(--c5bg);color:var(--c5d)">05</div>
+    <div class="step-body">
+      <h3>If they say "insurance"—don't just leave</h3>
+      <p>Some shop owners genuinely want to help but their policy won't allow under-18s on the floor. If you hear that, say: <strong>"I completely understand. Is there anything outside the service area—parts, phones, cleanup—I could help with while you figure that out?"</strong> Give them a way to still say yes.</p>
+    </div>
+  </div>
+  <div class="step-card">
+    <div class="step-n" style="background:var(--c6bg);color:var(--c6d)">06</div>
+    <div class="step-body">
+      <h3>Follow up exactly one week later</h3>
+      <p>Most people don't. Showing back up when you said you would—just to check in, no pressure—tells a shop owner more about your character than anything you said the first time. <strong>That's what gets people hired.</strong></p>
+    </div>
+  </div>
+</div>
+
+<div style="margin-top:22px">
+  <div class="panel-title" style="font-size:20px;margin-bottom:12px">What goes on your resume</div>
+  <ul class="tip-list">
+    <li>Name, phone, "Available full-time · Homeschooled"—say it clearly up front</li>
+    <li>Anything you've fixed or built, even if nobody paid you for it. Helped a neighbor? Fixed your own car? That counts.</li>
+    <li>Volunteer hours (St. Pete Bike Co-op, church, school, anything hands-on with tools)</li>
+    <li>One sentence about yourself: "16-year-old in St. Pete who wants to learn automotive and mechanics hands-on—available full-time and serious about it."</li>
+    <li>One reference. A teacher, a neighbor, anyone who can say "he shows up and he works hard."</li>
+    <li>Keep it one page. Clean. No fluff. If it fits on half a page, that's fine too.</li>
+  </ul>
+</div>
+```
+
+  </div>
+
+</div><!-- /folder-wrap -->
+
+<div class="bottom-pad"></div>
+
+<script>
+const tabs = document.querySelectorAll('.tab-btn');
+const panels = document.querySelectorAll('.folder-panel');
+
+const colors = {
+  moto:  { bg: 'var(--c1)',  fg: 'var(--c1d)' },
+  power: { bg: 'var(--c2)',  fg: 'var(--c2d)' },
+  marine:{ bg: 'var(--c3)',  fg: 'var(--c3d)' },
+  classic:{ bg: 'var(--c4)', fg: 'var(--c4d)' },
+  small: { bg: 'var(--c5)',  fg: 'var(--c5d)' },
+  kart:  { bg: 'var(--c6)',  fg: 'var(--c6d)' },
+  vol:   { bg: 'var(--c7)',  fg: 'var(--c7d)' },
+  hire:  { bg: 'var(--c8)',  fg: 'var(--c8d)' },
+};
+
+tabs.forEach(tab => {
+  tab.addEventListener('click', () => {
+    const key = tab.dataset.tab;
+
+    tabs.forEach(t => {
+      t.classList.remove('active');
+      const c = colors[t.dataset.tab];
+      t.style.background = 'rgba(0,0,0,0.07)';
+      t.style.color = 'var(--muted)';
+    });
+
+    tab.classList.add('active');
+    const c = colors[key];
+    tab.style.background = c.bg;
+    tab.style.color = c.fg;
+
+    panels.forEach(p => p.classList.remove('active'));
+    const target = document.getElementById('panel-' + key);
+    if (target) {
+      target.classList.add('active');
+      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  });
+});
+
+// Set first tab styling on load
+const firstTab = document.querySelector('.tab-btn[data-tab="moto"]');
+if (firstTab) {
+  firstTab.style.background = 'var(--c1)';
+  firstTab.style.color = 'var(--c1d)';
+}
+</script>
+
+</body>
+</html>
