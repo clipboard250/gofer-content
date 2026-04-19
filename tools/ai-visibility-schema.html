@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="robots" content="noindex,nofollow">
+  <title>SOP: AI Visibility Schema Cleanup | Gofer Content</title>
+  <meta name="description" content="Internal SOP for Gofer Content. Schema cleanup for AI visibility on client sites.">
+
+  <link rel="icon" href="/pfpdayna.jpeg">
+  <meta name="theme-color" content="#e8553a">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Anton&family=Space+Mono:ital,wght@0,400;0,700;1,400&family=Instrument+Serif:ital@0;1&display=swap">
+
+  <style>
+    :root{
+      --cream:#f5efe0;--coral:#e8553a;--gold:#f0c63a;--blue:#4a8fd9;
+      --purple:#d4b8f0;--black:#111;--black-warm:#1a1714;--ink:#1a1714;
+      --muted:#6b6156;
+      --head:'Anton',Impact,sans-serif;
+      --mono:'Space Mono','Courier New',monospace;
+      --serif:'Instrument Serif',Georgia,serif;
+    }
+    *,*::before,*::after{box-sizing:border-box;margin:0}
+    html{scroll-behavior:smooth}
+    body{background:var(--cream);color:var(--ink);font:400 15px/1.7 var(--mono);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+    a{color:var(--coral);text-decoration:underline;text-underline-offset:3px}
+    a:hover{color:var(--ink)}
+    a:focus-visible,button:focus-visible{outline:3px solid var(--coral);outline-offset:3px}
+    .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+
+    /* ── GATE ── */
+    #gate{position:fixed;inset:0;z-index:999;background:var(--black);display:flex;align-items:center;justify-content:center;padding:1rem}
+    .gate-box{background:var(--black-warm);border:2.5px solid var(--gold);border-radius:4px;padding:44px 36px 36px;max-width:440px;width:100%;text-align:center;position:relative}
+    .gate-logo{font-family:var(--head);font-size:.82rem;text-transform:uppercase;letter-spacing:.12em;color:var(--gold);margin-bottom:18px}
+    .gate-box h1{font-family:var(--head);font-size:clamp(30px,6vw,44px);text-transform:uppercase;line-height:.92;color:var(--cream);margin-bottom:10px}
+    .gate-box h1 em{font-family:var(--serif);font-style:italic;text-transform:none;color:var(--coral);display:block;font-size:.6em;margin-top:8px}
+    .gate-sub{font-family:var(--mono);font-size:.78rem;color:rgba(245,239,224,.72);margin-bottom:26px;line-height:1.75}
+    .gate-input-wrap{position:relative;margin-bottom:12px}
+    .gate-input{width:100%;min-height:54px;padding:.75rem 3.5rem .75rem 1.2rem;background:rgba(245,239,224,.07);border:2px solid rgba(245,239,224,.2);border-radius:50px;color:var(--cream);font-family:var(--mono);font-size:.9rem;letter-spacing:.1em;text-align:center;outline:none;transition:border-color .2s}
+    .gate-input:focus{border-color:var(--gold)}
+    .gate-show{position:absolute;right:14px;top:50%;transform:translateY(-50%);background:none;border:none;color:var(--muted);font-family:var(--mono);font-size:.62rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;cursor:pointer;padding:4px 8px}
+    .gate-show:hover{color:var(--cream)}
+    .gate-btn{width:100%;min-height:54px;padding:.7rem 1.8rem;border-radius:50px;background:var(--coral);color:var(--cream);font-family:var(--mono);font-weight:700;font-size:.82rem;text-transform:uppercase;letter-spacing:.04em;border:2.5px solid var(--coral);cursor:pointer;transition:all .2s}
+    .gate-btn:hover{background:var(--gold);border-color:var(--gold);color:var(--black)}
+    .gate-err{font-family:var(--mono);font-size:.72rem;color:var(--coral);margin-top:12px;display:none}
+    .gate-fine{font-family:var(--serif);font-style:italic;font-size:.78rem;color:var(--muted);margin-top:16px}
+
+    /* ── NAV ── */
+    .nav{position:fixed;top:0;left:0;right:0;z-index:50;background:var(--black);padding:12px 20px;display:flex;align-items:center;justify-content:space-between;border-bottom:2.5px solid var(--gold)}
+    .nav-logo{font-family:var(--head);font-size:.9rem;text-transform:uppercase;color:var(--cream);letter-spacing:.05em;text-decoration:none}
+    .nav-logo:hover{color:var(--coral)}
+    .nav-back{font-family:var(--mono);font-size:.68rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--cream);text-decoration:none;padding:8px 14px;border:1.5px solid rgba(245,239,224,.3);border-radius:50px;transition:all .2s}
+    .nav-back:hover{border-color:var(--gold);color:var(--gold)}
+
+    #main-content{display:none;padding-top:60px}
+
+    /* ── MARQUEE ── */
+    .mq{overflow:hidden;padding:13px 0;border-top:2.5px solid var(--black);border-bottom:2.5px solid var(--black);background:var(--black)}
+    .mq-track{display:flex;width:max-content;animation:mq 30s linear infinite}
+    .mq-track span{white-space:nowrap;padding:0 20px;font-family:var(--head);font-size:1rem;text-transform:uppercase;letter-spacing:.06em;color:var(--cream)}
+    .mq-track span::after{content:'✦';margin-left:20px;font-size:.7em;color:var(--gold)}
+    @keyframes mq{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+
+    /* ── HERO ── */
+    .hero{padding:60px 28px 40px;max-width:860px;margin:0 auto;text-align:center}
+    .hero-label{display:inline-block;font-family:var(--mono);font-size:.66rem;font-weight:700;text-transform:uppercase;letter-spacing:.18em;color:var(--coral);padding:6px 14px;border:1.5px solid var(--coral);border-radius:50px;margin-bottom:20px}
+    .hero h1{font-family:var(--head);font-size:clamp(38px,8vw,78px);line-height:.95;text-transform:uppercase;margin-bottom:20px}
+    .hero h1 em{font-family:var(--serif);font-style:italic;text-transform:none;color:var(--coral);display:block;font-size:.55em;margin-top:14px}
+    .hero-body{font-size:.92rem;color:var(--muted);max-width:620px;margin:0 auto 12px;line-height:1.85}
+    .hero-body strong{color:var(--ink)}
+    .hero-meta{font-family:var(--serif);font-style:italic;font-size:.88rem;color:var(--muted);margin-top:18px}
+
+    /* ── SECTION SHELL ── */
+    .section{padding:56px 28px;max-width:860px;margin:0 auto}
+    .section-tag{font-family:var(--mono);font-size:.66rem;font-weight:700;text-transform:uppercase;letter-spacing:.18em;color:var(--coral);margin-bottom:12px;display:flex;align-items:center;gap:.75rem}
+    .section-tag::before{content:'';display:block;width:24px;height:2px;background:var(--coral)}
+    .section h2{font-family:var(--head);font-size:clamp(28px,5vw,46px);line-height:.95;text-transform:uppercase;margin-bottom:14px}
+    .section h2 em{font-family:var(--serif);font-style:italic;text-transform:none;color:var(--coral)}
+    .section>p{font-size:.92rem;color:var(--muted);line-height:1.85;margin-bottom:1rem}
+    .section>p strong{color:var(--ink)}
+
+    /* ── COUNT BANNER ── */
+    .banner-black{background:var(--black);color:var(--cream);padding:40px 28px;text-align:center}
+    .banner-black .bc-inner{max-width:720px;margin:0 auto}
+    .banner-black h3{font-family:var(--head);font-size:clamp(20px,4vw,32px);text-transform:uppercase;line-height:1;margin-bottom:10px;color:var(--gold)}
+    .banner-black p{font-family:var(--serif);font-style:italic;font-size:1rem;color:rgba(245,239,224,.75);max-width:520px;margin:0 auto;line-height:1.7}
+
+    /* ── STEP CARDS ── */
+    .steps{display:flex;flex-direction:column;gap:24px;margin-top:28px}
+    .step{background:#fff;border:2.5px solid var(--ink);border-radius:4px;padding:32px 28px;position:relative}
+    .step-num{position:absolute;top:-16px;left:24px;background:var(--coral);color:var(--cream);font-family:var(--head);font-size:.85rem;font-weight:400;text-transform:uppercase;letter-spacing:.1em;padding:6px 14px;border-radius:50px}
+    .step h3{font-family:var(--head);font-size:1.5rem;text-transform:uppercase;line-height:1.05;margin-bottom:14px;margin-top:6px;color:var(--ink)}
+    .step h3 em{font-family:var(--serif);font-style:italic;text-transform:none;color:var(--coral)}
+    .step-why{font-family:var(--serif);font-style:italic;font-size:.95rem;color:var(--muted);margin-bottom:16px;padding:12px 16px;border-left:3px solid var(--gold);background:rgba(240,198,58,.08)}
+    .step-why strong{font-style:normal;font-weight:700;color:var(--ink)}
+    .step h4{font-family:var(--head);font-size:.92rem;text-transform:uppercase;letter-spacing:.06em;color:var(--coral);margin-top:18px;margin-bottom:8px}
+    .step p{font-size:.88rem;color:var(--ink);line-height:1.75;margin-bottom:10px}
+    .step ul{padding-left:20px;margin-bottom:12px}
+    .step li{font-size:.88rem;color:var(--ink);line-height:1.75;margin-bottom:6px}
+    .step code{font-family:var(--mono);font-size:.82rem;background:var(--cream);padding:2px 6px;border-radius:3px;color:var(--coral);border:1px solid rgba(232,85,58,.2)}
+    .step pre{background:var(--black);color:var(--cream);padding:16px 18px;border-radius:3px;overflow-x:auto;font-family:var(--mono);font-size:.76rem;line-height:1.65;margin:12px 0}
+    .step pre code{background:none;color:inherit;border:none;padding:0}
+
+    /* ── RULES LIST ── */
+    .rules{background:var(--black);color:var(--cream);padding:40px 28px;border-radius:4px;margin-top:24px}
+    .rules h3{font-family:var(--head);font-size:1.3rem;text-transform:uppercase;color:var(--gold);margin-bottom:18px;text-align:center}
+    .rules-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+    @media(max-width:600px){.rules-grid{grid-template-columns:1fr}}
+    .rule{padding:14px 16px;background:var(--black-warm);border:1.5px solid rgba(245,239,224,.12);border-radius:3px}
+    .rule-label{font-family:var(--mono);font-size:.62rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--gold);margin-bottom:4px}
+    .rule-text{font-family:var(--mono);font-size:.82rem;line-height:1.6;color:rgba(245,239,224,.85)}
+
+    /* ── PROMPT GENERATOR ── */
+    .generator{background:var(--purple);padding:56px 28px;border-top:2.5px solid var(--black);border-bottom:2.5px solid var(--black)}
+    .gen-inner{max-width:780px;margin:0 auto}
+    .gen-label{display:inline-block;font-family:var(--mono);font-size:.66rem;font-weight:700;text-transform:uppercase;letter-spacing:.18em;color:var(--black);background:var(--gold);padding:6px 14px;border-radius:50px;margin-bottom:14px}
+    .generator h2{font-family:var(--head);font-size:clamp(28px,6vw,48px);text-transform:uppercase;line-height:.95;margin-bottom:10px;color:var(--black)}
+    .generator h2 em{font-family:var(--serif);font-style:italic;text-transform:none}
+    .generator>p{font-family:var(--serif);font-style:italic;font-size:1rem;color:#2d1a42;max-width:560px;margin-bottom:24px;line-height:1.7}
+    .gen-form{background:var(--black);padding:28px;border-radius:4px;border:2.5px solid var(--black)}
+    .gen-row{display:flex;flex-direction:column;gap:6px;margin-bottom:14px}
+    .gen-row label{font-family:var(--mono);font-size:.64rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--gold)}
+    .gen-row input,.gen-row textarea{font-family:var(--mono);font-size:.85rem;color:var(--cream);background:rgba(245,239,224,.07);border:1.5px solid rgba(245,239,224,.2);border-radius:4px;padding:.7rem 1rem;outline:none;transition:border-color .2s}
+    .gen-row input:focus,.gen-row textarea:focus{border-color:var(--gold)}
+    .gen-row input::placeholder,.gen-row textarea::placeholder{color:var(--muted)}
+    .gen-row textarea{resize:vertical;min-height:60px}
+    .gen-btn{width:100%;min-height:54px;padding:.75rem 1.8rem;border-radius:50px;background:var(--coral);color:var(--cream);font-family:var(--mono);font-weight:700;font-size:.85rem;text-transform:uppercase;letter-spacing:.04em;border:2.5px solid var(--coral);cursor:pointer;transition:all .2s;margin-top:6px}
+    .gen-btn:hover{background:var(--gold);border-color:var(--gold);color:var(--black)}
+    .gen-output{margin-top:20px;background:var(--black-warm);border:1.5px solid var(--gold);border-radius:4px;padding:0;display:none;overflow:hidden}
+    .gen-output.on{display:block}
+    .gen-output-head{background:var(--gold);color:var(--black);padding:10px 16px;display:flex;justify-content:space-between;align-items:center}
+    .gen-output-head span{font-family:var(--mono);font-size:.66rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em}
+    .copy-btn{background:var(--black);color:var(--gold);border:none;padding:6px 14px;border-radius:50px;font-family:var(--mono);font-size:.66rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;cursor:pointer}
+    .copy-btn:hover{background:var(--coral);color:var(--cream)}
+    .gen-output pre{padding:20px;font-family:var(--mono);font-size:.76rem;line-height:1.7;color:var(--cream);white-space:pre-wrap;word-wrap:break-word;margin:0;max-height:400px;overflow-y:auto}
+
+    /* ── FOOTER ── */
+    footer{padding:24px 28px;background:var(--black);color:var(--cream);font-size:.7rem;text-align:center;border-top:2.5px solid var(--gold)}
+    footer span.sep{color:var(--gold)}
+    footer a{color:var(--gold);text-decoration:none}
+
+    @media(prefers-reduced-motion:reduce){
+      .mq-track{animation:none!important}
+      *,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important}
+    }
+  </style>
+
+</head>
+
+<body>
+
+<!-- ── GATE ── -->
+
+<div id="gate" role="dialog" aria-modal="true" aria-labelledby="gate-heading">
+  <div class="gate-box">
+    <p class="gate-logo">Gofer Content · Internal SOP</p>
+    <h1 id="gate-heading">LOCKED.<em>For agency eyes.</em></h1>
+    <p class="gate-sub">This is an internal Gofer Content playbook. Enter the password to view the SOP and prompt generator.</p>
+    <div class="gate-input-wrap">
+      <label for="pw" class="sr-only">Password</label>
+      <input type="password" id="pw" class="gate-input" placeholder="PASSWORD" autocomplete="off" onkeydown="if(event.key==='Enter')checkPW()">
+      <button class="gate-show" type="button" id="pw-show" onclick="togglePW()">SHOW</button>
+    </div>
+    <button class="gate-btn" onclick="checkPW()">Let me in</button>
+    <p class="gate-err" id="gate-err" role="alert">Wrong password. Try again.</p>
+    <p class="gate-fine">Dayna built this. If you're not Dayna and you're here, say hi.</p>
+  </div>
+</div>
+
+<!-- ── MAIN CONTENT ── -->
+
+<div id="main-content">
+
+<nav class="nav" aria-label="Main navigation">
+  <a href="/" class="nav-logo">Gofer Content</a>
+  <a href="/" class="nav-back">← Home</a>
+</nav>
+
+<!-- MARQUEE -->
+
+<div class="mq" aria-hidden="true">
+  <div class="mq-track">
+    <span>AI Visibility SOP</span><span>Schema Cleanup</span><span>Reusable Playbook</span><span>Built for Gofer Content</span><span>Works on any site</span><span>Phase 1 of ongoing AI work</span>
+    <span>AI Visibility SOP</span><span>Schema Cleanup</span><span>Reusable Playbook</span><span>Built for Gofer Content</span><span>Works on any site</span><span>Phase 1 of ongoing AI work</span>
+  </div>
+</div>
+
+<!-- HERO -->
+
+<section class="hero">
+  <span class="hero-label">Internal SOP · Phase 1</span>
+  <h1>AI VISIBILITY:<br>SCHEMA CLEANUP.<em>The reusable playbook.</em></h1>
+  <p class="hero-body">This is the exact sequence Gofer Content runs on every client site to make AI tools (ChatGPT, Perplexity, Google AI Overviews) actually find and cite them. <strong>Phase 1 of ongoing AI visibility work.</strong> Reddit and Wikipedia strategy comes after this.</p>
+  <p class="hero-meta">Built from the Living Spaces Gardening build · April 2026</p>
+</section>
+
+<!-- BLACK BANNER -->
+
+<div class="banner-black">
+  <div class="bc-inner">
+    <h3>What this SOP does</h3>
+    <p>Turns any client site into something AI can actually cite. Takes roughly 60-90 minutes per site. Works immediately. No waiting weeks for results.</p>
+  </div>
+</div>
+
+<!-- SECTION: BEFORE YOU START -->
+
+<section class="section">
+  <p class="section-tag">Before you start</p>
+  <h2>Gather this <em>first</em>.</h2>
+  <p>Before touching any code, get these from the client. Missing any of this and the SOP won't work properly.</p>
+  <div class="rules">
+    <h3>Intake checklist</h3>
+    <div class="rules-grid">
+      <div class="rule"><p class="rule-label">01 · Business basics</p><p class="rule-text">Name, address, phone, email, founding year, all service areas</p></div>
+      <div class="rule"><p class="rule-label">02 · Credentials</p><p class="rule-text">Every certification with years. If dates are fuzzy, get clarification BEFORE coding. If you can't verify, use vague wording ("experienced" not "since 2014")</p></div>
+      <div class="rule"><p class="rule-label">03 · Google Business</p><p class="rule-text">Admin access. Request a Google Takeout export of reviews. Waiting saves hours of manual copy-paste</p></div>
+      <div class="rule"><p class="rule-label">04 · Social profiles</p><p class="rule-text">Every URL the business owns: Instagram, Facebook, LinkedIn, industry directories, trade associations</p></div>
+      <div class="rule"><p class="rule-label">05 · Press / Features</p><p class="rule-text">Full URLs of any articles, podcasts, magazine features. Date published. This is the biggest AI trust signal most sites ignore</p></div>
+      <div class="rule"><p class="rule-label">06 · Service list</p><p class="rule-text">Every service as they describe it. Use their words, not yours</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION: THE FIXES -->
+
+<section class="section">
+  <p class="section-tag">The fixes · in this order</p>
+  <h2>Four fixes. <em>Every time.</em></h2>
+  <p>Work top to bottom. Do not skip ahead. Each fix builds on the previous.</p>
+
+  <div class="steps">
+
+```
+<!-- FIX 1 -->
+<article class="step">
+  <span class="step-num">Fix 01</span>
+  <h3>Credential language <em>audit</em></h3>
+  <div class="step-why"><strong>Why:</strong> Conflicting dates across a site destroy E-E-A-T score. AI cross-references credentials and when it finds "since 2014" on one page and "since 2017" on another, it lowers confidence in the whole site.</div>
+
+  <h4>What to do</h4>
+  <ul>
+    <li>Search every file for credential mentions (certifications, founding year, "since YYYY")</li>
+    <li>Verify every date with the client. If they can't confirm, use vague language</li>
+    <li>Swap specific years for qualitative descriptors: "experienced," "certified," "credentialed"</li>
+    <li>Update JSON-LD schema to remove unverified <code>dateCreated</code> fields</li>
+    <li>Update visible text (About pages, bios, press kits)</li>
+    <li>Update <code>llms.txt</code> if one exists</li>
+  </ul>
+
+  <h4>Schema pattern</h4>
+  <pre><code>"hasCredential": [
+```
+
+{ “@type”: “EducationalOccupationalCredential”, “name”: “Florida Master Naturalist” }
+]</code></pre>
+<p style="font-family:var(--serif);font-style:italic;color:var(--muted);font-size:.82rem;">Note: Once dates are verified, add <code>dateCreated</code> back in. Never before.</p>
+</article>
+
+```
+<!-- FIX 2 -->
+<article class="step">
+  <span class="step-num">Fix 02</span>
+  <h3>sameAs <em>authority links</em></h3>
+  <div class="step-why"><strong>Why:</strong> <code>sameAs</code> tells AI "this entity is the same across these URLs." Every legitimate third-party URL in this array is a trust signal. Most sites only list social media. Add press features, industry directories, and trade associations.</div>
+
+  <h4>What to do</h4>
+  <ul>
+    <li>Locate Organization or LocalBusiness schema in homepage JSON-LD</li>
+    <li>Build a <code>sameAs</code> array with every verified URL</li>
+    <li>Include: Google Maps profile, social profiles, industry directories, press features, podcast appearances</li>
+    <li>Do NOT include: aggregator sites, competitor directories, random blogs mentioning the client</li>
+  </ul>
+
+  <h4>Pattern</h4>
+  <pre><code>"sameAs": [
+```
+
+“https://www.google.com/maps/place/CLIENT+NAME”,
+“https://www.instagram.com/client/”,
+“https://www.facebook.com/client”,
+“https://www.industry-directory.org/client”,
+“https://www.pressfeatureurl.com/article-about-client”
+]</code></pre>
+</article>
+
+```
+<!-- FIX 3 -->
+<article class="step">
+  <span class="step-num">Fix 03</span>
+  <h3>Press feature <em>NewsArticle schema</em></h3>
+  <div class="step-why"><strong>Why:</strong> A press page with a visible link is nice. Adding NewsArticle schema turns that same link into structured data AI can cite directly. This is the single biggest differentiator between sites AI tools mention and sites they skip.</div>
+
+  <h4>What to do</h4>
+  <ul>
+    <li>On the press page, add a second JSON-LD script block for each feature</li>
+    <li>Use <code>@graph</code> to combine WebPage + NewsArticle in one block</li>
+    <li>Reference the business via <code>@id</code> so schema connects</li>
+    <li>Include <code>datePublished</code>, <code>headline</code>, <code>publisher</code>, <code>mentions</code> for the person quoted</li>
+  </ul>
+
+  <h4>Pattern</h4>
+  <pre><code>{
+```
+
+“@type”: “NewsArticle”,
+“headline”: “ARTICLE TITLE”,
+“url”: “https://publication.com/article-url”,
+“datePublished”: “2025-11-22”,
+“publisher”: {
+“@type”: “Organization”,
+“name”: “Publication Name”,
+“url”: “https://publication.com”
+},
+“about”: { “@id”: “https://clientsite.com/#business” },
+“mentions”: {
+“@type”: “Person”,
+“name”: “Client Name”,
+“jobTitle”: “Founder”,
+“worksFor”: { “@id”: “https://clientsite.com/#business” }
+}
+}</code></pre>
+</article>
+
+```
+<!-- FIX 4 -->
+<article class="step">
+  <span class="step-num">Fix 04</span>
+  <h3>Reviews — real ones, <em>with dates</em></h3>
+  <div class="step-why"><strong>Why:</strong> <code>aggregateRating</code> alone (e.g. "5 stars from 10 reviews") is a claim. Individual Review schema with author names and dates is proof. AI weighs proof over claims. Dated reviews across multiple years also prove the business is actively healthy, not a dormant listing.</div>
+
+  <h4>What to do</h4>
+  <ul>
+    <li>Request Google Takeout export from client (info@ account for the GBP)</li>
+    <li>Extract <code>reviews.json</code> from the correct location folder</li>
+    <li>Filter: use only reviews with actual text. Star-only reviews still count toward aggregate but can't be cited by AI</li>
+    <li>Match <code>ratingCount</code> to total reviews (including star-only), <code>reviewCount</code> to reviews with text</li>
+    <li>Add <code>datePublished</code> to every individual review</li>
+    <li>Trim review text to the most AI-quotable sentence. Preserve original voice</li>
+  </ul>
+
+  <h4>Pattern</h4>
+  <pre><code>"aggregateRating": {
+```
+
+“@type”: “AggregateRating”,
+“ratingValue”: “5”,
+“bestRating”: “5”,
+“ratingCount”: “12”,
+“reviewCount”: “11”
+},
+“review”: [
+{
+“@type”: “Review”,
+“author”: { “@type”: “Person”, “name”: “Reviewer Name” },
+“datePublished”: “2026-04-10”,
+“reviewRating”: { “@type”: “Rating”, “ratingValue”: “5”, “bestRating”: “5” },
+“reviewBody”: “Most quotable sentence from the review.”
+}
+]</code></pre>
+</article>
+
+  </div>
+</section>
+
+<!-- SECTION: AFTER -->
+
+<section class="section">
+  <p class="section-tag">After every build</p>
+  <h2>Don't skip <em>these</em>.</h2>
+  <div class="rules">
+    <h3>Final checks before moving on</h3>
+    <div class="rules-grid">
+      <div class="rule"><p class="rule-label">Validate</p><p class="rule-text">Run every changed page through <a href="https://validator.schema.org/" target="_blank" rel="noopener" style="color:var(--gold)">validator.schema.org</a> AND Google's Rich Results Test. Both.</p></div>
+      <div class="rule"><p class="rule-label">Check for duplicates</p><p class="rule-text">When replacing JSON-LD blocks, make sure old + new aren't both in the file. Two "review" arrays = broken schema.</p></div>
+      <div class="rule"><p class="rule-label">Client update email</p><p class="rule-text">Send summary of what changed + why. Always include one question that shows you care about accuracy (not laziness).</p></div>
+      <div class="rule"><p class="rule-label">Test queries</p><p class="rule-text">Write 5 specific queries to test in ChatGPT/Perplexity over the next 30 days (e.g. "who does X in Y city"). Track when the client starts appearing.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- PROMPT GENERATOR -->
+
+<section class="generator">
+  <div class="gen-inner">
+    <span class="gen-label">🧠 Prompt Generator</span>
+    <h2>Run this SOP on <em>any client.</em></h2>
+    <p>Fill in the client details. Get a ready-to-paste prompt for a fresh Claude chat. Paste it in and Claude will walk you through this SOP step-by-step for that specific client.</p>
+
+```
+<div class="gen-form">
+  <div class="gen-row">
+    <label for="gc-client">Client business name</label>
+    <input type="text" id="gc-client" placeholder="e.g. Living Restorations">
+  </div>
+  <div class="gen-row">
+    <label for="gc-url">Client website URL</label>
+    <input type="text" id="gc-url" placeholder="e.g. https://www.livingrestorations.com">
+  </div>
+  <div class="gen-row">
+    <label for="gc-type">Business type / industry</label>
+    <input type="text" id="gc-type" placeholder="e.g. Ecological design and coastal restoration">
+  </div>
+  <div class="gen-row">
+    <label for="gc-location">Primary location / service area</label>
+    <input type="text" id="gc-location" placeholder="e.g. Tampa Bay, Florida">
+  </div>
+  <div class="gen-row">
+    <label for="gc-owner">Owner / founder name</label>
+    <input type="text" id="gc-owner" placeholder="e.g. Kiamesha Wray">
+  </div>
+  <div class="gen-row">
+    <label for="gc-creds">Key credentials (one per line)</label>
+    <textarea id="gc-creds" placeholder="e.g. Florida Master Naturalist&#10;FANN credentialed professional&#10;Homes &amp; Gardens feature 2025"></textarea>
+  </div>
+  <div class="gen-row">
+    <label for="gc-notes">Anything else Claude should know</label>
+    <textarea id="gc-notes" placeholder="e.g. No Google Business Profile yet. Site is on Vercel. Uses Formspree for forms."></textarea>
+  </div>
+  <button class="gen-btn" onclick="generatePrompt()">Generate the prompt →</button>
+
+  <div class="gen-output" id="gen-output">
+    <div class="gen-output-head">
+      <span>Copy this into a fresh Claude chat</span>
+      <button class="copy-btn" onclick="copyPrompt()" id="copy-btn">Copy</button>
+    </div>
+    <pre id="gen-output-text"></pre>
+  </div>
+</div>
+```
+
+  </div>
+</section>
+
+<footer>
+  <p>&copy; <span id="y"></span> Gofer Content <span class="sep">|</span> Internal SOP <span class="sep">|</span> <a href="/">gofercontent.com</a></p>
+</footer>
+
+</div>
+
+<script>
+// ── GATE ──
+function togglePW(){
+  var i=document.getElementById('pw');
+  var b=document.getElementById('pw-show');
+  if(i.type==='password'){i.type='text';b.textContent='HIDE';}
+  else{i.type='password';b.textContent='SHOW';}
+}
+function checkPW(){
+  var val=document.getElementById('pw').value.trim();
+  if(val==='1982'){
+    document.getElementById('gate').style.display='none';
+    document.getElementById('main-content').style.display='block';
+    try{sessionStorage.setItem('gc_sop_unlocked','1');}catch(e){}
+  } else {
+    document.getElementById('gate-err').style.display='block';
+  }
+}
+// Auto-unlock if already entered this session
+try{
+  if(sessionStorage.getItem('gc_sop_unlocked')==='1'){
+    document.getElementById('gate').style.display='none';
+    document.getElementById('main-content').style.display='block';
+  }
+}catch(e){}
+
+// Year
+document.getElementById('y').textContent=new Date().getFullYear();
+
+// ── PROMPT GENERATOR ──
+function generatePrompt(){
+  var client=document.getElementById('gc-client').value.trim()||'[CLIENT NAME]';
+  var url=document.getElementById('gc-url').value.trim()||'[CLIENT URL]';
+  var type=document.getElementById('gc-type').value.trim()||'[BUSINESS TYPE]';
+  var loc=document.getElementById('gc-location').value.trim()||'[LOCATION]';
+  var owner=document.getElementById('gc-owner').value.trim()||'[OWNER NAME]';
+  var creds=document.getElementById('gc-creds').value.trim()||'[CREDENTIALS]';
+  var notes=document.getElementById('gc-notes').value.trim();
+
+  var prompt = "I'm running the Gofer Content AI Visibility Schema SOP on this client. Walk me through it step-by-step, one fix at a time, with exact find-and-replace instructions.\n\n";
+  prompt += "CLIENT DETAILS:\n";
+  prompt += "- Business: " + client + "\n";
+  prompt += "- Website: " + url + "\n";
+  prompt += "- Industry: " + type + "\n";
+  prompt += "- Service area: " + loc + "\n";
+  prompt += "- Owner: " + owner + "\n";
+  prompt += "- Credentials:\n";
+  creds.split('\n').forEach(function(c){ if(c.trim()) prompt += "  • " + c.trim() + "\n"; });
+  if(notes){ prompt += "\nADDITIONAL CONTEXT:\n" + notes + "\n"; }
+  prompt += "\nTHE SOP (run in this order):\n";
+  prompt += "1. Credential language audit — verify every date, swap unverified ones for vague language (\"experienced\" not \"since 2014\"). Update JSON-LD, visible text, and llms.txt.\n";
+  prompt += "2. sameAs authority links — add every verified third-party URL (Google Maps, socials, industry directories, press features) to the Organization schema sameAs array.\n";
+  prompt += "3. NewsArticle schema for press features — add structured data for every press mention using @graph with WebPage + NewsArticle, linked to business via @id.\n";
+  prompt += "4. Reviews with real dates — pull from Google Takeout, filter to reviews with text, update aggregateRating (ratingCount = all, reviewCount = with text), add individual Review schema with datePublished.\n\n";
+  prompt += "RULES:\n";
+  prompt += "- Short responses only (3-5 sentences max).\n";
+  prompt += "- One fix at a time. Wait for me to say \"done\" before moving on.\n";
+  prompt += "- Give exact find-and-replace with full code blocks.\n";
+  prompt += "- No em dashes.\n";
+  prompt += "- Validate with validator.schema.org and Google Rich Results Test after each fix.\n";
+  prompt += "- Never make claims I can't verify about the client.\n\n";
+  prompt += "Before you start: ask me for the client's current homepage code and any other pages we'll be editing. Then begin with Fix 1.";
+
+  var out=document.getElementById('gen-output');
+  document.getElementById('gen-output-text').textContent=prompt;
+  out.classList.add('on');
+  out.scrollIntoView({behavior:'smooth',block:'nearest'});
+}
+
+function copyPrompt(){
+  var txt=document.getElementById('gen-output-text').textContent;
+  var btn=document.getElementById('copy-btn');
+  navigator.clipboard.writeText(txt).then(function(){
+    btn.textContent='Copied ✓';
+    setTimeout(function(){btn.textContent='Copy';},2000);
+  }).catch(function(){
+    // Fallback
+    var ta=document.createElement('textarea');
+    ta.value=txt;document.body.appendChild(ta);
+    ta.select();document.execCommand('copy');document.body.removeChild(ta);
+    btn.textContent='Copied ✓';
+    setTimeout(function(){btn.textContent='Copy';},2000);
+  });
+}
+</script>
+
+</body>
+</html>
