@@ -1,0 +1,656 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Joe Howard, PLA — Landscape Architecture & Ecological Design</title>
+<meta name="description" content="Landscape architecture studio specializing in restoration ecology, wildlife-corridor design, and CEQA/NEPA-compliant planning across California, Oregon, and Washington.">
+<meta name="robots" content="index,follow,max-image-preview:large">
+<meta name="theme-color" content="#0f1416">
+<link rel="canonical" href="https://joehoward.example/">
+
+<meta property="og:type" content="profile">
+<meta property="og:title" content="Joe Howard, PLA — Landscape Architecture & Ecological Design">
+<meta property="og:description" content="West Coast studio for restoration ecology, wildlife-corridor design, and CEQA/NEPA planning.">
+<meta property="og:url" content="https://joehoward.example/">
+<meta name="twitter:card" content="summary_large_image">
+
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@graph":[
+    {
+      "@type":"Person",
+      "@id":"https://joehoward.example/#person",
+      "name":"Joe Howard",
+      "honorificSuffix":"PLA",
+      "jobTitle":"Landscape Architect & Restoration Ecologist",
+      "description":"California-licensed landscape architect specializing in wetland restoration, wildlife-corridor design, and CEQA/NEPA-compliant ecological planning on the West Coast.",
+      "url":"https://joehoward.example/",
+      "sameAs":["https://harveyecology.com/professionals/joe-howard/","https://www.linkedin.com/in/joehoward"],
+      "knowsAbout":["Wetland restoration","Wildlife corridors","CEQA","NEPA","Native plant design","Habitat mitigation"]
+    },
+    {
+      "@type":"ProfessionalService",
+      "@id":"https://joehoward.example/#studio",
+      "name":"Joe Howard Landscape Architecture",
+      "areaServed":["California","Oregon","Washington"],
+      "founder":{"@id":"https://joehoward.example/#person"}
+    }
+  ]
+}
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;800&family=JetBrains+Mono:wght@400;500&family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;1,6..72,300&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --bg:#0f1416;
+  --bg-2:#161d20;
+  --fog:#e8ece8;         /* near-white */
+  --paper:#f5f3ee;
+  --ink:#0c1012;
+  --slate:#2a3338;
+  --slate-2:#495258;
+  --line:#2a3338;
+  --line-light:#d6d4cc;
+  --kelp:#5c8a73;        /* primary accent (sage/kelp) */
+  --kelp-2:#7fb29a;
+  --rust:#c36b3e;        /* secondary accent */
+  --amber:#d8a656;
+  --grid:rgba(255,255,255,.045);
+  --maxw:1340px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;background:var(--bg)}
+body{
+  margin:0;color:var(--fog);background:var(--bg);
+  font-family:"Archivo",system-ui,sans-serif;
+  font-size:16px;line-height:1.55;font-weight:400;
+  -webkit-font-smoothing:antialiased;
+  background:
+    linear-gradient(180deg, #0e1315 0%, #0f1416 50%, #0f1416 100%);
+}
+body::before{
+  content:"";position:fixed;inset:0;pointer-events:none;z-index:0;
+  background-image:
+    linear-gradient(var(--grid) 1px,transparent 1px),
+    linear-gradient(90deg,var(--grid) 1px,transparent 1px);
+  background-size:80px 80px;
+  mask-image:radial-gradient(ellipse at 50% 40%, black 30%, transparent 85%);
+}
+img{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+main, header, footer, section{position:relative;z-index:1}
+
+.mono{font-family:"JetBrains Mono",ui-monospace,monospace;letter-spacing:.02em}
+.serif{font-family:"Newsreader",Georgia,serif}
+.container{max-width:var(--maxw);margin:0 auto;padding:0 32px}
+@media (max-width:700px){.container{padding:0 20px}}
+
+h1,h2,h3{font-family:"Archivo",sans-serif;font-weight:500;letter-spacing:-.02em;line-height:1.02;margin:0}
+h1{font-size:clamp(3rem,8.4vw,7.6rem);font-weight:500;letter-spacing:-.035em}
+h2{font-size:clamp(2rem,4.4vw,3.6rem);font-weight:500}
+h3{font-size:1.15rem;font-weight:600;letter-spacing:-.01em}
+
+/* ====== NAV ====== */
+.nav{
+  position:fixed;top:0;left:0;right:0;z-index:100;padding:18px 0;
+  background:rgba(15,20,22,.72);backdrop-filter:saturate(140%) blur(14px);
+  border-bottom:1px solid var(--line);
+}
+.nav-row{display:flex;align-items:center;justify-content:space-between;gap:24px}
+.logo{display:flex;align-items:center;gap:12px;font-weight:600;letter-spacing:-.01em;font-size:.98rem}
+.logo-mark{
+  width:28px;height:28px;border:1px solid var(--kelp);position:relative;flex:none;
+  background:radial-gradient(circle at 30% 30%, var(--kelp-2), transparent 60%);
+}
+.logo-mark::after{content:"";position:absolute;inset:7px;border:1px solid var(--kelp);}
+.nav a.pill{
+  font-size:.75rem;letter-spacing:.04em;text-transform:none;font-family:"JetBrains Mono",monospace;
+  padding:8px 12px;border:1px solid var(--line);color:var(--fog);border-radius:999px;
+  transition:border-color .2s, color .2s, background .2s;
+}
+.nav a.pill:hover{border-color:var(--kelp);color:var(--kelp-2)}
+nav.links{display:flex;gap:6px;flex-wrap:wrap}
+@media (max-width:820px){nav.links a.pill:not(.contact-cta){display:none}}
+
+/* ====== HERO ====== */
+.hero{padding:160px 0 90px;position:relative;overflow:hidden}
+.hero-status{
+  display:inline-flex;align-items:center;gap:10px;
+  font-family:"JetBrains Mono",monospace;font-size:.74rem;letter-spacing:.06em;
+  color:var(--kelp-2);border:1px solid var(--line);padding:8px 14px;border-radius:999px;
+  margin-bottom:34px;
+}
+.hero-status .pulse{width:7px;height:7px;border-radius:50%;background:var(--kelp-2);position:relative;flex:none}
+.hero-status .pulse::after{
+  content:"";position:absolute;inset:-4px;border-radius:50%;border:1px solid var(--kelp-2);
+  animation:ping 2.2s cubic-bezier(0,0,.2,1) infinite;
+}
+@keyframes ping{0%{transform:scale(.8);opacity:.9}100%{transform:scale(2);opacity:0}}
+
+.hero h1 .word{display:inline-block;overflow:hidden;vertical-align:bottom}
+.hero h1 .word span{display:inline-block;transform:translateY(110%);animation:rise 1s cubic-bezier(.16,1,.3,1) forwards}
+.hero h1 .word:nth-child(2) span{animation-delay:.08s}
+.hero h1 .word:nth-child(3) span{animation-delay:.16s}
+.hero h1 .word:nth-child(4) span{animation-delay:.24s}
+.hero h1 .word:nth-child(5) span{animation-delay:.32s;color:var(--kelp-2);font-family:"Newsreader",serif;font-style:italic;font-weight:300}
+.hero h1 .word:nth-child(6) span{animation-delay:.4s}
+@keyframes rise{to{transform:none}}
+
+.hero .lede{
+  margin:40px 0 0;max-width:44ch;font-size:1.15rem;line-height:1.55;
+  color:#cbd2ce;
+}
+.hero-bar{
+  display:grid;grid-template-columns:repeat(4,1fr);gap:28px;
+  margin-top:56px;padding-top:28px;border-top:1px solid var(--line);
+}
+@media (max-width:820px){.hero-bar{grid-template-columns:repeat(2,1fr);gap:22px}}
+.hero-bar .cell .k{font-family:"JetBrains Mono",monospace;font-size:.7rem;color:var(--slate-2);letter-spacing:.08em;text-transform:uppercase}
+.hero-bar .cell .v{font-size:1.8rem;margin-top:4px;font-weight:500;letter-spacing:-.02em}
+.hero-bar .cell .v em{font-family:"Newsreader",serif;font-weight:300;font-style:italic;color:var(--kelp-2)}
+
+/* Topo SVG */
+.topo{position:absolute;right:-10%;top:60px;width:58%;max-width:820px;opacity:.32;pointer-events:none;animation:drift 40s ease-in-out infinite}
+@keyframes drift{0%,100%{transform:translateY(0)}50%{transform:translateY(-14px)}}
+@media (max-width:900px){.topo{opacity:.18;width:85%;right:-30%}}
+
+/* ====== SECTION HEAD ====== */
+.sec{padding:130px 0;border-top:1px solid var(--line)}
+.sec-head{display:grid;grid-template-columns:1fr;gap:12px;margin-bottom:64px}
+@media (min-width:900px){.sec-head{grid-template-columns:240px 1fr;gap:60px;align-items:start}}
+.sec-tag{display:flex;gap:10px;align-items:center;font-family:"JetBrains Mono",monospace;font-size:.74rem;letter-spacing:.08em;color:var(--slate-2);text-transform:uppercase}
+.sec-tag .bar{width:22px;height:1px;background:var(--kelp)}
+.sec-title{max-width:22ch}
+.sec-sub{max-width:58ch;color:#bcc3be;margin-top:16px;font-size:1.02rem}
+
+/* ====== WORK GRID ====== */
+.work{display:grid;grid-template-columns:1fr;gap:16px}
+@media (min-width:900px){.work{grid-template-columns:repeat(12,1fr);gap:20px}}
+
+.card{
+  position:relative;border:1px solid var(--line);background:var(--bg-2);overflow:hidden;
+  padding:0;transition:border-color .3s, transform .4s;
+  opacity:0;transform:translateY(14px);
+}
+.card.in{opacity:1;transform:none;transition:opacity .7s,transform .7s}
+.card:hover{border-color:var(--kelp);transform:translateY(-3px)}
+
+.card .image{aspect-ratio:16/10;position:relative;overflow:hidden}
+.card .image::after{
+  content:"";position:absolute;inset:0;
+  background-image:
+    linear-gradient(rgba(255,255,255,.06) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(255,255,255,.06) 1px,transparent 1px);
+  background-size:40px 40px;mix-blend-mode:overlay;opacity:.6;
+}
+.card .image svg{position:absolute;inset:0;width:100%;height:100%}
+.card .body{padding:22px 22px 24px;display:flex;flex-direction:column;gap:8px}
+.card .row{display:flex;justify-content:space-between;align-items:baseline;gap:16px;margin-bottom:6px}
+.card .id{font-family:"JetBrains Mono",monospace;font-size:.72rem;color:var(--slate-2);letter-spacing:.06em}
+.card .yr{font-family:"JetBrains Mono",monospace;font-size:.72rem;color:var(--kelp-2)}
+.card h3{font-size:1.35rem;font-weight:500;letter-spacing:-.02em}
+.card h3 em{font-family:"Newsreader",serif;font-style:italic;font-weight:300;color:var(--kelp-2)}
+.card p{margin:6px 0 14px;color:#b6bdb8;font-size:.95rem}
+.card .tags{display:flex;flex-wrap:wrap;gap:6px}
+.card .tags span{font-family:"JetBrains Mono",monospace;font-size:.68rem;color:#9aa29d;border:1px solid var(--line);padding:4px 8px;border-radius:3px}
+
+/* layout spans */
+.w7{grid-column:span 7}
+.w5{grid-column:span 5}
+.w6{grid-column:span 6}
+.w12{grid-column:span 12}
+@media (max-width:900px){.w7,.w5,.w6,.w12{grid-column:1/-1}}
+
+/* background gradients for each project "image" */
+.img-1{background:radial-gradient(120% 90% at 30% 20%, #1c3a3e, #0e1f22 60%), linear-gradient(135deg,#3a6a6e,#12272b)}
+.img-2{background:radial-gradient(100% 80% at 70% 30%, #3f5135, #15201a 70%)}
+.img-3{background:radial-gradient(120% 100% at 20% 80%, #7c4a2c, #251510 70%)}
+.img-4{background:radial-gradient(120% 80% at 50% 50%, #6e7c5b, #1e221a 70%)}
+
+/* ====== CAPABILITIES ====== */
+.caps{display:grid;grid-template-columns:1fr;border-top:1px solid var(--line)}
+@media (min-width:820px){.caps{grid-template-columns:repeat(3,1fr)}}
+.cap{
+  padding:28px 0;border-bottom:1px solid var(--line);
+  display:grid;grid-template-columns:auto 1fr;gap:20px;align-items:start;
+  transition:background .3s;
+}
+@media (min-width:820px){
+  .cap{padding:28px 28px 28px 0;border-right:1px solid var(--line);grid-template-columns:1fr}
+  .cap:nth-child(3n){border-right:none;padding-right:0}
+}
+.cap:hover{background:rgba(92,138,115,.04)}
+.cap .no{font-family:"JetBrains Mono",monospace;font-size:.75rem;color:var(--kelp);letter-spacing:.12em}
+.cap h3{font-size:1.15rem;margin:8px 0 6px;font-weight:500;letter-spacing:-.01em}
+.cap p{color:#9ea5a0;margin:0;font-size:.94rem}
+
+/* ====== STATS BAND ====== */
+.stats{
+  background:var(--paper);color:var(--ink);padding:80px 0;
+  border-top:1px solid var(--line);
+}
+.stats-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:24px}
+@media (max-width:820px){.stats-grid{grid-template-columns:repeat(2,1fr);gap:40px 24px}}
+.stat{border-left:1px solid var(--line-light);padding:0 0 0 22px}
+.stat .k{font-family:"JetBrains Mono",monospace;font-size:.72rem;letter-spacing:.08em;color:var(--slate-2);text-transform:uppercase}
+.stat .v{font-size:3.4rem;line-height:1;margin-top:10px;font-weight:500;letter-spacing:-.03em}
+.stat .v em{font-family:"Newsreader",serif;font-style:italic;font-weight:300;color:var(--kelp)}
+.stat .note{margin-top:8px;color:var(--slate-2);font-size:.88rem}
+
+/* ====== ABOUT ====== */
+.about-grid{display:grid;grid-template-columns:1fr;gap:40px}
+@media (min-width:900px){.about-grid{grid-template-columns:1.2fr 1fr;gap:80px}}
+.about-card{
+  border:1px solid var(--line);padding:32px;position:relative;background:var(--bg-2);
+}
+.about-card::before{
+  content:"";position:absolute;inset:-1px;border:1px solid var(--kelp);
+  transform:translate(10px,10px);pointer-events:none;opacity:.4;
+}
+.about-card dt{font-family:"JetBrains Mono",monospace;font-size:.72rem;letter-spacing:.08em;color:var(--slate-2);text-transform:uppercase}
+.about-card dd{margin:2px 0 18px;font-size:1rem}
+.about-card dd:last-child{margin-bottom:0}
+.about p{font-size:1.08rem;color:#cbd2ce;max-width:54ch}
+.about p + p{margin-top:1em}
+.about p .drop{
+  float:left;font-family:"Newsreader",serif;font-style:italic;font-weight:300;
+  font-size:5.2rem;line-height:.85;padding:4px 12px 0 0;color:var(--kelp-2);
+}
+
+/* ====== CONTACT ====== */
+.contact{background:var(--paper);color:var(--ink);padding:110px 0}
+.contact-grid{display:grid;grid-template-columns:1fr;gap:48px}
+@media (min-width:900px){.contact-grid{grid-template-columns:1fr 1.1fr;gap:80px}}
+.contact h2{color:var(--ink);max-width:14ch}
+.contact h2 em{font-family:"Newsreader",serif;font-style:italic;font-weight:300;color:var(--kelp)}
+.contact .lede{color:var(--slate-2);max-width:42ch;margin-top:18px;font-size:1.05rem}
+.contact-fallback{font-family:"JetBrains Mono",monospace;font-size:.85rem;color:var(--slate-2);margin-top:28px}
+.contact-fallback a{color:var(--kelp);border-bottom:1px solid var(--kelp)}
+
+form.lead{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+form.lead .full{grid-column:1/-1}
+form.lead label{font-family:"JetBrains Mono",monospace;font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;color:var(--slate-2);display:block;margin-bottom:8px}
+form.lead input, form.lead textarea, form.lead select{
+  width:100%;background:#fff;border:1px solid var(--line-light);padding:14px;
+  font:inherit;color:var(--ink);font-size:1rem;border-radius:0;
+  transition:border-color .2s, box-shadow .2s;
+}
+form.lead input:focus,form.lead textarea:focus,form.lead select:focus{
+  outline:none;border-color:var(--kelp);box-shadow:0 0 0 3px rgba(92,138,115,.18);
+}
+form.lead textarea{min-height:140px;resize:vertical}
+.honeypot{position:absolute;left:-10000px;top:-10000px;width:1px;height:1px;overflow:hidden}
+
+.btn{
+  display:inline-flex;align-items:center;gap:12px;background:var(--ink);color:var(--fog);
+  padding:16px 22px;border:0;font:inherit;font-family:"Archivo",sans-serif;
+  font-size:.88rem;font-weight:500;letter-spacing:.02em;cursor:pointer;
+  transition:background .2s, transform .2s;
+}
+.btn:hover{background:var(--kelp);transform:translateY(-1px)}
+.btn svg{width:16px;height:16px}
+
+/* Mobile SMS block */
+.sms-block{
+  grid-column:1/-1;border:1px dashed var(--line-light);padding:18px;margin-bottom:6px;
+  background:rgba(92,138,115,.04);
+}
+.sms-block .eyebrow{font-family:"JetBrains Mono",monospace;font-size:.72rem;letter-spacing:.1em;color:var(--kelp);margin:0 0 10px}
+.sms-block p{margin:10px 0 0;color:var(--slate-2);font-size:.9rem}
+.btn.btn-kelp{background:var(--kelp);color:#fff}
+.btn.btn-kelp:hover{background:#4a7460}
+
+/* ====== FOOTER ====== */
+footer{background:var(--bg);border-top:1px solid var(--line);padding:40px 0 60px}
+.foot-row{display:flex;flex-wrap:wrap;justify-content:space-between;gap:20px;align-items:baseline}
+.foot-row small{color:var(--slate-2);font-size:.8rem;font-family:"JetBrains Mono",monospace}
+.foot-links{display:flex;gap:20px;font-family:"JetBrains Mono",monospace;font-size:.78rem}
+.foot-links a{color:var(--slate-2);border-bottom:1px solid transparent;padding-bottom:2px}
+.foot-links a:hover{color:var(--kelp-2);border-bottom-color:var(--kelp-2)}
+
+.reveal{opacity:0;transform:translateY(14px);transition:opacity .8s, transform .8s}
+.reveal.in{opacity:1;transform:none}
+
+@media (prefers-reduced-motion: reduce){
+  *{animation:none !important;transition:none !important}
+  .reveal{opacity:1;transform:none}
+  .hero h1 .word span{transform:none}
+}
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="container nav-row">
+    <a href="#" class="logo" aria-label="Joe Howard Landscape Architecture">
+      <span class="logo-mark" aria-hidden="true"></span>
+      <span>Joe Howard <span style="color:var(--slate-2)">/</span> Landscape Architecture</span>
+    </a>
+    <nav class="links" aria-label="Primary">
+      <a href="#work" class="pill">Work</a>
+      <a href="#capabilities" class="pill">Capabilities</a>
+      <a href="#about" class="pill">About</a>
+      <a href="#contact" class="pill contact-cta" style="border-color:var(--kelp);color:var(--kelp-2)">Contact →</a>
+    </nav>
+  </div>
+</nav>
+
+<!-- ============ HERO ============ -->
+<section class="hero">
+  <svg class="topo" viewBox="0 0 800 600" aria-hidden="true" preserveAspectRatio="xMidYMid slice">
+    <g fill="none" stroke="#5c8a73" stroke-width="1" opacity=".9">
+      <path d="M0,420 C120,380 220,460 340,420 C460,380 560,460 680,400 C740,370 780,410 800,400"/>
+      <path d="M0,380 C120,340 220,420 340,380 C460,340 560,420 680,360 C740,330 780,370 800,360"/>
+      <path d="M0,340 C120,300 220,380 340,340 C460,300 560,380 680,320 C740,290 780,330 800,320"/>
+      <path d="M0,300 C120,260 220,340 340,300 C460,260 560,340 680,280 C740,250 780,290 800,280"/>
+      <path d="M0,260 C120,220 220,300 340,260 C460,220 560,300 680,240 C740,210 780,250 800,240"/>
+      <path d="M0,220 C120,180 220,260 340,220 C460,180 560,260 680,200 C740,170 780,210 800,200"/>
+      <path d="M0,180 C120,140 220,220 340,180 C460,140 560,220 680,160 C740,130 780,170 800,160"/>
+      <path d="M0,140 C120,100 220,180 340,140 C460,100 560,180 680,120 C740,90 780,130 800,120"/>
+    </g>
+    <g stroke="#c36b3e" stroke-width="1.4" opacity=".6" fill="none" stroke-dasharray="3 3">
+      <path d="M40,100 C200,150 360,140 520,220 C620,270 700,320 780,380"/>
+    </g>
+    <g fill="#d8a656" opacity=".9">
+      <circle cx="150" cy="180" r="3"/>
+      <circle cx="390" cy="240" r="3"/>
+      <circle cx="600" cy="310" r="3"/>
+    </g>
+  </svg>
+
+  <div class="container">
+    <span class="hero-status"><span class="pulse"></span> ACCEPTING PROJECTS — Q2 2026</span>
+    <h1 aria-label="Landscape architecture, engineered for the living world.">
+      <span class="word"><span>Landscape</span></span>
+      <span class="word"><span>architecture,</span></span>
+      <span class="word"><span>engineered</span></span>
+      <span class="word"><span>for</span></span>
+      <span class="word"><span>the&nbsp;living</span></span>
+      <span class="word"><span>world.</span></span>
+    </h1>
+    <p class="lede">An independent West Coast studio for <strong style="color:var(--fog)">restoration ecology</strong>, <strong style="color:var(--fog)">wildlife-corridor design</strong>, and <strong style="color:var(--fog)">CEQA/NEPA-compliant planning</strong>. Led by Joe Howard, PLA — twenty years in the field, now building a practice of his own.</p>
+
+    <div class="hero-bar">
+      <div class="cell"><div class="k">Founded</div><div class="v">20<em>26</em></div></div>
+      <div class="cell"><div class="k">Discipline</div><div class="v"><em>PLA</em> + SER</div></div>
+      <div class="cell"><div class="k">Region</div><div class="v">CA <em>·</em> OR <em>·</em> WA</div></div>
+      <div class="cell"><div class="k">Status</div><div class="v" style="color:var(--kelp-2)"><em>Open</em></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ WORK ============ -->
+<section class="sec" id="work">
+  <div class="container">
+    <header class="sec-head">
+      <div class="sec-tag"><span class="bar"></span> <span>01 / selected work</span></div>
+      <div>
+        <h2 class="sec-title">Projects where the <em class="serif" style="font-style:italic;color:var(--kelp-2)">ecology</em> did the drawing.</h2>
+        <p class="sec-sub">Four recent engagements across tidal marsh, oak woodland, coastal bluff, and post-fire chaparral. Each one began with site work — cross-sections, survey pins, and a plant list — long before the first construction document.</p>
+      </div>
+    </header>
+
+    <div class="work">
+
+      <article class="card w7 reveal">
+        <div class="image img-1" role="img" aria-label="Tidal marsh restoration at Sonoma Creek">
+          <svg viewBox="0 0 800 500" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+            <defs>
+              <linearGradient id="wg" x1="0" x2="0" y1="0" y2="1">
+                <stop offset="0%" stop-color="#7fb29a" stop-opacity=".7"/>
+                <stop offset="100%" stop-color="#1c3a3e" stop-opacity="0"/>
+              </linearGradient>
+            </defs>
+            <g fill="none" stroke="#7fb29a" stroke-width="1.1" opacity=".8">
+              <path d="M0,200 C150,180 250,240 400,220 C550,200 650,260 800,240"/>
+              <path d="M0,260 C150,240 250,300 400,280 C550,260 650,320 800,300"/>
+              <path d="M0,320 C150,300 250,360 400,340 C550,320 650,380 800,360"/>
+              <path d="M0,380 C150,360 250,420 400,400 C550,380 650,440 800,420"/>
+            </g>
+            <path d="M0,420 Q400,360 800,420 L800,500 L0,500 Z" fill="url(#wg)"/>
+            <g fill="#c36b3e">
+              <circle cx="180" cy="210" r="2.5"/>
+              <circle cx="360" cy="280" r="2.5"/>
+              <circle cx="560" cy="240" r="2.5"/>
+            </g>
+          </svg>
+        </div>
+        <div class="body">
+          <div class="row">
+            <span class="id">PRJ / 2024-08</span>
+            <span class="yr">2024</span>
+          </div>
+          <h3>Sonoma Creek Tidal Marsh <em>— 420 ac.</em></h3>
+          <p>Levee breach and tidal channel re-excavation reopened estuarine exchange across historic pasture, restoring nursery habitat for salmonids and endangered Ridgway's rail.</p>
+          <div class="tags"><span>Wetland</span><span>CEQA</span><span>USACE §404</span><span>Restoration</span></div>
+        </div>
+      </article>
+
+      <article class="card w5 reveal">
+        <div class="image img-2" role="img" aria-label="Oak woodland mitigation site">
+          <svg viewBox="0 0 500 500" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+            <g fill="none" stroke="#7fb29a" opacity=".7" stroke-width="1">
+              <circle cx="120" cy="300" r="70"/>
+              <circle cx="120" cy="300" r="100"/>
+              <circle cx="260" cy="200" r="80"/>
+              <circle cx="260" cy="200" r="120"/>
+              <circle cx="400" cy="340" r="60"/>
+              <circle cx="400" cy="340" r="90"/>
+            </g>
+            <g fill="#d8a656">
+              <circle cx="120" cy="300" r="3"/>
+              <circle cx="260" cy="200" r="3"/>
+              <circle cx="400" cy="340" r="3"/>
+            </g>
+          </svg>
+        </div>
+        <div class="body">
+          <div class="row"><span class="id">PRJ / 2023-03</span><span class="yr">2023</span></div>
+          <h3>Paso Robles Oak Mitigation</h3>
+          <p>12,000-tree valley-oak mitigation with a 30-year endowment-funded monitoring protocol. Year-three survivorship: 91%.</p>
+          <div class="tags"><span>Mitigation</span><span>Monitoring</span><span>CEQA</span></div>
+        </div>
+      </article>
+
+      <article class="card w5 reveal">
+        <div class="image img-3" role="img" aria-label="Post-fire revegetation site">
+          <svg viewBox="0 0 500 500" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+            <g fill="none" stroke="#c36b3e" stroke-width="1" opacity=".8">
+              <path d="M0,250 L500,250"/>
+              <path d="M0,280 L500,280" stroke-dasharray="4 6"/>
+              <path d="M0,310 L500,310" stroke-dasharray="4 6"/>
+              <path d="M0,340 L500,340"/>
+            </g>
+            <g stroke="#7fb29a" fill="none" stroke-width="1.2">
+              <path d="M80,250 L80,220 M76,232 L80,228 L84,232"/>
+              <path d="M180,250 L180,210 M176,226 L180,222 L184,226"/>
+              <path d="M290,250 L290,200 M286,220 L290,216 L294,220"/>
+              <path d="M400,250 L400,215 M396,230 L400,226 L404,230"/>
+            </g>
+          </svg>
+        </div>
+        <div class="body">
+          <div class="row"><span class="id">PRJ / 2021-11</span><span class="yr">2021</span></div>
+          <h3>Mendocino Ridge Revegetation</h3>
+          <p>Post-fire hillslope stabilization and native-seed mix on a 1,100-acre forest–chaparral mosaic. Seed-bank survey guided the specification species by species.</p>
+          <div class="tags"><span>Post-Fire</span><span>Revegetation</span><span>Erosion</span></div>
+        </div>
+      </article>
+
+      <article class="card w7 reveal">
+        <div class="image img-4" role="img" aria-label="Public access trail across coastal bluff">
+          <svg viewBox="0 0 800 500" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+            <g fill="none" stroke="#7fb29a" stroke-width="1" opacity=".6">
+              <path d="M0,380 C120,360 240,340 360,380 C480,420 600,380 800,360"/>
+              <path d="M0,340 C120,320 240,300 360,340 C480,380 600,340 800,320"/>
+              <path d="M0,300 C120,280 240,260 360,300 C480,340 600,300 800,280"/>
+              <path d="M0,260 C120,240 240,220 360,260 C480,300 600,260 800,240"/>
+            </g>
+            <path d="M20,400 Q200,300 420,320 T780,260" fill="none" stroke="#c36b3e" stroke-width="2" stroke-dasharray="2 4"/>
+            <g fill="#d8a656">
+              <circle cx="20" cy="400" r="4"/>
+              <circle cx="420" cy="320" r="4"/>
+              <circle cx="780" cy="260" r="4"/>
+            </g>
+          </svg>
+        </div>
+        <div class="body">
+          <div class="row"><span class="id">PRJ / 2022-05</span><span class="yr">2022</span></div>
+          <h3>Tomales Headlands <em>— trail &amp; overlook</em></h3>
+          <p>A one-mile public-access loop across a working ranch, routed around rare Mason's lilaeopsis populations. Boardwalks detailed to lift visitors an inch above the serpentine soils.</p>
+          <div class="tags"><span>Public Access</span><span>Rare Plants</span><span>NEPA</span><span>Boardwalk</span></div>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============ CAPABILITIES ============ -->
+<section class="sec" id="capabilities">
+  <div class="container">
+    <header class="sec-head">
+      <div class="sec-tag"><span class="bar"></span> <span>02 / capabilities</span></div>
+      <div>
+        <h2 class="sec-title">Six services. One <em class="serif" style="font-style:italic;color:var(--kelp-2)">standard</em>.</h2>
+        <p class="sec-sub">A small-practice model that scales up through trusted collaborators: civil engineers, hydrologists, botanists, and wildlife biologists the studio has worked with for years.</p>
+      </div>
+    </header>
+
+    <div class="caps">
+      <article class="cap reveal"><div class="no">/01</div><div><h3>Ecological Master Planning</h3><p>Framework plans that reconcile ecological function, public access, and operational reality.</p></div></article>
+      <article class="cap reveal"><div class="no">/02</div><div><h3>Wetland &amp; Stream Restoration</h3><p>Grading, hydrology, and revegetation for tidal, riparian, and vernal systems.</p></div></article>
+      <article class="cap reveal"><div class="no">/03</div><div><h3>Habitat Mitigation Design</h3><p>Performance-criteria-driven mitigation with long-term monitoring and adaptive management.</p></div></article>
+      <article class="cap reveal"><div class="no">/04</div><div><h3>CEQA &amp; NEPA Support</h3><p>Biological and aesthetic-resource analyses, mitigation measures, and expert testimony.</p></div></article>
+      <article class="cap reveal"><div class="no">/05</div><div><h3>Wildlife-Corridor Planning</h3><p>Connectivity assessments and crossing design, from rural overpasses to urban greenways.</p></div></article>
+      <article class="cap reveal"><div class="no">/06</div><div><h3>Expert Witness &amp; Peer Review</h3><p>Independent technical review for agencies, land trusts, and private landowners.</p></div></article>
+    </div>
+  </div>
+</section>
+
+<!-- ============ STATS ============ -->
+<section class="stats reveal">
+  <div class="container">
+    <div class="stats-grid">
+      <div class="stat"><div class="k">YRS / PRACTICE</div><div class="v">20<em>+</em></div><div class="note">Since 2005</div></div>
+      <div class="stat"><div class="k">PROJECTS DELIVERED</div><div class="v">140<em>+</em></div><div class="note">CA · OR · WA</div></div>
+      <div class="stat"><div class="k">ACRES RESTORED</div><div class="v">3.8<em>k</em></div><div class="note">Wetland, upland, riparian</div></div>
+      <div class="stat"><div class="k">CEQA / NEPA</div><div class="v">60<em>+</em></div><div class="note">Docs authored / supported</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ ABOUT ============ -->
+<section class="sec" id="about">
+  <div class="container">
+    <header class="sec-head">
+      <div class="sec-tag"><span class="bar"></span> <span>03 / about</span></div>
+      <div>
+        <h2 class="sec-title">A <em class="serif" style="font-style:italic;color:var(--kelp-2)">designer</em> trained as an ecologist.</h2>
+      </div>
+    </header>
+
+    <div class="about-grid about">
+      <div>
+        <p><span class="drop">J</span>oe Howard is a California-licensed landscape architect and restoration ecologist whose twenty-year practice spans the Pacific West. Previously a principal at Harvey &amp; Associates, he opened his own studio in 2026 to work more closely with land trusts, tribal governments, and landowners on long-horizon restoration projects.</p>
+        <p>His work has been cited in peer-reviewed journals, featured in agency guidance on tidal-marsh restoration, and recognized by the California chapter of the ASLA. He teaches graduate seminars on restoration practice, sits on the board of a Northern California land trust, and still spends Saturdays keying out plants in the field.</p>
+      </div>
+      <div>
+        <dl class="about-card">
+          <dt>License</dt><dd>PLA — California #XXXX</dd>
+          <dt>Education</dt><dd>MLA, UC Berkeley · MSc Ecology, UC Davis</dd>
+          <dt>Affiliations</dt><dd>ASLA · Ecological Society of America · Society for Ecological Restoration</dd>
+          <dt>Teaching</dt><dd>Graduate seminar, restoration practice</dd>
+          <dt>Based in</dt><dd>Petaluma, California</dd>
+          <dt>Formerly</dt><dd>Principal, Harvey &amp; Associates</dd>
+        </dl>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CONTACT ============ -->
+<section class="contact" id="contact">
+  <div class="container contact-grid">
+    <div>
+      <div class="sec-tag" style="color:var(--slate-2);margin-bottom:18px"><span class="bar" style="background:var(--kelp)"></span> <span>04 / begin</span></div>
+      <h2>Let's walk the <em>site</em> together.</h2>
+      <p class="lede">Most engagements begin with a walk and a phone call. Share a few sentences about the land, the regulatory context, and where you are in the process — I'll follow up within two business days.</p>
+      <p class="contact-fallback">&rarr; <a href="mailto:hello@joehoward.example">hello@joehoward.example</a></p>
+    </div>
+
+    <form class="lead"
+          id="contactForm"
+          action="https://formspree.io/f/REPLACE_WITH_FORM_ID"
+          method="POST"
+          novalidate>
+      <div class="honeypot" aria-hidden="true">
+        <label>Do not fill — <input type="text" name="_gotcha" tabindex="-1" autocomplete="off"></label>
+      </div>
+      <input type="hidden" name="_cc" value="info@gofercontent.com">
+      <input type="hidden" name="_subject" value="New inquiry — joehoward.example">
+
+      <div><label for="name">Name</label><input id="name" name="name" type="text" required></div>
+      <div><label for="email">Email</label><input id="email" name="email" type="email" required></div>
+      <div><label for="org">Organization</label><input id="org" name="organization" type="text"></div>
+      <div>
+        <label for="region">Project Region</label>
+        <select id="region" name="region"><option>California</option><option>Oregon</option><option>Washington</option><option>Other</option></select>
+      </div>
+      <div class="full">
+        <label for="project">About the project</label>
+        <textarea id="project" name="project" placeholder="Land, regulatory context, current stage…" required></textarea>
+      </div>
+      <div class="full">
+        <button class="btn" type="submit">
+          Send inquiry
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </button>
+      </div>
+    </form>
+  </div>
+</section>
+
+<footer>
+  <div class="container foot-row">
+    <small>&copy; 2026 Joe Howard Landscape Architecture — PLA # XXXX, California</small>
+    <nav class="foot-links" aria-label="Footer">
+      <a href="/sitemap.xml">sitemap.xml</a>
+      <a href="/llms.txt">llms.txt</a>
+      <a href="/robots.txt">robots.txt</a>
+      <a href="#">LinkedIn</a>
+    </nav>
+  </div>
+</footer>
+
+<script>
+(function(){
+  const isMobile = window.matchMedia('(max-width: 820px)').matches || /Mobi|Android/i.test(navigator.userAgent);
+  if(isMobile){
+    const form = document.getElementById('contactForm');
+    if(form){
+      const wrap = document.createElement('div');
+      wrap.className = 'sms-block';
+      wrap.innerHTML = `
+        <p class="eyebrow">FASTEST ON MOBILE</p>
+        <a class="btn btn-kelp" href="sms:+17275550100?&body=Hi%20Joe%20%E2%80%94%20">
+          Text Joe directly
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M21 12a8 8 0 0 1-11.8 7L3 21l1.9-6.2A8 8 0 1 1 21 12z"/></svg>
+        </a>
+        <p>…or use the email form below instead.</p>`;
+      form.prepend(wrap);
+    }
+  }
+  const io = new IntersectionObserver((entries)=>{
+    entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); }});
+  },{threshold:.12});
+  document.querySelectorAll('.reveal, .card').forEach(el=>io.observe(el));
+})();
+</script>
+</body>
+</html>
