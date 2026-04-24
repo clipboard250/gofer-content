@@ -12,9 +12,7 @@
     --ink: #0d1117;
     --muted: #536878;
     --line: #dde1e7;
-    --soft: #f5f7f9;
     --accent: #0a7c72;
-    --accent-pale: #ddf0ed;
     --body: 'IBM Plex Sans', Helvetica, sans-serif;
   }
 
@@ -24,7 +22,7 @@
     background: #d6d9de;
     color: var(--ink);
     font-family: var(--body);
-    line-height: 1.4;
+    line-height: 1.45;
     -webkit-print-color-adjust: exact;
     print-color-adjust: exact;
   }
@@ -36,25 +34,24 @@
     min-height: 11in;
     margin: 28px auto;
     background: #fff;
-    padding: 0.4in 0.55in 0.4in;
+    padding: 0.5in 0.6in;
     box-shadow: 0 12px 48px rgba(0,0,0,.12);
-    overflow: hidden;
   }
 
+  /* ═ DOC HEADER ═ */
   .doc-header {
     display: flex;
     justify-content: space-between;
     align-items: flex-end;
-    padding-bottom: 12px;
+    padding-bottom: 10px;
     margin-bottom: 18px;
     border-bottom: 2px solid var(--ink);
   }
 
   .eyebrow {
-    font-family: var(--body);
-    font-size: 8.5px;
+    font-size: 8px;
     font-weight: 700;
-    letter-spacing: .16em;
+    letter-spacing: .18em;
     text-transform: uppercase;
     color: var(--accent);
     margin-bottom: 6px;
@@ -62,7 +59,7 @@
 
   .doc-title {
     font-family: 'Montserrat', sans-serif;
-    font-size: 32px;
+    font-size: 28px;
     font-weight: 900;
     letter-spacing: -.02em;
     line-height: 1;
@@ -70,22 +67,22 @@
   }
 
   .doc-subtitle {
-    font-family: var(--body);
-    font-size: 10px;
+    font-size: 9.5px;
     font-weight: 500;
-    letter-spacing: .1em;
+    letter-spacing: .12em;
     text-transform: uppercase;
     color: var(--muted);
-    margin-top: 5px;
+    margin-top: 4px;
   }
 
   .doc-contact {
     text-align: right;
-    font-size: 10px;
+    font-size: 9.5px;
     color: var(--muted);
-    line-height: 1.7;
+    line-height: 1.65;
   }
 
+  /* ═ PERSON BLOCK ═ */
   .person {
     margin-top: 16px;
     padding-top: 14px;
@@ -108,7 +105,7 @@
 
   .person-name {
     font-family: 'Montserrat', sans-serif;
-    font-size: 23px;
+    font-size: 20px;
     font-weight: 700;
     letter-spacing: .01em;
     line-height: 1;
@@ -116,10 +113,9 @@
   }
 
   .person-role {
-    font-family: var(--body);
-    font-size: 9.5px;
+    font-size: 9px;
     font-weight: 600;
-    letter-spacing: .12em;
+    letter-spacing: .14em;
     text-transform: uppercase;
     color: var(--accent);
     margin-top: 5px;
@@ -127,20 +123,21 @@
 
   .person-contact {
     text-align: right;
-    font-size: 10px;
+    font-size: 9.5px;
     color: var(--muted);
-    line-height: 1.7;
+    line-height: 1.65;
     white-space: nowrap;
     flex-shrink: 0;
   }
 
   .summary {
-    font-size: 10.5px;
+    font-size: 10.2px;
     line-height: 1.55;
     color: var(--ink);
     margin-bottom: 0;
   }
 
+  /* ═ SECTION LABEL ═ */
   .label {
     font-size: 8px;
     font-weight: 700;
@@ -148,83 +145,71 @@
     text-transform: uppercase;
     color: var(--accent);
     margin: 11px 0 6px;
-    padding-bottom: 4px;
-    border-bottom: 1px solid var(--accent-pale);
+    padding-bottom: 3px;
+    border-bottom: 1px solid var(--line);
   }
 
+  /* ═ CHIPS ═ */
   .chips {
-    font-size: 10.2px;
+    font-size: 9.8px;
     color: var(--muted);
     line-height: 1.55;
   }
 
-  .credits {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 5px;
+  /* ═ PROJECT LIST (single column) ═ */
+  .projects { margin: 0; }
+
+  .project {
+    padding: 5px 0 6px;
+    border-bottom: 1px solid var(--line);
   }
 
-  .credit {
-    background: var(--soft);
-    border-left: 2.5px solid var(--accent);
-    padding: 5px 8px 6px;
-    border-radius: 0 4px 4px 0;
-    break-inside: avoid;
+  .project:last-child { border-bottom: none; }
+
+  .project-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 12px;
+    margin-bottom: 2px;
   }
 
-  .credit-title {
-    font-family: 'Montserrat', sans-serif;
-    font-size: 10.8px;
+  .project-title {
+    font-size: 10.5px;
     font-weight: 700;
-    line-height: 1.3;
-    margin-bottom: 3px;
     color: var(--ink);
+    line-height: 1.3;
   }
 
-  .credit-meta {
-    font-size: 9.1px;
-    font-weight: 400;
+  .project-date {
+    font-size: 9px;
+    color: var(--muted);
+    font-weight: 500;
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+
+  .project-role {
+    font-size: 9.2px;
+    color: var(--accent);
+    font-weight: 600;
+    margin-bottom: 3px;
+  }
+
+  .project-meta {
+    font-size: 9px;
     color: var(--muted);
     line-height: 1.45;
     margin-bottom: 3px;
   }
 
-  .credit-copy {
-    font-size: 9.6px;
-    line-height: 1.4;
+  .project-copy {
+    font-size: 9.7px;
+    line-height: 1.45;
     color: var(--ink);
   }
 
-  .two-col {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 16px;
-  }
-
-  ul.clean {
-    list-style: none;
-    padding: 0;
-    font-size: 10.2px;
-    line-height: 1.15;
-    color: var(--ink);
-  }
-
-  ul.clean li {
-    display: flex;
-    gap: 6px;
-    padding: 2px 0;
-    border-bottom: 1px solid var(--line);
-  }
-
-  ul.clean li:last-child { border-bottom: none; }
-
-  ul.clean li::before {
-    content: '—';
-    color: var(--accent);
-    font-weight: 700;
-    flex-shrink: 0;
-  }
-
+  /* ═ PRINT ═ */
   @media print {
     html, body { background: #fff; }
     @page { size: letter; margin: 0; }
@@ -233,22 +218,13 @@
       min-height: auto;
       margin: 0;
       box-shadow: none;
-      padding: 0.3in 0.4in 0.3in;
+      padding: 0.35in 0.45in;
       page-break-after: always;
       page-break-inside: avoid;
     }
     .page:last-child { page-break-after: auto; }
-    .person { margin-top: 12px; padding-top: 10px; }
-    .doc-header { margin-bottom: 14px; padding-bottom: 10px; }
-    .doc-title { font-size: 28px; }
-    .person-name { font-size: 21px; }
-    .summary { font-size: 10.2px; line-height: 1.5; }
-    .label { margin: 9px 0 5px; }
-    .credit { padding: 4px 7px 5px; }
-    .credit-title { font-size: 10.4px; }
-    .credit-meta { font-size: 8.9px; }
-    .credit-copy { font-size: 9.4px; line-height: 1.35; }
-    .chips { font-size: 9.9px; line-height: 1.5; }
+    .person { page-break-inside: avoid; }
+    .project { page-break-inside: avoid; }
   }
 </style>
 </head>
@@ -269,7 +245,6 @@
     </div>
   </header>
 
-  <!-- ── JOE ── -->
   <section class="person">
     <div class="person-head">
       <div>
@@ -289,35 +264,52 @@
 
     <div class="label">Credentials &amp; Education</div>
     <p class="chips">
-      Licensed Landscape Architect, State of California&nbsp;·&nbsp;CA License #4598&nbsp;·&nbsp;M.L.A., University of Michigan, Ann Arbor&nbsp;·&nbsp;B.S., Natural Resources Landscape Design &amp; Planning, University of Michigan, Ann Arbor
+      Licensed Landscape Architect, State of California (#4598)&nbsp;·&nbsp;M.L.A., University of Michigan, Ann Arbor&nbsp;·&nbsp;B.S., Natural Resources Landscape Design &amp; Planning, University of Michigan, Ann Arbor
     </p>
 
     <div class="label">Signature Projects</div>
-    <div class="credits">
-      <article class="credit">
-        <div class="credit-title">Remember When (L–O–V–E Blocks)—Golden Gate Park, San Francisco&nbsp;|&nbsp;2022–Present</div>
-        <div class="credit-meta">Illuminate the Arts / Golden Mile Project / SF Recreation &amp; Parks Dept.&nbsp;·&nbsp;Budget: ~$40,000&nbsp;·&nbsp;Joe Howard: Lead Fabricator</div>
-        <div class="credit-copy">Four 8-ft interactive steel alphabet blocks on JFK Promenade; 8M+ visitors to the Golden Mile corridor since 2022.</div>
+    <div class="projects">
+      <article class="project">
+        <div class="project-head">
+          <span class="project-title">Remember When (L–O–V–E Blocks) — Golden Gate Park, San Francisco</span>
+          <span class="project-date">2022–Present</span>
+        </div>
+        <div class="project-role">Lead Fabricator</div>
+        <div class="project-meta">Illuminate the Arts / Golden Mile Project / SF Recreation &amp; Parks Dept.&nbsp;·&nbsp;Budget: ~$40,000</div>
+        <div class="project-copy">Four 8-ft interactive steel alphabet blocks on JFK Promenade; 8M+ visitors to the Golden Mile corridor since 2022.</div>
       </article>
-      <article class="credit">
-        <div class="credit-title">Presidio of San Francisco—Army Base to Public Trust Conversion</div>
-        <div class="credit-meta">Lead Designer&nbsp;·&nbsp;Presidio Trust / National Park Service</div>
-        <div class="credit-copy">Managed and led the design and landscape restoration during the Presidio's conversion from a military installation to a public trust. Multi-year public agency collaboration across federal, municipal, and community stakeholders.</div>
+
+      <article class="project">
+        <div class="project-head">
+          <span class="project-title">Presidio of San Francisco — Army Base to Public Trust Conversion</span>
+          <span class="project-date"></span>
+        </div>
+        <div class="project-role">Lead Designer</div>
+        <div class="project-meta">Presidio Trust / National Park Service</div>
+        <div class="project-copy">Managed and led the design and landscape restoration during the Presidio's conversion from a military installation to a public trust. Multi-year public agency collaboration across federal, municipal, and community stakeholders.</div>
       </article>
-      <article class="credit">
-        <div class="credit-title">Salt Lake 2002 Olympic Village—Salt Lake City, Utah&nbsp;|&nbsp;2002</div>
-        <div class="credit-meta">Lead Designer&nbsp;·&nbsp;Olympic Games Organizing Committee</div>
-        <div class="credit-copy">Led the design of the Olympic Village site for the 2002 Winter Games, coordinating across planning, engineering, athletic operations, and public agency stakeholders.</div>
+
+      <article class="project">
+        <div class="project-head">
+          <span class="project-title">Salt Lake 2002 Olympic Village — Salt Lake City, Utah</span>
+          <span class="project-date">2002</span>
+        </div>
+        <div class="project-role">Lead Designer</div>
+        <div class="project-meta">Olympic Games Organizing Committee</div>
+        <div class="project-copy">Led the design of the Olympic Village site for the 2002 Winter Games, coordinating across planning, engineering, athletic operations, and public agency stakeholders.</div>
       </article>
-      <article class="credit">
-        <div class="credit-title">Additional Misfit Toys Installations&nbsp;|&nbsp;2024–2026</div>
-        <div class="credit-meta">Team Contributor</div>
-        <div class="credit-copy">Where's the Ball? (The Jax), Golden Gate Park SF (March 2026)&nbsp;·&nbsp;The Jax v1.0, Seaport Studios Richmond CA (2024)&nbsp;·&nbsp;One Tin Soldier, Burning Man Honoraria commission (2025).</div>
+
+      <article class="project">
+        <div class="project-head">
+          <span class="project-title">Additional Misfit Toys Installations</span>
+          <span class="project-date">2024–2026</span>
+        </div>
+        <div class="project-role">Team Contributor</div>
+        <div class="project-copy">Where's the Ball? (The Jax), Golden Gate Park SF (March 2026)&nbsp;·&nbsp;The Jax v1.0, Seaport Studios Richmond CA (2024)&nbsp;·&nbsp;One Tin Soldier, Burning Man Honoraria commission (2025).</div>
       </article>
     </div>
   </section>
 
-  <!-- ── ANTHONY ── -->
   <section class="person">
     <div class="person-head">
       <div>
@@ -336,16 +328,25 @@
     </p>
 
     <div class="label">Selected Projects</div>
-    <div class="credits">
-      <article class="credit">
-        <div class="credit-title">One Tin Soldier—Black Rock City (Burning Man)&nbsp;|&nbsp;2025</div>
-        <div class="credit-meta">Burning Man Project Honoraria&nbsp;·&nbsp;Budget: ~$140,000 (incl. $15,000 Honoraria grant)</div>
-        <div class="credit-copy">Yo-Yo prebuild lead and playa installation crew. Structural design, CAD, and project site lead.</div>
+    <div class="projects">
+      <article class="project">
+        <div class="project-head">
+          <span class="project-title">One Tin Soldier — Black Rock City (Burning Man)</span>
+          <span class="project-date">2025</span>
+        </div>
+        <div class="project-role">Yo-Yo Prebuild Lead &amp; Playa Installation Crew</div>
+        <div class="project-meta">Burning Man Project Honoraria&nbsp;·&nbsp;Budget: ~$140,000 (incl. $15,000 Honoraria grant)</div>
+        <div class="project-copy">Structural design, CAD, and project site lead.</div>
       </article>
-      <article class="credit">
-        <div class="credit-title">Freestyle Love Story—Reno / New York&nbsp;|&nbsp;2026</div>
-        <div class="credit-meta">Freestyle Love Story Production&nbsp;·&nbsp;Budget: $25,000</div>
-        <div class="credit-copy">Sole builder of a 14-ft JVC boombox and 20-ft Radio City Music Hall marquee tower. Fabricated in Reno, broken down, shipped to New York, and installed in five hours before dress rehearsal.</div>
+
+      <article class="project">
+        <div class="project-head">
+          <span class="project-title">Freestyle Love Story — Reno / New York</span>
+          <span class="project-date">2026</span>
+        </div>
+        <div class="project-role">Sole Builder</div>
+        <div class="project-meta">Freestyle Love Story Production&nbsp;·&nbsp;Budget: $25,000</div>
+        <div class="project-copy">14-ft JVC boombox and 20-ft Radio City Music Hall marquee tower. Fabricated in Reno, broken down, shipped to New York, and installed in five hours before dress rehearsal.</div>
       </article>
     </div>
 
@@ -365,13 +366,12 @@
       <p class="doc-subtitle">Team Resume — continued</p>
     </div>
     <div class="doc-contact">
-      <a href="https://misfittoys.art">misfittoys.art</a><br>
-      team@misfittoys.art
+      89 28th Street, San Francisco, CA 94110<br>
+      <a href="https://misfittoys.art">misfittoys.art</a>&nbsp;·&nbsp;team@misfittoys.art
     </div>
   </header>
 
-  <!-- ── MARK ── -->
-  <section class="person" style="border-top:none; padding-top:0; margin-top:0;">
+  <section class="person">
     <div class="person-head">
       <div>
         <h2 class="person-name">MARK DEEM</h2>
@@ -393,39 +393,64 @@
     </p>
 
     <div class="label">Selected Public Art Installations</div>
-    <div class="credits">
-      <article class="credit">
-        <div class="credit-title">Where's the Ball? (The Jax)—Golden Gate Park, San Francisco&nbsp;|&nbsp;March 2026</div>
-        <div class="credit-meta">
-          Misfit Toys LLC / SF Recreation &amp; Parks Dept. / Building 180 / Sijbrandij Foundation&nbsp;·&nbsp;Steel&nbsp;·&nbsp;Fabrication: Pacific Galvanizing<br>
-          30' wide × ~100' long × ~6' tall&nbsp;·&nbsp;Budget: $50,000&nbsp;·&nbsp;Artwork Exhibition Sponsorship Agreement, June 25, 2025
+    <div class="projects">
+      <article class="project">
+        <div class="project-head">
+          <span class="project-title">Where's the Ball? (The Jax) — Golden Gate Park, San Francisco</span>
+          <span class="project-date">March 2026</span>
         </div>
-        <div class="credit-copy">Monumental distributed sculpture—approximately 85× scale of the original toy. Designed for playing, seating, and public interaction. Installed at the Golden Mile near the Conservatory of Flowers. Mark Deem co-designed and fabricated with Kevin Byall.</div>
+        <div class="project-role">Co-Designer &amp; Fabricator (with Kevin Byall)</div>
+        <div class="project-meta">Misfit Toys LLC / SF Recreation &amp; Parks Dept. / Building 180 / Sijbrandij Foundation&nbsp;·&nbsp;Steel&nbsp;·&nbsp;30' × ~100' × ~6'&nbsp;·&nbsp;Budget: $50,000</div>
+        <div class="project-copy">Monumental distributed sculpture — approximately 85× scale of the original toy. Designed for playing, seating, and public interaction. Installed at the Golden Mile near the Conservatory of Flowers. Fabrication: Pacific Galvanizing. Artwork Exhibition Sponsorship Agreement, June 25, 2025.</div>
       </article>
-      <article class="credit">
-        <div class="credit-title">One Tin Soldier—Black Rock City (Burning Man)&nbsp;|&nbsp;2025</div>
-        <div class="credit-meta">Burning Man Project Honoraria Grant&nbsp;·&nbsp;Steel&nbsp;·&nbsp;Budget: ~$140,000 (incl. $15,000 Honoraria grant)</div>
-        <div class="credit-copy">Five monumental sculptures: 16-ft alphabet blocks, 12-ft functional yo-yo, large-scale steel jax, 24-ft tin soldier on horseback. Selected from 76 Burning Man Honoraria recipients.</div>
+
+      <article class="project">
+        <div class="project-head">
+          <span class="project-title">One Tin Soldier — Black Rock City (Burning Man)</span>
+          <span class="project-date">2025</span>
+        </div>
+        <div class="project-role">Lead Artist</div>
+        <div class="project-meta">Burning Man Project Honoraria Grant&nbsp;·&nbsp;Steel&nbsp;·&nbsp;Budget: ~$140,000 (incl. $15,000 Honoraria grant)</div>
+        <div class="project-copy">Five monumental sculptures: 16-ft alphabet blocks, 12-ft functional yo-yo, large-scale steel jax, 24-ft tin soldier on horseback. Selected from 76 Burning Man Honoraria recipients.</div>
       </article>
-      <article class="credit">
-        <div class="credit-title">Where's the Ball? (The Jax) v1.0—Seaport Studios, Richmond, CA&nbsp;|&nbsp;2024</div>
-        <div class="credit-meta">Misfit Toys LLC / Seaport Studios&nbsp;·&nbsp;Steel&nbsp;·&nbsp;9 ft&nbsp;·&nbsp;Commission value: $15,000+</div>
-        <div class="credit-copy">Original iteration of the Jax series. Mark Deem co-designed and fabricated with Kevin Byall. Established the series' signature approach: each jax unique, never repeated.</div>
+
+      <article class="project">
+        <div class="project-head">
+          <span class="project-title">Where's the Ball? (The Jax) v1.0 — Seaport Studios, Richmond, CA</span>
+          <span class="project-date">2024</span>
+        </div>
+        <div class="project-role">Co-Designer &amp; Fabricator (with Kevin Byall)</div>
+        <div class="project-meta">Misfit Toys LLC / Seaport Studios&nbsp;·&nbsp;Steel&nbsp;·&nbsp;9 ft&nbsp;·&nbsp;Commission value: $15,000+</div>
+        <div class="project-copy">Original iteration of the Jax series. Established the series' signature approach: each jax unique, never repeated.</div>
       </article>
-      <article class="credit">
-        <div class="credit-title">Remember When (L–O–V–E Blocks)—Golden Gate Park, San Francisco&nbsp;|&nbsp;2022–Present</div>
-        <div class="credit-meta">Illuminate the Arts / Golden Mile Project / SF Recreation &amp; Parks Dept.&nbsp;·&nbsp;Steel&nbsp;·&nbsp;Budget: ~$40,000</div>
-        <div class="credit-copy">Four 8-ft interactive steel alphabet blocks on JFK Promenade. 8 million+ visitors to the Golden Mile corridor since 2022; documented 36% increase in park visits. Press: SF Standard, Local News Matters, The Frisc.</div>
+
+      <article class="project">
+        <div class="project-head">
+          <span class="project-title">Remember When (L–O–V–E Blocks) — Golden Gate Park, San Francisco</span>
+          <span class="project-date">2022–Present</span>
+        </div>
+        <div class="project-role">Lead Fabricator</div>
+        <div class="project-meta">Illuminate the Arts / Golden Mile Project / SF Recreation &amp; Parks Dept.&nbsp;·&nbsp;Steel&nbsp;·&nbsp;Budget: ~$40,000</div>
+        <div class="project-copy">Four 8-ft interactive steel alphabet blocks on JFK Promenade. 8M+ visitors to the Golden Mile corridor since 2022; documented 36% increase in park visits. Press: SF Standard, Local News Matters, The Frisc.</div>
       </article>
-      <article class="credit">
-        <div class="credit-title">HeadMaze Benefit Corporation—Co-Founder &amp; Board Member&nbsp;|&nbsp;2019–Present</div>
-        <div class="credit-meta">HeadMaze Benefit Corporation</div>
-        <div class="credit-copy">Led fabrication of <em>The Chain Room</em> at The Generator, Reno, 2019. Permanent installation in development at Navy Pier, Chicago—LOI signed; engineering, architecture, and final funding in process.</div>
+
+      <article class="project">
+        <div class="project-head">
+          <span class="project-title">HeadMaze Benefit Corporation</span>
+          <span class="project-date">2019–Present</span>
+        </div>
+        <div class="project-role">Co-Founder &amp; Board Member</div>
+        <div class="project-copy">Led fabrication of <em>The Chain Room</em> at The Generator, Reno, 2019. Permanent installation in development at Navy Pier, Chicago — LOI signed; engineering, architecture, and final funding in process.</div>
       </article>
-      <article class="credit">
-        <div class="credit-title">Man Crew Builder—Black Rock City&nbsp;|&nbsp;2013–Present</div>
-        <div class="credit-meta">Burning Man Project / DPW</div>
-        <div class="credit-copy">Annual fabricator of Burning Man's central effigy in the Black Rock Desert.</div>
+
+      <article class="project">
+        <div class="project-head">
+          <span class="project-title">Man Crew Builder — Black Rock City</span>
+          <span class="project-date">2013–Present</span>
+        </div>
+        <div class="project-role">Annual Fabricator</div>
+        <div class="project-meta">Burning Man Project / DPW</div>
+        <div class="project-copy">Annual fabricator of Burning Man's central effigy in the Black Rock Desert.</div>
       </article>
     </div>
 
