@@ -4,25 +4,14 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Misfit Toys LLC — Team Resume | Truckee 2026</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&family=IBM+Plex+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
 <style>
-  :root {
-    --ink: #0d1117;
-    --muted: #536878;
-    --line: #dde1e7;
-    --accent: #0a7c72;
-    --body: 'IBM Plex Sans', Helvetica, sans-serif;
-  }
-
-  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
 
   html, body {
     background: #d6d9de;
-    color: var(--ink);
-    font-family: var(--body);
-    line-height: 1.45;
+    color: #0d1117;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+    line-height: 1.35;
     -webkit-print-color-adjust: exact;
     print-color-adjust: exact;
   }
@@ -31,62 +20,67 @@
 
   .page {
     width: 8.5in;
-    min-height: 11in;
-    margin: 28px auto;
+    height: 11in;
+    margin: 20px auto;
     background: #fff;
-    padding: 0.5in 0.6in;
+    padding: 0.4in 0.5in;
     box-shadow: 0 12px 48px rgba(0,0,0,.12);
+    overflow: hidden;
+    page-break-after: always;
+    break-after: page;
   }
 
-  /* ═ DOC HEADER ═ */
+  .page:last-child {
+    page-break-after: auto;
+    break-after: auto;
+  }
+
   .doc-header {
     display: flex;
     justify-content: space-between;
     align-items: flex-end;
-    padding-bottom: 10px;
-    margin-bottom: 18px;
-    border-bottom: 2px solid var(--ink);
+    padding-bottom: 8px;
+    margin-bottom: 14px;
+    border-bottom: 2px solid #0d1117;
   }
 
   .eyebrow {
-    font-size: 8px;
+    font-size: 7.5px;
     font-weight: 700;
-    letter-spacing: .18em;
+    letter-spacing: .16em;
     text-transform: uppercase;
-    color: var(--accent);
-    margin-bottom: 6px;
+    color: #0a7c72;
+    margin-bottom: 5px;
   }
 
   .doc-title {
-    font-family: 'Montserrat', sans-serif;
-    font-size: 28px;
+    font-size: 24px;
     font-weight: 900;
     letter-spacing: -.02em;
     line-height: 1;
-    color: var(--ink);
+    color: #0d1117;
   }
 
   .doc-subtitle {
-    font-size: 9.5px;
+    font-size: 9px;
     font-weight: 500;
     letter-spacing: .12em;
     text-transform: uppercase;
-    color: var(--muted);
+    color: #536878;
     margin-top: 4px;
   }
 
   .doc-contact {
     text-align: right;
-    font-size: 9.5px;
-    color: var(--muted);
-    line-height: 1.65;
+    font-size: 9px;
+    color: #536878;
+    line-height: 1.55;
   }
 
-  /* ═ PERSON BLOCK ═ */
   .person {
-    margin-top: 16px;
-    padding-top: 14px;
-    border-top: 1.5px solid var(--line);
+    margin-top: 12px;
+    padding-top: 10px;
+    border-top: 1.5px solid #dde1e7;
   }
 
   .person:first-of-type {
@@ -99,69 +93,63 @@
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
-    gap: 16px;
-    margin-bottom: 8px;
+    gap: 12px;
+    margin-bottom: 6px;
   }
 
   .person-name {
-    font-family: 'Montserrat', sans-serif;
-    font-size: 20px;
+    font-size: 18px;
     font-weight: 700;
     letter-spacing: .01em;
     line-height: 1;
-    color: var(--ink);
+    color: #0d1117;
   }
 
   .person-role {
-    font-size: 9px;
+    font-size: 8.5px;
     font-weight: 600;
     letter-spacing: .14em;
     text-transform: uppercase;
-    color: var(--accent);
-    margin-top: 5px;
+    color: #0a7c72;
+    margin-top: 4px;
   }
 
   .person-contact {
     text-align: right;
-    font-size: 9.5px;
-    color: var(--muted);
-    line-height: 1.65;
+    font-size: 9px;
+    color: #536878;
+    line-height: 1.55;
     white-space: nowrap;
-    flex-shrink: 0;
   }
 
   .summary {
-    font-size: 10.2px;
-    line-height: 1.55;
-    color: var(--ink);
-    margin-bottom: 0;
+    font-size: 9.5px;
+    line-height: 1.45;
+    color: #0d1117;
   }
 
-  /* ═ SECTION LABEL ═ */
   .label {
-    font-size: 8px;
+    font-size: 7.5px;
     font-weight: 700;
     letter-spacing: .18em;
     text-transform: uppercase;
-    color: var(--accent);
-    margin: 11px 0 6px;
-    padding-bottom: 3px;
-    border-bottom: 1px solid var(--line);
+    color: #0a7c72;
+    margin: 9px 0 4px;
+    padding-bottom: 2px;
+    border-bottom: 1px solid #dde1e7;
   }
 
-  /* ═ CHIPS ═ */
   .chips {
-    font-size: 9.8px;
-    color: var(--muted);
-    line-height: 1.55;
+    font-size: 9px;
+    color: #536878;
+    line-height: 1.45;
   }
 
-  /* ═ PROJECT LIST (single column) ═ */
   .projects { margin: 0; }
 
   .project {
-    padding: 5px 0 6px;
-    border-bottom: 1px solid var(--line);
+    padding: 3px 0 4px;
+    border-bottom: 1px solid #dde1e7;
   }
 
   .project:last-child { border-bottom: none; }
@@ -170,77 +158,78 @@
     display: flex;
     justify-content: space-between;
     align-items: baseline;
-    gap: 12px;
-    margin-bottom: 2px;
+    gap: 10px;
+    margin-bottom: 1px;
   }
 
   .project-title {
-    font-size: 10.5px;
+    font-size: 9.8px;
     font-weight: 700;
-    color: var(--ink);
-    line-height: 1.3;
+    color: #0d1117;
+    line-height: 1.25;
   }
 
   .project-date {
-    font-size: 9px;
-    color: var(--muted);
+    font-size: 8.5px;
+    color: #536878;
     font-weight: 500;
     white-space: nowrap;
-    flex-shrink: 0;
   }
 
   .project-role {
-    font-size: 9.2px;
-    color: var(--accent);
+    font-size: 8.8px;
+    color: #0a7c72;
     font-weight: 600;
-    margin-bottom: 3px;
+    margin-bottom: 2px;
   }
 
   .project-meta {
-    font-size: 9px;
-    color: var(--muted);
-    line-height: 1.45;
-    margin-bottom: 3px;
+    font-size: 8.5px;
+    color: #536878;
+    line-height: 1.35;
+    margin-bottom: 2px;
   }
 
   .project-copy {
-    font-size: 9.7px;
-    line-height: 1.45;
-    color: var(--ink);
+    font-size: 9px;
+    line-height: 1.35;
+    color: #0d1117;
   }
 
-  /* ═ PRINT ═ */
   @media print {
     html, body { background: #fff; }
     @page { size: letter; margin: 0; }
     .page {
-      width: auto;
-      min-height: auto;
-      margin: 0;
+      margin: 0 !important;
       box-shadow: none;
       padding: 0.35in 0.45in;
+      width: 8.5in !important;
+      height: 11in !important;
       page-break-after: always;
       page-break-inside: avoid;
+      break-after: page;
+      break-inside: avoid;
     }
-    .page:last-child { page-break-after: auto; }
-    .person { page-break-inside: avoid; }
-    .project { page-break-inside: avoid; }
+    .page:last-child {
+      page-break-after: auto;
+      break-after: auto;
+    }
   }
 </style>
 </head>
 <body>
 
-<!-- ═══════════════════════ PAGE 1 — JOE + ANTHONY ═══════════════════════ -->
+<!-- PAGE 1 -->
 <main class="page">
   <header class="doc-header">
     <div>
-      <p class="eyebrow">Town of Truckee Public Art Project&nbsp;·&nbsp;Coldstream Rd / Donner Pass Rd / I-80 Roundabout&nbsp;·&nbsp;2026</p>
-      <h1 class="doc-title">MISFIT TOYS LLC</h1>
-      <p class="doc-subtitle">Team Resume</p>
+      <div class="eyebrow">TOWN OF TRUCKEE PUBLIC ART PROJECT &middot; COLDSTREAM RD / DONNER PASS RD / I-80 ROUNDABOUT &middot; 2026</div>
+      <div class="doc-title">MISFIT TOYS LLC</div>
+      <div class="doc-subtitle">Team Resume</div>
     </div>
     <div class="doc-contact">
       89 28th Street, San Francisco, CA 94110<br>
-      <a href="https://misfittoys.art">misfittoys.art</a>&nbsp;·&nbsp;team@misfittoys.art<br>
+      <a href="https://misfittoys.art">misfittoys.art</a> &middot; team@misfittoys.art<br>
       @misfittoyscrew
     </div>
   </header>
@@ -248,8 +237,8 @@
   <section class="person">
     <div class="person-head">
       <div>
-        <h2 class="person-name">JOE HOWARD, M.L.A.</h2>
-        <p class="person-role">Lead Artist&nbsp;·&nbsp;Licensed Landscape Architect</p>
+        <div class="person-name">JOE HOWARD, M.L.A.</div>
+        <div class="person-role">Lead Artist &middot; Licensed Landscape Architect</div>
       </div>
       <div class="person-contact">
         team@misfittoys.art<br>
@@ -259,29 +248,29 @@
     </div>
 
     <p class="summary">
-      Joe Howard is an artist and licensed landscape architect in California (CA License #4598). With more than 30 years of experience leading multidisciplinary design teams—engineers, architects, lighting professionals, and public works departments—Joe specializes in translating complex site conditions into built environments that belong to their place. He has integrated large-scale art and structures into parks, plazas, and public rights of way, working closely with design review boards, planning commissions, and regulatory agencies.
+      Joe Howard is an artist and licensed landscape architect in California (CA License #4598). With more than 30 years of experience leading multidisciplinary design teams&mdash;engineers, architects, lighting professionals, and public works departments&mdash;Joe specializes in translating complex site conditions into built environments that belong to their place. He has integrated large-scale art and structures into parks, plazas, and public rights of way, working closely with design review boards, planning commissions, and regulatory agencies.
     </p>
 
     <div class="label">Credentials &amp; Education</div>
     <p class="chips">
-      Licensed Landscape Architect, State of California (#4598)&nbsp;·&nbsp;M.L.A., University of Michigan, Ann Arbor&nbsp;·&nbsp;B.S., Natural Resources Landscape Design &amp; Planning, University of Michigan, Ann Arbor
+      Licensed Landscape Architect, State of California (#4598) &middot; M.L.A., University of Michigan, Ann Arbor &middot; B.S., Natural Resources Landscape Design &amp; Planning, University of Michigan, Ann Arbor
     </p>
 
     <div class="label">Signature Projects</div>
     <div class="projects">
       <article class="project">
         <div class="project-head">
-          <span class="project-title">Remember When (L–O–V–E Blocks) — Golden Gate Park, San Francisco</span>
-          <span class="project-date">2022–Present</span>
+          <span class="project-title">Remember When (L&ndash;O&ndash;V&ndash;E Blocks) &mdash; Golden Gate Park, San Francisco</span>
+          <span class="project-date">2022&ndash;Present</span>
         </div>
         <div class="project-role">Lead Fabricator</div>
-        <div class="project-meta">Illuminate the Arts / Golden Mile Project / SF Recreation &amp; Parks Dept.&nbsp;·&nbsp;Budget: ~$40,000</div>
+        <div class="project-meta">Illuminate the Arts / Golden Mile Project / SF Recreation &amp; Parks Dept. &middot; Budget: ~$40,000</div>
         <div class="project-copy">Four 8-ft interactive steel alphabet blocks on JFK Promenade; 8M+ visitors to the Golden Mile corridor since 2022.</div>
       </article>
 
       <article class="project">
         <div class="project-head">
-          <span class="project-title">Presidio of San Francisco — Army Base to Public Trust Conversion</span>
+          <span class="project-title">Presidio of San Francisco &mdash; Army Base to Public Trust Conversion</span>
           <span class="project-date"></span>
         </div>
         <div class="project-role">Lead Designer</div>
@@ -291,7 +280,7 @@
 
       <article class="project">
         <div class="project-head">
-          <span class="project-title">Salt Lake 2002 Olympic Village — Salt Lake City, Utah</span>
+          <span class="project-title">Salt Lake 2002 Olympic Village &mdash; Salt Lake City, Utah</span>
           <span class="project-date">2002</span>
         </div>
         <div class="project-role">Lead Designer</div>
@@ -302,10 +291,10 @@
       <article class="project">
         <div class="project-head">
           <span class="project-title">Additional Misfit Toys Installations</span>
-          <span class="project-date">2024–2026</span>
+          <span class="project-date">2024&ndash;2026</span>
         </div>
         <div class="project-role">Team Contributor</div>
-        <div class="project-copy">Where's the Ball? (The Jax), Golden Gate Park SF (March 2026)&nbsp;·&nbsp;The Jax v1.0, Seaport Studios Richmond CA (2024)&nbsp;·&nbsp;One Tin Soldier, Burning Man Honoraria commission (2025).</div>
+        <div class="project-copy">Where's the Ball? (The Jax), Golden Gate Park SF (March 2026) &middot; The Jax v1.0, Seaport Studios Richmond CA (2024) &middot; One Tin Soldier, Burning Man Honoraria commission (2025).</div>
       </article>
     </div>
   </section>
@@ -313,8 +302,8 @@
   <section class="person">
     <div class="person-head">
       <div>
-        <h2 class="person-name">ANTHONY VINCENT</h2>
-        <p class="person-role">Fabrication Lead&nbsp;·&nbsp;Carpenter&nbsp;·&nbsp;Large-Scale Art Builder</p>
+        <div class="person-name">ANTHONY VINCENT</div>
+        <div class="person-role">Fabrication Lead &middot; Carpenter &middot; Large-Scale Art Builder</div>
       </div>
       <div class="person-contact">
         team@misfittoys.art<br>
@@ -331,51 +320,51 @@
     <div class="projects">
       <article class="project">
         <div class="project-head">
-          <span class="project-title">One Tin Soldier — Black Rock City (Burning Man)</span>
+          <span class="project-title">One Tin Soldier &mdash; Black Rock City (Burning Man)</span>
           <span class="project-date">2025</span>
         </div>
         <div class="project-role">Yo-Yo Prebuild Lead &amp; Playa Installation Crew</div>
-        <div class="project-meta">Burning Man Project Honoraria&nbsp;·&nbsp;Budget: ~$140,000 (incl. $15,000 Honoraria grant)</div>
+        <div class="project-meta">Burning Man Project Honoraria &middot; Budget: ~$140,000 (incl. $15,000 Honoraria grant)</div>
         <div class="project-copy">Structural design, CAD, and project site lead.</div>
       </article>
 
       <article class="project">
         <div class="project-head">
-          <span class="project-title">Freestyle Love Story — Reno / New York</span>
+          <span class="project-title">Freestyle Love Story &mdash; Reno / New York</span>
           <span class="project-date">2026</span>
         </div>
         <div class="project-role">Sole Builder</div>
-        <div class="project-meta">Freestyle Love Story Production&nbsp;·&nbsp;Budget: $25,000</div>
+        <div class="project-meta">Freestyle Love Story Production &middot; Budget: $25,000</div>
         <div class="project-copy">14-ft JVC boombox and 20-ft Radio City Music Hall marquee tower. Fabricated in Reno, broken down, shipped to New York, and installed in five hours before dress rehearsal.</div>
       </article>
     </div>
 
     <div class="label">Capabilities, Certifications &amp; CAD</div>
     <p class="chips">
-      Shop Steward, Reno Generator makerspace&nbsp;·&nbsp;Fine Woodworking Instructor, Reno Generator&nbsp;·&nbsp;Architecture studies; built homes professionally from age 16 (SF Bay Area)&nbsp;·&nbsp;OSHA Certified&nbsp;·&nbsp;Forklift Certified&nbsp;·&nbsp;CAD: Rhino (10 years), Blender (3 years), Fusion 360 (1 year)
+      Shop Steward, Reno Generator makerspace &middot; Fine Woodworking Instructor, Reno Generator &middot; Architecture studies; built homes professionally from age 16 (SF Bay Area) &middot; OSHA Certified &middot; Forklift Certified &middot; CAD: Rhino (10 years), Blender (3 years), Fusion 360 (1 year)
     </p>
   </section>
 </main>
 
-<!-- ═══════════════════════ PAGE 2 — MARK ═══════════════════════ -->
+<!-- PAGE 2 -->
 <main class="page">
   <header class="doc-header">
     <div>
-      <p class="eyebrow">Town of Truckee Public Art Project&nbsp;·&nbsp;Coldstream Rd / Donner Pass Rd / I-80 Roundabout&nbsp;·&nbsp;2026</p>
-      <h1 class="doc-title">MISFIT TOYS LLC</h1>
-      <p class="doc-subtitle">Team Resume — continued</p>
+      <div class="eyebrow">TOWN OF TRUCKEE PUBLIC ART PROJECT &middot; COLDSTREAM RD / DONNER PASS RD / I-80 ROUNDABOUT &middot; 2026</div>
+      <div class="doc-title">MISFIT TOYS LLC</div>
+      <div class="doc-subtitle">Team Resume &mdash; continued</div>
     </div>
     <div class="doc-contact">
       89 28th Street, San Francisco, CA 94110<br>
-      <a href="https://misfittoys.art">misfittoys.art</a>&nbsp;·&nbsp;team@misfittoys.art
+      <a href="https://misfittoys.art">misfittoys.art</a> &middot; team@misfittoys.art
     </div>
   </header>
 
   <section class="person">
     <div class="person-head">
       <div>
-        <h2 class="person-name">MARK DEEM</h2>
-        <p class="person-role">Founder &amp; Lead Fabricator</p>
+        <div class="person-name">MARK DEEM</div>
+        <div class="person-role">Founder &amp; Lead Fabricator</div>
       </div>
       <div class="person-contact">
         team@misfittoys.art<br>
@@ -389,64 +378,64 @@
 
     <div class="label">Core Capabilities</div>
     <p class="chips">
-      Large-scale steel design&nbsp;·&nbsp;Welding &amp; Fabrication&nbsp;·&nbsp;Woodworking&nbsp;·&nbsp;Project management&nbsp;·&nbsp;Budget planning &amp; cost estimation&nbsp;·&nbsp;Public installation &amp; site logistics&nbsp;·&nbsp;Concept development&nbsp;·&nbsp;Team leadership &amp; crew management&nbsp;·&nbsp;Technical documentation&nbsp;·&nbsp;Public agency compliance
+      Large-scale steel design &middot; Welding &amp; Fabrication &middot; Woodworking &middot; Project management &middot; Budget planning &amp; cost estimation &middot; Public installation &amp; site logistics &middot; Concept development &middot; Team leadership &amp; crew management &middot; Technical documentation &middot; Public agency compliance
     </p>
 
     <div class="label">Selected Public Art Installations</div>
     <div class="projects">
       <article class="project">
         <div class="project-head">
-          <span class="project-title">Where's the Ball? (The Jax) — Golden Gate Park, San Francisco</span>
+          <span class="project-title">Where's the Ball? (The Jax) &mdash; Golden Gate Park, San Francisco</span>
           <span class="project-date">March 2026</span>
         </div>
         <div class="project-role">Co-Designer &amp; Fabricator (with Kevin Byall)</div>
-        <div class="project-meta">Misfit Toys LLC / SF Recreation &amp; Parks Dept. / Building 180 / Sijbrandij Foundation&nbsp;·&nbsp;Steel&nbsp;·&nbsp;30' × ~100' × ~6'&nbsp;·&nbsp;Budget: $50,000</div>
-        <div class="project-copy">Monumental distributed sculpture — approximately 85× scale of the original toy. Designed for playing, seating, and public interaction. Installed at the Golden Mile near the Conservatory of Flowers. Fabrication: Pacific Galvanizing. Artwork Exhibition Sponsorship Agreement, June 25, 2025.</div>
+        <div class="project-meta">Misfit Toys LLC / SF Recreation &amp; Parks Dept. / Building 180 / Sijbrandij Foundation &middot; Steel &middot; 30' &times; ~100' &times; ~6' &middot; Budget: $50,000</div>
+        <div class="project-copy">Monumental distributed sculpture &mdash; approximately 85&times; scale of the original toy. Designed for playing, seating, and public interaction. Installed at the Golden Mile near the Conservatory of Flowers. Fabrication: Pacific Galvanizing. Artwork Exhibition Sponsorship Agreement, June 25, 2025.</div>
       </article>
 
       <article class="project">
         <div class="project-head">
-          <span class="project-title">One Tin Soldier — Black Rock City (Burning Man)</span>
+          <span class="project-title">One Tin Soldier &mdash; Black Rock City (Burning Man)</span>
           <span class="project-date">2025</span>
         </div>
         <div class="project-role">Lead Artist</div>
-        <div class="project-meta">Burning Man Project Honoraria Grant&nbsp;·&nbsp;Steel&nbsp;·&nbsp;Budget: ~$140,000 (incl. $15,000 Honoraria grant)</div>
+        <div class="project-meta">Burning Man Project Honoraria Grant &middot; Steel &middot; Budget: ~$140,000 (incl. $15,000 Honoraria grant)</div>
         <div class="project-copy">Five monumental sculptures: 16-ft alphabet blocks, 12-ft functional yo-yo, large-scale steel jax, 24-ft tin soldier on horseback. Selected from 76 Burning Man Honoraria recipients.</div>
       </article>
 
       <article class="project">
         <div class="project-head">
-          <span class="project-title">Where's the Ball? (The Jax) v1.0 — Seaport Studios, Richmond, CA</span>
+          <span class="project-title">Where's the Ball? (The Jax) v1.0 &mdash; Seaport Studios, Richmond, CA</span>
           <span class="project-date">2024</span>
         </div>
         <div class="project-role">Co-Designer &amp; Fabricator (with Kevin Byall)</div>
-        <div class="project-meta">Misfit Toys LLC / Seaport Studios&nbsp;·&nbsp;Steel&nbsp;·&nbsp;9 ft&nbsp;·&nbsp;Commission value: $15,000+</div>
+        <div class="project-meta">Misfit Toys LLC / Seaport Studios &middot; Steel &middot; 9 ft &middot; Commission value: $15,000+</div>
         <div class="project-copy">Original iteration of the Jax series. Established the series' signature approach: each jax unique, never repeated.</div>
       </article>
 
       <article class="project">
         <div class="project-head">
-          <span class="project-title">Remember When (L–O–V–E Blocks) — Golden Gate Park, San Francisco</span>
-          <span class="project-date">2022–Present</span>
+          <span class="project-title">Remember When (L&ndash;O&ndash;V&ndash;E Blocks) &mdash; Golden Gate Park, San Francisco</span>
+          <span class="project-date">2022&ndash;Present</span>
         </div>
         <div class="project-role">Lead Fabricator</div>
-        <div class="project-meta">Illuminate the Arts / Golden Mile Project / SF Recreation &amp; Parks Dept.&nbsp;·&nbsp;Steel&nbsp;·&nbsp;Budget: ~$40,000</div>
+        <div class="project-meta">Illuminate the Arts / Golden Mile Project / SF Recreation &amp; Parks Dept. &middot; Steel &middot; Budget: ~$40,000</div>
         <div class="project-copy">Four 8-ft interactive steel alphabet blocks on JFK Promenade. 8M+ visitors to the Golden Mile corridor since 2022; documented 36% increase in park visits. Press: SF Standard, Local News Matters, The Frisc.</div>
       </article>
 
       <article class="project">
         <div class="project-head">
           <span class="project-title">HeadMaze Benefit Corporation</span>
-          <span class="project-date">2019–Present</span>
+          <span class="project-date">2019&ndash;Present</span>
         </div>
         <div class="project-role">Co-Founder &amp; Board Member</div>
-        <div class="project-copy">Led fabrication of <em>The Chain Room</em> at The Generator, Reno, 2019. Permanent installation in development at Navy Pier, Chicago — LOI signed; engineering, architecture, and final funding in process.</div>
+        <div class="project-copy">Led fabrication of <em>The Chain Room</em> at The Generator, Reno, 2019. Permanent installation in development at Navy Pier, Chicago &mdash; LOI signed; engineering, architecture, and final funding in process.</div>
       </article>
 
       <article class="project">
         <div class="project-head">
-          <span class="project-title">Man Crew Builder — Black Rock City</span>
-          <span class="project-date">2013–Present</span>
+          <span class="project-title">Man Crew Builder &mdash; Black Rock City</span>
+          <span class="project-date">2013&ndash;Present</span>
         </div>
         <div class="project-role">Annual Fabricator</div>
         <div class="project-meta">Burning Man Project / DPW</div>
@@ -456,7 +445,7 @@
 
     <div class="label">Public Agency &amp; Organizational Affiliations</div>
     <p class="chips">
-      SF Recreation &amp; Parks Department&nbsp;·&nbsp;Illuminate the Arts / Golden Mile Project&nbsp;·&nbsp;Burning Man Project (Honoraria 2025; Man Crew 2013–Present)&nbsp;·&nbsp;Building 180&nbsp;·&nbsp;Sijbrandij Foundation&nbsp;·&nbsp;Big Art Loop&nbsp;·&nbsp;HeadMaze Benefit Corporation
+      SF Recreation &amp; Parks Department &middot; Illuminate the Arts / Golden Mile Project &middot; Burning Man Project (Honoraria 2025; Man Crew 2013&ndash;Present) &middot; Building 180 &middot; Sijbrandij Foundation &middot; Big Art Loop &middot; HeadMaze Benefit Corporation
     </p>
   </section>
 </main>
