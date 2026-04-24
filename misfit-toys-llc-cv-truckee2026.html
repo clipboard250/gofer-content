@@ -11,7 +11,6 @@
   :root {
     --ink: #0d1117;
     --muted: #536878;
-    --line: #dde1e7;
     --accent: #0a7c72;
     --body: 'IBM Plex Sans', Helvetica, sans-serif;
   }
@@ -22,7 +21,7 @@
     background: #d6d9de;
     color: var(--ink);
     font-family: var(--body);
-    line-height: 1.5;
+    line-height: 1.55;
     -webkit-print-color-adjust: exact;
     print-color-adjust: exact;
   }
@@ -40,18 +39,18 @@
 
   .letterhead {
     padding-bottom: 10px;
-    margin-bottom: 24px;
+    margin-bottom: 28px;
     border-bottom: 2.5px solid var(--ink);
   }
 
   .letterhead-title {
     font-family: 'Montserrat', sans-serif;
-    font-size: 22px;
+    font-size: 24px;
     font-weight: 900;
     letter-spacing: .04em;
     line-height: 1;
     color: var(--ink);
-    margin-bottom: 4px;
+    margin-bottom: 5px;
   }
 
   .letterhead-tagline {
@@ -61,7 +60,7 @@
     letter-spacing: .22em;
     text-transform: uppercase;
     color: var(--accent);
-    margin-bottom: 5px;
+    margin-bottom: 6px;
   }
 
   .letterhead-contact {
@@ -74,25 +73,23 @@
   .date {
     font-size: 11px;
     color: var(--ink);
-    margin-bottom: 20px;
+    margin-bottom: 22px;
   }
 
   .addressee {
     font-size: 11px;
     color: var(--ink);
     line-height: 1.55;
-    margin-bottom: 20px;
+    margin-bottom: 22px;
   }
 
   .re-line {
     font-size: 11px;
     color: var(--ink);
-    margin-bottom: 20px;
+    margin-bottom: 22px;
   }
 
-  .re-line strong {
-    font-weight: 700;
-  }
+  .re-line strong { font-weight: 700; }
 
   .salutation {
     font-size: 11px;
@@ -103,9 +100,9 @@
   p.body {
     font-size: 11px;
     color: var(--ink);
-    line-height: 1.55;
-    margin-bottom: 14px;
-    text-align: justify;
+    line-height: 1.6;
+    margin-bottom: 15px;
+    text-align: left;
   }
 
   .signoff {
@@ -114,21 +111,22 @@
     color: var(--ink);
   }
 
-  .signer {
-    margin-top: 48px;
-  }
+  .signer { margin-top: 48px; }
 
-  .signer-name {
-    font-weight: 700;
+  .signer-line {
     font-size: 11px;
     color: var(--ink);
-    margin-bottom: 3px;
+    line-height: 1.55;
   }
 
-  .signer-title {
+  .signer-line.name {
+    font-weight: 700;
+    margin-bottom: 2px;
+  }
+
+  .signer-line.muted {
     font-size: 10px;
     color: var(--muted);
-    line-height: 1.55;
   }
 
   @media print {
@@ -167,7 +165,7 @@
   </div>
 
   <div class="re-line">
-    <strong>Re:</strong>&nbsp;&nbsp;Request for Qualifications — Art Installation for the Coldstream Rd / Donner Pass Rd / I-80 Roundabout
+    <strong>Re:</strong> Request for Qualifications —Art Installation for the Coldstream Rd / Donner Pass Rd / I-80 Roundabout
   </div>
 
   <div class="salutation">Dear Members of the Public Art Commission of Truckee,</div>
@@ -177,7 +175,7 @@
   </p>
 
   <p class="body">
-    This roundabout marks that "are we there yet, mom/dad/aunt?" moment—the excitement of finally arriving in Truckee and the greater Lake Tahoe area after a long journey of counting mile markers. The public art piece that lands here should welcome everyone and make them feel at home.
+    This roundabout marks that "omg we made it?" moment—the excitement of finally arriving in Truckee and the greater Lake Tahoe area after a long journey of counting mile markers. The public art piece that lands here should welcome everyone and make them feel at home.
   </p>
 
   <p class="body">
@@ -191,11 +189,9 @@
   <div class="signoff">Sincerely,</div>
 
   <div class="signer">
-    <div class="signer-name">Joe Howard, M.L.A.</div>
-    <div class="signer-title">
-      Lead Artist&nbsp;·&nbsp;Misfit Toys LLC<br>
-      team@misfittoys.art&nbsp;·&nbsp;415-407-3481
-    </div>
+    <div class="signer-line name">Joe Howard, M.L.A.</div>
+    <div class="signer-line muted">Lead Artist&nbsp;·&nbsp;Misfit Toys LLC</div>
+    <div class="signer-line muted">team@misfittoys.art&nbsp;·&nbsp;415-407-3481</div>
   </div>
 
 </main>
