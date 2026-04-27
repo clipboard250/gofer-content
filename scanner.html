@@ -1,0 +1,1096 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="robots" content="noindex,nofollow">
+  <link rel="canonical" href="https://gofercontent.com/presence-scanner/">
+  <title>Presence Scanner | Gofer Content</title>
+  <meta name="description" content="A 110-point AEO + Local SEO audit. Internal Gofer Content tool.">
+  <meta name="theme-color" content="#e8553a">
+  <link rel="icon" href="/pfpdayna.jpeg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Anton&family=Space+Mono:ital,wght@0,400;0,700;1,400&family=Instrument+Serif:ital@0;1&display=swap">
+  <style>
+    :root{
+      --cream:#f5efe0;--coral:#e8553a;--gold:#f0c63a;--blue:#4a8fd9;
+      --purple:#d4b8f0;--black:#111;--black-warm:#1a1714;--ink:#1a1714;
+      --muted:#6b6156;--good:#4a8fd9;--warn:#f0c63a;--bad:#e8553a;
+      --head:'Anton',Impact,sans-serif;
+      --mono:'Space Mono','Courier New',monospace;
+      --serif:'Instrument Serif',Georgia,serif;
+    }
+    *,*::before,*::after{box-sizing:border-box;margin:0}
+    html{scroll-behavior:smooth}
+    body{background:var(--cream);color:var(--ink);font:400 15px/1.7 var(--mono);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+    a{color:inherit;text-decoration:none}
+    a:focus-visible,button:focus-visible,input:focus-visible{outline:3px solid var(--coral);outline-offset:3px}
+    .skip{position:absolute;left:-9999px;background:var(--coral);color:#fff;padding:.5rem 1rem;font-weight:700;z-index:100}
+    .skip:focus{position:fixed;top:8px;left:8px}
+    .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+
+```
+/* NAV */
+.nav{position:fixed;top:0;left:0;right:0;z-index:50;background:var(--black);padding:12px 20px;display:flex;align-items:center;justify-content:space-between;border-bottom:2.5px solid var(--gold)}
+.nav-logo{font-family:var(--head);font-size:.9rem;text-transform:uppercase;color:var(--cream);letter-spacing:.05em}
+.nav-back{font-family:var(--mono);font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.05em;color:var(--gold)}
+.nav-back:hover{color:var(--coral)}
+body{padding-top:50px}
+
+/* MARQUEE */
+.mq{overflow:hidden;padding:13px 0;border-top:2.5px solid var(--black);border-bottom:2.5px solid var(--black)}
+.mq-dark{background:var(--black)}
+.mq-coral{background:var(--coral)}
+.mq-track{display:flex;width:max-content;animation:mq 24s linear infinite}
+.mq-track span{white-space:nowrap;padding:0 20px;font-family:var(--head);font-size:1rem;text-transform:uppercase;letter-spacing:.06em}
+.mq-track span::after{content:'✦';margin-left:20px;font-size:.7em}
+.mq-dark .mq-track span{color:var(--cream)}.mq-dark .mq-track span::after{color:var(--gold)}
+.mq-coral .mq-track span{color:var(--black)}.mq-coral .mq-track span::after{color:var(--gold)}
+@keyframes mq{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+
+/* PASSWORD GATE */
+#gate{position:fixed;inset:0;background:var(--black);z-index:9999;display:flex;align-items:center;justify-content:center;padding:24px}
+.gate-card{max-width:480px;width:100%;background:var(--black-warm);border:2.5px solid var(--gold);padding:44px 32px;text-align:center}
+.gate-tag{font-family:var(--mono);font-size:.66rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--gold)}
+.gate-card h1{font-family:var(--head);font-size:clamp(40px,8vw,60px);text-transform:uppercase;line-height:.95;color:var(--cream);margin:14px 0 8px}
+.gate-card h1 em{font-family:var(--serif);font-style:italic;text-transform:none;color:var(--coral);display:block;font-size:.5em;margin-top:10px}
+.gate-card p{font-family:var(--mono);font-size:.78rem;color:rgba(245,239,224,.7);margin-bottom:24px;line-height:1.7}
+.gate-input{width:100%;min-height:52px;padding:.65rem 1.1rem;background:rgba(245,239,224,.07);border:2px solid rgba(245,239,224,.18);border-radius:50px;color:var(--cream);font-family:var(--mono);font-size:.85rem;outline:none;text-align:center;letter-spacing:.08em}
+.gate-input::placeholder{color:var(--muted)}
+.gate-input:focus{border-color:var(--cream)}
+.gate-btn{margin-top:12px;width:100%;min-height:52px;padding:.65rem 1.4rem;border-radius:50px;background:var(--coral);color:var(--cream);font-family:var(--mono);font-weight:700;font-size:.82rem;text-transform:uppercase;letter-spacing:.04em;border:2.5px solid var(--coral);cursor:pointer;transition:all .2s}
+.gate-btn:hover{background:var(--gold);border-color:var(--gold);color:var(--black)}
+.gate-err{font-family:var(--mono);font-size:.72rem;color:var(--coral);margin-top:10px;display:none}
+.gate-err.show{display:block}
+.gate-fine{font-family:var(--serif);font-style:italic;font-size:.75rem;color:var(--muted);margin-top:18px}
+
+/* APP HIDDEN UNTIL UNLOCKED */
+#app{display:none}
+#app.live{display:block}
+
+/* HERO */
+.hero{padding:clamp(40px,9vh,80px) 28px 32px;max-width:880px;margin:0 auto;text-align:center}
+.hero-tag{display:inline-block;font-family:var(--mono);font-size:.66rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;background:var(--black);color:var(--cream);padding:.4rem .9rem;margin-bottom:18px}
+.hero h1{font-family:var(--head);font-size:clamp(38px,8vw,80px);line-height:.95;text-transform:uppercase;margin-bottom:14px}
+.hero h1 em{font-family:var(--serif);font-style:italic;text-transform:none;color:var(--coral);display:block;font-size:.55em;margin-top:18px}
+.hero-body{font-size:.88rem;color:var(--muted);max-width:560px;margin:0 auto 16px;line-height:1.75}
+.hero-body strong{color:var(--ink)}
+.blink{animation:blink 1.1s steps(2,start) infinite;color:var(--coral)}
+@keyframes blink{to{opacity:0}}
+
+/* SCANNER FORM */
+.scanner-wrap{padding:36px 28px;background:var(--black);color:var(--cream);border-top:2.5px solid var(--black);border-bottom:2.5px solid var(--gold)}
+.scanner-inner{max-width:880px;margin:0 auto}
+.scanner-label{font-family:var(--mono);font-size:.66rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--gold);margin-bottom:14px;display:block}
+.scanner-row{display:flex;gap:8px;flex-wrap:wrap}
+.scanner-row input[type=url],.scanner-row select{flex:1;min-width:220px;min-height:54px;padding:.65rem 1.2rem;background:rgba(245,239,224,.07);border:1.5px solid rgba(245,239,224,.18);border-radius:50px;color:var(--cream);font-family:var(--mono);font-size:.82rem;outline:none}
+.scanner-row input[type=url]::placeholder{color:var(--muted)}
+.scanner-row input[type=url]:focus,.scanner-row select:focus{border-color:var(--cream)}
+.scanner-row select{flex:0 0 auto;cursor:pointer;appearance:none;padding-right:2rem}
+.scanner-btn{min-height:54px;padding:.65rem 1.8rem;border-radius:50px;background:var(--coral);color:var(--cream);font-family:var(--mono);font-weight:700;font-size:.82rem;text-transform:uppercase;letter-spacing:.04em;border:2.5px solid var(--coral);cursor:pointer;transition:all .2s}
+.scanner-btn:hover{background:var(--gold);border-color:var(--gold);color:var(--black)}
+.scanner-btn:disabled{opacity:.5;cursor:wait}
+.scanner-help{font-family:var(--mono);font-size:.72rem;color:rgba(245,239,224,.55);margin-top:14px;line-height:1.7;font-style:italic}
+
+.scan-status{margin-top:18px;padding:14px 18px;background:var(--black-warm);border:1.5px solid rgba(240,198,58,.3);border-radius:4px;font-family:var(--mono);font-size:.74rem;display:none;max-height:240px;overflow-y:auto}
+.scan-status.show{display:block}
+.status-line{padding:.3rem 0;display:flex;gap:.7rem;align-items:flex-start}
+.status-icon{flex-shrink:0;width:1.2rem;text-align:center;font-weight:700}
+.scan-pending{color:rgba(245,239,224,.5)}
+.scan-running{color:var(--gold)}
+.scan-pass{color:var(--blue)}
+.scan-fail{color:var(--coral)}
+.scan-warn{color:var(--gold)}
+
+/* SCORECARD */
+.scorecard{padding:48px 28px;background:var(--cream);border-bottom:2.5px solid var(--black)}
+.scorecard-inner{max-width:1000px;margin:0 auto}
+.score-grid{display:grid;grid-template-columns:1fr 2fr;gap:24px;align-items:start}
+@media(max-width:780px){.score-grid{grid-template-columns:1fr}}
+
+.score-big{background:var(--black);color:var(--cream);padding:32px 28px;border:2.5px solid var(--gold);position:relative;overflow:hidden}
+.score-big-label{font-family:var(--mono);font-size:.66rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--gold)}
+.score-big-num{font-family:var(--head);font-size:clamp(72px,16vw,120px);line-height:.85;margin:8px 0;letter-spacing:0}
+.score-big-num small{font-family:var(--head);font-size:.3em;color:rgba(245,239,224,.4)}
+.score-tier{display:inline-block;font-family:var(--mono);font-size:.7rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding:.4rem .9rem;background:var(--coral);color:var(--cream);margin-top:6px;border-radius:50px}
+.score-target{font-family:var(--serif);font-style:italic;font-size:.85rem;color:rgba(245,239,224,.65);margin-top:18px;line-height:1.7}
+.score-target b{color:var(--gold);font-style:normal;font-family:var(--mono)}
+
+.pillars-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:8px}
+.pillar-card{background:#fff;border:2px solid var(--black);padding:14px 16px}
+.pillar-card-name{font-family:var(--mono);font-size:.6rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-bottom:4px}
+.pillar-card-score{font-family:var(--head);font-size:2.2rem;line-height:.9;color:var(--ink)}
+.pillar-card-score small{font-family:var(--mono);font-size:.55em;color:var(--muted);font-weight:400}
+.pillar-card-bar{height:5px;background:rgba(26,23,20,.1);margin-top:8px;position:relative;overflow:hidden}
+.pillar-card-bar-fill{position:absolute;top:0;left:0;height:100%;background:var(--coral);transition:width .4s ease}
+.pillar-card-bar-fill.high{background:var(--blue)}
+.pillar-card-bar-fill.mid{background:var(--gold)}
+.pillar-card-bar-fill.low{background:var(--coral)}
+
+/* GATES */
+.gates{padding:32px 28px;background:var(--coral);color:var(--black)}
+.gates-inner{max-width:1000px;margin:0 auto}
+.gates-title{font-family:var(--head);font-size:1rem;text-transform:uppercase;letter-spacing:.04em;margin-bottom:14px}
+.gates-sub{font-family:var(--serif);font-style:italic;font-size:.85rem;margin-bottom:18px}
+.gates-row{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:8px}
+.gate-item{background:rgba(17,17,17,.08);border:1.5px solid var(--black);padding:.7rem 1rem;display:flex;justify-content:space-between;align-items:center;cursor:pointer;border-radius:4px;transition:background .2s}
+.gate-item:hover{background:rgba(17,17,17,.15)}
+.gate-item-name{font-family:var(--mono);font-size:.75rem;font-weight:700}
+.gate-pill{font-family:var(--mono);font-size:.62rem;font-weight:700;letter-spacing:.08em;padding:.25rem .6rem;border:1.5px solid currentColor;border-radius:50px;text-transform:uppercase}
+.gate-pill.pass{color:var(--black);background:var(--gold)}
+.gate-pill.fail{color:var(--cream);background:var(--black);border-color:var(--black)}
+.gate-pill.unknown{color:var(--black);opacity:.5}
+
+/* PILLAR DETAIL */
+.pillar-detail{padding:48px 28px;border-top:2.5px solid var(--black)}
+.pillar-detail:nth-child(odd){background:var(--cream)}
+.pillar-detail:nth-child(even){background:#fff}
+.pillar-detail-inner{max-width:1000px;margin:0 auto}
+.pillar-head{display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:18px;margin-bottom:24px;padding-bottom:18px;border-bottom:2.5px solid var(--black)}
+.pillar-head-tag{font-family:var(--mono);font-size:.66rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--coral);margin-bottom:6px}
+.pillar-head h2{font-family:var(--head);font-size:clamp(32px,6vw,56px);line-height:.95;text-transform:uppercase;letter-spacing:.01em}
+.pillar-head h2 em{font-family:var(--serif);font-style:italic;text-transform:none;color:var(--coral);font-size:.7em}
+.pillar-head-right{font-family:var(--mono);font-size:.85rem;text-align:right}
+.pillar-head-right b{font-family:var(--head);font-size:2.4rem;font-weight:400;display:block;line-height:1;color:var(--ink)}
+.pillar-head-right small{color:var(--muted);font-style:italic;font-family:var(--serif)}
+
+.check-group{margin-bottom:28px}
+.check-group-title{font-family:var(--mono);font-size:.7rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--coral);margin-bottom:10px;padding-bottom:8px;border-bottom:1.5px solid var(--black)}
+
+.check{display:grid;grid-template-columns:90px 1fr 60px;gap:16px;padding:16px 0;border-bottom:1px solid rgba(26,23,20,.12);align-items:flex-start}
+.check:last-child{border-bottom:none}
+.check-status{font-family:var(--mono);font-size:.6rem;font-weight:700;letter-spacing:.06em;padding:.3rem .5rem;border:1.5px solid var(--black);text-transform:uppercase;text-align:center;border-radius:50px;height:fit-content}
+.check-status.auto-pass{background:var(--blue);color:var(--cream);border-color:var(--blue)}
+.check-status.auto-fail{background:var(--coral);color:var(--cream);border-color:var(--coral)}
+.check-status.auto-warn{background:var(--gold);color:var(--black);border-color:var(--gold)}
+.check-status.manual{background:transparent;color:var(--muted);border-color:rgba(26,23,20,.3)}
+.check-status.checked{background:var(--gold);color:var(--black);border-color:var(--gold)}
+
+.check-body{min-width:0}
+.check-title{font-family:var(--mono);font-weight:700;font-size:.85rem;line-height:1.4;margin-bottom:5px;color:var(--ink)}
+.check-detail{font-family:var(--serif);font-style:italic;font-size:.88rem;color:var(--muted);margin-bottom:6px;line-height:1.55}
+.check-how{font-family:var(--mono);font-size:.7rem;color:var(--muted);margin-top:8px;padding-top:8px;border-top:1px dashed rgba(26,23,20,.15);line-height:1.7}
+.check-how b{color:var(--coral);font-weight:700}
+.check-manual-input{display:flex;gap:.5rem;align-items:center;margin-top:10px}
+.check-manual-input input[type=checkbox]{width:1.1rem;height:1.1rem;accent-color:var(--coral);cursor:pointer}
+.check-manual-input label{font-family:var(--mono);font-size:.7rem;color:var(--muted);cursor:pointer;font-weight:700;text-transform:uppercase;letter-spacing:.04em}
+
+.check-pts{text-align:right;font-family:var(--head);font-size:1.4rem;line-height:1;color:var(--ink)}
+.check-pts small{color:var(--muted);font-family:var(--mono);font-size:.6rem;font-weight:400;display:block;margin-top:2px}
+
+/* BLOCKS */
+.block-coral{padding:48px 28px;background:var(--coral);color:var(--black);text-align:center}
+.block-coral h2{font-family:var(--head);font-size:clamp(28px,5vw,48px);text-transform:uppercase;line-height:.95;margin-bottom:12px}
+.block-coral h2 em{font-family:var(--serif);font-style:italic;text-transform:none}
+.block-coral p{font-family:var(--mono);font-size:.85rem;max-width:580px;margin:0 auto 8px;line-height:1.7}
+
+/* PROMPTS BLOCK */
+.prompts-section{padding:48px 28px;background:var(--black);color:var(--cream)}
+.prompts-inner{max-width:1000px;margin:0 auto}
+.prompts-section h2{font-family:var(--head);font-size:clamp(36px,6vw,56px);text-transform:uppercase;line-height:.95;margin-bottom:8px}
+.prompts-section h2 em{font-family:var(--serif);font-style:italic;text-transform:none;color:var(--coral);font-size:.7em}
+.prompts-lead{font-family:var(--mono);font-size:.82rem;color:rgba(245,239,224,.65);margin-bottom:18px;max-width:680px;line-height:1.75}
+.engines{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:24px}
+.engine-pill{font-family:var(--mono);font-size:.65rem;font-weight:700;padding:.4rem .8rem;background:rgba(245,239,224,.07);border:1.5px solid rgba(245,239,224,.2);letter-spacing:.04em;border-radius:50px;text-transform:uppercase}
+.prompts-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:14px}
+.prompt-card{background:var(--black-warm);border:1.5px solid rgba(245,239,224,.15);padding:18px 20px;border-radius:4px}
+.prompt-card-tag{font-family:var(--mono);font-size:.62rem;font-weight:700;letter-spacing:.08em;color:var(--gold);margin-bottom:10px;text-transform:uppercase}
+.prompt-list{list-style:none;padding:0;margin:0;font-family:var(--mono);font-size:.75rem}
+.prompt-list li{padding:.5rem 0;border-bottom:1px dashed rgba(245,239,224,.1);counter-increment:p;line-height:1.55}
+.prompt-list li::before{content:counter(p) ". ";color:var(--coral);font-weight:700}
+.prompt-list li:last-child{border-bottom:none}
+.prompt-list{counter-reset:p}
+
+/* EXPORT */
+.export{padding:36px 28px;background:var(--cream);border-top:2.5px solid var(--black);text-align:center}
+.export-row{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-bottom:14px}
+.export-btn{min-height:50px;padding:.65rem 1.4rem;border-radius:50px;background:transparent;color:var(--ink);font-family:var(--mono);font-weight:700;font-size:.78rem;text-transform:uppercase;letter-spacing:.04em;border:2.5px solid var(--black);cursor:pointer;transition:all .2s}
+.export-btn:hover{background:var(--black);color:var(--cream)}
+.export-fine{font-family:var(--serif);font-style:italic;font-size:.85rem;color:var(--muted)}
+
+footer{padding:18px 28px;background:var(--black);color:var(--cream);font-size:.7rem;text-align:center;border-top:2.5px solid var(--gold);font-family:var(--mono)}
+footer span.sep{color:var(--gold)}
+
+@media(max-width:600px){
+  .check{grid-template-columns:80px 1fr;gap:10px}
+  .check-pts{grid-column:1/-1;text-align:right;border-top:1px dashed rgba(26,23,20,.15);padding-top:8px;margin-top:8px}
+  .scanner-row{flex-direction:column}
+  .scanner-row input[type=url],.scanner-row select,.scanner-btn{width:100%}
+}
+
+@media(prefers-reduced-motion:reduce){
+  .mq-track{animation:none!important}
+  .blink{animation:none!important}
+  *,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important}
+}
+
+@media print{
+  #gate{display:none!important}
+  .scanner-wrap,.export,.mq,.nav{display:none}
+  body{background:#fff;padding-top:0}
+  .pillar-detail{break-inside:avoid;page-break-inside:avoid}
+}
+```
+
+  </style>
+</head>
+<body>
+
+<a class="skip" href="#main">Skip to content</a>
+
+<!-- PASSWORD GATE -->
+
+<div id="gate" role="dialog" aria-label="Password protection">
+  <div class="gate-card">
+    <span class="gate-tag">Internal Tool · Gofer Content</span>
+    <h1>PRESENCE<br>SCANNER.<em>Built for clients.</em></h1>
+    <p>Enter the access code to run an audit.<span class="blink">_</span></p>
+    <label for="pw" class="sr-only">Password</label>
+    <input type="password" id="pw" class="gate-input" placeholder="ACCESS CODE" autocomplete="off" onkeydown="if(event.key==='Enter')checkPW()">
+    <button class="gate-btn" onclick="checkPW()">Run audit</button>
+    <p class="gate-err" id="gate-err">Wrong code. Try again.</p>
+    <p class="gate-fine">Built by Dayna · gofercontent.com</p>
+  </div>
+</div>
+
+<!-- APP -->
+
+<div id="app">
+
+<nav class="nav">
+  <span class="nav-logo">Gofer Content</span>
+  <a href="/" class="nav-back">← Home</a>
+</nav>
+
+<!-- MARQUEE -->
+
+<div class="mq mq-dark" aria-hidden="true">
+  <div class="mq-track">
+    <span>110-point audit</span><span>AEO weighted</span><span>Local SEO</span><span>Built from scratch</span><span>Auto-scan + manual</span><span>No black box</span><span>Gofer Content</span>
+    <span>110-point audit</span><span>AEO weighted</span><span>Local SEO</span><span>Built from scratch</span><span>Auto-scan + manual</span><span>No black box</span><span>Gofer Content</span>
+  </div>
+</div>
+
+<main id="main">
+
+<!-- HERO -->
+
+<section class="hero">
+  <span class="hero-tag">Internal Audit Tool · v1</span>
+  <h1>WE BUILT OUR OWN<br>SCANNER.<em>Because Jobber's hides the rubric.</em></h1>
+  <p class="hero-body">110 points. Six pillars. <strong>Weighted toward AEO</strong> because that's where the next twelve months of search behavior is shifting. Auto-checks what we can see in the HTML, manual checklist for the rest.<span class="blink">_</span></p>
+</section>
+
+<!-- SCANNER -->
+
+<section class="scanner-wrap">
+  <div class="scanner-inner">
+    <span class="scanner-label">Step 1 · Run the auto-scan</span>
+    <div class="scanner-row">
+      <input type="url" id="urlInput" placeholder="https://livingspacesgardening.com">
+      <select id="clientSelect" aria-label="Client preset">
+        <option value="">— No preset —</option>
+        <option value="lsg">Living Spaces Gardening</option>
+        <option value="lr">Living Restorations</option>
+        <option value="misfit">Misfit Toys Art</option>
+        <option value="hippocket">Hip Pocket Studios</option>
+        <option value="janie">Janie Richards</option>
+        <option value="motelfunk">Motel Funk</option>
+        <option value="joey">Joey Interrante</option>
+        <option value="custom">Other</option>
+      </select>
+      <button class="scanner-btn" id="scanBtn" onclick="runScan()">Scan it</button>
+    </div>
+    <p class="scanner-help">Pulls live HTML, robots.txt, schema, and runs Google PageSpeed Insights in one shot. Pillars below auto-fill with what we can detect. The rest you tick off as you check.</p>
+    <div class="scan-status" id="scanStatus" aria-live="polite"></div>
+  </div>
+</section>
+
+<!-- MARQUEE 2 -->
+
+<div class="mq mq-coral" aria-hidden="true">
+  <div class="mq-track">
+    <span>AEO + LLM visibility</span><span>Reputation</span><span>Local reach</span><span>Technical credibility</span><span>Content + entity depth</span><span>Engagement</span><span>Bonus AEO</span>
+    <span>AEO + LLM visibility</span><span>Reputation</span><span>Local reach</span><span>Technical credibility</span><span>Content + entity depth</span><span>Engagement</span><span>Bonus AEO</span>
+  </div>
+</div>
+
+<!-- SCORECARD -->
+
+<section class="scorecard">
+  <div class="scorecard-inner">
+    <div class="score-grid">
+      <div class="score-big">
+        <span class="score-big-label">Total score</span>
+        <div class="score-big-num"><span id="totalScore">0</span><small>/110</small></div>
+        <span class="score-tier" id="scoreTier">Awaiting scan</span>
+        <p class="score-target">Target: <b>75+</b> for strong presence. <b>90+</b> for category dominance.</p>
+      </div>
+      <div class="pillars-grid" id="pillarsGrid"></div>
+    </div>
+  </div>
+</section>
+
+<!-- GATES -->
+
+<section class="gates">
+  <div class="gates-inner">
+    <div class="gates-title">Pass/Fail Gates</div>
+    <p class="gates-sub">Must pass these before the rest of the score is reliable. Click to toggle manually.</p>
+    <div class="gates-row" id="gatesGrid"></div>
+  </div>
+</section>
+
+<!-- PILLAR 1 -->
+
+<section class="pillar-detail" id="pillar-1">
+  <div class="pillar-detail-inner">
+    <div class="pillar-head">
+      <div>
+        <div class="pillar-head-tag">Pillar 1 · 25 points · biggest weight</div>
+        <h2>AEO + LLM <em>visibility.</em></h2>
+      </div>
+      <div class="pillar-head-right">
+        <b><span id="p1score">0</span> / 25</b>
+        <small>where the future is going</small>
+      </div>
+    </div>
+    <div id="pillar-1-body"></div>
+  </div>
+</section>
+
+<!-- PILLAR 2 -->
+
+<section class="pillar-detail" id="pillar-2">
+  <div class="pillar-detail-inner">
+    <div class="pillar-head">
+      <div>
+        <div class="pillar-head-tag">Pillar 2 · 20 points</div>
+        <h2>Reputation <em>signals.</em></h2>
+      </div>
+      <div class="pillar-head-right">
+        <b><span id="p2score">0</span> / 20</b>
+        <small>reviews, recency, response</small>
+      </div>
+    </div>
+    <div id="pillar-2-body"></div>
+  </div>
+</section>
+
+<!-- PILLAR 3 -->
+
+<section class="pillar-detail" id="pillar-3">
+  <div class="pillar-detail-inner">
+    <div class="pillar-head">
+      <div>
+        <div class="pillar-head-tag">Pillar 3 · 20 points</div>
+        <h2>Local <em>reach.</em></h2>
+      </div>
+      <div class="pillar-head-right">
+        <b><span id="p3score">0</span> / 20</b>
+        <small>GBP + citations + map pack</small>
+      </div>
+    </div>
+    <div id="pillar-3-body"></div>
+  </div>
+</section>
+
+<!-- PILLAR 4 -->
+
+<section class="pillar-detail" id="pillar-4">
+  <div class="pillar-detail-inner">
+    <div class="pillar-head">
+      <div>
+        <div class="pillar-head-tag">Pillar 4 · 15 points</div>
+        <h2>Technical <em>credibility.</em></h2>
+      </div>
+      <div class="pillar-head-right">
+        <b><span id="p4score">0</span> / 15</b>
+        <small>CWV, schema, accessibility</small>
+      </div>
+    </div>
+    <div id="pillar-4-body"></div>
+  </div>
+</section>
+
+<!-- PILLAR 5 -->
+
+<section class="pillar-detail" id="pillar-5">
+  <div class="pillar-detail-inner">
+    <div class="pillar-head">
+      <div>
+        <div class="pillar-head-tag">Pillar 5 · 15 points</div>
+        <h2>Content + entity <em>depth.</em></h2>
+      </div>
+      <div class="pillar-head-right">
+        <b><span id="p5score">0</span> / 15</b>
+        <small>service pages, originality</small>
+      </div>
+    </div>
+    <div id="pillar-5-body"></div>
+  </div>
+</section>
+
+<!-- PILLAR 6 -->
+
+<section class="pillar-detail" id="pillar-6">
+  <div class="pillar-detail-inner">
+    <div class="pillar-head">
+      <div>
+        <div class="pillar-head-tag">Pillar 6 · 5 points</div>
+        <h2>Engagement <em>+ social.</em></h2>
+      </div>
+      <div class="pillar-head-right">
+        <b><span id="p6score">0</span> / 5</b>
+        <small>behavioral signals</small>
+      </div>
+    </div>
+    <div id="pillar-6-body"></div>
+  </div>
+</section>
+
+<!-- BONUS -->
+
+<section class="pillar-detail" id="pillar-bonus">
+  <div class="pillar-detail-inner">
+    <div class="pillar-head">
+      <div>
+        <div class="pillar-head-tag">Bonus · up to 10 points</div>
+        <h2>Cutting-edge <em>infrastructure.</em></h2>
+      </div>
+      <div class="pillar-head-right">
+        <b><span id="pbonus">0</span> / 10</b>
+        <small>emerging signals</small>
+      </div>
+    </div>
+    <div id="pillar-bonus-body"></div>
+  </div>
+</section>
+
+<!-- BLOCK CORAL -->
+
+<div class="block-coral">
+  <h2>RUN THE PROMPTS<br><em>across all six engines.</em></h2>
+  <p>Logged out. Location set to client metro. Run twice (LLMs vary). Log: did the brand appear, where, sources cited, competitors mentioned.</p>
+</div>
+
+<!-- PROMPTS -->
+
+<section class="prompts-section">
+  <div class="prompts-inner">
+    <h2>AEO test <em>prompt battery.</em></h2>
+    <p class="prompts-lead">Pick a client preset above and the prompts auto-fill with brand name, city, and competitors. Score Pillar 1A based on how often the brand surfaces.</p>
+    <div class="engines">
+      <span class="engine-pill">ChatGPT</span>
+      <span class="engine-pill">Perplexity</span>
+      <span class="engine-pill">Gemini</span>
+      <span class="engine-pill">Google AI Mode</span>
+      <span class="engine-pill">Claude</span>
+      <span class="engine-pill">Copilot</span>
+    </div>
+    <div class="prompts-grid">
+      <div class="prompt-card">
+        <div class="prompt-card-tag">Discovery</div>
+        <ol class="prompt-list" data-cat="discovery">
+          <li>Best [service] in [city]</li>
+          <li>Top [service] companies in [region]</li>
+          <li>[Service] specialists for [niche use case]</li>
+          <li>Recommend a [service] in [city] for [problem]</li>
+          <li>Who should I hire for [outcome] in [city]</li>
+        </ol>
+      </div>
+      <div class="prompt-card">
+        <div class="prompt-card-tag">Specific service</div>
+        <ol class="prompt-list" data-cat="service">
+          <li>Where can I get [specific service] in [city]</li>
+          <li>Companies that do [niche service] in [region]</li>
+          <li>Who installs [specific product] in [city]</li>
+          <li>[Service] for [specific customer type] near [city]</li>
+          <li>[Service] that uses [specific approach] in [region]</li>
+        </ol>
+      </div>
+      <div class="prompt-card">
+        <div class="prompt-card-tag">Comparison</div>
+        <ol class="prompt-list" data-cat="comp">
+          <li>[Competitor A] vs [Competitor B] for [use case]</li>
+          <li>Compare top three [service] companies in [city]</li>
+          <li>Pros and cons of [Brand] vs others in [city]</li>
+        </ol>
+      </div>
+      <div class="prompt-card">
+        <div class="prompt-card-tag">Branded</div>
+        <ol class="prompt-list" data-cat="brand">
+          <li>Tell me about [Brand] in [city]</li>
+          <li>What services does [Brand] offer</li>
+          <li>Reviews of [Brand] — what do customers say</li>
+          <li>Is [Brand] reputable</li>
+          <li>How long has [Brand] been in business</li>
+        </ol>
+      </div>
+      <div class="prompt-card">
+        <div class="prompt-card-tag">Decision support</div>
+        <ol class="prompt-list" data-cat="decision">
+          <li>How much does [service] cost in [city] in 2026 and who should I hire</li>
+          <li>What questions should I ask before hiring [service] in [city]</li>
+        </ol>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EXPORT -->
+
+<section class="export">
+  <div class="export-row">
+    <button class="export-btn" onclick="window.print()">Print / Save PDF</button>
+    <button class="export-btn" onclick="copyJSON()">Copy results JSON</button>
+    <button class="export-btn" onclick="resetAll()">Reset</button>
+  </div>
+  <p class="export-fine">Results live in this tab only. Print or copy to keep them.</p>
+</section>
+
+</main>
+
+<footer>
+  <p>&copy; <span id="y"></span> Gofer Content <span class="sep">|</span> St. Petersburg, FL <span class="sep">|</span> Internal scoring tool</p>
+</footer>
+
+</div>
+
+<script>
+document.getElementById('y').textContent=new Date().getFullYear();
+
+/* PASSWORD GATE */
+const PW = "gofer2026";
+function checkPW(){
+  const v = document.getElementById('pw').value.trim().toLowerCase();
+  const err = document.getElementById('gate-err');
+  if(v === PW){
+    document.getElementById('gate').style.display='none';
+    document.getElementById('app').classList.add('live');
+  } else {
+    err.classList.add('show');
+  }
+}
+document.addEventListener('DOMContentLoaded',()=>{document.getElementById('pw').focus()});
+
+/* RUBRIC */
+const RUBRIC = {
+  gates: [
+    {id:'g1', name:'HTTPS sitewide', autoKey:'https'},
+    {id:'g2', name:'Mobile-friendly', autoKey:'mobile'},
+    {id:'g3', name:'GBP claimed', autoKey:null},
+    {id:'g4', name:'NAP consistent', autoKey:null}
+  ],
+  pillars: [
+    {id:1, name:'AEO + LLM', max:25, scoreId:'p1score', groups:[
+      {title:'1A · Direct AI citation tests (10)', items:[
+        {id:'1a1', title:'Branded prompts return accurate info across 6 engines', detail:'Run prompts 14-18. Score 4 if 100% accurate, 2 if mostly, 0 if wrong/missing.', how:'Run prompts in ChatGPT, Perplexity, Gemini, AI Mode, Claude, Copilot. Logged out. Location set.', pts:4, type:'manual'},
+        {id:'1a2', title:'Cited in 25%+ of unbranded local prompts', detail:'Prompts 1-5. Track unbranded discovery rate.', how:'<b>If invisible:</b> third-party citation deficit. Fix via Pillar 1C.', pts:3, type:'manual'},
+        {id:'1a3', title:'Cited for specific service prompts (6-10)', detail:'Niche queries surface the brand.', how:'Service citations come from service page depth (Pillar 5A).', pts:3, type:'manual'}
+      ]},
+      {title:'1B · Schema markup (6) · auto-detected', items:[
+        {id:'1b1', title:'Organization schema with sameAs array', detail:'Sitewide JSON-LD with social links.', how:'<b>Fix:</b> Organization schema on homepage with sameAs to GBP, Facebook, Instagram, LinkedIn, Wikidata.', pts:1, type:'auto', autoKey:'schemaOrganization'},
+        {id:'1b2', title:'LocalBusiness schema with NAP + geo + hours', detail:'Homepage and contact page.', how:'<b>Fix:</b> LocalBusiness schema with full address, geo, openingHoursSpecification, areaServed, priceRange.', pts:1, type:'auto', autoKey:'schemaLocalBusiness'},
+        {id:'1b3', title:'Service schema for each distinct service', detail:'One Service entity per page.', how:'<b>Fix:</b> Service schema with provider, areaServed, hasOfferCatalog on each service page.', pts:1, type:'auto', autoKey:'schemaService'},
+        {id:'1b4', title:'FAQPage schema on service pages', detail:'4-8 customer Q&A. Highest single AEO leverage.', how:'<b>Fix:</b> Wrap real customer Q&A in FAQPage JSON-LD.', pts:1, type:'auto', autoKey:'schemaFAQ'},
+        {id:'1b5', title:'Person schema for owner with credentials', detail:'About page Person schema with jobTitle, worksFor, sameAs.', how:'<b>Fix:</b> Person schema linking owner to Organization with credential URLs.', pts:1, type:'auto', autoKey:'schemaPerson'},
+        {id:'1b6', title:'BreadcrumbList + WebSite schema with stable @id', detail:'Stable URIs link entity graph.', how:'<b>Fix:</b> Use #organization, #website, #localbusiness IDs to connect entities.', pts:1, type:'auto', autoKey:'schemaBreadcrumb'}
+      ]},
+      {title:'1C · Citation + mention diversity (5)', items:[
+        {id:'1c1', title:'Wikidata entry with sameAs', detail:'Free, 15 min, highest-cited source on ChatGPT (~12%).', how:'Search wikidata.org. <b>Fix:</b> Create Wikidata item with external references.', pts:1, type:'manual'},
+        {id:'1c2', title:'2+ industry "best of" articles or curated lists', detail:'Listed in third-party best-of pieces.', how:'Google "best [service]" "[city]". <b>Fix:</b> Pitch local writers, offer expert quotes.', pts:1, type:'manual'},
+        {id:'1c3', title:'Listed on industry-specific directory', detail:'Trade association, certifying body, or category authority.', how:'Visit industry sites. <b>Fix:</b> Apply for membership and listing.', pts:1, type:'manual'},
+        {id:'1c4', title:'Reddit/forum mentions of brand', detail:'Authentic participation in relevant subreddits.', how:'site:reddit.com "[brand]". <b>Fix:</b> Authentic helpful answers in r/[city] and category subs.', pts:1, type:'manual'},
+        {id:'1c5', title:'YouTube channel with 5+ videos + transcripts', detail:'YouTube has documented 200x AI citation advantage.', how:'<b>Fix:</b> Project videos with full transcripts and VideoObject schema.', pts:1, type:'manual'}
+      ]},
+      {title:'1D · AI crawler accessibility (4) · auto-detected', items:[
+        {id:'1d1', title:'robots.txt allows AI search bots', detail:'OAI-SearchBot, PerplexityBot, ChatGPT-User, Claude-User. Different from training bots.', how:'<b>Fix:</b> Add explicit Allow directives for AI search bots.', pts:2, type:'auto', autoKey:'robotsAISearch'},
+        {id:'1d2', title:'No CDN-level bot blocking on AI search bots', detail:'Cloudflare can override robots.txt. Most common cause of accidental AI invisibility.', how:'Verify in CDN dashboard. <b>Fix:</b> Disable AI bot blocking in Cloudflare → Bots → AI Bots.', pts:1, type:'manual'},
+        {id:'1d3', title:'Bingbot + Applebot allowed', detail:'Feeds ChatGPT, Copilot, Apple Maps.', how:'<b>Fix:</b> No User-agent: * Disallow blocking them.', pts:1, type:'auto', autoKey:'robotsBingApple'}
+      ]}
+    ]},
+    {id:2, name:'Reputation', max:20, scoreId:'p2score', groups:[
+      {title:'2A · Volume + rating (8)', items:[
+        {id:'2a1', title:'Google review count: 50+', detail:'Whitespark 2026 ranks reviews at 16-20% of local pack.', how:'GBP listing. Score 3 if 50+, 2 if 25-49, 1 if 10-24, 0 if <10.', pts:3, type:'manual'},
+        {id:'2a2', title:'Average rating ≥ 4.5 stars', detail:'BrightLocal 2026: 31% of consumers require 4.5+ stars.', how:'<b>Fix:</b> Below 4.0 is a visibility cliff. Address negatives, ask satisfied customers.', pts:3, type:'manual'},
+        {id:'2a3', title:'Reviews on 3+ platforms', detail:'Consumers use ~6 review sites on average.', how:'<b>Fix:</b> Diversify across Google, Facebook, Yelp, Houzz, Angi.', pts:2, type:'manual'}
+      ]},
+      {title:'2B · Recency + velocity (6)', items:[
+        {id:'2b1', title:'Newest review within 30 days', detail:'Recency outranks count.', how:'GBP review tab. <b>Fix:</b> Aim for 2-4 new reviews/month.', pts:3, type:'manual'},
+        {id:'2b2', title:'Velocity matches/exceeds top 3 competitors', detail:'Sustained inflow matters more than total.', how:'Manually count competitor reviews/month over 6 months.', pts:3, type:'manual'}
+      ]},
+      {title:'2C · Response + content (6)', items:[
+        {id:'2c1', title:'Response rate ≥ 80%', detail:'89% of consumers expect responses to all reviews.', how:'<b>Fix:</b> 24-hour SLA; one-sentence thank-yous count.', pts:2, type:'manual'},
+        {id:'2c2', title:'Owner responses include service + city keywords', detail:'Sterling Sky tests: response keywords ARE indexed.', how:'<b>Fix:</b> Reference specific service + neighborhood naturally.', pts:2, type:'manual'},
+        {id:'2c3', title:'First-party /reviews page with Review schema', detail:'NEVER self-mark AggregateRating on LocalBusiness.', how:'Auto-flagged if Review schema is found.', pts:1, type:'auto', autoKey:'schemaReview'},
+        {id:'2c4', title:'Negative reviews handled professionally', detail:'Public response + offline resolution offer.', how:'<b>Fix:</b> Never argue publicly; demonstrate accountability for the AI-readable record.', pts:1, type:'manual'}
+      ]}
+    ]},
+    {id:3, name:'Local reach', max:20, scoreId:'p3score', groups:[
+      {title:'3A · GBP completeness (12)', items:[
+        {id:'3a1', title:'Most specific primary category', detail:'Category matching dominant revenue.', how:'<b>Fix:</b> Use Pleper/GMBspy to research what top competitors use.', pts:2, type:'manual'},
+        {id:'3a2', title:'3+ relevant secondary categories', detail:'Only ones that genuinely apply.', how:'GBP dashboard.', pts:1, type:'manual'},
+        {id:'3a3', title:'Services list populated with descriptions', detail:'Every service variant listed.', how:'<b>Fix:</b> List every service variant with descriptions.', pts:2, type:'manual'},
+        {id:'3a4', title:'Hours + special/holiday hours', detail:'Whitespark 2026 ranks "open at time of search" #5.', how:'GBP dashboard.', pts:1, type:'manual'},
+        {id:'3a5', title:'20+ photos across categories', detail:'45% more direction requests with photos.', how:'<b>Fix:</b> Upload 2-3 fresh photos/week.', pts:2, type:'manual'},
+        {id:'3a6', title:'5+ Q&A seeded with owner answers', detail:'Google rolling out Gemini-generated "Ask Maps".', how:'GBP Q&A tab.', pts:1, type:'manual'},
+        {id:'3a7', title:'Address visible (not hidden SAB)', detail:'Sterling Sky: hidden-address SABs lose 30-60% map-pack visibility.', how:'<b>Fix:</b> Get a small sign and treat space as semi-public.', pts:2, type:'manual'},
+        {id:'3a8', title:'Social profile links populated', detail:'New Whitespark 2026 ranking factor.', how:'GBP dashboard.', pts:1, type:'manual'}
+      ]},
+      {title:'3B · Citations + listings (5)', items:[
+        {id:'3b1', title:'Tier 1 universal directories', detail:'GBP, Bing Places, Apple Maps, Facebook, Yelp, BBB, Nextdoor, Foursquare.', how:'<b>Fix:</b> Bing Places critical — feeds ChatGPT/Copilot.', pts:2, type:'manual'},
+        {id:'3b2', title:'Trade-specific directories', detail:'Houzz, Angi, Thumbtack, Porch, Local Services Ads.', how:'Search each.', pts:1, type:'manual'},
+        {id:'3b3', title:'Industry/local-authority directories (.org, .edu)', detail:'Trade and regional authorities.', how:'<b>Fix:</b> High-authority citations AI engines especially trust.', pts:1, type:'manual'},
+        {id:'3b4', title:'NAP exact match across listings', detail:'No abbreviation drift, no old phone numbers.', how:'<b>Fix:</b> Pick canonical format, fix one platform/week.', pts:1, type:'manual'}
+      ]},
+      {title:'3C · Map-pack rankings (3)', items:[
+        {id:'3c1', title:'Local Pack top 3 for primary "[service] in [city]"', detail:'Map results for primary search.', how:'Logged-out search from local IP.', pts:2, type:'manual'},
+        {id:'3c2', title:'Top 10 organic for 3+ service+city combos', detail:'Multiple ranking surfaces.', how:'<b>Fix:</b> Service + city pages (Pillar 5A).', pts:1, type:'manual'}
+      ]}
+    ]},
+    {id:4, name:'Technical', max:15, scoreId:'p4score', groups:[
+      {title:'4A · Core Web Vitals (8) · auto-detected', items:[
+        {id:'4a1', title:'LCP ≤ 2.5s (mobile)', detail:'Largest Contentful Paint.', how:'<b>Fix:</b> Compress hero to WebP, lazy-load below-fold media, faster host/CDN.', pts:2, type:'auto', autoKey:'lcp'},
+        {id:'4a2', title:'INP ≤ 200ms', detail:'Interaction to Next Paint.', how:'<b>Fix:</b> Defer non-critical JS, remove heavy third-party scripts.', pts:2, type:'auto', autoKey:'inp'},
+        {id:'4a3', title:'CLS ≤ 0.1', detail:'Cumulative Layout Shift.', how:'<b>Fix:</b> Set width/height on images, reserve space for ads/embeds.', pts:2, type:'auto', autoKey:'cls'},
+        {id:'4a4', title:'Lighthouse Performance ≥ 90 (mobile)', detail:'Mobile-only test.', how:'Auto-detected.', pts:2, type:'auto', autoKey:'perfScore'}
+      ]},
+      {title:'4B · Site hygiene (4)', items:[
+        {id:'4b1', title:'Unique title + meta description', detail:'Each page has distinct meta.', how:'Auto-checked on scanned page.', pts:1, type:'auto', autoKey:'metaUnique'},
+        {id:'4b2', title:'Single H1; logical hierarchy', detail:'No skipped levels.', how:'<b>Fix:</b> Convert H2s to question format to prime AEO.', pts:1, type:'auto', autoKey:'headings'},
+        {id:'4b3', title:'Zero broken internal links', detail:'No 404s.', how:'Manual via Screaming Frog full-site crawl.', pts:1, type:'manual'},
+        {id:'4b4', title:'XML sitemap submitted to GSC', detail:'/sitemap.xml present.', how:'<b>Fix:</b> Generate via theme, submit at search.google.com/search-console.', pts:1, type:'auto', autoKey:'sitemap'}
+      ]},
+      {title:'4C · Accessibility + trust (3)', items:[
+        {id:'4c1', title:'Lighthouse Accessibility ≥ 90', detail:'Auto-checked.', how:'<b>Fix:</b> Alt text, 4.5:1 contrast, semantic HTML.', pts:1, type:'auto', autoKey:'a11y'},
+        {id:'4c2', title:'Images have descriptive alt text', detail:'Including service/location keywords where natural.', how:'<b>Fix:</b> Alt text feeds accessibility AND AI image understanding.', pts:1, type:'auto', autoKey:'altText'},
+        {id:'4c3', title:'Visible owner/team bios with credentials + photos', detail:'First-person experience markers yield 1.67x AI citation lift.', how:'<b>Fix:</b> Real bios, photos, certifications, dates.', pts:1, type:'manual'}
+      ]}
+    ]},
+    {id:5, name:'Content', max:15, scoreId:'p5score', groups:[
+      {title:'5A · Service + location architecture (6)', items:[
+        {id:'5a1', title:'Dedicated page per major service (≥600 words original)', detail:'Whitespark 2026 top-15 factor.', how:'<b>Fix:</b> Per-service pages, no duplicated boilerplate.', pts:2, type:'manual'},
+        {id:'5a2', title:'Page per major service area with local content', detail:'Sterling Sky: 35 → 1,350 daily clicks via well-built service-area pages.', how:'<b>Fix:</b> Real local references; avoid AI-generated boilerplate.', pts:2, type:'manual'},
+        {id:'5a3', title:'Internal links connect service + location + GBP landing', detail:'Whitespark 2026 cites this as newer signal.', how:'<b>Fix:</b> Cross-link service and location pages to GBP target.', pts:1, type:'manual'},
+        {id:'5a4', title:'FAQ section + FAQPage schema on each service page', detail:'Highest-leverage AEO content move.', how:'Auto-flagged via 1B4.', pts:1, type:'manual'}
+      ]},
+      {title:'5B · Brand entity strength (5)', items:[
+        {id:'5b1', title:'Knowledge Panel for branded search', detail:'Google sidebar panel.', how:'<b>Fix:</b> Wikidata + GBP + LinkedIn + industry listings using exact brand name.', pts:2, type:'manual'},
+        {id:'5b2', title:'Wikipedia article exists', detail:'Hard but high-value.', how:'<b>Fix:</b> Pursue via award wins, public-agency contracts, regional press.', pts:1, type:'manual'},
+        {id:'5b3', title:'5+ authoritative third-party brand mentions', detail:'Local press, industry publications, .org sites.', how:'Google "[brand]" -site:[brand-domain]. <b>Fix:</b> Pitch story angles; expert quotes.', pts:1, type:'manual'},
+        {id:'5b4', title:'Branded SERP page 1 fully owned', detail:'No negatives or stale content.', how:'<b>Fix:</b> Build out profiles to push down outdated content.', pts:1, type:'manual'}
+      ]},
+      {title:'5C · Content originality + depth (4)', items:[
+        {id:'5c1', title:'10+ original articles with byline + dates', detail:'Not stock content.', how:'<b>Fix:</b> Quarterly minimum: case studies, guides, project documentation.', pts:1, type:'manual'},
+        {id:'5c2', title:'1+ article with original data', detail:'Original counts/findings become AI-quotable.', how:'<b>Fix:</b> Use project portfolio as data set.', pts:1, type:'manual'},
+        {id:'5c3', title:'1+ comparative listicle', detail:'Listicles drive ~32.5% of AI citations.', how:'<b>Fix:</b> Name local providers neutrally including yourself.', pts:1, type:'manual'},
+        {id:'5c4', title:'Recent freshness (top pages updated quarterly)', detail:'ChatGPT favors content updated within 30 days.', how:'<b>Fix:</b> Refresh top pages quarterly.', pts:1, type:'manual'}
+      ]}
+    ]},
+    {id:6, name:'Engagement', max:5, scoreId:'p6score', groups:[
+      {title:'Behavioral + social signals', items:[
+        {id:'6a1', title:'GBP shows 100+ monthly views with steady action', detail:'Behavioral signals are rising in Whitespark 2026.', how:'GBP "Performance" tab last 28 days.', pts:2, type:'manual'},
+        {id:'6a2', title:'Active Instagram or Facebook with weekly posts', detail:'Visual proof of work.', how:'<b>Fix:</b> Post weekly project work.', pts:1, type:'manual'},
+        {id:'6a3', title:'LinkedIn Company + owner personal LinkedIn', detail:'Heavily used by Copilot and Google AI Mode.', how:'LinkedIn search.', pts:1, type:'manual'},
+        {id:'6a4', title:'1+ YouTube video with full transcript', detail:'YouTube outsized AI citation advantage.', how:'YouTube search.', pts:1, type:'manual'}
+      ]}
+    ]}
+  ],
+  bonus:{id:'bonus', name:'Bonus', max:10, scoreId:'pbonus', groups:[
+    {title:'Emerging signals · up to 10', items:[
+      {id:'b1', title:'llms.txt at site root', detail:'Low evidence of LLM consumption but low cost.', how:'<b>Fix:</b> Add structured Markdown index at /llms.txt.', pts:1, type:'auto', autoKey:'llmsTxt'},
+      {id:'b2', title:'Bing Places fully claimed + matches GBP', detail:'ChatGPT/Copilot pipeline.', how:'<b>Fix:</b> Claim and mirror GBP exactly.', pts:2, type:'manual'},
+      {id:'b3', title:'Apple Business Connect claimed', detail:'Apple Maps usage doubled to 27% in 2026.', how:'businessconnect.apple.com.', pts:1, type:'manual'},
+      {id:'b4', title:'Google Local Services Ads with Google Guaranteed', detail:'Confers prominence in pack and AI.', how:'ads.google.com/local-services-ads.', pts:2, type:'manual'},
+      {id:'b5', title:'First-party /reviews page with Review schema', detail:'Schema-rich first-party testimonials are AI-cited.', how:'Auto-detected via 2C3.', pts:1, type:'manual'},
+      {id:'b6', title:'Industry certification with sameAs to certifying body', detail:'Authentic E-E-A-T signal.', how:'<b>Fix:</b> Display credentials with link to certifier.', pts:1, type:'manual'},
+      {id:'b7', title:'Featured in trade-association award', detail:'High-authority .org mention.', how:'Search association sites.', pts:1, type:'manual'},
+      {id:'b8', title:'Original podcast/conference/expert interview citation', detail:'Builds unlinked brand mentions.', how:'Google search.', pts:1, type:'manual'}
+    ]}
+  ]}
+};
+
+let scanState = {};
+
+/* RENDER */
+function renderRubric(){
+  const gates = document.getElementById('gatesGrid');
+  gates.innerHTML = RUBRIC.gates.map(g => `
+    <div class="gate-item" data-gate="${g.id}" onclick="toggleGate('${g.id}')">
+      <span class="gate-item-name">${g.name}</span>
+      <span class="gate-pill unknown" id="gate-${g.id}">unknown</span>
+    </div>
+  `).join('');
+  
+  RUBRIC.pillars.forEach(p => renderPillar(p, `pillar-${p.id}-body`));
+  renderPillar(RUBRIC.bonus, 'pillar-bonus-body');
+  
+  const grid = document.getElementById('pillarsGrid');
+  grid.innerHTML = RUBRIC.pillars.map(p => `
+    <div class="pillar-card">
+      <div class="pillar-card-name">P${p.id} · ${p.name}</div>
+      <div class="pillar-card-score" id="psum-${p.id}">0<small>/${p.max}</small></div>
+      <div class="pillar-card-bar"><div class="pillar-card-bar-fill" id="pbar-${p.id}" style="width:0%"></div></div>
+    </div>
+  `).join('');
+}
+
+function renderPillar(p, targetId){
+  const target = document.getElementById(targetId);
+  let html = '';
+  p.groups.forEach(g => {
+    html += `<div class="check-group"><div class="check-group-title">${g.title}</div>`;
+    g.items.forEach(i => {
+      html += `
+        <div class="check" data-id="${i.id}">
+          <span class="check-status manual" id="status-${i.id}">${i.type === 'auto' ? 'auto' : 'manual'}</span>
+          <div class="check-body">
+            <div class="check-title">${i.title}</div>
+            <div class="check-detail">${i.detail}</div>
+            <div class="check-how">${i.how}</div>
+            <div class="check-manual-input">
+              <input type="checkbox" id="cb-${i.id}" onchange="toggleCheck('${i.id}')">
+              <label for="cb-${i.id}">Mark as passing</label>
+            </div>
+          </div>
+          <div class="check-pts"><span id="pts-${i.id}">0</span><small>/${i.pts}</small></div>
+        </div>
+      `;
+    });
+    html += '</div>';
+  });
+  target.innerHTML = html;
+}
+
+/* SCANNER */
+async function runScan(){
+  const url = document.getElementById('urlInput').value.trim();
+  if(!url){ alert('Enter a URL first'); return; }
+  
+  const btn = document.getElementById('scanBtn');
+  const status = document.getElementById('scanStatus');
+  btn.disabled = true; btn.textContent = 'Scanning…';
+  status.classList.add('show');
+  status.innerHTML = '';
+  scanState = {};
+  
+  log(status, 'Fetching homepage HTML…', 'running');
+  const proxyUrl = `https://api.allorigins.win/raw?url=${encodeURIComponent(url)}`;
+  
+  try {
+    const res = await fetch(proxyUrl);
+    const html = await res.text();
+    log(status, `HTML fetched (${(html.length/1024).toFixed(1)} KB)`, 'pass');
+    
+    const parser = new DOMParser();
+    const doc = parser.parseFromString(html, 'text/html');
+    
+    scanState.https = url.startsWith('https://');
+    log(status, scanState.https ? 'HTTPS active' : 'HTTPS NOT active', scanState.https ? 'pass' : 'fail');
+    
+    const ldjsonScripts = doc.querySelectorAll('script[type="application/ld+json"]');
+    const schemaTypes = new Set();
+    ldjsonScripts.forEach(s => {
+      try {
+        const obj = JSON.parse(s.textContent);
+        const collect = (o) => {
+          if(!o) return;
+          if(Array.isArray(o)) return o.forEach(collect);
+          if(o['@type']){
+            const t = Array.isArray(o['@type']) ? o['@type'] : [o['@type']];
+            t.forEach(x => schemaTypes.add(x));
+          }
+          if(o['@graph']) collect(o['@graph']);
+        };
+        collect(obj);
+      } catch(e){}
+    });
+    
+    scanState.schemaOrganization = schemaTypes.has('Organization') || schemaTypes.has('ProfessionalService');
+    scanState.schemaLocalBusiness = [...schemaTypes].some(t => t === 'LocalBusiness' || t.includes('Business') || t === 'ProfessionalService');
+    scanState.schemaService = schemaTypes.has('Service');
+    scanState.schemaFAQ = schemaTypes.has('FAQPage');
+    scanState.schemaPerson = schemaTypes.has('Person');
+    scanState.schemaBreadcrumb = schemaTypes.has('BreadcrumbList');
+    scanState.schemaReview = schemaTypes.has('Review') || schemaTypes.has('AggregateRating');
+    
+    log(status, `Schema types found: ${[...schemaTypes].join(', ') || 'none'}`, schemaTypes.size > 0 ? 'pass' : 'warn');
+    
+    const title = doc.querySelector('title')?.textContent;
+    const desc = doc.querySelector('meta[name="description"]')?.getAttribute('content');
+    scanState.metaUnique = !!(title && desc && title.length > 10 && desc.length > 50);
+    log(status, `Title: ${title?.length||0} chars · Description: ${desc?.length||0} chars`, scanState.metaUnique ? 'pass' : 'warn');
+    
+    const h1s = doc.querySelectorAll('h1');
+    scanState.headings = h1s.length === 1;
+    log(status, `H1 count: ${h1s.length}`, scanState.headings ? 'pass' : 'warn');
+    
+    const imgs = doc.querySelectorAll('img');
+    const imgsWithAlt = [...imgs].filter(i => i.getAttribute('alt') && i.getAttribute('alt').length > 0);
+    scanState.altText = imgs.length > 0 && (imgsWithAlt.length / imgs.length) >= 0.9;
+    log(status, `Images with alt: ${imgsWithAlt.length}/${imgs.length}`, scanState.altText ? 'pass' : 'warn');
+    
+    log(status, 'Checking robots.txt…', 'running');
+    try {
+      const robotsUrl = new URL('/robots.txt', url).href;
+      const robotsRes = await fetch(`https://api.allorigins.win/raw?url=${encodeURIComponent(robotsUrl)}`);
+      const robotsTxt = await robotsRes.text();
+      const lower = robotsTxt.toLowerCase();
+      const aiBots = ['oai-searchbot','perplexitybot','chatgpt-user','claude-user','perplexity-user','claude-searchbot'];
+      const aiAllowed = aiBots.filter(b => lower.includes(b));
+      scanState.robotsAISearch = aiAllowed.length >= 3;
+      scanState.robotsBingApple = !lower.match(/user-agent:\s*\*[\s\S]*?disallow:\s*\//);
+      log(status, `AI bots in robots.txt: ${aiAllowed.length}/6`, scanState.robotsAISearch ? 'pass' : 'warn');
+    } catch(e){
+      scanState.robotsAISearch = false;
+      scanState.robotsBingApple = true;
+      log(status, 'No robots.txt found', 'warn');
+    }
+    
+    try {
+      const sitemapUrl = new URL('/sitemap.xml', url).href;
+      const sm = await fetch(`https://api.allorigins.win/raw?url=${encodeURIComponent(sitemapUrl)}`);
+      scanState.sitemap = sm.ok && (await sm.text()).includes('<url');
+      log(status, scanState.sitemap ? 'sitemap.xml present' : 'sitemap.xml missing', scanState.sitemap ? 'pass' : 'fail');
+    } catch(e){
+      scanState.sitemap = false;
+    }
+    
+    try {
+      const llmsUrl = new URL('/llms.txt', url).href;
+      const lt = await fetch(`https://api.allorigins.win/raw?url=${encodeURIComponent(llmsUrl)}`);
+      scanState.llmsTxt = lt.ok && (await lt.text()).length > 100;
+      log(status, scanState.llmsTxt ? 'llms.txt present' : 'llms.txt missing', scanState.llmsTxt ? 'pass' : 'warn');
+    } catch(e){ scanState.llmsTxt = false; }
+    
+    log(status, 'Running PageSpeed Insights (mobile)…', 'running');
+    try {
+      const psiUrl = `https://www.googleapis.com/pagespeedonline/v5/runPagespeed?url=${encodeURIComponent(url)}&strategy=mobile&category=performance&category=accessibility`;
+      const psiRes = await fetch(psiUrl);
+      const psi = await psiRes.json();
+      const audits = psi.lighthouseResult?.audits || {};
+      const cats = psi.lighthouseResult?.categories || {};
+      
+      const lcp = audits['largest-contentful-paint']?.numericValue / 1000;
+      const cls = audits['cumulative-layout-shift']?.numericValue;
+      const inp = audits['interaction-to-next-paint']?.numericValue || audits['max-potential-fid']?.numericValue;
+      
+      scanState.lcp = lcp ? (lcp <= 2.5 ? 'good' : lcp <= 4 ? 'mid' : 'bad') : 'unknown';
+      scanState.cls = cls != null ? (cls <= 0.1 ? 'good' : cls <= 0.25 ? 'mid' : 'bad') : 'unknown';
+      scanState.inp = inp ? (inp <= 200 ? 'good' : inp <= 500 ? 'mid' : 'bad') : 'unknown';
+      scanState.perfScore = (cats.performance?.score * 100) || 0;
+      scanState.a11y = (cats.accessibility?.score * 100) || 0;
+      scanState.mobile = scanState.perfScore > 0;
+      
+      log(status, `LCP: ${lcp?.toFixed(2)}s · CLS: ${cls?.toFixed(3)} · INP: ${inp}ms`, 'pass');
+      log(status, `Perf: ${scanState.perfScore.toFixed(0)} · A11y: ${scanState.a11y.toFixed(0)}`, 'pass');
+    } catch(e){
+      log(status, 'PageSpeed API failed', 'fail');
+      scanState.mobile = true;
+    }
+    
+    log(status, 'Done. Applying to scorecard…', 'pass');
+    applyScans();
+    
+  } catch(err) {
+    log(status, `Scan failed: ${err.message}`, 'fail');
+    log(status, 'Some sites block CORS proxies. Manual checklist still works below.', 'warn');
+  }
+  
+  btn.disabled = false; btn.textContent = 'Re-scan';
+}
+
+function log(target, msg, kind){
+  const div = document.createElement('div');
+  div.className = 'status-line';
+  const icons = {pending:'·', running:'⟳', pass:'✓', fail:'✗', warn:'!'};
+  div.innerHTML = `<span class="status-icon scan-${kind}">${icons[kind]||'·'}</span><span>${msg}</span>`;
+  target.appendChild(div);
+  target.scrollTop = target.scrollHeight;
+}
+
+function applyScans(){
+  RUBRIC.gates.forEach(g => {
+    if(g.autoKey && scanState[g.autoKey] != null){
+      setGate(g.id, scanState[g.autoKey] === true || scanState[g.autoKey] === 'good' ? 'pass' : 'fail');
+    }
+  });
+  
+  const allItems = [...RUBRIC.pillars.flatMap(p => p.groups.flatMap(g => g.items)), ...RUBRIC.bonus.groups.flatMap(g => g.items)];
+  allItems.forEach(item => {
+    if(item.type !== 'auto' || !item.autoKey) return;
+    const v = scanState[item.autoKey];
+    if(v == null) return;
+    
+    let earned = 0;
+    if(item.autoKey === 'lcp' || item.autoKey === 'cls' || item.autoKey === 'inp'){
+      earned = v === 'good' ? item.pts : v === 'mid' ? Math.floor(item.pts/2) : 0;
+    } else if(item.autoKey === 'perfScore'){
+      earned = v >= 90 ? item.pts : v >= 50 ? Math.floor(item.pts/2) : 0;
+    } else if(item.autoKey === 'a11y'){
+      earned = v >= 90 ? item.pts : 0;
+    } else {
+      earned = v ? item.pts : 0;
+    }
+    
+    setItemScore(item.id, earned, item.pts, true);
+    document.getElementById(`cb-${item.id}`).checked = (earned > 0);
+  });
+  
+  recalcAll();
+}
+
+function toggleCheck(id){
+  const cb = document.getElementById(`cb-${id}`);
+  const item = findItem(id);
+  if(!item) return;
+  setItemScore(id, cb.checked ? item.pts : 0, item.pts, cb.checked);
+  recalcAll();
+}
+
+function findItem(id){
+  for(const p of RUBRIC.pillars){
+    for(const g of p.groups){
+      for(const i of g.items) if(i.id === id) return i;
+    }
+  }
+  for(const g of RUBRIC.bonus.groups){
+    for(const i of g.items) if(i.id === id) return i;
+  }
+  return null;
+}
+
+function setItemScore(id, earned, max, passed){
+  document.getElementById(`pts-${id}`).textContent = earned;
+  const status = document.getElementById(`status-${id}`);
+  status.className = 'check-status ' + (passed ? 'checked' : 'manual');
+  status.textContent = passed ? '✓ pass' : 'manual';
+}
+
+function setGate(id, state){
+  const pill = document.getElementById(`gate-${id}`);
+  pill.className = `gate-pill ${state}`;
+  pill.textContent = state;
+}
+
+function toggleGate(id){
+  const pill = document.getElementById(`gate-${id}`);
+  const cur = pill.textContent.trim();
+  const next = cur === 'pass' ? 'fail' : cur === 'fail' ? 'unknown' : 'pass';
+  setGate(id, next);
+}
+
+function recalcAll(){
+  let total = 0;
+  RUBRIC.pillars.forEach(p => {
+    let pTotal = 0;
+    p.groups.forEach(g => {
+      g.items.forEach(i => {
+        const earned = parseInt(document.getElementById(`pts-${i.id}`).textContent) || 0;
+        pTotal += earned;
+      });
+    });
+    document.getElementById(p.scoreId).textContent = pTotal;
+    document.getElementById(`psum-${p.id}`).innerHTML = `${pTotal}<small>/${p.max}</small>`;
+    const pct = (pTotal/p.max)*100;
+    const bar = document.getElementById(`pbar-${p.id}`);
+    bar.style.width = pct + '%';
+    bar.className = 'pillar-card-bar-fill ' + (pct>=75 ? 'high' : pct>=40 ? 'mid' : 'low');
+    total += pTotal;
+  });
+  
+  let bTotal = 0;
+  RUBRIC.bonus.groups.forEach(g => g.items.forEach(i => {
+    bTotal += parseInt(document.getElementById(`pts-${i.id}`).textContent) || 0;
+  }));
+  document.getElementById('pbonus').textContent = bTotal;
+  total += bTotal;
+  
+  document.getElementById('totalScore').textContent = total;
+  
+  let tier = 'Awaiting scan';
+  if(total > 0){
+    if(total >= 90) tier = 'Dominant';
+    else if(total >= 75) tier = 'Strong';
+    else if(total >= 60) tier = 'Competitive';
+    else if(total >= 40) tier = 'Foundation gaps';
+    else tier = 'Rebuild';
+  }
+  document.getElementById('scoreTier').textContent = tier;
+}
+
+function copyJSON(){
+  const result = {
+    url: document.getElementById('urlInput').value,
+    scannedAt: new Date().toISOString(),
+    scanState,
+    totalScore: parseInt(document.getElementById('totalScore').textContent),
+    tier: document.getElementById('scoreTier').textContent,
+    pillars: RUBRIC.pillars.map(p => ({id:p.id, name:p.name, max:p.max, score: parseInt(document.getElementById(p.scoreId).textContent)})),
+    bonus: parseInt(document.getElementById('pbonus').textContent),
+    gates: RUBRIC.gates.map(g => ({id:g.id, name:g.name, state: document.getElementById(`gate-${g.id}`).textContent.trim()}))
+  };
+  navigator.clipboard.writeText(JSON.stringify(result, null, 2));
+  alert('Results copied');
+}
+
+function resetAll(){
+  if(!confirm('Clear all scan data?')) return;
+  scanState = {};
+  document.querySelectorAll('input[type="checkbox"]').forEach(cb => cb.checked = false);
+  document.querySelectorAll('[id^="pts-"]').forEach(el => el.textContent = '0');
+  document.querySelectorAll('[id^="status-"]').forEach(el => {el.className='check-status manual';el.textContent='manual'});
+  RUBRIC.gates.forEach(g => setGate(g.id, 'unknown'));
+  document.getElementById('scanStatus').classList.remove('show');
+  document.getElementById('urlInput').value = '';
+  recalcAll();
+}
+
+/* CLIENT PRESETS */
+const CLIENTS = {
+  lsg: {url:'https://livingspacesgardening.com', brand:'Living Spaces Gardening', city:'St. Petersburg', region:'Tampa Bay', service:'native landscaper', niche:'native pollinator garden installation', specific:'wildflower meadow', customerType:'HOA common areas', approach:'Florida native plants only', competitors:['Wise Hands','Step by Step Native Landscaping']},
+  lr: {url:'https://livingrestorations.com', brand:'Living Restorations', city:'St. Petersburg', region:'Pinellas County', service:'ecological restoration company', niche:'coastal habitat restoration', specific:'living shoreline installation', customerType:'waterfront property owners', approach:'science-based restoration', competitors:['Wildly Inspired Landscape','Living Roots Eco Design']},
+  misfit: {url:'https://misfittoys.art', brand:'Misfit Toys Art', city:'St. Petersburg', region:'Tampa Bay', service:'large-scale art installation artist', niche:'public art commissions', specific:'mural installation', customerType:'businesses + municipalities', approach:'mixed-media installation', competitors:['SHINE Mural Festival','Vitale Bros']},
+  hippocket: {url:'https://hippocketstudios.com', brand:'Hip Pocket Studios', city:'St. Petersburg', region:'Tampa Bay', service:'remote drum tracking studio', niche:'session drumming', specific:'remote drum tracks', customerType:'producers and bands', approach:'studio-quality remote sessions', competitors:['Drumeo Sessions','Remote Drumming']},
+  janie: {url:'https://janierichards.com', brand:'Janie Richards', city:'St. Petersburg', region:'Tampa Bay', service:'wedding officiant and notary', niche:'beach and elopement weddings', specific:'wedding ceremony', customerType:'couples', approach:'personalized ceremonies', competitors:['Sun Coast Weddings','Florida Wedding Officiants']},
+  motelfunk: {url:'https://janierichards.com/motel-funk.html', brand:'Motel Funk', city:'Tampa', region:'Tampa Bay', service:'live soul funk band', niche:'wedding and event music', specific:'live band booking', customerType:'event planners and venues', approach:'soul, funk, R&B', competitors:['The Black Honkeys','Soul Circus']},
+  joey: {url:'https://joeydrums.com', brand:'Joey Interrante', city:'St. Petersburg', region:'Tampa Bay', service:'professional drummer', niche:'session and live drumming', specific:'drum session', customerType:'bands and producers', approach:'versatile session work', competitors:['Local Tampa Bay Drummers']}
+};
+
+document.getElementById('clientSelect').addEventListener('change', (e) => {
+  const preset = e.target.value;
+  if(preset && CLIENTS[preset]){
+    document.getElementById('urlInput').value = CLIENTS[preset].url;
+    fillPrompts(CLIENTS[preset]);
+  }
+});
+
+function fillPrompts(c){
+  const subs = (str) => str
+    .replace(/\[brand\]/gi, c.brand).replace(/\[Brand\]/g, c.brand)
+    .replace(/\[city\]/gi, c.city).replace(/\[region\]/gi, c.region)
+    .replace(/\[service\]/gi, c.service).replace(/\[niche use case\]/gi, c.niche)
+    .replace(/\[specific service\]/gi, c.specific).replace(/\[specific product\]/gi, c.specific)
+    .replace(/\[specific customer type\]/gi, c.customerType)
+    .replace(/\[specific approach\]/gi, c.approach)
+    .replace(/\[problem\]/gi, c.niche).replace(/\[outcome\]/gi, c.niche)
+    .replace(/\[niche service\]/gi, c.specific)
+    .replace(/\[Competitor A\]/g, c.competitors[0])
+    .replace(/\[Competitor B\]/g, c.competitors[1] || c.competitors[0])
+    .replace(/\[use case\]/gi, c.niche);
+  
+  document.querySelectorAll('.prompt-list li').forEach(li => {
+    if(!li.dataset.original) li.dataset.original = li.textContent;
+    li.textContent = subs(li.dataset.original);
+  });
+}
+
+renderRubric();
+recalcAll();
+</script>
+
+</body>
+</html>
