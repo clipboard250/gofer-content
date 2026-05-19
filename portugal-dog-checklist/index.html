@@ -9,6 +9,10 @@
 <meta property="og:title" content="Portugal with your dog — a checklist" />
 <meta property="og:description" content="A simple, tap-to-check checklist for U.S. to Portugal dog travel." />
 <meta property="og:type" content="website" />
+<meta property="og:image" content="https://gofercontent.com/portugal-dog-checklist/og-image.png" />
+<meta name="twitter:card" content="summary_large_image" />
+<!-- Inline SVG favicon — yellow dog paw on black -->
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%230a0a0a'/%3E%3Cg fill='%23ffc928'%3E%3Cellipse cx='32' cy='42' rx='13' ry='11'/%3E%3Cellipse cx='14' cy='26' rx='6' ry='8'/%3E%3Cellipse cx='50' cy='26' rx='6' ry='8'/%3E%3Cellipse cx='22' cy='14' rx='5' ry='7'/%3E%3Cellipse cx='42' cy='14' rx='5' ry='7'/%3E%3C/g%3E%3C/svg%3E" />
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@700&family=Space+Mono:wght@400;700&family=Archivo+Black&display=swap" rel="stylesheet">
@@ -32,6 +36,12 @@
   .topbar{display:flex;align-items:center;justify-content:space-between;font-size:13px;color:var(--ink);opacity:.85;padding:4px 2px 18px;font-weight:700;letter-spacing:.5px}
   .topbar .right{display:flex;gap:8px;align-items:center;font-family:"Archivo Black",sans-serif;font-size:12px}
   .topbar .batt{border:1.5px solid var(--ink);border-radius:5px;padding:2px 6px;font-size:11px}
+  .topbar .back-link{
+    color:var(--ink);text-decoration:none;font-family:"Space Mono",monospace;font-size:12px;
+    border:1.5px solid #2a2a2a;border-radius:99px;padding:5px 12px;font-weight:400;letter-spacing:.3px;
+    transition:border-color .2s ease;
+  }
+  .topbar .back-link:hover,.topbar .back-link:focus-visible{border-color:var(--green);outline:none}
 
   .wordmark{
     font-family:"Caveat",cursive;
@@ -311,14 +321,23 @@
   .modal .card::after{bottom:8px}
   .modal h3{font-family:"Archivo Black",sans-serif;font-size:24px;text-transform:uppercase;margin:14px 0 8px}
   .modal p{font-family:"Space Mono",monospace;font-size:14px;line-height:1.5;margin:0 0 8px}
+  .modal .pitch{
+    background:#0a0a0a;color:var(--ink);border-radius:4px;padding:16px 14px;margin-top:18px;
+  }
+  .modal .pitch strong{display:block;font-family:"Archivo Black",sans-serif;font-size:14px;text-transform:uppercase;letter-spacing:.5px;margin-bottom:6px;color:var(--green)}
+  .modal .pitch span{display:block;font-family:"Space Mono",monospace;font-size:13px;line-height:1.5;color:var(--ink-dim);margin-bottom:10px}
+  .modal .pitch-link{
+    display:inline-block;color:var(--green);text-decoration:none;font-family:"Archivo Black",sans-serif;font-size:12px;
+    text-transform:uppercase;letter-spacing:1px;border-bottom:2px solid var(--green);padding-bottom:2px;
+  }
   .modal .close{margin-top:18px;width:100%;background:#0a0a0a;color:var(--yellow);border:none;padding:14px;font-family:"Archivo Black",sans-serif;font-size:14px;text-transform:uppercase;border-radius:4px;letter-spacing:.5px;cursor:pointer}
 </style>
 </head>
 <body>
 
 <div class="topbar">
-  <span>portugal trip</span>
-  <span class="right"><span>checklist</span><span class="batt">v1.0</span></span>
+  <a href="https://gofercontent.com" class="back-link">← gofercontent.com</a>
+  <span class="right"><span class="batt">v1.0</span></span>
 </div>
 
 <div class="wordmark">portugal&nbsp;🐾</div>
@@ -327,15 +346,8 @@
 <!-- Decorative film strip, Snapseed-style -->
 <div class="strip" aria-hidden="true">
   <div class="frame">VET</div>
-  <div class="frame">CHIP
-    <span class="sticker s-eyes">
-      <svg width="78" height="58" viewBox="0 0 78 58"><g><ellipse cx="26" cy="29" rx="22" ry="20" fill="#1a7fff" stroke="#000" stroke-width="3"/><ellipse cx="52" cy="29" rx="22" ry="20" fill="#1a7fff" stroke="#000" stroke-width="3"/><circle cx="26" cy="33" r="9" fill="#000"/><circle cx="52" cy="33" r="9" fill="#000"/></g></svg>
-    </span>
-  </div>
+  <div class="frame">CHIP</div>
   <div class="frame">DOCS
-    <span class="sticker s-scissors">
-      <svg width="50" height="54" viewBox="0 0 50 54"><g stroke="#000" stroke-width="3" fill="#ff8a1f"><circle cx="14" cy="40" r="10"/><circle cx="36" cy="40" r="10"/><path d="M14 40 L40 8 M36 40 L10 8" stroke-width="4" fill="none"/></g></svg>
-    </span>
     <span class="sticker s-hand">
       <svg width="84" height="60" viewBox="0 0 84 60"><path d="M10 30 q10 -22 28 -18 q4 -16 18 -10 q14 -6 22 8 q10 18 -8 32 q-18 14 -38 8 q-22 -2 -22 -20z" fill="#ff6fc8" stroke="#000" stroke-width="3"/></svg>
     </span>
@@ -434,7 +446,7 @@
 <!-- Sticky CTA -->
 <div class="cta-bar">
   <button class="cta" id="cta">
-    <span>I need help — email me</span>
+    <span>I need help — text me</span>
     <span class="arrow">→</span>
   </button>
 </div>
@@ -445,6 +457,11 @@
     <h3>You did it!</h3>
     <p>All 9 steps checked. Print this page or save it as a PDF and bring it with you to your vet appointment.</p>
     <p>Safe travels with your pup. 🐾</p>
+    <div class="pitch">
+      <strong>Want us to build you a checklist like this?</strong>
+      <span>Gofer Content makes simple, beautiful guides for whatever you're planning — travel, projects, family stuff.</span>
+      <a href="https://gofercontent.com" class="pitch-link">See gofercontent.com →</a>
+    </div>
     <button class="close" id="close">Close</button>
   </div>
 </div>
