@@ -1,0 +1,630 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
+<title>Portugal with your dog—a checklist</title>
+<meta name="description" content="A step-by-step checklist for flying from the U.S. to Portugal with a small dog. Tap to check off each step." />
+<meta name="theme-color" content="#0a0a0a" />
+<meta property="og:title" content="Portugal with your dog—a checklist" />
+<meta property="og:description" content="A simple, tap-to-check checklist for U.S. to Portugal dog travel." />
+<meta property="og:type" content="website" />
+<meta property="og:image" content="https://gofercontent.com/portugal-dog-checklist/og-image.png" />
+<meta name="twitter:card" content="summary_large_image" />
+<!-- Inline SVG favicon — yellow dog paw on black -->
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%230a0a0a'/%3E%3Cg fill='%23ffc928'%3E%3Cellipse cx='32' cy='42' rx='13' ry='11'/%3E%3Cellipse cx='14' cy='26' rx='6' ry='8'/%3E%3Cellipse cx='50' cy='26' rx='6' ry='8'/%3E%3Cellipse cx='22' cy='14' rx='5' ry='7'/%3E%3Cellipse cx='42' cy='14' rx='5' ry='7'/%3E%3C/g%3E%3C/svg%3E" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@700&family=Space+Mono:wght@400;700&family=Archivo+Black&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#0a0a0a;
+    --ink:#f4ede2;
+    --ink-dim:#9a9388;
+    --yellow:#ffc928;
+    --green:#2ee85b;
+    --blue:#1a7fff;
+    --pink:#ff6fc8;
+    --orange:#ff8a1f;
+    --red:#ff4d4d;
+  }
+  *{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+  html,body{margin:0;padding:0;background:var(--bg);color:var(--ink);font-family:"Space Mono",ui-monospace,monospace;overscroll-behavior-y:contain}
+  body{padding:24px 22px 140px;max-width:520px;margin:0 auto;min-height:100vh}
+
+  /* Header — the snapseed-style logo block */
+  .topbar{display:flex;align-items:center;justify-content:space-between;font-size:13px;color:var(--ink);opacity:.85;padding:4px 2px 18px;font-weight:700;letter-spacing:.5px}
+  .topbar .right{display:flex;gap:8px;align-items:center;font-family:"Archivo Black",sans-serif;font-size:12px}
+  .topbar .batt{border:1.5px solid var(--ink);border-radius:5px;padding:2px 6px;font-size:11px}
+  .topbar .back-link{
+    color:var(--ink);text-decoration:none;font-family:"Space Mono",monospace;font-size:12px;
+    border:1.5px solid #2a2a2a;border-radius:99px;padding:5px 12px;font-weight:400;letter-spacing:.3px;
+    transition:border-color .2s ease;
+  }
+  .topbar .back-link:hover,.topbar .back-link:focus-visible{border-color:var(--green);outline:none}
+
+  .wordmark{
+    font-family:"Caveat",cursive;
+    font-size:64px;
+    line-height:.9;
+    text-align:center;
+    margin:8px 0 4px;
+    letter-spacing:-1px;
+  }
+  .welcome{
+    text-align:center;
+    font-family:"Space Mono",monospace;
+    font-size:14px;
+    color:var(--ink);
+    margin:0 0 28px;
+    letter-spacing:.3px;
+  }
+
+  /* Film strip row of "stickers" — purely decorative, like the Snapseed promo cards */
+  .strip{
+    position:relative;
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:8px;
+    margin:0 -6px 36px;
+    padding:0 6px;
+  }
+  .frame{
+    position:relative;
+    background:var(--yellow);
+    height:130px;
+    border-radius:2px;
+    display:flex;align-items:center;justify-content:center;
+    font-family:"Archivo Black",sans-serif;
+    font-size:18px;
+    color:#0a0a0a;
+    letter-spacing:.5px;
+    overflow:visible;
+  }
+  /* film perforations on top and bottom */
+  .frame::before,.frame::after{
+    content:"";
+    position:absolute;left:4px;right:4px;height:10px;
+    background-image:radial-gradient(circle, #0a0a0a 0 2.5px, transparent 3px);
+    background-size:10px 10px;background-repeat:repeat-x;background-position:left center;
+  }
+  .frame::before{top:5px}
+  .frame::after{bottom:5px}
+
+  /* the playful stickers that overlap the frames */
+  .sticker{position:absolute;z-index:2;pointer-events:none;filter:drop-shadow(0 0 0 #000)}
+  .sticker svg{display:block}
+
+  .s-eyes{top:-22px;left:54%;transform:translateX(-50%) rotate(-8deg)}
+  .s-scissors{top:-16px;right:24%;transform:rotate(14deg)}
+  .s-hand{bottom:-26px;left:50%;transform:translateX(-30%) rotate(-18deg)}
+
+  /* Section heading */
+  h2.section{
+    font-family:"Archivo Black",sans-serif;
+    font-size:30px;
+    line-height:1.05;
+    letter-spacing:.5px;
+    margin:8px 0 6px;
+    text-transform:uppercase;
+  }
+  .lede{
+    font-family:"Space Mono",monospace;
+    font-size:13.5px;
+    color:var(--ink-dim);
+    line-height:1.55;
+    margin:0 0 22px;
+  }
+
+  /* Big checklist items — each looks like a yellow film card */
+  .item{
+    display:block;
+    width:100%;
+    text-align:left;
+    font:inherit;
+    appearance:none;-webkit-appearance:none;
+    border:none;
+    position:relative;
+    background:var(--yellow);
+    color:#0a0a0a;
+    border-radius:4px;
+    padding:22px 20px 22px 76px;
+    margin:0 0 14px;
+    cursor:pointer;
+    user-select:none;
+    transition:transform .15s ease, background .25s ease, opacity .25s ease;
+  }
+  .item:focus-visible{outline:3px solid var(--green);outline-offset:3px}
+  .item::before,.item::after{
+    content:"";
+    position:absolute;left:6px;right:6px;height:10px;
+    background-image:radial-gradient(circle, #0a0a0a 0 2.5px, transparent 3px);
+    background-size:12px 10px;background-repeat:repeat-x;background-position:left center;
+  }
+  .item::before{top:6px}
+  .item::after{bottom:6px}
+  .item:active{transform:scale(.985)}
+
+  .step-num{
+    position:absolute;
+    left:14px;top:50%;transform:translateY(-50%);
+    width:46px;height:46px;border-radius:50%;
+    background:#0a0a0a;color:var(--yellow);
+    display:flex;align-items:center;justify-content:center;
+    font-family:"Archivo Black",sans-serif;font-size:20px;
+  }
+  .item h3{
+    font-family:"Archivo Black",sans-serif;
+    font-size:18px;
+    line-height:1.15;
+    margin:2px 0 6px;
+    text-transform:uppercase;
+    letter-spacing:.3px;
+  }
+  .item p{
+    font-family:"Space Mono",monospace;
+    font-size:14px;
+    line-height:1.5;
+    margin:0;
+    color:#1a1a1a;
+  }
+  .item .when{
+    display:inline-block;
+    margin-top:10px;
+    background:#0a0a0a;color:var(--yellow);
+    font-family:"Archivo Black",sans-serif;font-size:11px;
+    padding:5px 9px;border-radius:3px;letter-spacing:.5px;
+  }
+
+  /* Checked state */
+  .item.done{
+    background:#1a1a1a;
+    color:var(--ink-dim);
+  }
+  .item.done h3,.item.done p{color:var(--ink-dim);text-decoration:line-through;text-decoration-thickness:2px}
+  .item.done .step-num{background:var(--green);color:#0a0a0a}
+  .item.done .when{background:var(--green);color:#0a0a0a}
+
+  /* color variants for visual rhythm */
+  .item.v2{background:#ffd84a}
+  .item.v3{background:#f5be1c}
+
+  /* sticker accents on a couple of cards (matching home screen vibe) */
+  .item .acc{
+    position:absolute;right:-6px;top:-14px;
+    width:54px;height:54px;
+  }
+
+  /* Progress bar */
+  .progress-wrap{
+    margin:20px 2px 28px;
+    font-family:"Space Mono",monospace;
+    font-size:12px;
+    color:var(--ink-dim);
+  }
+  .progress{
+    height:10px;background:#1a1a1a;border-radius:99px;overflow:hidden;margin-top:8px;
+    border:1.5px solid #2a2a2a;
+  }
+  .progress span{display:block;height:100%;width:0%;background:var(--green);transition:width .4s ease}
+
+  /* "BLOOM / HALATION / MORE FAVORITES" list block, restyled as a key facts list */
+  .facts{
+    margin:32px 0 24px;
+    font-family:"Archivo Black",sans-serif;
+    font-size:34px;
+    line-height:1.15;
+    text-transform:uppercase;
+    letter-spacing:.5px;
+  }
+  .facts li{
+    list-style:none;margin:0 0 4px;
+  }
+  .facts li::before{content:"";}
+
+  /* Sticky bottom CTA — green pill like Snapseed's GET STARTED */
+  .cta-bar{
+    position:fixed;left:0;right:0;bottom:0;
+    background:linear-gradient(to top, #0a0a0a 60%, rgba(10,10,10,0));
+    padding:20px 22px calc(20px + env(safe-area-inset-bottom));
+    z-index:50;
+  }
+  .cta{
+    display:block;width:100%;max-width:480px;margin:0 auto;
+    background:var(--green);color:#0a0a0a;
+    border:none;border-radius:6px;
+    padding:20px 22px;
+    font-family:"Archivo Black",sans-serif;
+    font-size:17px;letter-spacing:1px;
+    text-transform:uppercase;
+    display:flex;align-items:center;justify-content:space-between;
+    cursor:pointer;
+  }
+  .cta:active{transform:scale(.99)}
+  .cta .arrow{font-family:"Archivo Black",sans-serif;font-size:20px}
+
+  /* tiny helper note */
+  .note{
+    font-family:"Space Mono",monospace;
+    font-size:12px;color:var(--ink-dim);
+    line-height:1.55;margin:8px 4px 0;
+    text-align:center;
+  }
+
+  /* Reset link */
+  .reset{
+    display:block;margin:14px auto 0;background:transparent;border:1.5px solid #2a2a2a;color:var(--ink-dim);
+    padding:10px 16px;border-radius:4px;font-family:"Space Mono",monospace;font-size:12px;letter-spacing:.5px;
+    cursor:pointer;
+  }
+
+  /* Contact form modal — opens from the green CTA */
+  .contact{
+    position:fixed;inset:0;background:rgba(0,0,0,.9);display:none;align-items:flex-end;justify-content:center;z-index:90;padding:0;
+  }
+  .contact.show{display:flex}
+  @media (min-width:640px){.contact.show{align-items:center;padding:24px}}
+  .contact .sheet{
+    background:#161616;color:var(--ink);border-radius:16px 16px 0 0;padding:28px 22px calc(28px + env(safe-area-inset-bottom));
+    max-width:520px;width:100%;position:relative;
+    border-top:3px solid var(--green);
+  }
+  @media (min-width:640px){.contact .sheet{border-radius:8px;border-top:none;border:2px solid var(--green)}}
+  .contact h3{
+    font-family:"Archivo Black",sans-serif;font-size:22px;line-height:1.1;
+    text-transform:uppercase;margin:0 0 6px;letter-spacing:.3px;
+  }
+  .contact .sub{font-family:"Space Mono",monospace;font-size:13px;color:var(--ink-dim);line-height:1.5;margin:0 0 18px}
+  .contact label{display:block;font-family:"Space Mono",monospace;font-size:11px;text-transform:uppercase;letter-spacing:1px;color:var(--ink-dim);margin:14px 0 6px}
+  .contact input,.contact textarea{
+    width:100%;background:#0a0a0a;border:1.5px solid #2a2a2a;border-radius:4px;color:var(--ink);
+    font-family:"Space Mono",monospace;font-size:15px;padding:14px 14px;box-sizing:border-box;
+  }
+  .contact input:focus,.contact textarea:focus{outline:none;border-color:var(--green)}
+  .contact textarea{min-height:90px;resize:vertical}
+  .contact .row{display:flex;gap:10px;margin-top:18px}
+  .contact .row button{flex:1}
+  .contact .submit{
+    background:var(--green);color:#0a0a0a;border:none;border-radius:6px;padding:16px;
+    font-family:"Archivo Black",sans-serif;font-size:15px;text-transform:uppercase;letter-spacing:1px;cursor:pointer;
+  }
+  .contact .cancel{
+    background:transparent;color:var(--ink-dim);border:1.5px solid #2a2a2a;border-radius:6px;padding:16px;
+    font-family:"Space Mono",monospace;font-size:13px;text-transform:uppercase;letter-spacing:.5px;cursor:pointer;
+  }
+  .contact .err{color:#ff7070;font-family:"Space Mono",monospace;font-size:13px;margin-top:10px;display:none}
+  .contact .err.show{display:block}
+  .contact .ok{
+    display:none;background:var(--green);color:#0a0a0a;border-radius:4px;padding:16px;margin-top:8px;
+    font-family:"Space Mono",monospace;font-size:14px;line-height:1.5;
+  }
+  .contact.sent .form{display:none}
+  .contact.sent .ok{display:block}
+  /* honeypot — visually hidden but accessible to bots */
+  .hp{position:absolute;left:-9999px;width:1px;height:1px;opacity:0}
+
+  /* Modal — instant delivery, like the snapseed welcome card */
+  .modal{
+    position:fixed;inset:0;background:rgba(0,0,0,.85);display:none;align-items:center;justify-content:center;z-index:100;padding:24px;
+  }
+  .modal.show{display:flex}
+  .modal .card{
+    background:var(--yellow);color:#0a0a0a;border-radius:6px;padding:28px 24px;max-width:420px;width:100%;
+    position:relative;
+  }
+  .modal .card::before,.modal .card::after{
+    content:"";position:absolute;left:8px;right:8px;height:10px;
+    background-image:radial-gradient(circle, #0a0a0a 0 2.5px, transparent 3px);
+    background-size:12px 10px;background-repeat:repeat-x;
+  }
+  .modal .card::before{top:8px}
+  .modal .card::after{bottom:8px}
+  .modal h3{font-family:"Archivo Black",sans-serif;font-size:24px;text-transform:uppercase;margin:14px 0 8px}
+  .modal p{font-family:"Space Mono",monospace;font-size:14px;line-height:1.5;margin:0 0 8px}
+  .modal .pitch{
+    background:#0a0a0a;color:var(--ink);border-radius:4px;padding:16px 14px;margin-top:18px;
+  }
+  .modal .pitch strong{display:block;font-family:"Archivo Black",sans-serif;font-size:14px;text-transform:uppercase;letter-spacing:.5px;margin-bottom:6px;color:var(--green)}
+  .modal .pitch span{display:block;font-family:"Space Mono",monospace;font-size:13px;line-height:1.5;color:var(--ink-dim);margin-bottom:10px}
+  .modal .pitch-link{
+    display:inline-block;color:var(--green);text-decoration:none;font-family:"Archivo Black",sans-serif;font-size:12px;
+    text-transform:uppercase;letter-spacing:1px;border-bottom:2px solid var(--green);padding-bottom:2px;
+  }
+  .modal .close{margin-top:18px;width:100%;background:#0a0a0a;color:var(--yellow);border:none;padding:14px;font-family:"Archivo Black",sans-serif;font-size:14px;text-transform:uppercase;border-radius:4px;letter-spacing:.5px;cursor:pointer}
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <a href="https://gofercontent.com" class="back-link">← gofercontent.com</a>
+  <span class="right"><span class="batt">v1.0</span></span>
+</div>
+
+<div class="wordmark">portugal&nbsp;🐾</div>
+<p class="welcome">Welcome—your dog travel plan</p>
+
+<!-- Decorative film strip, Snapseed-style -->
+<div class="strip" aria-hidden="true">
+  <div class="frame">VET</div>
+  <div class="frame">CHIP</div>
+  <div class="frame">DOCS
+    <span class="sticker s-hand">
+      <svg width="84" height="60" viewBox="0 0 84 60"><path d="M10 30 q10 -22 28 -18 q4 -16 18 -10 q14 -6 22 8 q10 18 -8 32 q-18 14 -38 8 q-22 -2 -22 -20z" fill="#ff6fc8" stroke="#000" stroke-width="3"/></svg>
+    </span>
+  </div>
+  <div class="frame">FLY</div>
+</div>
+
+<h2 class="section">Going to portugal with your pup</h2>
+<p class="lede">Tap each step as you finish it. Start with Step 1 today—the timeline matters. Don't skip ahead.</p>
+
+<div class="progress-wrap" role="status" aria-live="polite">
+  <div><span id="pct">0</span>% done · <span id="count">0 of 9</span></div>
+  <div class="progress" aria-hidden="true"><span id="bar"></span></div>
+</div>
+
+<!-- Checklist items -->
+<div id="list" role="list" aria-label="9-step Portugal travel checklist for your dog">
+
+  <button class="item" data-id="s1" type="button" aria-pressed="false">
+    <div class="step-num">1</div>
+    <h3>Call your vet—book an appointment</h3>
+    <p>Tell them: "I'm flying to Portugal with my dog. I need a <b>USDA-accredited</b> vet for the EU health certificate." Ask if their vet is USDA-accredited. If not, ask who nearby is.</p>
+    <span class="when">START NOW · 6–8 WEEKS OUT</span>
+  </button>
+
+  <button class="item v2" data-id="s2" type="button" aria-pressed="false">
+    <div class="step-num">2</div>
+    <h3>Check the microchip</h3>
+    <p>Your dog needs a working <b>ISO-compliant microchip</b> (usually 15 digits, ISO 11784/11785). If yours has an older non-ISO chip, APHIS says you can either travel with your own scanner that reads it, <b>or</b> have a second ISO chip implanted—both numbers go on the certificate. Bring chip paperwork to the vet appointment.</p>
+    <span class="when">6–8 WEEKS OUT</span>
+  </button>
+
+  <button class="item v3" data-id="s3" type="button" aria-pressed="false">
+    <div class="step-num">3</div>
+    <h3>Update the rabies shot</h3>
+    <p>The rabies vaccine must be <b>current</b> and given <i>after</i> the microchip was inserted. If it's a brand new rabies shot, you must wait <b>21 days</b> before flying. Keep the certificate.</p>
+    <span class="when">AT LEAST 21 DAYS BEFORE FLIGHT</span>
+  </button>
+
+  <button class="item" data-id="s4" type="button" aria-pressed="false">
+    <div class="step-num">4</div>
+    <h3>Pick your flight & call the airline</h3>
+    <p>Look at direct or one-stop routes from your closest international airport to Lisbon or Porto. <b>Call the airline</b> to book your dog in cabin (small dogs only) or as checked. Each airline has a pet limit per flight—book early.</p>
+    <span class="when">4–6 WEEKS OUT</span>
+  </button>
+
+  <button class="item v2" data-id="s5" type="button" aria-pressed="false">
+    <div class="step-num">5</div>
+    <h3>Confirm the right EU health certificate form</h3>
+    <p>Ask your USDA-accredited vet to use the <b>"non-commercial" EU health certificate</b> for Portugal. Your vet pulls the current version from the APHIS Portugal pet travel page—don't print one yourself, forms get updated.</p>
+    <span class="when">3–4 WEEKS OUT</span>
+  </button>
+
+  <button class="item v3" data-id="s6" type="button" aria-pressed="false">
+    <div class="step-num">6</div>
+    <h3>Vet fills out the certificate</h3>
+    <p>Your USDA-accredited vet completes and signs the EU health certificate. Timing is tight: the USDA endorsement (next step) must be done within <b>10 days of your dog's arrival in the EU</b>, so most people do the vet visit just a few days before flying.</p>
+    <span class="when">A FEW DAYS BEFORE TRAVEL</span>
+  </button>
+
+  <button class="item" data-id="s7" type="button" aria-pressed="false">
+    <div class="step-num">7</div>
+    <h3>USDA APHIS endorses the certificate</h3>
+    <p>After the vet signs it, the certificate goes to <b>USDA APHIS</b> for endorsement. APHIS says <b>VEHCS</b> (electronic submission) gives the fastest processing—your vet handles this, not you. The endorsement must be completed within <b>10 days of your arrival in the EU</b>.</p>
+    <span class="when">WITHIN 10 DAYS OF ARRIVAL</span>
+  </button>
+
+  <button class="item v2" data-id="s8" type="button" aria-pressed="false">
+    <div class="step-num">8</div>
+    <h3>Email Portugal 48 hours before you land</h3>
+    <p>Portugal requires you to give the Travelers' Point of Entry (PEV) at your arrival airport <b>written notice at least 48 hours before</b> your dog lands. The "Notice of Arrival" form is on the <b>DGAV website</b>. Email it with your health certificate and rabies records. Some PEVs have limited overnight hours—check yours when you submit the notice.</p>
+    <span class="when">48 HOURS BEFORE LANDING</span>
+  </button>
+
+  <button class="item v3" data-id="s9" type="button" aria-pressed="false">
+    <div class="step-num">9</div>
+    <h3>Pack the travel folder</h3>
+    <p>In one folder, carry: <b>endorsed EU health certificate</b> (paper, not just on phone), microchip paperwork, rabies certificate, DGAV confirmation email, your airline pet booking, and a copy of your passport. Hand-carry—do not check it.</p>
+    <span class="when">DAY OF TRAVEL</span>
+  </button>
+
+</div>
+
+<button class="reset" id="reset">Clear all checkmarks</button>
+
+<ul class="facts">
+  <li>NO QUARANTINE*</li>
+  <li>NO TITER TEST*</li>
+  <li>10-DAY WINDOW</li>
+  <li>48-HOUR NOTICE</li>
+  <li>21-DAY RABIES</li>
+</ul>
+
+<p class="note">*If U.S. paperwork is complete and correct. Pets from unlisted countries may need a rabies titer test.<br>If your dog has a flat face (pug, bulldog, frenchie), some airlines won't fly them—call the airline first.<br>Rules change. Confirm with your USDA-accredited vet, USDA APHIS, and Portugal's DGAV before you book.</p>
+
+<!-- Sticky CTA -->
+<div class="cta-bar">
+  <button class="cta" id="cta">
+    <span>I need help—text me</span>
+    <span class="arrow">→</span>
+  </button>
+</div>
+
+<!-- Modal -->
+<div class="modal" id="modal" role="dialog" aria-modal="true">
+  <div class="card">
+    <h3>You did it!</h3>
+    <p>All 9 steps checked. Print this page or save it as a PDF and bring it with you to your vet appointment.</p>
+    <p>Safe travels with your pup. 🐾</p>
+    <div class="pitch">
+      <strong>Want us to build you a checklist like this?</strong>
+      <span>Gofer Content makes simple, beautiful guides for whatever you're planning—travel, projects, family stuff.</span>
+      <a href="https://gofercontent.com" class="pitch-link">See gofercontent.com →</a>
+    </div>
+    <button class="close" id="close">Close</button>
+  </div>
+</div>
+
+<!-- Contact form (Formspree) -->
+<div class="contact" id="contact" role="dialog" aria-modal="true" aria-labelledby="contact-title">
+  <div class="sheet">
+    <form class="form" id="contact-form" action="https://formspree.io/f/mykvkdql" method="POST" novalidate>
+      <h3 id="contact-title">Need a hand?</h3>
+      <p class="sub">Send your question and we'll get back to you. We'll CC info@gofercontent.com so nothing gets lost.</p>
+
+      <label for="c-email">Your email</label>
+      <input id="c-email" type="email" name="email" required autocomplete="email" placeholder="you@example.com" />
+
+      <label for="c-msg">What do you need help with?</label>
+      <textarea id="c-msg" name="message" placeholder="e.g. I'm flying from Seattle to Lisbon in March with my 12-lb dog..."></textarea>
+
+      <!-- Honeypot for spam -->
+      <input class="hp" type="text" name="_gotcha" tabindex="-1" autocomplete="off" aria-hidden="true" />
+      <!-- Formspree extras -->
+      <input type="hidden" name="_subject" value="Portugal-with-dog checklist—help request" />
+      <input type="hidden" name="_cc" value="info@gofercontent.com" />
+      <input type="hidden" name="source" value="portugal-dog-checklist" />
+
+      <p class="err" id="contact-err" role="alert">Something went wrong. Please email info@gofercontent.com directly.</p>
+
+      <div class="row">
+        <button type="button" class="cancel" id="contact-cancel">Cancel</button>
+        <button type="submit" class="submit" id="contact-submit">Send</button>
+      </div>
+    </form>
+
+    <div class="ok" id="contact-ok" role="status">
+      <strong style="font-family:'Archivo Black',sans-serif;font-size:16px;text-transform:uppercase;display:block;margin-bottom:6px">Got it!</strong>
+      Your message is in. We'll reply to the email you gave us. You can close this window and keep working through the checklist.
+      <button type="button" class="cancel" id="contact-done" style="margin-top:14px;width:100%;background:#0a0a0a;color:var(--yellow);border:none">Close</button>
+    </div>
+  </div>
+</div>
+
+<script>
+  const items = document.querySelectorAll('.item');
+  const total = items.length;
+  const pct = document.getElementById('pct');
+  const count = document.getElementById('count');
+  const bar = document.getElementById('bar');
+  const modal = document.getElementById('modal');
+  const STORAGE_KEY = 'portugal-dog-checklist-v1';
+
+  function loadState(){
+    try{
+      const raw = localStorage.getItem(STORAGE_KEY);
+      if(!raw) return {};
+      return JSON.parse(raw);
+    }catch(e){return {}}
+  }
+  function saveState(state){
+    try{ localStorage.setItem(STORAGE_KEY, JSON.stringify(state)); }catch(e){}
+  }
+
+  let state = loadState();
+  let userActed = false;
+
+  function paint(){
+    let done = 0;
+    items.forEach(el=>{
+      const id = el.dataset.id;
+      const isDone = !!state[id];
+      el.classList.toggle('done', isDone);
+      el.setAttribute('aria-pressed', isDone ? 'true' : 'false');
+      if(isDone) done++;
+    });
+    const p = total ? Math.round(done/total*100) : 0;
+    pct.textContent = p;
+    count.textContent = done + ' of ' + total;
+    bar.style.width = p + '%';
+    if(done === total && total > 0 && userActed){
+      setTimeout(()=>{ modal.classList.add('show'); }, 250);
+    }
+  }
+
+  items.forEach(el=>{
+    el.addEventListener('click', ()=>{
+      const id = el.dataset.id;
+      state[id] = !state[id];
+      saveState(state);
+      userActed = true;
+      paint();
+    });
+  });
+
+  document.getElementById('reset').addEventListener('click', ()=>{
+    state = {};
+    saveState(state);
+    userActed = false;
+    paint();
+  });
+
+  document.getElementById('close').addEventListener('click', ()=> modal.classList.remove('show'));
+  modal.addEventListener('click', e=>{ if(e.target === modal) modal.classList.remove('show'); });
+
+  // Contact form
+  const contact = document.getElementById('contact');
+  const contactForm = document.getElementById('contact-form');
+  const contactErr = document.getElementById('contact-err');
+  const contactSubmit = document.getElementById('contact-submit');
+
+  function openContact(){
+    contact.classList.add('show');
+    contact.classList.remove('sent');
+    contactErr.classList.remove('show');
+    setTimeout(()=> document.getElementById('c-email').focus(), 100);
+  }
+  function closeContact(){ contact.classList.remove('show'); }
+
+  document.getElementById('cta').addEventListener('click', openContact);
+  document.getElementById('contact-cancel').addEventListener('click', closeContact);
+  document.getElementById('contact-done').addEventListener('click', closeContact);
+  contact.addEventListener('click', e=>{ if(e.target === contact) closeContact(); });
+  document.addEventListener('keydown', e=>{ if(e.key === 'Escape'){ closeContact(); modal.classList.remove('show'); }});
+
+  contactForm.addEventListener('submit', async e=>{
+    e.preventDefault();
+    contactErr.classList.remove('show');
+
+    // basic email check
+    const emailVal = document.getElementById('c-email').value.trim();
+    if(!emailVal || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailVal)){
+      contactErr.textContent = 'Please enter a valid email address.';
+      contactErr.classList.add('show');
+      return;
+    }
+
+    contactSubmit.disabled = true;
+    contactSubmit.textContent = 'Sending…';
+
+    try{
+      const res = await fetch(contactForm.action, {
+        method:'POST',
+        body: new FormData(contactForm),
+        headers:{ 'Accept':'application/json' }
+      });
+      if(res.ok){
+        contact.classList.add('sent');
+        contactForm.reset();
+      } else {
+        const data = await res.json().catch(()=>({}));
+        contactErr.textContent = (data && data.errors && data.errors[0] && data.errors[0].message)
+          ? data.errors[0].message
+          : 'Something went wrong. Please email info@gofercontent.com directly.';
+        contactErr.classList.add('show');
+      }
+    } catch(err){
+      contactErr.textContent = 'Network error. Please email info@gofercontent.com directly.';
+      contactErr.classList.add('show');
+    } finally {
+      contactSubmit.disabled = false;
+      contactSubmit.textContent = 'Send';
+    }
+  });
+
+  paint();
+</script>
+
+</body>
+</html>
