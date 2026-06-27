@@ -140,6 +140,15 @@
     .client-card:hover .client-tag{color:var(--cream)}
     .client-tag{display:block;font-family:var(--serif);font-style:italic;font-size:.75rem;font-weight:400;text-transform:none;letter-spacing:0;color:var(--muted);margin-top:4px}
 
+    /* FEATURED BUILDS */
+    .feat-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:24px;max-width:900px;margin:0 auto 48px}
+    .feat-card{display:block;border-radius:16px;overflow:hidden;border:2.5px solid var(--black);text-decoration:none;transition:transform .25s,box-shadow .25s;background:var(--black)}
+    .feat-card:hover{transform:translateY(-6px);box-shadow:0 16px 40px rgba(0,0,0,.18)}
+    .feat-thumb{width:100%;aspect-ratio:16/9;object-fit:cover;object-position:top;display:block;border-bottom:2px solid var(--black)}
+    .feat-info{padding:16px 20px;text-align:left}
+    .feat-name{font-family:var(--head);font-size:1.1rem;text-transform:uppercase;color:var(--cream);letter-spacing:.04em;margin-bottom:4px}
+    .feat-tag{font-family:var(--mono);font-size:.72rem;color:var(--gold);letter-spacing:.04em}
+    .clients-sub{font-family:var(--head);font-size:.75rem;text-transform:uppercase;letter-spacing:.1em;color:var(--muted);margin:0 0 20px}
     /* GOLD BAND */
     .band-gold{padding:32px 28px;background:var(--gold);text-align:center}
     .band-gold p{font-family:var(--serif);font-style:italic;font-size:clamp(16px,3vw,22px);color:var(--black);max-width:560px;margin:0 auto}
@@ -294,15 +303,32 @@
 
   <!-- CLIENTS -->
   <section class="clients" id="clients">
-    <h3 class="rv">Currently directing online presence for</h3>
-  <div class="client-grid">
+    <h3 class="rv">Recently built</h3>
+    <div class="feat-grid rv d1">
+      <a class="feat-card" href="https://omgitswicks.com/" target="_blank" rel="noopener noreferrer" aria-label="OMG Its Wicks - Florida's Comedian">
+        <img class="feat-thumb" src="https://image.thum.io/get/width/800/crop/450/https://omgitswicks.com/" alt="OMG Its Wicks homepage screenshot" loading="lazy" width="800" height="450">
+        <div class="feat-info">
+          <div class="feat-name">OMG Its Wicks</div>
+          <div class="feat-tag">Florida's Comedian &middot; omgitswicks.com</div>
+        </div>
+      </a>
+      <a class="feat-card" href="https://jawscustomwood.com/" target="_blank" rel="noopener noreferrer" aria-label="JAW's Custom Wood and Interiors">
+        <img class="feat-thumb" src="https://image.thum.io/get/width/800/crop/450/https://jawscustomwood.com/" alt="JAW's Custom Wood homepage screenshot" loading="lazy" width="800" height="450">
+        <div class="feat-info">
+          <div class="feat-name">JAW's Custom Wood</div>
+          <div class="feat-tag">Reclaimed Florida Wood &middot; jawscustomwood.com</div>
+        </div>
+      </a>
+    </div>
+    <p class="clients-sub rv d2">Also directing online presence for</p>
+    <div class="client-grid">
       <a class="client-card rv d1" href="https://www.livingrestorations.com/" target="_blank" rel="noopener">Living Restorations<span class="client-tag">Ecological Design + Coastal Restoration</span></a>
       <a class="client-card rv d2" href="https://livingspacesgardening.com/" target="_blank" rel="noopener">Living Spaces Gardening<span class="client-tag">Native Florida Landscaping</span></a>
       <a class="client-card rv d3" href="https://misfittoys.art/" target="_blank" rel="noopener">Misfit Toys Art<span class="client-tag">Large-Scale Art Installations</span></a>
       <a class="client-card rv d4" href="https://hippocketstudios.com/" target="_blank" rel="noopener">Hip Pocket Studios<span class="client-tag">Remote Drum Tracking + Music</span></a>
-      <a class="client-card rv d5" href="https://janierichards.com/" target="_blank" rel="noopener">Janie Richards<span class="client-tag">Vocalist · Officiant · Notary · St. Pete</span></a>
-      <a class="client-card rv d6" href="https://janierichards.com/motel-funk.html" target="_blank" rel="noopener">Motel Funk<span class="client-tag">Soul, Funk + R&B · Live Music · Tampa Bay</span></a>
-      <a class="client-card rv d6" href="https://joeydrums.com/" target="_blank" rel="noopener">Joey Interrante<span class="client-tag">Professional Drummer · Tampa Bay</span></a>
+      <a class="client-card rv d5" href="https://janierichardsmusic.com/" target="_blank" rel="noopener">Janie Richards<span class="client-tag">Vocalist &middot; Officiant &middot; Notary &middot; St. Pete</span></a>
+      <a class="client-card rv d6" href="https://janierichardsmusic.com/motel-funk.html" target="_blank" rel="noopener">Motel Funk<span class="client-tag">Soul, Funk + R&amp;B &middot; Live Music &middot; Tampa Bay</span></a>
+      <a class="client-card rv d6" href="https://joeydrums.com/" target="_blank" rel="noopener">Joey Interrante<span class="client-tag">Professional Drummer &middot; Tampa Bay</span></a>
     </div>
   </section>
 
