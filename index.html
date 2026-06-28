@@ -504,7 +504,7 @@ document.addEventListener('keydown',e=>{if(e.key==='Escape'&&menu.classList.cont
       if(e.shiftKey){if(document.activeElement===first){e.preventDefault();last.focus();}}
       else{if(document.activeElement===last){e.preventDefault();first.focus();}}
     });
-  },15000);
+  },30000);
   function closePop(){
     document.getElementById('pop-overlay').classList.remove('open');
     document.body.style.overflow='';
