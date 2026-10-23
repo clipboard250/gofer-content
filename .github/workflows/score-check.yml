@@ -1,0 +1,14 @@
+name: Test website score API
+
+on:
+  workflow_dispatch: {}
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Score a few sites
+        run: |
+          for u in gofercontent.com joeydrums.com omgitswicks.com example.com; do
+            echo "$u: $(curl -s -m 30 -H 'Origin: https://gofercontent.com' "https://gofer-score.vercel.app/api/score?url=$u")"
+          done
