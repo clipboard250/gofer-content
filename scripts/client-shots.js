@@ -39,6 +39,16 @@ const OUT = path.join(__dirname, '..', 'images', 'clients');
         content: '.rv,.reveal,[data-reveal]{opacity:1!important;transform:none!important}',
       });
       await page.waitForTimeout(3000);
+      // Hide cookie banners so they don't cover the hero.
+      await page.evaluate(() => {
+        document.querySelectorAll('body *').forEach((el) => {
+          const pos = getComputedStyle(el).position;
+          if ((pos === 'fixed' || pos === 'sticky') && /cookie/i.test(el.innerText || '')) {
+            el.style.setProperty('display', 'none', 'important');
+          }
+        });
+      });
+      await page.waitForTimeout(300);
       await page.screenshot({
         path: path.join(OUT, `${c.slug}.jpg`),
         type: 'jpeg',
