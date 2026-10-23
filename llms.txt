@@ -1,0 +1,27 @@
+# Gofer Content
+
+> Gofer Content builds, hosts, and maintains websites for artists, makers, and small businesses in St. Petersburg, Florida. Every site is hand-coded from scratch, live in 24-72 hours, and set up to be found on Google and in AI answers.
+
+## Services
+- Website builds: Hand-coded sites, no templates or drag-and-drop builders
+- Hosting and upkeep: Updates, forms, and security handled monthly
+- Getting found: Search and AI answer setup so customers find the business
+- Landing pages: Single-page sites built fast
+
+## Main page
+- [Gofer Content](https://gofercontent.com/): Services, client work, and contact form
+
+## Client work
+- [OMG Its Wicks](https://omgitswicks.com/): Florida comedian
+- [JAW's Custom Wood](https://jawscustomwood.com/): Reclaimed Florida wood
+- [Living Restorations](https://www.livingrestorations.com/): Ecological design and coastal restoration
+- [Living Spaces Gardening](https://livingspacesgardening.com/): Native Florida landscaping
+- [Misfit Toys Art](https://misfittoys.art/): Large-scale art installations
+- [Hip Pocket Studios](https://hippocketstudios.com/): Remote drum tracking and music
+- [Janie Richards](https://janierichards.com/): Vocalist and officiant, St. Pete
+- [Motel Funk](https://janierichards.com/motel-funk.html): Soul, funk, and R&B band, Tampa Bay
+- [Joey Interrante](https://joeydrums.com/): Professional drummer, Tampa Bay
+
+## Contact
+- Phone: (727) 353-9673
+- Location: St. Petersburg, Florida
