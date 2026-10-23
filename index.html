@@ -95,18 +95,16 @@ a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible,
 @media(max-width:720px){.promise-cols{grid-template-columns:1fr;gap:30px}}
 
 /* RANK */
-.rank{background:var(--blue);color:#fff}
-.rank .big{margin-bottom:44px}
-.meter{max-width:640px}
-.meter-row{display:grid;grid-template-columns:130px 1fr 54px;align-items:center;gap:16px;margin-bottom:18px;font-weight:700}
-.meter-row .lab{font-size:.95rem}
-.bar{height:14px;background:rgba(255,255,255,.22);border-radius:20px;overflow:hidden}
-.bar span{display:block;height:100%;border-radius:20px;width:0;transition:width 1.1s cubic-bezier(.16,1,.3,1)}
-.meter-row .val{text-align:right;font-size:1rem}
-.bar.b1 span{background:var(--gold)}.bar.b2 span{background:var(--purple)}.bar.b3 span{background:var(--cream)}.bar.b4 span{background:var(--gold)}
-.rank.on .b1 span{width:32%}.rank.on .b2 span{width:64%}.rank.on .b3 span{width:88%}.rank.on .b4 span{width:100%}
-.rank-note{margin-top:30px;font-size:1.05rem;color:rgba(255,255,255,.92);max-width:520px}
-@media(max-width:520px){.meter-row{grid-template-columns:96px 1fr 44px;gap:10px;font-size:.85rem}}
+.check{background:var(--blue);color:#fff;scroll-margin-top:60px}
+.check .wrap{display:grid;grid-template-columns:1fr minmax(0,460px);gap:56px;align-items:center}
+.check .eyebrow{font-weight:800;font-size:.82rem;text-transform:uppercase;letter-spacing:.2em;color:var(--gold);margin-bottom:18px}
+.check .big{margin-bottom:22px}
+.check-sub{font-size:1.2rem;font-weight:500;max-width:480px;color:rgba(255,255,255,.95)}
+.chk{background:var(--cream);color:var(--ink);border:3px solid var(--ink);border-radius:22px;box-shadow:8px 8px 0 var(--ink);padding:30px 28px 26px}
+.chk .lbl{display:block;font-weight:800;font-size:.72rem;text-transform:uppercase;letter-spacing:.08em;margin:0 0 6px}
+.chk input{width:100%;padding:.8rem 1rem;background:#fff;border:2px solid var(--ink);border-radius:10px;font:400 1rem var(--font);color:var(--ink);margin-bottom:16px}
+.chk .pop-content{display:none}.chk .pop-content.on{display:block}
+@media(max-width:860px){.check .wrap{grid-template-columns:1fr;gap:36px}}
 
 /* SCORES */
 .scores-p{background:var(--ink);color:var(--cream);text-align:center}
@@ -264,17 +262,34 @@ footer .sep{color:var(--gold)}
     </div>
   </section>
 
-  <!-- RANK -->
-  <section class="panel rank" id="rankpanel">
+  <!-- WEBSITE CHECK -->
+  <section class="panel check" id="check" aria-labelledby="chk-heading">
     <div class="wrap">
-      <h2 class="big rv">Where's your<br>site right now?</h2>
-      <div class="meter">
-        <div class="meter-row rv d1"><span class="lab">Old template site</span><span class="bar b1"><span></span></span><span class="val">32</span></div>
-        <div class="meter-row rv d1"><span class="lab">DIY builder</span><span class="bar b2"><span></span></span><span class="val">64</span></div>
-        <div class="meter-row rv d2"><span class="lab">Decent agency</span><span class="bar b3"><span></span></span><span class="val">88</span></div>
-        <div class="meter-row rv d2"><span class="lab">Gofer Content</span><span class="bar b4"><span></span></span><span class="val">100</span></div>
+      <div>
+        <p class="eyebrow rv">Website check</p>
+        <h2 class="big rv" id="chk-heading">Does AI know you exist?</h2>
+        <p class="check-sub rv d1">Drop your link. Get a 0 to 100 score in seconds for how Google and AI answers see your site.</p>
       </div>
-      <p class="rank-note rv d3">Rough, but you get it. Most sites leave points — and customers — on the table. That gap is exactly where you're losing people who were already searching for you.</p>
+      <div class="chk rv d2">
+        <div id="chk-gate">
+          <form id="chk-form" novalidate>
+            <label class="lbl" for="chk-site">Your website</label>
+            <input id="chk-site" type="url" name="website" placeholder="https://" inputmode="url" autocomplete="url" required>
+            <label class="lbl" for="chk-phone">Your phone</label>
+            <input id="chk-phone" type="tel" name="phone" placeholder="(555) 555-5555" autocomplete="tel" required>
+            <button class="pop-btn" type="submit">Check my site</button>
+          </form>
+          <p class="pop-fine">Checking is free. Buying Dayna a coffee is always welcome.</p>
+          <p class="pop-err" id="chk-err" role="alert">That didn't go through <a href="#" data-sms="">Text Dayna instead</a></p>
+        </div>
+        <div class="pop-content" id="chk-content" tabindex="-1" aria-live="polite">
+          <p class="pop-eyebrow">Your score</p>
+          <div class="pop-score"><span class="pop-num" id="chk-num">0</span><span class="pop-grade" id="chk-grade">Red</span></div>
+          <p class="pop-verdict" id="chk-verdict"></p>
+          <p class="pop-body">Want to know why? Dayna is texting you to walk through it, no sales pitch<br>Weekdays 9 to 5 it's right away</p>
+          <a class="pop-btn pop-coffee" href="https://buymeacoffee.com/gofercontent" target="_blank" rel="noopener">Buy Dayna a coffee for the full breakdown</a>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -480,22 +495,62 @@ var reduce=matchMedia('(prefers-reduced-motion:reduce)').matches;
 if(!reduce){
   var o=new IntersectionObserver(function(es){es.forEach(function(x){if(x.isIntersecting){x.target.classList.add('on');o.unobserve(x.target)}})},{threshold:.15});
   document.querySelectorAll('.rv').forEach(function(el){o.observe(el)});
-  var rp=document.getElementById('rankpanel');
-  var ro=new IntersectionObserver(function(es){es.forEach(function(x){if(x.isIntersecting){x.target.classList.add('on');ro.unobserve(x.target)}})},{threshold:.35});
-  ro.observe(rp);
 }else{
   document.querySelectorAll('.rv').forEach(function(el){el.classList.add('on')});
-  document.getElementById('rankpanel').classList.add('on');
 }
 
-/* Exit popup: free website check */
-(function(){
-  var KEY='gc_pop';
+/* Website check: shared by the homepage section and the exit popup */
+var GC_KEY='gc_pop';
+function wireCheck(p,onDone){
   var ENDPOINT='https://formspree.io/f/xdawjgpj';
-  try{if(localStorage.getItem(KEY)==='1'||sessionStorage.getItem('gc_pop_closed')==='1')return;}catch(e){}
+  var $=function(id){return document.getElementById(p+'-'+id);};
+  $('form').addEventListener('submit',function(e){
+    e.preventDefault();
+    var site=$('site'),phone=$('phone');
+    var btn=this.querySelector('button'),err=$('err');
+    var s=site.value.trim(),ph=phone.value.trim();
+    if(!s){site.focus();return;}
+    if(ph.replace(/\D/g,'').length<10){phone.focus();return;}
+    if(!/^https?:\/\//i.test(s))s='https://'+s;
+    btn.disabled=true;btn.textContent='Checking your site…';err.style.display='none';
+    var ctl=new AbortController();setTimeout(function(){ctl.abort();},25000);
+    fetch('https://gofer-score.vercel.app/api/score?url='+encodeURIComponent(s),{signal:ctl.signal})
+    .then(function(r){return r.json();}).catch(function(){return null;})
+    .then(function(sc){
+      var lead={website:s,phone:ph,source:p==='chk'?'homepage section':'exit popup',_subject:'Website check: '+s};
+      if(sc&&sc.grade){lead.score=sc.score;lead.grade=sc.grade;lead._subject='Website check ('+sc.grade+' '+sc.score+'): '+s;}
+      return fetch(ENDPOINT,{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},body:JSON.stringify(lead)})
+      .then(function(r){if(!r.ok)throw 0;return sc;});
+    })
+    .then(function(sc){
+      try{localStorage.setItem(GC_KEY,'1');}catch(e){}
+      $('gate').style.display='none';
+      var c=$('content');
+      if(sc&&sc.grade){
+        var g=$('grade'),n=$('num');
+        g.textContent=sc.grade;g.className='pop-grade '+sc.grade;
+        $('verdict').textContent={green:'Looking strong',yellow:'Some real gaps',red:'AI can barely see you'}[sc.grade];
+        var target=sc.score,i=0,step=function(){i=Math.min(target,i+Math.ceil(target/30)||target);n.textContent=i;if(i<target)requestAnimationFrame(step);};
+        if(matchMedia('(prefers-reduced-motion:reduce)').matches)n.textContent=target;else step();
+      }else{
+        c.querySelector('.pop-score').style.display='none';
+        $('verdict').textContent='Got it, Dayna will text your score';
+      }
+      c.classList.add('on');c.focus({preventScroll:true});
+      if(onDone)onDone();
+    }).catch(function(){err.style.display='block';btn.disabled=false;btn.textContent='Check my site';});
+  });
+}
+wireCheck('chk');
+
+/* Exit popup: skipped for anyone who already checked */
+(function(){
+  wireCheck('pop');
+  function done(){try{return localStorage.getItem(GC_KEY)==='1'||sessionStorage.getItem('gc_pop_closed')==='1';}catch(e){return false;}}
+  if(done())return;
   var ov=document.getElementById('pop-overlay');
   function openPop(){
-    if(ov.classList.contains('open'))return;
+    if(ov.classList.contains('open')||done())return;
     ov.classList.add('open');
     document.body.style.overflow='hidden';
     document.getElementById('pop-site').focus({preventScroll:true});
@@ -516,41 +571,6 @@ if(!reduce){
     var first=els[0],last=els[els.length-1];
     if(e.shiftKey&&document.activeElement===first){e.preventDefault();last.focus();}
     else if(!e.shiftKey&&document.activeElement===last){e.preventDefault();first.focus();}
-  });
-  document.getElementById('pop-form').addEventListener('submit',function(e){
-    e.preventDefault();
-    var site=document.getElementById('pop-site'),phone=document.getElementById('pop-phone');
-    var btn=this.querySelector('button'),err=document.getElementById('pop-err');
-    var s=site.value.trim(),ph=phone.value.trim();
-    if(!s){site.focus();return;}
-    if(ph.replace(/\D/g,'').length<10){phone.focus();return;}
-    if(!/^https?:\/\//i.test(s))s='https://'+s;
-    btn.disabled=true;btn.textContent='Checking your site…';err.style.display='none';
-    var ctl=new AbortController();setTimeout(function(){ctl.abort();},25000);
-    fetch('https://gofer-score.vercel.app/api/score?url='+encodeURIComponent(s),{signal:ctl.signal})
-    .then(function(r){return r.json();}).catch(function(){return null;})
-    .then(function(sc){
-      var lead={website:s,phone:ph,_subject:'Website check: '+s};
-      if(sc&&sc.grade){lead.score=sc.score;lead.grade=sc.grade;lead._subject='Website check ('+sc.grade+' '+sc.score+'): '+s;}
-      return fetch(ENDPOINT,{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},body:JSON.stringify(lead)})
-      .then(function(r){if(!r.ok)throw 0;return sc;});
-    })
-    .then(function(sc){
-      try{localStorage.setItem(KEY,'1');}catch(e){}
-      document.getElementById('pop-gate').style.display='none';
-      var c=document.getElementById('pop-content');
-      if(sc&&sc.grade){
-        var g=document.getElementById('pop-grade'),n=document.getElementById('pop-num');
-        g.textContent=sc.grade;g.className='pop-grade '+sc.grade;
-        document.getElementById('pop-verdict').textContent={green:'Looking strong',yellow:'Some real gaps',red:'AI can barely see you'}[sc.grade];
-        var target=sc.score,i=0,step=function(){i=Math.min(target,i+Math.ceil(target/30)||target);n.textContent=i;if(i<target)requestAnimationFrame(step);};
-        if(matchMedia('(prefers-reduced-motion:reduce)').matches)n.textContent=target;else step();
-      }else{
-        document.querySelector('#pop-content .pop-score').style.display='none';
-        document.getElementById('pop-verdict').textContent='Got it, Dayna will text your score';
-      }
-      c.classList.add('on');c.focus();
-    }).catch(function(){err.style.display='block';btn.disabled=false;btn.textContent='Check my site';});
   });
 })();
 
