@@ -174,6 +174,12 @@ footer .sep{color:var(--gold)}
 .pop-fine{font-size:.85rem;color:var(--muted);margin-top:14px;line-height:1.45}
 .pop-err{font-size:.85rem;color:var(--coral);margin-top:10px;display:none;font-weight:700}
 .pop-err a{text-decoration:underline}
+.pop-score{display:flex;align-items:center;gap:16px;margin:4px 0 10px}
+.pop-num{font-weight:900;font-size:84px;line-height:.9;letter-spacing:-.04em}
+.pop-grade{font-weight:800;font-size:.85rem;text-transform:uppercase;letter-spacing:.08em;padding:.45rem .9rem;border:2px solid var(--ink);border-radius:40px}
+.pop-grade.green{background:#3fae6a;color:#fff}.pop-grade.yellow{background:var(--gold);color:var(--ink)}.pop-grade.red{background:var(--coral);color:#fff}
+.pop-verdict{font-weight:800;font-size:1.25rem;margin-bottom:10px}
+.pop-coffee{display:flex;align-items:center;justify-content:center;text-align:center;padding:.6rem 1rem;text-decoration:none;line-height:1.25;font-size:.9rem}
 .pop-content{display:none}
 .pop-content.on{display:block;animation:pop-fade .3s ease both}
 .pop-content h2{margin-right:44px}
@@ -383,13 +389,15 @@ footer .sep{color:var(--gold)}
         <input id="pop-phone" type="tel" name="phone" placeholder="(555) 555-5555" autocomplete="tel" required>
         <button class="pop-btn" type="submit">Check my site</button>
       </form>
-      <p class="pop-fine">Weekdays 9 to 5 you get your green, yellow, or red score by text right away<br>Dayna explains it, no sales pitch</p>
+      <p class="pop-fine">Your green, yellow, or red score shows up right here in seconds<br>Dayna explains it by text, no sales pitch</p>
       <p class="pop-err" id="pop-err" role="alert">That didn't go through <a href="sms:+17273539673">Text Dayna instead</a></p>
     </div>
     <div class="pop-content" id="pop-content" tabindex="-1">
-      <p class="pop-eyebrow">Got it</p>
-      <h2>Dayna's on it</h2>
-      <p class="pop-body">Your score is coming by text<br>After hours or weekends, first thing next business day</p>
+      <p class="pop-eyebrow">Your score</p>
+      <div class="pop-score"><span class="pop-num" id="pop-num">0</span><span class="pop-grade" id="pop-grade">Red</span></div>
+      <p class="pop-verdict" id="pop-verdict"></p>
+      <p class="pop-body">Want to know why? Dayna is texting you to walk through it, no sales pitch<br>Weekdays 9 to 5 it's right away</p>
+      <a class="pop-btn pop-coffee" href="https://buymeacoffee.com/gofercontent" target="_blank" rel="noopener">Buy Dayna a coffee for the full breakdown</a>
     </div>
   </div>
 </div>
@@ -518,13 +526,31 @@ if(!reduce){
     if(!s){site.focus();return;}
     if(ph.replace(/\D/g,'').length<10){phone.focus();return;}
     if(!/^https?:\/\//i.test(s))s='https://'+s;
-    btn.disabled=true;btn.textContent='Sending…';err.style.display='none';
-    fetch(ENDPOINT,{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},
-      body:JSON.stringify({website:s,phone:ph,_subject:'Website check: '+s})})
-    .then(function(r){if(!r.ok)throw 0;
+    btn.disabled=true;btn.textContent='Checking your site…';err.style.display='none';
+    var ctl=new AbortController();setTimeout(function(){ctl.abort();},25000);
+    fetch('https://gofer-score.vercel.app/api/score?url='+encodeURIComponent(s),{signal:ctl.signal})
+    .then(function(r){return r.json();}).catch(function(){return null;})
+    .then(function(sc){
+      var lead={website:s,phone:ph,_subject:'Website check: '+s};
+      if(sc&&sc.grade){lead.score=sc.score;lead.grade=sc.grade;lead._subject='Website check ('+sc.grade+' '+sc.score+'): '+s;}
+      return fetch(ENDPOINT,{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},body:JSON.stringify(lead)})
+      .then(function(r){if(!r.ok)throw 0;return sc;});
+    })
+    .then(function(sc){
       try{localStorage.setItem(KEY,'1');}catch(e){}
       document.getElementById('pop-gate').style.display='none';
-      var c=document.getElementById('pop-content');c.classList.add('on');c.focus();
+      var c=document.getElementById('pop-content');
+      if(sc&&sc.grade){
+        var g=document.getElementById('pop-grade'),n=document.getElementById('pop-num');
+        g.textContent=sc.grade;g.className='pop-grade '+sc.grade;
+        document.getElementById('pop-verdict').textContent={green:'Looking strong',yellow:'Some real gaps',red:'AI can barely see you'}[sc.grade];
+        var target=sc.score,i=0,step=function(){i=Math.min(target,i+Math.ceil(target/30)||target);n.textContent=i;if(i<target)requestAnimationFrame(step);};
+        if(matchMedia('(prefers-reduced-motion:reduce)').matches)n.textContent=target;else step();
+      }else{
+        document.querySelector('#pop-content .pop-score').style.display='none';
+        document.getElementById('pop-verdict').textContent='Got it, Dayna will text your score';
+      }
+      c.classList.add('on');c.focus();
     }).catch(function(){err.style.display='block';btn.disabled=false;btn.textContent='Check my site';});
   });
 })();
