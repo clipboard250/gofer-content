@@ -60,7 +60,9 @@ a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible,
 .nav-cta:hover{background:var(--coral);border-color:var(--coral);color:#fff}
 .nav-cta{font-weight:700;font-size:.82rem;text-transform:uppercase;letter-spacing:.05em;padding:.5rem 1.1rem;border:2px solid var(--cream);border-radius:40px;cursor:pointer;background:none;color:var(--cream);font-family:var(--font)}
 
-.panel{min-height:100svh;display:flex;flex-direction:column;justify-content:center;padding:96px 0;position:relative}
+.panel{display:flex;flex-direction:column;justify-content:center;padding:120px 0;position:relative}
+.panel.hero{min-height:100svh}
+@media(max-width:720px){.panel{padding:72px 0}.panel.hero{min-height:88svh;padding-top:96px}}
 .panel-center{text-align:center;align-items:center}
 .big{font-weight:900;line-height:.92;letter-spacing:-.035em;font-size:clamp(44px,9vw,120px)}
 
