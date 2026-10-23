@@ -1,0 +1,746 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+<meta charset="UTF-8">
+<meta name="robots" content="noindex, nofollow, noarchive">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Parker Stone — Social Media Strategy</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lora:wght@700&family=Inter:wght@300;400;500&display=swap">
+<style>
+:root {
+  --bg:        #07100A;
+  --bg-lift:   #0C1A10;
+  --nav-bg:    rgba(7,16,10,.97);
+  --white:     #EDE8DF;
+  --dim:       #9A8F7F;
+  --muted:     #6E6055;
+  --fire:      #D95F1A;
+  --fire-dk:   #8C1C03;
+  --fire-glow: rgba(217,95,26,.18);
+  --ember:     #F2A444;
+  --sage:      #55633B;
+  --moss:      #2E3B1B;
+  --gold:      #D97941;
+  --gold-dim:  rgba(217,121,65,.25);
+  --rule:      rgba(237,232,223,.06);
+  --x-blue:    #1DA1F2;
+  --ig-pink:   #E1306C;
+  --fb-blue:   #1877F2;
+  --tiktok:    #69C9D0;
+}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;font-size:100%}
+body{background:var(--bg);color:var(--white);font-family:'Inter',system-ui,sans-serif;font-size:1.05rem;font-weight:400;line-height:1.85;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+:focus-visible{outline:3px solid var(--fire);outline-offset:3px;border-radius:2px}
+
+/* ── GATE SCREEN ─────────────────────────────────────────── */
+#gate{
+  position:fixed;inset:0;z-index:9999;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  background:var(--bg);
+  padding:2rem;
+}
+.gate-inner{max-width:420px;width:100%;text-align:center}
+.gate-eyebrow{font-size:.6rem;font-weight:500;letter-spacing:.45em;text-transform:uppercase;color:var(--fire);margin-bottom:2rem;display:block}
+
+/* Triskelion SVG gate mark */
+.gate-mark{margin:0 auto 2.5rem;display:block}
+
+.gate-title{font-family:'Lora',Georgia,serif;font-weight:700;font-size:clamp(1.8rem,5vw,2.6rem);text-transform:uppercase;letter-spacing:-.02em;line-height:1;color:var(--white);margin-bottom:.75rem}
+.gate-title em{color:var(--fire);font-style:normal}
+.gate-sub{font-size:.95rem;color:var(--dim);line-height:1.8;margin-bottom:2.5rem}
+.gate-rule{width:40px;height:2px;background:var(--fire);margin:.75rem auto 2rem;display:block}
+
+.gate-field{display:flex;flex-direction:column;gap:0;max-width:320px;margin:0 auto}
+.gate-field label{font-size:.58rem;font-weight:500;letter-spacing:.4em;text-transform:uppercase;color:var(--muted);margin-bottom:.6rem;text-align:left}
+.gate-field input{
+  padding:1rem 1.25rem;background:rgba(237,232,223,.05);
+  border:1px solid rgba(217,121,65,.2);border-bottom:none;
+  color:var(--white);font-family:'Inter',sans-serif;font-size:1.1rem;letter-spacing:.1em;
+  text-align:center;outline:none;transition:border-color .2s;
+  -webkit-appearance:none;
+}
+.gate-field input::placeholder{color:rgba(154,143,127,.4);letter-spacing:.05em;font-size:.95rem}
+.gate-field input:focus{border-color:rgba(217,95,26,.5)}
+.gate-field button{
+  padding:1rem;background:var(--fire);border:2px solid var(--fire);
+  color:var(--white);font-family:'Inter',sans-serif;font-size:.7rem;font-weight:500;
+  letter-spacing:.25em;text-transform:uppercase;cursor:pointer;transition:all .25s;
+}
+.gate-field button:hover{background:transparent;color:var(--fire)}
+.gate-error{color:var(--ember);font-size:.85rem;margin-top:.75rem;min-height:1.2em;display:block}
+.gate-hint{margin-top:1.5rem;font-size:.8rem;color:var(--muted);letter-spacing:.05em}
+.gate-hint span{color:rgba(237,232,223,.3)}
+
+/* ── MAIN CONTENT (hidden until unlocked) ────────────────── */
+#content{display:none;opacity:0;transition:opacity .8s ease}
+#content.visible{display:block;opacity:1}
+
+/* ── NAV ────────────────────────────────────────────────── */
+nav{
+  position:sticky;top:0;z-index:200;padding:1.1rem 3rem;
+  display:flex;justify-content:space-between;align-items:center;
+  background:var(--nav-bg);backdrop-filter:blur(10px);
+  border-bottom:1px solid var(--rule);
+}
+.nav-brand{font-size:.65rem;font-weight:400;letter-spacing:.25em;text-transform:uppercase;color:var(--dim);text-decoration:none}
+.nav-right{font-size:.6rem;letter-spacing:.2em;text-transform:uppercase;color:var(--muted)}
+@media(max-width:600px){nav{padding:1rem 1.25rem}}
+
+/* ── HERO BAND ───────────────────────────────────────────── */
+.hero-band{
+  background:linear-gradient(135deg,var(--bg-lift) 0%,var(--bg) 100%);
+  padding:7rem 3.5rem 5rem;position:relative;overflow:hidden;
+  border-bottom:1px solid rgba(85,99,59,.2);
+}
+.hero-band::before{
+  content:'';position:absolute;inset:0;pointer-events:none;
+  background:radial-gradient(ellipse 70% 50% at 15% 60%,rgba(217,95,26,.1) 0%,transparent 70%);
+}
+.hero-band-inner{max-width:820px;position:relative}
+.hero-eyebrow{font-size:.6rem;font-weight:500;letter-spacing:.45em;text-transform:uppercase;color:var(--fire);display:block;margin-bottom:2rem}
+h1{font-family:'Lora',Georgia,serif;font-weight:700;font-size:clamp(2.4rem,5vw,4.5rem);text-transform:uppercase;letter-spacing:-.03em;line-height:.95;color:var(--white)}
+h1 em{color:var(--fire);font-style:normal}
+.hero-rule{width:48px;height:3px;background:var(--fire);margin:2.5rem 0;display:block}
+.hero-sub{font-size:1.15rem;color:var(--dim);max-width:560px;line-height:1.9}
+.hero-sub strong{color:var(--white);font-weight:500}
+.prepared-by{margin-top:2rem;font-size:.65rem;letter-spacing:.3em;text-transform:uppercase;color:var(--muted)}
+.prepared-by span{color:var(--dim)}
+
+/* ── SECTION LAYOUT ──────────────────────────────────────── */
+.wrap{max-width:1020px;margin:0 auto;padding:0 3.5rem}
+@media(max-width:700px){.wrap{padding:0 1.5rem}}
+
+section{padding:6rem 0}
+section + section{border-top:1px solid var(--rule)}
+
+.label{font-size:.58rem;font-weight:500;letter-spacing:.45em;text-transform:uppercase;color:var(--fire);display:block;margin-bottom:1.5rem}
+h2{font-family:'Lora',Georgia,serif;font-weight:700;font-size:clamp(1.7rem,3.5vw,2.8rem);text-transform:uppercase;letter-spacing:-.02em;line-height:1.05;color:var(--white);margin-bottom:2rem}
+h2 em{font-style:normal;color:var(--fire)}
+h3{font-family:'Inter',sans-serif;font-weight:500;font-size:.62rem;letter-spacing:.38em;text-transform:uppercase;color:var(--fire);margin-bottom:.5rem}
+.prose{font-size:1.1rem;color:rgba(237,232,223,.8);line-height:2;max-width:680px}
+.prose p+p{margin-top:1.4rem}
+.prose strong{color:var(--white);font-weight:500}
+
+/* ── COMPETITIVE INTEL ───────────────────────────────────── */
+.intel-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;margin-top:2.5rem}
+@media(max-width:680px){.intel-grid{grid-template-columns:1fr}}
+.intel-card{
+  padding:1.75rem;border:1px solid var(--rule);background:rgba(237,232,223,.02);
+  position:relative;
+}
+.intel-card::before{content:'';position:absolute;left:0;top:0;bottom:0;width:3px;background:var(--sage)}
+.intel-card:hover{border-color:rgba(217,95,26,.2);background:rgba(217,95,26,.02)}
+.intel-card:hover::before{background:var(--fire)}
+.intel-label{font-size:.58rem;letter-spacing:.35em;text-transform:uppercase;color:var(--muted);margin-bottom:.5rem;display:block}
+.intel-value{font-size:1rem;color:rgba(237,232,223,.85);line-height:1.75}
+.intel-value strong{color:var(--white)}
+
+/* ── PLATFORM SECTIONS ───────────────────────────────────── */
+.platform-header{
+  display:flex;align-items:center;gap:1.25rem;margin-bottom:2.5rem;
+  padding-bottom:1.5rem;border-bottom:1px solid var(--rule);
+}
+.platform-dot{
+  width:10px;height:10px;border-radius:50%;flex-shrink:0;
+}
+.platform-name{font-family:'Lora',Georgia,serif;font-size:1.8rem;font-weight:700;text-transform:uppercase;letter-spacing:-.01em}
+.platform-handle{font-size:.65rem;letter-spacing:.3em;text-transform:uppercase;color:var(--dim);margin-left:auto}
+
+.pillar-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1.25rem;margin-top:2rem}
+@media(max-width:680px){.pillar-grid{grid-template-columns:1fr}}
+
+.pillar{
+  padding:1.75rem;border:1px solid var(--rule);
+  background:var(--bg-lift);position:relative;overflow:hidden;
+}
+.pillar-top{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:1rem}
+.pillar-freq{font-size:.58rem;letter-spacing:.3em;text-transform:uppercase;color:var(--muted);white-space:nowrap}
+.pillar-body{font-size:.95rem;color:var(--dim);line-height:1.85}
+.pillar-body strong{color:var(--white);display:block;margin-bottom:.4rem;font-size:.98rem}
+.example-post{
+  margin-top:1.25rem;padding:1.1rem;
+  background:rgba(217,95,26,.06);
+  border-left:2px solid var(--fire);
+  font-size:.9rem;color:rgba(237,232,223,.7);line-height:1.8;
+  font-style:italic;
+}
+
+/* ── HOOKS SECTION ───────────────────────────────────────── */
+.hook-list{display:flex;flex-direction:column;gap:1rem;margin-top:2rem}
+.hook-item{
+  padding:1.4rem 1.75rem;border:1px solid var(--rule);
+  background:rgba(237,232,223,.02);
+  display:grid;grid-template-columns:auto 1fr;gap:1.25rem;align-items:center;
+  transition:border-color .25s,background .25s;cursor:default;
+}
+.hook-item:hover{border-color:rgba(217,95,26,.25);background:rgba(217,95,26,.03)}
+.hook-num{font-family:'Lora',serif;font-size:1.8rem;font-weight:700;color:var(--fire);opacity:.4;line-height:1}
+.hook-text{font-size:1.05rem;color:var(--white);line-height:1.7}
+.hook-text em{color:var(--fire);font-style:normal}
+
+/* ── CALENDAR GRID ───────────────────────────────────────── */
+.cal-grid{
+  display:grid;
+  grid-template-columns:repeat(7,1fr);
+  gap:.5rem;margin-top:2rem;
+}
+@media(max-width:700px){.cal-grid{grid-template-columns:repeat(3,1fr)}}
+.cal-day{
+  padding:.9rem .7rem;border:1px solid var(--rule);
+  background:rgba(237,232,223,.02);text-align:center;
+  font-size:.75rem;
+}
+.cal-day-name{font-size:.5rem;letter-spacing:.3em;text-transform:uppercase;color:var(--muted);margin-bottom:.4rem;display:block}
+.cal-day-post{font-size:.75rem;color:rgba(237,232,223,.7);line-height:1.5}
+.cal-day.active{border-color:rgba(217,95,26,.3);background:rgba(217,95,26,.05)}
+.cal-day.active .cal-day-name{color:var(--fire)}
+.platform-tag{display:inline-block;padding:.15rem .45rem;font-size:.5rem;letter-spacing:.15em;text-transform:uppercase;border-radius:2px;margin-bottom:.3rem}
+.tag-x{background:rgba(29,161,242,.1);color:var(--x-blue)}
+.tag-ig{background:rgba(225,48,108,.1);color:var(--ig-pink)}
+.tag-fb{background:rgba(24,119,242,.1);color:var(--fb-blue)}
+.tag-all{background:rgba(217,121,65,.1);color:var(--gold)}
+
+/* ── TIKTOK FLAG ─────────────────────────────────────────── */
+.tiktok-flag{
+  margin-top:3rem;padding:2rem 2.5rem;
+  border:1px solid rgba(105,201,208,.2);
+  background:rgba(105,201,208,.04);
+  display:grid;grid-template-columns:auto 1fr;gap:1.5rem;align-items:start;
+}
+.tiktok-icon{font-size:2rem;line-height:1}
+.tiktok-flag h3{color:var(--tiktok);margin-bottom:.35rem;font-size:.62rem}
+.tiktok-flag p{font-size:.95rem;color:var(--dim);line-height:1.8}
+.tiktok-flag strong{color:var(--white)}
+
+/* ── CTA BAND ────────────────────────────────────────────── */
+.cta-band{
+  background:var(--bg-lift);padding:6rem 3.5rem;text-align:center;
+  border-top:1px solid rgba(85,99,59,.2);
+  position:relative;overflow:hidden;
+}
+.cta-band::before{
+  content:'';position:absolute;inset:0;
+  background:radial-gradient(ellipse 60% 60% at 50% 50%,rgba(217,95,26,.07) 0%,transparent 70%);
+}
+.cta-inner{max-width:580px;margin:0 auto;position:relative}
+.cta-band h2{margin-bottom:1rem}
+.cta-band .prose{margin:0 auto 3rem;text-align:center}
+.btn-row{display:flex;gap:1.25rem;justify-content:center;flex-wrap:wrap}
+.btn-primary{
+  display:inline-flex;align-items:center;justify-content:center;
+  padding:1rem 2.5rem;background:var(--fire);border:2px solid var(--fire);
+  color:var(--white);font-family:'Inter',sans-serif;font-size:.7rem;font-weight:500;
+  letter-spacing:.2em;text-transform:uppercase;text-decoration:none;
+  transition:all .25s;min-height:2.75rem;cursor:pointer;
+}
+.btn-primary:hover{background:transparent;color:var(--fire)}
+.btn-ghost{
+  display:inline-flex;align-items:center;
+  font-family:'Inter',sans-serif;font-size:.7rem;font-weight:400;
+  letter-spacing:.15em;text-transform:uppercase;color:var(--dim);text-decoration:none;
+  border-bottom:1px solid rgba(154,143,127,.3);padding-bottom:.1rem;
+  transition:color .2s,border-color .2s;min-height:2.75rem;
+}
+.btn-ghost:hover{color:var(--white);border-color:var(--dim)}
+
+/* ── TIMELINE BLOCK ──────────────────────────────────────── */
+.timeline{display:flex;flex-direction:column;gap:0;margin-top:2.5rem}
+.tline-item{
+  display:grid;grid-template-columns:120px 1fr;gap:2rem;
+  padding:1.75rem 0;border-bottom:1px solid var(--rule);
+  align-items:start;
+}
+.tline-item:last-child{border-bottom:none}
+.tline-period{font-size:.62rem;letter-spacing:.3em;text-transform:uppercase;color:var(--fire);padding-top:.2rem;line-height:1.6}
+.tline-content h3{font-size:.62rem;margin-bottom:.4rem}
+.tline-body{font-size:1rem;color:var(--dim);line-height:1.85}
+.tline-body strong{color:var(--white)}
+
+/* ── FOOTER ──────────────────────────────────────────────── */
+footer{
+  padding:2.5rem 3.5rem;border-top:1px solid var(--rule);
+  display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem;
+}
+.foot-title{font-size:.65rem;font-weight:400;letter-spacing:.2em;text-transform:uppercase;color:var(--dim)}
+.foot-copy{font-size:.65rem;letter-spacing:.1em;color:var(--muted)}
+@media(max-width:600px){
+  .hero-band{padding:4rem 1.5rem 3.5rem}
+  section{padding:4rem 0}
+  .tline-item{grid-template-columns:1fr;gap:.75rem}
+  .platform-header{flex-wrap:wrap}
+  .platform-handle{margin-left:0;width:100%}
+  footer{padding:2rem 1.5rem;text-align:center;justify-content:center}
+}
+
+/* ── REVEAL ANIMATION ────────────────────────────────────── */
+.reveal{opacity:0;transform:translateY(16px);transition:opacity .8s ease,transform .8s ease}
+.reveal.on{opacity:1;transform:none}
+</style>
+</head>
+<body>
+
+<!-- ── GATE ────────────────────────────────────────────────── -->
+<div id="gate" role="dialog" aria-modal="true" aria-labelledby="gate-title">
+  <div class="gate-inner">
+    <span class="gate-eyebrow">Gofer Content · Private Document</span>
+
+    <!-- Triskelion mark matching the Parker Stone site -->
+    <svg class="gate-mark" width="72" height="72" viewBox="0 0 300 300" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <circle cx="150" cy="88"  r="63" stroke="#55633B" stroke-width="2" stroke-dasharray="5 8" opacity=".6"/>
+      <circle cx="208" cy="190" r="63" stroke="#D95F1A" stroke-width="2" stroke-dasharray="5 8" opacity=".5"/>
+      <circle cx="92"  cy="190" r="63" stroke="#55633B" stroke-width="2" stroke-dasharray="5 8" opacity=".55"/>
+      <circle cx="150" cy="150" r="9"  fill="#D97941" opacity=".4"/>
+      <circle cx="150" cy="88"  r="4"  fill="#D97941" opacity=".55"/>
+      <circle cx="208" cy="190" r="4"  fill="#D95F1A" opacity=".5"/>
+      <circle cx="92"  cy="190" r="4"  fill="#D97941" opacity=".5"/>
+    </svg>
+
+    <h2 class="gate-title" id="gate-title">Social Media<br><em>Strategy</em></h2>
+    <span class="gate-rule" role="presentation"></span>
+    <p class="gate-sub">Parker Stone &amp; the Legend of Enbarr<br>Prepared by Gofer Content</p>
+    <div class="gate-field">
+      <label for="gate-input">Access Code</label>
+      <input type="password" id="gate-input" placeholder="Enter access code" autocomplete="off" autocorrect="off" spellcheck="false">
+      <button id="gate-btn" type="button">View Strategy</button>
+    </div>
+    <span class="gate-error" id="gate-error" aria-live="polite"></span>
+    <p class="gate-hint">Questions? <span>·</span> <a href="mailto:info@gofercontent.com" style="color:var(--fire);text-decoration:none">info@gofercontent.com</a></p>
+  </div>
+</div>
+
+<!-- ── MAIN CONTENT ─────────────────────────────────────────── -->
+<div id="content">
+
+<nav aria-label="Document navigation">
+  <span class="nav-brand">Parker Stone — Social Strategy</span>
+  <span class="nav-right">Gofer Content · Confidential</span>
+</nav>
+
+<!-- HERO BAND -->
+<div class="hero-band">
+  <div class="hero-band-inner">
+    <span class="hero-eyebrow">Prepared for Pam Gaylor</span>
+    <h1>Social Media<br><em>Launch Strategy</em></h1>
+    <span class="hero-rule" role="presentation"></span>
+    <p class="hero-sub">A platform-by-platform plan to build <strong>Parker Stone's audience before publication</strong> — modeled on what's already working for the authors who are winning on social right now.</p>
+    <p class="prepared-by">Prepared by <span>Dayna · Gofer Content</span> &nbsp;·&nbsp; <span>April 2026</span></p>
+  </div>
+</div>
+
+<!-- COMPETITIVE INTEL -->
+<div class="wrap">
+<section aria-labelledby="intel-heading">
+  <div class="reveal">
+    <span class="label">What We Studied</span>
+    <h2 id="intel-heading">What Shami Stovall<br>Is Doing <em>Right</em></h2>
+    <p class="prose">You saw her X ad. 976,000 impressions. Her organic posts hit 12K views. Here's what she does that almost no one else does consistently — and how we apply every piece of it to Parker.</p>
+    <div class="intel-grid">
+      <div class="intel-card">
+        <span class="intel-label">The Hook Formula</span>
+        <div class="intel-value">Every post leads with a comparison hook — <strong>"Pokémon meets Harry Potter," "John Wick meets High Fantasy," "Groundhog Day meets urban fantasy."</strong> Same hooks rotated across months.</div>
+      </div>
+      <div class="intel-card">
+        <span class="intel-label">Cover Image Every Time</span>
+        <div class="intel-value">The book cover appears in <strong>every single post.</strong> Organic or paid. The visual trains the algorithm and the audience at the same time.</div>
+      </div>
+      <div class="intel-card">
+        <span class="intel-label">One Engagement Question</span>
+        <div class="intel-value">She ends with a reader question: <strong>"Which creature would YOU bond with?"</strong> It generates replies. Replies feed the algorithm. Simple, repeatable, effective.</div>
+      </div>
+      <div class="intel-card">
+        <span class="intel-label">Repetition Is the Strategy</span>
+        <div class="intel-value">She doesn't try to be clever every time. She <strong>repeats the same angles with the same cover</strong> until the audience recognizes it before they read a word.</div>
+      </div>
+      <div class="intel-card">
+        <span class="intel-label">Paid Ads + Organic = Same Post</span>
+        <div class="intel-value">Her paid X ads use the exact same format as her organic posts. <strong>No special "ad creative."</strong> What performs organically gets budget behind it.</div>
+      </div>
+      <div class="intel-card">
+        <span class="intel-label">Author Personality Stays In</span>
+        <div class="intel-value">Her bio says she loves John, video games, and talking about herself in the 3rd person. <strong>The personality isn't separate from the brand — it is the brand.</strong></div>
+      </div>
+    </div>
+  </div>
+</section>
+</div>
+
+<!-- PARKER'S HOOKS -->
+<div class="wrap">
+<section aria-labelledby="hooks-heading">
+  <div class="reveal">
+    <span class="label">The Foundation</span>
+    <h2 id="hooks-heading">Parker's Core<br><em>Hook Lines</em></h2>
+    <p class="prose">These are the comparison hooks we rotate across all three platforms. Same copy. Same cover. Repeat until people recognize it.</p>
+    <div class="hook-list" role="list">
+      <div class="hook-item" role="listitem">
+        <span class="hook-num">01</span>
+        <span class="hook-text"><em>Outlander</em> meets Celtic mythology — except the hero is almost 60 and looks 30. <strong>This is the primary hook. Use it everywhere.</strong></span>
+      </div>
+      <div class="hook-item" role="listitem">
+        <span class="hook-num">02</span>
+        <span class="hook-text">What if the horse that galloped across the ocean in Irish legend showed up in your backyard on a Tuesday?</span>
+      </div>
+      <div class="hook-item" role="listitem">
+        <span class="hook-num">03</span>
+        <span class="hook-text">She spent 30 years feeling like she missed something she was supposed to do. She did. <em>Now it's time.</em></span>
+      </div>
+      <div class="hook-item" role="listitem">
+        <span class="hook-num">04</span>
+        <span class="hook-text">Red hair that catches fire in sunlight. Eyes that shift like the sea. An immortal black stallion. Meet Parker Stone.</span>
+      </div>
+      <div class="hook-item" role="listitem">
+        <span class="hook-num">05</span>
+        <span class="hook-text">The engagement question: <em>"If an immortal horse appeared through a storm cloud and called you its queen — what would you do?"</em></span>
+      </div>
+    </div>
+  </div>
+</section>
+</div>
+
+<!-- X / TWITTER -->
+<div class="wrap">
+<section aria-labelledby="x-heading">
+  <div class="reveal">
+    <div class="platform-header">
+      <div class="platform-dot" style="background:var(--x-blue)"></div>
+      <span class="platform-name" style="color:var(--x-blue)" id="x-heading">X / Twitter</span>
+      <span class="platform-handle">Primary Paid Ad Platform</span>
+    </div>
+    <p class="prose"><strong>This is Shami's ad platform</strong> and it should be Parker's too. Organic first, paid behind what performs. The audience here is adult fantasy readers, Celtic mythology enthusiasts, and women 35–65 who read literary fiction.</p>
+    <div class="pillar-grid">
+      <div class="pillar">
+        <div class="pillar-top">
+          <h3>The Hook Post</h3>
+          <span class="pillar-freq">2× / week</span>
+        </div>
+        <div class="pillar-body">
+          <strong>Format: Hook line + cover image + one reader question</strong>
+          One comparison hook. Book cover. One question. Nothing else. This is the post that becomes the ad.
+        </div>
+        <div class="example-post">"Outlander meets Celtic mythology — except the hero is almost 60 and looks 30. This is Parker Stone. Which mythological creature would call YOU queen? 👑"<br><br>[cover image] · parkerstone.com</div>
+      </div>
+      <div class="pillar">
+        <div class="pillar-top">
+          <h3>The Passage Drop</h3>
+          <span class="pillar-freq">1× / week</span>
+        </div>
+        <div class="pillar-body">
+          <strong>Format: 2–3 lines from the manuscript + cover image</strong>
+          Pull the most cinematic lines. No explanation. Let the prose do the work.
+        </div>
+        <div class="example-post">"My Queen... I will return. When I do, you will be ready. Together, we shall change this world." <br><br>— Parker Stone &amp; the Legend of Enbarr, Ch. 1 · Join the waitlist: parkerstone.com</div>
+      </div>
+      <div class="pillar">
+        <div class="pillar-top">
+          <h3>Pam's Voice</h3>
+          <span class="pillar-freq">1× / week</span>
+        </div>
+        <div class="pillar-body">
+          <strong>Format: Personal post — the writing journey, Celtic research, why Parker</strong>
+          This is what builds followers who actually care. Shami posts about her cats and her gaming. Pam posts about Celtic mythology rabbit holes and what it's like writing a 60-year-old hero.
+        </div>
+        <div class="example-post">"Fun fact: Enbarr of the Flowing Mane was the horse of Manannán mac Lir in Irish mythology. He could gallop across water. I've been researching him for 3 years. The book is almost here."</div>
+      </div>
+      <div class="pillar">
+        <div class="pillar-top">
+          <h3>Social Proof</h3>
+          <span class="pillar-freq">When available</span>
+        </div>
+        <div class="pillar-body">
+          <strong>Format: Beta reader quote or comp author blurb + cover image</strong>
+          Start collecting these now. One sentence from a real reader is worth ten hook posts. Bold it. Attribute it. Post it.
+        </div>
+        <div class="example-post">"I couldn't stop reading — Parker is the character I didn't know I needed." — Beta reader<br><br>Coming 2026. parkerstone.com</div>
+      </div>
+    </div>
+    <div style="margin-top:2rem;padding:1.5rem;border:1px solid rgba(29,161,242,.2);background:rgba(29,161,242,.04)">
+      <h3 style="color:var(--x-blue)">Paid Ad Plan</h3>
+      <p style="font-size:.95rem;color:var(--dim);line-height:1.85;margin-top:.5rem">Take whichever Hook Post performs best organically (most replies, most impressions) and put $5–$10/day behind it. Target: women 35–65, interests in Celtic mythology, historical fiction, fantasy. Same post, same image. <strong style="color:var(--white)">No separate ad creative needed.</strong> This is exactly Shami's method.</p>
+    </div>
+  </div>
+</section>
+</div>
+
+<!-- INSTAGRAM -->
+<div class="wrap">
+<section aria-labelledby="ig-heading">
+  <div class="reveal">
+    <div class="platform-header">
+      <div class="platform-dot" style="background:var(--ig-pink)"></div>
+      <span class="platform-name" style="color:var(--ig-pink)" id="ig-heading">Instagram</span>
+      <span class="platform-handle">Visual + Atmospheric</span>
+    </div>
+    <p class="prose">Instagram rewards consistency and visuals. <strong>The book cover is the visual anchor — always.</strong> The goal here is making Parker Stone's aesthetic recognizable before the book is out.</p>
+    <div class="pillar-grid">
+      <div class="pillar">
+        <div class="pillar-top">
+          <h3>Cover Post + Hook</h3>
+          <span class="pillar-freq">2× / week</span>
+        </div>
+        <div class="pillar-body">
+          <strong>Same as X but formatted for IG caption style</strong>
+          Full cover image. Hook in the first line of caption (before the cut). Reader question. Hashtags at the bottom.
+        </div>
+        <div class="example-post">Caption line 1: "Outlander meets Celtic mythology — and the hero is almost 60." 🔥<br><br>...rest of caption + #BookTok #CelticFantasy #FantasyBooks #WomensFiction</div>
+      </div>
+      <div class="pillar">
+        <div class="pillar-top">
+          <h3>Reels — Passage Reads</h3>
+          <span class="pillar-freq">1× / week</span>
+        </div>
+        <div class="pillar-body">
+          <strong>20–30 seconds: Pam reads a passage over atmospheric audio</strong>
+          Cover art or a simple dark background. Celtic ambient music. Pam reads the Enbarr arrival scene or the Chapter 1 opener. This is BookTok before TikTok.
+        </div>
+        <div class="example-post">Video: dark screen + cover art fade-in + Pam's voice reading: "He came through the storm cloud on a Tuesday morning..."<br>Audio: low Celtic strings</div>
+      </div>
+      <div class="pillar">
+        <div class="pillar-top">
+          <h3>Story Polls</h3>
+          <span class="pillar-freq">2–3× / week</span>
+        </div>
+        <div class="pillar-body">
+          <strong>Quick engagement to feed the algorithm</strong>
+          "Parker's hair — fiery red or deep auburn?" / "Which would you choose: immortality or Celtic magic?" / "Enbarr arrived through a storm cloud. Would you run or stay?"
+        </div>
+      </div>
+      <div class="pillar">
+        <div class="pillar-top">
+          <h3>Cover Reveal Event</h3>
+          <span class="pillar-freq">One-time milestone</span>
+        </div>
+        <div class="pillar-body">
+          <strong>Plan this as a moment, not a post</strong>
+          Story countdown stickers for 3 days before. Reel for the reveal itself. Static post with the cover lives on the grid permanently. This is the first big organic surge.
+        </div>
+      </div>
+    </div>
+    <div style="margin-top:2rem;padding:1.5rem 1.75rem;border:1px solid rgba(225,48,108,.15);background:rgba(225,48,108,.04)">
+      <h3 style="color:var(--ig-pink)">Hashtag Strategy</h3>
+      <p style="font-size:.9rem;color:var(--dim);line-height:1.85;margin-top:.5rem">Use 8–12 per post. Mix: large (#FantasyBooks, #BookTok, #BookstagramFantasy) + niche (#CelticMythology, #CelticFantasy, #WomensFantasy, #NewFantasyBooks2026, #ParkerStone). Niche hashtags drive the right readers. Large tags drive discovery.</p>
+    </div>
+  </div>
+</section>
+</div>
+
+<!-- FACEBOOK -->
+<div class="wrap">
+<section aria-labelledby="fb-heading">
+  <div class="reveal">
+    <div class="platform-header">
+      <div class="platform-dot" style="background:var(--fb-blue)"></div>
+      <span class="platform-name" style="color:var(--fb-blue)" id="fb-heading">Facebook</span>
+      <span class="platform-handle">Community Building</span>
+    </div>
+    <p class="prose">Facebook is where Parker Stone's <strong>core reader demographic lives</strong> — women 40–65 who read fantasy, mythology, and women's fiction. Longer posts work here. Community works here.</p>
+    <div class="pillar-grid">
+      <div class="pillar">
+        <div class="pillar-top">
+          <h3>Full Character Posts</h3>
+          <span class="pillar-freq">2× / week</span>
+        </div>
+        <div class="pillar-body">
+          <strong>Share the full "Meet Parker" description</strong>
+          Facebook readers will actually read it. Post the character description, the Enbarr mythology context, the "why this story matters." Cover image every time.
+        </div>
+        <div class="example-post">"Parker Stone is almost sixty and looks thirty. She has red hair that catches fire in sunlight, eyes that shift color like the sea, and a fierce, defiant streak she never outgrew. She spent decades not fitting in. Then came the horse. [Read more → parkerstone.com]"</div>
+      </div>
+      <div class="pillar">
+        <div class="pillar-top">
+          <h3>Book Group Outreach</h3>
+          <span class="pillar-freq">Ongoing</span>
+        </div>
+        <div class="pillar-body">
+          <strong>Target specific Facebook groups — join and post as Pam</strong>
+          Celtic Mythology Lovers · Women's Fantasy Readers · BookTok Recommendations · Irish Mythology & Folklore. Post the hook, the cover, the waitlist link. Follow group rules.
+        </div>
+      </div>
+      <div class="pillar">
+        <div class="pillar-top">
+          <h3>Mythology Education</h3>
+          <span class="pillar-freq">1× / week</span>
+        </div>
+        <div class="pillar-body">
+          <strong>One Celtic mythology fact tied back to the book</strong>
+          "Did you know Enbarr was so fast he could cross the ocean in one stride? He appears in my book — here's what the mythology actually says..." This positions Pam as an authority, not just an author.
+        </div>
+      </div>
+      <div class="pillar">
+        <div class="pillar-top">
+          <h3>Waitlist Pushes</h3>
+          <span class="pillar-freq">Every 2 weeks</span>
+        </div>
+        <div class="pillar-body">
+          <strong>Direct call to action — join the list at parkerstone.com</strong>
+          Facebook allows links. Use them. Don't bury the CTA. "Book comes out 2026. Be first to know → [link]." Keep it simple.
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+</div>
+
+<!-- WEEKLY CONTENT CALENDAR -->
+<div class="wrap">
+<section aria-labelledby="cal-heading">
+  <div class="reveal">
+    <span class="label">Week at a Glance</span>
+    <h2 id="cal-heading">Weekly<em> Posting Rhythm</em></h2>
+    <p class="prose">This is the repeating weekly schedule across all three platforms. Low lift, high consistency.</p>
+    <div class="cal-grid" role="list" aria-label="Weekly posting schedule">
+      <div class="cal-day active" role="listitem">
+        <span class="cal-day-name">Mon</span>
+        <span class="platform-tag tag-all">All 3</span>
+        <div class="cal-day-post">Hook Post + Cover</div>
+      </div>
+      <div class="cal-day" role="listitem">
+        <span class="cal-day-name">Tue</span>
+        <span class="platform-tag tag-ig">IG</span>
+        <div class="cal-day-post">Story Poll</div>
+      </div>
+      <div class="cal-day active" role="listitem">
+        <span class="cal-day-name">Wed</span>
+        <span class="platform-tag tag-fb">FB</span>
+        <div class="cal-day-post">Mythology Fact Post</div>
+      </div>
+      <div class="cal-day" role="listitem">
+        <span class="cal-day-name">Thu</span>
+        <span class="platform-tag tag-ig">IG</span>
+        <div class="cal-day-post">Reel — Passage Read</div>
+      </div>
+      <div class="cal-day active" role="listitem">
+        <span class="cal-day-name">Fri</span>
+        <span class="platform-tag tag-all">All 3</span>
+        <div class="cal-day-post">Passage Drop + Cover</div>
+      </div>
+      <div class="cal-day" role="listitem">
+        <span class="cal-day-name">Sat</span>
+        <span class="platform-tag tag-ig">IG</span>
+        <div class="cal-day-post">Story Engagement</div>
+      </div>
+      <div class="cal-day active" role="listitem">
+        <span class="cal-day-name">Sun</span>
+        <span class="platform-tag tag-x">X</span>
+        <div class="cal-day-post">Pam's Voice Post</div>
+      </div>
+    </div>
+
+    <!-- TikTok Flag -->
+    <div class="tiktok-flag">
+      <div class="tiktok-icon">🎵</div>
+      <div>
+        <h3>TikTok / BookTok — Coming Next</h3>
+        <p>TikTok and BookTok are <strong>where Celtic fantasy readers under 40 live</strong> — and where authors like Shami are growing fastest. We need to do the Emersoft-style hook research for TikTok before building out this platform. <strong>This is a separate deliverable — not in this plan yet.</strong> Once complete, TikTok slots into Thursday alongside the IG Reel (same video content, different platform).</p>
+      </div>
+    </div>
+  </div>
+</section>
+</div>
+
+<!-- LAUNCH TIMELINE -->
+<div class="wrap">
+<section aria-labelledby="timeline-heading">
+  <div class="reveal">
+    <span class="label">The Roadmap</span>
+    <h2 id="timeline-heading">Pre-Launch<br><em>Timeline</em></h2>
+    <div class="timeline" role="list">
+      <div class="tline-item" role="listitem">
+        <span class="tline-period">Now → May</span>
+        <div class="tline-content">
+          <h3>Foundation Phase</h3>
+          <p class="tline-body">Start posting 3× per week. <strong>Cover image every post.</strong> Rotate the 5 hook lines. Build the waitlist at parkerstone.com. Join 5 Facebook groups. Post the character description. The goal is recognition — people should start to see Parker's cover and know it.</p>
+        </div>
+      </div>
+      <div class="tline-item" role="listitem">
+        <span class="tline-period">May → Aug</span>
+        <div class="tline-content">
+          <h3>Cover Reveal + Momentum</h3>
+          <p class="tline-body"><strong>The cover reveal is your first big event.</strong> Build to it with Story countdowns on IG. Post it across all platforms same day. Start putting $5–10/day in X ads behind the Hook Post that performed best. Begin beta reader outreach and start collecting blurbs.</p>
+        </div>
+      </div>
+      <div class="tline-item" role="listitem">
+        <span class="tline-period">Aug → Launch</span>
+        <div class="tline-content">
+          <h3>Pre-Order Push + Creator Outreach</h3>
+          <p class="tline-body">Add the pre-order link to every post. <strong>Begin outreach to BookTok creators and Celtic mythology podcasts.</strong> Send the Creator Brief (hook library + synopsis + suggested angles). Let them make it their own. Increase ad budget on X to $20/day as launch approaches.</p>
+        </div>
+      </div>
+      <div class="tline-item" role="listitem">
+        <span class="tline-period">Launch Week</span>
+        <div class="tline-content">
+          <h3>Publish Day + Launch Sprint</h3>
+          <p class="tline-body">Post on all platforms every day launch week. Boost every post. <strong>Ask every beta reader and early follower to leave an Amazon review the day it drops.</strong> A sprint of reviews in the first 48 hours signals to Amazon's algorithm that the book has momentum.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+</div>
+
+<!-- CTA -->
+<div class="cta-band">
+  <div class="cta-inner reveal">
+    <span class="label">Next Steps</span>
+    <h2>Ready to<br><em>Start Posting?</em></h2>
+    <p class="prose">The strategy is here. The hook lines are ready. The cover is live. All that's left is to start — and keep going.</p>
+    <div class="btn-row">
+      <a href="https://clipboard250.github.io/parker-stone/" class="btn-primary" target="_blank" rel="noopener">View Parker's Site →</a>
+      <a href="mailto:info@gofercontent.com" class="btn-ghost">Contact Gofer Content</a>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <span class="foot-title">Parker Stone &amp; the Legend of Enbarr — Social Strategy</span>
+  <span class="foot-copy">Gofer Content · Confidential · 2026</span>
+</footer>
+
+</div><!-- end #content -->
+
+<script>
+// ── GATE LOGIC ──
+var gateInput = document.getElementById('gate-input');
+var gateBtn   = document.getElementById('gate-btn');
+var gateErr   = document.getElementById('gate-error');
+var gate      = document.getElementById('gate');
+var content   = document.getElementById('content');
+
+function tryUnlock() {
+  var val = gateInput.value.trim().toLowerCase();
+  if (val === 'parker') {
+    gate.style.opacity = '0';
+    gate.style.transition = 'opacity .5s ease';
+    setTimeout(function() {
+      gate.style.display = 'none';
+      content.style.display = 'block';
+      setTimeout(function() { content.classList.add('visible'); }, 20);
+      document.body.focus();
+    }, 500);
+  } else {
+    gateErr.textContent = 'Incorrect code. Try again.';
+    gateInput.value = '';
+    gateInput.focus();
+    gateInput.style.borderColor = 'rgba(217,95,26,.7)';
+    setTimeout(function() {
+      gateInput.style.borderColor = '';
+      gateErr.textContent = '';
+    }, 2500);
+  }
+}
+gateBtn.addEventListener('click', tryUnlock);
+gateInput.addEventListener('keydown', function(e) { if (e.key === 'Enter') tryUnlock(); });
+gateInput.focus();
+
+// ── SCROLL REVEAL ──
+var obs = new IntersectionObserver(function(entries) {
+  entries.forEach(function(e) {
+    if (e.isIntersecting) { e.target.classList.add('on'); obs.unobserve(e.target); }
+  });
+}, { threshold: .08, rootMargin: '0px 0px -30px 0px' });
+document.querySelectorAll('.reveal').forEach(function(el) { obs.observe(el); });
+</script>
+</body>
+</html>
