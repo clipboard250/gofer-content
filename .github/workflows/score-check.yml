@@ -10,5 +10,7 @@ jobs:
       - name: Score a few sites
         run: |
           for u in gofercontent.com joeydrums.com omgitswicks.com example.com; do
-            echo "$u: $(curl -s -m 30 -H 'Origin: https://gofercontent.com' "https://gofer-score.vercel.app/api/score?url=$u")"
+            r=$(curl -s -m 30 -H 'Origin: https://gofercontent.com' "https://gofer-score.vercel.app/api/score?url=$u")
+            echo "::notice title=$u::$r"
+            echo "$r" | grep -q '"grade"' || exit 1
           done
