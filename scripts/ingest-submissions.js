@@ -7,8 +7,8 @@ const fs = require('fs');
 const path = require('path');
 
 const CSV_PATH = path.join(process.cwd(), 'data', 'formspree.csv');
-const SPOTS = path.join('community-bulletin-board', 'spots.json');
-const EVENTS = path.join('community-bulletin-board', 'events.json');
+const SPOTS = path.join('gofer', 'community-bulletin-board', 'spots.json');
+const EVENTS = path.join('gofer', 'community-bulletin-board', 'events.json');
 
 // --- tiny CSV reader (handles quotes + commas) ---
 function parseCSV(text){

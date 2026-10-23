@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<meta name="robots" content="noindex, nofollow">
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Add a listing — Gofer Community</title>
@@ -170,7 +171,7 @@
 
   // Load existing spots to prevent duplicates
   let SPOTS = [];
-  fetch('/community-bulletin-board/spots.json',{cache:'no-store'})
+  fetch('/gofer/community-bulletin-board/spots.json',{cache:'no-store'})
     .then(r=>r.json()).then(d=>SPOTS=d).catch(()=>{});
 
   // Helpers
