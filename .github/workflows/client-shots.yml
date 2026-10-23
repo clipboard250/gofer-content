@@ -1,0 +1,40 @@
+name: Refresh client screenshots
+
+on:
+  schedule:
+    - cron: '17 9 * * 1'   # Mondays, early morning
+  workflow_dispatch: {}    # "Run workflow" button for an instant refresh
+
+permissions:
+  contents: write
+
+jobs:
+  shots:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install Playwright
+        run: |
+          npm install --no-save playwright@1
+          npx playwright install --with-deps chromium
+
+      - name: Take screenshots
+        run: node scripts/client-shots.js
+
+      - name: Commit if anything changed
+        run: |
+          git add images/clients
+          if git diff --cached --quiet; then
+            echo "No changes"
+          else
+            git config user.name "github-actions"
+            git config user.email "actions@github.com"
+            git commit -m "Refresh client screenshots"
+            git pull --rebase
+            git push
+          fi
