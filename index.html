@@ -155,40 +155,29 @@ footer .sep{color:var(--gold)}
 .rv.on{opacity:1;transform:none}
 .rv.d1{transition-delay:.08s}.rv.d2{transition-delay:.16s}.rv.d3{transition-delay:.24s}
 
-/* ── PROMO POPUP (ported) ── */
-.pop-overlay{display:none;position:fixed;inset:0;background:rgba(17,17,17,.88);z-index:200;align-items:center;justify-content:center;padding:20px}
-.pop-overlay.open{display:flex;animation:pop-fade .3s ease}
+/* ── EXIT POPUP: free website check ── */
+.pop-overlay{display:none;position:fixed;inset:0;background:rgba(26,23,20,.72);z-index:200;align-items:center;justify-content:center;padding:20px}
+.pop-overlay.open{display:flex;animation:pop-fade .25s ease}
 @keyframes pop-fade{from{opacity:0}to{opacity:1}}
-@keyframes pop-up{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:translateY(0)}}
-.pop{background:var(--black);border:2.5px solid var(--gold);border-radius:14px;padding:44px 36px 36px;max-width:500px;width:100%;position:relative;text-align:center;animation:pop-up .4s cubic-bezier(.16,1,.3,1)}
-.pop-close{position:absolute;top:14px;right:16px;background:none;border:none;color:var(--muted);font-family:var(--mono);font-size:.68rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;cursor:pointer;padding:4px 8px;transition:color .2s}
-.pop-close:hover{color:var(--cream)}
-.pop h2{font-family:var(--head);font-weight:900;font-size:clamp(30px,7vw,52px);text-transform:uppercase;line-height:.9;letter-spacing:-.03em;color:var(--cream);margin-bottom:12px}
-.pop-body{font-size:.9rem;color:rgba(245,239,224,.82);max-width:380px;margin:0 auto 26px;line-height:1.7}
-.pop-body strong{color:var(--gold)}
-.pop-label{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--gold);margin-bottom:12px}
-.pop-row{display:flex;gap:8px}
-.pop-input{flex:1;min-height:52px;padding:.65rem 1.1rem;background:rgba(245,239,224,.07);border:2px solid rgba(245,239,224,.18);border-radius:50px;color:var(--cream);font-family:var(--mono);font-size:.85rem;outline:none;transition:border-color .2s}
-.pop-input::placeholder{color:var(--muted)}
-.pop-input:focus{border-color:var(--cream)}
-.pop-input:focus-visible{outline:3px solid var(--blue);outline-offset:3px}
-.pop-btn{min-height:52px;padding:.65rem 1.4rem;border-radius:50px;background:var(--coral);color:var(--cream);font-family:var(--mono);font-weight:700;font-size:.82rem;text-transform:uppercase;letter-spacing:.04em;border:2.5px solid var(--coral);cursor:pointer;transition:all .2s;white-space:nowrap}
-.pop-btn:hover{background:var(--gold);border-color:var(--gold);color:var(--black)}
+@keyframes pop-up{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
+.pop{background:var(--cream);color:var(--ink);border:3px solid var(--ink);border-radius:22px;box-shadow:8px 8px 0 var(--coral);padding:34px 30px 28px;max-width:460px;width:100%;position:relative;text-align:left;animation:pop-up .35s cubic-bezier(.16,1,.3,1);max-height:92vh;overflow-y:auto}
+.pop-close{position:absolute;top:12px;right:12px;width:40px;height:40px;border-radius:50%;background:none;border:2px solid var(--ink);color:var(--ink);font:700 1.1rem/1 var(--font);cursor:pointer}
+.pop-close:hover{background:var(--ink);color:var(--cream)}
+.pop-eyebrow{font-weight:800;font-size:.72rem;text-transform:uppercase;letter-spacing:.12em;color:var(--coral);margin-bottom:10px}
+.pop h2{font-weight:900;font-size:clamp(32px,8vw,44px);line-height:.95;letter-spacing:-.03em;margin:0 44px 14px 0}
+.pop-body{font-size:1.02rem;line-height:1.5;color:#3a342c;margin-bottom:22px}
+.pop .lbl{display:block;font-weight:800;font-size:.72rem;text-transform:uppercase;letter-spacing:.08em;margin:0 0 6px}
+.pop input{width:100%;padding:.8rem 1rem;background:#fff;border:2px solid var(--ink);border-radius:10px;font:400 1rem var(--font);color:var(--ink);margin-bottom:16px}
+.pop-btn{width:100%;min-height:54px;background:var(--ink);color:var(--cream);border:3px solid var(--ink);border-radius:12px;font:800 1rem var(--font);text-transform:uppercase;letter-spacing:.04em;cursor:pointer;transition:.2s}
+.pop-btn:hover{background:var(--coral);border-color:var(--coral);color:#fff}
 .pop-btn:disabled{opacity:.5;cursor:not-allowed}
-.pop-sms-wrap{display:none;flex-direction:column;align-items:center;gap:10px}
-.pop-sms-btn{display:inline-flex;align-items:center;justify-content:center;min-height:52px;width:100%;padding:.65rem 1.8rem;border-radius:50px;background:var(--coral);color:var(--cream);font-family:var(--mono);font-weight:700;font-size:.82rem;text-transform:uppercase;letter-spacing:.04em;border:2.5px solid var(--coral);text-decoration:none;transition:all .2s}
-.pop-sms-btn:hover{background:var(--gold);border-color:var(--gold);color:var(--black)}
-.pop-or{font-size:.66rem;color:var(--muted);text-transform:uppercase;letter-spacing:.06em}
-@media(max-width:560px){.pop-row{display:none}.pop-sms-wrap{display:flex}.pop{padding:40px 20px 28px}}
-.pop-fine{font-size:.66rem;color:var(--muted);font-style:italic;margin-top:10px}
-.pop-err{font-size:.75rem;color:var(--coral);margin-top:8px;display:none}
-.pop-content{display:none;text-align:left}
-.pop-content.on{display:block;animation:pop-fade .4s ease both}
-.pop-thanks{font-family:var(--head);font-weight:900;font-size:clamp(24px,6vw,38px);text-transform:uppercase;line-height:1;letter-spacing:-.02em;color:var(--gold);margin-bottom:14px}
-.pop-reveal-body{font-size:.85rem;color:rgba(245,239,224,.78);line-height:1.7;margin-bottom:20px}
-.pop-words{display:flex;flex-direction:column;gap:4px;margin-bottom:20px}
-.pop-words span{font-family:var(--head);font-weight:900;font-size:clamp(28px,6vw,42px);text-transform:uppercase;line-height:1;color:var(--coral);letter-spacing:-.02em}
-.pop-reveal-fine{font-style:italic;font-size:.9rem;color:var(--gold)}
+.pop-fine{font-size:.85rem;color:var(--muted);margin-top:14px;line-height:1.45}
+.pop-err{font-size:.85rem;color:var(--coral);margin-top:10px;display:none;font-weight:700}
+.pop-err a{text-decoration:underline}
+.pop-content{display:none}
+.pop-content.on{display:block;animation:pop-fade .3s ease both}
+.pop-content h2{margin-right:44px}
+@media(max-width:480px){.pop{padding:30px 22px 24px}}
 
 @media(prefers-reduced-motion:reduce){
   .rv{opacity:1!important;transform:none!important}
@@ -379,40 +368,28 @@ footer .sep{color:var(--gold)}
   <p>&copy; <span id="y"></span> Gofer Content <span class="sep">/</span> St. Petersburg, Florida <span class="sep">/</span> You own everything. Gofer Content keeps it running.</p>
 </footer>
 
-<!-- PROMO POPUP -->
+<!-- EXIT POPUP: free website check -->
 <div class="pop-overlay" id="pop-overlay" role="dialog" aria-modal="true" aria-labelledby="pop-heading">
   <div class="pop" id="pop">
-    <button class="pop-close" id="pop-close" aria-label="Close popup">✕ close</button>
+    <button class="pop-close" id="pop-close" aria-label="Close">✕</button>
     <div id="pop-gate">
-      <h2 id="pop-heading">WAIT<br>ONE SEC</h2>
-      <p class="pop-body">The businesses showing up in AI search grabbed this first<br><strong>your free gut-check</strong></p>
-      <p class="pop-label">🧠 get the free gut-check</p>
-      <form class="pop-row" id="pop-form-d" novalidate aria-label="Get the prompt kit">
-        <label for="pop-e-d" class="sr-only">Email address</label>
-        <input class="pop-input" type="email" id="pop-e-d" name="email" placeholder="your@email.com" autocomplete="email" required>
-        <button class="pop-btn" type="submit">Let me in</button>
+      <p class="pop-eyebrow">Free website check</p>
+      <h2 id="pop-heading">Does AI know you exist?</h2>
+      <p class="pop-body">Drop your link and Dayna checks how your site shows up on Google and in AI answers</p>
+      <form id="pop-form" novalidate>
+        <label class="lbl" for="pop-site">Your website</label>
+        <input id="pop-site" type="url" name="website" placeholder="https://" inputmode="url" autocomplete="url" required>
+        <label class="lbl" for="pop-phone">Your phone</label>
+        <input id="pop-phone" type="tel" name="phone" placeholder="(555) 555-5555" autocomplete="tel" required>
+        <button class="pop-btn" type="submit">Check my site</button>
       </form>
-      <div class="pop-sms-wrap" role="group" aria-label="Get the prompt kit">
-        <form class="pop-row" id="pop-form-m" novalidate style="width:100%">
-          <label for="pop-e-m" class="sr-only">Email address</label>
-          <input class="pop-input" type="email" id="pop-e-m" name="email" placeholder="your@email.com" autocomplete="email">
-          <button class="pop-btn" type="submit">Let me in</button>
-        </form>
-        <span class="pop-or" aria-hidden="true">— or —</span>
-        <a class="pop-sms-btn" href="sms:+17273539673?&body=Hey%20Dayna%2C%20I%20want%20inside%20the%20Gofer%20brain.">I'd rather text</a>
-      </div>
-      <p class="pop-fine">Fair warning—we're known to follow up.</p>
-      <p class="pop-err" id="pop-err" role="alert">Something went wrong. <a href="sms:+17273539673" style="color:var(--coral)">Text us instead.</a></p>
+      <p class="pop-fine">Weekdays 9 to 5 you get your green, yellow, or red score by text right away<br>Dayna explains it, no sales pitch</p>
+      <p class="pop-err" id="pop-err" role="alert">That didn't go through <a href="sms:+17273539673">Text Dayna instead</a></p>
     </div>
     <div class="pop-content" id="pop-content" tabindex="-1">
-      <p class="pop-thanks">Hey, you made it.</p>
-      <p class="pop-reveal-body">If we see any of these words on your website, we stop reading immediately.</p>
-      <div class="pop-words">
-        <span>Elevate.</span>
-        <span>Craft.</span>
-        <span>Impact.</span>
-      </div>
-      <p class="pop-reveal-fine">You're welcome. More where that came from.</p>
+      <p class="pop-eyebrow">Got it</p>
+      <h2>Dayna's on it</h2>
+      <p class="pop-body">Your score is coming by text<br>After hours or weekends, first thing next business day</p>
     </div>
   </div>
 </div>
@@ -504,59 +481,51 @@ if(!reduce){
   document.getElementById('rankpanel').classList.add('on');
 }
 
-/* Promo popup */
+/* Exit popup: free website check */
 (function(){
   var KEY='gc_pop';
   var ENDPOINT='https://formspree.io/f/xdawjgpj';
-  if(localStorage.getItem(KEY)==='1')return;
-  if(sessionStorage.getItem('gc_pop_closed')==='1')return;
-  setTimeout(function(){
-    var ov=document.getElementById('pop-overlay');
+  try{if(localStorage.getItem(KEY)==='1'||sessionStorage.getItem('gc_pop_closed')==='1')return;}catch(e){}
+  var ov=document.getElementById('pop-overlay');
+  function openPop(){
+    if(ov.classList.contains('open'))return;
     ov.classList.add('open');
     document.body.style.overflow='hidden';
-    document.getElementById('pop-close').focus();
-    ov.addEventListener('keydown',function trap(e){
-      if(e.key==='Escape'){closePop();return;}
-      if(e.key!=='Tab')return;
-      var els=document.getElementById('pop').querySelectorAll('button:not([disabled]),input,a[href]');
-      var first=els[0],last=els[els.length-1];
-      if(e.shiftKey){if(document.activeElement===first){e.preventDefault();last.focus();}}
-      else{if(document.activeElement===last){e.preventDefault();first.focus();}}
-    });
-  },30000);
+    document.getElementById('pop-site').focus({preventScroll:true});
+  }
+  setTimeout(openPop,30000);
+  document.addEventListener('mouseout',function(e){if(!e.relatedTarget&&e.clientY<=0)openPop();});
   function closePop(){
-    document.getElementById('pop-overlay').classList.remove('open');
+    ov.classList.remove('open');
     document.body.style.overflow='';
-    sessionStorage.setItem('gc_pop_closed','1');
+    try{sessionStorage.setItem('gc_pop_closed','1');}catch(e){}
   }
   document.getElementById('pop-close').addEventListener('click',closePop);
-  document.getElementById('pop-overlay').addEventListener('click',function(e){if(e.target===this)closePop();});
-  function handleSubmit(e){
+  ov.addEventListener('click',function(e){if(e.target===ov)closePop();});
+  ov.addEventListener('keydown',function(e){
+    if(e.key==='Escape'){closePop();return;}
+    if(e.key!=='Tab')return;
+    var els=document.getElementById('pop').querySelectorAll('button:not([disabled]),input,a[href]');
+    var first=els[0],last=els[els.length-1];
+    if(e.shiftKey&&document.activeElement===first){e.preventDefault();last.focus();}
+    else if(!e.shiftKey&&document.activeElement===last){e.preventDefault();first.focus();}
+  });
+  document.getElementById('pop-form').addEventListener('submit',function(e){
     e.preventDefault();
-    var btn=e.target.querySelector('button');
-    var input=e.target.querySelector('input[type="email"]');
-    var email=input.value.trim();
-    var err=document.getElementById('pop-err');
-    if(!email||!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)){input.focus();return;}
+    var site=document.getElementById('pop-site'),phone=document.getElementById('pop-phone');
+    var btn=this.querySelector('button'),err=document.getElementById('pop-err');
+    var s=site.value.trim(),ph=phone.value.trim();
+    if(!s){site.focus();return;}
+    if(ph.replace(/\D/g,'').length<10){phone.focus();return;}
+    if(!/^https?:\/\//i.test(s))s='https://'+s;
     btn.disabled=true;btn.textContent='Sending…';err.style.display='none';
-    fetch(ENDPOINT,{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},body:JSON.stringify({email:email,_subject:'AI Prompt Kit — '+email})})
-    .then(function(r){return r.json();})
-    .then(function(d){
-      if(d.ok){
-        localStorage.setItem(KEY,'1');
-        document.getElementById('pop-gate').style.display='none';
-        var c=document.getElementById('pop-content');
-        c.classList.add('on');c.focus();
-      }else{fail(btn);}
-    }).catch(function(){fail(btn);});
-  }
-  function fail(btn){
-    document.getElementById('pop-err').style.display='block';
-    btn.disabled=false;btn.textContent='Send it';
-  }
-  ['pop-form-d','pop-form-m'].forEach(function(id){
-    var f=document.getElementById(id);
-    if(f)f.addEventListener('submit',handleSubmit);
+    fetch(ENDPOINT,{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},
+      body:JSON.stringify({website:s,phone:ph,_subject:'Website check: '+s})})
+    .then(function(r){if(!r.ok)throw 0;
+      try{localStorage.setItem(KEY,'1');}catch(e){}
+      document.getElementById('pop-gate').style.display='none';
+      var c=document.getElementById('pop-content');c.classList.add('on');c.focus();
+    }).catch(function(){err.style.display='block';btn.disabled=false;btn.textContent='Check my site';});
   });
 })();
 
