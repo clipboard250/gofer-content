@@ -55,9 +55,10 @@ a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible,
 .wrap{max-width:1080px;margin:0 auto;padding:0 28px;width:100%}
 
 /* NAV */
-.nav{position:fixed;inset:0 0 auto 0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:16px 28px;mix-blend-mode:difference;color:#fff}
+.nav{position:fixed;inset:0 0 auto 0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:14px 28px;background:var(--ink);color:var(--cream);border-bottom:1px solid rgba(245,239,224,.12)}
 .nav-logo{font-weight:900;font-size:1.05rem;letter-spacing:-.02em}
-.nav-cta{font-weight:700;font-size:.82rem;text-transform:uppercase;letter-spacing:.05em;padding:.5rem 1.1rem;border:2px solid #fff;border-radius:40px;cursor:pointer;background:none;color:#fff;font-family:var(--font)}
+.nav-cta:hover{background:var(--coral);border-color:var(--coral);color:#fff}
+.nav-cta{font-weight:700;font-size:.82rem;text-transform:uppercase;letter-spacing:.05em;padding:.5rem 1.1rem;border:2px solid var(--cream);border-radius:40px;cursor:pointer;background:none;color:var(--cream);font-family:var(--font)}
 
 .panel{min-height:100svh;display:flex;flex-direction:column;justify-content:center;padding:96px 0;position:relative}
 .panel-center{text-align:center;align-items:center}
@@ -123,7 +124,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible,
 .work-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
 .wcard{background:#fff;border:3px solid var(--ink);border-radius:18px;overflow:hidden;transition:transform .22s,box-shadow .22s}
 .wcard:hover{transform:translate(-4px,-4px);box-shadow:8px 8px 0 var(--ink)}
-.wcard .shot{width:100%;aspect-ratio:390/664;object-fit:cover;object-position:top;display:block;border-bottom:3px solid var(--ink);background:var(--cream)}
+.wcard .shot{width:100%;height:auto;display:block;border-bottom:3px solid var(--ink);background:var(--cream)}
 .wcard .i{padding:14px 18px}
 .wcard .nm{font-weight:800;font-size:1.08rem}
 .wcard .tg{font-size:.8rem;color:var(--muted);margin-top:2px}
