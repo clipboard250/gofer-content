@@ -1,17 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-E9RRD8KL4B"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-E9RRD8KL4B');
-</script>
-
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; connect-src 'self' https://formspree.io https://gofer-score.vercel.app; form-action 'self' https://formspree.io; base-uri 'self'; object-src 'none'; upgrade-insecure-requests">
+<meta name="referrer" content="strict-origin-when-cross-origin">
 <link rel="canonical" href="https://gofercontent.com/">
 <title>Gofer Content | Websites, AEO + Hosting in 24-72 Hours</title>
 <meta name="description" content="Director of Online Presence. ADA-compliant websites, AEO, SEO, and hosting rebuilt and live in 24-72 hours. No overlay plugins. St. Petersburg, FL.">
@@ -33,9 +26,15 @@
 <link rel="icon" href="pfpdayna.jpeg">
 <meta name="theme-color" content="#e8553a">
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@400;500;700;800;900&display=swap">
+<link rel="preload" href="assets/fonts/schibsted-900.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/schibsted-800.woff2" as="font" type="font/woff2" crossorigin>
+<style>
+@font-face{font-family:'Schibsted Grotesk';font-style:normal;font-weight:400;font-display:swap;src:url(assets/fonts/schibsted-400.woff2) format('woff2')}
+@font-face{font-family:'Schibsted Grotesk';font-style:normal;font-weight:500;font-display:swap;src:url(assets/fonts/schibsted-500.woff2) format('woff2')}
+@font-face{font-family:'Schibsted Grotesk';font-style:normal;font-weight:700;font-display:swap;src:url(assets/fonts/schibsted-700.woff2) format('woff2')}
+@font-face{font-family:'Schibsted Grotesk';font-style:normal;font-weight:800;font-display:swap;src:url(assets/fonts/schibsted-800.woff2) format('woff2')}
+@font-face{font-family:'Schibsted Grotesk';font-style:normal;font-weight:900;font-display:swap;src:url(assets/fonts/schibsted-900.woff2) format('woff2')}
+</style>
 <style>
 :root{
   --cream:#f5efe0;--coral:#e8553a;--gold:#f0c63a;--blue:#4a8fd9;--purple:#d4b8f0;
@@ -146,7 +145,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible,
 .orcall a{text-decoration:underline;text-underline-offset:4px}
 @media(max-width:480px){.frow{grid-template-columns:1fr}}
 
-footer{background:var(--ink);color:var(--muted);text-align:center;padding:26px;font-size:.82rem;font-weight:500}
+footer{background:var(--ink);color:#a89c8c;text-align:center;padding:26px;font-size:.82rem;font-weight:500}
 footer .sep{color:var(--gold)}
 
 .rv{opacity:0;transform:translateY(34px);transition:opacity .8s cubic-bezier(.16,1,.3,1),transform .8s cubic-bezier(.16,1,.3,1)}
@@ -300,8 +299,8 @@ section[id]{scroll-margin-top:80px}
 /* phone row: full width so the right tile isn't clipped */
 @media(max-width:900px){.hero-grid.ticker{width:auto}}
 /* top-bar Let's Talk only shows once the big hero button scrolls away */
-.nav-cta{transition:opacity .25s,visibility .25s}
-.nav.cta-hide .nav-cta{opacity:0;visibility:hidden}
+.nav-cta{transition:opacity .25s}
+.nav.cta-hide .nav-cta{opacity:0;pointer-events:none}
 
 /* phones: same smooth ticker as desktop */
 @media(max-width:900px){
@@ -312,6 +311,9 @@ section[id]{scroll-margin-top:80px}
   .ticker .htile.dup{display:block}
   .ticker .hname{font-size:.72rem;padding:16px 6px 8px}
 }
+
+/* contrast: big enough to count as large text on coral (3:1) */
+.hero-cta{font-size:1.2rem;padding:.8rem 2.2rem}
 </style>
 <script type="application/ld+json">
 {
@@ -363,31 +365,31 @@ section[id]{scroll-margin-top:80px}
   <section class="panel hero" id="work">
     <div class="wrap hero-wrap">
       <div class="hero-copy">
-        <h1 class="rv d1">NO ONE'S READING YOUR WEBSITE.<em>Let's fix that in 24 hours.</em></h1>
-        <div class="rv d2"><button class="hero-cta" type="button" onclick="openContact(event)">Let's talk</button></div>
+        <h1>NO ONE'S READING YOUR WEBSITE.<em>Let's fix that in 24 hours.</em></h1>
+        <div><button class="hero-cta" type="button" onclick="openContact(event)">Let's talk</button></div>
       </div>
       <div class="hero-side">
         <p class="hgrid-label" id="hgrid-label">Businesses people and AI actually find</p>
         <div class="hero-grid ticker" aria-labelledby="hgrid-label">
           <div class="ticker-track">
-        <a class="htile" style="--i:0" href="https://omgitswicks.com/" target="_blank" rel="noopener"><img src="images/clients/omgitswicks.jpg" alt="OMG Its Wicks website" width="390" height="664"><span class="hname">OMG Its Wicks</span></a>
-        <a class="htile" style="--i:1" href="https://jawscustomwood.com/" target="_blank" rel="noopener"><img src="images/clients/jawscustomwood.jpg" alt="JAW&#39;s Custom Wood website" width="390" height="664"><span class="hname">JAW&#39;s Custom Wood</span></a>
-        <a class="htile" style="--i:2" href="https://www.livingrestorations.com/" target="_blank" rel="noopener"><img src="images/clients/livingrestorations.jpg" alt="Living Restorations website" width="390" height="664"><span class="hname">Living Restorations</span></a>
-        <a class="htile" style="--i:3" href="https://livingspacesgardening.com/" target="_blank" rel="noopener"><img src="images/clients/livingspacesgardening.jpg" alt="Living Spaces Gardening website" width="390" height="664"><span class="hname">Living Spaces Gardening</span></a>
-        <a class="htile" style="--i:4" href="https://misfittoys.art/" target="_blank" rel="noopener"><img src="images/clients/misfittoys.jpg" alt="Misfit Toys Art website" width="390" height="664"><span class="hname">Misfit Toys Art</span></a>
-        <a class="htile" style="--i:5" href="https://hippocketstudios.com/" target="_blank" rel="noopener"><img src="images/clients/hippocketstudios.jpg" alt="Hip Pocket Studios website" width="390" height="664"><span class="hname">Hip Pocket Studios</span></a>
-        <a class="htile" style="--i:6" href="https://janierichards.com/" target="_blank" rel="noopener"><img src="images/clients/janierichards.jpg" alt="Janie Richards website" width="390" height="664"><span class="hname">Janie Richards</span></a>
-        <a class="htile" style="--i:7" href="https://janierichards.com/motel-funk.html" target="_blank" rel="noopener"><img src="images/clients/motelfunk.jpg" alt="Motel Funk website" width="390" height="664"><span class="hname">Motel Funk</span></a>
-        <a class="htile" style="--i:8" href="https://joeydrums.com/" target="_blank" rel="noopener"><img src="images/clients/joeydrums.jpg" alt="Joey Interrante website" width="390" height="664"><span class="hname">Joey Interrante</span></a>
-        <a class="htile dup" aria-hidden="true" tabindex="-1" style="--i:0" href="https://omgitswicks.com/" target="_blank" rel="noopener"><img src="images/clients/omgitswicks.jpg" alt="OMG Its Wicks website" width="390" height="664"><span class="hname">OMG Its Wicks</span></a>
-        <a class="htile dup" aria-hidden="true" tabindex="-1" style="--i:1" href="https://jawscustomwood.com/" target="_blank" rel="noopener"><img src="images/clients/jawscustomwood.jpg" alt="JAW&#39;s Custom Wood website" width="390" height="664"><span class="hname">JAW&#39;s Custom Wood</span></a>
-        <a class="htile dup" aria-hidden="true" tabindex="-1" style="--i:2" href="https://www.livingrestorations.com/" target="_blank" rel="noopener"><img src="images/clients/livingrestorations.jpg" alt="Living Restorations website" width="390" height="664"><span class="hname">Living Restorations</span></a>
-        <a class="htile dup" aria-hidden="true" tabindex="-1" style="--i:3" href="https://livingspacesgardening.com/" target="_blank" rel="noopener"><img src="images/clients/livingspacesgardening.jpg" alt="Living Spaces Gardening website" width="390" height="664"><span class="hname">Living Spaces Gardening</span></a>
-        <a class="htile dup" aria-hidden="true" tabindex="-1" style="--i:4" href="https://misfittoys.art/" target="_blank" rel="noopener"><img src="images/clients/misfittoys.jpg" alt="Misfit Toys Art website" width="390" height="664"><span class="hname">Misfit Toys Art</span></a>
-        <a class="htile dup" aria-hidden="true" tabindex="-1" style="--i:5" href="https://hippocketstudios.com/" target="_blank" rel="noopener"><img src="images/clients/hippocketstudios.jpg" alt="Hip Pocket Studios website" width="390" height="664"><span class="hname">Hip Pocket Studios</span></a>
-        <a class="htile dup" aria-hidden="true" tabindex="-1" style="--i:6" href="https://janierichards.com/" target="_blank" rel="noopener"><img src="images/clients/janierichards.jpg" alt="Janie Richards website" width="390" height="664"><span class="hname">Janie Richards</span></a>
-        <a class="htile dup" aria-hidden="true" tabindex="-1" style="--i:7" href="https://janierichards.com/motel-funk.html" target="_blank" rel="noopener"><img src="images/clients/motelfunk.jpg" alt="Motel Funk website" width="390" height="664"><span class="hname">Motel Funk</span></a>
-        <a class="htile dup" aria-hidden="true" tabindex="-1" style="--i:8" href="https://joeydrums.com/" target="_blank" rel="noopener"><img src="images/clients/joeydrums.jpg" alt="Joey Interrante website" width="390" height="664"><span class="hname">Joey Interrante</span></a>
+        <a class="htile" style="--i:0" href="https://omgitswicks.com/" target="_blank" rel="noopener"><img src="images/clients/sm/omgitswicks.webp" srcset="images/clients/sm/omgitswicks-240.webp 240w, images/clients/sm/omgitswicks.webp 440w" sizes="(max-width:900px) min(42vw,190px), clamp(130px,10vw,200px)" alt="OMG Its Wicks website" width="390" height="664"><span class="hname">OMG Its Wicks</span></a>
+        <a class="htile" style="--i:1" href="https://jawscustomwood.com/" target="_blank" rel="noopener"><img src="images/clients/sm/jawscustomwood.webp" srcset="images/clients/sm/jawscustomwood-240.webp 240w, images/clients/sm/jawscustomwood.webp 440w" sizes="(max-width:900px) min(42vw,190px), clamp(130px,10vw,200px)" alt="JAW&#39;s Custom Wood website" width="390" height="664"><span class="hname">JAW&#39;s Custom Wood</span></a>
+        <a class="htile" style="--i:2" href="https://www.livingrestorations.com/" target="_blank" rel="noopener"><img src="images/clients/sm/livingrestorations.webp" srcset="images/clients/sm/livingrestorations-240.webp 240w, images/clients/sm/livingrestorations.webp 440w" sizes="(max-width:900px) min(42vw,190px), clamp(130px,10vw,200px)" alt="Living Restorations website" width="390" height="664"><span class="hname">Living Restorations</span></a>
+        <a class="htile" style="--i:3" href="https://livingspacesgardening.com/" target="_blank" rel="noopener"><img src="images/clients/sm/livingspacesgardening.webp" srcset="images/clients/sm/livingspacesgardening-240.webp 240w, images/clients/sm/livingspacesgardening.webp 440w" sizes="(max-width:900px) min(42vw,190px), clamp(130px,10vw,200px)" alt="Living Spaces Gardening website" width="390" height="664"><span class="hname">Living Spaces Gardening</span></a>
+        <a class="htile" style="--i:4" href="https://misfittoys.art/" target="_blank" rel="noopener"><img src="images/clients/sm/misfittoys.webp" srcset="images/clients/sm/misfittoys-240.webp 240w, images/clients/sm/misfittoys.webp 440w" sizes="(max-width:900px) min(42vw,190px), clamp(130px,10vw,200px)" alt="Misfit Toys Art website" width="390" height="664"><span class="hname">Misfit Toys Art</span></a>
+        <a class="htile" style="--i:5" href="https://hippocketstudios.com/" target="_blank" rel="noopener"><img src="images/clients/sm/hippocketstudios.webp" srcset="images/clients/sm/hippocketstudios-240.webp 240w, images/clients/sm/hippocketstudios.webp 440w" sizes="(max-width:900px) min(42vw,190px), clamp(130px,10vw,200px)" alt="Hip Pocket Studios website" width="390" height="664"><span class="hname">Hip Pocket Studios</span></a>
+        <a class="htile" style="--i:6" href="https://janierichards.com/" target="_blank" rel="noopener"><img src="images/clients/sm/janierichards.webp" srcset="images/clients/sm/janierichards-240.webp 240w, images/clients/sm/janierichards.webp 440w" sizes="(max-width:900px) min(42vw,190px), clamp(130px,10vw,200px)" alt="Janie Richards website" width="390" height="664"><span class="hname">Janie Richards</span></a>
+        <a class="htile" style="--i:7" href="https://janierichards.com/motel-funk.html" target="_blank" rel="noopener"><img src="images/clients/sm/motelfunk.webp" srcset="images/clients/sm/motelfunk-240.webp 240w, images/clients/sm/motelfunk.webp 440w" sizes="(max-width:900px) min(42vw,190px), clamp(130px,10vw,200px)" alt="Motel Funk website" width="390" height="664"><span class="hname">Motel Funk</span></a>
+        <a class="htile" style="--i:8" href="https://joeydrums.com/" target="_blank" rel="noopener"><img src="images/clients/sm/joeydrums.webp" srcset="images/clients/sm/joeydrums-240.webp 240w, images/clients/sm/joeydrums.webp 440w" sizes="(max-width:900px) min(42vw,190px), clamp(130px,10vw,200px)" alt="Joey Interrante website" width="390" height="664"><span class="hname">Joey Interrante</span></a>
+        <a class="htile dup" aria-hidden="true" tabindex="-1" style="--i:0" href="https://omgitswicks.com/" target="_blank" rel="noopener"><img loading="lazy" decoding="async" src="images/clients/sm/omgitswicks.webp" srcset="images/clients/sm/omgitswicks-240.webp 240w, images/clients/sm/omgitswicks.webp 440w" sizes="(max-width:900px) min(42vw,190px), clamp(130px,10vw,200px)" alt="OMG Its Wicks website" width="390" height="664"><span class="hname">OMG Its Wicks</span></a>
+        <a class="htile dup" aria-hidden="true" tabindex="-1" style="--i:1" href="https://jawscustomwood.com/" target="_blank" rel="noopener"><img loading="lazy" decoding="async" src="images/clients/sm/jawscustomwood.webp" srcset="images/clients/sm/jawscustomwood-240.webp 240w, images/clients/sm/jawscustomwood.webp 440w" sizes="(max-width:900px) min(42vw,190px), clamp(130px,10vw,200px)" alt="JAW&#39;s Custom Wood website" width="390" height="664"><span class="hname">JAW&#39;s Custom Wood</span></a>
+        <a class="htile dup" aria-hidden="true" tabindex="-1" style="--i:2" href="https://www.livingrestorations.com/" target="_blank" rel="noopener"><img loading="lazy" decoding="async" src="images/clients/sm/livingrestorations.webp" srcset="images/clients/sm/livingrestorations-240.webp 240w, images/clients/sm/livingrestorations.webp 440w" sizes="(max-width:900px) min(42vw,190px), clamp(130px,10vw,200px)" alt="Living Restorations website" width="390" height="664"><span class="hname">Living Restorations</span></a>
+        <a class="htile dup" aria-hidden="true" tabindex="-1" style="--i:3" href="https://livingspacesgardening.com/" target="_blank" rel="noopener"><img loading="lazy" decoding="async" src="images/clients/sm/livingspacesgardening.webp" srcset="images/clients/sm/livingspacesgardening-240.webp 240w, images/clients/sm/livingspacesgardening.webp 440w" sizes="(max-width:900px) min(42vw,190px), clamp(130px,10vw,200px)" alt="Living Spaces Gardening website" width="390" height="664"><span class="hname">Living Spaces Gardening</span></a>
+        <a class="htile dup" aria-hidden="true" tabindex="-1" style="--i:4" href="https://misfittoys.art/" target="_blank" rel="noopener"><img loading="lazy" decoding="async" src="images/clients/sm/misfittoys.webp" srcset="images/clients/sm/misfittoys-240.webp 240w, images/clients/sm/misfittoys.webp 440w" sizes="(max-width:900px) min(42vw,190px), clamp(130px,10vw,200px)" alt="Misfit Toys Art website" width="390" height="664"><span class="hname">Misfit Toys Art</span></a>
+        <a class="htile dup" aria-hidden="true" tabindex="-1" style="--i:5" href="https://hippocketstudios.com/" target="_blank" rel="noopener"><img loading="lazy" decoding="async" src="images/clients/sm/hippocketstudios.webp" srcset="images/clients/sm/hippocketstudios-240.webp 240w, images/clients/sm/hippocketstudios.webp 440w" sizes="(max-width:900px) min(42vw,190px), clamp(130px,10vw,200px)" alt="Hip Pocket Studios website" width="390" height="664"><span class="hname">Hip Pocket Studios</span></a>
+        <a class="htile dup" aria-hidden="true" tabindex="-1" style="--i:6" href="https://janierichards.com/" target="_blank" rel="noopener"><img loading="lazy" decoding="async" src="images/clients/sm/janierichards.webp" srcset="images/clients/sm/janierichards-240.webp 240w, images/clients/sm/janierichards.webp 440w" sizes="(max-width:900px) min(42vw,190px), clamp(130px,10vw,200px)" alt="Janie Richards website" width="390" height="664"><span class="hname">Janie Richards</span></a>
+        <a class="htile dup" aria-hidden="true" tabindex="-1" style="--i:7" href="https://janierichards.com/motel-funk.html" target="_blank" rel="noopener"><img loading="lazy" decoding="async" src="images/clients/sm/motelfunk.webp" srcset="images/clients/sm/motelfunk-240.webp 240w, images/clients/sm/motelfunk.webp 440w" sizes="(max-width:900px) min(42vw,190px), clamp(130px,10vw,200px)" alt="Motel Funk website" width="390" height="664"><span class="hname">Motel Funk</span></a>
+        <a class="htile dup" aria-hidden="true" tabindex="-1" style="--i:8" href="https://joeydrums.com/" target="_blank" rel="noopener"><img loading="lazy" decoding="async" src="images/clients/sm/joeydrums.webp" srcset="images/clients/sm/joeydrums-240.webp 240w, images/clients/sm/joeydrums.webp 440w" sizes="(max-width:900px) min(42vw,190px), clamp(130px,10vw,200px)" alt="Joey Interrante website" width="390" height="664"><span class="hname">Joey Interrante</span></a>
           </div>
         </div>
       </div>

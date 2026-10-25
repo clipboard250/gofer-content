@@ -20,7 +20,7 @@ jobs:
 
       - name: Install Playwright
         run: |
-          npm install --no-save playwright@1
+          npm install --no-save playwright@1 sharp@0.33
           npx playwright install --with-deps chromium
 
       - name: Take screenshots

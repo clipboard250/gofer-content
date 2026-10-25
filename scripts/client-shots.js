@@ -1,9 +1,12 @@
 // Takes a fresh iPhone-sized screenshot of each client homepage.
 // Run by .github/workflows/client-shots.yml once a week.
-// Saves to images/clients/<slug>.jpg, which the Work cards on index.html use.
+// Saves images/clients/<slug>.jpg (full size) plus small WebP copies in
+// images/clients/sm/ (<slug>.webp at 440px, <slug>-240.webp at 240px),
+// which the homepage hero uses so the page stays fast.
 
 const { chromium, devices } = require('playwright');
 const fs = require('fs');
+const sharp = require('sharp');
 const path = require('path');
 
 const CLIENTS = [
@@ -54,6 +57,10 @@ const OUT = path.join(__dirname, '..', 'images', 'clients');
         type: 'jpeg',
         quality: 80,
       });
+      const full = path.join(OUT, `${c.slug}.jpg`);
+      fs.mkdirSync(path.join(OUT, 'sm'), { recursive: true });
+      await sharp(full).resize({ width: 440 }).webp({ quality: 74 }).toFile(path.join(OUT, 'sm', `${c.slug}.webp`));
+      await sharp(full).resize({ width: 240 }).webp({ quality: 74 }).toFile(path.join(OUT, 'sm', `${c.slug}-240.webp`));
       console.log(`ok   ${c.slug}`);
     } catch (e) {
       failed++;
