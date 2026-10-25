@@ -314,6 +314,14 @@ section[id]{scroll-margin-top:80px}
 
 /* contrast: big enough to count as large text on coral (3:1) */
 .hero-cta{font-size:1.2rem;padding:.8rem 2.2rem}
+
+/* PageSpeed proof screenshots */
+.proof{display:grid;grid-template-columns:1fr 1fr;gap:18px;max-width:920px;margin:44px auto 0}
+.proof-card{margin:0;background:#fff;border-radius:14px;padding:14px 12px 10px;text-align:left}
+.proof-card figcaption{font-weight:800;font-size:.8rem;text-transform:uppercase;letter-spacing:.08em;color:#1a1714;margin:0 0 6px 6px}
+.proof-card img{display:block;width:100%;height:auto}
+.proof-note{margin-top:14px;font-size:.85rem;color:#a89c8c}
+@media(max-width:900px){.proof{grid-template-columns:1fr}}
 </style>
 <script type="application/ld+json">
 {
@@ -451,14 +459,25 @@ section[id]{scroll-margin-top:80px}
   <!-- SCORES -->
   <section class="panel panel-center scores-p">
     <div class="wrap">
-    <h2 class="big rv">This site scores nearly perfect.</h2>
+    <h2 class="big rv">This site scores a perfect 100.</h2>
       <p class="sub rv d1">Google's own speed and quality test. Every Gofer Content website is built to hit these marks.</p>
       <div class="scores-grid">
+        <div class="sc rv d1"><div class="n">100</div><div class="l">Performance</div></div>
         <div class="sc rv d1"><div class="n">100</div><div class="l">Accessibility</div></div>
-        <div class="sc rv d1"><div class="n">100</div><div class="l">Best Practices</div></div>
+        <div class="sc rv d2"><div class="n">100</div><div class="l">Best Practices</div></div>
         <div class="sc rv d2"><div class="n">100</div><div class="l">SEO</div></div>
-        <div class="sc rv d2"><div class="n">99</div><div class="l">Performance</div></div>
       </div>
+      <div class="proof rv d3">
+        <figure class="proof-card">
+          <figcaption>On a phone</figcaption>
+          <img src="images/proof/pagespeed-mobile.webp" srcset="images/proof/pagespeed-mobile-480.webp 480w, images/proof/pagespeed-mobile.webp 900w" sizes="(max-width:900px) 92vw, 440px" width="900" height="155" loading="lazy" decoding="async" alt="Google PageSpeed on a phone: 100 Performance, 100 Accessibility, 100 Best Practices, 100 SEO">
+        </figure>
+        <figure class="proof-card">
+          <figcaption>On a desktop</figcaption>
+          <img src="images/proof/pagespeed-desktop.webp" srcset="images/proof/pagespeed-desktop-480.webp 480w, images/proof/pagespeed-desktop.webp 900w" sizes="(max-width:900px) 92vw, 440px" width="900" height="155" loading="lazy" decoding="async" alt="Google PageSpeed on a desktop: 100 Performance, 100 Accessibility, 100 Best Practices, 100 SEO">
+        </figure>
+      </div>
+      <p class="proof-note">Google PageSpeed Insights, October 25, 2026.</p>
       <p class="rev rv d3"><a href="https://www.google.com/maps/place/Gofer+Content/@27.7826927,-82.8209054,11z/" target="_blank" rel="noopener">See what clients say on Google →</a></p>
     </div>
   </section>
