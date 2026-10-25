@@ -296,6 +296,12 @@ section[id]{scroll-margin-top:80px}
 
 /* client row label: plain heading, one line on phones */
 .hgrid-label{text-transform:none;letter-spacing:-.01em;font-weight:800;font-size:clamp(15px,4vw,24px);color:var(--cream);margin-bottom:18px;text-wrap:balance}
+
+/* phone row: full width so the right tile isn't clipped */
+@media(max-width:900px){.hero-grid.ticker{width:auto}}
+/* top-bar Let's Talk only shows once the big hero button scrolls away */
+.nav-cta{transition:opacity .25s,visibility .25s}
+.nav.cta-hide .nav-cta{opacity:0;visibility:hidden}
 </style>
 <script type="application/ld+json">
 {
@@ -701,10 +707,19 @@ document.addEventListener('keydown',function(e){if(e.key==='Escape'){closePicker
     var list=tiles(),c=t.scrollLeft+t.clientWidth/2,i=0,best=1e9;
     list.forEach(function(e,k){var m=e.offsetLeft+e.offsetWidth/2,d=Math.abs(m-c);if(d<best){best=d;i=k}});
     var n=list[(i+1)%list.length];
+    t.style.scrollSnapType='none';
     t.scrollTo({left:n.offsetLeft+n.offsetWidth/2-t.clientWidth/2,behavior:'smooth'});
+    setTimeout(function(){t.style.scrollSnapType=''},700);
   }
   ['touchstart','pointerdown','wheel'].forEach(function(ev){t.addEventListener(ev,function(){hold=Date.now()+6000},{passive:true})});
   setInterval(next,3000);
+})();
+</script>
+<script>
+(function(){
+  var nav=document.querySelector('.nav'),cta=document.querySelector('.hero-cta');
+  if(!nav||!cta||!('IntersectionObserver' in window))return;
+  new IntersectionObserver(function(es){nav.classList.toggle('cta-hide',es[0].isIntersecting)},{threshold:0}).observe(cta);
 })();
 </script>
 </body>
