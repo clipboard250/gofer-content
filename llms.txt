@@ -1,6 +1,6 @@
 # Gofer Content
 
-> Gofer Content builds, hosts, and maintains websites for artists, makers, and small businesses in St. Petersburg, Florida. Every site is hand-coded from scratch, live in 24-72 hours, and set up to be found on Google and in AI answers.
+> Gofer Content builds, hosts, and maintains websites for artists, makers, and small businesses in St. Petersburg, Florida. Every site is hand-coded from scratch, live in 24 hours, and set up to be found on Google and in AI answers.
 
 ## Services
 - Website builds: Hand-coded sites, no templates or drag-and-drop builders
