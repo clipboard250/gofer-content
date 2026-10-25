@@ -238,6 +238,47 @@ section[id]{scroll-margin-top:80px}
   .htile{aspect-ratio:3/4;border-radius:12px}
 }
 @media(max-width:900px){.htile{aspect-ratio:3/4}}
+
+/* TICKER (desktop) + ONE-AT-A-TIME SWIPE (phones) */
+.hero-grid.ticker{display:block;overflow:hidden}
+.ticker-track{display:flex;gap:10px}
+.ticker .htile{flex:0 0 auto}
+@media(min-width:901px){
+  .hero-side{width:100vw;max-width:none;margin-left:calc(50% - 50vw)}
+  .ticker{-webkit-mask-image:linear-gradient(90deg,transparent,#000 5%,#000 95%,transparent);mask-image:linear-gradient(90deg,transparent,#000 5%,#000 95%,transparent)}
+  .ticker-track{width:max-content;animation:tick 55s linear infinite}
+  .ticker:hover .ticker-track,.ticker:focus-within .ticker-track{animation-play-state:paused}
+  .ticker .htile{width:clamp(150px,11.5vw,220px)}
+}
+@keyframes tick{to{transform:translateX(calc(-50% - 5px))}}
+@media(max-width:900px){
+  .hero-side{max-width:none;width:100%}
+  .hero-grid.ticker{overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;-webkit-overflow-scrolling:touch;margin:0 -28px}
+  .ticker::-webkit-scrollbar{display:none}
+  .ticker-track{gap:14px;padding:0 calc((100vw - min(72vw,300px)) / 2);width:max-content}
+  .ticker .htile{width:min(72vw,300px);scroll-snap-align:center;border-radius:14px;border-width:3px}
+  .ticker .htile.dup{display:none}
+  .ticker .hname{font-size:.85rem;padding:22px 8px 10px}
+}
+@media(prefers-reduced-motion:reduce){.ticker-track{animation:none}.hero-grid.ticker{overflow-x:auto}}
+
+/* HAMBURGER (phones) */
+.nav-burger{display:none;width:44px;height:44px;margin-left:10px;border:0;background:none;cursor:pointer;flex-direction:column;justify-content:center;gap:5px;align-items:center}
+.nav-burger span{display:block;width:22px;height:2px;background:var(--cream);transition:transform .2s,opacity .2s}
+.nav.open .nav-burger span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.nav.open .nav-burger span:nth-child(2){opacity:0}
+.nav.open .nav-burger span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+@media(max-width:720px){
+  .nav{flex-wrap:nowrap;row-gap:0;padding:12px 18px}
+  .nav-cta{margin-left:auto}
+  .nav-burger{display:flex}
+  .nav-links{display:none;position:absolute;top:100%;left:0;right:0;order:0;width:auto;margin:0;flex-direction:column;gap:0;background:var(--ink);padding:4px 18px 14px;border-top:0;border-bottom:1px solid rgba(245,239,224,.12)}
+  .nav.open .nav-links{display:flex}
+  .nav-links a{font-size:1.1rem;padding:14px 0;border-bottom:1px solid rgba(245,239,224,.1)}
+  .nav-links a:last-child{border-bottom:0}
+  .panel.hero{padding-top:104px}
+  section[id]{scroll-margin-top:80px}
+}
 </style>
 <script type="application/ld+json">
 {
@@ -275,12 +316,13 @@ section[id]{scroll-margin-top:80px}
 
 <nav class="nav">
   <a class="nav-logo" href="#main">GOFER CONTENT</a>
-  <div class="nav-links">
+  <div class="nav-links" id="nav-links">
     <a href="#work">Work</a>
     <a href="#how">How it works</a>
     <a href="#check">Free check</a>
   </div>
   <button class="nav-cta" type="button" onclick="openContact(event)">Let's talk</button>
+  <button class="nav-burger" type="button" aria-label="Menu" aria-expanded="false" aria-controls="nav-links"><span></span><span></span><span></span></button>
 </nav>
 
 <main id="main">
@@ -293,7 +335,8 @@ section[id]{scroll-margin-top:80px}
       </div>
       <div class="hero-side">
         <p class="hgrid-label" id="hgrid-label">Sites people and AI actually find</p>
-        <div class="hero-grid" aria-labelledby="hgrid-label">
+        <div class="hero-grid ticker" aria-labelledby="hgrid-label">
+          <div class="ticker-track">
         <a class="htile" style="--i:0" href="https://omgitswicks.com/" target="_blank" rel="noopener"><img src="images/clients/omgitswicks.jpg" alt="OMG Its Wicks website" width="390" height="664"><span class="hname">OMG Its Wicks</span></a>
         <a class="htile" style="--i:1" href="https://jawscustomwood.com/" target="_blank" rel="noopener"><img src="images/clients/jawscustomwood.jpg" alt="JAW&#39;s Custom Wood website" width="390" height="664"><span class="hname">JAW&#39;s Custom Wood</span></a>
         <a class="htile" style="--i:2" href="https://www.livingrestorations.com/" target="_blank" rel="noopener"><img src="images/clients/livingrestorations.jpg" alt="Living Restorations website" width="390" height="664"><span class="hname">Living Restorations</span></a>
@@ -303,6 +346,16 @@ section[id]{scroll-margin-top:80px}
         <a class="htile" style="--i:6" href="https://janierichards.com/" target="_blank" rel="noopener"><img src="images/clients/janierichards.jpg" alt="Janie Richards website" width="390" height="664"><span class="hname">Janie Richards</span></a>
         <a class="htile" style="--i:7" href="https://janierichards.com/motel-funk.html" target="_blank" rel="noopener"><img src="images/clients/motelfunk.jpg" alt="Motel Funk website" width="390" height="664"><span class="hname">Motel Funk</span></a>
         <a class="htile" style="--i:8" href="https://joeydrums.com/" target="_blank" rel="noopener"><img src="images/clients/joeydrums.jpg" alt="Joey Interrante website" width="390" height="664"><span class="hname">Joey Interrante</span></a>
+        <a class="htile dup" aria-hidden="true" tabindex="-1" style="--i:0" href="https://omgitswicks.com/" target="_blank" rel="noopener"><img src="images/clients/omgitswicks.jpg" alt="OMG Its Wicks website" width="390" height="664"><span class="hname">OMG Its Wicks</span></a>
+        <a class="htile dup" aria-hidden="true" tabindex="-1" style="--i:1" href="https://jawscustomwood.com/" target="_blank" rel="noopener"><img src="images/clients/jawscustomwood.jpg" alt="JAW&#39;s Custom Wood website" width="390" height="664"><span class="hname">JAW&#39;s Custom Wood</span></a>
+        <a class="htile dup" aria-hidden="true" tabindex="-1" style="--i:2" href="https://www.livingrestorations.com/" target="_blank" rel="noopener"><img src="images/clients/livingrestorations.jpg" alt="Living Restorations website" width="390" height="664"><span class="hname">Living Restorations</span></a>
+        <a class="htile dup" aria-hidden="true" tabindex="-1" style="--i:3" href="https://livingspacesgardening.com/" target="_blank" rel="noopener"><img src="images/clients/livingspacesgardening.jpg" alt="Living Spaces Gardening website" width="390" height="664"><span class="hname">Living Spaces Gardening</span></a>
+        <a class="htile dup" aria-hidden="true" tabindex="-1" style="--i:4" href="https://misfittoys.art/" target="_blank" rel="noopener"><img src="images/clients/misfittoys.jpg" alt="Misfit Toys Art website" width="390" height="664"><span class="hname">Misfit Toys Art</span></a>
+        <a class="htile dup" aria-hidden="true" tabindex="-1" style="--i:5" href="https://hippocketstudios.com/" target="_blank" rel="noopener"><img src="images/clients/hippocketstudios.jpg" alt="Hip Pocket Studios website" width="390" height="664"><span class="hname">Hip Pocket Studios</span></a>
+        <a class="htile dup" aria-hidden="true" tabindex="-1" style="--i:6" href="https://janierichards.com/" target="_blank" rel="noopener"><img src="images/clients/janierichards.jpg" alt="Janie Richards website" width="390" height="664"><span class="hname">Janie Richards</span></a>
+        <a class="htile dup" aria-hidden="true" tabindex="-1" style="--i:7" href="https://janierichards.com/motel-funk.html" target="_blank" rel="noopener"><img src="images/clients/motelfunk.jpg" alt="Motel Funk website" width="390" height="664"><span class="hname">Motel Funk</span></a>
+        <a class="htile dup" aria-hidden="true" tabindex="-1" style="--i:8" href="https://joeydrums.com/" target="_blank" rel="noopener"><img src="images/clients/joeydrums.jpg" alt="Joey Interrante website" width="390" height="664"><span class="hname">Joey Interrante</span></a>
+          </div>
         </div>
       </div>
     </div>
@@ -612,6 +665,14 @@ function openEmailModal(){document.getElementById('gc-email').style.display='fle
 function closeEmailModal(){document.getElementById('gc-email').style.display='none';document.body.style.overflow='';}
 ['gc-picker','gc-sms','gc-email'].forEach(function(id){document.getElementById(id).addEventListener('click',function(e){if(e.target===this){this.style.display='none';document.body.style.overflow='';}});});
 document.addEventListener('keydown',function(e){if(e.key==='Escape'){closePicker();closeSMSModal();closeEmailModal();}});
+</script>
+<script>
+(function(){
+  var nav=document.querySelector('.nav'),b=nav&&nav.querySelector('.nav-burger');
+  if(!b)return;
+  b.addEventListener('click',function(){var o=nav.classList.toggle('open');b.setAttribute('aria-expanded',o)});
+  nav.querySelectorAll('.nav-links a').forEach(function(a){a.addEventListener('click',function(){nav.classList.remove('open');b.setAttribute('aria-expanded','false')})});
+})();
 </script>
 </body>
 </html>
