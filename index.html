@@ -190,6 +190,54 @@ footer .sep{color:var(--gold)}
   .pop,.pop-overlay.open,.pop-content.on{animation:none!important}
   *{transition-duration:.01ms!important;scroll-behavior:auto!important}
 }
+
+/* HERO GRID */
+.panel.hero{min-height:auto;padding:128px 0 96px}
+.hero-wrap{max-width:1240px;display:grid;grid-template-columns:1.1fr 1fr;gap:64px;align-items:center;text-align:left}
+.hero .hero-copy h1{font-size:clamp(44px,6.4vw,100px)}
+.hero-side{justify-self:end;width:100%;max-width:480px}
+.hgrid-label{font-weight:800;font-size:.82rem;text-transform:uppercase;letter-spacing:.14em;color:var(--gold);margin-bottom:14px;text-align:center}
+.hero-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;width:100%}
+.htile{position:relative;display:block;aspect-ratio:390/664;max-width:100%;border-radius:14px;overflow:hidden;border:3px solid var(--cream);background:var(--cream);
+  opacity:0;transform:scale(.92);animation:tilein .6s cubic-bezier(.16,1,.3,1) forwards;animation-delay:calc(.3s + var(--i)*.07s);transition:transform .2s,border-color .2s}
+.htile img{width:100%;height:100%;object-fit:cover;object-position:top;display:block}
+.htile:hover,.htile:focus-visible{transform:translateY(-4px);border-color:var(--gold)}
+.hname{position:absolute;left:0;right:0;bottom:0;padding:18px 8px 7px;font-weight:800;font-size:.72rem;line-height:1.2;color:#fff;text-align:center;background:linear-gradient(transparent,rgba(33,29,26,.92));opacity:0;transition:opacity .2s}
+.htile:hover .hname,.htile:focus-visible .hname{opacity:1}
+@media(hover:none){.hname{opacity:1;font-size:.62rem;padding:14px 4px 5px}}
+@keyframes tilein{to{opacity:1;transform:none}}
+@media(max-width:900px){
+  .hero-wrap{grid-template-columns:1fr;gap:40px;text-align:center}
+  .hero-side{justify-self:center;max-width:460px}
+  .hero-grid{gap:8px}
+  .htile{border-radius:10px;border-width:2px}
+}
+@media(prefers-reduced-motion:reduce){.htile{animation:none;opacity:1;transform:none}}
+.promise-sub{margin-top:22px;max-width:560px;font-size:1.15rem;color:#cfc6b6}
+
+/* TOP NAV LINKS */
+.nav-links{display:flex;gap:30px;margin-left:auto;margin-right:28px}
+.nav-links a{font-weight:700;font-size:.85rem;color:var(--cream);text-decoration:none;padding:6px 0;border-bottom:2px solid transparent;transition:border-color .2s,color .2s}
+.nav-links a:hover,.nav-links a:focus-visible{color:var(--gold);border-color:var(--gold)}
+section[id]{scroll-margin-top:80px}
+@media(max-width:720px){
+  .panel.hero{min-height:auto;padding:136px 0 64px}
+  .nav{flex-wrap:wrap;row-gap:10px;padding:12px 18px}
+  .nav-links{order:3;width:100%;margin:0;justify-content:space-between;gap:12px;border-top:1px solid rgba(245,239,224,.12);padding-top:8px}
+  .nav-links a{font-size:.8rem}
+  section[id]{scroll-margin-top:110px}
+}
+
+/* STACKED HERO: headline on top, one row of nine on desktop */
+@media(min-width:901px){
+  .panel.hero{min-height:100svh;padding:88px 0 40px}
+  .hero-wrap{grid-template-columns:1fr;gap:32px;text-align:center}
+  .hero .hero-copy h1{font-size:clamp(40px,6.5vw,96px)}
+  .hero-side{justify-self:stretch;max-width:none}
+  .hero-grid{grid-template-columns:repeat(9,1fr);gap:10px}
+  .htile{aspect-ratio:3/4;border-radius:12px}
+}
+@media(max-width:900px){.htile{aspect-ratio:3/4}}
 </style>
 <script type="application/ld+json">
 {
@@ -227,19 +275,37 @@ footer .sep{color:var(--gold)}
 
 <nav class="nav">
   <a class="nav-logo" href="#main">GOFER CONTENT</a>
+  <div class="nav-links">
+    <a href="#work">Work</a>
+    <a href="#how">How it works</a>
+    <a href="#check">Free check</a>
+  </div>
   <button class="nav-cta" type="button" onclick="openContact(event)">Let's talk</button>
 </nav>
 
 <main id="main">
   <!-- HERO -->
-  <section class="panel panel-center hero">
-    <div class="wrap">
-      <p class="eyebrow rv">Director of Online Presence · St. Pete, FL</p>
-      <h1 class="rv d1">NO ONE'S READING YOUR WEBSITE.<em>Let's fix that in 72 hours.</em></h1>
-      <p class="hero-sub rv d2">Built from scratch. <b>You never touch a thing.</b></p>
-      <div class="rv d3"><button class="hero-cta" type="button" onclick="openContact(event)">Let's talk</button></div>
+  <section class="panel hero" id="work">
+    <div class="wrap hero-wrap">
+      <div class="hero-copy">
+        <h1 class="rv d1">NO ONE'S READING YOUR WEBSITE.<em>Let's fix that in 24 hours.</em></h1>
+        <div class="rv d2"><button class="hero-cta" type="button" onclick="openContact(event)">Let's talk</button></div>
+      </div>
+      <div class="hero-side">
+        <p class="hgrid-label" id="hgrid-label">Sites people and AI actually find</p>
+        <div class="hero-grid" aria-labelledby="hgrid-label">
+        <a class="htile" style="--i:0" href="https://omgitswicks.com/" target="_blank" rel="noopener"><img src="images/clients/omgitswicks.jpg" alt="OMG Its Wicks website" width="390" height="664"><span class="hname">OMG Its Wicks</span></a>
+        <a class="htile" style="--i:1" href="https://jawscustomwood.com/" target="_blank" rel="noopener"><img src="images/clients/jawscustomwood.jpg" alt="JAW&#39;s Custom Wood website" width="390" height="664"><span class="hname">JAW&#39;s Custom Wood</span></a>
+        <a class="htile" style="--i:2" href="https://www.livingrestorations.com/" target="_blank" rel="noopener"><img src="images/clients/livingrestorations.jpg" alt="Living Restorations website" width="390" height="664"><span class="hname">Living Restorations</span></a>
+        <a class="htile" style="--i:3" href="https://livingspacesgardening.com/" target="_blank" rel="noopener"><img src="images/clients/livingspacesgardening.jpg" alt="Living Spaces Gardening website" width="390" height="664"><span class="hname">Living Spaces Gardening</span></a>
+        <a class="htile" style="--i:4" href="https://misfittoys.art/" target="_blank" rel="noopener"><img src="images/clients/misfittoys.jpg" alt="Misfit Toys Art website" width="390" height="664"><span class="hname">Misfit Toys Art</span></a>
+        <a class="htile" style="--i:5" href="https://hippocketstudios.com/" target="_blank" rel="noopener"><img src="images/clients/hippocketstudios.jpg" alt="Hip Pocket Studios website" width="390" height="664"><span class="hname">Hip Pocket Studios</span></a>
+        <a class="htile" style="--i:6" href="https://janierichards.com/" target="_blank" rel="noopener"><img src="images/clients/janierichards.jpg" alt="Janie Richards website" width="390" height="664"><span class="hname">Janie Richards</span></a>
+        <a class="htile" style="--i:7" href="https://janierichards.com/motel-funk.html" target="_blank" rel="noopener"><img src="images/clients/motelfunk.jpg" alt="Motel Funk website" width="390" height="664"><span class="hname">Motel Funk</span></a>
+        <a class="htile" style="--i:8" href="https://joeydrums.com/" target="_blank" rel="noopener"><img src="images/clients/joeydrums.jpg" alt="Joey Interrante website" width="390" height="664"><span class="hname">Joey Interrante</span></a>
+        </div>
+      </div>
     </div>
-    <span class="scroll-hint" aria-hidden="true">Keep scrolling</span>
   </section>
 
   <!-- FEEL SEEN -->
@@ -251,11 +317,12 @@ footer .sep{color:var(--gold)}
   </section>
 
   <!-- PROMISE -->
-  <section class="panel promise">
+  <section class="panel promise" id="how">
     <div class="wrap">
       <h2 class="big rv">You <span>own everything.</span><br>Gofer Content keeps it running.</h2>
+      <p class="promise-sub rv d1">Websites aren't one and done. Gofer Content keeps yours current as Google and AI change.</p>
       <div class="promise-cols">
-        <div class="pc rv d1"><h3>Built fast</h3><p>From scratch, live in 24-72 hours. No drag-and-drop template graveyard.</p></div>
+        <div class="pc rv d1"><h3>Built fast</h3><p>From scratch, live in 24 hours. No drag-and-drop template graveyard.</p></div>
         <div class="pc rv d2"><h3>Actually found</h3><p>People find you on Google, Apple Maps, and in AI answers like ChatGPT.</p></div>
         <div class="pc rv d3"><h3>Never your problem</h3><p>Hosting, updates, forms, security. You think about your work, not your website.</p></div>
       </div>
@@ -305,52 +372,6 @@ footer .sep{color:var(--gold)}
         <div class="sc rv d2"><div class="n">99</div><div class="l">Performance</div></div>
       </div>
       <p class="rev rv d3"><a href="https://www.google.com/maps/place/Gofer+Content/@27.7826927,-82.8209054,11z/" target="_blank" rel="noopener">See what clients say on Google →</a></p>
-    </div>
-  </section>
-
-  <!-- WORK -->
-  <section class="panel work" id="work">
-    <div class="wrap">
-      <h2 class="big rv">Businesses Gofer Content<br>helps get noticed online.</h2>
-      <p class="sub rv d1">Every site live right now, built and kept running by Gofer Content.</p>
-      <div class="work-grid">
-        <a class="wcard rv d1" href="https://omgitswicks.com/" target="_blank" rel="noopener">
-          <img class="shot" src="images/clients/omgitswicks.jpg" alt="OMG Its Wicks website" loading="lazy" width="390" height="664">
-          <div class="i"><div class="nm">OMG Its Wicks</div><div class="tg">Florida's Comedian</div></div>
-        </a>
-        <a class="wcard rv d2" href="https://jawscustomwood.com/" target="_blank" rel="noopener">
-          <img class="shot" src="images/clients/jawscustomwood.jpg" alt="JAW's Custom Wood website" loading="lazy" width="390" height="664">
-          <div class="i"><div class="nm">JAW's Custom Wood</div><div class="tg">Reclaimed Florida Wood</div></div>
-        </a>
-        <a class="wcard rv d3" href="https://www.livingrestorations.com/" target="_blank" rel="noopener">
-          <img class="shot" src="images/clients/livingrestorations.jpg" alt="Living Restorations website" loading="lazy" width="390" height="664">
-          <div class="i"><div class="nm">Living Restorations</div><div class="tg">Ecological Design + Coastal Restoration</div></div>
-        </a>
-        <a class="wcard rv d1" href="https://livingspacesgardening.com/" target="_blank" rel="noopener">
-          <img class="shot" src="images/clients/livingspacesgardening.jpg" alt="Living Spaces Gardening website" loading="lazy" width="390" height="664">
-          <div class="i"><div class="nm">Living Spaces Gardening</div><div class="tg">Native Florida Landscaping</div></div>
-        </a>
-        <a class="wcard rv d2" href="https://misfittoys.art/" target="_blank" rel="noopener">
-          <img class="shot" src="images/clients/misfittoys.jpg" alt="Misfit Toys Art website" loading="lazy" width="390" height="664">
-          <div class="i"><div class="nm">Misfit Toys Art</div><div class="tg">Large-Scale Art Installations</div></div>
-        </a>
-        <a class="wcard rv d3" href="https://hippocketstudios.com/" target="_blank" rel="noopener">
-          <img class="shot" src="images/clients/hippocketstudios.jpg" alt="Hip Pocket Studios website" loading="lazy" width="390" height="664">
-          <div class="i"><div class="nm">Hip Pocket Studios</div><div class="tg">Remote Drum Tracking + Music</div></div>
-        </a>
-        <a class="wcard rv d1" href="https://janierichards.com/" target="_blank" rel="noopener">
-          <img class="shot" src="images/clients/janierichards.jpg" alt="Janie Richards website" loading="lazy" width="390" height="664">
-          <div class="i"><div class="nm">Janie Richards</div><div class="tg">Vocalist · Officiant · St. Pete</div></div>
-        </a>
-        <a class="wcard rv d2" href="https://janierichards.com/motel-funk.html" target="_blank" rel="noopener">
-          <img class="shot" src="images/clients/motelfunk.jpg" alt="Motel Funk website" loading="lazy" width="390" height="664">
-          <div class="i"><div class="nm">Motel Funk</div><div class="tg">Soul, Funk + R&amp;B · Tampa Bay</div></div>
-        </a>
-        <a class="wcard rv d3" href="https://joeydrums.com/" target="_blank" rel="noopener">
-          <img class="shot" src="images/clients/joeydrums.jpg" alt="Joey Interrante website" loading="lazy" width="390" height="664">
-          <div class="i"><div class="nm">Joey Interrante</div><div class="tg">Professional Drummer · Tampa Bay</div></div>
-        </a>
-      </div>
     </div>
   </section>
 
