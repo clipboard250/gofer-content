@@ -289,6 +289,10 @@ section[id]{scroll-margin-top:80px}
   .ticker-track{padding:0 calc((100vw - min(56vw,250px)) / 2)}
   .ticker .htile{width:min(56vw,250px);aspect-ratio:390/664}
 }
+
+/* subtle line between hero and client row */
+.hero-side{border-top:1px solid rgba(245,239,224,.14);padding-top:28px}
+@media(max-width:900px){.hero-side{padding-top:24px}}
 </style>
 <script type="application/ld+json">
 {
@@ -344,7 +348,7 @@ section[id]{scroll-margin-top:80px}
         <div class="rv d2"><button class="hero-cta" type="button" onclick="openContact(event)">Let's talk</button></div>
       </div>
       <div class="hero-side">
-        <p class="hgrid-label" id="hgrid-label">Sites people and AI actually find</p>
+        <p class="hgrid-label" id="hgrid-label">Businesses people and AI actually find</p>
         <div class="hero-grid ticker" aria-labelledby="hgrid-label">
           <div class="ticker-track">
         <a class="htile" style="--i:0" href="https://omgitswicks.com/" target="_blank" rel="noopener"><img src="images/clients/omgitswicks.jpg" alt="OMG Its Wicks website" width="390" height="664"><span class="hname">OMG Its Wicks</span></a>
