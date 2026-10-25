@@ -302,6 +302,16 @@ section[id]{scroll-margin-top:80px}
 /* top-bar Let's Talk only shows once the big hero button scrolls away */
 .nav-cta{transition:opacity .25s,visibility .25s}
 .nav.cta-hide .nav-cta{opacity:0;visibility:hidden}
+
+/* phones: same smooth ticker as desktop */
+@media(max-width:900px){
+  .hero-grid.ticker{overflow:hidden;scroll-snap-type:none;width:auto}
+  .ticker-track{width:max-content;padding:0;gap:12px;animation:tick 45s linear infinite}
+  .ticker.paused .ticker-track{animation-play-state:paused}
+  .ticker .htile{width:min(42vw,190px);aspect-ratio:390/664;scroll-snap-align:none}
+  .ticker .htile.dup{display:block}
+  .ticker .hname{font-size:.72rem;padding:16px 6px 8px}
+}
 </style>
 <script type="application/ld+json">
 {
@@ -699,27 +709,16 @@ document.addEventListener('keydown',function(e){if(e.key==='Escape'){closePicker
 </script>
 <script>
 (function(){
-  var t=document.querySelector('.hero-grid.ticker');if(!t)return;
-  var mq=window.matchMedia('(max-width:900px)'),rm=window.matchMedia('(prefers-reduced-motion:reduce)'),hold=0;
-  function tiles(){return Array.prototype.filter.call(t.querySelectorAll('.htile'),function(e){return !e.classList.contains('dup')})}
-  function next(){
-    if(!mq.matches||rm.matches||Date.now()<hold||document.hidden)return;
-    var list=tiles(),c=t.scrollLeft+t.clientWidth/2,i=0,best=1e9;
-    list.forEach(function(e,k){var m=e.offsetLeft+e.offsetWidth/2,d=Math.abs(m-c);if(d<best){best=d;i=k}});
-    var n=list[(i+1)%list.length];
-    t.style.scrollSnapType='none';
-    t.scrollTo({left:n.offsetLeft+n.offsetWidth/2-t.clientWidth/2,behavior:'smooth'});
-    setTimeout(function(){t.style.scrollSnapType=''},700);
-  }
-  ['touchstart','pointerdown','wheel'].forEach(function(ev){t.addEventListener(ev,function(){hold=Date.now()+6000},{passive:true})});
-  setInterval(next,3000);
+  var nav=document.querySelector('.nav'),cta=document.querySelector('.hero-cta');
+  if(!nav||!cta||!('IntersectionObserver' in window))return;
+  new IntersectionObserver(function(es){nav.classList.toggle('cta-hide',es[0].isIntersecting)},{threshold:0}).observe(cta);
 })();
 </script>
 <script>
 (function(){
-  var nav=document.querySelector('.nav'),cta=document.querySelector('.hero-cta');
-  if(!nav||!cta||!('IntersectionObserver' in window))return;
-  new IntersectionObserver(function(es){nav.classList.toggle('cta-hide',es[0].isIntersecting)},{threshold:0}).observe(cta);
+  var t=document.querySelector('.hero-grid.ticker');if(!t)return;
+  t.addEventListener('touchstart',function(){t.classList.add('paused')},{passive:true});
+  t.addEventListener('touchend',function(){setTimeout(function(){t.classList.remove('paused')},1500)},{passive:true});
 })();
 </script>
 </body>
