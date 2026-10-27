@@ -1,0 +1,199 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Daily Blues: a daily blues history trivia game</title>
+<meta name="description" content="Five blues history facts a day, each from this date. Swipe true or false, share your score, and play past days in the archive. Free, no sign-up.">
+<link rel="canonical" href="https://gofercontent.com/games/daily-blues/">
+<meta property="og:url" content="https://gofercontent.com/games/daily-blues/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Daily Blues: true or false?">
+<meta property="og:description" content="Five blues history facts a day, each tied to today's date. Swipe true or false and share your score.">
+<meta property="og:image" content="https://gofercontent.com/games/daily-blues/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Daily Blues: a tilted lime true or false card on a black background">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Daily Blues: true or false?">
+<meta name="twitter:description" content="Five blues history facts a day, each tied to today's date. Swipe true or false and share your score.">
+<meta name="twitter:image" content="https://gofercontent.com/games/daily-blues/og.png">
+<meta name="theme-color" content="#121213">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://cdn.usefathom.com; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data: https://cdn.usefathom.com; connect-src 'self' https://formspree.io https://cdn.usefathom.com; base-uri 'self'; form-action 'none'; object-src 'none'">
+<link rel="preload" href="/games/daily-blues/fonts/archivo-latin-900-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/games/daily-blues/fonts/archivo-latin-500-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23121213'/%3E%3Crect x='7' y='7' width='18' height='18' rx='4' fill='%23C8F31D'/%3E%3C/svg%3E">
+<style>
+@font-face { font-family: "Archivo"; src: url("/games/daily-blues/fonts/archivo-latin-500-normal.woff2") format("woff2"); font-weight: 500; font-display: swap; }
+@font-face { font-family: "Archivo"; src: url("/games/daily-blues/fonts/archivo-latin-700-normal.woff2") format("woff2"); font-weight: 700; font-display: swap; }
+@font-face { font-family: "Archivo"; src: url("/games/daily-blues/fonts/archivo-latin-900-normal.woff2") format("woff2"); font-weight: 900; font-display: swap; }
+@font-face { font-family: "Archivo Fallback"; src: local("Arial"); size-adjust: 100%; ascent-override: 92%; }
+/* One dark look on purpose: near-black ground, white type, lime as the single bright color. */
+:root { --bg: #121213; --surface: #1E1E20; --line: #3A3A3C; --mute: #565758; --text: #F2F2F2; --soft: #B8B8B8; --lime: #C8F31D; --on-lime: #121213; color-scheme: dark; }
+* { box-sizing: border-box; }
+html, body { margin: 0; background: var(--bg); color: var(--text); }
+body { font-family: "Archivo", "Archivo Fallback", Arial, sans-serif; font-weight: 500; -webkit-font-smoothing: antialiased; }
+button { font-family: inherit; }
+.skip { position: absolute; left: -9999px; top: 8px; background: var(--lime); color: var(--on-lime); padding: 10px 14px; border-radius: 8px; z-index: 10; }
+.skip:focus { left: 8px; }
+.app { max-width: 460px; min-height: 100dvh; margin: 0 auto; padding: 14px max(18px, env(safe-area-inset-right, 0px)) calc(24px + env(safe-area-inset-bottom)) max(18px, env(safe-area-inset-left, 0px)); display: flex; flex-direction: column; gap: 16px; }
+header { display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--line); padding-bottom: 10px; }
+.logo { margin: 0; font-weight: 900; font-size: 20px; letter-spacing: 0.5px; text-transform: uppercase; }
+.tools { display: flex; gap: 4px; }
+.icon { width: 44px; height: 44px; display: inline-flex; align-items: center; justify-content: center; background: none; border: 0; border-radius: 10px; color: var(--text); cursor: pointer; }
+.icon svg { width: 24px; height: 24px; }
+.dayhead { display: flex; flex-direction: column; gap: 2px; }
+.eyebrow { margin: 0; font-size: 13px; font-weight: 700; color: var(--lime); letter-spacing: 1px; text-transform: uppercase; }
+.date { margin: 0; font-weight: 900; font-size: 28px; }
+.bar { display: flex; gap: 6px; }
+.bar span { flex: 1; height: 6px; border-radius: 3px; background: var(--line); }
+.bar span.done { background: var(--soft); }
+.bar span.now { background: var(--lime); }
+.main { flex: 1; display: flex; flex-direction: column; gap: 16px; }
+#play { flex: 1; display: flex; flex-direction: column; gap: 14px; }
+.stage { flex: 1; display: flex; flex-direction: column; justify-content: center; padding: 10px 4px; touch-action: pan-y; }
+.card { background: var(--surface); border: 2px solid var(--lime); border-radius: 18px; padding: 26px 22px; display: flex; flex-direction: column; gap: 20px; transform: rotate(-2deg); user-select: none; -webkit-user-select: none; cursor: grab; will-change: transform; }
+.card.dragging { cursor: grabbing; }
+.card.fly { transition: transform 0.28s ease-in, opacity 0.28s ease-in; }
+.card.back { transition: transform 0.2s ease-out; }
+.chip { align-self: flex-start; margin: 0; background: var(--lime); color: var(--on-lime); font-weight: 900; font-size: 16px; padding: 6px 12px; border-radius: 999px; }
+.claim { margin: 0; font-weight: 900; font-size: clamp(23px, 7vw, 28px); line-height: 1.15; }
+.choices { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
+.btn { min-height: 60px; border: 2px solid var(--mute); border-radius: 12px; font: 900 19px/1 "Archivo", "Archivo Fallback", Arial, sans-serif; color: var(--text); background: var(--bg); cursor: pointer; padding: 0 12px; width: 100%; }
+.btn.lime { background: var(--lime); border-color: var(--lime); color: var(--on-lime); }
+.btn:focus-visible, .icon:focus-visible, a:focus-visible, summary:focus-visible, .day:focus-visible { outline: 3px solid var(--text); outline-offset: 3px; }
+.hint { margin: 0; text-align: center; font-size: 15px; color: var(--soft); }
+.verdict { flex: 1; display: flex; flex-direction: column; justify-content: center; gap: 14px; }
+.verdict h2 { margin: 0; font-weight: 900; font-size: 56px; line-height: 1; }
+.verdict h2.right { color: var(--lime); }
+.verdict .was { margin: 0; font-size: 17px; font-weight: 700; color: var(--soft); }
+.again { background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: 12px 14px; display: flex; flex-direction: column; gap: 4px; }
+.again-label { margin: 0; font-size: 12px; font-weight: 700; color: var(--lime); letter-spacing: 1px; text-transform: uppercase; }
+.again-text { margin: 0; font-size: 17px; line-height: 1.4; font-weight: 700; }
+.verdict .why { margin: 0; font-size: 19px; line-height: 1.4; font-weight: 700; }
+details { border-top: 1px solid var(--line); padding-top: 10px; }
+summary { font-weight: 900; font-size: 17px; cursor: pointer; min-height: 44px; display: flex; align-items: center; }
+details ul { margin: 6px 0 0; padding-left: 20px; display: flex; flex-direction: column; gap: 10px; }
+a { color: var(--text); }
+details a { font-size: 16px; }
+.results { flex: 1; display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 20px; text-align: center; }
+.score { margin: 0; font-weight: 900; font-size: 92px; line-height: 1; }
+.squares { display: flex; gap: 10px; }
+.squares span { width: 44px; height: 44px; border-radius: 8px; background: var(--lime); }
+.squares span.miss { background: var(--line); }
+.title { margin: 0; border: 2px solid var(--lime); border-radius: 999px; padding: 10px 20px; font-weight: 900; font-size: 19px; }
+.sub { margin: 0; font-size: 16px; font-weight: 700; color: var(--soft); }
+.foot { display: flex; flex-direction: column; gap: 12px; }
+.note { margin: 0; text-align: center; font-size: 15px; color: var(--soft); min-height: 20px; }
+dialog { background: var(--bg); color: var(--text); border: 1px solid var(--line); border-radius: 18px; padding: 0; width: min(440px, calc(100% - 24px)); max-height: calc(100dvh - 40px); }
+dialog::backdrop { background: rgba(0, 0, 0, 0.7); }
+.sheet { padding: 18px 20px 24px; display: flex; flex-direction: column; gap: 14px; }
+.sheet-head { display: flex; justify-content: space-between; align-items: center; }
+.sheet h2 { margin: 0; font-weight: 900; font-size: 24px; }
+.sheet p { margin: 0; font-size: 16px; line-height: 1.5; color: var(--soft); }
+.sheet p strong { color: var(--text); }
+.stats { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 8px; text-align: center; }
+.stats b { display: block; font-weight: 900; font-size: 30px; font-variant-numeric: tabular-nums; }
+.stats span { font-size: 12px; color: var(--soft); }
+.month { display: flex; flex-direction: column; gap: 8px; margin-bottom: 8px; }
+.month h3 { margin: 0; font-size: 16px; font-weight: 900; }
+.cal { display: grid; grid-template-columns: repeat(7, minmax(0, 1fr)); gap: 6px; }
+.cal .dow { text-align: center; font-size: 12px; font-weight: 700; color: var(--soft); }
+.day { aspect-ratio: 1; border-radius: 8px; border: 1px solid var(--line); background: none; color: #8A8A8C; font: 900 14px/1 "Archivo", "Archivo Fallback", Arial, sans-serif; display: flex; align-items: center; justify-content: center; padding: 0; }
+button.day { cursor: pointer; background: var(--line); color: var(--text); border-color: var(--line); }
+button.day.played { background: var(--lime); border-color: var(--lime); color: var(--on-lime); }
+button.day.today { border: 2px solid var(--lime); }
+.legend { display: flex; flex-wrap: wrap; gap: 14px; font-size: 12px; color: var(--soft); }
+.legend span { display: inline-flex; align-items: center; gap: 6px; }
+.legend i { width: 12px; height: 12px; border-radius: 3px; display: inline-block; }
+.linkish { background: none; border: 0; padding: 4px 0; min-height: 44px; text-align: left; color: var(--soft); font: 500 15px/1.4 "Archivo", "Archivo Fallback", Arial, sans-serif; text-decoration: underline; text-underline-offset: 3px; cursor: pointer; }
+.linkish:focus-visible { outline: 3px solid var(--text); outline-offset: 3px; }
+.field { display: flex; flex-direction: column; gap: 6px; }
+.field label { font-size: 14px; font-weight: 700; color: var(--text); }
+.field textarea, .field input { width: 100%; background: var(--surface); color: var(--text); border: 1px solid var(--mute); border-radius: 10px; padding: 12px; font: 500 16px/1.4 "Archivo", "Archivo Fallback", Arial, sans-serif; }
+.field textarea { min-height: 110px; resize: vertical; }
+.field textarea:focus-visible, .field input:focus-visible { outline: 3px solid var(--lime); outline-offset: 1px; }
+.about { background: var(--surface); border: 1px solid var(--line); border-radius: 10px; padding: 10px 12px; font-size: 14px; line-height: 1.4; color: var(--soft); }
+.gotcha { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
+#note-status { color: var(--text); font-weight: 700; min-height: 22px; }
+.sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+@media (max-height: 700px) { .app { gap: 10px; } .date { font-size: 22px; } .stage { padding: 4px; } .card { padding: 18px 16px; gap: 12px; } .claim { font-size: 21px; } .btn { min-height: 52px; } }
+@media (prefers-reduced-motion: reduce) { .card.fly, .card.back { transition: none; } }
+</style>
+</head>
+<body>
+<a class="skip" href="#play">Skip to the game</a>
+<div class="app">
+<header>
+<h1 class="logo">Daily Blues</h1>
+<div class="tools">
+<button class="icon" type="button" id="open-help" aria-label="How to play" aria-haspopup="dialog"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M9.5 9.5a2.5 2.5 0 1 1 3.5 2.3c-.7.3-1 .9-1 1.6V14"/><circle cx="12" cy="17.2" r="0.6" fill="currentColor"/></svg></button>
+<button class="icon" type="button" id="open-stats" aria-label="Stats" aria-haspopup="dialog"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 20h16"/><rect x="5" y="11" width="3.5" height="6"/><rect x="10.25" y="6" width="3.5" height="11"/><rect x="15.5" y="9" width="3.5" height="8"/></svg></button>
+<button class="icon" type="button" id="open-archive" aria-label="Archive" aria-haspopup="dialog"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3.5" y="5" width="17" height="15" rx="2"/><path d="M3.5 10h17M8 3v4M16 3v4"/></svg></button>
+</div>
+</header>
+<main class="main">
+<div class="dayhead">
+<p class="eyebrow" id="eyebrow">On this day in blues</p>
+<p class="date" id="date"></p>
+</div>
+<div class="bar" id="bar" aria-hidden="true"></div>
+<div id="play" tabindex="-1"></div>
+</main>
+</div>
+
+<dialog id="help" aria-labelledby="help-title">
+<div class="sheet">
+<div class="sheet-head"><h2 id="help-title">How to play</h2><button class="icon close" type="button" aria-label="Close"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg></button></div>
+<p>Every day brings <strong>five facts from blues history</strong> tied to that date, each from a different decade.</p>
+<p><strong>Swipe right if it's true, left if it's false,</strong> or tap the buttons. On every false card, one detail is wrong: a player, a label, a city, an instrument.</p>
+<p>Each answer comes with the real story and its sources. New cards at midnight. Play past days in the Archive.</p>
+<p>No sign-up. Your stats stay on this phone.</p>
+<p>Daily Blues is built by <a href="/games/">Gofer Content</a>.</p>
+</div>
+</dialog>
+
+<dialog id="stats" aria-labelledby="stats-title">
+<div class="sheet">
+<div class="sheet-head"><h2 id="stats-title">Stats</h2><button class="icon close" type="button" aria-label="Close"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg></button></div>
+<div class="stats" id="stats-grid"></div>
+<p id="stats-rank"></p>
+<p>Stats count daily games only. Archive games don't change them.</p>
+</div>
+</dialog>
+
+<dialog id="archive" aria-labelledby="archive-title">
+<div class="sheet">
+<div class="sheet-head"><h2 id="archive-title">Archive</h2><button class="icon close" type="button" aria-label="Close"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg></button></div>
+<p>Tap any day to play it. Archive games don't change your stats.</p>
+<div id="months"></div>
+<div class="legend"><span><i style="background: var(--lime)"></i>Played</span><span><i style="background: var(--line)"></i>Not played</span><span><i style="border: 2px solid var(--lime)"></i>Today</span></div>
+</div>
+</dialog>
+
+<dialog id="note" aria-labelledby="note-title">
+<div class="sheet">
+<div class="sheet-head"><h2 id="note-title">Send us a note</h2><button class="icon close" type="button" aria-label="Close"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg></button></div>
+<p>Spot a wrong fact, or did a card read funny? Tell us. It helps.</p>
+<p class="about"><strong>About this card:</strong> <span id="note-card"></span></p>
+<form id="note-form" novalidate>
+<div class="field"><label for="note-text">What's wrong or confusing?</label><textarea id="note-text" name="message" required></textarea></div>
+<div class="field" style="margin-top:12px"><label for="note-email">Your email (only if you want a reply)</label><input id="note-email" type="email" name="email" autocomplete="email" inputmode="email"></div>
+<div class="gotcha" aria-hidden="true"><label for="note-gotcha">Leave this empty</label><input id="note-gotcha" type="text" name="_gotcha" tabindex="-1" autocomplete="off"></div>
+<button class="btn lime" type="submit" id="note-send" style="margin-top:16px">SEND NOTE</button>
+</form>
+<p id="note-status" role="status" tabindex="-1"></p>
+</div>
+</dialog>
+
+<noscript><p style="padding:20px">Daily Blues needs JavaScript turned on.</p></noscript>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"VideoGame","name":"Daily Blues","url":"https://gofercontent.com/games/daily-blues/","description":"A daily true or false trivia game about blues history. Five cards a day, each tied to that date, with the real story and sources after every answer.","genre":"Trivia","gamePlatform":"Web browser","isAccessibleForFree":true,"inLanguage":"en","author":{"@type":"Organization","name":"Gofer Content","url":"https://gofercontent.com/"}}
+</script>
+<script src="/games/daily-blues/cards.js"></script>
+<script src="/games/daily-blues/days.js"></script>
+<script src="/games/daily-blues/game.js"></script>
+<script src="/games/daily-blues/count.js"></script>
+</body>
+</html>
