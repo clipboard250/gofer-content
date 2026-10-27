@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; connect-src 'self'; form-action 'self'; base-uri 'self'; object-src 'none'; upgrade-insecure-requests">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.usefathom.com; style-src 'self' 'unsafe-inline'; img-src 'self' data: https://cdn.usefathom.com; font-src 'self'; connect-src 'self' https://cdn.usefathom.com; form-action 'self'; base-uri 'self'; object-src 'none'; upgrade-insecure-requests">
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <link rel="canonical" href="https://gofercontent.com/privacy/">
 <title>Privacy | Gofer Content</title>
@@ -46,6 +46,12 @@ footer{background:var(--ink);color:#a89c8c;text-align:center;padding:26px 16px;f
 footer a{color:var(--cream);text-decoration:underline;text-underline-offset:3px}
 footer .sep{color:var(--gold)}
 </style>
+<script>
+/* Visitor counter: cookie-free, loads after the page shows */
+(function(){function go(){try{var s=document.createElement('script');s.src='https://cdn.usefathom.com/script.js';s.setAttribute('data-site','IPCAXMZK');s.defer=true;document.head.appendChild(s);}catch(e){}}
+function idle(){'requestIdleCallback' in window?requestIdleCallback(go,{timeout:2000}):setTimeout(go,1)}
+document.readyState==='complete'?idle():window.addEventListener('load',idle);})();
+</script>
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
@@ -62,7 +68,8 @@ footer .sep{color:var(--gold)}
     <h2 id="short-h">The short version</h2>
     <ul>
       <li>This site sets no cookies.</li>
-      <li>No tracking, no ads, and nothing sold or shared.</li>
+      <li>Visits are counted as totals, with no cookies and nothing that identifies you.</li>
+      <li>No ads, and nothing sold or shared.</li>
       <li>If you send a message, Gofer Content uses it only to reply.</li>
     </ul>
   </section>
@@ -71,7 +78,8 @@ footer .sep{color:var(--gold)}
   <p>Gofer Content is a website studio in St. Petersburg, Florida, run by Dayna, Director of Online Presence. Questions about this page go to <a href="mailto:info@gofercontent.com">info@gofercontent.com</a>.</p>
 
   <h2>Cookies</h2>
-  <p>This site sets no cookies and runs no tracking or advertising tools. That is why you never see a cookie pop-up here.</p>
+  <p>This site sets no cookies and runs no advertising or tracking tools that follow you around the web. That is why you never see a cookie pop-up here.</p>
+  <p>To know how many people visit, the site uses a privacy-friendly visitor counter. It counts page visits, which site sent you, your device type, and your country, all as totals. It uses no cookies, never identifies you, and never follows you to other sites.</p>
   <p>One small note stays in your own browser: when you close the free website check pop-up, your browser remembers it so the pop-up doesn't show again. That note never leaves your device, and clearing your browser data removes it.</p>
 
   <h2>What you send us</h2>
