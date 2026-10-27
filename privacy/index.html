@@ -45,6 +45,11 @@ main a{text-decoration:underline;text-underline-offset:3px;font-weight:700}
 footer{background:var(--ink);color:#a89c8c;text-align:center;padding:26px 16px;font-size:.82rem;font-weight:500}
 footer a{color:var(--cream);text-decoration:underline;text-underline-offset:3px}
 footer .sep{color:var(--gold)}
+.optout{font:700 1rem var(--font);background:var(--ink);color:var(--cream);border:0;border-radius:999px;padding:.7rem 1.3rem;min-height:44px;cursor:pointer}
+.optout:hover{background:#3a332c}
+.optout:focus-visible{outline:3px solid var(--blue);outline-offset:3px}
+#optout-msg{font-weight:700;margin-top:.6rem}
+#optout-msg:focus{outline:none}
 </style>
 <script>
 /* Visitor counter: cookie-free, loads after the page shows */
@@ -81,6 +86,16 @@ document.readyState==='complete'?idle():window.addEventListener('load',idle);})(
   <h2>Cookies</h2>
   <p>This site sets no cookies and runs no advertising or tracking tools that follow you around the web. That is why you never see a cookie pop-up here.</p>
   <p>To know how many people visit, the site uses a privacy-friendly visitor counter. It counts page visits, which site sent you, your device type, and your country, all as totals. It uses no cookies, never identifies you, and never follows you to other sites.</p>
+  <p>Prefer not to be counted at all? Tap the button below. This browser will be left out from then on.</p>
+  <p><button class="optout" id="optout" type="button">Don't count me</button></p>
+  <p id="optout-msg" role="status" tabindex="-1"></p>
+  <script>
+  (function(){var b=document.getElementById('optout'),m=document.getElementById('optout-msg'),k='blockFathomTracking';
+  function off(){try{return localStorage.getItem(k)==='true'}catch(e){return false}}
+  function show(){b.textContent=off()?'Count me again':"Don't count me"}
+  b.addEventListener('click',function(){try{if(off()){localStorage.removeItem(k);m.textContent='Got it. This browser will be counted again.'}else{localStorage.setItem(k,'true');m.textContent='Got it. This browser will not be counted.'}}catch(e){m.textContent='Your browser blocked this setting, so nothing changed.'}show();m.focus()});
+  show();})();
+  </script>
   <p>One small note stays in your own browser: when you close the free website check pop-up, your browser remembers it so the pop-up doesn't show again. That note never leaves your device, and clearing your browser data removes it.</p>
 
   <h2>What you send us</h2>
