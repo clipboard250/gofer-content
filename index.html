@@ -323,6 +323,27 @@ section[id]{scroll-margin-top:80px}
 .proof-card img{display:block;width:100%;height:auto}
 .proof-note{margin-top:14px;font-size:.85rem;color:#a89c8c}
 @media(max-width:900px){.proof{grid-template-columns:1fr}}
+
+/* GAMES */
+.games-p{background:var(--cream);color:var(--ink)}
+.games-p .wrap{display:grid;grid-template-columns:1.1fr 1fr;gap:56px;align-items:center}
+.games-p .eyebrow{font-weight:800;font-size:.82rem;text-transform:uppercase;letter-spacing:.2em;color:#8a3a1f;margin-bottom:18px}
+.games-p .sub{margin-top:22px;max-width:520px;font-size:1.2rem;font-weight:500;color:#3a342c}
+.games-btns{margin-top:30px;display:flex;flex-wrap:wrap;gap:12px}
+.games-btns a{display:inline-flex;align-items:center;justify-content:center;min-height:54px;padding:.7rem 1.6rem;border-radius:50px;font-weight:800;font-size:1.05rem;border:3px solid var(--ink);transition:.2s}
+.games-btns .go{background:var(--ink);color:var(--cream)}
+.games-btns .go:hover{background:var(--coral);border-color:var(--coral);color:#fff}
+.games-btns .play:hover{background:var(--ink);color:var(--cream)}
+.bd-card{justify-self:center;width:min(100%,380px);background:#121213;color:#f2f2f2;border:3px solid var(--ink);border-radius:22px;padding:24px 22px;box-shadow:8px 8px 0 var(--ink)}
+.bd-top{display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid #3a3a3c;padding-bottom:10px;font-weight:900;text-transform:uppercase;letter-spacing:.5px}
+.bd-live{background:#c8f31d;color:#121213;font-size:.72rem;padding:4px 10px;border-radius:999px;letter-spacing:.08em}
+.bd-inner{margin-top:18px;background:#1e1e20;border:2px solid #c8f31d;border-radius:16px;padding:18px 16px;transform:rotate(-2deg)}
+.bd-chip{display:inline-block;background:#c8f31d;color:#121213;font-weight:900;font-size:.85rem;padding:4px 10px;border-radius:999px;margin-bottom:12px}
+.bd-claim{font-weight:900;font-size:1.1rem;line-height:1.2}
+.bd-btns{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:18px}
+.bd-btns span{min-height:46px;display:flex;align-items:center;justify-content:center;border:2px solid #8a8a8c;border-radius:12px;font-weight:900}
+.bd-btns span:last-child{background:#c8f31d;border-color:#c8f31d;color:#121213}
+@media(max-width:860px){.games-p .wrap{grid-template-columns:1fr;gap:44px}}
 </style>
 <script type="application/ld+json">
 {
@@ -456,6 +477,29 @@ document.readyState==='complete'?idle():window.addEventListener('load',idle);})(
         </figure>
       </div>
       <p class="rev rv d3"><a href="https://www.google.com/maps/place/Gofer+Content/@27.7826927,-82.8209054,11z/" target="_blank" rel="noopener">See what clients say on Google →</a></p>
+    </div>
+  </section>
+
+  <!-- GAMES -->
+  <section class="panel games-p" aria-labelledby="games-heading">
+    <div class="wrap">
+      <div>
+        <p class="eyebrow rv">It's all fun and games</p>
+        <h2 class="big rv" id="games-heading">Websites people play.</h2>
+        <p class="sub rv d1">Gofer Content builds daily trivia, fan quizzes, polls, and surveys right into your website. Fans play, share their score, and come back tomorrow.</p>
+        <div class="games-btns rv d2">
+          <a class="go" href="/games/">See the games</a>
+          <a class="play" href="https://dream-rig-blues.vercel.app/" target="_blank" rel="noopener">Play Blues Daily<span class="sr-only"> (opens in a new tab)</span></a>
+        </div>
+      </div>
+      <div class="bd-card rv d2" role="img" aria-label="Blues Daily, a daily true or false game built by Gofer Content. Sample card from 1941: Folklorist Alan Lomax made Muddy Waters' first recordings inside Muddy's own cabin, using a portable disc recorder.">
+        <div class="bd-top" aria-hidden="true">Blues Daily<span class="bd-live">Live now</span></div>
+        <div class="bd-inner" aria-hidden="true">
+          <span class="bd-chip">1941</span>
+          <p class="bd-claim">Folklorist Alan Lomax made Muddy Waters' first recordings inside Muddy's own cabin, using a portable disc recorder.</p>
+        </div>
+        <div class="bd-btns" aria-hidden="true"><span>FALSE</span><span>TRUE</span></div>
+      </div>
     </div>
   </section>
 
