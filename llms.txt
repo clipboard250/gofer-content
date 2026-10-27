@@ -7,9 +7,11 @@
 - Hosting and upkeep: Updates, forms, and security handled monthly
 - Getting found: Search and AI answer setup so customers find the business
 - Landing pages: Single-page sites built fast
+- Games and quizzes: Daily trivia, personality quizzes, fan polls, and surveys that live on the client's own site. Example: Blues Daily (https://dream-rig-blues.vercel.app/)
 
 ## Main page
 - [Gofer Content](https://gofercontent.com/): Services, client work, and contact form
+- [Games, quizzes, and polls](https://gofercontent.com/games/): Daily trivia, fan quizzes, polls, and surveys built into client websites, with playable samples
 
 ## Client work
 - [OMG Its Wicks](https://omgitswicks.com/): Florida comedian
