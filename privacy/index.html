@@ -48,7 +48,8 @@ footer .sep{color:var(--gold)}
 </style>
 <script>
 /* Visitor counter: cookie-free, loads after the page shows */
-(function(){function go(){try{var s=document.createElement('script');s.src='https://cdn.usefathom.com/script.js';s.setAttribute('data-site','IPCAXMZK');s.defer=true;document.head.appendChild(s);}catch(e){}}
+(function(){try{if(location.hash==='#dont-count-me'){localStorage.setItem('blockFathomTracking','true');alert('Got it. This browser will not be counted.');}else if(location.hash==='#count-me'){localStorage.removeItem('blockFathomTracking');alert('This browser will be counted again.');}}catch(e){}
+function go(){try{var s=document.createElement('script');s.src='https://cdn.usefathom.com/script.js';s.setAttribute('data-site','IPCAXMZK');s.defer=true;document.head.appendChild(s);}catch(e){}}
 function idle(){'requestIdleCallback' in window?requestIdleCallback(go,{timeout:2000}):setTimeout(go,1)}
 document.readyState==='complete'?idle():window.addEventListener('load',idle);})();
 </script>
