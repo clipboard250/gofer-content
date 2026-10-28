@@ -7,7 +7,7 @@
 - Hosting and upkeep: Updates, forms, and security handled monthly
 - Getting found: Search and AI answer setup so customers find the business
 - Landing pages: Single-page sites built fast
-- Games and quizzes: Daily trivia, personality quizzes, fan polls, and surveys that live on the client's own site. Example: Daily Blues, a daily blues history trivia game (https://gofercontent.com/games/daily-blues/)
+- Games and quizzes: Daily trivia, personality quizzes, fan polls, and surveys that live on the client's own site. Example: Daily Blues, a daily blues history trivia game (https://gofercontent.com/games/daily-blues/). Live on client sites: the Florida Word Search (https://www.omgitswicks.com/games/word-search) and Wicks Coloring Pages (https://www.omgitswicks.com/coloring) for OMG Its Wicks
 
 ## Main page
 - [Gofer Content](https://gofercontent.com/): Services, client work, and contact form

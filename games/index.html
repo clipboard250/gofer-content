@@ -93,43 +93,64 @@ section[id]{scroll-margin-top:16px}
 @media(max-width:860px){.feature .wrap{grid-template-columns:1fr;gap:44px}}
 
 /* DEMOS */
-.demos{background:var(--cream)}
-.demo-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:44px;align-items:start}
-@media(max-width:980px){.demo-grid{grid-template-columns:1fr;max-width:520px;margin-left:auto;margin-right:auto}}
-.demo{border:3px solid var(--ink);border-radius:20px;overflow:hidden;box-shadow:6px 6px 0 var(--ink)}
-.demo-label{background:var(--ink);color:var(--cream);font-weight:700;font-size:.8rem;padding:9px 16px;display:flex;justify-content:space-between;gap:10px}
-.demo-label b{color:var(--gold);text-transform:uppercase;letter-spacing:.08em}
-.demo-body{padding:24px 20px 26px;min-height:440px;display:flex;flex-direction:column}
+/* LIVE ON CLIENT SITES */
+.live{background:var(--cream)}
+.live-grid{display:grid;grid-template-columns:1fr 1fr;gap:28px;margin-top:44px}
+.live-card{display:flex;flex-direction:column;background:#0b0b0b;color:#f2efe8;border:3px solid var(--ink);border-radius:22px;overflow:hidden;box-shadow:8px 8px 0 var(--ink);text-decoration:none}
+.live-card img{display:block;width:100%;height:auto;aspect-ratio:780/760;object-fit:cover;object-position:top;border-bottom:3px solid #c0321c}
+.live-card .lc-body{padding:22px 24px 26px;display:flex;flex-direction:column;flex:1}
+.lc-tag{align-self:flex-start;background:#c0321c;color:#fff;font-weight:800;font-size:.75rem;letter-spacing:.1em;text-transform:uppercase;padding:4px 12px;border-radius:40px;margin-bottom:12px}
+.lc-client{font-weight:700;font-size:.85rem;color:#eda23c;text-transform:uppercase;letter-spacing:.12em}
+.live-card h3{font-family:'Bebas Neue','Gofer Fallback',sans-serif;font-weight:400;font-size:2.4rem;line-height:1;letter-spacing:.02em;margin:4px 0 10px}
+.live-card p{color:#d9d3c7}
+.lc-go{margin-top:auto;padding-top:16px;font-weight:800;color:#f2efe8;text-decoration:underline;text-underline-offset:4px}
+.live-card:hover{box-shadow:4px 4px 0 var(--ink);transform:translate(4px,4px)}
+.live-card:focus-visible{outline:3px solid var(--blue);outline-offset:4px}
+@media(max-width:760px){.live-grid{grid-template-columns:1fr;max-width:520px;margin-left:auto;margin-right:auto}}
+
+/* PLAYABLE SAMPLES */
+.demos{background:#ece3cd}
+.picker{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:40px;background:var(--ink);padding:8px;border-radius:18px;max-width:640px}
+.picker button{background:none;border:0;color:var(--cream);border-radius:12px;padding:12px 16px;min-height:60px;cursor:pointer;text-align:left;display:flex;flex-direction:column;gap:2px}
+.picker b{font-weight:900;font-size:1.05rem}
+.picker span{font-size:.82rem;color:#c9bfae}
+.picker [aria-selected=true]{background:var(--gold);color:var(--ink)}
+.picker [aria-selected=true] span{color:var(--ink)}
+.picker button:focus-visible{outline:3px solid var(--blue);outline-offset:2px}
+.panel{display:grid;grid-template-columns:1fr 1.15fr;gap:52px;margin-top:30px}
+.panel[hidden]{display:none}
+.intro{align-self:center}
+.who{font-weight:700;font-size:.8rem;text-transform:uppercase;letter-spacing:.14em;color:#8a3a26;margin-bottom:10px}
+.intro h3{font-weight:900;font-size:clamp(26px,3vw,36px);line-height:1.02;letter-spacing:-.02em;margin-bottom:14px}
+.intro p{color:#3a342c;font-size:1.08rem}
+.points{list-style:none;padding:0;margin-top:20px;display:grid;gap:10px}
+.points li{padding-left:26px;position:relative;font-weight:700}
+.points li::before{content:'';position:absolute;left:0;top:.45em;width:12px;height:12px;border-radius:3px;background:var(--coral)}
+.stage{border:3px solid var(--ink);border-radius:22px;box-shadow:8px 8px 0 var(--ink);padding:30px 30px 32px;min-height:520px;display:flex;flex-direction:column}
+.stage>div{display:flex;flex-direction:column;flex:1}
+.stage>div[hidden]{display:none}
 .step{font-size:.8rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;margin-bottom:6px}
-.q{font-size:1.4rem;line-height:1.15;margin-bottom:18px}
-.opts{display:grid;gap:10px}
-.opt{min-height:52px;text-align:left;padding:.75rem 1rem;border-radius:12px;font-size:1rem;cursor:pointer;width:100%}
+.q{font-size:1.9rem;line-height:1.12;margin-bottom:22px}
+.opts{display:grid;gap:12px}
+.opt{min-height:58px;text-align:left;padding:.75rem 1rem;border-radius:12px;font-size:1rem;cursor:pointer;width:100%}
 .dots{display:flex;gap:6px;margin-bottom:18px}.dots span{flex:1;height:5px;border-radius:3px}
-.result-name{font-size:2rem;line-height:1;margin:6px 0 12px}
+.result-name{font-size:2.2rem;line-height:1;margin:6px 0 12px}
 .again{margin-top:auto;padding-top:18px}
 .mini{background:none;border:0;padding:8px 0;min-height:44px;font:700 .95rem var(--font);text-decoration:underline;text-underline-offset:3px;cursor:pointer}
 .fineprint{font-size:.85rem;margin-top:12px}
+@media(max-width:860px){
+  .panel{grid-template-columns:1fr;gap:22px}
+  .points{display:none}
+  .stage{padding:24px 20px 26px;min-height:500px}
+  .opt{min-height:52px}
+  .q{font-size:1.6rem}
+}
+@media(max-width:520px){.picker button{align-items:center;text-align:center;padding:10px 8px}}
 
-/* Wicks: after-show survey */
-.wicks{background:#0b0b0b;color:#f2efe8}
-.wicks .q,.wicks .result-name{font-family:'Bebas Neue','Gofer Fallback',sans-serif;font-weight:400;font-size:2.1rem;letter-spacing:.02em;line-height:1}
-.wicks .step,.wicks .accent{color:#eda23c}
-.wicks .rate{display:grid;grid-template-columns:repeat(5,1fr);gap:8px}
-.wicks .rate button,.wicks .opt{background:#2a2a2a;color:#f2efe8;border:2px solid #4a4a4a;border-radius:12px;min-height:52px;font-weight:700;cursor:pointer}
-.wicks .rate button[aria-pressed=true],.wicks .opt[aria-pressed=true]{background:#eda23c;border-color:#eda23c;color:#0b0b0b}
-.wicks label{display:block;font-weight:700;font-size:.9rem;margin:16px 0 6px}
-.wicks input[type=text]{width:100%;min-height:48px;padding:.6rem .9rem;border-radius:10px;border:2px solid #4a4a4a;background:#1a1a1a;color:#f2efe8;font:400 1rem var(--font)}
-.wicks .send{margin-top:18px;min-height:54px;width:100%;border:0;border-radius:12px;background:#c0321c;color:#fff;font:800 1.05rem var(--font);cursor:pointer}
-.wicks .send:hover{background:#d8452d}
-.wicks .gotcha{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
-.wicks .err{color:#ff9a87;font-weight:700;font-size:.9rem;min-height:1.3em;margin-top:8px}
-.wicks .mini{color:#f2efe8}
-.wicks .fineprint{color:#bdb6aa}
-
-/* Joey's band, St. Pete Collective: after-show poll */
+/* St. Pete Collective: after-show poll */
 .joey{background:#e6dcc3;color:#2a2320}
-.joey .eyebrow-band{display:inline-block;align-self:flex-start;background:#2a2320;color:#e6dcc3;font-weight:700;font-size:.75rem;letter-spacing:.14em;text-transform:uppercase;padding:5px 10px;border-radius:6px;margin-bottom:12px}
-.joey .q,.joey .result-name{font-family:'Shrikhand',Georgia,serif;font-weight:400;font-size:1.6rem;line-height:1.1;color:#234853}
+.joey .chip{align-self:flex-start;border:2px solid #2a2320;background:#c9a227;color:#2a2320;font-weight:800;font-size:.75rem;letter-spacing:.1em;text-transform:uppercase;padding:4px 12px;border-radius:40px;margin-bottom:18px;white-space:nowrap}
+.joey .q,.joey .result-name{font-family:'Shrikhand',Georgia,serif;font-weight:400;color:#234853}
 .joey .step{color:#5a4e46}
 .joey .opt{background:#f6f0e1;color:#2a2320;border:2px solid #2a2320;font-weight:700;box-shadow:3px 3px 0 #2a2320}
 .joey .opt:hover{background:#2f5d6b;border-color:#2f5d6b;color:#fff}
@@ -142,8 +163,9 @@ section[id]{scroll-margin-top:16px}
 .joey .mini{color:#2a2320}
 .joey .fineprint{color:#5a4e46}
 
-/* Living Spaces Gardening: personality quiz */
+/* Living Spaces Gardening: plant quiz */
 .lsg{background:#f8f6ea;color:#3a3532}
+.lsg .quiz-title{font-weight:900;color:#9e4733;font-size:1.15rem;margin-bottom:16px;padding-bottom:14px;border-bottom:2px solid #e2dccb}
 .lsg .q,.lsg .result-name{font-weight:900;letter-spacing:-.01em}
 .lsg .step{color:#3d7a73}
 .lsg .dots span{background:#e2dccb}.lsg .dots span.on{background:#9e4733}
@@ -232,6 +254,23 @@ footer .sep{color:var(--gold)}
       "author": { "@type": "Organization", "name": "Gofer Content", "url": "https://gofercontent.com/" }
     },
     {
+      "@type": "VideoGame",
+      "name": "Florida Word Search",
+      "url": "https://www.omgitswicks.com/games/word-search",
+      "description": "A daily Florida word search for fans of comedian OMG Its Wicks. A new puzzle every midnight, the same for every player, with a timer and streaks.",
+      "genre": "Word search",
+      "gamePlatform": "Web browser",
+      "author": { "@type": "Organization", "name": "Gofer Content", "url": "https://gofercontent.com/" }
+    },
+    {
+      "@type": "CreativeWork",
+      "name": "Wicks Coloring Pages",
+      "url": "https://www.omgitswicks.com/coloring",
+      "description": "Six free printable coloring pages made from comedian OMG Its Wicks's Survival Cards.",
+      "creator": { "@type": "Person", "name": "OMG Its Wicks" },
+      "contributor": { "@type": "Organization", "name": "Gofer Content", "url": "https://gofercontent.com/" }
+    },
+    {
       "@type": "FAQPage",
       "mainEntity": [
         {
@@ -247,7 +286,7 @@ footer .sep{color:var(--gold)}
         {
           "@type": "Question",
           "name": "Will a game slow down my website?",
-          "acceptedAnswer": { "@type": "Answer", "text": "No. Gofer Content builds every game by hand with no heavy add-ons. This page, with four playable samples on it, is built to the same speed standard as the rest of gofercontent.com." }
+          "acceptedAnswer": { "@type": "Answer", "text": "No. Gofer Content builds every game by hand with no heavy add-ons. This page, with playable samples on it, is built to the same speed standard as the rest of gofercontent.com." }
         },
         {
           "@type": "Question",
@@ -331,95 +370,104 @@ document.readyState==='complete'?idle():window.addEventListener('load',idle);})(
     </div>
   </section>
 
+
+  <!-- LIVE ON CLIENT SITES -->
+  <section class="live" id="live" aria-labelledby="live-h">
+    <div class="wrap">
+      <h2 class="big" id="live-h">Live on client sites</h2>
+      <p class="sub">Real games on real client websites, built by Gofer Content.</p>
+      <div class="live-grid">
+        <a class="live-card" href="https://www.omgitswicks.com/games/word-search">
+          <img src="/games/img/wicks-word-search-390.webp" srcset="/games/img/wicks-word-search-390.webp 390w, /games/img/wicks-word-search-780.webp 780w" sizes="(max-width:760px) 92vw, 520px" width="780" height="760" loading="lazy" alt="The Florida Word Search on omgitswicks.com: a grid of letters in white on black, with today's words listed below it.">
+          <div class="lc-body">
+            <span class="lc-tag">Daily game</span>
+            <span class="lc-client">OMG Its Wicks</span>
+            <h3>Florida Word Search</h3>
+            <p>Wicks posted a printable word search and got 78 likes and 5 shares in 3 hours. Gofer Content turned it into a daily game with a new puzzle every midnight, the same one for every fan.</p>
+            <span class="lc-go">Play it on omgitswicks.com</span>
+          </div>
+        </a>
+        <a class="live-card" href="https://www.omgitswicks.com/coloring">
+          <img src="/games/img/wicks-coloring-390.webp" srcset="/games/img/wicks-coloring-390.webp 390w, /games/img/wicks-coloring-780.webp 780w" sizes="(max-width:760px) 92vw, 520px" width="780" height="760" loading="lazy" alt="Three of Wicks's Survival Cards drawn as black and white coloring pages: Frog, Love Bug, and the Mystery Card.">
+          <div class="lc-body">
+            <span class="lc-tag">Free printable</span>
+            <span class="lc-client">OMG Its Wicks</span>
+            <h3>Wicks Coloring Pages</h3>
+            <p>All 6 of Wicks's Survival Cards as free coloring pages. Fans print them at home, post the finished page, and send in ideas for the next card.</p>
+            <span class="lc-go">See them on omgitswicks.com</span>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
   <!-- PLAYABLE SAMPLES -->
   <section class="demos" id="samples" aria-labelledby="samples-h">
     <div class="wrap">
       <h2 class="big" id="samples-h">Go ahead. Play one.</h2>
-      <p class="sub">Each sample below is made in a real Gofer Content client's colors, so you can picture one on your own site. They are samples only. Nothing you tap here gets sent anywhere.</p>
+      <p class="sub">Each sample is made in a real Gofer Content client's colors. They are samples only, so nothing you tap here gets sent anywhere.</p>
 
-      <div class="demo-grid">
-        <!-- WICKS SURVEY -->
-        <article class="demo" aria-labelledby="w-title">
-          <p class="demo-label"><b>Survey</b><span id="w-title">In OMG Its Wicks colors</span></p>
-          <div class="demo-body wicks" id="wicks">
-            <form id="w-form" novalidate>
-              <p class="step">After the show</p>
-              <h3 class="q" id="w-q1">How was the show tonight?</h3>
-              <div class="rate" role="group" aria-labelledby="w-q1">
-                <button type="button" aria-pressed="false" data-rate="1" aria-label="1 out of 5">1</button>
-                <button type="button" aria-pressed="false" data-rate="2" aria-label="2 out of 5">2</button>
-                <button type="button" aria-pressed="false" data-rate="3" aria-label="3 out of 5">3</button>
-                <button type="button" aria-pressed="false" data-rate="4" aria-label="4 out of 5">4</button>
-                <button type="button" aria-pressed="false" data-rate="5" aria-label="5 out of 5">5</button>
-              </div>
-              <p class="step accent" style="margin-top:20px" id="w-q2">Best part of the night?</p>
-              <div class="opts" role="group" aria-labelledby="w-q2">
-                <button class="opt" type="button" aria-pressed="false" data-fav="crowd work">The crowd work</button>
-                <button class="opt" type="button" aria-pressed="false" data-fav="stories">The stories</button>
-                <button class="opt" type="button" aria-pressed="false" data-fav="meet and greet">The meet and greet after</button>
-              </div>
-              <label for="w-city">Where should Wicks play next? (optional)</label>
-              <input id="w-city" type="text" name="city" autocomplete="address-level2" placeholder="Your city">
-              <div class="gotcha" aria-hidden="true"><label for="w-gotcha">Leave this empty</label><input id="w-gotcha" type="text" name="_gotcha" tabindex="-1" autocomplete="off"></div>
-              <button class="send" type="submit">Send it to Wicks</button>
-              <p class="err" id="w-err" role="alert"></p>
-            </form>
-            <div id="w-done" hidden tabindex="-1">
-              <p class="step">Got it</p>
-              <h3 class="result-name">Thanks for coming out!</h3>
-              <p id="w-sum"></p>
-              <p class="fineprint">In the real version, this lands in Wicks's inbox the second you tap send. Sample only, so nothing was sent.</p>
-              <div class="again"><button class="mini" type="button" id="w-reset">Try it again</button></div>
+      <div class="picker" role="tablist" aria-label="Samples">
+        <button type="button" role="tab" id="t-j" aria-selected="true" aria-controls="p-j"><b>Fan poll</b><span>St. Pete Collective</span></button>
+        <button type="button" role="tab" id="t-l" aria-selected="false" aria-controls="p-l" tabindex="-1"><b>Quiz</b><span>Living Spaces Gardening</span></button>
+      </div>
+
+      <!-- ST. PETE COLLECTIVE POLL -->
+      <div class="panel" role="tabpanel" id="p-j" aria-labelledby="t-j">
+        <div class="intro">
+          <p class="who">For bands and venues</p>
+          <h3>A fan poll for St. Pete Collective</h3>
+          <p>The room votes for its favorite song from a QR code on the table. The band wakes up with tomorrow's post already written.</p>
+          <ul class="points"><li>The list matches that night's set</li><li>Fans see the results right away</li><li>The vote stays saved on the fan's phone</li></ul>
+        </div>
+        <div class="stage joey" id="joey">
+          <div id="j-vote">
+            <p class="chip">James Taylor night</p>
+            <p class="step">After the show</p>
+            <h4 class="q" id="j-q">What was your favorite song tonight?</h4>
+            <div class="opts" role="group" aria-labelledby="j-q">
+              <button class="opt" type="button" data-pick="0">Fire and Rain</button>
+              <button class="opt" type="button" data-pick="1">Mexico</button>
+              <button class="opt" type="button" data-pick="2">Sweet Baby James</button>
+              <button class="opt" type="button" data-pick="3">Carolina in My Mind</button>
             </div>
           </div>
-        </article>
-
-        <!-- JOEY POLL -->
-        <article class="demo" aria-labelledby="j-title">
-          <p class="demo-label"><b>Fan poll</b><span id="j-title">In St. Pete Collective colors</span></p>
-          <div class="demo-body joey" id="joey">
-            <div id="j-vote">
-              <span class="eyebrow-band">Tonight: the music of James Taylor</span>
-              <p class="step">After the show</p>
-              <h3 class="q" id="j-q">What was your favorite song tonight?</h3>
-              <div class="opts" role="group" aria-labelledby="j-q">
-                <button class="opt" type="button" data-pick="0">Fire and Rain</button>
-                <button class="opt" type="button" data-pick="1">Mexico</button>
-                <button class="opt" type="button" data-pick="2">Sweet Baby James</button>
-                <button class="opt" type="button" data-pick="3">Carolina in My Mind</button>
-              </div>
-            </div>
-            <div id="j-results" hidden tabindex="-1">
-              <p class="step">Tonight's crowd picked</p>
-              <h3 class="q" id="j-rq">The room has spoken</h3>
-              <ul class="bars" id="j-bars" aria-labelledby="j-rq"></ul>
-              <p class="fineprint">Sample numbers. On a real night, the list matches that night's set, fans vote from the QR code on the table, and the band gets tomorrow's post handed to them.</p>
-              <div class="again"><button class="mini" type="button" id="j-reset">Vote again</button></div>
-            </div>
+          <div id="j-results" hidden tabindex="-1">
+            <p class="step">Tonight's crowd picked</p>
+            <h4 class="q" id="j-rq">The room has spoken</h4>
+            <ul class="bars" id="j-bars" aria-labelledby="j-rq"></ul>
+            <p class="fineprint">Sample numbers. On a real night, the list matches that night's set and the band gets tomorrow's post handed to them.</p>
+            <div class="again"><button class="mini" type="button" id="j-reset">Vote again</button></div>
           </div>
-        </article>
+        </div>
+      </div>
 
-        <!-- LSG QUIZ -->
-        <article class="demo" aria-labelledby="l-title">
-          <p class="demo-label"><b>Quiz</b><span id="l-title">In Living Spaces Gardening colors</span></p>
-          <div class="demo-body lsg" id="lsg">
-            <div id="l-play">
-              <div class="dots" aria-hidden="true"><span class="on"></span><span></span><span></span></div>
-              <p class="step" id="l-step">Question 1 of 3</p>
-              <h3 class="q" id="l-q" tabindex="-1">Which Florida native plant are you?</h3>
-              <div class="opts" id="l-opts" role="group" aria-labelledby="l-q"></div>
-            </div>
-            <div id="l-result" hidden tabindex="-1">
-              <svg class="plant" id="l-svg" viewBox="0 0 84 84" aria-hidden="true"></svg>
-              <p class="step">You are</p>
-              <h3 class="result-name" id="l-name"></h3>
-              <p class="latin" id="l-latin"></p>
-              <p id="l-text"></p>
-              <p class="fineprint">On a real site, this ends with a "Plant me in your yard" button that goes straight to the contact form.</p>
-              <div class="again"><button class="mini" type="button" id="l-reset">Take it again</button></div>
-            </div>
+      <!-- LIVING SPACES GARDENING QUIZ -->
+      <div class="panel" role="tabpanel" id="p-l" aria-labelledby="t-l" hidden>
+        <div class="intro">
+          <p class="who">For local businesses</p>
+          <h3>A plant quiz for Living Spaces Gardening</h3>
+          <p>Homeowners answer three fun questions and meet their Florida native plant. On the real site, the result ends with a button to the contact form.</p>
+          <ul class="points"><li>Real Florida native plants</li><li>Easy to share with a friend</li><li>Every result leads to a quote request</li></ul>
+        </div>
+        <div class="stage lsg" id="lsg">
+          <p class="quiz-title">Which Florida native plant are you?</p>
+          <div id="l-play">
+            <div class="dots" aria-hidden="true"><span class="on"></span><span></span><span></span></div>
+            <p class="step" id="l-step">Question 1 of 3</p>
+            <h4 class="q" id="l-q" tabindex="-1">Pick your perfect weekend.</h4>
+            <div class="opts" id="l-opts" role="group" aria-labelledby="l-q"></div>
           </div>
-        </article>
+          <div id="l-result" hidden tabindex="-1">
+            <svg class="plant" id="l-svg" viewBox="0 0 84 84" aria-hidden="true"></svg>
+            <p class="step">You are</p>
+            <h4 class="result-name" id="l-name"></h4>
+            <p class="latin" id="l-latin"></p>
+            <p id="l-text"></p>
+            <p class="fineprint">On a real site, this ends with a "Plant me in your yard" button that goes straight to the contact form.</p>
+            <div class="again"><button class="mini" type="button" id="l-reset">Take it again</button></div>
+          </div>
+        </div>
       </div>
     </div>
   </section>
@@ -456,7 +504,7 @@ document.readyState==='complete'?idle():window.addEventListener('load',idle);})(
       <h2 class="big" id="faq-h">Questions</h2>
       <details><summary>Can I put a game or quiz on my own website?</summary><p>Yes. Gofer Content builds the game, quiz, poll, or survey right into your website, in your colors and your voice. You own it, and fans play it on your site, not someone else's app.</p></details>
       <details><summary>Do fans need to sign up or download anything to play?</summary><p>No. Fans tap and play on any phone or computer. Scores and streaks stay on the player's own phone, so there is no account and no app to download.</p></details>
-      <details><summary>Will a game slow down my website?</summary><p>No. Gofer Content builds every game by hand with no heavy add-ons. This page, with four playable samples on it, is built to the same speed standard as the rest of gofercontent.com.</p></details>
+      <details><summary>Will a game slow down my website?</summary><p>No. Gofer Content builds every game by hand with no heavy add-ons. This page, with playable samples on it, is built to the same speed standard as the rest of gofercontent.com.</p></details>
       <details><summary>How does a game help people find my business?</summary><p>A game gives people a reason to come back and a reason to share. Every shared score is a link back to your website, and each game page is set up so Google and AI answers can read what it is about.</p></details>
       <details><summary>Where do survey answers go?</summary><p>Straight to your email inbox. Every form includes a spam trap, and Gofer Content gets a copy so nothing gets lost.</p></details>
     </div>
@@ -484,24 +532,14 @@ function show(hideEl,showEl){hideEl.hidden=true;showEl.hidden=false;showEl.focus
 function store(k,v){try{v===undefined?localStorage.removeItem(k):localStorage.setItem(k,v);}catch(e){}}
 function load(k){try{return localStorage.getItem(k);}catch(e){return null;}}
 
-/* WICKS SURVEY */
-var wf=document.getElementById('w-form'),wd=document.getElementById('w-done'),rate=0,fav='';
-function press(groupSel,btn){wf.querySelectorAll(groupSel).forEach(function(b){b.setAttribute('aria-pressed',b===btn?'true':'false');});}
-wf.querySelectorAll('[data-rate]').forEach(function(b){b.addEventListener('click',function(){rate=+b.dataset.rate;press('[data-rate]',b);});});
-wf.querySelectorAll('[data-fav]').forEach(function(b){b.addEventListener('click',function(){fav=b.dataset.fav;press('[data-fav]',b);});});
-wf.addEventListener('submit',function(e){
-  e.preventDefault();
-  var err=document.getElementById('w-err');
-  if(document.getElementById('w-gotcha').value)return;
-  if(!rate){err.textContent='Pick a number from 1 to 5 first';wf.querySelector('[data-rate]').focus();return;}
-  err.textContent='';
-  var city=document.getElementById('w-city').value.trim();
-  document.getElementById('w-sum').textContent='You gave the show a '+rate+' out of 5'+(fav?', loved the '+fav:'')+(city?', and want Wicks in '+city:'')+'.';
-  show(wf,wd);
-});
-document.getElementById('w-reset').addEventListener('click',function(){
-  wf.reset();rate=0;fav='';wf.querySelectorAll('[aria-pressed]').forEach(function(b){b.setAttribute('aria-pressed','false');});
-  wd.hidden=true;wf.hidden=false;wf.querySelector('[data-rate]').focus();
+/* SAMPLE PICKER: tabs with arrow keys */
+var tabs=[].slice.call(document.querySelectorAll('.picker [role=tab]'));
+function pick(t,focus){tabs.forEach(function(x){var on=x===t;x.setAttribute('aria-selected',on?'true':'false');x.tabIndex=on?0:-1;document.getElementById(x.getAttribute('aria-controls')).hidden=!on;});if(focus)t.focus();}
+tabs.forEach(function(t,i){
+  t.addEventListener('click',function(){pick(t,false);});
+  t.addEventListener('keydown',function(e){var n=null;
+    if(e.key==='ArrowRight')n=tabs[(i+1)%tabs.length];else if(e.key==='ArrowLeft')n=tabs[(i-1+tabs.length)%tabs.length];else if(e.key==='Home')n=tabs[0];else if(e.key==='End')n=tabs[tabs.length-1];
+    if(n){e.preventDefault();pick(n,true);}});
 });
 
 /* JOEY POLL */
@@ -542,7 +580,7 @@ var lp=document.getElementById('l-play'),lr=document.getElementById('l-result'),
 var step=0,tally=[0,0,0,0];
 function ask(focus){
   ls.textContent='Question '+(step+1)+' of 3';
-  lq.textContent=step===0?'Which Florida native plant are you? '+Q[0].q:Q[step].q;
+  lq.textContent=Q[step].q;
   dots.forEach(function(d,i){d.className=i<=step?'on':'';});
   lo.innerHTML='';
   Q[step].a.forEach(function(txt,i){
