@@ -46,6 +46,11 @@ header { display: flex; justify-content: space-between; align-items: center; bor
 .dayhead { display: flex; flex-direction: column; gap: 2px; }
 .eyebrow { margin: 0; font-size: 13px; font-weight: 700; color: var(--lime); letter-spacing: 1px; text-transform: uppercase; }
 .date { margin: 0; font-weight: 900; font-size: 28px; }
+.levels { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 6px; background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: 4px; }
+.levels[hidden] { display: none; }
+.levels button { min-height: 44px; border: 0; border-radius: 9px; background: none; color: var(--soft); font: 900 16px/1 "Archivo", "Archivo Fallback", Arial, sans-serif; letter-spacing: 0.5px; cursor: pointer; }
+.levels button[aria-pressed="true"] { background: var(--lime); color: var(--on-lime); }
+.levels button:focus-visible { outline: 3px solid var(--text); outline-offset: 2px; }
 .bar { display: flex; gap: 6px; }
 .bar span { flex: 1; height: 6px; border-radius: 3px; background: var(--line); }
 .bar span.done { background: var(--soft); }
@@ -138,6 +143,10 @@ button.day.today { border: 2px solid var(--lime); }
 <p class="eyebrow" id="eyebrow">On this day in blues</p>
 <p class="date" id="date"></p>
 </div>
+<div class="levels" id="levels" role="group" aria-label="Level" hidden>
+<button type="button" data-level="easy" aria-pressed="false">EASY</button>
+<button type="button" data-level="hard" aria-pressed="true">HARD</button>
+</div>
 <div class="bar" id="bar" aria-hidden="true"></div>
 <div id="play" tabindex="-1"></div>
 </main>
@@ -193,6 +202,7 @@ button.day.today { border: 2px solid var(--lime); }
 </script>
 <script src="/games/daily-blues/cards.js"></script>
 <script src="/games/daily-blues/days.js"></script>
+<script src="/games/daily-blues/easy.js"></script>
 <script src="/games/daily-blues/game.js"></script>
 <script src="/games/daily-blues/count.js"></script>
 </body>

@@ -2,6 +2,7 @@
   "use strict";
   var BANK = window.CARDS || [];
   var DAYS = window.DAYS || {};
+  var EASY = window.EASY_DAYS || {};
   var PER_DAY = 5;
   var LAUNCH = "2026-10-26";
   var TITLES = [
@@ -36,8 +37,10 @@
       return ((t ^ (t >>> 14)) >>> 0) / 4294967296;
     };
   }
+  function hasEasy(k) { var e = EASY[k.slice(5)]; return !!(e && e.length >= PER_DAY); }
   function cardsFor(k) {
     var mmdd = k.slice(5);
+    if (isEasy(k)) return EASY[mmdd].slice(0, PER_DAY);
     if (DAYS[mmdd] && DAYS[mmdd].length) return DAYS[mmdd].slice(0, PER_DAY);
     var d = fromKey(k);
     var a = BANK.slice(), r = rng(Math.floor(Date.UTC(d.getFullYear(), d.getMonth(), d.getDate()) / 86400000) * 7919);
@@ -53,9 +56,16 @@
   }
 
   /* games[dateKey] = { answers: [true,false,...], daily: true if played on its own day } */
+  /* Easy and Hard keep separate scores and streaks. Hard is the default. */
   var games = load("bd-games", {});
+  var easyGames = load("bd-games-easy", {});
+  var level = load("bd-level", "hard") === "easy" ? "easy" : "hard";
   var playKey = TODAY;
-  function game(k) { if (!games[k]) games[k] = { answers: [], daily: k === TODAY }; return games[k]; }
+  function isEasy(k) { return level === "easy" && hasEasy(k); }
+  function storeFor(k) { return isEasy(k) ? easyGames : games; }
+  function saveFor(k) { if (isEasy(k)) save("bd-games-easy", easyGames); else save("bd-games", games); }
+  function statsStore() { return level === "easy" ? easyGames : games; }
+  function game(k) { var s = storeFor(k); if (!s[k]) s[k] = { answers: [], daily: k === TODAY }; return s[k]; }
   function isDaily() { return playKey === TODAY; }
 
   function el(tag, cls, text) {
@@ -69,7 +79,23 @@
   function drawHead() {
     eyebrowEl.textContent = isDaily() ? "On this day in blues" : "Archive, on this day in blues";
     dateEl.textContent = longDate(playKey);
+    levelsEl.hidden = !hasEasy(playKey);
+    var lv = isEasy(playKey) ? "easy" : "hard";
+    Array.prototype.forEach.call(levelsEl.querySelectorAll("button"), function (b) {
+      b.setAttribute("aria-pressed", b.getAttribute("data-level") === lv ? "true" : "false");
+    });
   }
+  var levelsEl = document.getElementById("levels");
+  Array.prototype.forEach.call(levelsEl.querySelectorAll("button"), function (b) {
+    b.addEventListener("click", function () {
+      var pick = b.getAttribute("data-level");
+      if (pick === level) return;
+      level = pick;
+      save("bd-level", level);
+      start(playKey);
+      b.focus();
+    });
+  });
   function drawBar(current) {
     var g = game(playKey);
     while (barEl.firstChild) barEl.removeChild(barEl.firstChild);
@@ -124,7 +150,7 @@
       done = true;
       var right = saidTrue === c.truth;
       g.answers.push(right);
-      save("bd-games", games);
+      saveFor(playKey);
       if (reduceMotion) return showVerdict(c, right, saidTrue);
       card.classList.remove("back");
       card.classList.add("fly");
@@ -209,8 +235,8 @@
   }
 
   /* Stats come from daily games only. */
-  function dailyKeys() { return Object.keys(games).filter(function (k) { return games[k].daily && games[k].answers.length >= PER_DAY; }).sort(); }
-  function lifetimeRight() { return dailyKeys().reduce(function (n, k) { return n + games[k].answers.filter(Boolean).length; }, 0); }
+  function dailyKeys() { var s = statsStore(); return Object.keys(s).filter(function (k) { return s[k].daily && s[k].answers.length >= PER_DAY; }).sort(); }
+  function lifetimeRight() { var s = statsStore(); return dailyKeys().reduce(function (n, k) { return n + s[k].answers.filter(Boolean).length; }, 0); }
   function streaks() {
     var keys = dailyKeys(), best = 0, run = 0, prev = null;
     keys.forEach(function (k) {
@@ -264,7 +290,7 @@
       var share = el("button", "btn lime", "SHARE MY SCORE");
       share.type = "button";
       share.addEventListener("click", function () {
-        var text = "Daily Blues, " + shortDate(playKey) + "\n" + score + "/" + PER_DAY + " " +
+        var text = "Daily Blues, " + shortDate(playKey) + (isEasy(playKey) ? " (Easy)" : "") + "\n" + score + "/" + PER_DAY + " " +
           g.answers.map(function (a) { return a ? "🟩" : "⬛"; }).join("") +
           "\n" + titleFor(life).name + "\n" + location.origin + location.pathname;
         if (navigator.share) {
@@ -379,7 +405,7 @@
         if (k >= LAUNCH && k <= TODAY) {
           cell = el("button", "day", String(day));
           cell.type = "button";
-          var played = games[k] && games[k].answers.length >= PER_DAY;
+          var played = storeFor(k)[k] && storeFor(k)[k].answers.length >= PER_DAY;
           if (played) cell.classList.add("played");
           if (k === TODAY) cell.classList.add("today");
           cell.setAttribute("aria-label", longDate(k) + (k === TODAY ? ", today" : "") + (played ? ", played" : ", not played"));
